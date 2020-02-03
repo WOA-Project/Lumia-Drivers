@@ -1,11 +1,8 @@
-# ARM64 Windows Driver pack for Qualcomm Snapdragon 808/810 platforms
-## For Microsoft Mobile Lumia 950, Lumia 950 XL, RX-130/id330-1 (EB0.X/EB1.X/EB2.X) and Acer Jade Primo
+# Windows Driver pack for Qualcomm Snapdragon Windows Phone platforms
 
 ![Devices](assets/banner.png)
 
-This pack is a work in progress and may be getting updates at a later time.
-
-If you are deploying this driver pack using WOA Deployer for Lumia, make sure WOA Deployer version is greater or equal than 2.6.
+If you are deploying this driver pack using WOA Deployer for Lumia on Lumia 950s, make sure WOA Deployer version is greater or equal than 2.6.
 
 ## Resources
 
@@ -66,21 +63,21 @@ SOFTWARE.
 
 ![Real life phones](assets/real_life_phones.jpg)
 
-Refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Status.
+Refer to https://github.com/WOA-Project/Lumia-Drivers/wiki/Status.
 
 ## Installing manually
 
 For preserving charset encoding, please checkout with using:
 ```
-git clone -c core.autocrlf=false https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers
+git clone -c core.autocrlf=false https://github.com/WOA-Project/Lumia-Drivers
 ```
 
 ### Drivers
 
-Refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Installing-drivers-manually.
+Refer to https://github.com/WOA-Project/Lumia-Drivers/wiki/Installing-drivers-manually.
   
 ### Hapanero 
 
-To install on Hapaneros using Qualcomm's UEFI, refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Getting-started-on-Hapanero-(Qualcomm-UEFI). It is highly recommended to avoid using this on EB2 Hapanero devices, and using Lumia950XlPkg instead.
+To install on Hapaneros using Qualcomm's UEFI, refer to https://github.com/WOA-Project/Lumia-Drivers/wiki/Getting-started-on-Hapanero-(Qualcomm-UEFI). It is highly recommended to avoid using this on EB2 Hapanero devices, and using Lumia950XlPkg instead.
   
 
