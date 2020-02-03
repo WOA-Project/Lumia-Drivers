@@ -1,0 +1,86 @@
+; 
+; Copyright (C) 2012 QUALCOMM Incorporated.
+; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+;
+; Module Name:
+;
+;    libadsprpc.inf
+;
+; Abstract:
+;
+;    Inf file for Qualcomm usermode ADSPRPC Library Service
+;
+[Version]
+Signature   = "$Windows NT$"
+Class       = SYSTEM
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+
+CatalogFile.NTARM   = "libadsprpc.arm.cat"
+CatalogFile.NTARM64 = "libadsprpc.arm64.cat"
+
+[DestinationDirs]
+libadsprpc.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles.ARM]
+libadsprpc.dll = 0,arm,
+
+[SourceDisksFiles.ARM64]
+libadsprpc.dll = 0,arm64,
+
+[DefaultInstall.NTARM]
+CopyFiles = libadsprpc.Files
+AddReg    = libadsprpc_Reg
+
+[DefaultInstall.NTARM64]
+CopyFiles = libadsprpc.Files
+AddReg    = libadsprpc_Reg
+
+[DefaultInstall.NTARM.Services]
+AddService = libadsprpc,0x00000000,libadsprpc_Service,
+
+[DefaultInstall.NTARM64.Services]
+AddService = libadsprpc,0x00000000,libadsprpc_Service,
+
+;ServiceType = 0x110
+;A Win32 program that runs in a process by itself (like Type16) and that can interact with users.
+;StartType = 2 SERVICE_AUTO_START
+;A service started automatically by the service control manager during system startup. 
+;ErrorControl = 1 SERVICE_ERROR_NORMAL
+;The startup program logs the error in the event log but continues the startup operation.
+
+[libadsprpc_Service]
+DisplayName   = "libadsprpc"
+Description   = "ADSPRPC Library"
+ServiceType   = 0x110
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = "%%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
+
+[libadsprpc_Reg]
+HKLM, System\ControlSet001\Services\libadsprpc            , DisplayName    , %REG_SZ%       ,  "libadsprpc"
+HKLM, System\ControlSet001\Services\libadsprpc            , Description    , %REG_SZ%       ,  "ADSPRPC Library"
+HKLM, System\ControlSet001\Services\libadsprpc            , ObjectName     , %REG_SZ%       ,  "LocalSystem"
+HKLM, System\ControlSet001\Services\libadsprpc            , ImagePath      , %REG_EXPAND_SZ%,  %%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
+HKLM, System\ControlSet001\Services\libadsprpc            , Type           , %REG_DWORD%    ,  0x0110
+HKLM, System\ControlSet001\Services\libadsprpc            , Start          , %REG_DWORD%    ,  0x0003
+HKLM, System\ControlSet001\Services\libadsprpc            , ErrorControl   , %REG_DWORD%    ,  0x0001
+HKLM, System\ControlSet001\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%%SystemRoot%%\System32\libadsprpc.dll"
+HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, libadsprpcGroup, %REG_MULTI_SZ% ,  "libadsprpc"
+
+[libadsprpc.Files]
+libadsprpc.dll
+
+[Strings]
+QC            = "Qualcomm Technologies, Inc."
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+

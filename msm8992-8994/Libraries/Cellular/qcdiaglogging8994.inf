@@ -1,0 +1,48 @@
+;
+; qcdiaglogging.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+
+CatalogFile.NTARM   = qcdiaglogging8994.arm.cat
+CatalogFile.NTARM64 = qcdiaglogging8994.arm64.cat
+
+[DestinationDirs]
+; 11 = system32
+qcdiaglogging.Files.NTarm_11 = 11
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+qcdiaglogging8994.dll = 0,arm,
+
+[SourceDisksFiles.ARM64]
+qcdiaglogging8994.dll = 0,arm64,
+
+;*****************************************
+; Diag Logging  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = qcdiaglogging.Files.NTarm_11
+
+[DefaultInstall.NTARM64]
+CopyFiles = qcdiaglogging.Files.NTarm_11
+
+; System32
+[qcdiaglogging.Files.NTarm_11]
+qcdiaglogging8994.dll
+
+[Strings]
+REG_SZ                 = 0x00000000
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm"
+QC                     = "Qualcomm Technologies, INC"
+DiskId1                = "qcdiaglogging Installation Disk #1"
+MSVC120.DeviceDesc     = "qcdiaglogging Library Package"
+

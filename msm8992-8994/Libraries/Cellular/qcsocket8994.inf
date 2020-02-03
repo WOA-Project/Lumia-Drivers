@@ -1,0 +1,47 @@
+;
+; qcsocket.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+
+CatalogFile.NTARM   = qcsocket8994.arm.cat
+CatalogFile.NTARM64 = qcsocket8994.arm64.cat
+
+[DestinationDirs]
+qcsocket.Files.NTarm_11 = 11
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+qsocketipcrum8994.dll = 0,arm,
+
+[SourceDisksFiles.ARM64]
+qsocketipcrum8994.dll = 0,arm64,
+
+;*****************************************
+; sockettipcrum  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = qcsocket.Files.NTarm_11
+
+[DefaultInstall.NTARM64]
+CopyFiles = qcsocket.Files.NTarm_11
+
+; System32
+[qcsocket.Files.NTarm_11]
+qsocketipcrum8994.dll
+
+[Strings]
+REG_SZ                 = 0x00000000
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm"
+QC                     = "Qualcomm Technologies, INC"
+DiskId1                = "QCSOCKET Installation Disk #1"
+QCCCI.DeviceDesc       = "QCSOCKET Library Package"
+

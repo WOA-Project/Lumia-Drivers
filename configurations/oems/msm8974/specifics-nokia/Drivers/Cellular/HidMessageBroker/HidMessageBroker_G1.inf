@@ -1,0 +1,73 @@
+; HidMessageBroker_G1.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = HIDClass
+ClassGuid   = {745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider    = %COMP%
+DriverVer   = 03/30/2014,8.16.57.0752
+CatalogFile = HidMessageBroker_G1.cat
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+hidmessagebroker_g1.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; HidMessageBroker G1 driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Standard,NTARM
+
+[Standard.NTARM]
+%HidMessageBrokerDriver.DeviceDesc% = HidMessageBrokerDriver_Inst.NT,Root\HidMessageBroker_G1
+
+[HidMessageBrokerDriver_Inst.NT]
+Copyfiles = HIDCopyFiles
+
+[HIDCopyFiles]
+hidmessagebroker_g1.sys, , , 0x100,
+
+[HidMessageBrokerDriver_Inst.NT.Services]
+AddService = HidMessageBroker_G1,%SPSVCINST_ASSOCSERVICE%,HidMessageBroker_G1_service_inst
+
+[HidMessageBroker_G1_service_inst]
+DisplayName   = %HidMessageBrokerDriver.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_SYSTEM_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\hidmessagebroker_g1.sys
+
+[Strings]
+;Localizable Strings
+COMP                              = "Nokia"
+HidMessageBrokerDriver.SvcDesc    = "HID Message Broker G1 Service"
+HidMessageBrokerDriver.DeviceDesc = "HID Message Broker G1 Driver"
+
+;Non-Localizable Strings
+SPSVCINST_TAGTOFRONT              = 0x00000003
+SPSVCINST_ASSOCSERVICE            = 0x00000002
+SERVICE_KERNEL_DRIVER             = 1
+SERVICE_BOOT_START                = 0
+SERVICE_SYSTEM_START              = 1
+SERVICE_DEMAND_START              = 3
+SERVICE_ERROR_NORMAL              = 1
+SERVICE_ERROR_IGNORE              = 0
+SERVICE_ERROR_CRITICAL            = 3
+REG_EXPAND_SZ                     = 0x00020000
+REG_DWORD                         = 0x00010001
+REG_SZ                            = 0x00000000
+
+
+
+
+

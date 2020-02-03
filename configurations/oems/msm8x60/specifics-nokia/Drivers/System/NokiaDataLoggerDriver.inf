@@ -1,0 +1,49 @@
+;
+; NokiaDataLoggerDriver.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = "Nokia"
+DriverVer   = 12/18/2014,18.28.7.0020
+CatalogFile = nokiadataloggerdriver.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+nokiadataloggerdriver.sys = 0
+
+[Manufacturer]
+%comp% = Standard, NTARM
+
+[Standard.NTARM]
+%devicedesc% = NokiaDataLoggerDriver_Inst.NT,     ACPI\DATA_LOGGER
+
+[nokiadataloggerdriver_inst.nt]
+CopyFiles = nokiadataloggerdriver_inst_copy_files
+
+[nokiadataloggerdriver_inst_copy_files]
+nokiadataloggerdriver.sys
+
+[NokiaDataLoggerDriver_Inst.NT.Services]
+AddService = NokiaDataLoggerDriver, 0x00000002, NokiaDataLoggerDriver_service_inst
+
+[NokiaDataLoggerDriver_service_inst]
+DisplayName    = %NokiaDataLoggerDriver.SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\nokiadataloggerdriver.sys 
+LoadOrderGroup = Extended Base
+
+[Strings]
+comp                          = "Nokia"
+devicedesc                    = "Nokia Data Logger Driver"
+NokiaDataLoggerDriver.SvcDesc = "Nokia Data Logger Driver"
+diskIns                       = "Nokia Data Logger Installation Disk"
+

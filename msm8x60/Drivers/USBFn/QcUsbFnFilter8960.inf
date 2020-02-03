@@ -1,0 +1,75 @@
+;
+; QcUsbFnFilter.inf
+;
+;Copyright (C) 2013  by Qualcomm Technologies, Inc.  All Rights Reserved.
+;
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %Company%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = QcUsbFnFilter8960.cat
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[DestinationDirs]
+QcUsbFnFilter.CopyFile = 12
+DefaultDestDir         = 12
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+qcusbfnfilter8960.sys = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+;Include MS driver
+Include   = ufnchipidea.inf
+Needs     = UsbFnChipIdea.NT
+CopyFiles = QcUsbFnFilter.CopyFile
+
+[DefaultInstall.NTARM.Services]
+;Include MS driver
+Include    = ufnchipidea.inf
+Needs      = UsbFnChipIdea.NT.Services
+AddService = QcUsbFnFilter,, QcUsbFnFilter_Service_Inst
+
+[QcUsbFnFilter.CopyFile]
+qcusbfnfilter8960.sys
+
+[QcUsbFnFilter_AddReg]
+HKR, , "LowerFilters", 0x00010000, QcUsbFnFilter
+
+; -------------- QcUsbFnFilter driver install sections
+[QcUsbFnFilter_Service_Inst]
+DisplayName   = %Filter.SvcDesc%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcusbfnfilter8960.sys
+AddReg        = QcUsbFnFilter_AddReg
+
+[Strings]
+Company             = "Qualcomm"
+StdMfg              = "(Standard system devices)"
+DiskId1             = "UsbFn PEP Filter Installation Disk #1"
+Standard.DeviceDesc = "UsbFn PEP Filter Driver Driver"
+Filter.SvcDesc      = "UsbFn PEP Filter Driver Service"
+DiskName            = "Data"
+
+REG_SZ              = 0x00000000
+REG_BINARY          = 0x00000001
+REG_M_SZ            = 0x00010000
+REG_DWORD           = 0x00010001
+REG_QWORD           = 0x000B0001
+

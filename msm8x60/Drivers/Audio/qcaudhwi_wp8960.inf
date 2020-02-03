@@ -1,0 +1,88 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcaudhwi8960.inx
+;
+;Abstract:
+;    INF file for installing the AudioHardwareInterface Driver
+;
+;Installation Notes: 
+;   
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qcaudhwi_wp8960.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcaudhwi8960.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; AudioHardwareInterface driver Install Section
+;*****************************************
+
+[Manufacturer]
+%stdmfg% = Standard,NTARM
+
+[Standard.NTARM]
+%AudioHardwareInterface.DeviceDesc% = AudioHardwareInterface_Inst,ACPI\QCOM2062
+
+[AudioHardwareInterface_Inst.NT]
+Copyfiles   = AudioHardwareInterfaceCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[AudioHardwareInterface_Inst.NT.HW]
+Addreg = AudioHardwareInterface_InstACL
+
+[AudioHardwareInterface_InstACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[AudioHardwareInterfaceCopyFiles]
+qcaudhwi8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[AudioHardwareInterface_Inst.NT.Services]
+AddService = qcAudioHardwareInterface,%SPSVCINST_ASSOCSERVICE%,AudioHardwareInterface_Service_Inst
+
+[AudioHardwareInterface_Service_Inst]
+DisplayName    = %AudioHardwareInterface.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qcaudhwi8960.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+;Localizable Strings
+QUALCOMM                          = "Qualcomm"
+stdmfg                            = "(Standard system devices)"
+AudioHardwareInterface.DeviceDesc = "Qualcomm Audio Hardware Interface Device"
+AudioHardwareInterface.SvcDesc    = "Qualcomm Audio Hardware Interface Driver"
+DiskId1                           = "Audio Hardware Interface Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE            = 0x00000002
+SERVICE_KERNEL_DRIVER             = 1
+SERVICE_DEMAND_START              = 3
+SERVICE_ERROR_NORMAL              = 1
+

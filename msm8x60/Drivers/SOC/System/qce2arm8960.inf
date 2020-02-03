@@ -1,0 +1,85 @@
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+; QCE2arm8960.inf
+;
+
+[Version]
+Signature    = "$WINDOWS NT$"
+Class        = SYSTEM
+ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider     = %QUALCOMM%
+DriverVer    = 09/26/2013,1.0.3051.0000
+CatalogFile  = QCE2arm8960.cat
+BootCritical = 1
+PnpLockDown  = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+QCE2arm8960.sys = 1
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTarm
+
+[Standard.NTarm]
+%QCE2.DeviceDesc% = QCE2_Device, ACPI\QCOM2119
+
+[QCE2_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+QCE2arm8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+
+;-------------- Service installation
+[QCE2_Device.NT.Services]
+AddService = QCE2,%SPSVCINST_ASSOCSERVICE%, QCE2_Service_Inst
+
+;-------------- HW installation
+[QCE2_Device.NT.HW]
+addreg = QCE2
+
+[QCE2]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- QCE2 driver install sections
+[QCE2_Service_Inst]
+DisplayName   = %QCE2.SVCDESC%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %12%\QCE2arm8960.sys
+
+
+[QCE2_Device.NT.Wdf]
+KmdfService = QCE2, QCE2_wdfsect
+[QCE2_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskName               = "Qualcomm Secondary Crypto Engine Device Installation Disk"
+QCE2.DeviceDesc        = "Qualcomm Secondary Crypto Engine Device"
+QCE2.SVCDESC           = "Qualcomm Secondary Crypto Engine Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

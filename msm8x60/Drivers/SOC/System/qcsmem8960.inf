@@ -1,0 +1,81 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    SMEM.INF
+;
+;Abstract:
+;    INF file for installing the SMEM Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qcsmem8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcsmem8960.sys = 1
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]         
+%SMEM.DeviceDesc% = SMEM_Device, ACPI\QCOM2013
+
+[SMEM_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcsmem8960.sys                         
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[SMEM_Device.NT.Services]
+AddService = qcSMEM,%SPSVCINST_ASSOCSERVICE%, SMEM_Service_Inst
+
+[SMEM_Device.NT.HW]
+AddReg = SMEM_DeviceSD
+
+[SMEM_DeviceSD]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- SMEM driver install sections
+[SMEM_Service_Inst]
+DisplayName   = %SMEM.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcsmem8960.sys
+
+
+[SMEM_Device.NT.Wdf]
+KmdfService = qcSMEM, SMEM_wdfsect
+[SMEM_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "Qualcomm Shared Memory Device Installation Disk"
+SMEM.DeviceDesc        = "Qualcomm Shared Memory Device"
+SMEM.SVCDESC           = "Qualcomm Shared Memory Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

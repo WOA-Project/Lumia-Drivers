@@ -1,0 +1,160 @@
+;/*++
+;
+;Copyright (c) 2013-2015 by Qualcomm Technologies, Inc. All Rights Reserved.
+;
+;Module Name:
+;    AlsPrxAlphamon.INF
+;
+;Abstract:
+;    INF file for installing the Light/Proximity Driver
+;    on core system builds(System class and no coinstallers)
+;
+;--*/
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
+Provider    = %ManufacturerName%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = AlsPrxAlphamon.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+;12 == Windows\System32\Drivers\UMDF
+AlspDriverCopy = 12,UMDF
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,""
+
+[SourceDisksFiles]
+AlsPrxAlphamon.dll = 1,,
+
+[Manufacturer]
+%ManufacturerName% = Standard, NTarm64
+
+;*******************************
+; Install Section
+;*******************************
+
+[Standard.NTarm64]
+%Alphamon_Inst.DeviceDesc% = Alphamon_Inst, ACPI\MSHW1016
+
+;---------------- copy files
+
+[Alphamon_Inst.NT]
+CopyFiles = AlspDriverCopy
+AddReg    = WdfExt_AddReg
+
+[AlspDriverCopy]
+AlsPrxAlphamon.dll
+
+[Alphamon_Inst.NT.HW]
+AddReg = Alphamon_Inst.NT.HW.AddReg
+AddReg = Alphamon_Inst_SecurityAddReg
+
+[Alphamon_Inst.NT.HW.AddReg]
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "Calibration"            , %REG_DWORD%, 0x2710
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffB"                 , %REG_DWORD%, 0x4920
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffC"                 , %REG_DWORD%, 0x5c4
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffD"                 , %REG_DWORD%, 0x8ab
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffGA"                , %REG_DWORD%, 0x1b583
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynamicThresholds"      , %REG_DWORD%, 0x1
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynExtChRatioDef"       , %REG_DWORD%, 0xf3c
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynExtChRatioMax"       , %REG_DWORD%, 0x1324
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynExtChRatioMin"       , %REG_DWORD%, 0xaf0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynRangeExtEnable"      , %REG_DWORD%, 0x1
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynThrAdjustHysteresis" , %REG_DWORD%, 0x19
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynThrDecrNumSamples"   , %REG_DWORD%, 0x5
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynThrLpfAlpha"         , %REG_DWORD%, 0x1388
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynThrMarginToCrosstalk", %REG_DWORD%, 0xc8
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynThrMaxDeviation"     , %REG_DWORD%, 0xf
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynThrMaxNumSamples"    , %REG_DWORD%, 0x19
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynThrMinHeadroom"      , %REG_DWORD%, 0x32
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynThrMinNumSamples"    , %REG_DWORD%, 0x19
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "DynThrThresholdHyst"    , %REG_DWORD%, 0x64
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "ESDWorkaroundEnable"    , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "FarToNear"              , %REG_DWORD%, 0x2bc
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "IntegrationTime"        , %REG_DWORD%, 0x12
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "IRISModeThresholdHigh"  , %REG_DWORD%, 0x96
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "IRISModeThresholdLow"   , %REG_DWORD%, 0x32
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "IRISModeVersionMajor"   , %REG_DWORD%, 0x1
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "IRISModeVersionMinor"   , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LEDdriveStrength"       , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrFac00"           , %REG_DWORD%, 0x2710
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrFac01"           , %REG_DWORD%, 0x4e20
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrFac02"           , %REG_DWORD%, 0x4e20
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrFac03"           , %REG_DWORD%, 0x3a98
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrFac04"           , %REG_DWORD%, 0x2710
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrFac05"           , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrFac06"           , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrFac07"           , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrLux00"           , %REG_DWORD%, 0x2ee0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrLux01"           , %REG_DWORD%, 0x61a8
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrLux02"           , %REG_DWORD%, 0x9c40
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrLux03"           , %REG_DWORD%, 0xea60
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrLux04"           , %REG_DWORD%, 0x2cec
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrLux05"           , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrLux06"           , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrLux07"           , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "LuxCorrNumPoints"       , %REG_DWORD%, 0x5
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "NearToFar"              , %REG_DWORD%, 0x258
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "PrxOffset"              , %REG_DWORD%, 0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "PrxPersistence"         , %REG_DWORD%, 0x3
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "PulseCount"             , %REG_DWORD%, 0x4
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "TargetCrosstalk"        , %REG_DWORD%, 0x64
+
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters"    , "DppFormat"              , %REG_DWORD%,  0x1
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters"    , "ConfigVersion"          , %REG_DWORD%,  0x8
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters"    , "DefaultHwRevisionMajor" , %REG_DWORD%,  0x0
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters"    , "DefaultHwRevisionMinor" , %REG_DWORD%,  0x0
+
+HKLM, SYSTEM\ControlSet001\Services\Sensors\ALS\TestInterface                                   , "Enable"                 , %REG_DWORD%,  0x0
+HKLM, SYSTEM\ControlSet001\Services\Sensors\ALS\TestInterface                                   , "Value"                  , %REG_DWORD%,  0x0
+
+HKLM, SYSTEM\ControlSet001\Services\Sensors\PS\TestInterface                                    , "Enable"                 , %REG_DWORD%,  0x0
+HKLM, SYSTEM\ControlSet001\Services\Sensors\PS\TestInterface                                    , "Value"                  , %REG_DWORD%,  0x0
+
+;-------------- Service installation
+[Alphamon_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %Alphamon_Inst.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\WUDFRd.sys
+
+;-------------- WDF specific section
+
+[Alphamon_Inst.NT.Wdf]
+UmdfService              = AlsPrxAlphamon, AlsPrxAlphamon_Install
+UmdfServiceOrder         = AlsPrxAlphamon
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[AlsPrxAlphamon_Install]
+UmdfLibraryVersion = 2.0.0
+ServiceBinary      = %12%\UMDF\AlsPrxAlphamon.dll
+UmdfExtensions     = SensorsCx0102
+
+[WdfExt_AddReg]
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon", "WdfExtensions", 0x00010000, "SensorsCx0102"
+
+[Alphamon_Inst_SecurityAddReg]
+HKR, , DeviceCharacteristics, %REG_DWORD%, 0x00000100       ; FILE_DEVICE_SECURE_OPEN
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;UD)(A;;GA;;;WD)"    ; Allow everyone to access this driver
+;HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)" ; Allow all UMDF drivers to access this driver
+
+[Strings]
+MediaDescription         = "QPDS-T900/QPDS-T930 Proximity and Ambient Light Sensor Driver Installation Disk"
+ManufacturerName         = "MMO"
+Alphamon_Inst.DeviceDesc = "QPDS-T900/QPDS-T930 Proximity and Ambient Light Sensor Driver"
+Alphamon_Inst.SvcDesc    = "QPDS-T900/QPDS-T930 Proximity and Ambient Light Sensor Driver"
+
+SERVICE_KERNEL_DRIVER    = 1
+SERVICE_DEMAND_START     = 3
+SERVICE_ERROR_NORMAL     = 1
+REG_DWORD                = 0x00010001
+

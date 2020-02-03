@@ -1,0 +1,82 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qckmbam8960.INF
+;
+;Abstract:
+;    INF file for installing the BAM Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qckmBam8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qckmbam8960.sys = 1
+
+[Manufacturer]
+%StdMfg% = Standard,NTARM
+
+[Standard.NTARM]                          
+%BAM.DeviceDesc% = BAM_Device, ACPI\QCOM2115
+
+[BAM_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[Drivers_Dir]
+qckmbam8960.sys                        
+
+[BAM_Device.NT.Services]
+AddService = qcbam,%SPSVCINST_ASSOCSERVICE%, BAM_Service_Inst
+
+;-------------- HW installation
+[BAM_Device.NT.HW]
+addreg = BAM
+
+[BAM]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- SMD driver install sections
+[BAM_Service_Inst]
+DisplayName   = %BAM.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qckmbam8960.sys
+
+
+[BAM_Device.NT.Wdf]
+KmdfService = qcbam, BAM_wdfsect
+[BAM_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+StdMfg                 = "Qualcomm Inc."
+DiskId1                = "BAM Installation Disk #1"
+BAM.DeviceDesc         = "Qualcomm Bus Access Module Device"
+BAM.SVCDESC            = "Qualcomm Bus Access Modules Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

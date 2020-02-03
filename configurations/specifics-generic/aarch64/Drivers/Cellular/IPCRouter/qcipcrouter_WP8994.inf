@@ -1,0 +1,112 @@
+;/*++
+;
+;Copyright (c) 2011 Qualcomm Inc.
+;
+;Module Name:
+;    qcipcrouter8994.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks IPC_ROUTER Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qcipcrouter8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcipcrouter8994.sys = 1
+
+;*****************************************
+; IPC_ROUTER  Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = QUALCOMM,NTARM64
+
+[QUALCOMM.NTARM64]
+%IPC_ROUTER.DeviceDesc% = IPC_ROUTER_Device, ACPI\QCOM240A
+
+[IPC_ROUTER_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcipcrouter8994.sys
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+[IPC_ROUTER_Device.NT.Services]
+AddService = QCIPC_ROUTER,%SPSVCINST_ASSOCSERVICE%, IPC_ROUTER_Service_Inst
+
+[IPC_ROUTER_Device.NT.HW]
+addreg = IPC_ROUTER
+
+[IPC_ROUTER]
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
+; FILE_DEVICE_SECURE_OPEN
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+
+; -------------- IPC_ROUTER driver install sections
+[IPC_ROUTER_Service_Inst]
+DisplayName   = %IPC_ROUTER.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcipcrouter8994.sys
+AddReg        = IPC_ROUTER_Reg
+
+[IPC_ROUTER_Reg]
+HKR, "Parameters"  , "ProcessorID"  , 0x00010001, 0x1
+HKR, "Parameters"  , "NumTransports", 0x00010001, 0x4
+HKR, "Parameters\0", "Type"         , 0x00010001, 0x0
+HKR, "Parameters\0", "Edge"         , 0x00010001, 0x0
+HKR, "Parameters\0", "Flags"        , 0x00010001, 0x0
+HKR, "Parameters\0", "FifoSize"     , 0x00010001, 0x400
+HKR, "Parameters\0", "PortName"     ,           , "RPCRPY_CNTL"
+HKR, "Parameters\1", "Type"         , 0x00010001, 0x0
+HKR, "Parameters\1", "Edge"         , 0x00010001, 0x0
+HKR, "Parameters\1", "Flags"        , 0x00010001, 0x0
+HKR, "Parameters\1", "FifoSize"     , 0x00010001, 0x2000
+HKR, "Parameters\1", "PortName"     ,           , "IPCRTR"
+HKR, "Parameters\2", "Type"         , 0x00010001, 0x0
+HKR, "Parameters\2", "Edge"         , 0x00010001, 0x1
+HKR, "Parameters\2", "Flags"        , 0x00010001, 0x0
+HKR, "Parameters\2", "FifoSize"     , 0x00010001, 0x400
+HKR, "Parameters\2", "PortName"     ,           , "RPCRPY_CNTL"
+HKR, "Parameters\3", "Type"         , 0x00010001, 0x0
+HKR, "Parameters\3", "Edge"         , 0x00010001, 0x1
+HKR, "Parameters\3", "Flags"        , 0x00010001, 0x0
+HKR, "Parameters\3", "FifoSize"     , 0x00010001, 0x2000
+HKR, "Parameters\3", "PortName"     ,           , "IPCRTR"
+
+[IPC_ROUTER_Device.NT.Wdf]
+KmdfService = QCIPC_ROUTER, IPC_ROUTER_wdfsect
+[IPC_ROUTER_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Incorporated"
+DiskId1                = "WDF IPC_ROUTER Installation Disk"
+IPC_ROUTER.DeviceDesc  = "Qualcomm IPC Router Device"
+IPC_ROUTER.SVCDESC     = "Qualcomm IPC Router Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+

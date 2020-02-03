@@ -1,0 +1,64 @@
+; Copyright (C) 2012 QUALCOMM Incorporated.
+; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+;
+; Module Name:
+;
+;    QCHalExtQcAdm3Dma.inx
+;
+; Abstract:
+;
+;    Inf file for Qualcomm ADM3 HAL Extension
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Computer
+ClassGuid   = {4d36e966-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 08/27/2012,1.0.1146.0000
+PnPLockdown = 1
+CatalogFile = "QCHalExtQcAdm3Dma.cat"
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[DestinationDirs]
+DefaultDestDir = 11 ; DIRID_SYSTEM
+
+[SourceDisksNames]
+1 = %DISK_ID%
+
+[SourceDisksFiles]
+QCHalExtQcAdm3Dma.dll = 1
+
+[Manufacturer]
+%MFGNAME% = DeviceList, NTARM
+
+[DeviceList.NTARM]
+%QC_ADM3% = QC_ADM3,  ACPI\QCOM1002
+
+[QC_ADM3]
+AddReg    = QC_ADM3_AddReg
+CopyFiles = QC_ADM3_CopyFiles
+
+[QC_ADM3_AddReg]
+HKLM, "%OSEDB%\VEN_QCOM&DEV_1002", "HALExtension", , "QCHalExtQcAdm3Dma.dll"
+
+[QC_ADM3_CopyFiles]
+QCHalExtQcAdm3Dma.dll, , , 0x00001000,
+
+[QC_ADM3.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%
+
+[Strings]
+
+;Non-localizable
+SPSVCINST_ASSOCSERVICE = 0x00000002
+OSEDB                  = "SYSTEM\CurrentControlSet\Control\OSExtensionDatabase"
+
+;Localizable
+QC                     = "Qualcomm Incorporated"
+MFGNAME                = "Qualcomm Incorporated"
+QC_ADM3                = "Qualcomm ADM3 HAL Extension"
+DISK_ID                = "Qualcomm ADM3 HAL Extension Installation Disk"
+

@@ -1,0 +1,52 @@
+;
+; colorprofiletools.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/29/2019,1.0.0.2
+CatalogFile = colorprofiletools.cat
+
+[DestinationDirs]
+System.Files   = 11
+Profiles.Files = 11, spool\drivers\color ; Color profiles must be placed in the spool color driver directory
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+ColorProfileListener.exe = 0,,
+Advanced.icm = 0,,
+Cool.icm = 0,,
+Standard.icm = 0,,
+Vivid.icm = 0,,
+"Night light.icm" = 0,,
+
+;*****************************************
+; colorprofiletools  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM64]
+CopyFiles = Profiles.Files,System.Files
+AddReg    = ProfileAction.Reg
+
+[ProfileAction.Reg]
+HKLM, "Software\Microsoft\Windows\Shell\OEM\QuickActions", "ColorProfileQuickAction", 0x10001, 0x1 ; Enable the color profile quick action
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "ColorProfileListener", 0x20000, "%%windir%%\system32\ColorProfileListener.exe" ; Bootstrap the color profile listener and provisioner tool on startup
+
+[System.Files]
+ColorProfileListener.exe
+
+[Profiles.Files]
+Advanced.icm
+Cool.icm
+Standard.icm
+Vivid.icm
+"Night light.icm"
+
+[Strings]
+IHV     = "LumiaWoA authors"
+DiskId1 = "Color Profile Tools Installation Disk #1"
+

@@ -1,0 +1,96 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Inc
+;
+;Module Name:
+;    QCDIAGROUTER8626.INF
+;
+;Abstract:
+;    INF file for installing DiagRouter Driver for Apollo
+;
+;Installation Notes: 
+;Install using DISM
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 02/19/2016,13.34.24.0024
+CatalogFile = QCDIAGROUTER8626.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+QCDIAGROUTER8626.sys = 1
+
+[Manufacturer]
+%QC% = QC,NTARM
+
+[QC.NTARM]                                   ; NTARM is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+%DIAGROUTER.DeviceDesc% = DiagRouter_Device, ACPI\QCOM2413
+
+[DiagRouter_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+
+[Drivers_Dir]
+QCDIAGROUTER8626.sys
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[DiagRouter_Device.NT.Services]
+AddService = QCDIAGROUTER,%SPSVCINST_ASSOCSERVICE%, DiagRouter_Service_Inst
+
+[DiagRouter_Device.NT.HW]
+addreg = DiagRouter
+
+[DiagRouter]
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
+; FILE_DEVICE_SECURE_OPEN
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+[DiagRouter_Device.NT.Wdf]
+KmdfService = QCDiagRouter, DiagRouter_Service_kmdfInst
+
+[DiagRouter_Service_kmdfInst]
+KmdfLibraryVersion = 1.11
+
+
+; -------------- DIAGROUTER driver install sections
+[DIAGROUTER_Service_Inst]
+DisplayName   = %DIAGROUTER.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\QCDIAGROUTER8626.sys
+AddReg        = DiagRouterReg
+
+[DiagRouterReg]
+HKR, , TCPPort      , 0x00000000,  "2500"
+HKR, , HostAsName   , 0x00010001, "0"
+HKR, , ServerName   , 0x00000000, "server ip address"
+HKR, , TransportType, 0x00010001, "0"
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Incorporated"
+DiskId1                = "DiagRouter Installation Disk"
+DIAGROUTER.DeviceDesc  = "Qualcomm Diagnostic Router Device"
+DIAGROUTER.SVCDESC     = "Qualcomm Diagnostic Router Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+

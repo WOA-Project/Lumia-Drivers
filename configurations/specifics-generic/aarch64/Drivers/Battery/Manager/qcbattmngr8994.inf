@@ -1,0 +1,88 @@
+;/*++
+;
+;Copyright (c) 2011 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcbattmngr8994.INF
+;
+;Abstract:
+;    INF file for installing the QcBattMngr Wdf Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %COMP%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qcbattmngr8994.cat
+PnPLockdown = 1
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcbattmngr8994.sys = 1
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; QcBattMngr client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Qualcomm,NTARM64
+
+[Qualcomm.NTARM64]
+%DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2453
+
+[BATTMNGR_Inst.NT]
+Copyfiles   = BATTMNGRCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[BATTMNGR_Inst.NT.HW]
+Addreg = BMACL
+
+[BMACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
+
+
+[BATTMNGRCopyFiles]
+qcbattmngr8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[BATTMNGR_Inst.NT.Services]
+AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst
+
+[BATTMNGR_Service_Inst]
+DisplayName   = %BATTMNGR.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcbattmngr8994.sys
+
+[Strings]
+;Localizable Strings
+COMP                   = "Qualcomm Incorporated"
+BATTMNGR.SvcDesc       = "Qualcomm Battery Manager Driver"
+DeviceDesc             = "Qualcomm Battery Manager Device"
+DiskId                 = "Qualcomm Battery Manager Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+
+
+
+

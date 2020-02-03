@@ -1,0 +1,45 @@
+;
+; enogpio-driver.inf
+;
+[Version]
+Signature       =   "$WINDOWS NT$"
+Class           =   System
+ClassGuid       =   {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider        =   "Nokia"
+DriverVer       =   07/16/2013,18.42.59.0839
+CatalogFile     =   enogpio-driver.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+enogpio-driver.sys = 0
+
+[Manufacturer]
+Nokia = Standard, NTARM
+
+[Standard.NTARM]
+%devicedesc%      =   DriverInstall.NT,     ACPI\ENOGPIO
+
+[DriverInstall.NT]
+CopyFiles = DriverFiles
+
+[DriverFiles]
+enogpio-driver.sys
+
+[DriverInstall.NT.Services]
+AddService = enogpio-driver, 0x00000002, enogpio-driver_service_inst
+
+[enogpio-driver_service_inst]
+DisplayName   = Nokia Eno Gpio driver
+ServiceType   = 1
+StartType     = 1
+ErrorControl  = 1
+ServiceBinary = %12%\enogpio-driver.sys 
+
+[Strings]
+devicedesc = "Nokia Eno gpio Driver"
+diskIns    = "Nokia Eno gpio Installation Disk"

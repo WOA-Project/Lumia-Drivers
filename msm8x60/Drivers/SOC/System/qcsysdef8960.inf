@@ -1,0 +1,77 @@
+;/*++
+;
+;Copyright (c) QualComm Inc.
+;
+;Module Name:
+;    qcsysdef8960.inf
+
+;
+;Abstract:
+;    INF file for installing System Default Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QCOM%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qcsysdef8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcsysdef8960.sys = 1,,
+
+;*****************************************
+; SystemDefaultDriver  Install Section
+;*****************************************
+
+[Manufacturer]
+%QCOM% = QCOM, NTarm
+
+[QCOM.NTarm]
+%SystemDefaultDriver.DeviceDesc% = SystemDefaultDriver_Device, ACPI\QCOM2134
+
+[SystemDefaultDriver_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[SystemDefaultDriver_Device.NT.HW]
+Addreg = SDFACL
+
+[SDFACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir]
+qcsysdef8960.sys
+
+; WHCK test
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+[SystemDefaultDriver_Device.NT.Services]
+AddService = QCSystemDefaultDriver,%SPSVCINST_ASSOCSERVICE%, SystemDefaultDriver_Service_Inst
+
+; -------------- SystemDefaultDriver driver install sections
+[SystemDefaultDriver_Service_Inst]
+DisplayName   = %SystemDefaultDriver.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcsysdef8960.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE         = 0x00000002
+QCOM                           = "Qualcomm Inc."
+SystemDefaultDriver.DeviceDesc = "SystemDefaultDriver"
+SystemDefaultDriver.SVCDESC    = "SystemDefaultDriver Device"
+DiskId                         = "Qualcomm System Defaults Installation Disk"
+

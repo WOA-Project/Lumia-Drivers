@@ -1,0 +1,55 @@
+;/*++
+;
+;Copyright (c) 2015 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcauddev_wp.inf
+;
+;Abstract:
+;    INF file for installing the Audio Device Driver and Multi Button Headset Controller Driver
+;
+;Installation Notes: 
+;   
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+provider    = %QCOM%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11E4E}
+DriverVer   = 07/02/2015,1.0.1067.0
+CatalogFile = hapanero_qcauddev8994.cat
+
+[DestinationDirs]
+Drivers_Dir_24 = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qccpe8994.mbn = 1
+
+[Drivers_Dir_24]
+qccpe8994.mbn
+
+[Manufacturer]
+%MfgName% = DeviceExtensions,NTarm64
+
+[DeviceExtensions.NTarm64]
+%AUDD.DeviceDesc% = DeviceExtension_Install, ADCM\QCOM242E
+
+[DeviceExtension_Install]
+CopyFiles = Drivers_Dir_24
+
+[Strings]
+REG_SZ                 = 0x00000000
+REG_DWORD              = 0x00010001
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm"
+StdMfg                 = "(Standard system devices)"
+AUDD.DeviceDesc        = "Qualcomm Audio Hapanero Device"
+MBHC.DeviceDesc        = "Qualcomm Multi Button Headset Controller"
+AUDD.SvcDesc           = "Qualcomm Audio Device Driver"
+DiskId1                = "Qualcomm Audio Device Installation Disk"

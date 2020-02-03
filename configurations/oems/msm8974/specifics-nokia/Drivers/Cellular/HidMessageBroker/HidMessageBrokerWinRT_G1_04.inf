@@ -1,0 +1,31 @@
+; hidmessagebrokerwinrt_g1_04.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = HIDClass
+ClassGuid   = {745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider    = %Vendor%
+DriverVer   = 03/30/2014,8.16.58.0129
+CatalogFile = hidmessagebrokerwinrt_g1_04.cat
+
+;*****************************************
+; HidMessageBroker driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Standard,NTARM
+
+[Standard.NTARM]
+%HidMessageBrokerDriver% = HidMessageBrokerDriver_Inst.NT,     HID\HidMessageBroker_G1&Col04
+
+[HidMessageBrokerDriver_Inst.NT]
+
+[Strings]
+;Localizable Strings
+Vendor                 = "Nokia"
+HidMessageBrokerDriver = "Nokia HID Message Broker Driverless"
+
+
+
+
+

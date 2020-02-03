@@ -1,0 +1,94 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    SMMU.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks SMMU Driver
+;
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qcsmmu8960.cat
+PnPLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcsmmu8960.sys = 1
+qcvcm8960.sys  = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%QC% = QC, NTarm
+
+[QC.NTarm]
+%SMMU.DeviceDesc% = SMMU_Device, ACPI\QCOM2001
+
+[SMMU_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcsmmu8960.sys
+qcvcm8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[SMMU_SoftwareDeviceSettings]
+HKR, , PowerManaged    , %REG_DWORD%,  1
+HKR, , EnablePtCaching , %REG_DWORD%,  0
+HKR, , EnableGuardPages, %REG_DWORD%,  1
+
+[SMMU_Device.NT.HW]
+Addreg = SMMUACL
+
+[SMMUACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+
+;-------------- Service installation
+[SMMU_Device.NT.Services]
+AddService = qcsmmu,%SPSVCINST_ASSOCSERVICE%, SMMU_Service_Inst
+
+; -------------- skeletoni2c driver install sections
+[SMMU_Service_Inst]
+DisplayName   = %SMMU.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcsmmu8960.sys
+AddReg        = SMMU_SoftwareDeviceSettings
+
+[SMMU_Device.NT.Wdf]
+KmdfService = qcsmmu, SMMU_wdfsect
+[SMMU_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+SMMU.DeviceDesc        = "Qualcomm System MMU Device"
+SMMU.SVCDESC           = "Qualcomm System MMU Driver"
+DiskId                 = "Qualcomm System MMU Driver Installation Disk"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+REG_DWORD              = 0x00010001
+

@@ -1,0 +1,60 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %COMPANY%
+DriverVer   = 11/10/2014,13.3.58.0360
+CatalogFile = Visa.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+Visa.sys = 1
+
+[Manufacturer]
+%COMPANY% = Visa,NTARM
+
+[Visa.NTARM]                           
+%DeviceDesc% = Visa_Inst, ACPI\Visa
+
+[Visa_Inst.NT]
+CopyFiles = Drivers_Dir
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Drivers_Dir]
+Visa.sys                        
+
+[Visa_Inst.NT.Services]
+AddService = Visa, %SPSVCINST_ASSOCSERVICE%, Visa_service_inst
+
+[Visa_Inst.NT.Wdf]
+KmdfService = Visa, Visa_Service_kmdfInst
+
+[Visa_Service_kmdfInst]
+KmdfLibraryVersion = 1.11
+
+; -------------- Visa driver install sections
+[Visa_service_inst]
+DisplayName    = %Visa.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+LoadOrderGroup = Extended Base
+ServiceBinary  = %12%\Visa.sys
+
+[Strings]
+;Localizable Strings
+COMPANY                = "Nokia"
+DiskId1                = "Nokia Visa Disk"
+DeviceDesc             = "Nokia Visa Device"
+Visa.SvcDesc           = "Nokia Visa Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

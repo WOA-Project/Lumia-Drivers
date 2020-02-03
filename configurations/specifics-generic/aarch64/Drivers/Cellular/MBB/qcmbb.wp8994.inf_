@@ -1,0 +1,145 @@
+;/*++
+;
+;Copyright (c) 1990-2000  Microsoft Corporation
+;
+;Module Name:
+;    QCMBB8660.INF or QCMBB8960.INF
+;
+;Abstract:
+;    INF file for installing the MBB driver (Qualcomm Wireless Network Device)
+;
+;Installation Notes: 
+;    Using Devcon:
+;      8660: Type "devcon update QCMBB8660.inf ACPI\QCOM0EA0" to install
+;      8960: Type "devcon update QCMBB8960.inf ACPI\QCOM2072" to install
+;
+;--*/
+
+[version]
+Signature   = "$Windows NT$"
+Class       = Net
+ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 07/02/2015,1.0.1067.0
+Catalogfile = qcmbb8994.cat ;todo .cat file generated once driver passes WHQL
+
+[ControlFlags]
+ExcludeFromSelect = *       ; Do we need this? This prevents the driver from being displayed in manual installation UI
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+qcmbb8994.sys = 1,,
+
+[DestinationDirs]
+wwan.CopyFiles = 12
+
+[Manufacturer]
+%QCOM% = QCOM, NTARM64
+
+[QCOM.NTARM64]
+%wwan.DeviceDesc% = wwan.ndi, QCMS\QCOM0EA0
+
+[wwan.ndi]
+Include            = netvchannel.inf
+Needs              = NetVChannel
+Characteristics    = 0x4                      ; NCF_PHYSICAL
+*IfType            = 244                      ; IF_TYPE_WWANPP2
+*MediaType         = 9                        ; NdisMediumWirelessWan
+*PhysicalMediaType = 8                        ; NdisPhysicalMediumWirelessWan
+EnableDhcp         = 0
+AddReg             = wwan.Reg
+CopyFiles          = wwan.CopyFiles
+
+[wwan.ndi.HW]
+Include = netvchannel.inf
+Needs   = NetVChannel.HW
+
+[wwan.ndi.CoInstallers]
+Include = netvchannel.inf
+Needs   = NetVChannel.CoInstallers
+
+[wwan.ndi.Interfaces]
+Include = netvchannel.inf
+Needs   = NetVChannel.Interfaces
+
+[wwan.ndi.Services]
+Include    = netvchannel.inf
+Needs      = NetVChannel.Services
+AddService = mbb, 2, wwan.Service, wwan.EventLog
+
+;-----------------------------------------------------------------------------
+; Virtual Miniport Common
+;-----------------------------------------------------------------------------
+[wwan.Reg]
+;HKR,    ,                         BusNumber,           0, "0"
+HKR, Ndi           , Service   , 0,  "mbb"
+
+;-----------------------------------------------------------------------------
+;Entries to be put in add-registry-section for NdisMediumWirelessWan
+;-----------------------------------------------------------------------------
+HKR, Ndi\Interfaces, UpperRange, 0,  "flpp4, flpp6"
+HKR, Ndi\Interfaces, LowerRange, 0,  "ppip, vchannel"
+
+;-----------------------------------------------------------------------------
+; Driver and Service Section
+;-----------------------------------------------------------------------------
+[wwan.CopyFiles]
+qcmbb8994.sys, , , 2,
+
+[wwan.Service]
+DisplayName    = %wwan.Service.DispName%
+ServiceType    = 1                                 ;%SERVICE_KERNEL_DRIVER%
+StartType      = 3                                 ;%SERVICE_DEMAND_START%
+ErrorControl   = 1                                 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qcmbb8994.sys
+LoadOrderGroup = NDIS
+AddReg         = TextModeFlags.Reg
+AddReg         = osVer.Reg
+
+[wwan.EventLog]
+AddReg = wwan.AddEventLog.Reg
+
+[wwan.AddEventLog.Reg]
+HKR, , EventMessageFile, 0x00020000,  "%%SystemRoot%%\System32\netevent.dll"
+HKR, , TypesSupported  , 0x00010001,  7
+
+[TextModeFlags.Reg]
+HKR, , TextModeFlags, 0x00010001,  0x0001
+
+[osVer.Reg]
+HKR, , OSVer, 0x00010001 , 0x01 ;  0x01 = Apollo, 0x00
+
+; IPV6
+HKR, , IPV6EHRPDMEDIANOTIFY, 0x00010001 , 0x01
+HKR, , MTUDATASIZE, 0x00010001 , 0x00000578
+HKR, , SuppressNwPSDetach, 0x00010001 , 0x01
+
+; Wake on pattern match (standardized keyword)
+HKR, ,                                          *WakeOnPattern,           0, "1"
+HKR, Ndi\params\*WakeOnPattern,                 ParamDesc,                0, %WakeOnPattern%
+HKR, Ndi\params\*WakeOnPattern,                 default,                  0, "1"
+HKR, Ndi\params\*WakeOnPattern,                 type,                     0, "enum"
+HKR, Ndi\params\*WakeOnPattern\enum,            "0",                      0, %Disabled%
+HKR, Ndi\params\*WakeOnPattern\enum,            "1",                      0, %Enabled%
+
+[wwan.ndi.Wdf]
+KmdfService = mbb, wwan_wdfsect
+
+[wwan_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+;Localizable Strings
+QcomSrcDisk           = "Qualcomm WWAN Driver Disk"
+QCOM                  = "Qualcomm Inc."
+wwan.DeviceDesc       = "Qualcomm Mobile Broadband Device"
+wwan.Service.DispName = "Qualcomm Mobile Broadband Driver"
+DiskId1               = "Qualcomm NDIS Miniport Device Installation Disk #1"
+Disabled              = "Disabled"
+Enabled               = "Enabled"
+WakeOnPattern         = "Wake on pattern match"
+
+;Non-localizable Strings
+

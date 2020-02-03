@@ -1,0 +1,93 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    TablaInterruptController.INF
+;
+;Abstract:
+;    INF file for installing the Tabla Interrupt Controller Driver
+;
+;Installation Notes: 
+;   
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %comp%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qctablaint_wp8960.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qctablaint8960.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; TablaInterruptController driver Install Section
+;*****************************************
+
+[Manufacturer]
+%comp% = Standard,NTARM
+
+[Standard.NTARM]
+%TIC.DeviceDesc% = TIC_Inst,ACPI\QCOM2061
+
+[TIC_Inst.NT]
+Copyfiles   = TICCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[TIC_Inst.NT.HW]
+Addreg = TIC_InstACL
+
+[TIC_InstACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[TICCopyFiles]
+qctablaint8960.sys
+
+[TIC_Inst.NT.Services]
+AddService = qctic,%SPSVCINST_ASSOCSERVICE%,TIC_Service_Inst
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[TIC_Service_Inst]
+DisplayName   = %TIC.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qctablaint8960.sys
+;LoadOrderGroup = Extended Base
+
+; Checks for compatibility with KMDF version
+;[TIC_Inst.NT.Wdf]
+;KmdfService =  qctic, TIC_wdfsect
+;[TIC_wdfsect]
+;KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+;Localizable Strings
+comp                   = "Qualcomm"
+TIC.DeviceDesc         = "Qualcomm Audio Tabla Interrupt Controller Device"
+TIC.SvcDesc            = "Qualcomm Audio Tabla Interrupt Controller Driver"
+DiskId1                = "Qualcomm Audio Tabla Interrupt Controller Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

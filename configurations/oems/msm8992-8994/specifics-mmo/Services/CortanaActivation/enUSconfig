@@ -1,0 +1,36 @@
+// Config file format version
+//for future use, if SVA versions changes...
+FORMAT_VERSION:3
+
+// Keyword confidence level for recognition, value is in decimal 
+// %&# MMO_start: REASON_Keyword confidence level increased from 69 to 71 OWNER_Ari.Vakkuri@microsoft.com
+KEYWORD_CONF_LVL:71
+// %&# MMO_end: REASON_Keyword confidence level increased from 69 to 71 OWNER_Ari.Vakkuri@microsoft.com
+
+//KeywordOnly confidence level, value is in decimal 
+// %&# MMO_start: REASON_KeywordOnly confidence level increased from 69 to 93 OWNER_Ari.Vakkuri@microsoft.com
+KEYWORD_ONLY_CONF_LVL:93
+// %&# MMO_end: REASON_KeywordOnly confidence level increased from 69 to 93  OWNER_Ari.Vakkuri@microsoft.com
+// User confidence level for recognition, value is in decimal 
+// %&# MMO_start: REASON_User confidence level decreased from 69 to 67 based on QC recommendation OWNER_Vesa.Hartonen@microsoft.com
+USER_CONF_LVL:67
+// %&# MMO_end: REASON_User confidence level decreased from 69 to 67 based on QC recommendation OWNER_Vesa.Hartonen@microsoft.com
+
+// User Recording Confidence Level, value is in decimal 
+// %&# MMO_start: REASON_User Recording Confidence confidence level increased from 69 to 70 OWNER_Ari.Vakkuri@microsoft.com
+USER_RECORDING_CONF_LVL:70
+// %&# MMO_end: REASON_User Recording Confidence confidence level increased from 69 to 70 OWNER_Ari.Vakkuri@microsoft.com
+
+// QC model original name: heycortanaenusthr71_LangTuned_KWspellTuned.bin
+// See case 01647282 SVA - Power state stays high after white noise environment drops to silent
+// Generic model filename
+MODEL_NAME:VoiceActivationModel.bin
+
+//KeyWord ID
+KeywordId1:1
+//KeyWord String
+KeywordIDStr1:Hey Cortana
+
+// Voice model version number (recommendation: use QC delivery date as YYMMDD)
+//use this to identify update in sound model.
+MODEL_VERSION:150521

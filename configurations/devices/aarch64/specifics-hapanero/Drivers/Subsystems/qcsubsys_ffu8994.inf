@@ -1,0 +1,149 @@
+;/*++
+;
+;Copyright (c) 2013 by Qualcomm Technologies, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    QCSUBSYS.INX 
+;
+;Abstract:
+;    INF file for installing the combined subsystem driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qcsubsys8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+Drivers_Dir_12 = 12
+Drivers_Dir_24 = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcsubsys8994.sys = 1
+qcadsp8994.mbn   = 1
+qcdsp1v28994.mbn = 1
+qcdsp28994.mbn   = 1
+;qcwcnss8994.mbn = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; Subsystem Driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM64
+
+[Standard.NTARM64]
+%WCN.DeviceDesc%            = SUBSYS_Device,            ACPI\QCOM242A
+%ADSP.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242B
+%AMSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242C
+%SERVICEMANAGER.DeviceDesc% = SUBSYS_Device, ACPI\QCOM24B8
+%AMSSCXThermal.DeviceDesc%  = SUBSYS_Device,  ACPI\QCOM24C0
+%SCSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM24C1
+%TEST.DeviceDesc%           = SUBSYS_Device,           ADSP\DEADCODE
+%TEST.DeviceDesc%           = SUBSYS_Device,           QCMS\DEADCODE
+%TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
+
+[SUBSYS_Device.NT]
+CopyFiles   = Drivers_Dir_12,Drivers_Dir_24
+AddReg      = SUBSYSReg
+AddProperty = WDTFSOCDeviceCategory
+
+[WDTFSOCDeviceCategory]
+
+[SUBSYS_Device.NT.HW]
+AddReg = SUBSYSACL
+
+[SUBSYSACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
+
+[Drivers_Dir_12]
+qcsubsys8994.sys
+
+[Drivers_Dir_24]
+qcadsp8994.mbn
+qcdsp1v28994.mbn
+qcdsp28994.mbn
+;qcwcnss8994.mbn
+
+[SUBSYSReg]
+; ADSP registry values
+HKR ,                                                                                         , "AdspImagePath"         , %REG_SZ%   , "\SystemRoot\system32\qcadsp8994.mbn"
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{D58464D3-5B28-4ea6-A2E2-E8E57C5C69B8}, MemoryReservation       , %REG_DWORD%, 0x01800000
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{D58464D3-5B28-4ea6-A2E2-E8E57C5C69B8}, MemoryAlignment         , %REG_DWORD%, 0x00100000
+
+; AMSS registry values
+HKR ,                                                                                         , "AmssFwImagePath"       , %REG_SZ%   , "\SystemRoot\system32\qcdsp1v28994.mbn"
+HKR ,                                                                                         , "AmssSwImagePath"       , %REG_SZ%   , "\SystemRoot\system32\qcdsp28994.mbn"
+HKR ,                                                                                         , "AmssOverideFwImagePath", %REG_SZ%   , "\SystemRoot\system32\qcdsp1v28926.mbn"
+HKR ,                                                                                         , "AmssOverideSwImagePath", %REG_SZ%   , "\SystemRoot\system32\qcdsp28926.mbn"
+
+; Image Paths for APQ variants
+HKR ,                                                                                         , "AmssAPQFWImagePath"    , %REG_SZ%   , "\SystemRoot\system32\"
+HKR ,                                                                                         , "AmssAPQSWImagePath"    , %REG_SZ%   , "\SystemRoot\system32\"
+
+; AMSS Memory Alignment
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{936DC601-5530-4b82-9D2A-72A488BEC7C1}, MemoryAlignment         , %REG_DWORD%, 0x00400000
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{936DC601-5530-4b82-9D2A-72A488BEC7C1}, MemoryReservation       , %REG_DWORD%, 0x05A00000
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{936DC601-5530-4b82-9D2A-72A488BEC7C1}, MemoryAddress           , %REG_DWORD%, 0x07000000
+
+; MBA registry values
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{BA58766D-ABF2-4402-88D7-90AB243F6C77}, MemoryAlignment         , %REG_DWORD%, 0x00100000
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{BA58766D-ABF2-4402-88D7-90AB243F6C77}, MemoryReservation       , %REG_DWORD%, 0x00100000
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{BA58766D-ABF2-4402-88D7-90AB243F6C77}, MemoryAddress           , %REG_DWORD%, 0x06F00000
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{BA58766D-ABF2-4402-88D7-90AB243F6C77}, IsOverridden            , %REG_DWORD%, 1
+
+; WCN registry values
+HKR ,                                                                                         , "WcnImagePath"          , %REG_SZ%   , "\SystemRoot\system32\qcwcnss8994.mbn"
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38-BB33030C58B2}, MemoryReservation       , %REG_DWORD%, 0
+HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38-BB33030C58B2}, MemoryAlignment         , %REG_DWORD%, 0x00100000
+
+;-------------- Service installation
+[SUBSYS_Device.NT.Services]
+AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst
+
+; -------------- Subsystem driver install sections
+[SUBSYS_Service_Inst]
+DisplayName   = %SUBSYS.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcsubsys8994.sys
+AddReg        = SUBSYS_Service_AddReg
+
+[SUBSYS_Service_AddReg]
+HKR, Parameters\DIAG, "FreeReservedMemory", 0x00010001, 0x01
+
+[SUBSYS_Device.NT.Wdf]
+KmdfService = qcsubsys, SUBSYS_wdfsect
+[SUBSYS_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+; non localizable
+REG_SZ                    = 0x00000000
+REG_DWORD                 = 0x00010001
+SPSVCINST_ASSOCSERVICE    = 0x00000002
+
+; localizable
+QUALCOMM                  = "Qualcomm Incorporated"
+DiskId1                   = "Qualcomm Combined Subsystem Driver Installation Disk"
+ADSP.DeviceDesc           = "Qualcomm Audio DSP Subsystem Device"
+AMSS.DeviceDesc           = "Qualcomm Advanced Modem Subsystem Device"
+AMSSCXThermal.DeviceDesc  = "Qualcomm Advanced Modem Subsystem CX Limiting Thermal Device"
+WCN.DeviceDesc            = "Qualcomm Wireless Connectivity Subsystem Device"
+TEST.DeviceDesc           = "Qualcomm Combined Subsystem Driver Test Device"
+SERVICEMANAGER.DeviceDesc = "Qualcomm Service Manager Device"
+SCSS.DeviceDesc           = "Qualcomm Sensors Subsystem Bus Device"
+SUBSYS.SVCDESC            = "Qualcomm Combined Subsystem Driver"
+

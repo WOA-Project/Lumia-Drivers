@@ -1,0 +1,86 @@
+;/*++
+;
+;Module Name:
+;
+;    qcbtftm8960.INF
+;
+;Abstract:
+;    QUALCOMM's INF file for BTFTM Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System                                     ; Bluetooth
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ;{e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
+Provider    = %QC%
+DriverVer   = 07/15/2013,1.0.3050.0000
+CatalogFile = qcbtftm8960.cat
+
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+qcbtftm8960.sys = 1,,
+
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%StdMfg% = VendorModels,NTARM
+
+;*****************************************
+; Serial bus driver install Section
+;*****************************************
+
+[VendorModels.NTARM]
+%Bus.DeviceDesc% = Bus_Vendor, ACPI\QCOM2117
+
+
+[Bus_Vendor.NT]
+CopyFiles = Bus.CopyFiles
+Reboot
+
+[Bus.CopyFiles]
+qcbtftm8960.sys
+
+;[Bus_Vendor.NT.HW]
+;AddReg=Bus_Vendor.NT.AddReg
+
+;[Bus_Vendor.NT.AddReg]
+; Reference: http://msdn.microsoft.com/en-us/library/ff546320.aspx
+;HKR,,DeviceCharacteristics,0x10001,0x0100      ; Use same security checks on relative opens
+;HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;SY)"   ; Allow generic-all access to Built-in administrators and Local system 
+
+;-------------- Service installation
+[Bus_Vendor.NT.Services]
+AddService = QcBtftm,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
+
+; -------------- statbus driver install sections
+[Bus_Service_Inst]
+DisplayName    = %Bus.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcbtftm8960.sys
+LoadOrderGroup = Extended Base
+
+
+[Strings]
+;Non-Localizable
+
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+;Localizable
+QC                     = "Qualcomm Incorporated"
+StdMfg                 = "Qualcomm Incorporated"
+DiskId1                = "QUALCOMM btftmdriver Disk #1"
+Bus.DeviceDesc         = "QUALCOMM btftmdriver "
+Bus.SVCDESC            = "QUALCOMM btftmdriver"
+

@@ -1,0 +1,80 @@
+;
+; WMRil.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,30.0.0.0
+CatalogFile = wmril.cat
+
+[DestinationDirs]
+WMRil.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+WMRil.dll = 0,,
+
+[DefaultInstall.NTARM]
+CopyFiles = WMRil.Files
+AddReg    = WMRil_Reg
+
+[WMRil_Reg]
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Indication            , InternalIndicationOperatingModeChanged           , %REG_DWORD%,  0x0000afc8
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Indication            , InternalIndicationVoLTEConferenceInfoTimer       , %REG_DWORD%,  0x00000bb8
+
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Request               , QMI_DMS_SET_OPERATING_MODE_REQ_V01               , %REG_DWORD%,  0x00007530
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Request               , QMI_NAS_PERFORM_NETWORK_SCAN_REQ_MSG_V01         , %REG_DWORD%,  0x0001d4c0
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Request               , QMI_VOICE_DIAL_CALL_REQ_V02                      , %REG_DWORD%,  0x000088b8
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Request               , QMI_VOICE_MANAGE_CALLS_REQ_V02                   , %REG_DWORD%,  0x00017318
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Request               , QMI_VOICE_MANAGE_IP_CALLS_REQ_V02                , %REG_DWORD%,  0x000186a0
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Request               , QMI_WMS_RAW_SEND_REQ_V01                         , %REG_DWORD%,  0x0003a980
+
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Service               , QMIIMSApplicationService                         , %REG_DWORD%,  0x000003e8
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Service               , QMIIMSPresenceService                            , %REG_DWORD%,  0x000003e8
+HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Service               , QMIIMSSettingsService                            , %REG_DWORD%,  0x000003e8
+
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0                              , FallBackMode                                     , %REG_DWORD%,  0x00000000
+
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Indication           , APPerso_DeactivatePersoFeature                   , %REG_DWORD%,  0x00007530
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Indication           , APPerso_GetPersoCheckState                       , %REG_DWORD%,  0x00007530
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Indication           , APPerso_UnblockPersoFeature                      , %REG_DWORD%,  0x00007530
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Indication           , InternalIndicationAPPersoActivatedFeaturesUpdated, %REG_DWORD%,  0x00007530
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Indication           , InternalIndicationAPPersoPersoCheckStateUpdated  , %REG_DWORD%,  0x00007530
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Indication           , InternalIndicationEmergencyModeExited            , %REG_DWORD%,  0x000493e0
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Indication           , InternalIndicationIMSRegistrationStatusChanged   , %REG_DWORD%,  0x00004e20
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Indication           , InternalIndicationUIMCardStatus                  , %REG_DWORD%,  0x0001d4c0
+
+HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Request              , QMI_UIM_DEPERSONALIZATION_REQ_V01                , %REG_DWORD%,  0xffffffff
+
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters     , MessageHoldTimeout                               , %REG_DWORD%,  0x0000001e
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters     , MSRilInstances                                   , %REG_DWORD%,  0x00000001
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters     , MuxCreateTimeout                                 , %REG_DWORD%,  0x0001d4c0
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters     , MuxDeviceName                                    , %REG_SZ%   ,  "\??\ModemMuxDevice"
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters     , MuxFileName                                      , %REG_SZ%   ,  "\\.\ModemMuxDevice"
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters     , MuxHardwareId                                    , %REG_SZ%   ,  "MODEM\MUX"
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters     , WatchdogTimeout                                  , %REG_DWORD%,  0x0000000a
+
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, MsrilDeviceId                                    , %REG_SZ%   ,  "MODEM\MSRIL"
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, MsrilDeviceName                                  , %REG_SZ%   ,  "\??\MSRil1"
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, MsrilInstanceId                                  , %REG_SZ%   ,  "0001"
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, QueueNumber                                      , %REG_DWORD%,  0x00000001
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, RILInitIndex                                     , %REG_DWORD%,  0x00000000
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, RILPath                                          , %REG_SZ%   ,  "WMRil.dll"
+
+[WMRil.Files]
+WMRil.dll
+
+[Strings]
+QC            = "Qualcomm"
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+
+

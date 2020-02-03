@@ -1,0 +1,84 @@
+;/*++
+;
+;Copyright (c) 2011 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Module Name:
+;    qcpmicapps8960.INF
+;
+;Abstract:
+;    INF file for installing the Pmic Apps Driver
+;
+;--*/
+
+[Version]
+Signature    = "$WINDOWS NT$"
+Class        = System
+ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider     = %COMP%
+DriverVer    = 09/26/2013,1.0.3051.0000
+CatalogFile  = qcpmicapps8960.cat
+BootCritical = 1
+PnPLockdown  = 1
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcpmicapps8960.sys = 1
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; pmic apps client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Qualcomm,NTARM
+
+[Qualcomm.NTARM]
+%DeviceDesc% = PMIC_Inst,ACPI\QCOM2041
+
+[PMIC_Inst.NT]
+Copyfiles   = PMICCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[PMIC_Inst.NT.HW]
+Addreg = PMICAPPACL
+
+[PMICAPPACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
+
+[PMICCopyFiles]
+qcpmicapps8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[PMIC_Inst.NT.Services]
+AddService = qcpmicapps,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
+
+[PMIC_Service_Inst]
+DisplayName   = %PMICApps.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcpmicapps8960.sys
+
+[Strings]
+;Localizable Strings
+COMP                   = "Qualcomm Incorporated"
+PMICApps.SvcDesc       = "Qualcomm PMIC Apps Driver"
+DeviceDesc             = "Qualcomm PMIC Apps Device"
+DiskId                 = "Qualcomm PMIC Apps Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

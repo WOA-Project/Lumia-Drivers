@@ -1,0 +1,2 @@
+Add-AppProvisionedPackage -Online -PackagePath $env:SystemRoot\OEM\Applications\CommsPhone.appxbundle -SkipLicense -DependencyPackagePath $env:SystemRoot\OEM\Applications\Microsoft.VCLibs.ARM.14.00.appx
+Add-AppProvisionedPackage -Online -PackagePath $env:SystemRoot\OEM\Applications\Airwaves.appxbundle -SkipLicense -DependencyPackagePath $env:SystemRoot\OEM\Applications\Microsoft.VCLibs.ARM.14.00.appx

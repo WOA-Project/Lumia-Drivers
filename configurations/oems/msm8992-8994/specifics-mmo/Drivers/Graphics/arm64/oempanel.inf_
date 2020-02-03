@@ -1,0 +1,174 @@
+;/*++
+;
+; Copyright (c) 2012-2013 Qualcomm Technologies, Inc.  All Rights Reserved.
+; Qualcomm Technologies Proprietary and Confidential
+;
+;Module Name:
+;    oempanel.INF
+;
+;Abstract:
+;    INF file for installing the OEM Class Extension Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon update oempanel.inf ACPI\MSHW1004" to install
+;
+;--*/
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 03/24/2010, 07.14.2.8061
+CatalogFile = oempanel.cat
+
+[SourceDisksNames]
+1 = %%DiskId1%%
+
+[SourceDisksFiles]
+oempanel.sys     = 1
+ColorData.bin    = 1
+oempanel_etw.dll = 1
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; oem panel client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTARM64
+
+[QC.NTARM64]
+%OEM.DeviceDesc% = OEM_Inst, ACPI\MSHW1004
+
+[OEM_Inst.NT]
+Copyfiles = OEMCopyFiles
+AddReg    = OEM_Settings,User_Settings
+
+[OEM_Settings]
+HKLM, "SOFTWARE\Microsoft\AutoBrightness", "ABSAutoMaxBrightness", 0x10001, 0x32
+HKLM, "SOFTWARE\Microsoft\AutoBrightness", "ABSManualBrightness", 0x10001, 0x32
+HKLM, "SOFTWARE\Microsoft\AutoBrightness", "ABSMonitorControl", 0x10001, 0x1
+
+HKLM, "SOFTWARE\Microsoft\Shell\OEM\Brightness", "HideAutoBrightness", 0x10001, 0x0
+
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "Enabled", 0x10001, 0x1
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "ResourceFileName", 0x0, "C:\windows\System32\drivers\oempanel_etw.dll"
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", , 0x0, "Nokia-OemPanel"
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "MessageFileName", 0x0, "C:\windows\System32\drivers\oempanel_etw.dll"
+
+HKLM, "SOFTWARE\OEM\Autobrightness", "ABSPercentIntensityMapping", 0x10000, "50","51"
+HKLM, "SOFTWARE\OEM\Autobrightness", "ABSRangeMilliLuxMapping", 0x10000, "1","MAX"
+HKLM, "SOFTWARE\OEM\Autobrightness", "DimBrightness", 0x10001, 0x1
+HKLM, "SOFTWARE\OEM\Autobrightness", "TransitionDelay", 0x10001, 0x0
+
+HKLM, "SOFTWARE\OEM\NOKIA\BrightnessInterface", "APIVersion", 0x0, "1.1"
+HKLM, "SOFTWARE\OEM\NOKIA\BrightnessInterface", "BrightnessPct", 0x10001, 0x64
+
+HKLM, "SOFTWARE\OEM\NOKIA\Display", "APIVersion", 0x0, "1.1"
+HKLM, "SOFTWARE\OEM\NOKIA\Display", "BatteryChargePercent", 0x10001, 0x64
+HKLM, "SOFTWARE\OEM\NOKIA\Display", "PowerSaveState", 0x10001, 0x0
+
+HKLM, "SOFTWARE\OEM\NOKIA\Display\Lpm", "APIVersion", 0x0, "1.0"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\Lpm", "OPR_Low", 0x10001, 0x5f
+HKLM, "SOFTWARE\OEM\NOKIA\Display\Lpm", "OPR_Med", 0x10001, 0x190
+
+[User_Settings]
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "APIVersion", 0x0, "1.9"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingAppVersion", 0x0, "3.0"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingAtomicUpdate", 0x10001, 0x0
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingBrightConditionBrightness", 0x10001, 0x32
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingBsmDimmingEnabled", 0x10001, 0x1
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorSaturation", 0x10001, 0x32
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorSaturationMatrix", 0x10001, 0xffffffff
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorSaturationPA", 0x10001, 0xffffffff
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorSaturationSupportedSteps", 0x10001, 0x64
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetBlueX", 0x0, "0.1805"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetBlueY", 0x0, "0.0722"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetBlueZ", 0x0, "0.9505"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetGreenX", 0x0, "0.3576"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetGreenY", 0x0, "0.7152"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetGreenZ", 0x0, "0.1192"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetRedX", 0x0, "0.4124"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetRedY", 0x0, "0.2126"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetRedZ", 0x0, "0.0193"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetWhiteX", 0x0, "0.95015469"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetWhiteY", 0x0, "1.0"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingColorTargetWhiteZ", 0x0, "1.08825906"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingDarkConditionBrightness", 0x10001, 0x32
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingFingerFilterEnabled", 0x10001, 0x1
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingKeyLightsEnabled", 0x10001, 0x1
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingKeyLightsScalerPct", 0x10001, 0xffffffff
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingNoBrightnessSettings", 0x10001, 0x1
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingSreEnabled", 0x10001, 0xffffffff
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingUiStarted", 0x10001, 0x0
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingWhitePoint", 0x10001, 0x32
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLight", "UserSettingWhitePointSupportedSteps", 0x10001, 0x64
+
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "AmbientLightValue", 0x10001, 0xffffffff
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "DisplayId", 0x10001, 0x0
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "MaxSaturationCIEBlueX", 0x0, "0.1805"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "MaxSaturationCIEBlueY", 0x0, "0.0722"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "MaxSaturationCIEBlueZ", 0x0, "0.9505"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "MaxSaturationCIEGreenX", 0x0, "0.3576"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "MaxSaturationCIEGreenY", 0x0, "0.7152"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "MaxSaturationCIEGreenZ", 0x0, "0.1192"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "MaxSaturationCIERedX", 0x0, "0.4124"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "MaxSaturationCIERedY", 0x0, "0.2126"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "MaxSaturationCIERedZ", 0x0, "0.0193"
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "OsAutomaticallyAdjustEnabled", 0x10001, 0x1
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "SaturationCIEHigh", 0x10001, 0x100
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "SaturationCIELow", 0x10001, 0x100
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "SaturationCIEMid", 0x10001, 0x100
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "SaturationMatrixHigh", 0x10001, 0x100
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "SaturationMatrixLow", 0x10001, 0x100
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "SaturationMatrixMid", 0x10001, 0x100
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "SaturationPAHigh", 0x10001, 0x100
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "SaturationPALow", 0x10001, 0x100
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "SaturationPAMid", 0x10001, 0x100
+HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "UserSettingDisplayCurrentBrightnessPct", 0x10001, 0xffffffff
+
+[User_Settings.Security]
+"D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;AU)(A;;GA;;;BG)(A;;GA;;;S-1-15-2-1)(A;;GA;;;WD)"
+
+[OEMCopyFiles]
+oempanel.sys
+ColorData.bin
+oempanel_etw.dll
+
+[OEM_Inst.NT.Services]
+AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst
+
+[OEM_Service_Inst]
+DisplayName    = %OEM.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\oempanel.sys
+LoadOrderGroup = Extended Base
+
+[OEM_Inst.NT.Wdf]
+KmdfService = MmoPanel, OEM_wdfsect
+
+[OEM_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+;Localizable Strings
+QC                     = "Nokia"
+OEM.SvcDesc            = "Nokia Panel Driver Service"
+OEM.DeviceDesc         = "Nokia Panel Driver"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_NORMAL   = 1
+

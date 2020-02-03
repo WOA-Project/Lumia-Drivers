@@ -1,0 +1,52 @@
+;
+; simplehw.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/09/2016,12.0.30519.0
+CatalogFile = simplehw.cat
+
+[DestinationDirs]
+; 11 = system32
+MSVC120.Files.NTarm_11 = 12
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+mshwnclx.sys = 0,,
+
+;*****************************************
+; MSVC120  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = MSVC120.Files.NTarm_11
+AddReg    = AddRegMsSimpleHw
+
+[AddRegMsSimpleHw]
+	HKLM, "SYSTEM\CurrentControlSet\Services\HwNClx0101"         , "Description" , 0x0    ,  "Class extension for simple hardware devices"
+	HKLM, "SYSTEM\CurrentControlSet\Services\HwNClx0101"         , "DisplayName" , 0x0    ,  "Microsoft HWN Class Extension Driver"
+	HKLM, "SYSTEM\CurrentControlSet\Services\HwNClx0101"         , "ErrorControl", 0x10001,  0x1
+	HKLM, "SYSTEM\CurrentControlSet\Services\HwNClx0101"         , "Group"       , 0x0    ,  "System"
+	HKLM, "SYSTEM\CurrentControlSet\Services\HwNClx0101"         , "ImagePath"   , 0x0    ,  "System32\Drivers\mshwnclx.sys"
+	HKLM, "SYSTEM\CurrentControlSet\Services\HwNClx0101"         , "Start"       , 0x10001,  0x3
+	HKLM, "SYSTEM\CurrentControlSet\Services\HwNClx0101"         , "Type"        , 0x10001,  0x1
+	HKLM, "SYSTEM\CurrentControlSet\Services\HwNClx0101"         , "WPSECURITY"  , 0x1    , \
+	  01, 00                                                     , 04            , 80     , c8,00,00,00,d4,00,00,00,00,00,00,00,14,00,00,00,02,00,b4,00,05,00,00,00,00,00,38,00,00,00,00,c0,01,0a,00,00,00,00,00,0f,03,00,00,00,00,04,00,00,b9,36,1b,d8,f6,76,dd,9f,d0,25,08,33,a5,fd,f7,aa,76,10,e0,b2,d4,42,27,\
+	  3c, 2a                                                     , f0            , e7     , f8,c8,60,c9,28,00,00,24,00,00,00,00,c0,01,05,00,00,00,00,00,05,15,00,00,00,d1,a7,1a,a1,53,9e,65,2f,4b,7f,77,1a,06,04,00,00,00,00,24,00,00,00,00,c0,01,05,00,00,00,00,00,05,15,00,00,00,d1,a7,1a,a1,53,9e,65,2f,4b,7f,\
+	  77, 1a                                                     , 07            , 04     , 00,00,00,00,14,00,ff,ff,1f,11,01,01,00,00,00,00,00,05,12,00,00,00,00,00,18,00,ff,ff,1f,11,01,02,00,00,00,00,00,05,20,00,00,00,20,02,00,00,01,01,00,00,00,00,00,05,12,00,00,00,01,01,00,00,00,00,00,05,12,00,00,00
+	HKLM, "SYSTEM\CurrentControlSet\Wdf\Kmdf\HwNClx\Versions\1\1", "Service"     , 0x0    ,  "HwNClx0101"
+
+; System32
+[MSVC120.Files.NTarm_11]
+mshwnclx.sys
+
+[Strings]
+IHV     = "LumiaWoA authors"
+DiskId1 = "simple hardware Extensions Installation Disk #1"
+
+

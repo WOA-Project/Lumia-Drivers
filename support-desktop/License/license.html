@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <style type="text/css">
+      [dir='rtl'] dir {
+        padding-right: 12px; }
+
+      [dir='ltr'] dir {
+        padding-left: 12px; }
+
+      [dir='ltr'] [align=right] {
+        text-align: right; }
+
+      [dir='ltr'] [align=left] {
+        text-align: left; }
+
+      [dir='rtl'] [align=right] {
+        text-align: left; }
+
+      [dir='rtl'] [align=left] {
+        text-align: right; }
+
+      [dir='rtl'] body {
+        padding-left: 12px;
+      }
+
+      [dir='ltr'] body {
+        padding-right:12px;
+      }
+
+      body {
+        -ms-overflow-style:scrollbar;
+        background:#004275;
+        color:#FFF;
+        font-family:"Segoe UI", Selawik, Tahoma, Verdana, Arial, sans-serif;
+        font-size:.9375rem;
+        font-weight:400;
+        line-height:1.25rem;
+        margin:0;
+        max-width:100%;
+        overflow:auto;
+        padding-bottom:0;
+        padding-top:0;
+      }
+
+      body b * {
+        font-weight:700;
+      }
+
+      html {
+        font-size:100%;
+      }
+
+      p {
+        font-size:.9375rem;
+        font-weight:400;
+        line-height:1.25rem;
+        max-width:100%;
+        padding-bottom:.0141875rem;
+        padding-top:.0141875rem;
+      }
+    </style>
+</head>
+<body>
+<B><FONT SIZE=3><P ALIGN="RIGHT">Last updated: September 2019</P>
+  <P>LUMIAWOA SOFTWARE LICENSE TERMS</P>
+  <P>DESKTOP WINDOWS (ARM64) DRIVER COLLECTION FOR MSM8992/8994 SOCS</P>
+</B>
+<P>This driver pack can be found at WOA-Project/MSM8994-8992-NT-ARM64-Drivers on Github.</P>
+<B>
+  <DIR>
+    <DIR>
+
+      <P>1. Disclaimers.</P>
+      <DIR>
+		  </B>
+		  <P>This software is freely redistributed without any warranty of any kind. If you've paid for it, you have been scammed. You may experience disfunctionments, loss of data or the inability to use your device. Your device may lose its ability to connect to your country emergency services and has not been approved for continuous usage, use at your own risk. The authors behind this release cannot be taken responsible for any of these risks.</P>
+
+			<B><P>Responsability.
+			</B> By installing this driver pack, you agree that any damage done to your phone or any loss of data is your entire responsibility and we cannot be taken responsible for data loss if it ever happens. We believe however this driver pack is safe to install. Try at your own risk!</P>
+			<B><P>Morality.
+			</B> Charging an extra fee for a phone where you would have installed those drivers and you are selling online or to users is immoral and illegal due to where those drivers come from. An end user may not know how to update their system in the future and will most likely spent a lot more than what it should have for a driver pack he can find for free online. Selling a device with an extra fee also ruins the work of others that worked on this project. While we can't enforce this policy, we decided to put this notice here in the hopes of some people understanding the morality of this.</P>
+		</DIR>
+	
+		<B><P>2. Applicability.</P>
+		<DIR>
+
+			</B><P>This driver pack is available to the following devices:</P>
+			<DIR>
+				<P>- Lumia 950</P>
+				<P>- Lumia 950 Dual SIM</P>
+				<P>- Lumia 950 XL</P>
+				<P>- Lumia 950 XL Dual SIM</P>
+				<P>- Lumia Hapanero v1</P>
+				<P>- Lumia Hapanero v2</P>
+			</DIR>
+		</DIR>
+		
+		<B><P>3. Issues.</P>
+		<DIR>
+			</B><P>- The device may get hot on first boot, this is due to apps updating in the background and OneDrive setup being executed, it is expected behavior, please let the device finish these tasks, and cool down the device. The device will rarely get this hot or warm afterwards.</P>
+			<P>- Charging may only start working after a clean reboot of the device and may not work with Quick Charge wall adapters</P>
+			<P>- Volume audio level is stuck at 100% for main speakers on Hapanero devices</P>
+			<P>- ADSPRPC service is not working</P>
+			<P>- Cameras are not working</P>
+			<P>- Some miracast devices cannot be used for projection under WOA. This includes most notably the HP lapdock, and a few OEM laptops.</P>
+			<P>- Abnormal CPU usage is observed under S0 (network connected) state leading to poor battery performance when the device is asleep</P>
+			<P>- USB C support is not finished. To get power out (VBUS) on your device, follow these steps:</P>
+			<DIR>
+				<P>i.	 Open regedit
+				<P>ii.	 Navigate to HKEY_LOCAL_MACHINE\SYSTEM\usbc
+				<P>iii.	 Create a new DWORD 32-bit value named: VbusEnable
+				<DIR>
+					<P>1.	 Set it to 0 to disable VBUS</P>
+					<P>2.	 Set it to 1 to enable VBUS</P>
+				</DIR>
+				<P>iv.	 Reboot the device with no charger plugged in</P>
+				<P><B>Important:</B> Do not plug an external power source when VBUS is enabled on your device. The device may charge by itself when VBUS is enabled, you can revert the Charging Arbitration Driver to the build version to prevent this but you'll break charging.</P>
+			</DIR>
+			<P>- HDMI out is not functional</P>
+			<P>- x86 DirectX support is missing, you won't be able to run applications designed for DirectX and built for x86 on your phone</P>
+			<P>- Incoming call notifications may sometime not wake up the device (linked to S0 issues)</P>
+			<P>- Fingerprint sensor won't work for Hapanero devices</P>
+			<P>- Iris scanner won't work for Cityman/Talkman devices</P>
+			<P>- Talkman devices may require a manual reboot during setup</P>
+			<P>- Talkman devices may have occasional screen black outs for 1 second</P>
+			<P>- Cellular doesn't work on build 18912 and higher</P>
+		</DIR>
+		
+		<B><P>4. Credits.</P>
+		<DIR>
+			</B><P>Snapdragon is a registered trademark of Qualcomm Inc.</P>
+			<P>Windows is a registered trademark of Microsoft Corp.</P>
+			<P>Microsoft Mobile and Lumia are registered trademarks of a now defunct company (Microsoft Mobile Oy)</P>
+			<P>This project uses the following open source binaries available on Github:</P>
+			<DIR>
+				<P>- Lumia950XLPkg: WOA-Project/Lumia950XLPkg</P>
+				<P>- BootShim: imbushuo/boot-shim</P>
+				<P>- LumiaUSBC: Googulator/LumiaUSBC</P>
+				<P>- WOA Deployer:  WOA-Project/WOA-Deployer-Lumia WOA-Project/WOA-Deployer-Platform</P>
+				<P>- Not-NPETSEC: WOA-Project/Not-NPETSEC</P>
+				<P>- LumiaNull: WOA-Project/LumiaNull</P>
+				<P>- PhoneSvcPermUpdaterService:</P>
+				<P>WOA-Project/</P>
+				<P>PhoneSvcPermissionUpdaterService</P>
+				<P>- Advanced Info WOA-Project/AdvancedInfo</P>
+				<P>- DataManagementSvc: WOA-Project/DataManagementSvc</P>
+				<P>- SynapticsTouch: imbushuo/SynapticsTouch</P>
+			</DIR>
+			<P>Please refer to each linked project for their License and credit page.</P>
+			<P>Other binaries may be copyright Qualcomm Inc. and Microsoft Mobile.</P>
+		</DIR>
+		
+		<P></P>
+		<B><P>Hello from San Fransisco (US), France, Italy, Germany, Spain, Hungary</P></B>
+  </DIR>
+</DIR>
+</FONT>
+</body>
+</html>

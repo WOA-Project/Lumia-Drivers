@@ -1,0 +1,91 @@
+;/*++
+;
+;   Copyright (c) 2008-2012 QUALCOMM Incorporated.
+;               All Rights Reserved.
+;               Qualcomm Confidential and Proprietary
+;
+;Module Name:
+;    qcxoadc8960.inf
+;
+;Abstract:
+;    INF file for installing the XOADC Driver
+;--*/
+
+[Version]
+Signature    = "$WINDOWS NT$"
+Class        = System
+ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider     = %QUALCOMM%
+DriverVer    = 09/26/2013,1.0.3051.0000
+CatalogFile  = qcxoadc8960.cat
+BootCritical = 1
+PnpLockDown  = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcxoadc8960.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; XOADC Install Section
+;*****************************************
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]
+%XOADC.DeviceDesc% = XOADC_Device, ACPI\QCOM2043
+
+[XOADC_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcxoadc8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+[XOADC_Device.NT.Services]
+AddService = qcXOADC,%SPSVCINST_ASSOCSERVICE%, XOADC_Service_Inst
+
+;-------------- HW installation
+[XOADC_Device.NT.HW]
+addreg = XOADCSD
+
+[XOADCSD]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- XOADC driver install sections
+[XOADC_Service_Inst]
+DisplayName   = %XOADC.SVCDESC%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcxoadc8960.sys
+
+
+; Checks for compatibility with KMDF version
+[XOADC_Device.NT.Wdf]
+KmdfService = qcXOADC, XOADC_wdfsect
+[XOADC_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "XOADC Installation Disk"
+XOADC.DeviceDesc       = "Qualcomm XO ADC Device"
+XOADC.SVCDESC          = "Qualcomm XO ADC Driver"
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

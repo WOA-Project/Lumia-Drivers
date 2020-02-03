@@ -1,0 +1,93 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcgsbi8960.inf
+;
+;Abstract:
+;    INF file for installing the qcgsbi Driver
+;
+;Installation Notes: 
+;    Use Devcon for WA and dism for WP
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qcgsbi8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcgsbi8960.sys = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; gsbi client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTARM
+
+[QC.NTARM]
+%gsbi.DeviceDesc% = gsbi_Device, ACPI\QCOM2110
+
+[gsbi_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[Drivers_Dir]
+qcgsbi8960.sys
+
+;-------------- Service installation
+[gsbi_Device.NT.Services]
+AddService = "qcgsbi",%SPSVCINST_ASSOCSERVICE%, gsbi_Service_Inst
+
+;-------------- HW installation
+[gsbi_Device.NT.HW]
+addreg = gsbi
+
+[gsbi]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; ------------- gsbi driver install sections
+[gsbi_Service_Inst]
+DisplayName   = %gsbi.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcgsbi8960.sys
+
+
+; Checks for compatibility with KMDF version
+[gsbi_Device.NT.Wdf]
+KmdfService = "qcgsbi", gsbi_wdfsect
+[gsbi_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+DiskId1                = "QC GSBI Controller Installation Disk #1"
+gsbi.DeviceDesc        = "Qualcomm Generic Serial Bus Interface Device"
+gsbi.SVCDESC           = "Qualcomm Generic Serial Bus Interface Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

@@ -1,0 +1,81 @@
+; hwnvibraaudiocodec.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = Nokia
+DriverVer   = 11/10/2014,13.3.58.0232
+CatalogFile = hwnvibraaudiocodec.cat
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+hwnvibraaudiocodec.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; Vibra_Device driver Install Section
+;*****************************************
+
+[Manufacturer]
+%stdmfg% = Standard,NTARM
+
+[Standard.NTARM]
+%DeviceDesc% = Vibra_Device,ACPI\NOKIA_VIBRA
+
+[Vibra_Device.NT]
+Copyfiles = Vibra_DeviceCopyFiles
+
+[Vibra_DeviceCopyFiles]
+hwnvibraaudiocodec.sys, , , 0x100,
+
+[Vibra_Device.NT.Services]
+AddService = hwnvibraaudiocodec,%SPSVCINST_ASSOCSERVICE%,hwnvibraaudiocodec_service_inst
+
+[hwnvibraaudiocodec_service_inst]
+DisplayName    = %SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\hwnvibraaudiocodec.sys
+LoadOrderGroup = Extended base
+
+; Checks for compatibility with KMDF version
+[Vibra_Device_Service_Inst.NT.Wdf]
+KmdfService = hwnvibraaudiocodec, Vibra_Device_Service_wdfsect
+
+[Vibra_Device_Service_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+stdmfg                 = "(Standard system devices)"
+DeviceDesc             = "Audio codec vibra driver"
+SvcDesc                = "Audio codec vibra driver"
+
+;Non-Localizable Strings
+SPSVCINST_TAGTOFRONT   = 0x00000003
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+
+
+
+

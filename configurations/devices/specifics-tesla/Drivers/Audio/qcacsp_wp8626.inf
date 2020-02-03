@@ -1,0 +1,99 @@
+;/*++
+;
+;Copyright (c) 2014-2016  Qualcomm Technologies, Inc.
+;
+;Module Name:
+;    qcacsp.INF
+;
+;Abstract:
+;    INF file for installing the Audio Calibration Settings Package for ACDB.
+;
+;Installation Notes: 
+;    
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QCOM%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11E4B}
+DriverVer   = 04/29/2015,13.55.54.0942
+CatalogFile = qcacsp8626.cat
+
+[DestinationDirs]
+Drivers_Dir_24 = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+Bluetooth_cal_8626.acdb = 1
+Codec_cal_8626.acdb     = 1
+General_cal_8626.acdb   = 1
+Global_cal_8626.acdb    = 1
+Handset_cal_8626.acdb   = 1
+Hdmi_cal_8626.acdb      = 1
+Headset_cal_8626.acdb   = 1
+Speaker_cal_8626.acdb   = 1
+
+;*****************************************
+; ACSP  Install Section
+;*****************************************
+[Manufacturer]
+%StdMfg% = DeviceExtensions,NTARM
+
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[DeviceExtensions.NTARM]
+%ACSP.DeviceDesc% = DeviceExtension_Install, SLM1\QCOM242D
+
+[DeviceExtension_Install]
+Addreg    = ACSPReg
+CopyFiles = Drivers_Dir_24
+
+[Drivers_Dir_24]
+Bluetooth_cal_8626.acdb
+Codec_cal_8626.acdb
+General_cal_8626.acdb
+Global_cal_8626.acdb
+Handset_cal_8626.acdb
+Hdmi_cal_8626.acdb
+Headset_cal_8626.acdb
+Speaker_cal_8626.acdb
+
+[ACSPReg]
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath1 , %REG_SZ%,  "\SystemRoot\system32\Bluetooth_cal_8626.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath2 , %REG_SZ%,  "\SystemRoot\system32\Codec_cal_8626.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath3 , %REG_SZ%,  "\SystemRoot\system32\General_cal_8626.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath4 , %REG_SZ%,  "\SystemRoot\system32\Global_cal_8626.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath5 , %REG_SZ%,  "\SystemRoot\system32\Handset_cal_8626.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath6 , %REG_SZ%,  "\SystemRoot\system32\Hdmi_cal_8626.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath7 , %REG_SZ%,  "\SystemRoot\system32\Headset_cal_8626.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath8 , %REG_SZ%,  "\SystemRoot\system32\Speaker_cal_8626.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath9 , %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath10, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath11, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath12, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath13, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath14, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath15, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath16, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath17, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath18, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath19, %REG_SZ%,  ""
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath20, %REG_SZ%,  ""
+
+;-------------- Service installation
+[ACSP_Device.Services]
+AddService = ,%SPSVCINST_ASSOCSERVICE%;
+
+[Strings]
+REG_SZ                 = 0x00000000
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm"
+StdMfg                 = "Qualcomm Technologies, INC"
+DiskId1                = "ACSP Installation Disk #1"
+ACSP.DeviceDesc        = "Audio Calibration Settings Package"
+

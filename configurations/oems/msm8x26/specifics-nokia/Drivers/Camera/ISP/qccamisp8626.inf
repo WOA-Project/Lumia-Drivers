@@ -1,0 +1,78 @@
+;/*++
+;
+;Copyright (c) 2013-2014  QualComm Inc
+;
+;Module Name:
+;    qccamisp8626.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks ISP Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 04/17/2015,22.48.28.0136
+CatalogFile = qccamisp8626.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+isp.Files.NTarm_12 = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qccamisp8626.sys = 1
+
+;*****************************************
+; ISP  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = Qualcomm, NTarm
+
+[Qualcomm.NTarm]
+%ISP.DeviceDesc% = CameraISP_Device, ACPI\QCOM2432
+
+[CameraISP_Device.NT]
+CopyFiles   = isp.Files.NTarm_12
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[isp.Files.NTarm_12]
+qccamisp8626.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[CameraISP_Device.NTarm.HW]
+AddReg = CameraISP_Device_Security_Reg
+ 
+[CameraISP_Device_Security_Reg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+;-------------- Service installation
+[CameraISP_Device.NT.Services]
+AddService = qcISP,%SPSVCINST_ASSOCSERVICE%, ISP_Service_Inst
+
+; -------------- ISP driver install sections
+[ISP_Service_Inst]
+DisplayName   = %ISP.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamisp8626.sys
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm Camera ISP Installation Disk"
+ISP.SVCDESC            = "Qualcomm Camera ISP Driver"
+ISP.DeviceDesc         = "Qualcomm Camera ISP Device"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

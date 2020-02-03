@@ -1,0 +1,75 @@
+;/*=============================================================================
+;*
+;* Copyright (c) 2015 by Qualcomm Technologies, Inc.  All Rights Reserved.
+;*
+;==============================================================================*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 07/02/2015,1.0.1076.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM = QcLteCoexMgr8994.arm.cat
+CatalogFile.NTARM64 = QcLteCoexMgr8994.arm64.cat
+
+[DestinationDirs]
+Drivers_Dir_12 = 12
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+QcLteCoexMgr8994.sys = 1,arm
+
+[SourceDisksFiles.ARM64]
+QcLteCoexMgr8994.sys = 1,arm64
+
+;*****************************************
+; Lte Coexistence Manager Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM,NTARM64
+
+[Standard.NTARM]
+%COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
+
+[Standard.NTARM64]
+%COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
+
+[COEX_Device.NT]
+CopyFiles = Drivers_Dir_12
+
+[Drivers_Dir_12]
+QcLteCoexMgr8994.sys
+
+;-------------- Service installation
+[COEX_Device.NT.Services]
+AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst
+
+; -------------- COEX driver install sections
+[COEX_Service_Inst]
+DisplayName   = %COEX.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 1               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\QcLteCoexMgr8994.sys
+
+[COEX_Device.NT.Wdf]
+KmdfService = COEX, COEX_wdfsect
+
+[COEX_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QUALCOMM               = "Qualcomm, Inc"
+DiskId1                = "Qualcomm WWAN Coexistence Manager Installation Disk"
+COEX.DeviceDesc        = "Qualcomm WWAN Coexistence Manager"
+COEX.SVCDESC           = "Qualcomm WWAN Coexistence Manager"
+

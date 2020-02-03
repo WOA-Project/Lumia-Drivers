@@ -1,0 +1,81 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    SMD.INF
+;
+;Abstract:
+;    INF file for installing the SMD Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qcsmd8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcsmd8960.sys = 1
+
+[Manufacturer]
+%Qualcomm% = Standard,NTARM
+
+[Standard.NTARM]         
+%SMD.DeviceDesc% = SMD_Device, ACPI\QCOM2014
+
+[SMD_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[SMD_Device.NT.HW]
+AddReg = SMDACL
+
+[SMDACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ; Built-in Admins (BA), Local System (SY)
+
+[Drivers_Dir]
+qcsmd8960.sys
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[SMD_Device.NT.Services]
+AddService = qcSMD,%SPSVCINST_ASSOCSERVICE%, SMD_Service_Inst
+
+; -------------- SMD driver install sections
+[SMD_Service_Inst]
+DisplayName   = %SMD.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcsmd8960.sys
+
+[SMD_Device.NT.Wdf]
+KmdfService = qcSMD, SMD_wdfsect
+[SMD_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "Qualcomm Shared Memory Port Device Installation Disk"
+SMD.DeviceDesc         = "Qualcomm Shared Memory Port Device"
+SMD.SVCDESC            = "Qualcomm Shared Memory Port Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

@@ -1,0 +1,299 @@
+; SynapticsTouch.INF
+; Copyright (c) 2000,2011 Microsoft Corporation
+; Copyright (c) 2018,2019 Bingxing Wang
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %MSFT%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5C}
+DriverVer   = 11/09/2019,1.0.0.0
+CatalogFile = tesla_SynapticsTouch.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %Installation_Disk%,,,""
+
+[SourceDisksFiles]
+
+;*****************************************
+; TchDriver client driver Install Section
+;*****************************************
+
+[TchDriver_Device.NT.CopyFiles]
+
+[Manufacturer]
+%MSFT% = DeviceExtensions,NTarm
+
+[DeviceExtensions.NTarm]
+%TchDriver_Device_Desc% = DeviceExtension_Install, ACPI\NOKIA_TOUCH
+
+[DeviceExtension_Install]
+AddReg    = CapButtons.NT.HW.AddReg
+AddReg    = PowerConfig.NT.HW.AddReg
+AddReg    = Configuration.NT.HW.AddReg
+AddReg    = Resolutions.NT.HW.AddReg
+AddReg    = DisplaySize.NT.HW.AddReg
+AddReg    = ButtonBacklights.NT.HW.AddReg
+AddReg    = LegacyTouchScaling.NT.HW.AddReg
+CopyFiles = TchDriver_Device.NT.CopyFiles
+
+[LegacyTouchScaling.NT.HW.AddReg]
+HKR, , "LegacyTouchScaling", 0x00010001,   0x0
+
+[CapButtons.NT.HW.AddReg]
+HKLM, "SYSTEM\TOUCH\BUTTONS"  , "Count", 0x10001,  0x3
+HKLM, "SYSTEM\TOUCH\BUTTONS\0", "Name" , 0x0    ,  "Back"
+HKLM, "SYSTEM\TOUCH\BUTTONS\0", "VKey" , 0x10001,  0x1B
+HKLM, "SYSTEM\TOUCH\BUTTONS\1", "Name" , 0x0    ,  "Start"
+HKLM, "SYSTEM\TOUCH\BUTTONS\1", "VKey" , 0x10001,  0x71
+HKLM, "SYSTEM\TOUCH\BUTTONS\2", "Name" , 0x0    ,  "Search"
+HKLM, "SYSTEM\TOUCH\BUTTONS\2", "VKey" , 0x10001,  0x72
+
+[PowerConfig.NT.HW.AddReg]
+HKR, , "EnhancedPowerManagementEnabled"   , %REG_DWORD%,   0
+HKR, , "EnhancedPowerManagementUseMonitor", %REG_DWORD%,   0
+
+[Configuration.NT.HW.AddReg]
+HKLM, "%Configuration%"  , "DeviceId"                           , 0x10001,  0xA
+HKLM, "%Configuration%"  , "ControllerType"                     , 0x10001,  0xDAE
+HKLM, "%Configuration%"  , "ImprovedTouchSupported"             , 0x10001,  0x1
+HKLM, "%Configuration%"  , "WakeupGestureSupported"             , 0x10001,  0x1
+HKLM, "%Configuration%"  , "ChargerDetectionSupported"          , 0x10001,  0x1
+HKLM, "%Configuration%"  , "DoubleTapMaxTapTime10ms"            , 0x10001,  0x23
+HKLM, "%Configuration%"  , "DoubleTapMaxTapDistance100um"       , 0x10001,  0x32
+HKLM, "%Configuration%"  , "DoubleTapDeadZoneWidth100um"        , 0x10001,  0x32
+HKLM, "%Configuration%"  , "DoubleTapDeadZoneHeight100um"       , 0x10001,  0x32
+HKLM, "%Configuration%"  , "VendorCount"                        , 0x10001,  0x4
+HKLM, "%Configuration%"  , "Vendor00"                           , 0x10001,  0x0
+HKLM, "%Configuration%"  , "Vendor01"                           , 0x10001,  0xB
+HKLM, "%Configuration%"  , "Vendor02"                           , 0x10001,  0xC
+HKLM, "%Configuration%"  , "Vendor03"                           , 0x10001,  0xD
+HKLM, "%Configuration%"  , "Revision00"                         , 0x10001,  0xFF
+HKLM, "%Configuration%"  , "Revision01"                         , 0x10001,  0xFF
+HKLM, "%Configuration%"  , "Revision02"                         , 0x10001,  0xFF
+HKLM, "%Configuration%"  , "Revision03"                         , 0x10001,  0xFF
+HKLM, "%Configuration%"  , "ReprogramFw00"                      , 0x10001,  0x79
+HKLM, "%Configuration%"  , "ReprogramFw01"                      , 0x10001,  0x64
+HKLM, "%Configuration%"  , "ReprogramFw02"                      , 0x10001,  0x83
+HKLM, "%Configuration%"  , "ReprogramFw03"                      , 0x10001,  0x83
+HKLM, "%Configuration%"  , "ForceFlash"                         , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor00ProductId0"                 , 0x10001,  0x50
+HKLM, "%Configuration%"  , "Vendor00ProductId1"                 , 0x10001,  0x4C
+HKLM, "%Configuration%"  , "Vendor00ProductId2"                 , 0x10001,  0x47
+HKLM, "%Configuration%"  , "Vendor00ProductId3"                 , 0x10001,  0x30
+HKLM, "%Configuration%"  , "Vendor00ProductId4"                 , 0x10001,  0x33
+HKLM, "%Configuration%"  , "Vendor00ProductId5"                 , 0x10001,  0x32
+HKLM, "%Configuration%"  , "Vendor00ProductId6"                 , 0x10001,  0x39
+HKLM, "%Configuration%"  , "Vendor00ProductId7"                 , 0x10001,  0x2D
+HKLM, "%Configuration%"  , "Vendor00ProductId8"                 , 0x10001,  0x30
+HKLM, "%Configuration%"  , "Vendor00ProductId9"                 , 0x10001,  0x31
+HKLM, "%Configuration%"  , "Vendor01ProductId0"                 , 0x10001,  0x50
+HKLM, "%Configuration%"  , "Vendor01ProductId1"                 , 0x10001,  0x4C
+HKLM, "%Configuration%"  , "Vendor01ProductId2"                 , 0x10001,  0x47
+HKLM, "%Configuration%"  , "Vendor01ProductId3"                 , 0x10001,  0x30
+HKLM, "%Configuration%"  , "Vendor01ProductId4"                 , 0x10001,  0x33
+HKLM, "%Configuration%"  , "Vendor01ProductId5"                 , 0x10001,  0x32
+HKLM, "%Configuration%"  , "Vendor01ProductId6"                 , 0x10001,  0x39
+HKLM, "%Configuration%"  , "Vendor01ProductId7"                 , 0x10001,  0x2D
+HKLM, "%Configuration%"  , "Vendor01ProductId8"                 , 0x10001,  0x46
+HKLM, "%Configuration%"  , "Vendor01ProductId9"                 , 0x10001,  0x46
+HKLM, "%Configuration%"  , "Vendor02ProductId0"                 , 0x10001,  0x50
+HKLM, "%Configuration%"  , "Vendor02ProductId1"                 , 0x10001,  0x4C
+HKLM, "%Configuration%"  , "Vendor02ProductId2"                 , 0x10001,  0x47
+HKLM, "%Configuration%"  , "Vendor02ProductId3"                 , 0x10001,  0x30
+HKLM, "%Configuration%"  , "Vendor02ProductId4"                 , 0x10001,  0x33
+HKLM, "%Configuration%"  , "Vendor02ProductId5"                 , 0x10001,  0x32
+HKLM, "%Configuration%"  , "Vendor02ProductId6"                 , 0x10001,  0x39
+HKLM, "%Configuration%"  , "Vendor02ProductId7"                 , 0x10001,  0x2D
+HKLM, "%Configuration%"  , "Vendor02ProductId8"                 , 0x10001,  0x30
+HKLM, "%Configuration%"  , "Vendor02ProductId9"                 , 0x10001,  0x33
+HKLM, "%Configuration%"  , "Vendor03ProductId0"                 , 0x10001,  0x50
+HKLM, "%Configuration%"  , "Vendor03ProductId1"                 , 0x10001,  0x4C
+HKLM, "%Configuration%"  , "Vendor03ProductId2"                 , 0x10001,  0x47
+HKLM, "%Configuration%"  , "Vendor03ProductId3"                 , 0x10001,  0x30
+HKLM, "%Configuration%"  , "Vendor03ProductId4"                 , 0x10001,  0x33
+HKLM, "%Configuration%"  , "Vendor03ProductId5"                 , 0x10001,  0x32
+HKLM, "%Configuration%"  , "Vendor03ProductId6"                 , 0x10001,  0x39
+HKLM, "%Configuration%"  , "Vendor03ProductId7"                 , 0x10001,  0x2D
+HKLM, "%Configuration%"  , "Vendor03ProductId8"                 , 0x10001,  0x30
+HKLM, "%Configuration%"  , "Vendor03ProductId9"                 , 0x10001,  0x34
+HKLM, "%Configuration%"  , "Vendor00IncludeHighResTest"         , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor00HighResMaxRxLimit"          , 0x10001,  0x226
+HKLM, "%Configuration%"  , "Vendor00HighResMaxTxLimit"          , 0x10001,  0x1C2
+HKLM, "%Configuration%"  , "Vendor00HighResMinImageLimit"       , 0x10001,  0xFFFFFE70
+HKLM, "%Configuration%"  , "Vendor00IncludeBaselineMinMaxTest"  , 0x10001,  0x0
+HKLM, "%Configuration%"  , "Vendor00BaselineMinMaxMinPixelLimit", 0x10001,  0x0
+HKLM, "%Configuration%"  , "Vendor00BaselineMinMaxMaxPixelLimit", 0x10001,  0x157C
+HKLM, "%Configuration%"  , "Vendor00IncludeFullBaselineTest"    , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor00RxAmount"                   , 0x10001,  0x1B
+HKLM, "%Configuration%"  , "Vendor00TxAmount"                   , 0x10001,  0xE
+HKLM, "%Configuration%"  , "Vendor00RxElectrodeMaskTouch2D"     , 0x10001,  0xFFFFFF
+HKLM, "%Configuration%"  , "Vendor00TxElectrodeMaskTouch2D"     , 0x10001,  0x1FFF
+HKLM, "%Configuration%"  , "Vendor00RxElectrodeMaskButtons"     , 0x10001,  0x7000000
+HKLM, "%Configuration%"  , "Vendor00TxElectrodeMaskButtons"     , 0x10001,  0x2000
+HKLM, "%Configuration%"  , "Vendor00FullBaselineButton0Min"     , 0x10001,  0xB54
+HKLM, "%Configuration%"  , "Vendor00FullBaselineButton0Max"     , 0x10001,  0x14B4
+HKLM, "%Configuration%"  , "Vendor00FullBaselineButton1Min"     , 0x10001,  0xB54
+HKLM, "%Configuration%"  , "Vendor00FullBaselineButton1Max"     , 0x10001,  0x14B4
+HKLM, "%Configuration%"  , "Vendor00FullBaselineButton2Min"     , 0x10001,  0xB54
+HKLM, "%Configuration%"  , "Vendor00FullBaselineButton2Max"     , 0x10001,  0x14B4
+HKLM, "%Configuration%"  , "Vendor00IncludeAbsSenseRawCapTest"  , 0x10001,  0x0
+HKLM, "%Configuration%"  , "Vendor00AbsSenseRawCapTxRxStart"    , 0x10001,  0xE
+HKLM, "%Configuration%"  , "Vendor00AbsSenseRawCapTxRxEnd"      , 0x10001,  0x25
+HKLM, "%Configuration%"  , "Vendor00AbsSenseRawCapMinLimit"     , 0x10001,  0x3E8
+HKLM, "%Configuration%"  , "Vendor00AbsSenseRawCapMaxLimit"     , 0x10001,  0xBB8
+HKLM, "%Configuration%"  , "Vendor01IncludeHighResTest"         , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor01HighResMaxRxLimit"          , 0x10001,  0x226
+HKLM, "%Configuration%"  , "Vendor01HighResMaxTxLimit"          , 0x10001,  0x1C2
+HKLM, "%Configuration%"  , "Vendor01HighResMinImageLimit"       , 0x10001,  0xFFFFFE70
+HKLM, "%Configuration%"  , "Vendor01IncludeBaselineMinMaxTest"  , 0x10001,  0x0
+HKLM, "%Configuration%"  , "Vendor01BaselineMinMaxMinPixelLimit", 0x10001,  0x0
+HKLM, "%Configuration%"  , "Vendor01BaselineMinMaxMaxPixelLimit", 0x10001,  0x157C
+HKLM, "%Configuration%"  , "Vendor01IncludeFullBaselineTest"    , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor01RxAmount"                   , 0x10001,  0x1B
+HKLM, "%Configuration%"  , "Vendor01TxAmount"                   , 0x10001,  0xE
+HKLM, "%Configuration%"  , "Vendor01RxElectrodeMaskTouch2D"     , 0x10001,  0xFFFFFF
+HKLM, "%Configuration%"  , "Vendor01TxElectrodeMaskTouch2D"     , 0x10001,  0x1FFF
+HKLM, "%Configuration%"  , "Vendor01RxElectrodeMaskButtons"     , 0x10001,  0x7000000
+HKLM, "%Configuration%"  , "Vendor01TxElectrodeMaskButtons"     , 0x10001,  0x2000
+HKLM, "%Configuration%"  , "Vendor01FullBaselineButton0Min"     , 0x10001,  0xB54
+HKLM, "%Configuration%"  , "Vendor01FullBaselineButton0Max"     , 0x10001,  0x14B4
+HKLM, "%Configuration%"  , "Vendor01FullBaselineButton1Min"     , 0x10001,  0xB54
+HKLM, "%Configuration%"  , "Vendor01FullBaselineButton1Max"     , 0x10001,  0x14B4
+HKLM, "%Configuration%"  , "Vendor01FullBaselineButton2Min"     , 0x10001,  0xB54
+HKLM, "%Configuration%"  , "Vendor01FullBaselineButton2Max"     , 0x10001,  0x14B4
+HKLM, "%Configuration%"  , "Vendor01IncludeAbsSenseRawCapTest"  , 0x10001,  0x0
+HKLM, "%Configuration%"  , "Vendor01AbsSenseRawCapTxRxStart"    , 0x10001,  0xE
+HKLM, "%Configuration%"  , "Vendor01AbsSenseRawCapTxRxEnd"      , 0x10001,  0x25
+HKLM, "%Configuration%"  , "Vendor01AbsSenseRawCapMinLimit"     , 0x10001,  0x3E8
+HKLM, "%Configuration%"  , "Vendor01AbsSenseRawCapMaxLimit"     , 0x10001,  0xBB8
+HKLM, "%Configuration%"  , "Vendor02IncludeHighResTest"         , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor02HighResMaxRxLimit"          , 0x10001,  0x1C2
+HKLM, "%Configuration%"  , "Vendor02HighResMaxTxLimit"          , 0x10001,  0x1C2
+HKLM, "%Configuration%"  , "Vendor02HighResMinImageLimit"       , 0x10001,  0xFFFFFE70
+HKLM, "%Configuration%"  , "Vendor02IncludeBaselineMinMaxTest"  , 0x10001,  0x0
+HKLM, "%Configuration%"  , "Vendor02BaselineMinMaxMinPixelLimit", 0x10001,  0x39B
+HKLM, "%Configuration%"  , "Vendor02BaselineMinMaxMaxPixelLimit", 0x10001,  0x91A
+HKLM, "%Configuration%"  , "Vendor02IncludeFullBaselineTest"    , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor02RxAmount"                   , 0x10001,  0x1B
+HKLM, "%Configuration%"  , "Vendor02TxAmount"                   , 0x10001,  0xE
+HKLM, "%Configuration%"  , "Vendor02RxElectrodeMaskTouch2D"     , 0x10001,  0xFFFFFF
+HKLM, "%Configuration%"  , "Vendor02TxElectrodeMaskTouch2D"     , 0x10001,  0x1FFF
+HKLM, "%Configuration%"  , "Vendor02RxElectrodeMaskButtons"     , 0x10001,  0x7000000
+HKLM, "%Configuration%"  , "Vendor02TxElectrodeMaskButtons"     , 0x10001,  0x2000
+HKLM, "%Configuration%"  , "Vendor02FullBaselineButton0Min"     , 0x10001,  0xA71
+HKLM, "%Configuration%"  , "Vendor02FullBaselineButton0Max"     , 0x10001,  0x1365
+HKLM, "%Configuration%"  , "Vendor02FullBaselineButton1Min"     , 0x10001,  0xA6A
+HKLM, "%Configuration%"  , "Vendor02FullBaselineButton1Max"     , 0x10001,  0x1357
+HKLM, "%Configuration%"  , "Vendor02FullBaselineButton2Min"     , 0x10001,  0xA55
+HKLM, "%Configuration%"  , "Vendor02FullBaselineButton2Max"     , 0x10001,  0x132F
+HKLM, "%Configuration%"  , "Vendor02IncludeAbsSenseRawCapTest"  , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor02AbsSenseRawCapTxRxStart"    , 0x10001,  0xE
+HKLM, "%Configuration%"  , "Vendor02AbsSenseRawCapTxRxEnd"      , 0x10001,  0x25
+HKLM, "%Configuration%"  , "Vendor02AbsSenseRawCapMinLimit"     , 0x10001,  0x3E8
+HKLM, "%Configuration%"  , "Vendor02AbsSenseRawCapMaxLimit"     , 0x10001,  0x4E20
+HKLM, "%Configuration%"  , "Vendor03IncludeHighResTest"         , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor03HighResMaxRxLimit"          , 0x10001,  0x1C2
+HKLM, "%Configuration%"  , "Vendor03HighResMaxTxLimit"          , 0x10001,  0x1C2
+HKLM, "%Configuration%"  , "Vendor03HighResMinImageLimit"       , 0x10001,  0xFFFFFE70
+HKLM, "%Configuration%"  , "Vendor03IncludeBaselineMinMaxTest"  , 0x10001,  0x0
+HKLM, "%Configuration%"  , "Vendor03BaselineMinMaxMinPixelLimit", 0x10001,  0x39B
+HKLM, "%Configuration%"  , "Vendor03BaselineMinMaxMaxPixelLimit", 0x10001,  0x91A
+HKLM, "%Configuration%"  , "Vendor03IncludeFullBaselineTest"    , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor03RxAmount"                   , 0x10001,  0x1B
+HKLM, "%Configuration%"  , "Vendor03TxAmount"                   , 0x10001,  0xE
+HKLM, "%Configuration%"  , "Vendor03RxElectrodeMaskTouch2D"     , 0x10001,  0xFFFFFF
+HKLM, "%Configuration%"  , "Vendor03TxElectrodeMaskTouch2D"     , 0x10001,  0x1FFF
+HKLM, "%Configuration%"  , "Vendor03RxElectrodeMaskButtons"     , 0x10001,  0x7000000
+HKLM, "%Configuration%"  , "Vendor03TxElectrodeMaskButtons"     , 0x10001,  0x2000
+HKLM, "%Configuration%"  , "Vendor03FullBaselineButton0Min"     , 0x10001,  0xA71
+HKLM, "%Configuration%"  , "Vendor03FullBaselineButton0Max"     , 0x10001,  0x1365
+HKLM, "%Configuration%"  , "Vendor03FullBaselineButton1Min"     , 0x10001,  0xA6A
+HKLM, "%Configuration%"  , "Vendor03FullBaselineButton1Max"     , 0x10001,  0x1357
+HKLM, "%Configuration%"  , "Vendor03FullBaselineButton2Min"     , 0x10001,  0xA55
+HKLM, "%Configuration%"  , "Vendor03FullBaselineButton2Max"     , 0x10001,  0x132F
+HKLM, "%Configuration%"  , "Vendor03IncludeAbsSenseRawCapTest"  , 0x10001,  0x1
+HKLM, "%Configuration%"  , "Vendor03AbsSenseRawCapTxRxStart"    , 0x10001,  0xE
+HKLM, "%Configuration%"  , "Vendor03AbsSenseRawCapTxRxEnd"      , 0x10001,  0x25
+HKLM, "%Configuration%"  , "Vendor03AbsSenseRawCapMinLimit"     , 0x10001,  0x3E8
+HKLM, "%Configuration%"  , "Vendor03AbsSenseRawCapMaxLimit"     , 0x10001,  0x4E20
+
+HKLM, "%FFConfiguration%", "WriteF01FullConfig"                 , 0x10001,  0x0
+HKLM, "%FFConfiguration%", "WriteF11FullConfig"                 , 0x10001,  0x0
+HKLM, "%FFConfiguration%", "WriteClippingValues"                , 0x10001,  0x0
+HKLM, "%FFConfiguration%", "WriteButtonThresholds"              , 0x10001,  0x0
+HKLM, "%FFConfiguration%", "WriteF51Config"                     , 0x10001,  0x0
+HKLM, "%FFConfiguration%", "WriteF54Config"                     , 0x10001,  0x0
+HKLM, "%FFConfiguration%", "WriteButtonDozeThreshold"           , 0x10001,  0x0
+HKLM, "%FFConfiguration%", "DisableDozeMode"                    , 0x10001,  0x0
+HKLM, "%FFConfiguration%", "EnableWakeupGesture"                , 0x10001,  0x1
+HKLM, "%FFConfiguration%", "BackButton"                         , 0x10001,  0x1
+HKLM, "%FFConfiguration%", "StartButton"                        , 0x10001,  0x0
+HKLM, "%FFConfiguration%", "SearchButton"                       , 0x10001,  0x2
+
+[Resolutions.NT.HW.AddReg]
+HKLM, "%ScreenProps%", "TouchSwapAxes"               , 0x10001,  0x0
+HKLM, "%ScreenProps%", "TouchInvertXAxis"            , 0x10001,  0x0
+HKLM, "%ScreenProps%", "TouchInvertYAxis"            , 0x10001,  0x0
+HKLM, "%ScreenProps%", "TouchPhysicalWidth"          , 0x10001,  0x2D0
+HKLM, "%ScreenProps%", "TouchPhysicalHeight"         , 0x10001,  0x500
+HKLM, "%ScreenProps%", "TouchPhysicalButtonHeight"   , 0x10001,  0x0
+HKLM, "%ScreenProps%", "TouchPillarBoxWidthLeft"     , 0x10001,  0x0
+HKLM, "%ScreenProps%", "TouchPillarBoxWidthRight"    , 0x10001,  0x0
+HKLM, "%ScreenProps%", "TouchPillarBoxHeightTop"     , 0x10001,  0x0
+HKLM, "%ScreenProps%", "TouchPillarBoxHeightBottom"  , 0x10001,  0x0
+HKLM, "%ScreenProps%", "DisplayPhysicalWidth"        , 0x10001,  0x2D0
+HKLM, "%ScreenProps%", "DisplayPhysicalHeight"       , 0x10001,  0x500
+HKLM, "%ScreenProps%", "DisplayPillarBoxWidthLeft"   , 0x10001,  0x0
+HKLM, "%ScreenProps%", "DisplayPillarBoxWidthRight"  , 0x10001,  0x0
+HKLM, "%ScreenProps%", "DisplayLetterBoxHeightTop"   , 0x10001,  0x0
+HKLM, "%ScreenProps%", "DisplayLetterBoxHeightBottom", 0x10001,  0x0
+HKLM, "%ScreenProps%", "DisplayHeight10um"           , 0x10001,  0x2AF8
+HKLM, "%ScreenProps%", "DisplayWidth10um"            , 0x10001,  0x1838
+
+[DisplaySize.NT.HW.AddReg]
+HKLM, "%DisplaySize%", "DisplayHeight10um", 0x10001,  0x2AF8
+HKLM, "%DisplaySize%", "DisplayWidth10um" , 0x10001,  0x1838
+
+[ButtonBacklights.NT.HW.AddReg]
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "LedCount"          , %REG_DWORD%,  0x3
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "LedIndexList"      , 0x10000    ,  "0","1","2"
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "InactivityTimeout" , %REG_DWORD%,  0x0
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "MilliLuxRanges"    , 0x10000    ,  "100000","4294967295"
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings0", 0x10000    ,  "12","0"
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings1", 0x10000    ,  "12","0"
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings2", 0x10000    ,  "12","0"
+
+; ------------- Strings section
+[Strings]
+MSFT                   = "LumiaWoA authors"
+Manufacturer_Name      = "Synaptics"
+Installation_Disk      = "Synaptics Touch Driver Installation Disk"
+TchDriver_Device_Desc  = "Synaptics RMI4 F12 Tesla Digitizer Device"
+TchDriver_Service      = "SynapticsTouch"
+TchDriver_Service_Desc = "Synaptics RMI4 F12 Tesla Digitizer Driver Service"
+HIDKMDF_Service        = "mshidkmdf"
+
+; ------------- non-localizable strings
+Configuration          = "SYSTEM\TOUCH\SETTINGS"
+FFConfiguration        = "SYSTEM\TOUCH\SETTINGS\FF"
+ScreenProps            = "SYSTEM\TOUCH\SCREENPROPERTIES"
+DisplaySize            = "SYSTEM\TOUCH\DISPLAYPROPERTIES"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_MULTI_SZ           = 0x00010000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+

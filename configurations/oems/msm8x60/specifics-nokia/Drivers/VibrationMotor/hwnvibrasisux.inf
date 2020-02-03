@@ -1,0 +1,69 @@
+;
+; hwnvibrasisux.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = "Nokia"
+DriverVer   = 12/18/2014,18.34.39.0494
+CatalogFile = hwnvibrasisux.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+hwnvibrasisux.sys = 0
+
+[Manufacturer]
+%stdmfg% = Standard, NTARM
+
+[Standard.NTARM]
+%devicedesc% = Vibra_Device.NT,     ACPI\NOKIA_VIBRA
+
+[vibra_device.nt]
+AddReg    = DeviceReg
+CopyFiles = vibra_device_copy_files
+
+[vibra_device_copy_files]
+hwnvibrasisux.sys
+
+[DeviceReg]
+HKLM,SYSTEM\TOUCH\BUTTONS,Duration,0x00010001,0x00000001
+HKLM,SYSTEM\TOUCH\BUTTONS,Intensity,0x00010001,0x0000004B
+HKLM,SYSTEM\TOUCH\BUTTONS,Vibrate,0x00010001,0x00000001
+
+[Vibra_Device.NT.Services]
+AddService = hwnvibrasisux, 0x00000002, hwnvibrasisux_service_inst
+
+[hwnvibrasisux_service_inst]
+DisplayName    = %SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\hwnvibrasisux.sys 
+LoadOrderGroup = Extended Base
+AddReg         = hwnvibrasisux_Reg
+
+[Vibra_Device.NT.Wdf]
+KmdfService = hwnvibrasisux, hwnvibrasisux_wdfsect
+
+[hwnvibrasisux_wdfsect]
+KmdfLibraryVersion = "1.11"
+
+[hwnvibrasisux_Reg]
+HKR, , DriveAmplitude          , 0x00010001, 0x00001800
+HKR, , NrBrakeHalfPulses       , 0x00010001, 0x00000002
+HKR, , NrAccelerationHalfPulses, 0x00010001, 0x00000004
+HKR, , AccelerationAmplitude   , 0x00010001, 0x00002800
+HKR, , BrakeAmplitude          , 0x00010001, 0x00002800
+
+[Strings]
+stdmfg     = "(Standard system devices)"
+devicedesc = "SisuX vibra driver"
+SvcDesc    = "SisuX vibra driver"
+diskIns    = "SisuX vibra Installation Disk"
+

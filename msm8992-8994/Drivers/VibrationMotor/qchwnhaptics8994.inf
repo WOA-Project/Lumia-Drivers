@@ -1,0 +1,123 @@
+;/*++
+;
+;   Copyright (c) 2012-2015 Qualcomm Technologies, Inc.
+;               All Rights Reserved.
+;               Qualcomm Technologies Confidential and Proprietary.
+;
+;Module Name:
+;    QCHWNHAPTICS8994.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks HwnHaptics Driver
+;
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM   = qchwnhaptics8994.arm.cat
+CatalogFile.NTARM64 = qchwnhaptics8994.arm64.cat
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+qchwnhaptics8994.sys = 1,arm
+
+[SourceDisksFiles.ARM64]
+qchwnhaptics8994.sys = 1,arm64
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; HwnHaptics driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = Qualcomm,NTARM,NTARM64
+
+[Qualcomm.NTARM]
+%hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
+
+[Qualcomm.NTARM64]
+%hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
+
+[hwnhaptics_Device.NT]
+Copyfiles = hwnhapticsCopyFiles
+
+[hwnhapticsCopyFiles]
+qchwnhaptics8994.sys, , , 0x100,
+
+[hwnhaptics_Device.NT.HW]
+AddReg = DriverInst.NT.HW.AddReg
+AddReg = Configuration.NT.HW.AddReg
+
+[DriverInst.NT.HW.AddReg]
+HKR, Mode, "AutoResCalibMode", %REG_SZ%, "2"
+
+[Configuration.NT.HW.AddReg]
+HKR, %Configuration%, "VibType"                       , %REG_DWORD%,  0
+HKR, %Configuration%, "VibVmax100"                    , %REG_DWORD%,  0x11A
+HKR, %Configuration%, "PeakCurrentLimit"              , %REG_DWORD%,  0
+HKR, %Configuration%, "ShortCircuitDebounce"          , %REG_DWORD%,  1
+HKR, %Configuration%, "InternalPWMFreq"               , %REG_DWORD%,  1
+HKR, %Configuration%, "PWMCapacitance"                , %REG_DWORD%,  1
+HKR, %Configuration%, "SlewRate"                      , %REG_DWORD%,  1
+HKR, %Configuration%, "LRASignalType"                 , %REG_DWORD%,  0
+HKR, %Configuration%, "LRAAutoResMode"                , %REG_DWORD%,  2
+HKR, %Configuration%, "LRAAutoResHighZDuration"       , %REG_DWORD%,  1
+HKR, %Configuration%, "LRAAutoResCalibFreqZXD"        , %REG_DWORD%,  3
+HKR, %Configuration%, "InitialAutoResDelayQWD"        , %REG_DWORD%,  0x14
+HKR, %Configuration%, "AutoBrakingEnable"             , %REG_DWORD%,  1
+HKR, %Configuration%, "BrakePattern"                  , %REG_DWORD%,  0x1B
+HKR, %Configuration%, "BrakeWithMaxVoltageEnable"     , %REG_DWORD%,  0
+HKR, %Configuration%, "DirectModeAccelerationEnable"  , %REG_DWORD%,  1
+HKR, %Configuration%, "DirectModeAccelerationDuration", %REG_DWORD%,  6
+HKR, %Configuration%, "HapticsSource"                 , %REG_DWORD%,  0
+HKR, %Configuration%, "HapticsTrigger"                , %REG_DWORD%,  0
+HKR, %Configuration%, "PlayRateCode"                  , %REG_DWORD%,  0x3CF
+
+[hwnhaptics_Device.NT.Services]
+AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst
+
+[hwnhaptics_Service_Inst]
+DisplayName    = %hwnhaptics.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qchwnhaptics8994.sys
+LoadOrderGroup = Extended Base
+Tag            = 10
+
+[Strings]
+QC                     = "Qualcomm Technologies Inc"
+Configuration          = "Config"
+hwnhaptics.DeviceDesc  = "Qualcomm Haptics Device"
+hwnhaptics.SVCDESC     = "Qualcomm Haptics Driver"
+DiskId1                = "Qualcomm haptics Driver Installation Disk"
+
+; ------------- non-localizable strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_MULTI_SZ           = 0x00010000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+

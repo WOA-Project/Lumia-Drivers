@@ -1,0 +1,57 @@
+;/*++
+;
+;Copyright (c) 2012-2013  Qualcomm Technologies, Inc.
+;
+;Module Name:
+;    qcbtuart.inf
+;
+;Abstract:
+;    INF file for installing the BTFW Package for the Bluetooth UART Driver.
+;
+;Installation Notes: 
+;    
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 07/02/2015,2.3.0.6
+
+CatalogFile.NTARM   = cityman_qcbtuart8994.arm.cat
+CatalogFile.NTARM64 = cityman_qcbtuart8994.arm64.cat
+
+[DestinationDirs]
+Drivers_Dir_24 = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+nvm_tlv_3.0.bin      = 1,,
+nvm_tlv_3.2.bin      = 1,,
+rampatch_tlv_3.0.tlv = 1,,
+rampatch_tlv_3.2.tlv = 1,,
+
+[DefaultInstall.NTARM]
+CopyFiles = Drivers_Dir_24
+
+[DefaultInstall.NTARM64]
+CopyFiles = Drivers_Dir_24
+
+[Drivers_Dir_24]
+nvm_tlv_3.0.bin
+nvm_tlv_3.2.bin
+rampatch_tlv_3.0.tlv
+rampatch_tlv_3.2.tlv
+
+[Strings]
+REG_SZ                 = 0x00000000
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm"
+StdMfg                 = "Qualcomm Technologies, INC"
+DiskId1                = "BTFW Installation Disk #1"
+BTFW.DeviceDesc        = "BTFW Package"
+

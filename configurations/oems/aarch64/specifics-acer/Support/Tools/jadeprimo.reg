@@ -1,0 +1,24 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
+"Manufacturer"="Acer Inc."
+"Model"="Acer Liquid Jade Primo"
+"SupportHours"="24h/24, 7d/7"
+"SupportPhone"="TTY: 1-408-533-7700"
+"SupportURL"="https://www.acer.com/ac/"
+"Logo"="%%SystemRoot%%\System32\OEM\ACER.bmp"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\Platform\DeviceTargetingInfo]
+"PhoneFirmwareRevision"="1078.241.00000.32800"
+"PhoneHardwareRevision"=""
+"PhoneHardwareVariant"="ALS58M3G32G"
+"PhoneManufacturer"="ACERINC"
+"PhoneManufacturerDisplayName"="ACER INC."
+"PhoneManufacturerModelName"="S58xWWxGEN1"
+"PhoneMobileOperatorDisplayName"="Mobile Operator"
+"PhoneMobileOperatorName"="000-88"
+"PhoneModelName"="S58"
+"PhoneOEMSupportLink"=""
+"PhoneRadioSoftwareRevision"="25c4.00106.0001"
+"PhoneROMLanguage"="0809"
+"PhoneSOCVersion"="8992"

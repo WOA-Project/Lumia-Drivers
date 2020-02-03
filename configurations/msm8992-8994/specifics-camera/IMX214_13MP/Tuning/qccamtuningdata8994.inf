@@ -1,0 +1,177 @@
+;/*++
+;
+;Copyright (c) 2012-2013  Qualcomm Technologies, Inc.
+;
+;Module Name:
+;    qccamtuningdata.INF
+;
+;Abstract:
+;    INF file for installing the tuning data files for Camera
+;
+;Installation Notes: 
+;    
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 09/09/2015,1.0.1077.0000
+CatalogFile = qccamtuningdata.cat
+
+[DestinationDirs]
+DefaultDestDir = 16422,Qualcomm\TuningData
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+chromatix_imx214_common.dat           = 0,,
+chromatix_imx214_hfr_120.dat          = 0,,
+chromatix_imx214_hfr_120_cpp.dat      = 0,,
+chromatix_imx214_hfr_60.dat           = 0,,
+chromatix_imx214_hfr_60_cpp.dat       = 0,,
+chromatix_imx214_hfr_90.dat           = 0,,
+chromatix_imx214_hfr_90_cpp.dat       = 0,,
+chromatix_imx214_liveshot.dat         = 0,,
+chromatix_imx214_liveshot_cpp.dat     = 0,,
+chromatix_imx214_preview.dat          = 0,,
+chromatix_imx214_preview_cpp.dat      = 0,,
+chromatix_imx214_snapshot.dat         = 0,,
+chromatix_imx214_snapshot_cpp.dat     = 0,,
+chromatix_imx214_snapshot_hdr.dat     = 0,,
+chromatix_imx214_snapshot_hdr_cpp.dat = 0,,
+chromatix_imx214_video.dat            = 0,,
+chromatix_imx214_video_cpp.dat        = 0,,
+chromatix_imx214_video_hdr.dat        = 0,,
+chromatix_imx214_video_hdr_cpp.dat    = 0,,
+lc898122_camcorder.dat                = 0,,
+lc898122_camera.dat                   = 0,,
+
+;*****************************************
+; Tuning Data  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM64]
+CopyFiles = Drivers_Dir_24
+Addreg    = TUNINGDATAReg
+
+[Drivers_Dir_24]
+chromatix_imx214_common.dat
+chromatix_imx214_hfr_120.dat
+chromatix_imx214_hfr_120_cpp.dat
+chromatix_imx214_hfr_60.dat
+chromatix_imx214_hfr_60_cpp.dat
+chromatix_imx214_hfr_90.dat
+chromatix_imx214_hfr_90_cpp.dat
+chromatix_imx214_liveshot.dat
+chromatix_imx214_liveshot_cpp.dat
+chromatix_imx214_preview.dat
+chromatix_imx214_preview_cpp.dat
+chromatix_imx214_snapshot.dat
+chromatix_imx214_snapshot_cpp.dat
+chromatix_imx214_snapshot_hdr.dat
+chromatix_imx214_snapshot_hdr_cpp.dat
+chromatix_imx214_video.dat
+chromatix_imx214_video_cpp.dat
+chromatix_imx214_video_hdr.dat
+chromatix_imx214_video_hdr_cpp.dat
+lc898122_camcorder.dat
+lc898122_camera.dat
+
+[TUNINGDATAReg]
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms"              , "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode0"        , "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode0\Preview", "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode0\Video"  , "Default", 0x0,  "lc898122_camcorder.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode1"        , "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode1\Preview", "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode1\Video"  , "Default", 0x0,  "lc898122_camcorder.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode2"        , "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode2\Preview", "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode2\Video"  , "Default", 0x0,  "lc898122_camcorder.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode3"        , "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode3\Preview", "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode3\Video"  , "Default", 0x0,  "lc898122_camcorder.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode4"        , "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode4\Preview", "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode4\Video"  , "Default", 0x0,  "lc898122_camcorder.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode5"        , "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode5\Preview", "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode5\Video"  , "Default", 0x0,  "lc898122_camcorder.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode6"        , "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode6\Preview", "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode6\Video"  , "Default", 0x0,  "lc898122_camcorder.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode7"        , "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode7\Preview", "Default", 0x0,  "lc898122_camera.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixAFParms\Mode7\Video"  , "Default", 0x0,  "lc898122_camcorder.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixCPPParms"             , "Default", 0x0,  "chromatix_imx214_snapshot_cpp.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixCPPParms\Mode0"       , "Default", 0x0,  "chromatix_imx214_snapshot_cpp.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixCPPParms\Mode1"       , "Default", 0x0,  "chromatix_imx214_snapshot_cpp.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixCPPParms\Mode2"       , "Default", 0x0,  "chromatix_imx214_snapshot_cpp.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixCPPParms\Mode3"       , "Default", 0x0,  "chromatix_imx214_hfr_60_cpp.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixCPPParms\Mode4"       , "Default", 0x0,  "chromatix_imx214_hfr_90_cpp.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixCPPParms\Mode5"       , "Default", 0x0,  "chromatix_imx214_hfr_120_cpp.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixCPPParms\Mode6"       , "Default", 0x0,  "chromatix_imx214_video_hdr_cpp.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixCPPParms\Mode7"       , "Default", 0x0,  "chromatix_imx214_video_hdr_cpp.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms"                , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode0"          , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode0\LiveShot" , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode0\Preview"  , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode0\Still"    , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode0\Video"    , "Default", 0x0,  "chromatix_imx214_video.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode0\ZSL"      , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode1"          , "Default", 0x0,  "chromatix_imx214_preview.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode1\LiveShot" , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode1\Preview"  , "Default", 0x0,  "chromatix_imx214_preview.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode1\Still"    , "Default", 0x0,  "chromatix_imx214_preview.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode1\Video"    , "Default", 0x0,  "chromatix_imx214_video.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode1\ZSL"      , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode2"          , "Default", 0x0,  "chromatix_imx214_preview.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode2\LiveShot" , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode2\Preview"  , "Default", 0x0,  "chromatix_imx214_preview.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode2\Still"    , "Default", 0x0,  "chromatix_imx214_preview.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode2\Video"    , "Default", 0x0,  "chromatix_imx214_video.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode2\ZSL"      , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode3"          , "Default", 0x0,  "chromatix_imx214_hfr_60.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode3\LiveShot" , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode3\Preview"  , "Default", 0x0,  "chromatix_imx214_hfr_60.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode3\Still"    , "Default", 0x0,  "chromatix_imx214_hfr_60.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode3\Video"    , "Default", 0x0,  "chromatix_imx214_hfr_60.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode3\ZSL"      , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode4"          , "Default", 0x0,  "chromatix_imx214_hfr_90.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode4\LiveShot" , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode4\Preview"  , "Default", 0x0,  "chromatix_imx214_hfr_90.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode4\Still"    , "Default", 0x0,  "chromatix_imx214_hfr_90.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode4\Video"    , "Default", 0x0,  "chromatix_imx214_hfr_90.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode4\ZSL"      , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode5"          , "Default", 0x0,  "chromatix_imx214_hfr_120.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode5\LiveShot" , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode5\Preview"  , "Default", 0x0,  "chromatix_imx214_hfr_120.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode5\Still"    , "Default", 0x0,  "chromatix_imx214_hfr_120.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode5\Video"    , "Default", 0x0,  "chromatix_imx214_hfr_120.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode5\ZSL"      , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode6"          , "Default", 0x0,  "chromatix_imx214_video_hdr.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode6\LiveShot" , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode6\Preview"  , "Default", 0x0,  "chromatix_imx214_video_hdr.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode6\Still"    , "Default", 0x0,  "chromatix_imx214_video_hdr.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode6\Video"    , "Default", 0x0,  "chromatix_imx214_video_hdr.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode6\ZSL"      , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode7"          , "Default", 0x0,  "chromatix_imx214_snapshot_hdr.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode7\LiveShot" , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode7\Preview"  , "Default", 0x0,  "chromatix_imx214_snapshot_hdr.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode7\Still"    , "Default", 0x0,  "chromatix_imx214_snapshot_hdr.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode7\Video"    , "Default", 0x0,  "chromatix_imx214_snapshot_hdr.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixParms\Mode7\ZSL"      , "Default", 0x0,  "chromatix_imx214_snapshot.dat"
+HKLM, "SYSTEM\ControlSet001\QCCameraTuningData\RFC\ChromatixVFECommon"            , "Default", 0x0,  "chromatix_imx214_common.dat"
+
+[Strings]
+REG_SZ                 = 0x00000000
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm"
+QC                     = "Qualcomm Technologies, INC"
+DiskId1                = "Tuning Data Installation Disk #1"
+TUNINGDATA.DeviceDesc  = "TUNINGDATA Settings Package"
+

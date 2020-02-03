@@ -1,0 +1,59 @@
+;/*++
+;
+;Copyright (c) 2012-2013  Qualcomm Technologies, Inc.
+;
+;Module Name:
+;    qcdx_fw.inf
+;
+;Abstract:
+;    INF file for installing the VSS Package for the DirectX Driver.
+;
+;Installation Notes: 
+;    
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QCOM%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CB01F4D}
+DriverVer   = 07/02/2015,11.18.1067.0000
+CatalogFile = jadeprimo_qcdx_ffu8994.cat
+
+[DestinationDirs]
+Drivers_Dir_24 = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcvss8994.mbn = 1
+
+[Manufacturer]
+%StdMfg% = DeviceExtensions,NTarm64
+
+[DeviceExtensions.NTarm64]
+%CPE.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_246F
+
+[DeviceExtension_Install]
+CopyFiles = Drivers_Dir_24
+AddReg = DXReg
+
+[Drivers_Dir_24]
+qcvss8994.mbn
+
+[DXReg]
+HKLM, SYSTEM\CurrentControlSet\Services\qcSubsystemLoad\{A5FA4C42-185D-48E8-BF69-50CEAA8E0D82}, MemoryReservation     , %REG_DWORD%    , 0x00500000
+HKLM, SYSTEM\CurrentControlSet\Services\qcSubsystemLoad\{A5FA4C42-185D-48E8-BF69-50CEAA8E0D82}, MemoryAlignment       , %REG_DWORD%    , 0x00000000
+
+[Strings]
+REG_SZ                 = 0x00000000
+REG_DWORD              = 0x00010001
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm"
+StdMfg                 = "Qualcomm Technologies, INC"
+DiskId1                = "VSS Installation Disk #1"
+CPE.DeviceDesc         = "VSS Package"
+

@@ -1,0 +1,102 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    AMSS.INF 
+;
+;Abstract:
+;    INF file for installing the AMSS driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %Qualcomm%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qcamss_ffu8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+Drivers_Dir_12 = 12
+Drivers_Dir_24 = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcamss8960.sys   = 1
+qcdsp1v28960.mbn = 1
+qcdsp28960.mbn   = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; AMSS Driver Install Section
+;*****************************************
+
+[Manufacturer]
+%Qualcomm% = Standard,NTarm
+
+[Standard.NTarm]
+%AMSS.DeviceDesc% = AMSS_Device, ACPI\QCOM2026
+
+[AMSS_Device.NT]
+CopyFiles   = Drivers_Dir_12, Drivers_Dir_24
+AddProperty = WDTFSOCDeviceCategory
+AddReg      = AMSSReg
+Reboot
+
+[AMSS_Device.NT.HW]
+AddReg = AMSSACL
+
+[AMSSACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[Drivers_Dir_12]
+qcamss8960.sys
+
+[Drivers_Dir_24]
+qcdsp1v28960.mbn
+qcdsp28960.mbn
+
+[AMSSReg]
+HKR, , "AmssFwImagePath"  , %REG_SZ%, "\SystemRoot\system32\qcdsp1v18960.mbn"
+HKR, , "AmssFwImagePathV2", %REG_SZ%, "\SystemRoot\system32\qcdsp1v28960.mbn"
+HKR, , "AmssSwImagePath"  , %REG_SZ%, "\SystemRoot\system32\qcdsp28960.mbn"
+
+;-------------- Service installation
+[AMSS_Device.NT.Services]
+AddService = QCAMSS,%SPSVCINST_ASSOCSERVICE%, AMSS_Service_Inst
+
+; -------------- AMSS driver install sections
+[AMSS_Service_Inst]
+DisplayName    = %AMSS.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+LoadOrderGroup = Extended Base
+ServiceBinary  = %12%\qcamss8960.sys
+
+[AMSS_Device.NT.Wdf]
+KmdfService = QCAMSS, AMSS_wdfsect
+[AMSS_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+; non localizable
+REG_SZ                 = 0x00000000
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+; localizable
+Qualcomm               = "Qualcomm Inc."
+DiskId1                = "Qualcomm AMSS Driver Installation Disk"
+AMSS.DeviceDesc        = "Qualcomm Advanced Modem Subsystem Device"
+AMSS.SVCDESC           = "Qualcomm Advanced Modem Subsystem Driver"
+

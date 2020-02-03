@@ -1,0 +1,85 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Inc
+;
+;Module Name:
+;    qcadsprpc8994.inf
+;
+;Abstract:
+;    INF file for installing Qualcomm ADSP RPC Subsystem Driver (ADSPRPC)
+;
+;Installation Notes: 
+;Install using DISM
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM   = qcadsprpc8994.arm.cat
+CatalogFile.NTARM64 = qcadsprpc8994.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+qcadsprpc8994.sys = 1,arm
+
+[SourceDisksFiles.ARM64]
+qcadsprpc8994.sys = 1,arm64
+
+[Manufacturer]
+%QC% = QC,NTARM,NTARM64
+
+[QC.NTARM]                           ; NTARM is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+%ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
+
+[QC.NTARM64]                         ; NTARM64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+%ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
+
+[ADSPRPC_Device.NT]
+CopyFiles = Drivers_Dir
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Drivers_Dir]
+qcadsprpc8994.sys                       
+
+[ADSPRPC_Device.NT.Services]
+AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_Service_Inst
+
+[ADSPRPC_Device.NT.Wdf]
+KmdfService = QCADSPRPC, ADSPRPC_Service_kmdfInst
+
+[ADSPRPC_Service_kmdfInst]
+KmdfLibraryVersion = 1.15
+
+
+; -------------- ADSPRPC driver install sections
+[ADSPRPC_Service_Inst]
+DisplayName    = %ADSPRPC.SVCDESC%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcadsprpc8994.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Technologies, Inc."
+DiskId1                = "ADSPRPC Installation Disk"
+ADSPRPC.DeviceDesc     = "Qualcomm ADSP RPC Subsystem Driver"
+ADSPRPC.SVCDESC        = "Qualcomm ADSP RPC Subsystem Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+

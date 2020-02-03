@@ -1,0 +1,133 @@
+;/*++
+;
+;Copyright (c) 2013 by Qualcomm Technologies, Inc. All Rights Reserved.
+;
+;Module Name:
+;    qcSensors8994.inf 
+;
+;Abstract:
+;    INF file for installing the Qualcomm Sensor Collection Driver
+;
+;--*/
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
+Provider    = %ManufacturerName%
+DriverVer   = 07/02/2015,1.0.1057.0
+CatalogFile = qcSensors8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+;12 == Windows\System32\Drivers\UMDF
+SensorDriverCopy = 12,UMDF
+UMDriverCopy     = 11
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,""
+
+[SourceDisksFiles]
+qcSensors8994.dll          = 1,,
+qcSensor1UM8994.dll        = 1,,
+
+[Manufacturer]
+%ManufacturerName% = Sensor_Device,NTARM64
+
+;*******************************
+; qcSensors Install Section
+;*******************************
+
+[Sensor_Device.NTARM64]
+%DevDesc% = Sensor_Inst, ACPI\QCOM2495
+
+;---------------- copy files
+
+[Sensor_Inst.NT]
+CopyFiles = SensorDriverCopy,UMDriverCopy
+AddReg    = WdfExt_AddReg,DisableHpf_AddReg
+
+[SensorDriverCopy]
+qcSensors8994.dll
+
+[UMDriverCopy]
+qcSensor1UM8994.dll
+
+[Sensor_Inst.NT.HW]
+AddReg = Sensor_Inst_SecurityAddReg
+
+;-------------- Service installation
+[Sensor_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %WudfRdDisplayName%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\WUDFRd.sys
+
+;-------------- WDF specific section
+
+[Sensor_Inst.NT.Wdf]
+UmdfService              = qcSensors, qcSensors_Install
+UmdfServiceOrder         = qcSensors
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+UmdfHostProcessSharing   = ProcessSharingDisabled
+
+[qcSensors_Install]
+UmdfLibraryVersion = 2.15.0
+ServiceBinary      = %12%\UMDF\qcSensors8994.dll
+UmdfExtensions     = SensorsCx0102
+
+[WdfExt_AddReg]
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters", "23", 0x1, \
+	  01,01,00,00,00,00,00,00,00,00,00,00,00,00,00,00,ce,f3,6a,90,5e,4f,49,8f,81,19,b6,89,af,4a,aa,21,a0,86,01,00,30,75,00,00,05,00,e8,03,ff,ff,40,00,ff,ff,\
+	  00,68,01,00,00,00,d0,00,00,00,00,00,00,00,ce,f3,6a,90,5e,4f,49,8f,81,19,b6,89,af,4a,aa,21,a0,86,01,00,b8,88,00,00,05,00,f2,03,ff,ff,40,00,ff,ff,0a,68,\
+	  03,00,00,00,d0,00,00,00,00,00,00,00,cb,8d,b3,85,b9,2b,a4,a7,67,e7,81,21,6a,1b,d0,f0,64,00,00,00,64,00,00,00,05,00,fc,03,ff,ff,1a,00,ff,ff,14,0c,02,00,\
+	  00,00,00,00,00,00,00,00,00,00,8d,81,24,5e,69,2d,45,ad,bc,13,d6,3e,db,69,17,61,98,3a,00,00,c0,d4,01,00,05,00,ff,ff,ff,ff,4a,00,ff,ff,1e,5c,07,00,00,00,\
+	  40,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,ff,ff,ff,ff,ff,ff,ff,ff,ff,ff,00,00,00,00,40,00,\
+	  00,00,00,00,00,00
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters", "31", 0x1, 01,00,17,00,18,00,ff,ff,ff,ff,ff,ff
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag", "ConfigVersion", 0x10001, 0x1
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "Algorithm", 0x10001, 0x3
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "E11", 0x10001, 0x28e1
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "E12", 0x10001, 0x1e9
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "E13", 0x10001, 0xffffffb5
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "E21", 0x10001, 0x116
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "E22", 0x10001, 0x1fee
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "E23", 0x10001, 0x1d5
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "E31", 0x10001, 0xffffff9d
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "E32", 0x10001, 0xfffffda2
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\0", "E33", 0x10001, 0x2d9b
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "Algorithm", 0x10001, 0x3
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E11", 0x10001, 0x28e1
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E12", 0x10001, 0x1e9
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E13", 0x10001, 0xffffffb5
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E21", 0x10001, 0x116
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E22", 0x10001, 0x1fee
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E23", 0x10001, 0x1d5
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E31", 0x10001, 0xffffff9d
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E32", 0x10001, 0xfffffda2
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E33", 0x10001, 0x2d9b
+
+
+[DisableHpf_AddReg]
+HKR, "qcSensors\HPF", DisableMsftDCOffsetFilter, 0x10001, 0x00000001 ; Disable HPF in SensorCx 
+
+[Sensor_Inst_SecurityAddReg]
+HKR, , DeviceCharacteristics, 0x10001, 0x00000100                               ; FILE_DEVICE_SECURE_OPEN
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;UD)(A;;GA;;;WD)"    ; Allow everyone to access this driver
+;HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"    ; Allow all UMDF drivers to access this driver
+
+[Strings]
+MediaDescription      = "Qualcomm Sensor Collection Installation Media"
+ManufacturerName      = "Qualcomm"
+DevDesc               = "Qualcomm Sensor Collection"
+WudfRdDisplayName     = "Windows Driver Foundation - User-mode Driver Framework Reflector"
+
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_DEMAND_START  = 3
+SERVICE_ERROR_NORMAL  = 1
+

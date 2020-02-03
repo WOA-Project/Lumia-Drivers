@@ -1,0 +1,25 @@
+;
+; upsidedowndisplaysupport.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 08/08/2019,1.0.0.0
+CatalogFile = upsidedowndisplaysupport.cat
+
+;*****************************************
+; upsidedowndisplaysupport  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM64]
+Addreg    = upsidedowndisplaysupport_reg
+
+[upsidedowndisplaysupport_reg]
+HKLM, "SYSTEM\ControlSet001\Control\GraphicsDrivers", "MonitorOrientation", 0x10001, 0x2 ; I've seen everything
+
+[Strings]
+IHV = "LumiaWoA authors"
+

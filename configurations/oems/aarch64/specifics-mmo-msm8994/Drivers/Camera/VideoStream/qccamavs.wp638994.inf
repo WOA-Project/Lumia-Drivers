@@ -1,0 +1,463 @@
+;
+; Copyright (c) 2012-2015 Qualcomm Technologies, Inc. All Rights Reserved.
+;
+; Qualcomm Proprietary and Confidential.
+; Export of this technology or software is regulated by the U.S. Government.
+; Diversion contrary to U.S. law prohibited.
+;
+;
+;Module Name:
+;    qccamavs8994.inf
+;
+;Abstract:
+;    Qualcomm pin centric Camera AVStream mini driver (qccamavs8994.sys) installation file.
+;
+
+;---------------------------------------------------------------
+;                       D D I n s t a l l
+;---------------------------------------------------------------
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = MEDIA
+ClassGUID   = %MEDIA_DEVICES_CLSID%
+Provider    = %QC%
+Catalogfile = qccamavs8994.cat
+DriverVer   = 06/07/2011,1.0.0.0
+
+[Manufacturer]
+%QC% = Qualcomm,NTARM64
+
+[Qualcomm.NTARM64]
+%qccamavs.DeviceDesc% = QCCamAvs,VIDEO\QCOM_AVStream_8994
+
+[DestinationDirs]
+QCCamAvs.Files = %SYS32_FOLDER%
+
+[SourceDisksNames]
+0 = %qccamavs.DiskName%
+
+[SourceDisksFiles]
+qccamavs8994.sys = 0,,
+
+[QCCamAvs.Files]
+qccamavs8994.sys
+
+[QCCamAvs.NT]
+CopyFiles = QCCamAvs.Files
+
+[QCCamAvs.NT.HW]
+AddReg = QCCamAvs.Reg.Security
+
+[QCCamAvs.Reg.Security]
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+;---------------------------------------------------------------
+;                       I n t e r f a c e s
+;---------------------------------------------------------------
+[QCCamAvs.NT.Interfaces]
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NT,
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NT,
+AddInterface = %KSCATEGORY_CAPTURE%,      "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NT,
+AddInterface = %KSCATEGORY_CAPTURE%,      "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NT,
+AddInterface = %KSCATEGORY_VIDEO%,        "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NT,
+AddInterface = %KSCATEGORY_VIDEO%,        "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NT,
+
+[BackSensor.CaptureInterface.NT]
+AddReg = QCCamAvs.Reg.BackSensor
+
+[FrontSensor.CaptureInterface.NT]
+AddReg = QCCamAvs.Reg.FrontSensor
+
+;---------------------------------------------------------------
+;              B a c k   S e n s o r   A d d R e g
+;---------------------------------------------------------------
+[QCCamAvs.Reg.BackSensor]
+HKR,                                        , CLSID                          ,             , %Proxy.CLSID%
+HKR,                                        , FriendlyName                   ,             , %BackSensor.FriendlyName%
+HKR,                                        , CameraPostProcessingPluginCLSID,             , %MFT0.CLSID%
+HKR,                                        , "ReferenceGUID"                , 0           , "%BackSensor.RefGuid%"
+;--------------------------------
+; Camera Profiles:  Back Sensor
+;--------------------------------
+
+HKR,                                        , "OEMCameraProfiles"            , 0           , "KSCAMERAPROFILE_HighQualityPhoto,0;KSCAMERAPROFILE_HighQualityPhoto,1;KSCAMERAPROFILE_PhotoSequence,0;KSCAMERAPROFILE_PhotoSequence,1;KSCAMERAPROFILE_VideoRecording,0;KSCAMERAPROFILE_VideoRecording,1;%OEMCAMERAPROFILE_HighFrameRate60FPS%,0;%OEMCAMERAPROFILE_HighFrameRate120FPS%,0"
+
+; [RFC] High Quality Photo[0], ImagePin, Defaults  4:3
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 0\PINNAME_IMAGE"               , "MediaCount", 0x00010001,4,
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 0\PINNAME_IMAGE"               , "Media0"    , 0,"%RES_8MP%,0,0,0x0000000000000010,0,0,0,0",                            ; 8MP         0fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 0\PINNAME_IMAGE"               , "Media1"    , 0,"%RES_5MP%,0,0,0x0000000000000010,0,0,0,0",                            ; 5MP         0fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 0\PINNAME_IMAGE"               , "Media2"    , 0,"%RES_QXGA%,0,0,0x0000000000000010,0,0,0,0",                           ; QXGA        0fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 0\PINNAME_IMAGE"               , "Media3"    , 0,"%RES_UXGA%,0,0,0x0000000000000010,0,0,0,0",                           ; UXGA        0fps
+; [RFC] High Quality Photo[0], PreviewPin, Defaults
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 0\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 0\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",                 ; SVGA         30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 0\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_720x540%,30,1,0x0000000000000000,0,0,0,0",              ; 720x540      30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 0\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_VGA%,30,1,0x0000000000000000,0,0,0,0",                  ; VGA          30fps
+; [RFC] High Quality Photo[0], CapturePin is not supported; avoid listing its media types
+
+; [RFC] High Quality Photo[1], ImagePin, Defaults  16:9
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_IMAGE"               , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_IMAGE"               , "Media0"    , 0,"%RES_5MP_16x9%,0,0,0x0000000000000010,0,0,0,0",                       ; 5MP_16X9    0fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_IMAGE"               , "Media1"    , 0,"%RES_FHD%,0,0,0x0000000000000010,0,0,0,0",                            ; FHD         0fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_IMAGE"               , "Media2"    , 0,"%RES_HD%,0,0,0x0000000000000010,0,0,0,0",                             ; HD          0fps
+; [RFC] High Quality Photo[1], PreviewPin, Defaults
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,6,
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_HD%,30,1,0x0000000000000000,0,0,0,0",                   ; HD           30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_960x540%,30,1,0x0000000000000000,0,0,0,0",              ; 960x540      30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_854x480%,30,1,0x0000000000000000,0,0,0,0",              ; 854x480      30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_VIDEO_PREVIEW"       , "Media3"    , 0,"%RES_WVGA%,30,1,0x0000000000000000,0,0,0,0",                 ; WVGA         30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_VIDEO_PREVIEW"       , "Media4"    , 0,"%RES_800x450%,30,1,0x0000000000000000,0,0,0,0",              ; 800x450      30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_VIDEO_PREVIEW"       , "Media5"    , 0,"%RES_800x448%,30,1,0x0000000000000000,0,0,0,0",              ; 800x448      30fps
+; [RFC] High Quality Photo[1], CapturePin is not supported; avoid listing its media types
+
+
+; [RFC] Photo Sequence[0], ImagePin, Defaults 4:3
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_IMAGE"               , "MediaCount", 0x00010001,4,
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_IMAGE"               , "Media0"    , 0,"%RES_8MP%,75,10,0x0000000000000010,0,0,0,0",                             ; 8MP         7.5fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_IMAGE"               , "Media1"    , 0,"%RES_5MP%,75,10,0x0000000000000010,0,0,0,0",                             ; 5MP         7.5fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_IMAGE"               , "Media2"    , 0,"%RES_QXGA%,75,10,0x0000000000000010,0,0,0,0",                            ; QXGA        7.5fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_IMAGE"               , "Media3"    , 0,"%RES_UXGA%,75,10,0x0000000000000010,0,0,0,0",                            ; UXGA        7.5fps
+; [RFC] Photo Sequence[0], PreviewPin, Defaults
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",                    ; SVGA         30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_720x540%,30,1,0x0000000000000000,0,0,0,0",                 ; 720x540      30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_VGA%,30,1,0x0000000000000000,0,0,0,0",                     ; VGA          30fps
+; [RFC] Photo Sequence[0], CapturePin is not supported; avoid listing its media types
+
+; [RFC] Photo Sequence[1], ImagePin, Defaults 16:9
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_IMAGE"               , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_IMAGE"               , "Media0"    , 0,"%RES_5MP_16x9%,75,10,0x0000000000000010,0,0,0,0",                        ; 5MP_16X9    7.5fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_IMAGE"               , "Media1"    , 0,"%RES_FHD%,75,10,0x0000000000000010,0,0,0,0",                             ; FHD         7.5fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_IMAGE"               , "Media2"    , 0,"%RES_UXGA%,75,10,0x0000000000000010,0,0,0,0",                            ; UXGA        7.5fps
+; [RFC] Photo Sequence[1], PreviewPin, Defaults
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,6,
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_HD%,30,1,0x0000000000000000,0,0,0,0",                      ; HD           30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_960x540%,30,1,0x0000000000000000,0,0,0,0",                 ; 960x540      30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_854x480%,30,1,0x0000000000000000,0,0,0,0",                 ; 854x480      30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_VIDEO_PREVIEW"       , "Media3"    , 0,"%RES_WVGA%,30,1,0x0000000000000000,0,0,0,0",                    ; WVGA         30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_VIDEO_PREVIEW"       , "Media4"    , 0,"%RES_800x450%,30,1,0x0000000000000000,0,0,0,0",                 ; 800x450      30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence         , 1\PINNAME_VIDEO_PREVIEW"       , "Media5"    , 0,"%RES_800x448%,30,1,0x0000000000000000,0,0,0,0",                 ; 800x448      30fps
+; [RFC] Photo Sequence[1], CapturePin is not supported; avoid listing its media types
+
+; [RFC] Video Recording[0], ImagePin is not supported; avoid listing its media types
+; [RFC] Video Recording[0], PreviewPin, Defaults          4:3
+HKR, "KSCAMERAPROFILE_VideoRecording        , 0\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_VideoRecording        , 0\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",                 ; SVGA         30fps
+HKR, "KSCAMERAPROFILE_VideoRecording        , 0\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_720x540%,30,1,0x0000000000000000,0,0,0,0",              ; 720x540     30fps
+HKR, "KSCAMERAPROFILE_VideoRecording        , 0\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_VGA%,30,1,0x0000000000000000,0,0,0,0",                  ; VGA         30fps
+; [RFC] Video Recording[0], CapturePin, Defaults
+HKR, "KSCAMERAPROFILE_VideoRecording        , 0\PINNAME_VIDEO_CAPTURE"       , "MediaCount", 0x00010001,2,
+HKR, "KSCAMERAPROFILE_VideoRecording        , 0\PINNAME_VIDEO_CAPTURE"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",                 ; SVGA         30fps
+; [RFC] Video Recording[0], CapturePin, DIS
+HKR, "KSCAMERAPROFILE_VideoRecording        , 0\PINNAME_VIDEO_CAPTURE"       , "Media1"    , 0,"%RES_EIS_SVGA%,30,1,0x0000000000000001,0,0,0,0",             ; EIS_SVGA     30fps
+
+; [RFC] Video Recording[1], ImagePin is not supported; avoid listing its media types
+; [RFC] Video Recording[1], PreviewPin, Defaults          16:9
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,6,
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_HD%,30,1,0x0000000000000000,0,0,0,0",                   ; HD           30fps
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_960x540%,30,1,0x0000000000000000,0,0,0,0",              ; 960x540      30fps
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_854x480%,30,1,0x0000000000000000,0,0,0,0",              ; 854x480      30fps
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_PREVIEW"       , "Media3"    , 0,"%RES_WVGA%,30,1,0x0000000000000000,0,0,0,0",                 ; WVGA         30fps
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_PREVIEW"       , "Media4"    , 0,"%RES_800x450%,30,1,0x0000000000000000,0,0,0,0",              ; 800x450      30fps
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_PREVIEW"       , "Media5"    , 0,"%RES_800x448%,30,1,0x0000000000000000,0,0,0,0",              ; 800x448      30fps
+; [RFC] Video Recording[1], CapturePin, Defaults
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_CAPTURE"       , "MediaCount", 0x00010001,2,
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_CAPTURE"       , "Media0"    , 0,"%RES_HD%,30,1,0x0000000000000000,0,0,0,0",                   ; HD           30fps
+; [RFC] Video Recording[1], CapturePin, DIS
+HKR, "KSCAMERAPROFILE_VideoRecording        , 1\PINNAME_VIDEO_CAPTURE"       , "Media1"    , 0,"%RES_EIS_HD%,30,1,0x0000000000000001,0,0,0,0",               ; EIS_HD       30fps
+
+; [RFC][Custom] High Frame Rate 60 FPS, ImagePin is not supported; avoid listing its media types
+; [RFC][Custom] High Frame Rate 60 FPS, PreviewPin, Defaults 5:3 as max supported 60 FPS is WVGA
+HKR, "%OEMCAMERAPROFILE_HighFrameRate60FPS% , 0\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,1,
+HKR, "%OEMCAMERAPROFILE_HighFrameRate60FPS% , 0\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_WVGA%,30,1,0x0000000000000000,0,0,0,0",          ; WVGA        30fps
+; [RFC][Custom] High Frame Rate FHD, CapturePin, Defaults
+HKR, "%OEMCAMERAPROFILE_HighFrameRate60FPS% , 0\PINNAME_VIDEO_CAPTURE"       , "MediaCount", 0x00010001,2,
+HKR, "%OEMCAMERAPROFILE_HighFrameRate60FPS% , 0\PINNAME_VIDEO_CAPTURE"       , "Media0"    , 0,"%RES_WVGA%,30,1,0x0000000000000000,0,0,0,0",          ; WVGA        30fps
+; [RFC][Custom] High Frame Rate FHD, CapturePin,60fps
+HKR, "%OEMCAMERAPROFILE_HighFrameRate60FPS% , 0\PINNAME_VIDEO_CAPTURE"       , "Media1"    , 0,"%RES_WVGA%,60,1,0x0000000000000000,0,0,0,0",          ; WVGA        60fps
+
+; [RFC][Custom] High Frame Rate 120 FPS, ImagePin is not supported; avoid listing its media types
+; [RFC][Custom] High Frame Rate 120 FPS, PreviewPin, Defaults 4:3 as max supported is QVGA
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,3,
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",          ; SVGA        30fps
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_720x540%,30,1,0x0000000000000000,0,0,0,0",       ; 720x540     30fps
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_VGA%,30,1,0x0000000000000000,0,0,0,0",           ; VGA         30fps
+; [RFC][Custom] High Frame Rate HD, CapturePin, Defaults
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_CAPTURE"       , "MediaCount", 0x00010001,5,
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_CAPTURE"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",          ; SVGA        30fps
+; [RFC][Custom] High Frame Rate HD, CapturePin,60fps
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_CAPTURE"       , "Media1"    , 0,"%RES_VGA%,60,1,0x0000000000000000,0,0,0,0",           ; VGA         60fps
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_CAPTURE"       , "Media2"    , 0,"%RES_QVGA%,60,1,0x0000000000000000,0,0,0,0",          ; QVGA        60fps
+; [RFC][Custom] High Frame Rate HD, CapturePin,90fps
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_CAPTURE"       , "Media3"    , 0,"%RES_QVGA%,90,1,0x0000000000000000,0,0,0,0",          ; QVGA        90fps
+; [RFC][Custom] High Frame Rate HD, CapturePin,120fps
+HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_CAPTURE"       , "Media4"    , 0,"%RES_QVGA%,120,1,0x0000000000000000,0,0,0,0",         ; QVGA       120fps
+
+
+;---------------------------------------------------------------
+;             F r o n t   S e n s o r   A d d R e g
+;---------------------------------------------------------------
+[QCCamAvs.Reg.FrontSensor]
+HKR,                                  , CLSID                          ,             , %Proxy.CLSID%
+HKR,                                  , FriendlyName                   ,             , %FrontSensor.FriendlyName%
+HKR,                                  , CameraPostProcessingPluginCLSID,             , %MFT0.CLSID%
+HKR,                                  , "ReferenceGUID"                , 0           , "%FrontSensor.RefGuid%"
+;--------------------------------
+; Camera Profiles:  Front Sensor
+;--------------------------------
+HKR,                                  , "OEMCameraProfiles"            , 0           , "KSCAMERAPROFILE_HighQualityPhoto,0;KSCAMERAPROFILE_HighQualityPhoto,1;KSCAMERAPROFILE_PhotoSequence,0;KSCAMERAPROFILE_PhotoSequence,1;KSCAMERAPROFILE_VideoRecording,0;KSCAMERAPROFILE_VideoRecording,1"
+
+; [FFC] High Quality Photo[0], ImagePin, Defaults      4:3
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 0\PINNAME_IMAGE"               , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 0\PINNAME_IMAGE"               , "Media0"    , 0,"%RES_UXGA%,0,0,0x0000000000000010,0,0,0,0",                           ; RES_UXGA       0fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 0\PINNAME_IMAGE"               , "Media1"    , 0,"%RES_4VGA%,0,0,0x0000000000000010,0,0,0,0",                           ; RES_4VGA       0fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 0\PINNAME_IMAGE"               , "Media2"    , 0,"%RES_XGA%,0,0,0x0000000000000010,0,0,0,0",                            ; RES_XGA        0fps
+; [FFC] High Quality Photo[0], PreviewPin, Defaults
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 0\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 0\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",                 ; SVGA            30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 0\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_720x540%,30,1,0x0000000000000000,0,0,0,0",              ; 720x540         30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 0\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_VGA%,30,1,0x0000000000000000,0,0,0,0",                  ; VGA             30fps
+; [FFC] High Quality Photo[0], CapturePin is not supported; avoid listing its media types
+
+; [FFC] High Quality Photo[1], ImagePin, Defaults    16:9
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_IMAGE"               , "MediaCount", 0x00010001,1,
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_IMAGE"               , "Media0"    , 0,"%RES_HD%,0,0,0x0000000000000010,0,0,0,0",                             ; HD            0fps
+; [FFC] High Quality Photo[1], PreviewPin, Defaults
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,7,
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_HD%,30,1,0x0000000000000000,0,0,0,0",                   ; HD             30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_960x720%,30,1,0x0000000000000000,0,0,0,0",              ; 960x720        30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_960x540%,30,1,0x0000000000000000,0,0,0,0",              ; 960x540        30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_VIDEO_PREVIEW"       , "Media3"    , 0,"%RES_854x480%,30,1,0x0000000000000000,0,0,0,0",              ; 854x480        30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_VIDEO_PREVIEW"       , "Media4"    , 0,"%RES_WVGA%,30,1,0x0000000000000000,0,0,0,0",                 ; WVGA           30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_VIDEO_PREVIEW"       , "Media5"    , 0,"%RES_800x450%,30,1,0x0000000000000000,0,0,0,0",              ; 800x450        30fps
+HKR, "KSCAMERAPROFILE_HighQualityPhoto, 1\PINNAME_VIDEO_PREVIEW"       , "Media6"    , 0,"%RES_800x448%,30,1,0x0000000000000000,0,0,0,0",              ; 800x448        30fps
+; [FFC] High Quality Photo[1], CapturePin is not supported; avoid listing its media types
+
+; [FFC] Photo Sequence[0], ImagePin, Defaults 4:3
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 0\PINNAME_IMAGE"               , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 0\PINNAME_IMAGE"               , "Media0"    , 0,"%RES_UXGA%,75,10,0x0000000000000010,0,0,0,0",                           ; RES_UXGA        7.5fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 0\PINNAME_IMAGE"               , "Media1"    , 0,"%RES_4VGA%,75,10,0x0000000000000010,0,0,0,0",                           ; RES_4VGA        7.5fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 0\PINNAME_IMAGE"               , "Media2"    , 0,"%RES_XGA%,75,10,0x0000000000000010,0,0,0,0",                            ; RES_XGA         7.5fps
+; [FFC] Photo Sequence[0], PreviewPin, Defaults
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 0\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 0\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",                   ; SVGA           30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 0\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_720x540%,30,1,0x0000000000000000,0,0,0,0",                ; 720x540        30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 0\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_VGA%,30,1,0x0000000000000000,0,0,0,0",                    ; VGA            30fps
+; [FFC] Photo Sequence[0], CapturePin is not supported; avoid listing its media types
+
+; [FFC] Photo Sequence[1], ImagePin, Defaults 16:9
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_IMAGE"               , "MediaCount", 0x00010001,1,
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_IMAGE"               , "Media0"    , 0,"%RES_HD%,75,10,0x0000000000000010,0,0,0,0",                             ; HD            7.5fps
+; [FFC] Photo Sequence[1], PreviewPin, Defaults
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,7,
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_HD%,30,1,0x0000000000000000,0,0,0,0",                     ; HD             30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_960x720%,30,1,0x0000000000000000,0,0,0,0",                ; 960x720        30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_960x540%,30,1,0x0000000000000000,0,0,0,0",                ; 960x540        30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "Media3"    , 0,"%RES_854x480%,30,1,0x0000000000000000,0,0,0,0",                ; 854x480        30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "Media4"    , 0,"%RES_WVGA%,30,1,0x0000000000000000,0,0,0,0",                   ; WVGA           30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "Media5"    , 0,"%RES_800x450%,30,1,0x0000000000000000,0,0,0,0",                ; 800x450        30fps
+HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "Media6"    , 0,"%RES_800x448%,30,1,0x0000000000000000,0,0,0,0",                ; 800x448        30fps
+; [FFC] Photo Sequence[1], CapturePin is not supported; avoid listing its media types
+
+
+; [FFC] Video Recording[0], ImagePin is not supported; avoid listing its media types
+; [FFC] Video Recording[0], PreviewPin, Defaults 4:3
+HKR, "KSCAMERAPROFILE_VideoRecording  , 0\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,3,
+HKR, "KSCAMERAPROFILE_VideoRecording  , 0\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",                 ; SVGA           30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 0\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_720x540%,30,1,0x0000000000000000,0,0,0,0",              ; 720x540          30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 0\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_VGA%,30,1,0x0000000000000000,0,0,0,0",                  ; VGA           30fps
+; [FFC] Video Recording[0], CapturePin, Defaults
+HKR, "KSCAMERAPROFILE_VideoRecording  , 0\PINNAME_VIDEO_CAPTURE"       , "MediaCount", 0x00010001,2,
+HKR, "KSCAMERAPROFILE_VideoRecording  , 0\PINNAME_VIDEO_CAPTURE"       , "Media0"    , 0,"%RES_SVGA%,30,1,0x0000000000000000,0,0,0,0",                 ; SVGA           30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 0\PINNAME_VIDEO_CAPTURE"       , "Media1"    , 0,"%RES_VGA%,30,1,0x0000000000000000,0,0,0,0",                  ; VGA           30fps
+
+; [FFC] Video Recording[1], ImagePin is not supported; avoid listing its media types
+; [FFC] Video Recording[1], PreviewPin, Defaults 16:9
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,6,
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_PREVIEW"       , "Media0"    , 0,"%RES_HD%,30,1,0x0000000000000000,0,0,0,0",                   ; HD           30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_PREVIEW"       , "Media1"    , 0,"%RES_960x720%,30,1,0x0000000000000000,0,0,0,0",              ; 960x720          30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_PREVIEW"       , "Media2"    , 0,"%RES_960x540%,30,1,0x0000000000000000,0,0,0,0",              ; 960x540           30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_PREVIEW"       , "Media3"    , 0,"%RES_854x480%,30,1,0x0000000000000000,0,0,0,0",              ; 854x480          30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_PREVIEW"       , "Media4"    , 0,"%RES_800x450%,30,1,0x0000000000000000,0,0,0,0",              ; 800x450          30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_PREVIEW"       , "Media5"    , 0,"%RES_800x448%,30,1,0x0000000000000000,0,0,0,0",              ; 800x448           30fps
+; [FFC] Video Recording[1], CapturePin, Defaults
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "MediaCount", 0x00010001,4,
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media0"    , 0,"%RES_HD%,30,1,0x0000000000000000,0,0,0,0",                   ; HD          30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media1"    , 0,"%RES_864x480%,30,1,0x0000000000000000,0,0,0,0",              ; 864x480           30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media2"    , 0,"%RES_854x480%,30,1,0x0000000000000000,0,0,0,0",              ; 854x480           30fps
+HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media3"    , 0,"%RES_848x480%,30,1,0x0000000000000000,0,0,0,0",              ; 848x480           30fps
+
+
+;---------------------------------------------------------------
+;                S e r v i c e s
+;---------------------------------------------------------------
+[QCCamAvs.NT.Services]
+AddService = QCCamAvs, 0x00000002, QCCamAvs.AddService
+
+[QCCamAvs.AddService]
+DisplayName   = %qccamavs.DeviceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qccamavs8994.sys
+
+;---------------------------------------------------------------
+;                S t r i n g s
+;---------------------------------------------------------------
+[Strings]
+; non-localizable
+Proxy.CLSID                          = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+MFT0.CLSID                           = "{ABC98449-3E92-4194-9457-73724461C5CF}"
+KSCATEGORY_VIDEO_CAMERA              = "{E5323777-F976-4F5B-9B55-B94699C46E44}"
+KSCATEGORY_CAPTURE                   = "{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_VIDEO                     = "{6994AD05-93EF-11D0-A3CC-00A0C9223196}"
+MEDIA_DEVICES_CLSID                  = "{4d36e96c-e325-11ce-bfc1-08002be10318}"
+SERVICE_KERNEL_DRIVER                = 1
+SERVICE_DEMAND_START                 = 3
+SERVICE_ERROR_NORMAL                 = 1
+SYS32_FOLDER                         = 12
+
+;localizable
+QC                                   = "Qualcomm"
+qccamavs.DeviceDesc                  = "Qualcomm Camera AVStream Mini Driver"
+qccamavs.DiskName                    = "Qualcomm Camera Driver"
+BackSensor.FriendlyName              = "QC Back Camera"
+FrontSensor.FriendlyName             = "QC Front Camera"
+
+; Define the sensor reference GUIDs. These must match those advertised in the driver's
+; KSFILTER_DESCRIPTOR.ReferenceGUID field
+BackSensor.RefGuid                   = "{5584F823-3830-4CFD-947F-78DE17A8B14C}"
+FrontSensor.RefGuid                  = "{4FAEAFD4-041B-4E46-85FD-400473891182}"
+
+; Camera Profile Strings Definitions
+; Define Custom profile GUIDs here
+; Ex: OEMCAMERAPROFILE_[ProfileName]  = "{GUID HERE}"
+OEMCAMERAPROFILE_HighFrameRate60FPS  = "{5958BB0B-4B0C-4D26-965F-73B482CC7302}"
+OEMCAMERAPROFILE_HighFrameRate120FPS = "{47E82A25-8210-457A-9E1A-84C3C7C19854}"
+
+; Pre-defined resolution for the MediaInfo registry string
+; These are grouped by category (EIS, padded, Square, etc), then sorted
+; by width and finally by height
+RES_13MP                             = "4160, 3120"
+RES_12MP                             = "4000, 3000"
+RES_1440x1080                        = "1440, 1080"
+RES_UHD                              = "3840, 2160"
+RES_8MP                              = "3264, 2448"
+RES_3072x2304                        = "3072, 2304"
+RES_4MP_16x9                         = "2688, 1520"
+RES_5MP                              = "2592, 1944"
+RES_5MP_16x9                         = "2592, 1456"
+RES_1440p                            = "2560, 1440"
+RES_QXGA                             = "2048, 1536"
+RES_FHD                              = "1920, 1080"
+RES_UXGA                             = "1600, 1200"
+RES_4VGA                             = "1280, 960"
+RES_HD                               = "1280, 720"
+RES_XGA                              = "1024, 768"
+RES_960X720                          = "960,  720"
+RES_960X540                          = "960,  540"
+RES_864X480                          = "864,  480"
+RES_854X480                          = "854,  480"
+RES_848X480                          = "848,  480"
+RES_SVGA                             = "800,  600"
+RES_WVGA                             = "800,  480"
+RES_800x450                          = "800,  450"
+RES_800x448                          = "800,  448"
+RES_720X540                          = "720,  540"
+RES_VGA                              = "640,  480"
+RES_CIF                              = "352,  288"
+RES_QVGA                             = "320,  240"
+RES_EIS_FHD                          = "2112, 1188"
+RES_EIS_HD                           = "1408, 792"
+RES_EIS_XGA                          = "1128, 846"
+RES_EIS_864X480                      = "952,  528"
+RES_EIS_854X480                      = "940,  528"
+RES_EIS_848X480                      = "934,  528"
+RES_EIS_SVGA                         = "880,  660"
+RES_EIS_WVGA                         = "880,  528"
+RES_EIS_VGA                          = "704,  528"
+RES_EIS_QVGA                         = "352,  264"
+RES_PAD_8MP                          = "3760, 2820"
+RES_PAD_5MP                          = "2992, 2244"
+RES_PAD_QXGA                         = "2368, 1776"
+RES_PAD_FHD                          = "2208, 1242"
+RES_PAD_HD                           = "1472, 828"
+RES_PAD_XGA                          = "1184, 888"
+RES_PAD_SVGA                         = "960,  720"
+RES_PAD_VGA                          = "768,  576"
+RES_PAD_QVGA                         = "384,  288"
+RES_SQR_9MP                          = "3104, 3104"
+RES_SQR_2MP                          = "1504, 1504"
+RES_SQR_640                          = "640,  640"
+RES_SQR_480                          = "480,  480"
+
+
+;---------------------------------------------------------------
+;       C a m e r a   P r o f i l e s   R e f e r e n c e
+;---------------------------------------------------------------
+; Below describes the format for listing each device profile:
+;    <OEMCameraProfiles List>
+;      <Profile1.Pin1.MediaCount>
+;        <Profile1.Pin1.MediaInfo0>
+;        <Profile1.Pin1.MediaInfoN>
+;      <Profile1.Pin2.MediaCount>
+;        <Profile1.Pin2.MediaInfo0>
+;        <Profile1.Pin1.MediaInfoM>
+;      <Profile2.Pin1.MediaCount>
+;        <Profile2.Pin1.MediaInfo0>
+;        <Profile2.Pin1.MediaInfoN>
+;      <Profile2.Pin2.MediaCount>
+;        <Profile2.Pin2.MediaInfo0>
+;        <Profile2.Pin1.MediaInfoM>
+;
+; -----------------------------------------------------------------------
+; <OEMCameraProfiles List>
+;
+; This list contains a semi-colon delimited list of profile GUIDs which
+; are being overwritten or new profiles which are defined in the INF but
+; not in the driver
+;
+; Format:
+;   Subkey:   <none>
+;   Key Name: OEMCameraProfiles
+;   Flags:    0
+;   Value:    "Profile1_GUID,ProfileIndex;Profile2Guid,ProfileIndex;...;ProfileNGuid,ProfileIndex"
+; -----------------------------------------------------------------------
+; <ProfileX.PinY.MediaCount>
+;
+; This entry indicates the number of media counts for PinY of ProfileX
+;
+; Format:
+;   Subkey:   [Profile GUID],[Profile Index]\[PINNAME GUID]
+;             Example: KSCAMERAPROFILE_HighQualityPhoto,0\PINNAME_IMAGE
+;   Key Name: MediaCount
+;   Flags:    0x00010001 (REG_DWORD)
+;   Value:    Count of Media Types (ie, 9)
+; -----------------------------------------------------------------------
+; <ProfileX.PinY.MediaInfoN>
+;
+; This indicates the N-th media type that the ProfileX supports for PinY.
+;
+; Format:
+;   Subkey:   [Profile GUID],[Profile Index]\[PINNAME GUID]
+;             Example: KSCAMERAPROFILE_HighQualityPhoto,2\PINNAME_IMAGE
+;   Key Name: MediaN
+;             where N is the 0-based index of the media type, ranging from
+;             [0, MediaCount-1] inclusive
+;   Flags:    0
+;   Value:    String describing the media type in the following format:
+;             "<ResolutionX>, <ResolutionY>, <MaxFrameRateNumerator>,
+;              <MaxFrameRateDenomerator>, <Capability Flags>, <Data1>,
+;              <Data2>, <Data3>, <Data4>"
+;             Example: "4000,3000,30,1,0,0,0,0,0", which is 12MP at 30fps
+;             Note: non-zero frame rate for still pin indicates Photo
+;                   Sequence is supported with that media type
+;
+;   Capability Flags are defined in ks.h:
+;          KSCAMERAPROFILE_FLAGS_VIDEOSTABLIZATION     0x0000000000000001
+;          KSCAMERAPROFILE_FLAGS_VIDEOHDR              0x0000000000000002
+;          KSCAMERAPROFILE_FLAGS_PHOTOHDR              0x0000000000000004
+;          KSCAMERAPROFILE_FLAGS_FACEDETECTION         0x0000000000000008
+;          KSCAMERAPROFILE_FLAGS_VARIABLEPHOTOSEQUENCE 0x0000000000000010
+; -----------------------------------------------------------------------
+

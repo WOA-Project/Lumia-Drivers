@@ -1,0 +1,30 @@
+;
+; APPerso.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/09/2015,1.0.1047.0000
+CatalogFile = APPerso.cat
+
+[DestinationDirs]
+APPerso.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+apperso.dll              = 0,,
+npetsec.dll              = 0,,
+
+[DefaultInstall.NTARM]
+CopyFiles = APPerso.Files
+
+[APPerso.Files]
+apperso.dll
+npetsec.dll
+
+[Strings]
+IHV = "LumiaWoA authors"

@@ -1,0 +1,89 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcslimbus.inf
+;
+;Abstract:
+;    INF file for installing the Driver Framework QC SLIMbus Master Component
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+CatalogFile = qcslimbus8960.cat
+DriverVer   = 09/26/2013,1.0.3051.0000
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+qcslimbus8960.sys = 1
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NTARM
+
+[Standard.NTARM]
+%qcslimbus.DeviceDesc% = qcslimbus_Device.NTARM,ACPI\QCOM2118
+
+[qcslimbus_Device.NTARM]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcslimbus8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+;-------------- Service installation
+[qcslimbus_Device.NTARM.Services]
+AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_Service_Inst
+
+;-------------- HW installation
+[qcslimbus_Device.NTARM.HW]
+addreg = qcslimbus
+
+[qcslimbus]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- qcslimbus driver install sections
+[qcslimbus_Service_Inst]
+DisplayName   = %qcslimbus.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcslimbus8960.sys
+
+
+[qcslimbus_Device.NTARM.Wdf]
+KmdfService = qcslimbus, qcslimbus_wdfsect
+[qcslimbus_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+ManufacturerName       = "Qualcomm Inc."
+DiskName               = "Qualcomm Slimbus Device Installation Disk"
+qcslimbus.DeviceDesc   = "Qualcomm Slimbus Device"
+qcslimbus.SVCDESC      = "Qualcomm Slimbus Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

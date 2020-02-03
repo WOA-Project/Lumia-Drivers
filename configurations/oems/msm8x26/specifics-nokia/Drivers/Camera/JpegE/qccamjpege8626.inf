@@ -1,0 +1,82 @@
+;;/*++
+;
+;Copyright (c) 2010-2012  QualComm Corporation
+;
+;Module Name:
+;    qccamjpege8626.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Camera JPEG Encoder Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 04/17/2015,22.48.28.0183
+CatalogFile = qccamjpege8626.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+[SourceDisksNames]
+0 = %Desc_x860%
+
+[SourceDisksFiles]
+qccamjpege8626.sys = 0,,
+
+;*****************************************
+; Camera JPEG Encoder Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC, NTarm
+
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[QC.NTarm]
+%JpegE.DeviceDesc% = CameraJpegE_Device, ACPI\QCOM2467
+
+[CameraJpegE_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qccamjpege8626.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[CameraJpegE_Device.NTarm.HW]
+AddReg = CameraJpegE_Device_Security_Reg
+ 
+[CameraJpegE_Device_Security_Reg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+;-------------- Service installation
+[CameraJpegE_Device.NT.Services]
+AddService = JpegE,%SPSVCINST_ASSOCSERVICE%, JpegE_Service_Inst
+
+; -------------- Jpeg Encoder driver install sections
+[JpegE_Service_Inst]
+DisplayName   = %JpegE.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamjpege8626.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QC                     = "Qualcomm"
+MSFT                   = "MicroSoft"
+JpegE.SVCDESC          = "Qualcomm Camera JPEG Encoder Service"
+ClassName              = "Qualcomm Camera JPEG Encoder Driver"
+JpegE.DeviceDesc       = "Qualcomm Camera JPEG Encoder Driver"
+Desc_x860              = "Data"
+
+

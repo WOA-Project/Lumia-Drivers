@@ -1,0 +1,81 @@
+; hwnvibrapmic.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %COMP%
+DriverVer   = 04/29/2015,13.55.54.0004
+CatalogFile = hwnvibrapmic.cat
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+hwnvibrapmic.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; Vibra_Device driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Standard,NTARM
+
+[Standard.NTARM]
+%Vibra_Device.DeviceDesc% = Vibra_Device_Inst,ACPI\NOKIA_VIBRA_PMIC
+
+[Vibra_Device_Inst.NT]
+Copyfiles = Vibra_DeviceCopyFiles
+
+[Vibra_DeviceCopyFiles]
+hwnvibrapmic.sys, , , 0x100,
+
+[Vibra_Device_Inst.NT.Services]
+AddService = hwnvibrapmic,%SPSVCINST_ASSOCSERVICE%,Vibra_Device_Service_Inst
+
+[Vibra_Device_Service_Inst]
+DisplayName    = %Vibra_Device.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\hwnvibrapmic.sys
+LoadOrderGroup = Extended base
+
+; Checks for compatibility with KMDF version
+[Vibra_Device_Service_Inst.NT.Wdf]
+KmdfService = hwnvibrapmic, Vibra_Device_Service_wdfsect
+
+[Vibra_Device_Service_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+COMP                    = "Nokia"
+Vibra_Device.SvcDesc    = "Pmic vibra driver"
+Vibra_Device.DeviceDesc = "Pmic vibra driver"
+
+;Non-Localizable Strings
+SPSVCINST_TAGTOFRONT    = 0x00000003
+SPSVCINST_ASSOCSERVICE  = 0x00000002
+SERVICE_KERNEL_DRIVER   = 1
+SERVICE_BOOT_START      = 0
+SERVICE_SYSTEM_START    = 1
+SERVICE_DEMAND_START    = 3
+SERVICE_ERROR_NORMAL    = 1
+SERVICE_ERROR_IGNORE    = 0
+SERVICE_ERROR_CRITICAL  = 3
+REG_EXPAND_SZ           = 0x00020000
+REG_DWORD               = 0x00010001
+REG_SZ                  = 0x00000000
+
+
+
+
+

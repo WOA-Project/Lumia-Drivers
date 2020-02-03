@@ -1,0 +1,70 @@
+; Copyright (C) 2012 QUALCOMM Incorporated.
+; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+;
+; Module Name:
+;
+;    HalExtQCTimer.inx
+;
+; Abstract:
+;
+;    Inf file for Qualcomm QTIMER HAL Extension
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Computer
+ClassGuid   = {4d36e966-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 07/25/2013,1.0.1032.1101
+PnPLockdown = 1
+CatalogFile = "HalExtQCWdogTimer.cat"
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SignatureAttributes]
+HalExtQCWdogTimer.dll = SignatureAttributes.HalExt
+
+[SignatureAttributes.HalExt]
+HalExt = true
+
+[DestinationDirs]
+DefaultDestDir = 11 ; DIRID_SYSTEM
+
+[SourceDisksNames]
+1 = %DISK_ID%
+
+[SourceDisksFiles]
+HalExtQCWdogTimer.dll = 1
+
+[Manufacturer]
+%MFGNAME% = DeviceList, NTARM
+
+[DeviceList.NTARM]
+%QC_TIMERS% = QC_TIMERS,  ACPI\QCOM100B
+
+[QC_TIMERS]
+AddReg    = QC_TIMERS_AddReg
+CopyFiles = QC_TIMERS_CopyFiles
+
+[QC_TIMERS_AddReg]
+HKLM, "%OSEDB%\VEN_QCOM&DEV_100B", "HALExtension", , "HalExtQCWdogTimer.dll"
+
+[QC_TIMERS_CopyFiles]
+HalExtQCWdogTimer.dll, , , 0x00001000,
+
+[QC_TIMERS.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%
+
+[Strings]
+
+;Non-localizable
+SPSVCINST_ASSOCSERVICE = 0x00000002
+OSEDB                  = "SYSTEM\CurrentControlSet\Control\OSExtensionDatabase"
+
+;Localizable
+QC                     = "Qualcomm Incorporated"
+MFGNAME                = "Qualcomm Incorporated"
+QC_TIMERS              = "Qualcomm WDOG HAL Extension"
+DISK_ID                = "Qualcomm WDOG HAL Extension Installation Disk"
+

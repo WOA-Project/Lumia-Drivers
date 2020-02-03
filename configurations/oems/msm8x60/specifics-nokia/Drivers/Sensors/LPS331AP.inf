@@ -1,0 +1,49 @@
+;
+; LPS331AP.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175d334-c371-4806-b3ba-71fd53c9258d}
+Provider    = "Nokia"
+DriverVer   = 12/18/2014,18.28.28.0629
+CatalogFile = lps331ap.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+lps331ap.sys = 0
+
+[Manufacturer]
+%comp% = Standard, NTARM
+
+[Standard.NTARM]
+%acc.devicedesc% = ACC_Inst.NT,     ACPI\LPS331AP
+
+[acc_inst.nt]
+CopyFiles = acc_inst_copy_files
+
+[acc_inst_copy_files]
+lps331ap.sys
+
+[ACC_Inst.NT.Services]
+AddService = AccLPS331AP, 0x00000002, AccLPS331AP_service_inst
+
+[AccLPS331AP_service_inst]
+DisplayName    = %ACC.SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\lps331ap.sys 
+LoadOrderGroup = Extended Base
+
+[Strings]
+acc.devicedesc = "LPS331AP Barometer Driver"
+comp           = "Nokia"
+ACC.SvcDesc    = "LPS331AP Barometer Driver"
+diskIns        = "LPS331AP Barometer Installation Disk"
+

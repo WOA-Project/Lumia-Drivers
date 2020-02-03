@@ -1,0 +1,59 @@
+;
+; gyrol3gd20s.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175d334-c371-4806-b3ba-71fd53c9258d}
+Provider    = "Nokia"
+DriverVer   = 12/18/2014,18.28.28.0613
+CatalogFile = gyrol3gd20s.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+gyrol3gd20s.sys = 0
+
+[Manufacturer]
+%comp% = Standard, NTARM
+
+[Standard.NTARM]
+%gyr.devicedesc% = GYR_Inst.NT,     ACPI\L3GD20S
+
+[gyr_inst.nt]
+CopyFiles = gyr_copy_files
+
+[gyr_copy_files]
+gyrol3gd20s.sys
+
+[GYR_Inst.NT.Services]
+AddService = GyroL3GD20S, 0x00000002, GyroL3GD20S_service_inst
+
+[GyroL3GD20S_service_inst]
+DisplayName    = %GYR.SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\gyrol3gd20s.sys 
+LoadOrderGroup = Extended Base
+AddReg         = GyroL3GD20S_Reg
+
+[GyroL3GD20S_Reg]
+HKR, Parameters, L3g4FilterEta_t    , 0x00010001, 0x000F2311
+HKR, Parameters, L3g4FilterEta_a    , 0x00010001, 0x000007F7
+HKR, Parameters, L3g4FilterBeta     , 0x00010001, 0x0000003B
+HKR, Parameters, L3g4FilterMaxOffset, 0x00010001, 0x000A0000
+HKR, Parameters, L3g4FilterFrequency, 0x00010001, 0x008C0000
+HKR, Parameters, L3g4FilterGamma    , 0x00010001, 0x0000084A
+HKR, Parameters, L3g4FilterInUse    , 0x00010001, 0x00000001
+
+[Strings]
+comp           = "Nokia"
+gyr.devicedesc = "Gyro Driver"
+GYR.SvcDesc    = "Gyro Driver"
+diskIns        = "Gyro Installation Disk"
+

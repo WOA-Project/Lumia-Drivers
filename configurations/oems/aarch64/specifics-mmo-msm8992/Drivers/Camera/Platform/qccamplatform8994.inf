@@ -1,0 +1,79 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Corporation
+;
+;Module Name:
+;    qccamplatform8994.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Camera Platform Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qccamplatform8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+0 = %DiskId%
+
+[SourceDisksFiles]
+qccamplatform8994.sys = 0
+
+;*****************************************
+; Camera Platform  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC, NTARM64
+
+[QC.NTARM64]
+%CameraPlatform.DeviceDesc% = CameraPlatform_Device, ACPI\QCOM245E
+
+[CameraPlatform_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qccamplatform8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[CameraPlatform_Device.NT.HW]
+AddReg = CameraPlatform_Device_Security_Reg
+ 
+[CameraPlatform_Device_Security_Reg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+;-------------- Service installation
+[CameraPlatform_Device.NT.Services]
+AddService = qcCameraPlatform,%SPSVCINST_ASSOCSERVICE%, CameraPlatform_Service_Inst
+
+; -------------- CameraPlatform driver install sections
+[CameraPlatform_Service_Inst]
+DisplayName   = %CameraPlatform.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamplatform8994.sys
+
+[Strings]
+;localizable
+QC                        = "Qualcomm Inc."
+CameraPlatform.DeviceDesc = "Qualcomm Camera Platform Device"
+CameraPlatform.SVCDESC    = "Qualcomm Camera Platform Service"
+DiskId                    = "Qualcomm Camera Platform Device Installation Disk"
+
+;non-localizable
+SPSVCINST_ASSOCSERVICE    = 0x00000002
+

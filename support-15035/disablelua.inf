@@ -1,0 +1,26 @@
+;
+; disablelua.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/09/2016,1.0.0.0000
+CatalogFile = disablelua.cat
+
+;*****************************************
+; disablelua  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+Addreg = disableluaReg
+
+[disableluaReg]
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "EnableLUA", 0x10001,  0x0
+
+[Strings]
+IHV = "LumiaWoA authors"
+
+

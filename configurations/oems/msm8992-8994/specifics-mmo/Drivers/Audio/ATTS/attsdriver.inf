@@ -1,0 +1,74 @@
+;
+; atts_driver.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = MMO
+DriverVer   = 01/14/2015,12.20.34.54
+CatalogFile = attsdriver.cat
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+attsdriver.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; ATTS  Install Section
+;*****************************************
+
+[Manufacturer]
+%StdMfg% = Standard,NTARM64
+
+[Standard.NTARM64]
+%DeviceDesc% = DriverInstall,ACPI\MSHW1018
+
+[DriverInstall.NT]
+CopyFiles = DriverInstall_Copy
+
+[DriverInstall.NT.Services]
+AddService = attsdriver,2,DriverInstall_Service
+
+[DriverInstall_Copy]
+attsdriver.sys
+
+[DriverInstall_Service]
+DisplayName    = %SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\attsdriver.sys
+LoadOrderGroup = Extended Base
+
+[DriverInstall.NT.HW]
+AddReg = DriverInstall.SecurityAddReg
+
+[DriverInstall.SecurityAddReg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
+HKR, , Security             ,        , "D:P(A;;GA;;;SY)(A;;GA;;;BA)"
+
+[Strings]
+;Localizable Strings
+StdMfg                = "(Standard system devices)"
+SvcDesc               = "attsdriver"
+DeviceDesc            = "attsdriver"
+
+;Non-Localizable Strings
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_DEMAND_START  = 3
+SERVICE_ERROR_NORMAL  = 1
+
+
+
+
+
+

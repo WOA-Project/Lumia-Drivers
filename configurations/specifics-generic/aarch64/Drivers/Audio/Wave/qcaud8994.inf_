@@ -1,0 +1,801 @@
+;Copyright (c) 2011 Qualcomm Inc All rights Reserved
+;Portions copyright Microsoft Corporation 1998-2000
+;
+;Module Name:
+;   QCAud.INX
+;
+;Abstract:
+;    INX file for installing WDM audio adapter driver (WaveRT based) for Qualcomm SoC
+
+[Version]
+Signature   = "$CHICAGO$"
+Class       = MEDIA
+ClassGUID   = {4d36e96c-e325-11ce-bfc1-08002be10318}
+provider    = %QCOM%
+DriverVer   = 07/02/2015,1.0.1067.0
+CatalogFile = qcaud8994.cat
+
+[SourceDisksNames]
+222 = %DiskId%
+
+[SourceDisksFiles]
+qcaud8994.sys                     = 222
+ProxyAPO.dll                      = 222
+
+[SignatureAttributes]
+qcaud8994.sys = SignatureAttributes.DRM
+ProxyAPO.dll  = SignatureAttributes.PETrust
+
+[SignatureAttributes.DRM]
+DRMLevel = 1300
+
+[SignatureAttributes.PETrust]
+PETrust = true
+
+[Manufacturer]
+%MfgName% = QUALCOMM,NTARM64
+
+[QUALCOMM.NTARM64]
+%QCAUD_A.DeviceDesc% = QCAUD_A, AUDD\QCOM2451
+
+
+[DestinationDirs]
+QCAUD_A.CopyList                  = 12 ; windows\system32\drivers
+ProxyAPO.CopyList                 = 11; windows\system32
+
+;======================================================
+;QCAUD_A 
+;======================================================
+
+[QCAUD_A.AddProperty]
+{F3E80BEF-1723-4FF2-BCC4-7F83DC5E46D4}, 2, 7, , 0
+
+[QCAUD_A.CopyList]
+qcaud8994.sys
+
+[ProxyAPO.CopyList]
+ProxyAPO.dll
+
+[QCAUD_A.AddReg]
+HKR,                                                     , AssociatedFilters   ,           , "wdmaud,redbook"
+HKR,                                                     , Driver              ,           , qcaud8994.sys
+
+HKR, Drivers                                             , SubClasses          ,           , "wave,mixer"
+
+HKR, Drivers\wave\wdmaud.drv                             , Driver              ,           , wdmaud.drv
+HKR, Drivers\mixer\wdmaud.drv                            , Driver              ,           , wdmaud.drv
+
+HKR, Drivers\wave\wdmaud.drv                             , Description         ,           , %QCAUD_A.DeviceDesc%
+HKR, Drivers\mixer\wdmaud.drv                            , Description         ,           , %QCAUD_A.DeviceDesc%
+HKR, PowerSettings                                       , ConservationIdleTime, 0x00000001, 05,00,00,00
+HKR, PowerSettings                                       , IdlePowerState      , 0x00000001, 03,00,00,00
+HKR, PowerSettings                                       , PerformanceIdleTime , 0x00000001, 05,00,00,00
+
+HKLM, %MEDIA_CATEGORIES%\%MicArray1CustomNameGUID%        , Name                ,           , %MicArray1CustomName%
+HKLM, %MEDIA_CATEGORIES%\%MicInCustomNameGUID%            , Name                ,           , %MicInCustomName%
+HKLM, %MEDIA_CATEGORIES%\%HandsetMicrophoneCustomNameGUID%, Name                ,           , %HandsetMicrophoneName%
+HKLM, %MEDIA_CATEGORIES%\%HandsetSpeakerCustomNameGUID%   , Name                ,           , %HandsetSpeakerName%
+HKLM, %MEDIA_CATEGORIES%\%CellularBD1CustomNameGUID%      , Name                ,           , %CellularBD1CustomName%
+HKLM, %MEDIA_CATEGORIES%\%CellularBD2CustomNameGUID%      , Name                ,           , %CellularBD2CustomName%
+HKLM, %MEDIA_CATEGORIES%\%FmRxCustomNameGUID%             , Name                ,           , %FmRxCustomName%
+
+[ProxyAPO.AddReg]
+; Mode effect APO COM registration
+HKCR, CLSID\%FX_MODE_CLSID%                                 ,                       ,           , %MFX_FriendlyName%
+HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  ,                       ,           , %%SystemRoot%%\system32\ProxyAPO.dll
+HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  , ThreadingModel        ,           , "Both"
+
+; Mode effect APO registration
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "FriendlyName"        ,           , %MFX_FriendlyName%
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "Copyright"           ,           , %MfgName%
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MajorVersion"        , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MinorVersion"        , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "Flags"               , 0x00010001,  0x0000000d
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MinInputConnections" , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MaxInputConnections" , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MinOutputConnections", 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MaxOutputConnections", 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MaxInstances"        , 0x00010001,  0xffffffff
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "NumAPOInterfaces"    , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "APOInterface0"       ,           , "{FD7F2B29-24D0-4B5C-B177-592C39F9CA10}"
+
+
+; Endpoint effect APO COM registration
+HKCR, CLSID\%FX_ENDPOINT_CLSID%                             ,                       ,           , %EFX_FriendlyName%
+HKCR, CLSID\%FX_ENDPOINT_CLSID%\InProcServer32              ,                       ,           , %%SystemRoot%%\system32\ProxyAPO.dll
+HKCR, CLSID\%FX_ENDPOINT_CLSID%\InProcServer32              , ThreadingModel        ,           , "Both"
+
+; Endpoint effect APO registration
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "FriendlyName"        ,           , %EFX_FriendlyName%
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "Copyright"           ,           , %MfgName%
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MajorVersion"        , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MinorVersion"        , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "Flags"               , 0x00010001,  0x0000000d
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MinInputConnections" , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MaxInputConnections" , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MinOutputConnections", 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MaxOutputConnections", 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MaxInstances"        , 0x00010001,  0xffffffff
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "NumAPOInterfaces"    , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "APOInterface0"       ,           , "{FD7F2B29-24D0-4B5C-B177-592C39F9CA10}"
+;======================================================
+; render interfaces: speaker (internal)
+;======================================================
+[QCAUD.I.WaveSpeaker]
+AddReg = QCAUD.I.WaveSpeaker.AddReg
+
+[QCAUD.I.WaveSpeaker.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveSpeaker.szPname%
+
+[QCAUD.I.TopologySpeaker]
+AddReg = QCAUD.I.TopologySpeaker.AddReg,ProxyAPO.I.Association0.AddReg
+
+[QCAUD.I.TopologySpeaker.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologySpeaker.szPname%
+
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_SPEAKER%
+
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; render interfaces: speaker (external: Headset)
+;======================================================
+[QCAUD.I.WaveSpeakerHeadset]
+AddReg = QCAUD.I.WaveSpeakerHeadset.AddReg
+[QCAUD.I.WaveSpeakerHeadset.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveSpeakerHeadset.szPname%
+
+[QCAUD.I.TopologySpeakerHeadset]
+AddReg = QCAUD.I.TopologySpeakerHeadset.AddReg,ProxyAPO.I.Association0.AddReg
+[QCAUD.I.TopologySpeakerHeadset.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologySpeakerHeadset.szPname%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_HEADSET_SPEAKERS%
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; render interfaces: HDMI (external)
+;======================================================
+[QCAUD.I.WaveHdmi]
+AddReg = QCAUD.I.WaveHdmi.AddReg
+[QCAUD.I.WaveHdmi.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveHdmi.szPname%
+
+[QCAUD.I.TopologyHdmi]
+AddReg = QCAUD.I.TopologyHdmi.AddReg
+[QCAUD.I.TopologyHdmi.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyHdmi.szPname%
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; render interfaces: cellular
+;======================================================
+[QCAUD.I.WaveCellular]
+AddReg = QCAUD.I.WaveCellular.AddReg
+
+[QCAUD.I.WaveCellular.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveCellular.szPname%
+
+[QCAUD.I.TopologyCellular]
+AddReg = QCAUD.I.TopologyCellular.AddReg
+
+[QCAUD.I.TopologyCellular.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyCellular.szPname%
+
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; capture interfaces: FM RX (internal)
+;======================================================
+[QCAUD.I.WaveFmRx]
+AddReg = QCAUD.I.WaveFmRx.AddReg
+
+[QCAUD.I.WaveFmRx.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveFmRx.szPname%
+
+[QCAUD.I.TopologyFmRx]
+AddReg = QCAUD.I.TopologyFmRx.AddReg
+
+[QCAUD.I.TopologyFmRx.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyFmRx.szPname%
+
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; capture interfaces: mic in (external: Headset)
+;======================================================
+[QCAUD.I.WaveMicHeadset]
+AddReg = QCAUD.I.WaveMicHeadset.AddReg
+[QCAUD.I.WaveMicHeadset.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveMicHeadset.szPname%
+
+[QCAUD.I.TopologyMicHeadset]
+AddReg = QCAUD.I.TopologyMicHeadset.AddReg, ProxyAPO.I.Association0.AddReg
+[QCAUD.I.TopologyMicHeadset.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyMicHeadset.szPname%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_HEADSET_MICROPHONE%
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; capture interfaces: mic in (internal)
+;======================================================
+[QCAUD.I.WaveMicIn]
+AddReg = QCAUD.I.WaveMicIn.AddReg
+[QCAUD.I.WaveMicIn.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveMicIn.szPname%
+
+[QCAUD.I.TopologyMicIn]
+AddReg = QCAUD.I.TopologyMicIn.AddReg, ProxyAPO.I.Association0.AddReg
+[QCAUD.I.TopologyMicIn.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyMicIn.szPname%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_MICROPHONE%
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; capture interfaces: mic array (internal: front)
+;======================================================
+[QCAUD.I.WaveMicArray1]
+AddReg = QCAUD.I.WaveMicArray1.AddReg
+[QCAUD.I.WaveMicArray1.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveMicArray1.szPname%
+
+[QCAUD.I.TopologyMicArray1]
+AddReg = QCAUD.I.TopologyMicArray1.AddReg,ProxyAPO.I.Association0.AddReg
+
+[QCAUD.I.TopologyMicArray1.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyMicArray1.szPname%
+
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_MICROPHONE_ARRAY%
+
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+; Uncomment the following lines to opt-in as never a default endpoint.
+HKR, EP\0, %PKEY_AudioDevice_NeverSetAsDefaultEndpoint%  , 0x00010001, 0x00000305
+
+;======================================================
+; render interfaces: Bluetooth HFP speaker (external)
+;======================================================
+[QCAUD.I.WaveBthHfpSpeaker]
+AddReg = QCAUD.I.WaveBthHfpSpeaker.AddReg
+[QCAUD.I.WaveBthHfpSpeaker.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveBthHfpSpeaker.szPname%
+
+[QCAUD.I.TopologyBthHfpSpeaker]
+AddReg = QCAUD.I.TopologyBthHfpSpeaker.AddReg,ProxyAPO.I.Association0.AddReg
+[QCAUD.I.TopologyBthHfpSpeaker.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyBthHfpSpeaker.szPname%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_HEADSET_SPEAKERS%
+
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; capture interfaces: Bluetooth HFP mic (external)
+;======================================================
+[QCAUD.I.WaveBthHfpMic]
+AddReg = QCAUD.I.WaveBthHfpMic.AddReg
+[QCAUD.I.WaveBthHfpMic.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveBthHfpMic.szPname%
+
+[QCAUD.I.TopologyBthHfpMic]
+AddReg = QCAUD.I.TopologyBthHfpMic.AddReg,ProxyAPO.I.Association0.AddReg
+[QCAUD.I.TopologyBthHfpMic.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyBthHfpMic.szPname%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_HEADSET_MICROPHONE%
+
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; render interfaces: Bluetooth HFP speaker (external) - Wideband
+;======================================================
+[QCAUD.I.WaveBthHfpSpeakerWB]
+AddReg = QCAUD.I.WaveBthHfpSpeakerWB.AddReg
+[QCAUD.I.WaveBthHfpSpeakerWB.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveBthHfpSpeakerWB.szPname%
+
+[QCAUD.I.TopologyBthHfpSpeakerWB]
+AddReg = QCAUD.I.TopologyBthHfpSpeakerWB.AddReg,ProxyAPO.I.Association0.AddReg
+[QCAUD.I.TopologyBthHfpSpeakerWB.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyBthHfpSpeakerWB.szPname%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_HEADSET_SPEAKERS%
+
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; capture interfaces: Bluetooth HFP mic (external) - Wideband
+;======================================================
+[QCAUD.I.WaveBthHfpMicWB]
+AddReg = QCAUD.I.WaveBthHfpMicWB.AddReg
+[QCAUD.I.WaveBthHfpMicWB.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveBthHfpMicWB.szPname%
+
+[QCAUD.I.TopologyBthHfpMicWB]
+AddReg = QCAUD.I.TopologyBthHfpMicWB.AddReg,ProxyAPO.I.Association0.AddReg
+[QCAUD.I.TopologyBthHfpMicWB.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyBthHfpMicWB.szPname%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_HEADSET_MICROPHONE%
+
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; render interfaces: handset speaker (internal)
+;======================================================
+[QCAUD.I.WaveHandsetSpeaker]
+AddReg = QCAUD.I.WaveHandsetSpeaker.AddReg
+
+[QCAUD.I.WaveHandsetSpeaker.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveHandsetSpeaker.szPname%
+
+[QCAUD.I.TopologyHandsetSpeaker]
+AddReg = QCAUD.I.TopologyHandsetSpeaker.AddReg, ProxyAPO.I.Association0.AddReg
+
+[QCAUD.I.TopologyHandsetSpeaker.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyHandsetSpeaker.szPname%
+
+HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_HANDSET%
+
+; Uncomment the following lines to opt-in to pull mode.
+HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; capture interfaces: handset mic (internal)
+;======================================================
+[QCAUD.I.WaveHandsetMic]
+AddReg = QCAUD.I.WaveHandsetMic.AddReg
+[QCAUD.I.WaveHandsetMic.AddReg]
+HKR, , CLSID       , , %Proxy.CLSID%
+HKR, , FriendlyName, , %QCAUD.WaveHandsetMic.szPname%
+
+[QCAUD.I.TopologyHandsetMic]
+AddReg = QCAUD.I.TopologyHandsetMic.AddReg, ProxyAPO.I.Association0.AddReg
+[QCAUD.I.TopologyHandsetMic.AddReg]
+HKR,     , CLSID                                         ,           , %Proxy.CLSID%
+HKR,     , FriendlyName                                  ,           , %QCAUD.TopologyHandsetMic.szPname%
+HKR, FX\0, %PKEY_FX_Association%                         ,           , %KSNODETYPE_HANDSET%
+
+; Uncomment the following lines to opt-in to pull mode.
+ HKR, EP\0, %PKEY_AudioEndpoint_Association%              ,           , %KSNODETYPE_ANY%
+ HKR, EP\0, %PKEY_AudioEndpoint_Supports_EventDriven_Mode%, 0x00010001, 0x1
+
+;======================================================
+; Proxy mode APO per-interface registry
+;======================================================
+[ProxyAPO.I.Association0.AddReg]
+; Proxy-Mode
+; Instruct audio endpoint builder to set the CLSIDs for stream, mode, and endpoint APOs
+; into the effects property store
+HKR, "FX\0", %PKEY_FX_ModeEffectClsid%    , , %FX_MODE_CLSID%
+HKR, "FX\0", %PKEY_FX_EndpointEffectClsid%, , %FX_ENDPOINT_CLSID%
+
+;======================================================
+; EffectsSupport non proxy mode APO
+;======================================================
+;[EffectsSupport.I.Association0.AddReg]
+; Concatenate GUIDs for DEFAULT, MUSIC, MOVIE
+; While MULTI_SZ using this syntax get into the package's .reg file, they don't get into the registry
+;HKR,"FX\\0",%PKEY_MFX_ProcessingModes_Supported_For_Streaming%,0x00010008,%AUDIO_SIGNALPROCESSINGMODE_DEFAULT% ; FLG_ADDREG_TYPE_MULTI_SZ | FLG_ADDREG_APPEND
+;HKR,"FX\\0",%PKEY_MFX_ProcessingModes_Supported_For_Streaming%,0x00010008,%AUDIO_SIGNALPROCESSINGMODE_MUSIC%       ; FLG_ADDREG_TYPE_MULTI_SZ | FLG_ADDREG_APPEND
+;HKR,"FX\\0",%PKEY_MFX_ProcessingModes_Supported_For_Streaming%,0x00010008,%AUDIO_SIGNALPROCESSINGMODE_MOVIE%       ; FLG_ADDREG_TYPE_MULTI_SZ | FLG_ADDREG_APPEND
+; Instead, use a simple string for now
+;HKR,"FX\0",%PKEY_MFX_ProcessingModes_Supported_For_Streaming%,,%ProxyAPO_MFX_ProcessingModes_Supported%
+;HKR,"FX\\0",%PKEY_EFX_ProcessingModes_Supported_For_Streaming%,,%ProxyAPO_EFX_ProcessingModes_Supported%
+
+; Driver developer would replace the list of supported processing modes here
+;HKR,"FX\0",%PKEY_MFX_ProcessingModes_Supported_For_Streaming%,0x00010000,%AUDIO_SIGNALPROCESSINGMODE_DEFAULT%
+;HKR,"FX\0",%PKEY_EFX_ProcessingModes_Supported_For_Streaming%,0x00010000,%AUDIO_SIGNALPROCESSINGMODE_DEFAULT%
+
+;======================================================
+; MsApoFxProxy APO registry
+;======================================================
+;[MsApoFxProxy.I.Association0.AddReg]
+;HKR,FX\0,%PKEY_FX_Association%,,%KSNODETYPE_ANY%
+;HKR,FX\0,%PKEY_FX_EndpointEffectClsid%,,%FX_DISCOVER_EFFECTS_APO_CLSID%
+
+;======================================================
+; QCAUD_A
+;======================================================
+[QCAUD_A.NT]
+Include     = ks.inf,wdmaudio.inf
+Needs       = KS.Registration, WDMAUDIO.Registration, MsApoFxProxy.Registration
+CopyFiles   = QCAUD_A.CopyList,ProxyAPO.CopyList
+AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg
+AddProperty = QCAUD_A.AddProperty
+
+
+[QCAUD_A.NT.Interfaces]
+;
+; Interfaces for speaker (internal) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveSpeaker%, QCAUD.I.WaveSpeaker
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveSpeaker%, QCAUD.I.WaveSpeaker
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveSpeaker%, QCAUD.I.WaveSpeaker
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologySpeaker%, QCAUD.I.TopologySpeaker
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologySpeaker%, QCAUD.I.TopologySpeaker
+
+;
+; Interfaces for speaker (external: Headset) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveSpeakerHeadset%, QCAUD.I.WaveSpeakerHeadset
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveSpeakerHeadset%, QCAUD.I.WaveSpeakerHeadset
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveSpeakerHeadset%, QCAUD.I.WaveSpeakerHeadset
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologySpeakerHeadset%, QCAUD.I.TopologySpeakerHeadset
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologySpeakerHeadset%, QCAUD.I.TopologySpeakerHeadset
+
+;
+; Interfaces for cellular render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveCellular%, QCAUD.I.WaveCellular
+AddInterface = %KSCATEGORY_CAPTURE%, %KSNAME_WaveCellular%, QCAUD.I.WaveCellular
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveCellular%, QCAUD.I.WaveCellular
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyCellular%, QCAUD.I.TopologyCellular
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyCellular%, QCAUD.I.TopologyCellular
+
+;
+; Interfaces for FM RX (Internal) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
+AddInterface = %KSCATEGORY_CAPTURE%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyFmRx%, QCAUD.I.TopologyFmRx
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyFmRx%, QCAUD.I.TopologyFmRx
+
+;
+; Interfaces for microphone (external: Headset) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyMicHeadset%, QCAUD.I.TopologyMicHeadset
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyMicHeadset%, QCAUD.I.TopologyMicHeadset
+
+;
+; Interfaces for microphone (internal) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyMicIn%, QCAUD.I.TopologyMicIn
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyMicIn%, QCAUD.I.TopologyMicIn
+
+;
+; Interfaces for microphone array 1 (internal: front) capture endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicArray1%, QCAUD.I.WaveMicArray1
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicArray1%, QCAUD.I.WaveMicArray1
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveMicArray1%, QCAUD.I.WaveMicArray1
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyMicArray1%, QCAUD.I.TopologyMicArray1
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyMicArray1%, QCAUD.I.TopologyMicArray1
+
+;
+; Interfaces for HDMI (external) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveHdmi%, QCAUD.I.WaveHdmi
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveHdmi%, QCAUD.I.WaveHdmi
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHdmi%, QCAUD.I.WaveHdmi
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyHdmi%, QCAUD.I.TopologyHdmi
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHdmi%, QCAUD.I.TopologyHdmi
+
+
+;
+; Interfaces for Bluetooth HFP speaker (external) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveBthHfpSpeaker%, QCAUD.I.WaveBthHfpSpeaker
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveBthHfpSpeaker%, QCAUD.I.WaveBthHfpSpeaker
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpSpeaker%, QCAUD.I.WaveBthHfpSpeaker
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyBthHfpSpeaker%, QCAUD.I.TopologyBthHfpSpeaker
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpSpeaker%, QCAUD.I.TopologyBthHfpSpeaker
+
+;
+; Interfaces for Bluetooth HFP mic (external) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyBthHfpMic%, QCAUD.I.TopologyBthHfpMic
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpMic%, QCAUD.I.TopologyBthHfpMic
+
+;
+; Interfaces for Bluetooth HFP speaker (external) Wideband render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveBthHfpSpeakerWB%, QCAUD.I.WaveBthHfpSpeakerWB
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveBthHfpSpeakerWB%, QCAUD.I.WaveBthHfpSpeakerWB
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpSpeakerWB%, QCAUD.I.WaveBthHfpSpeakerWB
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyBthHfpSpeakerWB%, QCAUD.I.TopologyBthHfpSpeakerWB
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpSpeakerWB%, QCAUD.I.TopologyBthHfpSpeakerWB
+
+;
+; Interfaces for Bluetooth HFP mic (external) Wideband capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyBthHfpMicWB%, QCAUD.I.TopologyBthHfpMicWB
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpMicWB%, QCAUD.I.TopologyBthHfpMicWB
+
+
+;
+; Interfaces for Handset Speaker (internal) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveHandsetSpeaker%, QCAUD.I.WaveHandsetSpeaker
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveHandsetSpeaker%, QCAUD.I.WaveHandsetSpeaker
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHandsetSpeaker%, QCAUD.I.WaveHandsetSpeaker
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyHandsetSpeaker%, QCAUD.I.TopologyHandsetSpeaker
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetSpeaker%, QCAUD.I.TopologyHandsetSpeaker
+
+;
+; Interfaces for Handset mic (Internal) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
+
+[QCAUD_A.NT.Services]
+AddService = QCAUD,0x00000002,QCAUD_Service_Inst
+
+[QCAUD_Service_Inst]
+DisplayName   = %QCAUD.SvcDesc%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %10%\system32\drivers\qcaud8994.sys
+AddReg        = QCAUD.AddReg.service
+
+[QCAUD.AddReg.Service]
+HKR, , "EnableListen", 0x10001, 0x1
+HKR, , "HDMISupported", 0x10001, 0x1
+HKR, , "THCaptureInterfaceEnabled", 0x10001, 0x1
+HKR, , "THRenderInterfaceEnabled", 0x10001, 0x1
+
+HKR, "Feature", "IsICRConcurrecySupported", 0x10001, 0x1
+HKR, "Feature", "IsICRSupported", 0x10001, 0x1
+;HKR, "Feature", "IsModemRestartSupported", 0x10001, 0x1
+HKR, "Feature", "IsSingleVoiceSessionSupported", 0x10001, 0x0
+
+[QCAUD_A.NT.HW]
+AddReg = AUDIOHW.AddReg
+AddReg = QCAUD_A.SecurityAddReg
+
+[AUDIOHW.AddReg]
+; FILE_DEVICE_SOUND
+HKR, , DeviceType    , 0x10001   , 0x0000001D
+; SDDL_DEVOBJ_SYS_ALL_ADM_RWX_WORLD_RWX_RES_RWX
+HKR, , Security      ,           , "D:P(A;;GA;;;SY)(A;;GRGWGX;;;BA)(A;;GRGWGX;;;WD)(A;;GRGWGX;;;RC)"
+HKR, , "LowerFilters", 0x00010000, "vhf"
+
+[QCAUD_A.SecurityAddReg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
+
+;======================================================
+; WDF
+;======================================================
+[QCAUD_A.NT.Wdf]
+KmdfService = QCAUD, QCAUD_A_WdfSect
+[QCAUD_A_WdfSect]
+KmdfLibraryVersion = 1.15
+
+;======================================================
+; COMMON
+;======================================================
+[Strings]
+
+;Non-localizable
+DiskId                                           = "Qualcomm SoC WDM Audio Driver Disk"
+
+KSNAME_WaveSpeaker                               = "WaveSpeaker"
+KSNAME_TopologySpeaker                           = "TopologySpeaker"
+
+KSNAME_WaveSpeakerHeadset                        = "WaveSpeakerHeadset"
+KSNAME_TopologySpeakerHeadset                    = "TopologySpeakerHeadset"
+
+KSNAME_WaveCellular                              = "WaveCellular"
+KSNAME_TopologyCellular                          = "TopologyCellular"
+
+KSNAME_WaveCellular2                             = "WaveCellular2"
+KSNAME_TopologyCellular2                         = "TopologyCellular2"
+
+KSNAME_WaveFmRx                                  = "WaveFmRx"
+KSNAME_TopologyFmRx                              = "TopologyFmRx"
+
+KSNAME_WaveMicHeadset                            = "WaveMicHeadset"
+KSNAME_TopologyMicHeadset                        = "TopologyMicHeadset"
+
+KSNAME_WaveHdmi                                  = "WaveHdmi"
+KSNAME_TopologyHdmi                              = "TopologyHdmi"
+
+KSNAME_WaveMicIn                                 = "WaveMicIn"
+KSNAME_TopologyMicIn                             = "TopologyMicIn"
+
+KSNAME_WaveMicArray1                             = "WaveMicArray1"
+KSNAME_TopologyMicArray1                         = "TopologyMicArray1"
+
+KSNAME_WaveBthHfpSpeaker                         = "WaveBthHfpSpeaker"
+KSNAME_TopologyBthHfpSpeaker                     = "TopologyBthHfpSpeaker"
+
+KSNAME_WaveBthHfpMic                             = "WaveBthHfpMic"
+KSNAME_TopologyBthHfpMic                         = "TopologyBthHfpMic"
+
+KSNAME_WaveBthHfpSpeakerWB                       = "WaveBthHfpSpeakerWB"
+KSNAME_TopologyBthHfpSpeakerWB                   = "TopologyBthHfpSpeakerWB"
+
+KSNAME_WaveBthHfpMicWB                           = "WaveBthHfpMicWB"
+KSNAME_TopologyBthHfpMicWB                       = "TopologyBthHfpMicWB"
+
+KSNAME_WaveHandsetSpeaker                        = "WaveHandsetSpeaker"
+KSNAME_TopologyHandsetSpeaker                    = "TopologyHandsetSpeaker"
+
+KSNAME_WaveHandsetMic                            = "WaveHandsetMic"
+KSNAME_TopologyHandsetMic                        = "TopologyHandsetMic"
+
+Proxy.CLSID                                      = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO                                 = "{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER                                = "{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE                               = "{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_REALTIME                              = "{EB115FFC-10C8-4964-831D-6DCB02E6F23F}"
+KSCATEGORY_TOPOLOGY                              = "{DDA54A40-1E4C-11D1-A050-405705C10000}"
+
+MediaCategories                                  = "SYSTEM\CurrentControlSet\Control\MediaCategories"
+KSNODETYPE_ANY                                   = "{00000000-0000-0000-0000-000000000000}"
+GUID_NULL                                        = "{00000000-0000-0000-0000-000000000000}"
+
+PKEY_AudioEndpoint_ControlPanelPageProvider      = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},1"
+PKEY_AudioEndpoint_Association                   = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2"
+PKEY_AudioDevice_NeverSetAsDefaultEndpoint       = "{F3E80BEF-1723-4FF2-BCC4-7F83DC5E46D4},3"
+PKEY_AudioEndpoint_Supports_EventDriven_Mode     = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},7"
+
+PKEY_FX_Association                              = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},0"
+PKEY_FX_PreMixEffectClsid                        = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},1"
+PKEY_FX_PostMixEffectClsid                       = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},2"
+PKEY_FX_UserInterfaceClsid                       = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},3"
+PKEY_FX_StreamEffectClsid                        = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},5"
+PKEY_FX_ModeEffectClsid                          = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},6"
+PKEY_FX_EndpointEffectClsid                      = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},7"
+
+PKEY_SFX_ProcessingModes_Supported_For_Streaming = "{D3993A3F-99C2-4402-B5EC-A92A0367664B},5"
+PKEY_MFX_ProcessingModes_Supported_For_Streaming = "{D3993A3F-99C2-4402-B5EC-A92A0367664B},6"
+PKEY_EFX_ProcessingModes_Supported_For_Streaming = "{D3993A3F-99C2-4402-B5EC-A92A0367664B},7"
+
+AUDIO_SIGNALPROCESSINGMODE_DEFAULT               = "{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}"
+
+; Driver developer would replace this CLSID with that of his own Sound CPL property page provider
+AUDIOENDPOINT_EXT_UI_CLSID                       = "{6C57B2A2-91F5-4b90-93D5-FAB82485ECA6}"
+
+; Driver developer would replace these CLSIDs with those of his own APOs.
+FX_STREAM_CLSID                                  = "{B48DEA3F-D962-425a-8D9A-9A5BB37A9904}"
+FX_MODE_CLSID                                    = "{06687E71-F043-403A-BF49-CB591BA6E103}"
+FX_ENDPOINT_CLSID                                = "{697DA8EE-64F9-4096-BEBC-7C1C42CC2876}"
+FX_UI_CLSID                                      = "{19166F23-5F08-47F9-BB57-9F57A977D88E}"
+FX_DISCOVER_EFFECTS_APO_CLSID                    = "{889C03C8-ABAD-4004-BF0A-BC7BB825E166}"
+
+MEDIA_CATEGORIES                                 = "SYSTEM\CurrentControlSet\Control\MediaCategories"
+MicArray1CustomNameGUID                          = {6ae81ff4-203e-4fe1-88aa-f2d57775cd4a}
+MicInCustomNameGUID                              = {d48deb08-fd1c-4d1e-b821-9064d49ae96e}
+HandsetMicrophoneCustomNameGUID                  = {F962FB6F-658D-49DF-A7F8-9BBFB6911F97}
+HandsetSpeakerCustomNameGUID                     = {CDB59AC1-1E39-4458-85C1-DF22DAE74C1B}
+CellularBD1CustomNameGUID                        = {896BC350-BF57-4039-A6B6-64DCEC3AEEB8}
+CellularBD2CustomNameGUID                        = {80CC64DA-166A-4A2C-ADF7-1464C49D3B0E}
+FmRxCustomNameGUID                               = {344EC7D7-F209-4FC4-B6C1-B324E8309E8D}
+
+MFX_FriendlyName                                 = "Qualcomm Audio Proxy APO (mode effect)"
+EFX_FriendlyName                                 = "Qualcomm Audio Proxy APO (Endpoint effect)"
+KSNODETYPE_SPEAKER                               = "{DFF21CE1-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_HEADSET_SPEAKERS                      = "{DFF21CE6-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_HEADSET_MICROPHONE                    = "{DFF21BE3-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_MICROPHONE                            = "{DFF21BE1-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_HANDSET                               = "{DFF21DE1-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_MICROPHONE_ARRAY                      = "{DFF21BE5-F70F-11D0-B917-00A0C9223196}"
+;Localizable
+
+QCOM                                             = "Qualcomm"
+MfgName                                          = "QUALCOMM"
+QcCopyRight                                      = "Copyright (c) 2011 Qualcomm Inc All rights Reserved"
+
+QCAUD_A.DeviceDesc                               = "QCAUD Real Time (WaveRT) Driver for Qualcomm SoC"
+QCAUD.SvcDesc                                    = "Service for Qualcomm SoC WDM Audio Driver"
+
+;; friendly names
+QCAUD.WaveSpeaker.szPname                        = "QCAUD Wave Speaker"
+QCAUD.TopologySpeaker.szPname                    = "QCAUD Topology Speaker"
+
+QCAUD.WaveSpeakerHeadset.szPname                 = "QCAUD Wave Speaker Headset"
+QCAUD.TopologySpeakerHeadset.szPname             = "QCAUD Topology Speaker Headset"
+
+QCAUD.WaveHdmi.szPname                           = "QCAUD Wave HDMI"
+QCAUD.TopologyHdmi.szPname                       = "QCAUD Topology HDMI"
+
+QCAUD.WaveCellular.szPname                       = "QCAUD Wave Cellular"
+QCAUD.TopologyCellular.szPname                   = "QCAUD Topology Cellular"
+
+QCAUD.WaveFmRx.szPname                           = "QCAUD Wave FM RX"
+QCAUD.TopologyFmRx.szPname                       = "QCAUD Topology FM RX"
+
+QCAUD.WaveMicHeadset.szPname                     = "QCAUD Wave Microphone Headset"
+QCAUD.TopologyMicHeadset.szPname                 = "QCAUD Topology Microphone Headset"
+
+QCAUD.WaveMicIn.szPname                          = "QCAUD Wave Microphone"
+QCAUD.TopologyMicIn.szPname                      = "QCAUD Topology Microphone"
+
+QCAUD.WaveMicArray1.szPname                      = "QCAUD Wave Microphone Array - Front"
+QCAUD.TopologyMicArray1.szPname                  = "QCAUD Topology Microphone Array - Front"
+
+QCAUD.WaveBthHfpSpeaker.szPname                  = "QCAUD Wave Bluetooth HFP Speaker"
+QCAUD.TopologyBthHfpSpeaker.szPname              = "QCAUD Topology Bluetooth HFP Speaker"
+
+QCAUD.WaveBthHfpMic.szPname                      = "QCAUD Wave Bluetooth HFP Microphone"
+QCAUD.TopologyBthHfpMic.szPname                  = "QCAUD Topology Bluetooth HFP Microphone"
+
+QCAUD.WaveBthHfpSpeakerWB.szPname                = "QCAUD Wave Bluetooth HFP Speaker Wideband"
+QCAUD.TopologyBthHfpSpeakerWB.szPname            = "QCAUD Topology Bluetooth HFP Speaker Wideband"
+
+QCAUD.WaveBthHfpMicWB.szPname                    = "QCAUD Wave Bluetooth HFP Microphone Wideband"
+QCAUD.TopologyBthHfpMicWB.szPname                = "QCAUD Topology Bluetooth HFP Microphone Wideband"
+
+QCAUD.WaveHeadsetSpeaker.szPname                 = "QCAUD Wave Headset Speaker"
+QCAUD.TopologyHeadsetSpeaker.szPname             = "QCAUD Topology Headset Speaker"
+
+QCAUD.WaveHeadsetMic.szPname                     = "QCAUD Wave Headset Microphone"
+QCAUD.TopologyHeadsetMic.szPname                 = "QCAUD Topology Headset Microphone"
+
+QCAUD.WaveHandsetSpeaker.szPname                 = "QCAUD Wave Handset Speaker"
+QCAUD.TopologyHandsetSpeaker.szPname             = "QCAUD Topology Handset Speaker"
+
+QCAUD.WaveHandsetMic.szPname                     = "QCAUD Wave Handset Microphone"
+QCAUD.TopologyHandsetMic.szPname                 = "QCAUD Topology Handset Microphone"
+
+MicArray1CustomName                              = "Internal Microphone Array - Front"
+MicInCustomName                                  = "Internal Microphone"
+HandsetMicrophoneName                            = "Internal Handset Microphone"
+HandsetSpeakerName                               = "Internal Handset Speaker"
+CellularBD1CustomName                            = "Cellular Receive BiDirectional SIM 1"
+CellularBD2CustomName                            = "Cellular Receive BiDirectional SIM 2"
+FmRxCustomName                                   = "FM Receive"
+

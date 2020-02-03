@@ -1,0 +1,54 @@
+;
+; genericusbfnclass.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %IHV%
+DriverVer   = 06/11/2016,14.27.55.0047
+
+CatalogFile.NTARM   = genericusbfnclass.arm.cat
+CatalogFile.NTARM64 = genericusbfnclass.arm64.cat
+
+[DestinationDirs]
+genericusbfnclass_Files = 12
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles.ARM]
+genericusbfnclass.sys = 0,arm,
+
+[SourceDisksFiles.ARM64]
+genericusbfnclass.sys = 0,arm64,
+
+[Manufacturer]
+%StdMfg%=Standard, NTARM, NTARM64
+
+[Standard.NTARM]
+%WdfSimpleDevice.DeviceDesc%=UfnBus_Child_00, USBFN\NCSd
+
+[Standard.NTARM64]
+%WdfSimpleDevice.DeviceDesc%=UfnBus_Child_00, USBFN\NCSd
+
+[UfnBus_Child_00]
+CopyFiles = genericusbfnclass_Files
+
+[UfnBus_Child_00.Services]
+AddService = genericusbfnclass, 0x00000002, genericusbfnclass_Service_Inst
+
+[genericusbfnclass_Service_Inst]
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\genericusbfnclass.sys
+
+[genericusbfnclass_Files]
+genericusbfnclass.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE     = 0x00000002
+IHV                        = "LumiaWoA authors"
+StdMfg                     = "(Standard system devices)"
+WdfSimpleDevice.DeviceDesc = "NCSd"

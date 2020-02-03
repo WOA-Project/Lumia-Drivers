@@ -1,0 +1,32 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QC%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5D}
+DriverVer   = 11/09/2019,1.0.0.0
+
+CatalogFile.NTARM   = qcdx_ffu8992.arm.cat
+CatalogFile.NTARM64 = qcdx_ffu8992.arm64.cat
+
+[Manufacturer]
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%QC_Device% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_246F
+
+[DeviceExtensions.NTarm64]
+%QC_Device% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_246F
+
+[DeviceExtension_Install]
+; No changes
+
+[DeviceExtension_Install.HW]
+AddReg = FriendlyName_AddReg
+
+[FriendlyName_AddReg]
+HKR,,FriendlyName,, "Qualcomm Adreno 418"
+
+[Strings]
+QC                     = "Qualcomm Incorporated"
+QC_Device              = "Qualcomm Adreno 418"

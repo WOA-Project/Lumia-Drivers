@@ -1,0 +1,58 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;
+;    QcBluetooth8626.INF
+;
+;Abstract:
+;    QUALCOMM's INF file for installing a SMD driver between Krait and Riva
+;
+;--*/
+
+[Version]
+Signature      = "$Windows NT$"
+Provider       = %QC%
+Class          = Bluetooth
+CLASSGUID      = {e0cbf06c-cd8b-4647-bb8a-263b43f0f974};
+DriverVer      = 05/13/2015,6.0.0.0
+CatalogFile.NT = qcbtaddvscregistry.cat
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %SourceDisk%,,1
+
+[Manufacturer]
+%QC% = XYZBth,NTarm
+
+
+[XYZBth.NTarm]
+%BthRadio1% = Bt1, QCA_SHB\UART_H4
+%BthRadio2% = Bt1, SystemBusQc\SMD_BT
+
+
+[Bt1.NT]
+include = bth.inf
+needs   = BthMini.NT
+
+[Bt1.NT.HW]
+include = bth.inf
+needs   = BthMini.NT.HW
+AddReg  = radio.HW.AddReg
+
+[Bt1.NT.Services]
+include = bth.inf
+needs   = BthMini.NT.Services
+
+[radio.HW.AddReg]
+HKR, , "VsMsftOpCode", 0x00010001, 0xFD70
+
+[Strings]
+QC         = "Qualcomm Incorporated"
+BthRadio1  = "Bluetooth Radio Driver"
+BthRadio2  = "Bluetooth Radio Driver "
+SourceDisk = "QUALCOMM Bluetooth Driver Installation Disk"
+

@@ -1,0 +1,95 @@
+;
+; WlanProxyDriver.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %manufacturername%
+DriverVer   = 12/18/2014,18.28.59.0586
+CatalogFile = wlanproxydriver.cat
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+WlanProxyDriver.sys = 1
+WlanCountrySvc.exe = 1
+
+[DestinationDirs]
+wlanproxydriverCopyFiles = 12
+WlanCountrySvcCopyFiles  = 11
+
+;*****************************************
+; wlanproxydriver driver Install Section
+;*****************************************
+
+[Manufacturer]
+%manufacturername% = Standard, NTARM
+
+[Standard.NTARM]
+%wlanproxydriver.devicedesc% = WlanProxyDriver_Device.NT,     ACPI\NOKIA_WLAN_PROXY
+
+[wlanproxydriver_device.nt]
+Copyfiles = wlanproxydriverCopyFiles,WlanCountrySvcCopyFiles
+AddReg    = DeviceReg
+
+[wlanproxydriverCopyFiles]
+WlanProxyDriver.sys
+
+[WlanCountrySvcCopyFiles]
+WlanCountrySvc.exe
+
+[DeviceReg]
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc,ImagePath,0x00020000,"%%SystemRoot%%\System32\WlanCountrySvc.exe "
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc,DisplayName,0x00000000,"WlanCountrySvc"
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc,PreshutdownTimeout,0x00010001,0x00004E20
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc,ErrorControl,0x00010001,0x00000000
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc,FailureActions,0x00000001,80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,E8,03,00,00,01,00,00,00,E8,03,00,00,01,00,00,00,E8,03,00,00,00,00,00,00,00,00,00,00
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc,Description,0x00000000,"Nokia WlanCountrySvc"
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc,Type,0x00010001,0x00000010
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc,Start,0x00010001,0x00000003
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\0,Data0,0x00000001,75,38,BC,A3,3E,06,8A,41
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\0,Action,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\0,DataType1,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\0,DataType0,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\0,Data1,0x00000001,00,00,00,00,01,00,00,00
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\0,Guid,0x00000001,16,28,7A,2D,5E,0C,FC,45,9C,E7,57,0E,5E,CD,E9,C9
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\0,Type,0x00010001,0x00000007
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\1,Action,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\1,Guid,0x00000001,16,28,7A,2D,5E,0C,FC,45,9C,E7,57,0E,5E,CD,E9,C9
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\1,Data0,0x00000001,75,50,BC,A3,3E,06,8A,41
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\1,DataType0,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\WlanCountrySvc\TriggerInfo\1,Type,0x00010001,0x00000007
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{8E8EC24E-5B62-481F-AA10-7919CBB0719D},MessageFileName,0x00000000,"C:\windows\System32\drivers\WlanProxyDriver.sys"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{8E8EC24E-5B62-481F-AA10-7919CBB0719D},ResourceFileName,0x00000000,"C:\windows\System32\drivers\WlanProxyDriver.sys"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{8E8EC24E-5B62-481F-AA10-7919CBB0719D},,0x00000000,"Nokia-WlanProxyDriver"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{8E8EC24E-5B62-481F-AA10-7919CBB0719D},Enabled,0x00010001,0x00000001
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{879BFF2E-19EA-4AA3-A30D-54E7B6F8B1BF},MessageFileName,0x00000000,"C:\windows\system32\WlanCountrySvc.exe"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{879BFF2E-19EA-4AA3-A30D-54E7B6F8B1BF},ResourceFileName,0x00000000,"C:\windows\system32\WlanCountrySvc.exe"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{879BFF2E-19EA-4AA3-A30D-54E7B6F8B1BF},,0x00000000,"Nokia-WlanCountrySvc"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{879BFF2E-19EA-4AA3-A30D-54E7B6F8B1BF},Enabled,0x00010001,0x00000001
+
+[WlanProxyDriver_Device.NT.Services]
+AddService = WlanProxyDriver, 0x00000002, WlanProxyDriver_service_inst
+
+[WlanProxyDriver_service_inst]
+DisplayName    = %WlanProxyDriver.SVCDESC%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\wlanproxydriver.sys 
+LoadOrderGroup = Extended Base
+
+[WlanProxyDriver_Device.NT.Wdf]
+KmdfService = WlanProxyDriver, WlanProxyDriver_wdfsect
+
+[WlanProxyDriver_wdfsect]
+KmdfLibraryVersion = "1.11"
+
+[Strings]
+wlanproxydriver.devicedesc = "WlanProxyDriver Device"
+manufacturername           = "Nokia"
+WlanProxyDriver.SVCDESC    = "WlanProxyDriver Service"
+diskIns                    = "WlanProxyDriver Installation Disk"
+

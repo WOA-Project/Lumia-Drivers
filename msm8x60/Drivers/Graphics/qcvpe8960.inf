@@ -1,0 +1,76 @@
+; 
+;
+; Copyright (c) 2006 Microsoft Corporation
+; Copyright (C) 2011-2012 QUALCOMM Incorporated.
+; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+;
+; Module Name:
+;
+;    qcvpe8960.INF
+;
+;Abstract:
+;
+;    INF file for Qualcomm VPE Driver for Windows RT
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 09/26/2013,6.2.9200.20502
+CatalogFile = qcvpe8960.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcvpe8960.sys = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%QC% = QC, NTarm
+
+[QC.NTarm]
+%VPE.DeviceDesc% = VPE_Device, ACPI\QCOM0770
+
+[VPE_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcvpe8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[VPE_Device.NT.Services]
+AddService = qcvpe,%SPSVCINST_ASSOCSERVICE%, VPE_Service_Inst
+
+[VPE_Service_Inst]
+DisplayName   = %VPE.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcvpe8960.sys
+
+[VPE_Device.NT.Wdf]
+KmdfService = qcvpe, VPE_wdfsect
+[VPE_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm Video Preprocessing Engine Installation Disk"
+VPE.DeviceDesc         = "Qualcomm Video Preprocessing Engine Device"
+VPE.SVCDESC            = "Qualcomm Video Preprocessing Engine Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

@@ -1,0 +1,57 @@
+;
+; qcmbbnull.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+CatalogFile = qcmbbnull.cat
+DriverVer   = 10/06/2018,18.13.19.793
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+qcmbbnull.sys = 1,,
+
+[Manufacturer]
+%ManufacturerName% = Standard,NTARM
+
+[Standard.NTARM]
+%QcMbb2Null.DeviceDesc% = qcmbbnull_Device, QCMS\QCOM0EA0
+
+[qcmbbnull_Device.NT]
+CopyFiles = Drivers_Dir
+
+[Drivers_Dir]
+qcmbbnull.sys
+
+[qcmbbnull_Device.NT.Services]
+AddService = qcmbbnull,%SPSVCINST_ASSOCSERVICE%, qcmbbnull_Service_Inst
+
+[qcmbbnull_Service_Inst]
+DisplayName   = %qcmbbnull.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcmbbnull.sys
+
+[qcmbbnull_Device.NT.Wdf]
+KmdfService = qcmbbnull, qcmbbnull_wdfsect
+
+[qcmbbnull_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE    = 0x00000002
+ManufacturerName          = "LumiaWoA authors"
+DiskName                  = "Qualcomm Null Installation Disk"
+qcmbbnull.DeviceDesc      = "Qualcomm Null Device"
+qcmbbnull.SVCDESC         = "Qualcomm Null Service"
+
+QcMbb2Null.DeviceDesc     = "Qualcomm Mobile Broadband Device (Null)"

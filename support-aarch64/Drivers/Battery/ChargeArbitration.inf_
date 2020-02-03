@@ -1,0 +1,58 @@
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+CatalogFile = ChargeArbitration.cat
+Provider    = %IHV%
+DriverVer   = 08/19/2019,10.0.42069.1337
+;DriverVer  = XX/XX/XXXX,10.0.17692.1004
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[Manufacturer]
+%StdMfg% = CAD_Device, NTARM64
+
+[CAD_Device.NTARM64]
+%CAD_DevDesc% = CAD_Inst, Root\CAD
+
+[CAD_Inst.NT]
+CopyFiles = CAD_Inst.NT.Copy
+
+[CAD_Inst.NT.HW]
+AddReg = CAD_Inst_SecurityAddReg
+
+[CAD_Inst_SecurityAddReg]
+HKR, , DeviceCharacteristics, 0x10001, 0x00000100               ; FILE_DEVICE_SECURE_OPEN
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;UD)"    ; Grant access to local system, and user-mode drivers
+
+[CAD_Inst.NT.Copy]
+CAD.sys
+
+[SourceDisksFiles]
+CAD.sys = 1
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[CAD_Inst.NT.Services]
+AddService = CAD, 0x00000002, CAD_Service_Inst
+
+[CAD_Service_Inst]
+DisplayName   = %CAD_DevDesc%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\CAD.sys
+
+[Strings]
+CAD_DevDesc = "Charge Arbitration Driver"
+DiskId1     = "Windows Charge Arbitration Driver Installation Disk #1"
+IHV         = "LumiaWoA authors"
+StdMfg      = "(Standard system devices)"
+
+REG_SZ      = 0x00000000
+REG_BINARY  = 0x00000001
+REG_DWORD   = 0x00010001

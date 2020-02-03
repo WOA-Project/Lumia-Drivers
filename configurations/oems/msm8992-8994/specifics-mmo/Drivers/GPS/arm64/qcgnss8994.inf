@@ -1,0 +1,257 @@
+;/*++
+;
+;Copyright (c) 2013 by Qualcomm Technologies, Inc. All Rights Reserved.
+;
+;Module Name:
+;    qcgnss.inf 
+;
+;Abstract:
+;    INF file for installing the Qualcomm qcgnss Driver
+;
+;--*/
+
+;DEFINE_GUID( GUID_DEVCLASS_SENSOR,              0x5175d334L, 0xc371, 0x4806, 0xb3, 0xba, 0x71, 0xfd, 0x53, 0xc9, 0x25, 0x8d );
+;DEFINE_GUID( GUID_DEVCLASS_GPS,                 0x6bdd1fc3L, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f );
+
+[Version]
+Signature   = "$Windows NT$"
+CatalogFile = qcgnss.cat
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+DriverVer   = 07/02/2015,1.0.1067.0000
+
+
+[DestinationDirs]
+;12 == Windows\System32\Drivers\UMDF
+DefaultDestDir = 12,UMDF
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,""
+
+[SourceDisksFiles]
+qcgnss.dll = 1,,
+
+[Manufacturer]
+%ManufacturerName% = qcgnss_Device,NTarm64
+
+;*******************************
+; qcgnss Install Section
+;*******************************
+
+[qcgnss_Device.NTarm64]
+%DevDesc% = qcgnss_Inst, ACPI\QCOM24B4
+
+
+;---------------- copy files
+
+[qcgnss_Inst.NT]
+CopyFiles = qcgnssCopy
+AddReg    = QCGNSSReg
+
+[qcgnssCopy]
+qcgnss.dll
+
+[qcgnss_Inst.NT.HW]
+AddReg = qcgnss_Inst_SecurityAddReg
+
+;-------------- Service installation
+[qcgnss_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[qcgnss_Inst.NT.CoInstallers]
+CopyFiles = qcgnssCopy
+AddReg    = CoInstallers_AddReg
+
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %WudfRdDisplayName%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\WUDFRd.sys
+
+[QCGNSSReg]
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",HslpAddress,0x00000000,"0"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",NIDefaultResponseTimeOut,0x00000000,"30"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",TrackSessionStopTimeOut,0x00000000,"5"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",GTPWANN_Setting,0x00000000,"0"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",MaxGeofenceSupported,0x00000000,"195"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",GeofenceRespTimeout,0x00000000,"60"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",GeofenceResponsivness,0x00000000,"2"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",GeofenceAlertTimer,0x00000000,"40"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",DBTAlertTimer,0x00000000,"30"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",SuplWifiScanInjectTimeout,0x00000000,"5"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",CTSessionErrorTimeOut,0x00000000,"40"
+; LTE Positioning Profile Settings
+;  1: Enable LPP_User_Plane on LTE
+;  2: Enable LPP_Control_Plane
+;  3: Enable both LPP_User_Plane and LPP_Control_Plane
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",LppProfile,0x00000000,"0"
+; Select Positioning Protocol on A-GLONASS system
+;  0x1: RRC CPlane
+;  0x2: RRLP UPlane
+;  0x4: LLP Uplane
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",GlonassPosProtocolSelect,0x00000000,"0"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",IZatPremium,0x00000000,"1"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",GFMotionDetectionSrc,0x0000000,"0"
+	; GFMotionDetectionSrc is a Bitmask value where following mask can be enabled.
+	; default value 7 - All of the Motion clasifiers ares enabled
+	;QMI_LOC_MOTION_DETECTION_SOURCE_SENSORS (0x00000001) -- Sensors are used for motion detection
+	;QMI_LOC_MOTION_DETECTION_SOURCE_WIFI (0x00000002) -- Wi-Fi is used for motion detection
+	;QMI_LOC_MOTION_DETECTION_SOURCE_WWAN (0x00000004) -- Wireless WAN is used for motion detection
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",GFEnableCpiUsage,0x0000000,"1"
+; Enable/Disable SGLTE feature
+; SGLTEEnable (0 - Disable, 1 - Enable)
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",SGLTEEnable,0x0000000,"0"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",SUPLES,0x0000000,"1"
+
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",LastXtraDownLoadDay,0x0000000,"0"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",TodaysXtraDownloadCount,0x0000000,"0"
+
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",LastXtraRetryDay,0x0000000,"0"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",TodaysXtraRetryCount,0x0000000,"0"
+
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",IsXtraThrottlingEnabled,0x0000000,"1"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",MaxXtraDownloadimit,0x0000000,"1"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",MaxGnssTriggeredXtraDownloadLimit,0x0000000,"3"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",XtraAutoDownloadInterval,0x0000000,"7"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",IsXtraAutoDownloadEnabled,0x0000000,"1"
+
+;#XtraVerCheck
+; DISABLE = 0                                                                                                                                    
+; AUTO    = 1                                                                                                                                    
+; XTRA2   = 2                                                                                                                                    
+; XTRA3   = 3                                                                                                                                    
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",XtraVerCheck,0x0000000,"0"
+;Delayed stop fix timer 
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",DelayedStopFixReqTimer,0x0000000,"1"
+
+; NI CP/UP lock
+; NI_CP_UP_LOCK_NONE 0
+; NI_CP_LOCK 1
+; NI_UP_LOCK 2
+; NI_CP_UP_LOCK_BOTH 3
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",NiCpUpLock,0x0000000,"0"
+
+; 	LPPe User Plane Configure
+;  1: QMI_LOC_LPPE_MASK_UP_DBH (0x00000001)
+;  2: QMI_LOC_LPPE_MASK_UP_AP_WIFI_MEASUREMENT (0x00000002
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",LppeUpConfig,0x0000000,"0"
+
+; 	LPPe Control Plane Configure
+;  1: QMI_LOC_LPPE_MASK_CP_DBH (0x00000001)
+;  2: QMI_LOC_LPPE_MASK_CP_AP_WIFI_MEASUREMENT (0x00000002)
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",LppeCpConfig,0x0000000,"0"
+
+;#####################################
+;# IZAT PREMIUM FEATURE SETTINGS
+;#####################################
+;#Possible states of a feature:
+;#DISABLED  --- 0
+;#BASIC     --- 1
+;#PREMIUM   --- 2
+;
+;
+;#GTP_CELL (GC) valid modes:
+;# DISABLED
+;# BASIC
+;GTP_CELL=BASIC
+;
+;#GTP_WIFI (GW) valid modes:
+;# DISABLED
+;# PREMIUM
+;GTP_WIFI=PREMIUM
+;
+;#SAP valid modes:
+;# DISABLED
+;# BASIC
+;# PREMIUM
+;SAP=BASIC
+;
+;#PIP valid modes:
+;# DISABLED
+;# PREMIUM
+;PIP=DISABLED
+;
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\izatpremiumconf"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\izatpremiumconf",GC,0x0000000,"1"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\izatpremiumconf",GW,0x0000000,"2"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\izatpremiumconf",SAP,0x0000000,"2"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\izatpremiumconf",PIP,0x0000000,"0"
+;
+;#####################################
+;# SAP CONFIGURATION PARAMETERS
+;#####################################
+;Create new Subkey "SAPConfig"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig"
+;###Values to be determined after sensor calibration procedure by licensee. Procedure is provided by QTI###
+;#VelocityRandomWalkSpectralDensity default value 5.1x10-2 [m/s2/Hz0.5]
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",VelocityRandomWalkSpectralDensity,0x0000000,"0.051"
+;#AccelRandomWalkSpectralDensity Default value 4.9x10-4 [m/s3/Hz0.5]
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",AccelRandomWalkSpectralDensity,0x0000000,"0.00049"
+;#AngleRandomWalkSpectralDensity default value 1.4x10-3 [rad/s/Hz0.5]
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",AngleRandomWalkSpectralDensity,0x0000000,"0.0014"
+;#RateRandomWalkSpectralDensity default value 8.7x10-5 [rad/s2/Hz0.5]
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",RateRandomWalkSpectralDensity,0x0000000,"0.000087"
+;#GyroBiasRandomWalk Default value 1.0x10-5 [rad2/s4]
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",GyroBiasRandomWalk,0x0000000,"0.00001"
+;#SensorUsage
+; 0 - Enabled
+; 1 - Disabled
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorUsage,0x0000000,"0"
+;#SensorControlMode 
+; 0 - Auto
+; 1 - Forced
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorControlMode,0x0000000,"1"
+;#SensorAlgorithmConfigMask 
+; 0 - INS
+; 1 - HF
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorAlgorithmConfigMask,0x0000000,"0"
+;#SensorProvider
+; 0 - SSC
+; 1 - NDK
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorProvider,0x0000000,"0"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorAccelBatchesPerSec,0x0000000,"2"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorAccelSamplesPerBatch,0x0000000,"5"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorGyroBatchesPerSec,0x0000000,"2"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorGyroSamplesPerBatch,0x0000000,"5"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorAccelBatchesPerSecHigh,0x0000000,"4"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorAccelSamplesPerBatchHigh,0x0000000,"25"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorGyroBatchesPerSecHigh,0x0000000,"4"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorGyroSamplesPerBatchHigh,0x0000000,"25"
+
+; ###### SBM SUPL ES requirement ######
+; SBM wants to use non-emergency PDNs for handling SUPL ES requests
+; 1 - Use Emergency PDN for Emergency SUPL
+; 0 - Use non-emergency PDN for Emergency SUPL
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",UseEmergencyPdnForEmergencySupl,0x0000000,"1"
+[CoInstallers_AddReg]
+HKR, , CoInstallers32, 0x00010000, "WUDFCoinstaller.dll"
+
+;-------------- WDF specific section
+
+[qcgnss_Inst.NT.Wdf]
+UmdfService              = qcgnss, qcgnss_Install
+UmdfServiceOrder         = qcgnss
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+
+[qcgnss_Install]
+
+UmdfLibraryVersion = 2.0
+ServiceBinary      = %12%\UMDF\qcgnss.dll
+
+[qcgnss_Inst_SecurityAddReg]
+HKR, , DeviceCharacteristics, 0x10001, 0x00000100       ; FILE_DEVICE_SECURE_OPEN
+
+[Strings]
+MediaDescription      = "Qualcomm qcgnss Collection Installation Media"
+ManufacturerName      = "Qualcomm"
+DevDesc               = "Qualcomm qcgnss Collection"
+WudfRdDisplayName     = "Windows Driver Foundation - User-mode Driver Framework Reflector"
+
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_DEMAND_START  = 3
+SERVICE_ERROR_NORMAL  = 1
+

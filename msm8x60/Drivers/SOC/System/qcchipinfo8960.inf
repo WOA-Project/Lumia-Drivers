@@ -1,0 +1,95 @@
+;/*++
+;
+;   Copyright (c) 2008-2011 QUALCOMM Incorporated.
+;               All Rights Reserved.
+;               Qualcomm Confidential and Proprietary
+;
+;Module Name:
+;    qcchipinfo8660.inf or qcchipinfo8960.inf
+;
+;Abstract:
+;    INF file for installing the CHIPINFO Driver
+;
+;--*/
+
+[Version]
+Signature    = "$WINDOWS NT$"
+Class        = System
+ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider     = %QUALCOMM%
+DriverVer    = 09/26/2013,1.0.3051.0000
+CatalogFile  = qcchipinfo8960.cat
+BootCritical = 1
+PnpLockDown  = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcchipinfo8960.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; CHIPINFO Install Section
+;*****************************************
+[Manufacturer]
+%QC% = QC, NTARM
+
+[QC.NTARM]
+%CHIPINFO.DeviceDesc% = CHIPINFO_Device, ACPI\QCOM2104
+
+[CHIPINFO_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcchipinfo8960.sys
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+;-------------- Service installation
+[CHIPINFO_Device.NT.Services]
+AddService = qcCHIPINFO,%SPSVCINST_ASSOCSERVICE%, CHIPINFO_Service_Inst
+
+;-------------- HW installation
+[CHIPINFO_Device.NT.HW]
+addreg = CHIPINFO
+
+[CHIPINFO]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- CHIPINFO driver install sections
+[CHIPINFO_Service_Inst]
+DisplayName   = %CHIPINFO.SVCDESC%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcchipinfo8960.sys
+
+
+; Checks for compatibility with KMDF version
+[CHIPINFO_Device.NT.Wdf]
+KmdfService = qcCHIPINFO, CHIPINFO_wdfsect
+[CHIPINFO_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "CHIPINFO Installation Disk #1"
+CHIPINFO.DeviceDesc    = "Qualcomm ChipInfo Device"
+CHIPINFO.SVCDESC       = "Qualcomm ChipInfo Driver"
+QC                     = "Qualcomm Inc."
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

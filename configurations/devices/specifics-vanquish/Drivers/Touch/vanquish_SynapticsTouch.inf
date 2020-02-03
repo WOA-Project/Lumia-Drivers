@@ -1,0 +1,177 @@
+; SynapticsTouch.INF
+; Copyright (c) 2000,2011 Microsoft Corporation
+; Copyright (c) 2018,2019 Bingxing Wang
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %MSFT%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5C}
+DriverVer   = 11/09/2019,1.0.0.0
+CatalogFile = vanquish_SynapticsTouch.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %Installation_Disk%,,,""
+
+[SourceDisksFiles]
+
+;*****************************************
+; TchDriver client driver Install Section
+;*****************************************
+
+[TchDriver_Device.NT.CopyFiles]
+
+[Manufacturer]
+%MSFT% = DeviceExtensions,NTarm
+
+[DeviceExtensions.NTarm]
+%TchDriver_Device_Desc% = DeviceExtension_Install, ACPI\NOKIA_TOUCH
+
+[DeviceExtension_Install]
+AddReg    = CapButtons.NT.HW.AddReg
+AddReg    = PowerConfig.NT.HW.AddReg
+AddReg    = Configuration.NT.HW.AddReg
+AddReg    = Resolutions.NT.HW.AddReg
+AddReg    = DisplaySize.NT.HW.AddReg
+AddReg    = ButtonBacklights.NT.HW.AddReg
+AddReg    = LegacyTouchScaling.NT.HW.AddReg
+CopyFiles = TchDriver_Device.NT.CopyFiles
+
+[LegacyTouchScaling.NT.HW.AddReg]
+HKR, , "LegacyTouchScaling", 0x00010001,   0x0
+
+[CapButtons.NT.HW.AddReg]
+HKLM, "SYSTEM\TOUCH\BUTTONS"  , "Count", %REG_DWORD%        ,   0x3
+HKLM, "SYSTEM\TOUCH\BUTTONS\0", "Name" , %REG_SZ%     "Back",
+HKLM, "SYSTEM\TOUCH\BUTTONS\0", "VKey" , %REG_DWORD%        ,   0x1B
+HKLM, "SYSTEM\TOUCH\BUTTONS\1", "Name" , %REG_SZ%           ,      "Start"
+HKLM, "SYSTEM\TOUCH\BUTTONS\1", "VKey" , %REG_DWORD%        ,   0x71
+HKLM, "SYSTEM\TOUCH\BUTTONS\2", "Name" , %REG_SZ%           ,      "Search"
+HKLM, "SYSTEM\TOUCH\BUTTONS\2", "VKey" , %REG_DWORD%        ,   0x72
+
+[PowerConfig.NT.HW.AddReg]
+HKR, , "EnhancedPowerManagementEnabled"   , %REG_DWORD%,   0
+HKR, , "EnhancedPowerManagementUseMonitor", %REG_DWORD%,   0
+
+[Configuration.NT.HW.AddReg]
+HKLM, %Configuration%  , "DeviceId"                           , %REG_DWORD%,  0xA
+HKLM, %Configuration%  , "ControllerType"                     , %REG_DWORD%,  0xD4A
+HKLM, %Configuration%  , "ImprovedTouchSupported"             , %REG_DWORD%,  0x1
+HKLM, %Configuration%  , "WakeupGestureSupported"             , %REG_DWORD%,  0x1
+HKLM, %Configuration%  , "DoubleTapMaxTapTime10ms"            , %REG_DWORD%,  0x23
+HKLM, %Configuration%  , "DoubleTapMaxTapDistance100um"       , %REG_DWORD%,  0x1E
+HKLM, %Configuration%  , "DoubleTapDeadZoneWidth100um"        , %REG_DWORD%,  0x32
+HKLM, %Configuration%  , "DoubleTapDeadZoneHeight100um"       , %REG_DWORD%,  0x32
+HKLM, %Configuration%  , "VendorCount"                        , %REG_DWORD%,  0x1
+HKLM, %Configuration%  , "Vendor00"                           , %REG_DWORD%,  0x4
+HKLM, %Configuration%  , "Revision00"                         , %REG_DWORD%,  0xFF
+HKLM, %Configuration%  , "ReprogramFw00"                      , %REG_DWORD%,  0xB4
+HKLM, %Configuration%  , "ForceFlash"                         , %REG_DWORD%,  0x1
+HKLM, %Configuration%  , "Vendor00ProductId0"                 , %REG_DWORD%,  0x50
+HKLM, %Configuration%  , "Vendor00ProductId1"                 , %REG_DWORD%,  0x4C
+HKLM, %Configuration%  , "Vendor00ProductId2"                 , %REG_DWORD%,  0x47
+HKLM, %Configuration%  , "Vendor00ProductId3"                 , %REG_DWORD%,  0x30
+HKLM, %Configuration%  , "Vendor00ProductId4"                 , %REG_DWORD%,  0x31
+HKLM, %Configuration%  , "Vendor00ProductId5"                 , %REG_DWORD%,  0x36
+HKLM, %Configuration%  , "Vendor00ProductId6"                 , %REG_DWORD%,  0x39
+HKLM, %Configuration%  , "Vendor00ProductId7"                 , %REG_DWORD%,  0x2D
+HKLM, %Configuration%  , "Vendor00ProductId8"                 , %REG_DWORD%,  0x30
+HKLM, %Configuration%  , "Vendor00ProductId9"                 , %REG_DWORD%,  0x32
+HKLM, %Configuration%  , "Vendor00IncludeHighResTest"         , %REG_DWORD%,  0x1
+HKLM, %Configuration%  , "Vendor00HighResMaxRxLimit"          , %REG_DWORD%,  0x352
+HKLM, %Configuration%  , "Vendor00HighResMaxTxLimit"          , %REG_DWORD%,  0x1C2
+HKLM, %Configuration%  , "Vendor00HighResMinImageLimit"       , %REG_DWORD%,  0xFFFFFE70
+HKLM, %Configuration%  , "Vendor00IncludeBaselineMinMaxTest"  , %REG_DWORD%,  0x0
+HKLM, %Configuration%  , "Vendor00IncludeFullBaselineTest"    , %REG_DWORD%,  0x1
+HKLM, %Configuration%  , "Vendor00BaselineMinMaxMinPixelLimit", %REG_DWORD%,  0x44C
+HKLM, %Configuration%  , "Vendor00BaselineMinMaxMaxPixelLimit", %REG_DWORD%,  0xB5E
+HKLM, %Configuration%  , "Vendor00RxElectrodeMaskTouch2D"     , %REG_DWORD%,  0x7FFFFFF
+HKLM, %Configuration%  , "Vendor00TxElectrodeMaskTouch2D"     , %REG_DWORD%,  0x7FFF
+HKLM, %Configuration%  , "Vendor00RxElectrodeMaskButtons"     , %REG_DWORD%,  0x38000000
+HKLM, %Configuration%  , "Vendor00TxElectrodeMaskButtons"     , %REG_DWORD%,  0x8000
+HKLM, %Configuration%  , "Vendor00FullBaselineButton0Min"     , %REG_DWORD%,  0x9DC
+HKLM, %Configuration%  , "Vendor00FullBaselineButton0Max"     , %REG_DWORD%,  0x106E
+HKLM, %Configuration%  , "Vendor00FullBaselineButton1Min"     , %REG_DWORD%,  0x9A9
+HKLM, %Configuration%  , "Vendor00FullBaselineButton1Max"     , %REG_DWORD%,  0x101A
+HKLM, %Configuration%  , "Vendor00FullBaselineButton2Min"     , %REG_DWORD%,  0x9BB
+HKLM, %Configuration%  , "Vendor00FullBaselineButton2Max"     , %REG_DWORD%,  0x1038
+
+HKLM, %FFConfiguration%, "WriteF01FullConfig"                 , %REG_DWORD%,  0x0
+HKLM, %FFConfiguration%, "WriteF11FullConfig"                 , %REG_DWORD%,  0x0
+HKLM, %FFConfiguration%, "WriteClippingValues"                , %REG_DWORD%,  0x0
+HKLM, %FFConfiguration%, "WriteButtonThresholds"              , %REG_DWORD%,  0x0
+HKLM, %FFConfiguration%, "WriteF51Config"                     , %REG_DWORD%,  0x0
+HKLM, %FFConfiguration%, "WriteF54Config"                     , %REG_DWORD%,  0x0
+HKLM, %FFConfiguration%, "WriteButtonDozeThreshold"           , %REG_DWORD%,  0x0
+HKLM, %FFConfiguration%, "DisableDozeMode"                    , %REG_DWORD%,  0x0
+HKLM, %FFConfiguration%, "EnableWakeupGesture"                , %REG_DWORD%,  0x1
+HKLM, %FFConfiguration%, "BackButton"                         , %REG_DWORD%,  0x1
+HKLM, %FFConfiguration%, "StartButton"                        , %REG_DWORD%,  0x0
+HKLM, %FFConfiguration%, "SearchButton"                       , %REG_DWORD%,  0x2
+
+[Resolutions.NT.HW.AddReg]
+HKLM, %ScreenProps%, "TouchSwapAxes"               , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "TouchInvertXAxis"            , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "TouchInvertYAxis"            , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "TouchPhysicalWidth"          , %REG_DWORD%,  0x438
+HKLM, %ScreenProps%, "TouchPhysicalHeight"         , %REG_DWORD%,  0x780
+HKLM, %ScreenProps%, "TouchPhysicalButtonHeight"   , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "TouchPillarBoxWidthLeft"     , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "TouchPillarBoxWidthRight"    , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "TouchPillarBoxHeightTop"     , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "TouchPillarBoxHeightBottom"  , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "DisplayPhysicalWidth"        , %REG_DWORD%,  0x438
+HKLM, %ScreenProps%, "DisplayPhysicalHeight"       , %REG_DWORD%,  0x780
+HKLM, %ScreenProps%, "DisplayPillarBoxWidthLeft"   , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "DisplayPillarBoxWidthRight"  , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "DisplayLetterBoxHeightTop"   , %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "DisplayLetterBoxHeightBottom", %REG_DWORD%,  0x0
+HKLM, %ScreenProps%, "DisplayHeight10um"           , %REG_DWORD%,  0x2CEC
+HKLM, %ScreenProps%, "DisplayWidth10um"            , %REG_DWORD%,  0x1838
+
+[DisplaySize.NT.HW.AddReg]
+HKLM, %DisplaySize%, "DisplayHeight10um", %REG_DWORD%,   0x2CEC
+HKLM, %DisplaySize%, "DisplayWidth10um" , %REG_DWORD%,   0x1838
+
+[ButtonBacklights.NT.HW.AddReg]
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "LedCount"          , %REG_DWORD%,  0x3
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "LedIndexList"      , 0x10000    ,  "0","1","2"
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "InactivityTimeout" , %REG_DWORD%,  0x0
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "MilliLuxRanges"    , 0x10000    ,  "100000","4294967295"
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings0", 0x10000    ,  "12","0"
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings1", 0x10000    ,  "12","0"
+HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings2", 0x10000    ,  "12","0"
+
+; ------------- Strings section
+[Strings]
+MSFT                   = "LumiaWoA authors"
+Manufacturer_Name      = "Synaptics"
+Installation_Disk      = "Synaptics Touch Driver Installation Disk"
+TchDriver_Device_Desc  = "Synaptics RMI4 F12 Vanquish Digitizer Device"
+TchDriver_Service      = "SynapticsTouch"
+TchDriver_Service_Desc = "Synaptics RMI4 F12 Vanquish Digitizer Driver Service"
+HIDKMDF_Service        = "mshidkmdf"
+
+; ------------- non-localizable strings
+Configuration          = "SYSTEM\TOUCH\SETTINGS"
+FFConfiguration        = "SYSTEM\TOUCH\SETTINGS\FF"
+ScreenProps            = "SYSTEM\TOUCH\SCREENPROPERTIES"
+DisplaySize            = "SYSTEM\TOUCH\DISPLAYPROPERTIES"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_MULTI_SZ           = 0x00010000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+

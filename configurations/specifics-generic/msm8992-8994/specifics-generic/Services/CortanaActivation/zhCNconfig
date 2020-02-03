@@ -1,0 +1,31 @@
+// Config file format version
+//for future use, if SVA versions changes...
+FORMAT_VERSION:3
+
+// Keyword confidence level for recognition, value is in decimal 
+KEYWORD_CONF_LVL:69
+
+//KeywordOnly confidence level, value is in decimal 
+// %&# MMO_start: REASON_Keyword confidence level decreased from 80 to 69 OWNER_vesa.hartonen@microsoft.com
+KEYWORD_ONLY_CONF_LVL:69
+// %&# MMO_end: REASON_Keyword confidence level decreased from 80 to 69  OWNER_vesa.hartonen@microsoft.com
+// User confidence level for recognition, value is in decimal 
+USER_CONF_LVL:69
+
+// User Recording Confidence Level, value is in decimal 
+USER_RECORDING_CONF_LVL:69
+
+// QC model original name: heycortanaenusthr71_LangTuned_KWspellTuned.bin
+// See case 01647282 SVA - Power state stays high after white noise environment drops to silent
+// Generic model filename
+MODEL_NAME:VoiceActivationModel.bin
+
+//KeyWord ID
+// %&# MMO_start: REASON_Patching keyword to 1 as per QC suggestion. 1 is always used by MDG. OWNER_Ari.Vakkuri@microsoft.com
+KeywordId1:1
+//KeyWord String
+KeywordIDStr1:Ni Hao Xiao Na
+
+// Voice model version number (recommendation: use QC delivery date as YYMMDD)
+//use this to identify update in sound model.
+MODEL_VERSION:150521

@@ -1,0 +1,113 @@
+;/*++
+;
+;Copyright (c) 2013 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    QCOCMEM*.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks OCMEM Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon update OCMEM.inf ACPI\QCOM2403" to install
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM   = qcocmem8994.arm.cat
+CatalogFile.NTARM64 = qcocmem8994.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles.ARM]
+qcocmem8994.sys = 1,arm
+
+[SourceDisksFiles.ARM64]
+qcocmem8994.sys = 1,arm64
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%QC% = QC, NTARM, NTARM64
+
+[QC.NTARM]
+%OCMEM.DeviceDesc% = OCMEM_Device, ACPI\QCOM2403
+
+[QC.NTARM64]
+%OCMEM.DeviceDesc% = OCMEM_Device, ACPI\QCOM2403
+
+[OCMEM_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+AddReg      = WppReg
+Reboot
+
+[Drivers_Dir]
+qcocmem8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;--------------  WPP Autologger registry keys
+; Autologger will record trace messages to a buffer in the kernel where they can be easily used for postmortem debugging
+; It does consume additional memory though, these keys should be removed for release.
+;
+; To control and view these traces use "!wmitrace.strdump OCMEM" from KD, or tracelog/traceview tools in the WDK.
+; As currently configured below, tracing is currently disabled (Start = 0) (Enabled = 0).
+[WppReg]
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , FileName   , %REG_SZ%   , ""
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , Guid       , %REG_SZ%   , "{e09f3fb2-7e00-46e2-97ce-444491b97f68}"
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , LogFileMode, %REG_DWORD%, 0x10080100
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , Start      , %REG_DWORD%, 0x00000000
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, Enabled    , %REG_DWORD%, 0
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, EnableFlags, %REG_DWORD%, 0xFFFF
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, EnableLevel, %REG_DWORD%, 5
+
+[OCMEM_SoftwareDeviceSettings]
+HKR, , PowerManaged    , %REG_DWORD%,  1
+HKR, , EnablePtCaching , %REG_DWORD%,  0
+HKR, , EnableGuardPages, %REG_DWORD%,  1
+
+;-------------- Service installation
+[OCMEM_Device.NT.Services]
+AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_Service_Inst
+
+; -------------- OCMEM driver install sections
+[OCMEM_Service_Inst]
+DisplayName   = %OCMEM.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcocmem8994.sys
+AddReg        = OCMEM_SoftwareDeviceSettings
+
+[OCMEM_Device.NT.Wdf]
+KmdfService = qcocmem, OCMEM_wdfsect
+
+[OCMEM_wdfsect]
+KmdfLibraryVersion = 1.13
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Technologies Inc. 2013"
+OCMEM.DeviceDesc       = "Qualcomm OCMEM Device"
+OCMEM.SVCDESC          = "Qualcomm OCMEM Driver"
+DiskId                 = "Qualcomm OCMEM Driver Installation Disk"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+REG_SZ                 = 0x00000000
+REG_DWORD              = 0x00010001
+

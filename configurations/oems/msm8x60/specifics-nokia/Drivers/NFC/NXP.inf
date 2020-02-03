@@ -1,0 +1,98 @@
+;
+; NXP.Inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = "Nokia"
+DriverVer   = 12/18/2014,18.31.28.0072
+CatalogFile = nxp.cat
+
+[DestinationDirs]
+DriverDir    = 12
+ComponentDir = 11
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+NfcController.sys = 0
+NxpNfcDriver.dll  = 0
+NxpPN544c3Fw.dll  = 0
+
+[Manufacturer]
+%stdmfg% = Standard, NTARM
+
+[Standard.NTARM]
+%nxpnfcc.devicedesc% = NXPNFCC_Device_Inst.NTarm,     ACPI\NXP_NFCC
+
+[NXPNFCC_Device_Inst.NTarm]
+CopyFiles = DriverDir, ComponentDir
+AddReg    = DeviceReg;, WDTFSOCDeviceCategory
+
+[DriverDir]
+NfcController.sys
+
+[ComponentDir]
+NxpNfcDriver.dll
+NxpPN544c3Fw.dll
+
+[DeviceReg]
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , ComPort               , 0x00000000, "\\.\NFCC1"
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , EEConfigParms         , 0x00000001, 98,10,3C,98,09,02,9E,74,80,9F,28,01,9B,4E,1E,98,00,0E,98,01,13,9F,0A,01,9F,19,FF,9F,1A,FF
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , SwpDelay              , 0x00010001, 0x00000320
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , DriverPath            , 0x00000000, "NxpNfcDriver.dll"
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , NfcIP_Mode            , 0x00010001, 0x0000000F
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , SecureElementSupported, 0x00010001, 0x00000001
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , PollDevInfo           , 0x00010001, 0x0000003F
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , ProximitySupported    , 0x00010001, 0x00000001
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , DebounceTimeout       , 0x00010001, 0x0000000F
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , XchgTimeout           , 0x00010001, 0x0000001F
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , Duration              , 0x00010001, 0x00030D40
+HKLM, SOFTWARE\Microsoft\NFCDevices\NFCDriverNXP                                                             , FirmwareDownload      , 0x00010001, 0x00000001
+HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{A92C0AD8-6373-4758-A65D-8D0C934C4D09}     , MessageFileName       , 0x00000000, "C:\windows\System32\drivers\NfcController.sys"
+HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{A92C0AD8-6373-4758-A65D-8D0C934C4D09}     , ResourceFileName      , 0x00000000, "C:\windows\System32\drivers\NfcController.sys"
+HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{A92C0AD8-6373-4758-A65D-8D0C934C4D09}     ,                       , 0x00000000, "Microsoft-WindowsPhone-NfcController"
+HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{A92C0AD8-6373-4758-A65D-8D0C934C4D09}     , Enabled               , 0x00010001, 0x00000001
+HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E}     , MessageFileName       , 0x00000000, "C:\windows\System32\NxpNfcDriver.dll"
+HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E}     , ResourceFileName      , 0x00000000, "C:\windows\System32\NxpNfcDriver.dll"
+HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E}     ,                       , 0x00000000, "Nxp-Windows-NfcDriver"
+HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E}     , Enabled               , 0x00010001, 0x00000001
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SelfHostCritical\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E}, Enabled               , 0x00010001, 0x00000001
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SelfHostCritical\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E}, EnableLevel           , 0x00010001, 0x00000001
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SelfHostCritical\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E},                       , 0x00000000, "NXP NFCIHVDriver"
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SelfHostCircular\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E}, Enabled               , 0x00010001, 0x00000001
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SelfHostCircular\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E}, EnableLevel           , 0x00010001, 0x00000004
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SelfHostCircular\{FDAF8F2C-04BC-4BCE-BF78-A23A8924D08E},                       , 0x00000000, "NXP NFCIHVDRIVER"
+
+;[WDTFSOCDeviceCategory]
+;{a45c254e-df1c-4efd-8020-67d146a850e0}, 001D, 0007, ,  00
+
+[NXPNFCC_Device_Inst.NTarm.Services]
+AddService = NXPNFCC, 0x00000002, NXPNFCC_service_inst
+
+[NXPNFCC_service_inst]
+DisplayName   = %NXPNFCC.SVCDESC%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %12%\nfccontroller.sys
+AddReg        = NXPNFCC_Reg
+
+[NXPNFCC_Reg]
+HKR, Parameters, BootTimeMs          , 0x00010001,  0x00000003
+HKR, Parameters, TransferTimeoutMs   , 0x00010001,  0x000003E8
+HKR, Parameters, PollIntervalMs      , 0x00010001,  0x00000019
+HKR, Parameters, MaxFrameSize        , 0x00010001,  0x00000021
+HKR, Parameters, InterruptBufferSize , 0x00010001,  0x00000400
+HKR, Parameters, ResetPulseMs        , 0x00010001,  0x00000007
+HKR, Parameters, MaxDownloadFrameSize, 0x00010001,  0x00000200
+
+[Strings]
+stdmfg             = "(Standard system devices)"
+nxpnfcc.devicedesc = "NXP NFC controller"
+NXPNFCC.SVCDESC    = "NXP NFC controller driver"
+diskIns            = "NXP NFC controller Installation Disk"
+
+

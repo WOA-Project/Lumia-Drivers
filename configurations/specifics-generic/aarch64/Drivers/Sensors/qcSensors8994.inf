@@ -1,0 +1,104 @@
+;/*++
+;
+;Copyright (c) 2013 by Qualcomm Technologies, Inc. All Rights Reserved.
+;
+;Module Name:
+;    qcSensors8994.inf 
+;
+;Abstract:
+;    INF file for installing the Qualcomm Sensor Collection Driver
+;
+;--*/
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
+Provider    = %ManufacturerName%
+DriverVer   = 07/02/2015,1.0.1067.0
+CatalogFile = qcSensors8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+;12 == Windows\System32\Drivers\UMDF
+SensorDriverCopy = 12,UMDF
+ConfDriverCopy   = 11
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,""
+
+[SourceDisksFiles]
+qcSensors8994.dll          = 1,,
+qcSensor1UM8994.dll        = 1,,
+qcSensorsDefaults_CHI.conf = 1,,
+
+[Manufacturer]
+%ManufacturerName% = Sensor_Device,NTARM64
+
+;*******************************
+; qcSensors Install Section
+;*******************************
+
+[Sensor_Device.NTARM64]
+%DevDesc% = Sensor_Inst, ACPI\QCOM2495
+
+;---------------- copy files
+
+[Sensor_Inst.NT]
+CopyFiles = SensorDriverCopy
+CopyFiles = ConfDriverCopy
+AddReg    = WdfExt_AddReg
+
+[SensorDriverCopy]
+qcSensors8994.dll
+
+[ConfDriverCopy]
+qcSensor1UM8994.dll
+qcSensorsDefaults_CHI.conf
+
+[Sensor_Inst.NT.HW]
+AddReg = Sensor_Inst_SecurityAddReg
+
+;-------------- Service installation
+[Sensor_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %WudfRdDisplayName%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\WUDFRd.sys
+
+;-------------- WDF specific section
+
+[Sensor_Inst.NT.Wdf]
+UmdfService              = qcSensors, qcSensors_Install
+UmdfServiceOrder         = qcSensors
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+UmdfHostProcessSharing   = ProcessSharingDisabled
+
+[qcSensors_Install]
+UmdfLibraryVersion = 2.15.0
+ServiceBinary      = %12%\UMDF\qcSensors8994.dll
+UmdfExtensions     = SensorsCx0102
+
+[WdfExt_AddReg]
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors"           , "WdfExtensions", 0x00010000, "SensorsCx0102"
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters", "ConfFile1"    , 0x00000000, "%%SystemRoot%%\System32\qcSensorsDefaults_CHI.conf"
+
+[Sensor_Inst_SecurityAddReg]
+HKR, , DeviceCharacteristics, 0x10001, 0x00000100                               ; FILE_DEVICE_SECURE_OPEN
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"    ; Allow all UMDF drivers to access this driver
+
+[Strings]
+MediaDescription      = "Qualcomm Sensor Collection Installation Media"
+ManufacturerName      = "Qualcomm"
+DevDesc               = "Qualcomm Sensor Collection"
+WudfRdDisplayName     = "Windows Driver Foundation - User-mode Driver Framework Reflector"
+
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_DEMAND_START  = 3
+SERVICE_ERROR_NORMAL  = 1
+

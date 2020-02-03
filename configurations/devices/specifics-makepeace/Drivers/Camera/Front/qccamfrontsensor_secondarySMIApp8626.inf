@@ -1,0 +1,84 @@
+;/*++
+;
+;Copyright (c) 2013-2014  QualComm Inc
+;
+;Module Name:
+;    qccamfrontsensor_secondarySMIApp.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Camera Sensor Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon install qccamfrontsensor_secondarySMIApp.inf ACPI\QCOM2437" to install
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 04/17/2015,22.48.28.0090
+CatalogFile = qccamfrontsensor_secondarySMIApp8626.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+[SourceDisksNames]
+0 = %Desc_x860%
+
+[SourceDisksFiles]
+qccamfrontsensor_secondarySMIApp8626.sys = 0,,
+
+;*****************************************
+; Camera Sensor  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = Qualcomm, NTarm
+
+; Following section is meant for Windows 2000 as it 
+; cannot parse decorated model sections
+;
+; Hw Id is ACPI\QCOM2437
+;
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[Qualcomm.NTarm]
+%CameraFrontSensor.DeviceDesc% = CameraFrontSensor_Device, ACPI\QCOM2437
+
+[CameraFrontSensor_Device.NT]
+CopyFiles  = Drivers_Dir
+SubClass   = StillImage
+DeviceType = 2
+
+[Drivers_Dir]
+qccamfrontsensor_secondarySMIApp8626.sys
+
+[CameraFrontSensor_Device.NTarm.HW]
+AddReg = CameraFrontSensor_Device_Security_Reg
+ 
+[CameraFrontSensor_Device_Security_Reg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+;-------------- Service installation
+[CameraFrontSensor_Device.NT.Services]
+AddService = CameraFrontSensor,%SPSVCINST_ASSOCSERVICE%, CameraFrontSensor_Service_Inst
+
+; -------------- CameraFrontSensor driver install sections
+[CameraFrontSensor_Service_Inst]
+DisplayName   = %CameraFrontSensor.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamfrontsensor_secondarySMIApp8626.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE       = 0x00000002
+QC                           = "Qualcomm"
+CameraFrontSensor.DeviceDesc = "Qualcomm Camera Front Sensor Driver"
+CameraFrontSensor.SVCDESC    = "Qualcomm Camera Front Sensor Service"
+ClassName                    = "Qualcomm Camera Front Sensor Device"
+Desc_x860                    = "Data"
+

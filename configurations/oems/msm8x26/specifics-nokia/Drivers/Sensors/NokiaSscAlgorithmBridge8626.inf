@@ -1,0 +1,124 @@
+; NokiaSscAlgorithmBridge8626.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175d334-c371-4806-b3ba-71fd53c9258d}
+Provider    = %ManufacturerName%
+DriverVer   = 02/03/2018,1.0.5000.0000
+CatalogFile = NokiaSscAlgorithmBridge8626.cat
+
+[SourceDisksNames]
+1 = %MediaDescription%
+
+[SourceDisksFiles]
+NokiaSscAlgorithmBridge8626.dll = 1
+
+[DestinationDirs]
+UMDriverCopy = 12,UMDF
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; Alphamon_Inst driver Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NTARM
+
+[Standard.NTARM]
+%Act.DeviceDesc%  = Activity_Inst,ACPI\SSC_NOKIA_ACT_DETECT
+%Ges.DeviceDesc%  = Gesture_Inst,ACPI\SSC_NOKIA_GESTURE_RECOGNITION
+%Sac.DeviceDesc%  = Control_Inst,ACPI\SSC_SENSOR_ALGORITHM_CONTROL
+%Step.DeviceDesc% = Step_Inst,ACPI\SSC_NOKIA_STEP_COUNTER
+
+[Activity_Inst.NT]
+Copyfiles = UMDriverCopy
+
+[Gesture_Inst.NT]
+Copyfiles = UMDriverCopy
+
+[Control_Inst.NT]
+Copyfiles = UMDriverCopy
+
+[Step_Inst.NT]
+Copyfiles = UMDriverCopy
+
+[UMDriverCopy]
+NokiaSscAlgorithmBridge8626.dll
+
+[Activity_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[Gesture_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[Control_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[Step_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %WUDFRD.DeviceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\WUDFRd.sys
+
+[Activity_Inst.NT.Wdf]
+UmdfService              = NokiaActivity,Nokia_Sensors_Install
+UmdfServiceOrder         = NokiaActivity
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[Control_Inst.NT.Wdf]
+UmdfService              = SensorAlgorithmControl,Nokia_Sensors_Install
+UmdfServiceOrder         = SensorAlgorithmControl
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[Gesture_Inst.NT.Wdf]
+UmdfService              = NokiaGesture,Nokia_Sensors_Install
+UmdfServiceOrder         = NokiaGesture
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[Step_Inst.NT.Wdf]
+UmdfService              = NokiaStep,Nokia_Sensors_Install
+UmdfServiceOrder         = NokiaStep
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[Nokia_Sensors_Install]
+UmdfLibraryVersion = 2.0.0
+ServiceBinary      = %12%\UMDF\NokiaSscAlgorithmBridge8626.dll
+
+[Strings]
+;Localizable Strings
+ManufacturerName       = "Nokia"
+Act.DeviceDesc         = "Nokia Activity Detection Driver"
+Ges.DeviceDesc         = "Nokia Gesture Recognition Driver"
+Sac.DeviceDesc         = "Sensor Algorithm Control Driver"
+Step.DeviceDesc        = "Nokia Step Counter Driver"
+MediaDescription       = "Nokia Sensor Collection Driver Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_TAGTOFRONT   = 0x00000003
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+

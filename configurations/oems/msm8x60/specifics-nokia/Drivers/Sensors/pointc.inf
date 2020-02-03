@@ -1,0 +1,74 @@
+;
+; pointc.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175d334-c371-4806-b3ba-71fd53c9258d}
+Provider    = "Nokia"
+DriverVer   = 12/18/2014,18.28.28.0738
+CatalogFile = pointc.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+pointc.sys = 0
+
+[Manufacturer]
+Nokia = Standard, NTARM
+
+[Standard.NTARM]
+%mag.devicedesc% = MAG_Inst.NT,     ACPI\POINT_C
+
+[mag_inst.nt]
+AddReg    = WDTFSOCDeviceCategory
+CopyFiles = mag_copy_files
+
+[mag_copy_files]
+pointc.sys
+
+[WDTFSOCDeviceCategory]
+{a45c254e-df1c-4efd-8020-67d146a850e0}, 001D, 0007, , 00
+
+[MAG_Inst.NT.Services]
+AddService = pointc.sys, 0x00000002, pointc.sys_service_inst
+
+[pointc.sys_service_inst]
+DisplayName    = Magnetometer Driver Service
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\pointc.sys 
+LoadOrderGroup = Extended Base
+AddReg         = pointc.sys_Reg
+
+[pointc.sys_Reg]
+HKR, Parameters\SSI\NATIVE, E31 , 0x00010001, 0x0000FFCA
+HKR, Parameters\SSI\NATIVE, E11 , 0x00010001, 0x0002102E
+HKR, Parameters\SSI\NATIVE, E21 , 0x00010001, 0x000102B0
+HKR, Parameters\SSI\NATIVE, E13 , 0x00010001, 0x00010561
+HKR, Parameters\SSI\NATIVE, E23 , 0x00010001, 0x0001038F
+HKR, Parameters\SSI\NATIVE, E12 , 0x00010001, 0x0000FBCB
+HKR, Parameters\SSI\NATIVE, E22 , 0x00010001, 0x00020B63
+HKR, Parameters\SSI\NATIVE, E32 , 0x00010001, 0x0000FD1D
+HKR, Parameters\SSI\NATIVE, E33 , 0x00010001, 0x00020A6F
+HKR, Parameters\SSI\NATIVE, DESC, 0x00000000, "EOS F2"
+HKR, Parameters\SSI\WLC   , E31 , 0x00010001, 0x0000FC27
+HKR, Parameters\SSI\WLC   , E11 , 0x00010001, 0x0002105D
+HKR, Parameters\SSI\WLC   , E21 , 0x00010001, 0x0001037B
+HKR, Parameters\SSI\WLC   , E13 , 0x00010001, 0x0000F4BA
+HKR, Parameters\SSI\WLC   , E23 , 0x00010001, 0x000109CB
+HKR, Parameters\SSI\WLC   , E12 , 0x00010001, 0x0000FE99
+HKR, Parameters\SSI\WLC   , E22 , 0x00010001, 0x00021EF8
+HKR, Parameters\SSI\WLC   , E32 , 0x00010001, 0x00010635
+HKR, Parameters\SSI\WLC   , E33 , 0x00010001, 0x0001E6E1
+HKR, Parameters\SSI\WLC   , DESC, 0x00000000, "EOS_F2_WLC_B2_RFIC40"
+
+[Strings]
+mag.devicedesc = "Point_C Magnetometer Driver"
+diskIns        = "Point_C Magnetometer Installation Disk"
+

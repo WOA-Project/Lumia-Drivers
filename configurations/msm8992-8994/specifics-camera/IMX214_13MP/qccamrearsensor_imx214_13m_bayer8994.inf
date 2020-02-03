@@ -1,0 +1,93 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Corporation
+;
+;Module Name:
+;    qccamrearsensor.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Camera Sensor Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon install qccamrearsensor_primarySMIApp ACPI\QCOM2434" to install
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qccamrearsensor_imx214_13m_bayer8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+Drivers_Dir = 12
+
+; ================= Class section =====================
+[SourceDisksNames]
+0 = %Desc_x860%
+
+[SourceDisksFiles]
+qccamrearsensor_imx214_13m_bayer8994.sys = 0,,
+
+;*****************************************
+; Camera Sensor  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC, NTARM64
+
+; Following section is meant for Windows 2000 as it 
+; cannot parse decorated model sections
+;
+; Hw Id is ACPI\QCOM2434
+;
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[QC.NTARM64]
+%CameraRearSensor.DeviceDesc% = CameraRearSensor_Device, ACPI\QCOM2434
+
+[CameraRearSensor_Device.NT]
+CopyFiles   = Drivers_Dir
+SubClass    = StillImage
+DeviceType  = 2
+AddProperty = WDTFSOCDeviceCategory
+
+[WDTFSOCDeviceCategory]
+
+[Drivers_Dir]
+qccamrearsensor_imx214_13m_bayer8994.sys
+
+[CameraRearSensor_Device.NT.HW]
+AddReg = CameraRearSensor_Device_Security_Reg
+ 
+[CameraRearSensor_Device_Security_Reg]
+HKR,                         , DeviceCharacteristics, 0x10001   , 0x100
+
+HKLM, SOFTWARE\QUALCOMM\CAMERA, RearSensorDualVFEFlag, 0x00010001, 0x00000001
+HKLM, SOFTWARE\QUALCOMM\CAMERA, RearSensorId         , 0x00010001, 0x00000000
+HKLM, SOFTWARE\QUALCOMM\CAMERA, RFCMaxVPSIso         , 0x00010001, 0x00000320
+
+;-------------- Service installation
+[CameraRearSensor_Device.NT.Services]
+AddService = CameraRearSensor,%SPSVCINST_ASSOCSERVICE%, CameraRearSensor_Service_Inst
+ 
+; -------------- CameraRearSensor driver install sections
+[CameraRearSensor_Service_Inst]
+DisplayName   = %CameraRearSensor.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamrearsensor_imx214_13m_bayer8994.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE      = 0x00000002
+
+QC                          = "Qualcomm"
+CameraRearSensor.DeviceDesc = "Qualcomm Camera Rear Sensor Driver"
+CameraRearSensor.SVCDESC    = "Qualcomm Camera Rear Sensor Service"
+ClassName                   = "Qualcomm Camera Rear Sensor Device"
+Desc_x860                   = "Data"
+

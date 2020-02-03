@@ -1,0 +1,98 @@
+;/*++
+;
+;Copyright (c) 2012 by Qualcomm Inc.  All Rights Reserved.
+;
+;Module Name:
+;    ADSP.INX 
+;
+;Abstract:
+;    INF file for installing the ADSP driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %Qualcomm%
+DriverVer   = 12/18/2014,18.34.39.0588
+CatalogFile = qcadsp_ffu8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+Drivers_Dir_12 = 12
+Drivers_Dir_24 = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcadsp8960.sys = 1
+qcadsp8960.mbn = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; ADSP Driver Install Section
+;*****************************************
+
+[Manufacturer]
+%Qualcomm% = Standard,NTarm
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[Standard.NTarm]
+%ADSP.DeviceDesc% = ADSP_Device, ACPI\QCOM2058
+
+[ADSP_Device.NT]
+CopyFiles   = Drivers_Dir_12, Drivers_Dir_24
+AddProperty = WDTFSOCDeviceCategory
+AddReg      = ADSPReg
+Reboot
+
+[ADSP_Device.NT.HW]
+AddReg = ADSPACL
+
+[ADSPACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir_12]
+qcadsp8960.sys
+
+[Drivers_Dir_24]
+qcadsp8960.mbn
+
+[ADSPReg]
+HKR, , "AdspImagePath", %REG_SZ%, "\SystemRoot\system32\qcadsp8960.mbn"
+
+;-------------- Service installation
+[ADSP_Device.NT.Services]
+AddService = QCADSP,%SPSVCINST_ASSOCSERVICE%, ADSP_Service_Inst
+
+; -------------- ADSP driver install sections
+[ADSP_Service_Inst]
+DisplayName    = %ADSP.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+LoadOrderGroup = Extended Base
+ServiceBinary  = %12%\qcadsp8960.sys
+
+[ADSP_Device.NT.Wdf]
+KmdfService = QCADSP, ADSP_wdfsect
+[ADSP_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+; non localizable
+REG_SZ                 = 0x00000000
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+; localizable
+Qualcomm               = "Qualcomm Inc."
+DiskId1                = "Qualcomm ADSP Driver Installation Disk"
+ADSP.DeviceDesc        = "Qualcomm Audio DSP Subsystem Device"
+ADSP.SVCDESC           = "Qualcomm Audio DSP Subsystem Driver"
+

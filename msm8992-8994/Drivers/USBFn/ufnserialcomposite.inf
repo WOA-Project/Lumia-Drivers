@@ -1,0 +1,409 @@
+;/*!
+;* @file ufnserialcomposite.inx
+;* INF file for QCComposite driver installation
+;*
+;* Copyright (c) 2011,2013-2015 by Qualcomm Technologies, Incorporated.  All Rights Reserved.
+;*/
+
+;/*=============================================================================
+;Edit History
+;
+;when           who     what, where, why
+;--------------------------------------------------------------------------------
+;01/12/15       arung	Add support for DPL interface
+;11/04/14       cching  Add support to new Facotry Mode
+;10/12/11       cching	Initial check in
+;==============================================================================*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QCOM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM   = QCComposite.arm.cat
+CatalogFile.NTARM64 = QCComposite.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;*****************************************
+; SerialClass  Install Section
+;*****************************************
+
+[Manufacturer]
+%StdMfg% = Standard, NTARM, NTARM64
+
+; For ARM platforms
+[Standard.NTARM]
+; DisplayName                   Section           DeviceId
+; -----------                   -------           --------
+%QCCompositeDevice.DeviceDesc3_SER% = UfnBus_Child_03_SER, USBFN\TRACE
+
+%QCCompositeDevice.DeviceDesc1_NET% = UfnBus_Child_01_NET, USBFN\NMEA
+
+%QCCompositeDevice.DeviceDesc0_DPL% = UfnBus_Child_00_DPL, USBFN\DIAG
+%QCCompositeDevice.DeviceDesc1_DPL% = UfnBus_Child_01_DPL, USBFN\MODEM
+%QCCompositeDevice.DeviceDesc2_DPL% = UfnBus_Child_02_DPL, USBFN\RMNET
+%QCCompositeDevice.DeviceDesc3_DPL% = UfnBus_Child_03_DPL, USBFN\DPL
+
+; For ARM64 platforms
+[Standard.NTARM64]
+; DisplayName                   Section           DeviceId
+; -----------                   -------           --------
+%QCCompositeDevice.DeviceDesc3_SER% = UfnBus_Child_03_SER, USBFN\TRACE
+
+%QCCompositeDevice.DeviceDesc1_NET% = UfnBus_Child_01_NET, USBFN\NMEA
+
+%QCCompositeDevice.DeviceDesc0_DPL% = UfnBus_Child_00_DPL, USBFN\DIAG
+%QCCompositeDevice.DeviceDesc1_DPL% = UfnBus_Child_01_DPL, USBFN\MODEM
+%QCCompositeDevice.DeviceDesc2_DPL% = UfnBus_Child_02_DPL, USBFN\RMNET
+%QCCompositeDevice.DeviceDesc3_DPL% = UfnBus_Child_03_DPL, USBFN\DPL
+
+;[UfnBus_Child_00_SER]
+;CopyFiles = UfnBus_Child.Copy
+;[UfnBus_Child_01_SER]
+;CopyFiles = UfnBus_Child.Copy
+;[UfnBus_Child_02_SER]
+;CopyFiles = UfnBus_Child.Copy
+[UfnBus_Child_03_SER]
+CopyFiles = UfnBus_Child.Copy
+
+;[UfnBus_Child_00_NET]
+;CopyFiles = UfnBus_Child.Copy
+[UfnBus_Child_01_NET]
+CopyFiles = UfnBus_Child.Copy
+;[UfnBus_Child_02_NET]
+;CopyFiles = UfnBus_Child.Copy
+;[UfnBus_Child_03_NET]
+;CopyFiles = UfnBus_Child.Copy
+
+[UfnBus_Child_00_DPL]
+CopyFiles = UfnBus_Child.Copy
+[UfnBus_Child_01_DPL]
+CopyFiles = UfnBus_Child.Copy
+[UfnBus_Child_02_DPL]
+CopyFiles = UfnBus_Child.Copy
+[UfnBus_Child_03_DPL]
+CopyFiles = UfnBus_Child.Copy
+
+[UfnBus_Child.Copy]
+ufnserialclass.sys
+
+;-------------- Interface specific information
+;[UfnBus_Child_00_SER.HW]
+;AddReg = UfnBus_DIAG_AddReg
+;[UfnBus_Child_01_SER.HW]
+;AddReg = UfnBus_MODEM_AddReg
+;[UfnBus_Child_02_SER.HW]
+;AddReg = UfnBus_NMEA_AddReg
+[UfnBus_Child_03_SER.HW]
+AddReg = UfnBus_TRACE_AddReg
+
+;[UfnBus_Child_00_NET.HW]
+;AddReg = UfnBus_DIAG_AddReg
+[UfnBus_Child_01_NET.HW]
+AddReg = UfnBus_NMEA_AddReg
+;[UfnBus_Child_02_NET.HW]
+;AddReg = UfnBus_MODEM_AddReg
+;[UfnBus_Child_03_NET.HW]
+;AddReg = UfnBus_RMNET_AddReg
+
+[UfnBus_Child_00_DPL.HW]
+AddReg = UfnBus_DIAG_AddReg
+[UfnBus_Child_01_DPL.HW]
+AddReg = UfnBus_MODEM_AddReg
+[UfnBus_Child_02_DPL.HW]
+AddReg = UfnBus_RMNET_AddReg
+[UfnBus_Child_03_DPL.HW]
+AddReg = UfnBus_DPL_AddReg
+
+
+[UfnBus_DIAG_AddReg]
+; The GUID associated with the DIAG interface
+; Even MultSz is used, currently the driver supports only One GUID and One Device
+; associated with the interface
+HKR, , DeviceInterfaceGUIDs, 0x10000, "{39AB5403-6551-4DFE-A22C-6CC6F4ED2FD0}"
+HKR, , DeviceNames         , 0x10000, "\Device\USB_DIAG"
+
+[UfnBus_MODEM_AddReg]
+; The GUID associated with the MODEM interface
+; Even MultSz is used, currently the driver supports only One GUID and One Device
+; associated with the interface
+HKR, , DeviceInterfaceGUIDs, 0x10000, "{FE132432-112D-49EC-9178-A9512BB79217}"
+HKR, , DeviceNames         , 0x10000, "\Device\USB_MODEM_BRIDGE"
+
+[UfnBus_NMEA_AddReg]
+; The GUID associated with the interface NMEA
+; Even MultSz is used, currently the driver supports only One GUID and One Device
+; associated with the interface
+HKR, , DeviceInterfaceGUIDs, 0x10000, "{04FDA264-3CF0-498F-8A1B-481775C51943}"
+HKR, , DeviceNames         , 0x10000, "\Device\USB_NMEA"
+
+[UfnBus_TRACE_AddReg]
+; The GUID associated with the interface TRACE
+; Even MultSz is used, currently the driver supports only One GUID and One Device
+; associated with the interface
+HKR, , DeviceInterfaceGUIDs, 0x10000, "{BC740523-BFD9-452B-A9D3-CBF7DF3CC791}"
+HKR, , DeviceNames         , 0x10000, "\Device\USB_TRACE"
+
+[UfnBus_RMNET_AddReg]
+; The GUID associated with the interface RMNET
+; Even MultSz is used, currently the driver supports only One GUID and One Device
+; associated with the interface
+HKR, , DeviceInterfaceGUIDs, 0x10000, "{96F30BBF-0C5E-40F6-8A12-FFDCF265FF73}"
+HKR, , DeviceNames         , 0x10000, "\Device\USB_RMNET"
+
+[UfnBus_DPL_AddReg]
+; The GUID associated with the interface DPL
+; Even MultSz is used, currently the driver supports only One GUID and One Device
+; associated with the interface
+HKR, , DeviceInterfaceGUIDs, 0x10000, "{695A0AAD-CFC9-41FC-8AFC-85508D936945}"
+HKR, , DeviceNames         , 0x10000, "\Device\USB_DPL"
+
+
+;-------------- Service installation
+;[UfnBus_Child_00_SER.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+;[UfnBus_Child_01_SER.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+;[UfnBus_Child_02_SER.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+[UfnBus_Child_03_SER.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+;[UfnBus_Child_00_NET.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+[UfnBus_Child_01_NET.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+;[UfnBus_Child_02_NET.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+;[UfnBus_Child_03_NET.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+[UfnBus_Child_00_DPL.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+[UfnBus_Child_01_DPL.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+[UfnBus_Child_02_DPL.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+[UfnBus_Child_03_DPL.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
+
+[ufnserialclass_Service_Inst]
+DisplayName   = %QCCompositeDevice.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 0               ; SERVICE_BOOT_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
+ServiceBinary = %12%\ufnserialclass.sys
+;AddReg         = ufnserialclass_Service_Inst.AddReg
+AddReg        = DeviceReg
+
+[DeviceReg]
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , CurrentConfiguration          , 0x00000000, "SerialCompositeConfig"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , iManufacturer                 , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , BOSDescriptor                 , 0x00000001, 05,0F,16,00,02,07,10,02,02,00,00,00,0A,10,03,00,0E,00,01,07,65,00
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , iSerialNumber                 , 0x00010001, 0x00000003
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , SerialNumber                  , 0x00000000, "55378018"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , IncludeDefaultCfg             , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , idProduct                     , 0x00010001, 0x0000319B
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , bcdDevice                     , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , ProductString                 , 0x00000000, "Qualcomm_Composite_Device"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , bDeviceClass                  , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , idVendor                      , 0x00010001, 0x000005C6
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , bDeviceSubClass               , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , ManufacturerString            , 0x00000000, "QUALCOMM"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , iProduct                      , 0x00010001, 0x00000002
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , bDeviceProtocol               , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\configurations\default                    , MSOSCompatIdDescriptor        , 0x00000001, 28,00,00,00,00,01,04,00,01,00,00,00,00,00,00,00,00,01,4D,54,50,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\configurations\default                    , InterfaceList                 , 0x00010000, "IpOverUsb"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\configurations\serialcompositeconfig      , InterfaceList                 , 0x00010000, "DIAG","MODEM_SER","NMEA_SER","TRACE"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\configurations\serialcompositeconfig      , bmAttributes                  , 0x00010001, 0x00000080
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\configurations\serialcompositeconfig      , bMaxPower                     , 0x00010001, 0x000000FA
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , iSerialNumber                 , 0x00010001, 0x00000003
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , ManufacturerString            , 0x00000000, "Microsoft"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , ProductString                 , 0x00000000, "Windows Phone"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , iManufacturer                 , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , idVendor                      , 0x00010001, 0x0000045E
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , bcdDevice                     , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , iProduct                      , 0x00010001, 0x00000002
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , idProduct                     , 0x00010001, 0x0000F0CA
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , bDeviceSubClass               , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , bDeviceClass                  , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\default                                   , bDeviceProtocol               , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\diag                           , InterfaceGuid                 , 0x00000000, "{3641691D-B4BD-4715-BB46-641FD214E147}"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\diag                           , InterfaceDescriptor           , 0x00000001, 09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\ipoverusb                      , InterfaceDescriptor           , 0x00000001, 09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\ipoverusb                      , InterfaceGuid                 , 0x00000000, "{30613563-7df3-4afb-80e0-e8c427c7e9bf}"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\ipoverusb                      , MSOSExtendedPropertyDescriptor, 0x00000001, 74,01,00,00,00,01,05,00,05,00,84,00,00,00,01,00,00,00,28,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,6E,00,74,00,65,00,72,00,66,00,61,00,63,00,65,00,47,00,55,00,49,00,44,00,00,00,4E,00,00,00,7B,00,32,00,36,00,66,00,65,00,64,00,63,00,34,00,65,00,2D,00,36,00,61,00,63,00,33,00,2D,00,34,00,32,00,34,00,31,00,2D,00,39,00,65,00,34,00,64,00,2D,00,65,00,33,00,64,00,34,00,62,00,32,00,63,00,35,00,63,00,35,00,33,00,34,00,7D,00,00,00,36,00,00,00,04,00,00,00,24,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,64,00,6C,00,65,00,45,00,6E,00,61,00,62,00,6C,00,65,00,64,00,00,00,04,00,00,00,01,00,00,00,34,00,00,00,04,00,00,00,22,00,44,00,65,00,66,00,61,00,75,00,6C,00,74,00,49,00,64,00,6C,00,65,00,53,00,74,00,61,00,74,00,65,00,00,00,04,00,00,00,01,00,00,00,38,00,00,00,04,00,00,00,26,00,44,00,65,00,66,00,61,00,75,00,6C,00,74,00,49,00,64,00,6C,00,65,00,54,00,69,00,6D,00,65,00,6F,00,75,00,74,00,00,00,04,00,00,00,10,27,00,00,44,00,00,00,04,00,00,00,32,00,55,00,73,00,65,00,72,00,53,00,65,00,74,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,64,00,6C,00,65,00,45,00,6E,00,61,00,62,00,6C,00,65,00,64,00,00,00,04,00,00,00,01,00,00,00
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\modem_ser                      , InterfaceGuid                 , 0x00000000, "{A01FDE7F-640E-4981-BB7C-58FC4860896B}"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\modem_ser                      , InterfaceDescriptor           , 0x00000001, 09,04,01,00,03,02,FF,FF,00,07,05,83,02,00,02,00,07,05,04,02,00,02,00,07,05,85,03,40,00,0C
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\nmea_ser                       , InterfaceGuid                 , 0x00000000, "{A15D6AFA-C85D-426F-A79A-1DBBF17CFD2F}"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\nmea_ser                       , InterfaceDescriptor           , 0x00000001, 09,04,02,00,02,FF,FF,FF,00,07,05,86,02,00,02,00,07,05,07,02,00,02,00
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\trace                          , InterfaceGuid                 , 0x00000000, "{23238082-6DB8-4A76-8693-635F0093282A}"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\interfaces\trace                          , InterfaceDescriptor           , 0x00000001, 09,04,03,00,02,FF,FF,FF,00,07,05,88,02,00,02,00,07,05,09,02,00,02,00
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , CurrentConfiguration          , 0x00000000, "SerialCompositeConfig"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , iManufacturer                 , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , BOSDescriptor                 , 0x00000001, 05,0F,16,00,02,07,10,02,02,00,00,00,0A,10,03,00,0E,00,01,07,65,00
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , iSerialNumber                 , 0x00010001, 0x00000003
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , SerialNumber                  , 0x00000000, "55378018"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , IncludeDefaultCfg             , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , idProduct                     , 0x00010001, 0x00009093
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , bcdDevice                     , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , ProductString                 , 0x00000000, "Qualcomm_Composite_Device"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , bDeviceClass                  , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , idVendor                      , 0x00010001, 0x000005C6
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , bDeviceSubClass               , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , ManufacturerString            , 0x00000000, "QUALCOMM"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , iProduct                      , 0x00010001, 0x00000002
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , bDeviceProtocol               , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\configurations\default              , MSOSCompatIdDescriptor        , 0x00000001, 58,00,00,00,00,01,04,00,03,00,00,00,00,00,00,00,00,01,4D,54,50,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,01,57,49,4E,55,53,42,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,02,01,57,49,4E,55,53,42,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\configurations\default              , InterfaceList                 , 0x00010000, "MTP","IpOverUsb","VidStream"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\configurations\serialcompositeconfig, InterfaceList                 , 0x00010000, "DIAG"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\configurations\serialcompositeconfig, bmAttributes                  , 0x00010001, 0x00000080
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\configurations\serialcompositeconfig, bMaxPower                     , 0x00010001, 0x000000FA
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\configurations\vidstream            , MSOSCompatIdDescriptor        , 0x00000001, 28,00,00,00,00,01,04,00,01,00,00,00,00,00,00,00,00,01,57,49,4E,55,53,42,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\configurations\vidstream            , InterfaceList                 , 0x00010000, "VidStream"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , iSerialNumber                 , 0x00010001, 0x00000003
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , ManufacturerString            , 0x00000000, "Microsoft"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , ProductString                 , 0x00000000, "Windows Phone"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , iManufacturer                 , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , idVendor                      , 0x00010001, 0x0000045E
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , bcdDevice                     , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , iProduct                      , 0x00010001, 0x00000002
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , idProduct                     , 0x00010001, 0x0000F0CA
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , bDeviceSubClass               , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , bDeviceClass                  , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\default                             , bDeviceProtocol               , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\diag                     , InterfaceGuid                 , 0x00000000, "{3641691D-B4BD-4715-BB46-641FD214E147}"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\diag                     , InterfaceDescriptor           , 0x00000001, 09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\ipoverusb                , InterfaceDescriptor           , 0x00000001, 09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\ipoverusb                , InterfaceGuid                 , 0x00000000, "{30613563-7df3-4afb-80e0-e8c427c7e9bf}"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\ipoverusb                , MSOSExtendedPropertyDescriptor, 0x00000001, 74,01,00,00,00,01,05,00,05,00,84,00,00,00,01,00,00,00,28,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,6E,00,74,00,65,00,72,00,66,00,61,00,63,00,65,00,47,00,55,00,49,00,44,00,00,00,4E,00,00,00,7B,00,32,00,36,00,66,00,65,00,64,00,63,00,34,00,65,00,2D,00,36,00,61,00,63,00,33,00,2D,00,34,00,32,00,34,00,31,00,2D,00,39,00,65,00,34,00,64,00,2D,00,65,00,33,00,64,00,34,00,62,00,32,00,63,00,35,00,63,00,35,00,33,00,34,00,7D,00,00,00,36,00,00,00,04,00,00,00,24,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,64,00,6C,00,65,00,45,00,6E,00,61,00,62,00,6C,00,65,00,64,00,00,00,04,00,00,00,01,00,00,00,34,00,00,00,04,00,00,00,22,00,44,00,65,00,66,00,61,00,75,00,6C,00,74,00,49,00,64,00,6C,00,65,00,53,00,74,00,61,00,74,00,65,00,00,00,04,00,00,00,01,00,00,00,38,00,00,00,04,00,00,00,26,00,44,00,65,00,66,00,61,00,75,00,6C,00,74,00,49,00,64,00,6C,00,65,00,54,00,69,00,6D,00,65,00,6F,00,75,00,74,00,00,00,04,00,00,00,10,27,00,00,44,00,00,00,04,00,00,00,32,00,55,00,73,00,65,00,72,00,53,00,65,00,74,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,64,00,6C,00,65,00,45,00,6E,00,61,00,62,00,6C,00,65,00,64,00,00,00,04,00,00,00,01,00,00,00
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\mtp                      , InterfaceGuid                 , 0x00000000, "{61fd7822-e8d4-44c4-9065-aaad0a3beff0}"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\mtp                      , InterfaceDescriptor           , 0x00000001, 09,04,00,00,03,06,01,01,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00,07,05,83,03,40,00,04
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\vidstream                , InterfaceDescriptor           , 0x00000001, 09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\vidstream                , InterfaceGuid                 , 0x00000000, "{31648E59-6FCB-4D81-9C97-D00999B0459A}"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\vidstream                , MSOSExtendedPropertyDescriptor, 0x00000001, 74,01,00,00,00,01,05,00,05,00,84,00,00,00,01,00,00,00,28,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,6E,00,74,00,65,00,72,00,66,00,61,00,63,00,65,00,47,00,55,00,49,00,44,00,00,00,4E,00,00,00,7B,00,33,00,31,00,36,00,34,00,38,00,45,00,35,00,39,00,2D,00,36,00,46,00,43,00,42,00,2D,00,34,00,44,00,38,00,31,00,2D,00,39,00,43,00,39,00,37,00,2D,00,44,00,30,00,30,00,39,00,39,00,39,00,42,00,30,00,34,00,35,00,39,00,41,00,7D,00,00,00,36,00,00,00,04,00,00,00,24,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,64,00,6C,00,65,00,45,00,6E,00,61,00,62,00,6C,00,65,00,64,00,00,00,04,00,00,00,01,00,00,00,34,00,00,00,04,00,00,00,22,00,44,00,65,00,66,00,61,00,75,00,6C,00,74,00,49,00,64,00,6C,00,65,00,53,00,74,00,61,00,74,00,65,00,00,00,04,00,00,00,01,00,00,00,38,00,00,00,04,00,00,00,26,00,44,00,65,00,66,00,61,00,75,00,6C,00,74,00,49,00,64,00,6C,00,65,00,54,00,69,00,6D,00,65,00,6F,00,75,00,74,00,00,00,04,00,00,00,10,27,00,00,44,00,00,00,04,00,00,00,32,00,55,00,73,00,65,00,72,00,53,00,65,00,74,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,64,00,6C,00,65,00,45,00,6E,00,61,00,62,00,6C,00,65,00,64,00,00,00,04,00,00,00,01,00,00,00
+hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , InterfaceList                 , 0x00010000, "DIAG","MODEM","RMNET","DPL"
+hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , bmAttributes                  , 0x00010001, 0x00000080
+hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , bMaxPower                     , 0x00010001, 0x000000FA
+hklm, system\currentcontrolset\control\usbfn\configurations\rmnetcompositeconfig                                 , InterfaceList                 , 0x00010000, "DIAG","NMEA","MODEM","RMNET"
+hklm, system\currentcontrolset\control\usbfn\configurations\rmnetcompositeconfig                                 , bmAttributes                  , 0x00010001, 0x00000080
+hklm, system\currentcontrolset\control\usbfn\configurations\rmnetcompositeconfig                                 , bMaxPower                     , 0x00010001, 0x000000FA
+hklm, system\currentcontrolset\control\usbfn\configurations\serialcompositeconfig                                , InterfaceList                 , 0x00010000, "DIAG","MODEM","NMEA","TRACE"
+hklm, system\currentcontrolset\control\usbfn\configurations\serialcompositeconfig                                , bmAttributes                  , 0x00010001, 0x00000080
+hklm, system\currentcontrolset\control\usbfn\configurations\serialcompositeconfig                                , bMaxPower                     , 0x00010001, 0x000000FA
+hklm, system\currentcontrolset\control\usbfn\interfaces\diag                                                     , InterfaceGUID                 , 0x00000000, "{3641691D-B4BD-4715-BB46-641FD214E147}"
+hklm, system\currentcontrolset\control\usbfn\interfaces\diag                                                     , InterfaceDescriptor           , 0x00000001, 09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
+hklm, system\currentcontrolset\control\usbfn\interfaces\dpl                                                      , InterfaceGUID                 , 0x00000000, "{873852F2-0D2A-4442-80A9-2DD869F41A5C}"
+hklm, system\currentcontrolset\control\usbfn\interfaces\dpl                                                      , InterfaceDescriptor           , 0x00000001, 09,04,02,00,01,FF,FF,FF,00,07,05,85,02,00,02,00
+hklm, system\currentcontrolset\control\usbfn\interfaces\modem                                                    , InterfaceGUID                 , 0x00000000, "{A01FDE7F-640E-4981-BB7C-58FC4860896B}"
+hklm, system\currentcontrolset\control\usbfn\interfaces\modem                                                    , InterfaceDescriptor           , 0x00000001, 09,04,01,00,03,02,FF,FF,00,07,05,83,02,00,02,00,07,05,04,02,00,02,00,07,05,85,03,40,00,0C
+hklm, system\currentcontrolset\control\usbfn\interfaces\nmea                                                     , InterfaceGUID                 , 0x00000000, "{A15D6AFA-C85D-426F-A79A-1DBBF17CFD2F}"
+hklm, system\currentcontrolset\control\usbfn\interfaces\nmea                                                     , InterfaceDescriptor           , 0x00000001, 09,04,02,00,02,FF,FF,FF,00,07,05,86,02,00,02,00,07,05,07,02,00,02,00
+hklm, system\currentcontrolset\control\usbfn\interfaces\rmnet                                                    , InterfaceGUID                 , 0x00000000, "{26884C7E-E24A-4FB6-8C75-00F8CD924A3D}"
+hklm, system\currentcontrolset\control\usbfn\interfaces\rmnet                                                    , InterfaceDescriptor           , 0x00000001, 09,04,03,00,03,FF,FF,FF,00,07,05,88,02,00,02,00,07,05,09,02,00,02,00,07,05,8A,03,40,00,0C
+hklm, system\currentcontrolset\control\usbfn\interfaces\trace                                                    , InterfaceGUID                 , 0x00000000, "{23238082-6DB8-4A76-8693-635F0093282A}"
+hklm, system\currentcontrolset\control\usbfn\interfaces\trace                                                    , InterfaceDescriptor           , 0x00000001, 09,04,03,00,02,FF,FF,FF,00,07,05,88,02,00,02,00,07,05,09,02,00,02,00
+hklm, system\currentcontrolset\control\wmi\autologger\ufnserial                                                  , LogFileMode                   , 0x00010001, 0x00080100
+hklm, system\currentcontrolset\control\wmi\autologger\ufnserial                                                  , BufferSize                    , 0x00010001, 0x00000003
+hklm, system\currentcontrolset\control\wmi\autologger\ufnserial                                                  , ClockType                     , 0x00010001, 0x00000001
+hklm, system\currentcontrolset\control\wmi\autologger\ufnserial                                                  , Guid                          , 0x00000000, "{7b431b06-d6a3-4f82-b307-bc6b28f7ab94}"
+hklm, system\currentcontrolset\control\wmi\autologger\ufnserial                                                  , Start                         , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\wmi\autologger\ufnserial\{d5393b53-8aae-40b1-938b-c207e999605f}           , Enabled                       , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\wmi\autologger\ufnserial\{d5393b53-8aae-40b1-938b-c207e999605f}           , EnableFlags                   , 0x00010001, 0x00000000
+hklm, system\currentcontrolset\control\wmi\autologger\ufnserial\{d5393b53-8aae-40b1-938b-c207e999605f}           , EnableLevel                   , 0x00010001, 0x00000004
+hklm, system\currentcontrolset\control\wmi\autologger\ufnserial\{d5393b53-8aae-40b1-938b-c207e999605f}           , MatchAnyKeyword               , 0x00010001, 0xFFFFFFFF
+
+;[ufnserialclass_Service_Inst.AddReg]
+
+; Device setting
+; Run EanbleQCComp.bat to modify the Device settings
+
+; SerialCompositeConfig (PID_319B)
+;HKLM, "System\CurrentControlSet\Control\USBFN\Configurations\SerialCompositeConfig"                     , bmAttributes       , %REG_DWORD%   ,  0x80
+;HKLM, "System\CurrentControlSet\Control\USBFN\Configurations\SerialCompositeConfig"                     , bMaxPower          , %REG_DWORD%   , 0xFA
+;HKLM, "System\CurrentControlSet\Control\USBFN\Configurations\SerialCompositeConfig"                     , InterfaceList      , %REG_MULTI_SZ%, "DIAG","MODEM","NMEA","TRACE"
+
+; RmNetCompositeConfig (PID_9001)
+;HKLM, "System\CurrentControlSet\Control\USBFN\Configurations\RmNetCompositeConfig"                      , bmAttributes       , %REG_DWORD%   ,  0x80
+;HKLM, "System\CurrentControlSet\Control\USBFN\Configurations\RmNetCompositeConfig"                      , bMaxPower          , %REG_DWORD%   , 0xFA
+;HKLM, "System\CurrentControlSet\Control\USBFN\Configurations\RmNetCompositeConfig"                      , InterfaceList      , %REG_MULTI_SZ%, "DIAG","NMEA","MODEM","RMNET"
+
+; DplCompositeConfig (PID_90B7)
+;HKLM, "System\CurrentControlSet\Control\USBFN\Configurations\DplCompositeConfig"                        , bmAttributes       , %REG_DWORD%   ,  0x80
+;HKLM, "System\CurrentControlSet\Control\USBFN\Configurations\DplCompositeConfig"                        , bMaxPower          , %REG_DWORD%   , 0xFA
+;HKLM, "System\CurrentControlSet\Control\USBFN\Configurations\DplCompositeConfig"                        , InterfaceList      , %REG_MULTI_SZ%, "DIAG","MODEM","RMNET","DPL"
+
+; Interface DIAG
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\DIAG"                                          , InterfaceDescriptor, %REG_BINARY%  , 09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\DIAG"                                          , InterfaceGUID      , %REG_SZ%      , {3641691D-B4BD-4715-BB46-641FD214E147}
+; Interface MODEM
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\MODEM"                                         , InterfaceDescriptor, %REG_BINARY%  , 09,04,01,00,03,02,FF,FF,00,07,05,83,02,00,02,00,07,05,04,02,00,02,00,07,05,85,03,40,00,0C
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\MODEM"                                         , InterfaceGUID      , %REG_SZ%      , {A01FDE7F-640E-4981-BB7C-58FC4860896B}
+; Interface NMEA
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\NMEA"                                          , InterfaceDescriptor, %REG_BINARY%  , 09,04,02,00,02,FF,FF,FF,00,07,05,86,02,00,02,00,07,05,07,02,00,02,00
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\NMEA"                                          , InterfaceGUID      , %REG_SZ%      , {A15D6AFA-C85D-426F-A79A-1DBBF17CFD2F}
+; Interface TRACE
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\TRACE"                                         , InterfaceDescriptor, %REG_BINARY%  , 09,04,03,00,02,FF,FF,FF,00,07,05,88,02,00,02,00,07,05,09,02,00,02,00
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\TRACE"                                         , InterfaceGUID      , %REG_SZ%      , {23238082-6DB8-4A76-8693-635F0093282A}
+; Interface RMNET
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\RMNET"                                         , InterfaceDescriptor, %REG_BINARY%  , 09,04,03,00,03,FF,FF,FF,00,07,05,88,02,00,02,00,07,05,09,02,00,02,00,07,05,8A,03,40,00,0C
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\RMNET"                                         , InterfaceGUID      , %REG_SZ%      , {26884C7E-E24A-4FB6-8C75-00F8CD924A3D}
+; Interface DPL
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\DPL"                                           , InterfaceDescriptor, %REG_BINARY%  , 09,04,02,00,01,FF,FF,FF,00,07,05,85,02,00,02,00
+;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\DPL"                                           , InterfaceGUID      , %REG_SZ%      , {873852F2-0D2A-4442-80A9-2DD869F41A5C}
+
+
+
+; Adding WPP Debug
+;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial"                                       , BufferSize         , %REG_DWORD%   ,  0x00000003
+;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial"                                       , LogFileMode        , %REG_DWORD%   ,  0x00080100
+;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial"                                       , Guid               , %REG_Sz%      ,  {7b431b06-d6a3-4f82-b307-bc6b28f7ab94}
+;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial"                                       , ClockType          , %REG_DWORD%   ,  0x00000001
+;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial"                                       , Start              , %REG_DWORD%   ,  0x00000000
+;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial\{D5393B53-8AAE-40B1-938B-C207E999605F}", Enabled            , %REG_DWORD%   ,  0x00000000
+;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial\{D5393B53-8AAE-40B1-938B-C207E999605F}", EnableFlags        , %REG_DWORD%   ,  0x00000000
+;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial\{D5393B53-8AAE-40B1-938B-C207E999605F}", MatchAnyKeyword    , %REG_DWORD%   ,  0xFFFFFFFF
+;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial\{D5393B53-8AAE-40B1-938B-C207E999605F}", EnableLevel        , %REG_DWORD%   ,  0x00000004
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles.ARM]
+ufnserialclass.sys = 1,arm,
+
+[SourceDisksFiles.ARM64]
+ufnserialclass.sys = 1,arm64,
+
+
+[Strings]
+SPSVCINST_ASSOCSERVICE            = 0x00000002
+QCOM                              = "Qualcomm"
+StdMfg                            = "(Standard system devices)"
+ClassName                         = "USB Serial Class"
+DiskId1                           = "SerialClass Device Installation Disk #1"
+QCCompositeDevice.DeviceDesc0_SER = "USB Function SerialClass (DIAG)"
+QCCompositeDevice.DeviceDesc1_SER = "USB Function SerialClass (MODEM)"
+QCCompositeDevice.DeviceDesc2_SER = "USB Function SerialClass (NMEA)"
+QCCompositeDevice.DeviceDesc3_SER = "USB Function SerialClass (TRACE)"
+
+QCCompositeDevice.DeviceDesc0_NET = "USB Function SerialClass (DIAG)"
+QCCompositeDevice.DeviceDesc1_NET = "USB Function SerialClass (NMEA)"
+QCCompositeDevice.DeviceDesc2_NET = "USB Function SerialClass (Modem)"
+QCCompositeDevice.DeviceDesc3_NET = "USB Function SerialClass (RmNet)"
+
+QCCompositeDevice.DeviceDesc0_DPL = "USB Function SerialClass (DIAG)"
+QCCompositeDevice.DeviceDesc1_DPL = "USB Function SerialClass (MODEM)"
+QCCompositeDevice.DeviceDesc2_DPL = "USB Function SerialClass (RmNet)"
+QCCompositeDevice.DeviceDesc3_DPL = "USB Function SerialClass (DPL)"
+
+QCCompositeDevice.SVCDESC         = "Qualcomm USB Composite Device Driver"
+
+REG_SZ                            = 0x00000000
+REG_BINARY                        = 0x00000001
+REG_DWORD                         = 0x00010001
+REG_MULTI_SZ                      = 0x00010000
+

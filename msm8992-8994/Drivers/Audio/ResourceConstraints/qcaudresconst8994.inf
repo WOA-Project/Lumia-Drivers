@@ -1,0 +1,64 @@
+;/*++
+;
+;Copyright (c) 2012-2013  Qualcomm Technologies, Inc.
+;
+;Module Name:
+;    audresconst.INF
+;
+;Abstract:
+;    INF file for installing the Audio Resource Constraint Settings Package for ACDB.
+;
+;Installation Notes: 
+;    
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QCOM%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F4D}
+DriverVer   = 07/02/2015,1.0.1067.0
+
+CatalogFile.NTARM   = qcaudresconst8994.arm.cat
+CatalogFile.NTARM64 = qcaudresconst8994.arm64.cat
+
+[Manufacturer]
+%MfgName% = DeviceExtensions,NTARM,NTARM64
+
+[DeviceExtensions.NTARM]
+%QCAUD_A.DeviceDesc% = DeviceExtension_Install, AUDD\QCOM2451
+
+[DeviceExtensions.NTARM64]
+%QCAUD_A.DeviceDesc% = DeviceExtension_Install, AUDD\QCOM2451
+
+[DeviceExtension_Install]
+Addreg    = audresconstReg
+CopyFiles = AudioResourceConstraints.CopyList
+
+[DestinationDirs]
+AudioResourceConstraints.CopyList = 11; windows\system32
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+AudioResourceConstraints_8994.xml = 1
+
+[AudioResourceConstraints.CopyList]
+AudioResourceConstraints_8994.xml
+
+[audresconstReg]
+HKLM, SYSTEM\MultiMedia\DeviceCapability\ResourceSettings\XMLConfig, AudioResourceConstraintExamplePath, , "%%SystemRoot%%\System32\AudioResourceConstraints_8994.xml"
+
+[Strings]
+REG_SZ                 = 0x00000000
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm"
+MfgName                = "QUALCOMM"
+StdMfg                 = "Qualcomm Technologies, INC"
+DiskId1                = "AudResConst Installation Disk #1"
+audresconst.DeviceDesc = "AudResConst Settings Package"
+QCAUD_A.DeviceDesc     = "QCAUD Real Time (WaveRT) Driver for Qualcomm SoC"
+

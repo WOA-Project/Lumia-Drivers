@@ -1,0 +1,35 @@
+;
+; AudioResources.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/09/2015,1.0.0.0
+CatalogFile = AudioResources.cat
+
+[DestinationDirs]
+AudioResources.Files = 10,OEM\Drivers
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+ProxyAPO.dll   = 0,,
+qcaud8994.cat_ = 0,,
+qcaud8994.inf_ = 0,,
+qcaud8994.sys  = 0,,
+
+[DefaultInstall.NTARM64]
+CopyFiles = AudioResources.Files
+
+[AudioResources.Files]
+ProxyAPO.dll
+qcaud8994.cat, qcaud8994.cat_, , 0x00004000,
+qcaud8994.inf, qcaud8994.inf_, , 0x00004000,
+qcaud8994.sys
+
+[Strings]
+IHV = "LumiaWoA authors"
+

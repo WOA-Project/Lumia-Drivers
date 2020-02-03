@@ -1,0 +1,73 @@
+;
+; Origa2Auth.inf
+;
+
+[Version]
+Signature    = "$WINDOWS NT$"
+Class        = Battery
+ClassGuid    = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
+Provider     = %ManufacturerName%
+CatalogFile  = Origa2Auth.cat
+DriverVer    = 08/25/2014,8.00.0002
+BootCritical = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+Origa2Auth.sys = 3426
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NTARM
+
+[Standard.NTARM]
+%Origa2Auth.DeviceDesc% = Origa2Auth_Device, ACPI\MSHW1002
+
+[Origa2Auth_Device.NT]
+CopyFiles = Drivers_Dir
+
+[Drivers_Dir]
+Origa2Auth.sys
+
+;-------------- Service installation
+[Origa2Auth_Device.NT.Services]
+AddService = Origa2Auth,%SPSVCINST_ASSOCSERVICE%, Origa2Auth_Service_Inst
+
+; -------------- Origa2Auth driver install sections
+[Origa2Auth_Service_Inst]
+DisplayName    = %Origa2Auth.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\Origa2Auth.sys
+LoadOrderGroup = Extended Base
+
+;
+;--- Origa2Auth_Device Coinstaller installation ------
+;
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName       = "MMO"
+DiskName               = "Origa2Auth Installation Disk"
+Origa2Auth.DeviceDesc  = "Origa2Auth Device"
+Origa2Auth.SVCDESC     = "Origa2Auth Service"
+
+
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+

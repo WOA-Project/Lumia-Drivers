@@ -1,0 +1,87 @@
+;/*++
+;
+;Copyright (c) 2013 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcadcm_wp.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks ADCM Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qcadcm8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcadcm8994.sys = 1
+
+
+;*****************************************
+; Audio DSP and Calibration Manager (ADCM) Install Section
+;*****************************************
+
+[Manufacturer]
+%QCOM% = Standard,NTARM64
+
+[Standard.NTARM64]
+%ADCM.DeviceDesc% = ADCM_Device, SLM1\QCOM242D
+
+[ADCM_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+
+[Drivers_Dir]
+qcadcm8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+;-------------- Service installation
+[ADCM_Device.NT.Services]
+AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst
+
+[ADCMReg_Service]
+HKR, , SOSLog             , , "FALSE"
+HKR, , EnableTxDataLogging, , "FALSE"
+HKR, , EnableRxDataLogging, , "FALSE"
+
+; -------------- ADCM driver install sections
+[ADCM_Service_Inst]
+DisplayName   = %ADCM.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcadcm8994.sys
+;Tag            = 4
+;LoadOrderGroup = Extended Base
+Addreg        = ADCMReg_Service
+
+;[ADCM_Device.NT.Wdf]
+;KmdfService =  ADCM, ADCM_wdfsect
+;[ADCM_wdfsect]
+;KmdfLibraryVersion = 1.15
+
+[Strings]
+;Localizable Strings
+QCOM                   = "Qualcomm Inc."
+StdMfg                 = "(Standard system devices)"
+DiskId1                = "ADCM Installation Disk"
+ADCM.DeviceDesc        = "Qualcomm Audio DSP and Calibration Manager Device"
+ADCM.SVCDESC           = "Qualcomm Audio DSP and Calibration Manager"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

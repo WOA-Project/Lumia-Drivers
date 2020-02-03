@@ -1,0 +1,185 @@
+; 
+; Copyright (C) 2015 QUALCOMM Technologies Inc.
+; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+;
+; Module Name:
+;
+;    QCListenSoundModel.INX
+;
+; Abstract:
+;
+;    INX file for Qualcomm Sound Model Library
+;
+[Version]
+Signature   = "$Windows NT$"
+Class       = SYSTEM
+ClassGUID   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.0.1
+CatalogFile = "QCListenSoundModel.cat"
+
+[DestinationDirs]
+QCListenSoundModel.Files        = 11 ; \system32 directory on Windows 2000 and later versions
+VoiceActivationenUSConfig.Files = 11,\VoiceActivationModels\en-US
+VoiceActivationenUSBin.Files    = 11,\VoiceActivationModels\en-US
+VoiceActivationenGBConfig.Files = 11,\VoiceActivationModels\en-GB
+VoiceActivationenGBBin.Files    = 11,\VoiceActivationModels\en-GB
+VoiceActivationzhCNConfig.Files = 11,\VoiceActivationModels\zh-CN
+VoiceActivationzhCNBin.Files    = 11,\VoiceActivationModels\zh-CN
+
+VoiceActivationdeDEConfig.Files = 11,\VoiceActivationModels\de-DE
+VoiceActivationdeDEBin.Files    = 11,\VoiceActivationModels\de-DE
+VoiceActivationenAUConfig.Files = 11,\VoiceActivationModels\en-AU
+VoiceActivationenAUBin.Files    = 11,\VoiceActivationModels\en-AU
+VoiceActivationenCAConfig.Files = 11,\VoiceActivationModels\en-CA
+VoiceActivationenCABin.Files    = 11,\VoiceActivationModels\en-CA
+VoiceActivationenINConfig.Files = 11,\VoiceActivationModels\en-IN
+VoiceActivationenINBin.Files    = 11,\VoiceActivationModels\en-IN
+VoiceActivationesESConfig.Files = 11,\VoiceActivationModels\es-ES
+VoiceActivationesESBin.Files    = 11,\VoiceActivationModels\es-ES
+VoiceActivationfrFRConfig.Files = 11,\VoiceActivationModels\fr-FR
+VoiceActivationfrFRBin.Files    = 11,\VoiceActivationModels\fr-FR
+VoiceActivationitITConfig.Files = 11,\VoiceActivationModels\it-IT
+VoiceActivationitITBin.Files    = 11,\VoiceActivationModels\it-IT
+VoiceActivationjaJPConfig.Files = 11,\VoiceActivationModels\ja-JP
+VoiceActivationjaJPBin.Files    = 11,\VoiceActivationModels\ja-JP
+
+[SourceDisksNames]
+0 = %Disk%
+
+[SourceDisksFiles]
+QCListenSoundModel.dll       = 0,,
+enUSconfig                   = 0,,
+enUSVoiceActivationModel.bin = 0,,
+enGBconfig                   = 0,,
+enGBVoiceActivationModel.bin = 0,,
+zhCNconfig                   = 0,,
+zhCNVoiceActivationModel.bin = 0,,
+
+deDEconfig                   = 0,,
+deDEVoiceActivationModel.bin = 0,,
+enAUconfig                   = 0,,
+enAUVoiceActivationModel.bin = 0,,
+enCAconfig                   = 0,,
+enCAVoiceActivationModel.bin = 0,,
+enINconfig                   = 0,,
+enINVoiceActivationModel.bin = 0,,
+esESconfig                   = 0,,
+esESVoiceActivationModel.bin = 0,,
+frFRconfig                   = 0,,
+frFRVoiceActivationModel.bin = 0,,
+itITconfig                   = 0,,
+itITVoiceActivationModel.bin = 0,,
+jaJPconfig                   = 0,,
+jaJPVoiceActivationModel.bin = 0,,
+
+[DefaultInstall.NTARM64]
+CopyFiles = QCListenSoundModel.Files,VoiceActivationenUSConfig.Files,VoiceActivationenUSBin.Files,VoiceActivationenGBConfig.Files,VoiceActivationenGBBin.Files,VoiceActivationzhCNConfig.Files,VoiceActivationzhCNBin.Files,VoiceActivationdeDEConfig.Files,VoiceActivationdeDEBin.Files,VoiceActivationenAUConfig.Files,VoiceActivationenAUBin.Files,VoiceActivationenCAConfig.Files,VoiceActivationenCABin.Files,VoiceActivationenINConfig.Files,VoiceActivationenINBin.Files,VoiceActivationesESConfig.Files,VoiceActivationesESBin.Files,VoiceActivationfrFRConfig.Files,VoiceActivationfrFRBin.Files,VoiceActivationitITConfig.Files,VoiceActivationitITBin.Files,VoiceActivationjaJPConfig.Files,VoiceActivationjaJPBin.Files
+AddReg    = QCListenSoundModel_Reg
+
+[QCListenSoundModel_Reg]
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll                 , DisplayName              , %REG_SZ%       ,  "QCListenSoundModelDll"
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll                 , Description              , %REG_SZ%       ,  "Qualcomm Listen Sound Model DLL"
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll                 , ObjectName               , %REG_SZ%       ,  "LocalSystem"
+
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll\Config          , BaseSoundModelRootDirPath, 0x20000        ,  "%%SystemRoot%%\system32\VoiceActivationModels"
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll\Config          , DumpSoundModelData       , 0x10001        ,  0x1
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll\Config          , ListenAppId              , 0x10001        ,  0x1
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll\Config          , ListenDetectionMode      , 0x10001        ,  0x2
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll\Config          , ListenPowerType          , 0x10001        ,  0x3
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll\Config          , MaxNumKeywords           , 0x10001        ,  0x2
+HKLM, System\CurrentControlSet\Control\QCListenSoundModelDll\Config          , MaxNumUsers              , 0x10001        ,  0x3
+
+HKCR, QCListenSoundModel.Object.1                                            ,                          , %REG_SZ%       ,  "QCListenSoundModel Class"
+HKCR, QCListenSoundModel.Object.1\CurVer                                     ,                          , %REG_SZ%       ,  "QCListenSoundModel.Object.1.1"
+HKCR, QCListenSoundModel.Object.1.1                                          ,                          , %REG_SZ%       ,  "QCListenSoundModel Class"
+HKCR, QCListenSoundModel.Object.1.1\CLSID                                    ,                          , %REG_SZ%       ,  "{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"
+
+HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"                         ,                          , %REG_SZ%       ,  "QCListenSoundModel Class"
+HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,                          , %REG_EXPAND_SZ%,  "%%SystemRoot%%\system32\QCListenSoundModel.dll"
+HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          , ThreadingModel           , %REG_SZ%       ,  "Apartment"
+HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\ProgId                  ,                          , %REG_SZ%       ,  "QCListenSoundModel.Object.1.1"
+HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\TypeLib                 ,                          , %REG_SZ%       ,  "{EA8105CB-F215-4A3A-B429-7124EA8F1EBB}"
+HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\Version                 ,                          , %REG_SZ%       ,  "1.0"
+HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\VersionIndependentProgID,                          , %REG_SZ%       ,  "QCListenSoundModel.Object.1"
+
+[QCListenSoundModel.Files]
+QCListenSoundModel.dll
+
+[VoiceActivationenUSConfig.Files]
+config, enUSconfig,
+
+[VoiceActivationenUSBin.Files]
+VoiceActivationModel.bin, enUSVoiceActivationModel.bin,
+
+[VoiceActivationenGBConfig.Files]
+config, enGBconfig,
+
+[VoiceActivationenGBBin.Files]
+VoiceActivationModel.bin, enGBVoiceActivationModel.bin,
+
+[VoiceActivationzhCNConfig.Files]
+config, zhCNconfig,
+
+[VoiceActivationzhCNBin.Files]
+VoiceActivationModel.bin, zhCNVoiceActivationModel.bin,
+
+
+[VoiceActivationdeDEConfig.Files]
+config, deDEconfig,
+
+[VoiceActivationdeDEBin.Files]
+VoiceActivationModel.bin, deDEVoiceActivationModel.bin,
+
+[VoiceActivationenAUConfig.Files]
+config, enAUconfig,
+
+[VoiceActivationenAUBin.Files]
+VoiceActivationModel.bin, enAUVoiceActivationModel.bin,
+
+[VoiceActivationenCAConfig.Files]
+config, enCAconfig,
+
+[VoiceActivationenCABin.Files]
+VoiceActivationModel.bin, enCAVoiceActivationModel.bin,
+
+[VoiceActivationenINConfig.Files]
+config, enINconfig,
+
+[VoiceActivationenINBin.Files]
+VoiceActivationModel.bin, enINVoiceActivationModel.bin,
+
+[VoiceActivationesESConfig.Files]
+config, esESconfig,
+
+[VoiceActivationesESBin.Files]
+VoiceActivationModel.bin, esESVoiceActivationModel.bin,
+
+[VoiceActivationfrFRConfig.Files]
+config, frFRconfig,
+
+[VoiceActivationfrFRBin.Files]
+VoiceActivationModel.bin, frFRVoiceActivationModel.bin,
+
+[VoiceActivationitITConfig.Files]
+config, itITconfig,
+
+[VoiceActivationitITBin.Files]
+VoiceActivationModel.bin, itITVoiceActivationModel.bin,
+
+[VoiceActivationjaJPConfig.Files]
+config, jaJPconfig,
+
+[VoiceActivationjaJPBin.Files]
+VoiceActivationModel.bin, jaJPVoiceActivationModel.bin,
+
+[Strings]
+QC            = "Qualcomm Technologies, Inc."
+Disk          = "Disk"
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+

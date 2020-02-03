@@ -1,0 +1,88 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    QMUX.INF
+;
+;Abstract:
+;    INF file for installing the QMUX Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qcqmux8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcqmux8994.sys = 1
+
+;*****************************************
+; QMUX  Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM64
+
+[Standard.NTARM64]
+%QMUX.DeviceDesc% = QMUX_Device, ACPI\QCOM244F
+
+[QMUX_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[QMUX_Device.NT.HW]
+Addreg = QMUXACL
+
+[QMUXACL]
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
+; FILE_DEVICE_SECURE_OPEN
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+[Drivers_Dir]
+qcqmux8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+;-------------- Service installation
+[QMUX_Device.NT.Services]
+AddService = QCQMUX,%SPSVCINST_ASSOCSERVICE%, QMUX_Service_Inst
+
+; -------------- QMUX driver install sections
+[QMUX_Service_Inst]
+DisplayName   = %QMUX.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcqmux8994.sys
+
+[QMUX_Device.NT.Wdf]
+KmdfService = QCQMUX, QMUX_wdfsect
+[QMUX_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Incorporated."
+DiskId1                = "Qualcomm QMUX Driver Installation Disk"
+QMUX.DeviceDesc        = "Qualcomm QMUX Device"
+QMUX.SVCDESC           = "Qualcomm QMUX Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

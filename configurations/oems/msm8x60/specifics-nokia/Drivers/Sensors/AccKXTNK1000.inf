@@ -1,0 +1,49 @@
+;
+; AccKXTNK1000.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175d334-c371-4806-b3ba-71fd53c9258d}
+Provider    = "Nokia"
+DriverVer   = 12/18/2014,18.28.28.0582
+CatalogFile = acckxtnk1000.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+acckxtnk1000.sys = 0
+
+[Manufacturer]
+%comp% = Standard, NTARM
+
+[Standard.NTARM]
+%acc.devicedesc% = ACC_Inst.NT,     ACPI\KXTNK
+
+[acc_inst.nt]
+CopyFiles = acc_copy_files
+
+[acc_copy_files]
+acckxtnk1000.sys
+
+[ACC_Inst.NT.Services]
+AddService = AccKXTNK1000, 0x00000002, AccKXTNK1000_service_inst
+
+[AccKXTNK1000_service_inst]
+DisplayName    = %ACC.SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\acckxtnk1000.sys 
+LoadOrderGroup = Extended Base
+
+[Strings]
+acc.devicedesc = "KXTNK-1000 Accelerometer Driver"
+comp           = "Nokia"
+ACC.SvcDesc    = "KXTNK-1000 Accelerometer Driver"
+diskIns        = "KXTNK-1000 Accelerometer Installation Disk"
+

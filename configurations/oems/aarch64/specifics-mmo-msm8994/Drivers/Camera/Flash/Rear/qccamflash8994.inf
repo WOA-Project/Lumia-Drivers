@@ -1,0 +1,81 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Inc
+;
+;Module Name:
+;    qccamflash8994.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Flash Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qccamflash8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+FLASH.Files_12 = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qccamflash8994.sys = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; FLASH  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC, NTARM64
+
+[QC.NTARM64]
+%FLASH.DeviceDesc% = CameraFlash_Device, ACPI\QCOM244B
+
+[CameraFlash_Device.NT]
+CopyFiles   = flash.Files_12
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[flash.Files_12]
+qccamflash8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[CameraFlash_Device.NT.HW]
+AddReg = CameraFlash_Device_Security_Reg
+ 
+[CameraFlash_Device_Security_Reg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+;-------------- Service installation
+[CameraFlash_Device.NT.Services]
+AddService = qcFlash,%SPSVCINST_ASSOCSERVICE%, FLASH_Service_Inst
+
+; -------------- FLASH driver install sections
+[FLASH_Service_Inst]
+DFLASHlayName = %FLASH.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamflash8994.sys
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm Camera Flash Installation Disk"
+FLASH.SVCDESC          = "Qualcomm Camera Flash Driver"
+FLASH.DeviceDesc       = "Qualcomm Camera Flash Device"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

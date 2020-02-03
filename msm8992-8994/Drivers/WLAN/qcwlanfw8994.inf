@@ -1,0 +1,62 @@
+;/*++
+;
+;Copyright (c) 2012-2013  Qualcomm Technologies, Inc.
+;
+;Module Name:
+;    WLANFW.INF
+;
+;Abstract:
+;    INF file for installing the WLANFW Package for the QCLWAN Driver.
+;
+;Installation Notes: 
+;    
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QCOM%
+ExtensionId = {21E3E289-3E58-469D-B9DF-54339CB01F4D}
+DriverVer   = 07/02/2015,1.0.1067.0
+
+CatalogFile.NTARM   = qcwlanfw8994.arm.cat
+CatalogFile.NTARM64 = qcwlanfw8994.arm64.cat
+
+[DestinationDirs]
+Drivers_Dir_24 = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qwlan30.bin    = 1,,
+bdwlan30.bin   = 1,,
+Data.msc       = 1,,
+
+[Manufacturer]
+%StdMfg% = DeviceExtensions,NTARM,NTARM64
+
+[DeviceExtensions.NTARM]
+%WLANFW.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
+
+[DeviceExtensions.NTARM64]
+%WLANFW.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
+
+[DeviceExtension_Install]
+CopyFiles = Drivers_Dir_24
+
+[Drivers_Dir_24]
+qwlan30.bin, , , 2,
+bdwlan30.bin, , , 2,
+Data.msc, , , 2,
+
+[Strings]
+REG_SZ                 = 0x00000000
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm"
+StdMfg                 = "Qualcomm Technologies, INC"
+DiskId1                = "WLANFW Installation Disk #1"
+WLANFW.DeviceDesc      = "WLANFW Package"
+

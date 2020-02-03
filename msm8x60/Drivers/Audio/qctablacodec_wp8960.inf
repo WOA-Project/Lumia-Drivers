@@ -1,0 +1,90 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    TablaCodecDriver.INX
+;
+;Abstract:
+;    INF file for installing the Tabla Codec Driver
+;
+;Installation Notes: 
+;   
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 12/18/2014,18.34.39.0666
+CatalogFile = qctablacodec_wp8960.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qctablacodec8960.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; tabla driver Install Section
+;*****************************************
+
+[Manufacturer]
+%stdmfg% = Standard,NTARM
+
+[Standard.NTARM]
+%TABLA.DeviceDesc% = TABLA_Device,ACPI\QCOM2060
+
+[TABLA_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[TABLA_Device.NT.HW]
+Addreg = TABLA_DeviceACL
+
+[TABLA_DeviceACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir]
+qctablacodec8960.sys
+
+;-------------- Service installation
+[TABLA_Device.NT.Services]
+AddService = qctabla,%SPSVCINST_ASSOCSERVICE%,TABLA_Service_Inst
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+; -------------- Tabla driver install sections
+[TABLA_Service_Inst]
+DisplayName    = %TABLA.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qctablacodec8960.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm"
+stdmfg                 = "(Standard system devices)"
+TABLA.DeviceDesc       = "TABLA Driver"
+TABLA.SvcDesc          = "TABLA Service"
+DiskId1                = "Qualcomm Audio Tabla Codec Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

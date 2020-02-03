@@ -1,0 +1,24 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
+"Manufacturer"="Microsoft"
+"Model"="Microsoft Hapanero (MSM8994AA) (Codename)"
+"SupportHours"="Monday through Friday, 5:00 AM - 9:00 PM Pacific Time and Saturday and Sunday, 6:00 AM - 3:00 PM Pacific Time"
+"SupportPhone"="1-800-Microsoft (642-7676), TTY: 1-800-892-5234"
+"SupportURL"="http://lumia.linkmicrosoft.com/device/entry/van/nsupport"
+"Logo"="%%SystemRoot%%\System32\OEM\MMO.bmp"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\Platform\DeviceTargetingInfo]
+"PhoneFirmwareRevision"="01078.00035.15514.31000"
+"PhoneHardwareRevision"="1.0.0.0"
+"PhoneHardwareVariant"="RX-130"
+"PhoneManufacturer"="MicrosoftMDG"
+"PhoneManufacturerDisplayName"="Microsoft"
+"PhoneManufacturerModelName"="RX-130"
+"PhoneMobileOperatorDisplayName"="Operator"
+"PhoneMobileOperatorName"="000-88"
+"PhoneModelName"="id330-1"
+"PhoneOEMSupportLink"="http://lumia.linkmicrosoft.com/device/entry/van/nsupport"
+"PhoneRadioSoftwareRevision"="BO25c43.00007.0001"
+"PhoneROMLanguage"="0409"
+"PhoneSOCVersion"="8994"

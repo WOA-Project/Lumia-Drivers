@@ -1,0 +1,1052 @@
+;-------------------------------------------------------------------------------
+; QCWLAN8960.INF
+;
+; Qualcomm Wireless LAN NDIS Miniport Adapter
+;
+; Copyright (c) Qualcomm Inc.  All rights reserved.
+
+
+[version]
+Signature   = "$Windows NT$"
+Class       = Net
+ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 12/18/2014,18.31.29.0843
+CatalogFile = QCWLAN8960.cat
+PnpLockDown = 1
+
+
+[Manufacturer]
+%QUALCOMM% = QUALCOMM,NTARM
+
+[QUALCOMM.NTARM]
+%WLAN.DeviceDesc% = QctWlan.ndi, ACPI\QCOM0E50
+
+;-------------------------------------------------------------------------------
+; Wireless Local Area Network Adapter
+
+[QctWlan.ndi.NTARM]
+Include            = netvwifibus.inf
+Needs              = VWiFiBus.CopyFiles
+*IfType            = 71		; IF_TYPE_IEEE80211
+*MediaType         = 16		; NdisMediumNative802_11
+*PhysicalMediaType = 9		; NdisPhysicalMediumNative802_11
+Characteristics    = 0x84      ; NCF_PHYSICAL | NCF_HAS_UI
+BusType            = 15            ; PnP Bus
+AddReg             = QctWlan.Reg, AdvancedParms, StaticParms
+CopyFiles          = QctWlan.CopyFiles
+CopyFiles          = QctWlan2.CopyFiles
+AddProperty        = WDTFSOCDeviceCategory
+Reboot
+
+; WLAN Device category for SoCs (WLAN is of type NORMAL = 0)
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[QctWlan.ndi.NTARM.Services]
+Include    = netvwifibus.inf
+Needs      = VWiFiBus.Services
+AddService = QctWlan, 2, QctWlan.Service
+
+[QctWlan.ndi.NTARM.HW]
+Include = netvwifibus.inf
+Needs   = VWiFiBus.PnPFilterRegistration
+AddReg  = WLANACL
+
+[WLANACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;LS)"
+
+
+;-----------------------------------------------------------------------------
+; Wireless Local Area Network Adaptor Common
+;
+[QctWlan.Reg]
+;HKR,    ,                         BusNumber,           0, "0"
+;HKR, Ndi,                         Service,             0, "Ndisedge"
+;HKR, Ndi\Interfaces,              UpperRange,          0, "ndis5"
+;HKR, Ndi\Interfaces,              LowerRange,          0, "ethernet"
+
+HKR, Ndi\Interfaces                                          , UpperRange  , 0         ,  "ndis5"
+HKR, Ndi\Interfaces                                          , LowerRange  , 0         ,  "wlan,ethernet,vwifi"
+HKR, Ndi\Interfaces                                          , DefUpper    , 0         ,  "ndis5"
+HKR, Ndi\Interfaces                                          , DefLower    , 0         ,  "ethernet"
+HKR, Ndi                                                     , Service     , 0         ,  %QctWlan.Service.Name%
+
+;---------------------------------------------------------------------------------
+; enable WoWLAN key as per Microsoft guideline (interim fix)
+
+HKLM, SYSTEM\CurrentControlSet\Services\NativeWifiP\Parameters, EnableWoWLAN, 0x00010001, 1
+
+;Source
+;
+[SourceDisksNames]
+;
+; diskid = description[, [tagfile] [, <unused>, subdir]]
+;
+1 = %DiskId1%,,
+;2 = %DiskId1%,,,\arm
+
+
+[SourceDisksFiles]
+QCWLAN8960cfg.dat = 1
+;wlanfw_macfw.bin=1
+QCWLAN8960.sys    = 1
+
+[SourceDisksFiles.ARM]
+QCWLAN8960cfg.dat = 1
+;wlanfw_macfw.bin=1
+QCWLAN8960.sys    = 1
+
+
+
+
+
+;-----------------------------------------------------------------------------
+; DestinationDirs
+;
+[DestinationDirs]
+QctWlan.CopyFiles  = 12
+QctWlan2.CopyFiles = 11
+
+[QctWlan.CopyFiles]
+QCWLAN8960.sys, , , 2,
+
+
+[QctWlan2.CopyFiles]
+QCWLAN8960cfg.dat, , , 2,
+;wlanfw_macfw.bin,,,2
+
+;-----------------------------------------------------------------------------
+; Driver and Service Section
+;
+
+[QctWlan.Service]
+DisplayName   = %QctWlan.Service.DispName%
+ServiceType   = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType     = 3 ;%SERVICE_DEMAND_START%
+ErrorControl  = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\QCWLAN8960.sys
+
+
+; ============================================================================
+; Parameters on the 'Advanced' Property page
+; ============================================================================
+[AdvancedParms]
+
+; ----------------------------------------------------------------------------
+;McastBcastFilter
+; ----------------------------------------------------------------------------
+HKR,,McastBcastFilter,,"0"
+HKR,NDI\params\McastBcastFilter,        ParamDesc, 0, "Filter Mcast and Bcast RX packets"
+HKR,NDI\params\McastBcastFilter,        type,      0, "dword"
+HKR,NDI\params\McastBcastFilter,        default,   0, "0"
+HKR,NDI\params\McastBcastFilter,        min,       0, "0"
+HKR,NDI\params\McastBcastFilter,        max,       0, "3"
+HKR,NDI\params\McastBcastFilter,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+;InfraUapsdVoSrvIntv
+; ----------------------------------------------------------------------------
+HKR,,InfraUapsdVoSrvIntv,,"20"
+HKR,NDI\params\InfraUapsdVoSrvIntv,        ParamDesc, 0, "UAPSD service interval for VO traffic"
+HKR,NDI\params\InfraUapsdVoSrvIntv,        type,      0, "dword"
+HKR,NDI\params\InfraUapsdVoSrvIntv,        default,   0, "20"
+HKR,NDI\params\InfraUapsdVoSrvIntv,        min,       0, "0"
+HKR,NDI\params\InfraUapsdVoSrvIntv,        max,       0, "500"
+HKR,NDI\params\InfraUapsdVoSrvIntv,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; InfraUapsdViSrvIntv
+; ----------------------------------------------------------------------------
+HKR,,InfraUapsdViSrvIntv,,"300"
+HKR,NDI\params\InfraUapsdViSrvIntv,        ParamDesc, 0, "UAPSD service interval for VI traffic"
+HKR,NDI\params\InfraUapsdViSrvIntv,        type,      0, "dword"
+HKR,NDI\params\InfraUapsdViSrvIntv,        default,   0, "300"
+HKR,NDI\params\InfraUapsdViSrvIntv,        min,       0, "0"
+HKR,NDI\params\InfraUapsdViSrvIntv,        max,       0, "500"
+HKR,NDI\params\InfraUapsdViSrvIntv,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; InfraUapsdBeSrvIntv
+; ----------------------------------------------------------------------------
+HKR,,InfraUapsdBeSrvIntv,,"300"
+HKR,NDI\params\InfraUapsdBeSrvIntv,        ParamDesc, 0, "UAPSD service interval for BE traffic"
+HKR,NDI\params\InfraUapsdBeSrvIntv,        type,      0, "dword"
+HKR,NDI\params\InfraUapsdBeSrvIntv,        default,   0, "300"
+HKR,NDI\params\InfraUapsdBeSrvIntv,        min,       0, "0"
+HKR,NDI\params\InfraUapsdBeSrvIntv,        max,       0, "500"
+HKR,NDI\params\InfraUapsdBeSrvIntv,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; InfraUapsdBkSrvIntv
+; ----------------------------------------------------------------------------
+HKR,,InfraUapsdBkSrvIntv,,"300"
+HKR,NDI\params\InfraUapsdBkSrvIntv,        ParamDesc, 0, "UAPSD service interval for BK traffic"
+HKR,NDI\params\InfraUapsdBkSrvIntv,        type,      0, "dword"
+HKR,NDI\params\InfraUapsdBkSrvIntv,        default,   0, "300"
+HKR,NDI\params\InfraUapsdBkSrvIntv,        min,       0, "0"
+HKR,NDI\params\InfraUapsdBkSrvIntv,        max,       0, "500"
+HKR,NDI\params\InfraUapsdBkSrvIntv,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Band Capability
+; ----------------------------------------------------------------------------
+HKR,,BandCapability,,"0"
+HKR,NDI\params\BandCapability,        ParamDesc, 0, "Band Capability"
+HKR,NDI\params\BandCapability,        type,      0, "dword"
+HKR,NDI\params\BandCapability,        default,   0, "0"
+HKR,NDI\params\BandCapability,        min,       0, "0"
+HKR,NDI\params\BandCapability,        max,       0, "2"
+HKR,NDI\params\BandCapability,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Beacon Early Termination
+; ----------------------------------------------------------------------------
+HKR,,enableBeaconEarlyTermination,,"0"
+HKR,NDI\params\enableBeaconEarlyTermination,        ParamDesc, 0, "Beacon Early Termination"
+HKR,NDI\params\enableBeaconEarlyTermination,        type,      0, "dword"
+HKR,NDI\params\enableBeaconEarlyTermination,        default,   0, "0"
+HKR,NDI\params\enableBeaconEarlyTermination,        min,       0, "0"
+HKR,NDI\params\enableBeaconEarlyTermination,        max,       0, "1"
+HKR,NDI\params\enableBeaconEarlyTermination,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Beacon Early Termination Wake Intveral
+; ----------------------------------------------------------------------------
+HKR,,beaconEarlyTerminationWakeInterval,,"3"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        ParamDesc, 0, "Beacon Early Termination Wake Intveral"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        type,      0, "dword"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        default,   0, "3"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        min,       0, "2"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        max,       0, "255"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Beacon Filtering Frequency
+; ----------------------------------------------------------------------------
+HKR,,gNthBeaconFilter,,"50"
+HKR,NDI\params\gNthBeaconFilter,        ParamDesc, 0, "Beacon Filtering Frequency (Beacon Intervals)"
+HKR,NDI\params\gNthBeaconFilter,        type,      0, "dword"
+HKR,NDI\params\gNthBeaconFilter,        default,   0, "50"
+HKR,NDI\params\gNthBeaconFilter,        min,       0, "0"
+HKR,NDI\params\gNthBeaconFilter,        max,       0, "255"
+HKR,NDI\params\gNthBeaconFilter,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Enable WMM
+; ----------------------------------------------------------------------------
+HKR,,WmmIsEnabled,,"0"
+HKR,NDI\params\WmmIsEnabled,        ParamDesc, 0, "Enable WMM"
+HKR,NDI\params\WmmIsEnabled,        type,      0, "dword"
+HKR,NDI\params\WmmIsEnabled,        default,   0, "0"
+HKR,NDI\params\WmmIsEnabled,        min,       0, "0"
+HKR,NDI\params\WmmIsEnabled,        max,       0, "2"
+HKR,NDI\params\WmmIsEnabled,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Antenna Configuration
+; ----------------------------------------------------------------------------
+HKR,,gNumRxAnt,,"1"
+HKR,NDI\params\gNumRxAnt,        ParamDesc, 0, "Antenna Configuration"
+HKR,NDI\params\gNumRxAnt,        type,      0, "dword"
+HKR,NDI\params\gNumRxAnt,        default,   0, "1"
+HKR,NDI\params\gNumRxAnt,        min,       0, "1"
+HKR,NDI\params\gNumRxAnt,        max,       0, "2"
+HKR,NDI\params\gNumRxAnt,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; RSSI FW Filtering
+; ----------------------------------------------------------------------------
+HKR,,gEnableFwRssiMonitoring,,"0"
+HKR,NDI\params\gEnableFwRssiMonitoring,        ParamDesc, 0, "Enable RSSI FW Filter"
+HKR,NDI\params\gEnableFwRssiMonitoring,        type,      0, "dword"
+HKR,NDI\params\gEnableFwRssiMonitoring,        default,   0, "0"
+HKR,NDI\params\gEnableFwRssiMonitoring,        min,       0, "0"
+HKR,NDI\params\gEnableFwRssiMonitoring,        max,       0, "1"
+HKR,NDI\params\gEnableFwRssiMonitoring,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; DFS Channel Scan
+; ----------------------------------------------------------------------------
+HKR,,gEnableDFSChnlScan,,"1"
+HKR,NDI\params\gEnableDFSChnlScan,        ParamDesc, 0, "DFS Channel Scan"
+HKR,NDI\params\gEnableDFSChnlScan,        type,      0, "dword"
+HKR,NDI\params\gEnableDFSChnlScan,        default,   0, "1"
+HKR,NDI\params\gEnableDFSChnlScan,        min,       0, "0"
+HKR,NDI\params\gEnableDFSChnlScan,        max,       0, "1"
+HKR,NDI\params\gEnableDFSChnlScan,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Bypass 11d
+; ----------------------------------------------------------------------------
+HKR,,gEnableBypass11d,,"1"
+HKR,NDI\params\gEnableBypass11d,        ParamDesc, 0, "Bypass 11d"
+HKR,NDI\params\gEnableBypass11d,        type,      0, "dword"
+HKR,NDI\params\gEnableBypass11d,        default,   0, "1"
+HKR,NDI\params\gEnableBypass11d,        min,       0, "0"
+HKR,NDI\params\gEnableBypass11d,        max,       0, "1"
+HKR,NDI\params\gEnableBypass11d,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Enable Close Loop
+; ----------------------------------------------------------------------------
+HKR,,gEnableCloseLoop,,"1"
+HKR,NDI\params\gEnableCloseLoop,        ParamDesc, 0, "Enable Close Loop"
+HKR,NDI\params\gEnableCloseLoop,        type,      0, "dword"
+HKR,NDI\params\gEnableCloseLoop,        default,   0, "1"
+HKR,NDI\params\gEnableCloseLoop,        min,       0, "0"
+HKR,NDI\params\gEnableCloseLoop,        max,       0, "1"
+HKR,NDI\params\gEnableCloseLoop,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; ftmMode
+; ----------------------------------------------------------------------------
+HKR,,ftmMode,,"0"
+HKR,NDI\params\ftmMode,        ParamDesc, 0, "FTM Mode"
+HKR,NDI\params\ftmMode,        type,      0, "dword"
+HKR,NDI\params\ftmMode,        default,   0, "0"
+HKR,NDI\params\ftmMode,        min,       0, "0"
+HKR,NDI\params\ftmMode,        max,       0, "2"
+HKR,NDI\params\ftmMode,        step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; LogEnabledModule
+; ----------------------------------------------------------------------------
+HKR,,LogEnabledModule,,"96"
+HKR,NDI\params\LogEnabledModule,        ParamDesc, 0, "Log Enabled Module Mask"
+HKR,NDI\params\LogEnabledModule,        type,      0, "dword"
+HKR,NDI\params\LogEnabledModule,        default,   0, "96"          ; HDD + SME
+HKR,NDI\params\LogEnabledModule,        min,       0, "0"
+HKR,NDI\params\LogEnabledModule,        max,       0, "4294967295"  ; 0xffffffff
+
+
+; ----------------------------------------------------------------------------
+; LogLevelMask
+; ----------------------------------------------------------------------------
+HKR,,LogLevelMask,,"262"
+HKR,NDI\params\LogLevelMask,        ParamDesc, 0, "Log Level Mask"
+HKR,NDI\params\LogLevelMask,        type,      0, "dword"
+HKR,NDI\params\LogLevelMask,        default,   0, "262"         ; errors, fatals, user
+HKR,NDI\params\LogLevelMask,        min,       0, "0"
+HKR,NDI\params\LogLevelMask,        max,       0, "4294967295"  ; 0xffffffff
+
+; ----------------------------------------------------------------------------
+; RTS Threshold
+; ----------------------------------------------------------------------------
+HKR,,gRTSThreshold,,"2347"
+HKR,NDI\params\gRTSThreshold,               ParamDesc, 0, "RTS Threshold"
+HKR,NDI\params\gRTSThreshold,               type,      0, "int"
+HKR,NDI\params\gRTSThreshold,               default,   0, "2347"
+HKR,NDI\params\gRTSThreshold,               min,       0, "0"
+HKR,NDI\params\gRTSThreshold,               max,       0, "2347"
+HKR,NDI\params\gRTSThreshold,               step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; Fragmentation Threshold
+; ----------------------------------------------------------------------------
+HKR,,gFragmentationThreshold,,"2346"
+HKR,NDI\params\gFragmentationThreshold,     ParamDesc, 0, "Fragmentation Threshold"
+HKR,NDI\params\gFragmentationThreshold,     type,      0, "int"
+HKR,NDI\params\gFragmentationThreshold,     default,   0, "2346"
+HKR,NDI\params\gFragmentationThreshold,     min,       0, "256"
+HKR,NDI\params\gFragmentationThreshold,     max,       0, "2346"
+HKR,NDI\params\gFragmentationThreshold,     step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; CheckForHang time
+; ----------------------------------------------------------------------------
+HKR,,CheckForHangTime,,"200"
+HKR,NDI\params\CheckForHangTime,	    ParamDesc, 0, "CheckForHang Time"
+HKR,NDI\params\CheckForHangTime,	    type,      0, "dword"
+HKR,NDI\params\CheckForHangTime,	    default,   0, "5"
+HKR,NDI\params\CheckForHangTime,	    min,       0, "0"
+HKR,NDI\params\CheckForHangTime,	    max,       0, "5"
+
+; ----------------------------------------------------------------------------
+; Calibration On / Off
+; ----------------------------------------------------------------------------
+HKR,,gCalibration,,"1"
+HKR,NDI\params\gCalibration,             ParamDesc, 0, "Calibration (on/off)"
+HKR,NDI\params\gCalibration,             type,      0, "enum"
+HKR,NDI\params\gCalibration,             default,   0, "1"
+HKR,NDI\params\gCalibration\enum,        "0",       0, "OFF"
+HKR,NDI\params\gCalibration\enum,        "1",       0, "ON"
+
+; ----------------------------------------------------------------------------
+; Calibration period
+; ----------------------------------------------------------------------------
+HKR,,gCalibrationPeriod,,"5"
+HKR,NDI\params\gCalibrationPeriod,       ParamDesc, 0, "Calibration period (minutes)"
+HKR,NDI\params\gCalibrationPeriod,       type,      0, "int"
+HKR,NDI\params\gCalibrationPeriod,       default,   0, "5"
+HKR,NDI\params\gCalibrationPeriod,       min,       0, "2"
+HKR,NDI\params\gCalibrationPeriod,       max,       0, "10"
+HKR,NDI\params\gCalibrationPeriod,       step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Operating Channel
+; ----------------------------------------------------------------------------
+HKR,,gOperatingChannel,,"1"
+HKR,NDI\params\gOperatingChannel,        ParamDesc, 0, "Operating channel"
+HKR,NDI\params\gOperatingChannel,        type,      0, "int"
+HKR,NDI\params\gOperatingChannel,        default,   0, "1"
+HKR,NDI\params\gOperatingChannel,        min,       0, "0"
+HKR,NDI\params\gOperatingChannel,        max,       0, "252"
+HKR,NDI\params\gOperatingChannel,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Short Slot Time Enabled
+; ----------------------------------------------------------------------------
+HKR,,gShortSlotTimeEnabled,,"1"
+HKR,NDI\params\gShortSlotTimeEnabled,       ParamDesc,          0, "802.11g Short Slot Time"
+HKR,NDI\params\gShortSlotTimeEnabled,       type,               0, "dword"
+HKR,NDI\params\gShortSlotTimeEnabled,       default,            0, "1"
+HKR,NDI\params\gShortSlotTimeEnabled,       min,                0, "0"
+HKR,NDI\params\gShortSlotTimeEnabled,       max,                0, "1"
+HKR,NDI\params\gShortSlotTimeEnabled,       step,               0, "1"
+
+; ----------------------------------------------------------------------------
+; 11d Support   
+; ----------------------------------------------------------------------------
+HKR,,g11dSupportEnabled,,"1"
+HKR,NDI\params\g11dSupportEnabled,          ParamDesc, 0, "802.11d Support"
+HKR,NDI\params\g11dSupportEnabled,          type,      0, "enum"
+HKR,NDI\params\g11dSupportEnabled,          default,   0, "1"
+HKR,NDI\params\g11dSupportEnabled\enum,     "0",       0, "Off"
+HKR,NDI\params\g11dSupportEnabled\enum,     "1",       0, "On"
+
+; ----------------------------------------------------------------------------
+; Enforce 11d channel
+; ----------------------------------------------------------------------------
+HKR,,gEnforce11dChannel,,"0"
+HKR,NDI\params\gEnforce11dChannel,          ParamDesc, 0, "Enforce 11d channel"
+HKR,NDI\params\gEnforce11dChannel,          type,      0, "enum"
+HKR,NDI\params\gEnforce11dChannel,          default,   0, "0"
+HKR,NDI\params\gEnforce11dChannel\enum,     "0",       0, "Off"
+HKR,NDI\params\gEnforce11dChannel\enum,     "1",       0, "On"
+
+; ----------------------------------------------------------------------------
+; Enforce Country code match
+; ----------------------------------------------------------------------------
+HKR,,gEnforceCountryCodeMatch,,"0"
+HKR,NDI\params\gEnforceCountryCodeMatch,         ParamDesc, 0, "Enforce country code match"
+HKR,NDI\params\gEnforceCountryCodeMatch,         type,      0, "enum"
+HKR,NDI\params\gEnforceCountryCodeMatch,         default,   0, "0"
+HKR,NDI\params\gEnforceCountryCodeMatch\enum,    "0",       0, "Off"
+HKR,NDI\params\gEnforceCountryCodeMatch\enum,    "1",       0, "On"
+
+; ----------------------------------------------------------------------------
+; Enforce default domain
+; ----------------------------------------------------------------------------
+HKR,,gEnforceCountryCodeMatch,,"0"
+HKR,NDI\params\gEnforceCountryCodeMatch,         ParamDesc, 0, "Enforce default domain"
+HKR,NDI\params\gEnforceCountryCodeMatch,         type,      0, "enum"
+HKR,NDI\params\gEnforceCountryCodeMatch,         default,   0, "0"
+HKR,NDI\params\gEnforceCountryCodeMatch\enum,    "0",       0, "Off"
+HKR,NDI\params\gEnforceCountryCodeMatch\enum,    "1",       0, "On"
+
+; ----------------------------------------------------------------------------
+; Generic CFG settings
+; ----------------------------------------------------------------------------
+HKR,,gCfg1Id,,"0"
+HKR,NDI\params\gCfg1Id,       ParamDesc,    0, "Generic Cfg 1 Id (decimal; 0 = 
+HKR,NDI\params\gCfg1Id,       type,         0, "dword"
+HKR,NDI\params\gCfg1Id,       default,      0, "0"
+
+HKR,,gCfg1Value,,"0"
+HKR,NDI\params\gCfg1Value,    ParamDesc,    0, "Generic Cfg 1 Value (decimal)"
+HKR,NDI\params\gCfg1Value,    type,         0, "dword"
+HKR,NDI\params\gCfg1Value,    default,      0, "0"
+
+HKR,,gCfg2Id,,"0"
+HKR,NDI\params\gCfg2Id,       ParamDesc,    0, "Generic Cfg 2 Id (decimal; 0 = 
+HKR,NDI\params\gCfg2Id,       type,         0, "dword"
+HKR,NDI\params\gCfg2Id,       default,      0, "0"
+
+HKR,,gCfg2Value,,"0"
+HKR,NDI\params\gCfg2Value,    ParamDesc,    0, "Generic Cfg 2 Value (decimal)"
+HKR,NDI\params\gCfg2Value,    type,         0, "dword"
+HKR,NDI\params\gCfg2Value,    default,      0, "0"
+
+HKR,,gCfg3Id,,"0"
+HKR,NDI\params\gCfg3Id,       ParamDesc,    0, "Generic Cfg 3 Id (decimal; 0 = 
+HKR,NDI\params\gCfg3Id,       type,         0, "dword"
+HKR,NDI\params\gCfg3Id,       default,      0, "0"
+
+HKR,,gCfg3Value,,"0"
+HKR,NDI\params\gCfg3Value,    ParamDesc,    0, "Generic Cfg 3 Value (decimal)"
+HKR,NDI\params\gCfg3Value,    type,         0, "dword"
+HKR,NDI\params\gCfg3Value,    default,      0, "0"
+
+HKR,,gCfg4Id,,"0"
+HKR,NDI\params\gCfg4Id,       ParamDesc,    0, "Generic Cfg 4 Id (decimal; 0 = 
+HKR,NDI\params\gCfg4Id,       type,         0, "dword"
+HKR,NDI\params\gCfg4Id,       default,      0, "0"
+
+HKR,,gCfg4Value,,"0"
+HKR,NDI\params\gCfg4Value,    ParamDesc,    0, "Generic Cfg 4 Value (decimal)"
+HKR,NDI\params\gCfg4Value,    type,         0, "dword"
+HKR,NDI\params\gCfg4Value,    default,      0, "0"
+
+HKR,,gCfg5Id,,"0"
+HKR,NDI\params\gCfg5Id,       ParamDesc,    0, "Generic Cfg 5 Id (decimal; 0 = 
+HKR,NDI\params\gCfg5Id,       type,         0, "dword"
+HKR,NDI\params\gCfg5Id,       default,      0, "0"
+
+HKR,,gCfg5Value,,"0"
+HKR,NDI\params\gCfg5Value,    ParamDesc,    0, "Generic Cfg 5 Value (decimal)"
+HKR,NDI\params\gCfg5Value,    type,         0, "dword"
+HKR,NDI\params\gCfg5Value,    default,      0, "0"
+
+; ----------------------------------------------------------------------------
+; Heartbeat Threshold (2.4 GHz)
+; ----------------------------------------------------------------------------
+HKR,,gHeartbeat24,,"40"
+HKR,NDI\params\gHeartbeat24,            ParamDesc,          0, "Heartbeat Thresh (2.4)"
+HKR,NDI\params\gHeartbeat24,            type,               0, "dword"
+HKR,NDI\params\gHeartbeat24,            default,            0, "40"
+HKR,NDI\params\gHeartbeat24,            min,                0, "1"
+HKR,NDI\params\gHeartbeat24,            max,                0, "65535"
+HKR,NDI\params\gHeartbeat24,            step,               0, "1"
+
+; ----------------------------------------------------------------------------
+; Enable Imps 
+; ----------------------------------------------------------------------------
+HKR,,gEnableImps,,"1"
+HKR,NDI\params\gEnableImps,             ParamDesc, 0, "Enable Imps"
+HKR,NDI\params\gEnableImps,             type,      0, "enum"
+HKR,NDI\params\gEnableImps,             default,   0, "1"
+HKR,NDI\params\gEnableImps\enum,        "0",       0, "Off"
+HKR,NDI\params\gEnableImps\enum,        "1",       0, "On"
+
+; ----------------------------------------------------------------------------
+; Enable Bmps 
+; ----------------------------------------------------------------------------
+HKR,,gEnableBmps,,"1"
+HKR,NDI\params\gEnableBmps,             ParamDesc, 0, "Enable Bmps"
+HKR,NDI\params\gEnableBmps,             type,      0, "enum"
+HKR,NDI\params\gEnableBmps,             default,   0, "1"
+HKR,NDI\params\gEnableBmps\enum,        "0",       0, "Off"
+HKR,NDI\params\gEnableBmps\enum,        "1",       0, "On"
+
+; ----------------------------------------------------------------------------
+; Bmps minimum listen interval
+; ----------------------------------------------------------------------------
+HKR,,gBmpsMinListenInterval,,"1"
+HKR,NDI\params\gBmpsMinListenInterval,       ParamDesc,          0, "Bmps min listen interval"
+HKR,NDI\params\gBmpsMinListenInterval,       type,               0, "dword"
+HKR,NDI\params\gBmpsMinListenInterval,       default,            0, "1"
+HKR,NDI\params\gBmpsMinListenInterval,       min,                0, "1"
+HKR,NDI\params\gBmpsMinListenInterval,       max,                0, "1"
+HKR,NDI\params\gBmpsMinListenInterval,       step,               0, "1"
+
+; ----------------------------------------------------------------------------
+; Bmps max listen interval
+; ----------------------------------------------------------------------------
+HKR,,gBmpsMaxListenInterval,,"4"
+HKR,NDI\params\gBmpsMaxListenInterval,       ParamDesc,          0, "Bmps max listen interval"
+HKR,NDI\params\gBmpsMaxListenInterval,       type,               0, "dword"
+HKR,NDI\params\gBmpsMaxListenInterval,       default,            0, "1"
+HKR,NDI\params\gBmpsMaxListenInterval,       min,                0, "1"
+HKR,NDI\params\gBmpsMaxListenInterval,       max,                0, "10"
+HKR,NDI\params\gBmpsMaxListenInterval,       step,               0, "1"
+
+; ----------------------------------------------------------------------------
+; Bmps mod listen interval
+; ----------------------------------------------------------------------------
+HKR,,gBmpsModListenInterval,,"1"
+HKR,NDI\params\gBmpsModListenInterval,       ParamDesc,          0, "Bmps moderate listen interval"
+HKR,NDI\params\gBmpsModListenInterval,       type,               0, "dword"
+HKR,NDI\params\gBmpsModListenInterval,       default,            0, "1"
+HKR,NDI\params\gBmpsModListenInterval,       min,                0, "1"
+HKR,NDI\params\gBmpsModListenInterval,       max,                0, "2"
+HKR,NDI\params\gBmpsModListenInterval,       step,               0, "1"
+
+; ----------------------------------------------------------------------------
+; Auto bmps timer value
+; ----------------------------------------------------------------------------
+HKR,,gAutoBmpsTimerValue,,"5000"
+HKR,NDI\params\gAutoBmpsTimerValue,       ParamDesc,          0, "Auto bmps timer value"
+HKR,NDI\params\gAutoBmpsTimerValue,       type,               0, "dword"
+HKR,NDI\params\gAutoBmpsTimerValue,       default,            0, "5000"
+HKR,NDI\params\gAutoBmpsTimerValue,       min,                0, "1000"
+HKR,NDI\params\gAutoBmpsTimerValue,       max,                0, "4294967295"
+HKR,NDI\params\gAutoBmpsTimerValue,       step,               0, "1"
+
+; ----------------------------------------------------------------------------
+; Maximum Rx A-MPDU factor    
+; ----------------------------------------------------------------------------
+HKR,,gMaxRxAmpduFactor,,"3"
+HKR,NDI\params\gMaxRxAmpduFactor,       ParamDesc, 0, "Maximum Rx A-MPDU Factor"
+HKR,NDI\params\gMaxRxAmpduFactor,       type,      0, "enum"
+HKR,NDI\params\gMaxRxAmpduFactor,       default,   0, "3"
+HKR,NDI\params\gMaxRxAmpduFactor\enum,  "0",       0, "0"
+HKR,NDI\params\gMaxRxAmpduFactor\enum,  "1",       0, "1"
+HKR,NDI\params\gMaxRxAmpduFactor\enum,  "2",       0, "2"
+HKR,NDI\params\gMaxRxAmpduFactor\enum,  "3",       0, "3"
+
+; ----------------------------------------------------------------------------
+; 802.11 Mode
+; ----------------------------------------------------------------------------
+HKR,,gDot11Mode,,"0"
+HKR,NDI\params\gDot11Mode,              ParamDesc, 0, "802.11 Mode"
+HKR,NDI\params\gDot11Mode,              type,      0, "enum"
+HKR,NDI\params\gDot11Mode,              default,   0, "0"
+HKR,NDI\params\gDot11Mode\enum,         "0",       0, "Auto"
+HKR,NDI\params\gDot11Mode\enum,         "1",       0, "802.11a/b/g"
+HKR,NDI\params\gDot11Mode\enum,         "2",       0, "802.11b"
+HKR,NDI\params\gDot11Mode\enum,         "3",       0, "802.11g"
+HKR,NDI\params\gDot11Mode\enum,         "4",	   0, "802.11n"
+HKR,NDI\params\gDot11Mode\enum,         "5",	   0, "802.11g only"
+HKR,NDI\params\gDot11Mode\enum,         "6",	   0, "802.11n only"
+HKR,NDI\params\gDot11Mode\enum,         "7",       0, "802.11b only"
+
+; ----------------------------------------------------------------------------
+; Channel Bonding Mode
+; ----------------------------------------------------------------------------
+HKR,,gChannelBondingMode24Ghz,,"0"
+HKR,NDI\params\gChannelBondingMode24Ghz,       ParamDesc, 0, "Channel Bonding (2.4Ghz)"
+HKR,NDI\params\gChannelBondingMode24Ghz,       type,      0, "enum"
+HKR,NDI\params\gChannelBondingMode24Ghz,       default,   0, "0"
+HKR,NDI\params\gChannelBondingMode24Ghz\enum,  "0",       0, "Disable"
+HKR,NDI\params\gChannelBondingMode24Ghz\enum,  "1",       0, "Enable"
+HKR,NDI\params\gChannelBondingMode24Ghz\enum,  "2",       0, "Reserved1"
+HKR,NDI\params\gChannelBondingMode24Ghz\enum,  "3",       0, "Reserved2"
+HKR,NDI\params\gChannelBondingMode24Ghz\enum,  "4",       0, "Reserved3"
+
+HKR,,gChannelBondingMode5Ghz,,"1"
+HKR,NDI\params\gChannelBondingMode5Ghz,       ParamDesc, 0, "Channel Bonding (5Ghz)"
+HKR,NDI\params\gChannelBondingMode5Ghz,       type,      0, "enum"
+HKR,NDI\params\gChannelBondingMode5Ghz,       default,   0, "1"
+HKR,NDI\params\gChannelBondingMode5Ghz\enum,  "0",       0, "Disable"
+HKR,NDI\params\gChannelBondingMode5Ghz\enum,  "1",       0, "Enable"
+HKR,NDI\params\gChannelBondingMode5Ghz\enum,  "2",       0, "Reserved1"
+HKR,NDI\params\gChannelBondingMode5Ghz\enum,  "3",       0, "Reserved2"
+HKR,NDI\params\gChannelBondingMode5Ghz\enum,  "4",       0, "Reserved3"
+
+; ----------------------------------------------------------------------------
+; Fixed Rate setting
+; ----------------------------------------------------------------------------
+HKR,,gFixedRate,,"0"
+HKR,NDI\params\gFixedRate,       ParamDesc, 0, "Transmit Rate (Mbps)"
+HKR,NDI\params\gFixedRate,       type,      0, "enum"
+HKR,NDI\params\gFixedRate,       default,   0, "0"
+HKR,NDI\params\gFixedRate\enum,  "0",       0, "Adaptive"
+HKR,NDI\params\gFixedRate\enum,  "1",       0, "Legacy 1"
+HKR,NDI\params\gFixedRate\enum,  "2",       0, "Legacy 2"
+HKR,NDI\params\gFixedRate\enum,  "3",       0, "Legacy 5.5"
+HKR,NDI\params\gFixedRate\enum,  "4",       0, "Legacy 11"
+HKR,NDI\params\gFixedRate\enum,  "5",       0, "Legacy 6"
+HKR,NDI\params\gFixedRate\enum,  "6",       0, "Legacy 9"
+HKR,NDI\params\gFixedRate\enum,  "7",       0, "Legacy 12"
+HKR,NDI\params\gFixedRate\enum,  "8",       0, "Legacy 18"
+HKR,NDI\params\gFixedRate\enum,  "9",       0, "Legacy 24"
+HKR,NDI\params\gFixedRate\enum,  "10",      0, "Legacy 36"
+HKR,NDI\params\gFixedRate\enum,  "11",      0, "Legacy 48"
+HKR,NDI\params\gFixedRate\enum,  "12",      0, "Legacy 54"
+HKR,NDI\params\gFixedRate\enum,  "13",      0, "MCS0/20M 6.5"
+HKR,NDI\params\gFixedRate\enum,  "14",      0, "MCS1/20M 13"
+HKR,NDI\params\gFixedRate\enum,  "15",      0, "MCS2/20M 19.5"
+HKR,NDI\params\gFixedRate\enum,  "16",      0, "MCS3/20M 26"
+HKR,NDI\params\gFixedRate\enum,  "17",      0, "MCS4/20M 39"
+HKR,NDI\params\gFixedRate\enum,  "18",      0, "MCS5/20M 52"
+HKR,NDI\params\gFixedRate\enum,  "19",      0, "MCS6/20M 58.5"
+HKR,NDI\params\gFixedRate\enum,  "20",      0, "MCS7/20M 65"
+HKR,NDI\params\gFixedRate\enum,  "21",      0, "MCS0/20M/SGI 7.2"
+HKR,NDI\params\gFixedRate\enum,  "22",      0, "MCS1/20M/SGI 14.4"
+HKR,NDI\params\gFixedRate\enum,  "23",      0, "MCS2/20M/SGI 21.7"
+HKR,NDI\params\gFixedRate\enum,  "24",      0, "MCS3/20M/SGI 28.9"
+HKR,NDI\params\gFixedRate\enum,  "25",      0, "MCS4/20M/SGI 43.3"
+HKR,NDI\params\gFixedRate\enum,  "26",      0, "MCS5/20M/SGI 57.8"
+HKR,NDI\params\gFixedRate\enum,  "27",      0, "MCS6/20M/SGI 65"
+HKR,NDI\params\gFixedRate\enum,  "28",      0, "MCS7/20M/SGI 72.2"
+HKR,NDI\params\gFixedRate\enum,  "29",      0, "SLR 0.25"
+HKR,NDI\params\gFixedRate\enum,  "30",      0, "SLR 0.5"
+HKR,NDI\params\gFixedRate\enum,  "31",      0, "QC Prop 68.25"
+
+; ----------------------------------------------------------------------------
+; Short GI 20MHz
+; ----------------------------------------------------------------------------
+HKR,,gShortGI20Mhz,,"1"
+HKR,NDI\params\gShortGI20Mhz,		   ParamDesc, 0, "Short GI -- 20MHz"
+HKR,NDI\params\gShortGI20Mhz,		   type,      0, "enum"
+HKR,NDI\params\gShortGI20Mhz,		   default,   0, "1"
+HKR,NDI\params\gShortGI20Mhz\enum,	   "0",       0, "Disabled"
+HKR,NDI\params\gShortGI20Mhz\enum,	   "1",       0, "Enabled"
+
+; ----------------------------------------------------------------------------
+; Short GI 40MHz
+; ----------------------------------------------------------------------------
+HKR,,gShortGI40Mhz,,"1"
+HKR,NDI\params\gShortGI40Mhz,		   ParamDesc, 0, "Short GI -- 40MHz"
+HKR,NDI\params\gShortGI40Mhz,		   type,      0, "enum"
+HKR,NDI\params\gShortGI40Mhz,		   default,   0, "1"
+HKR,NDI\params\gShortGI40Mhz\enum,	   "0",       0, "Disabled"
+HKR,NDI\params\gShortGI40Mhz\enum,	   "1",       0, "Enabled"
+
+; ----------------------------------------------------------------------------
+; Block ack auto setup
+; ----------------------------------------------------------------------------
+HKR,,gBlockAckAutoSetup,,"1"
+HKR,NDI\params\gBlockAckAutoSetup,         ParamDesc, 0, "Block Ack auto-setup"
+HKR,NDI\params\gBlockAckAutoSetup,         type,      0, "enum"
+HKR,NDI\params\gBlockAckAutoSetup,         default,   0, "1"
+HKR,NDI\params\gBlockAckAutoSetup\enum,    "0",       0, "Disable"
+HKR,NDI\params\gBlockAckAutoSetup\enum,    "1",       0, "Enable"
+
+; ----------------------------------------------------------------------------
+; Scan result age count
+; ----------------------------------------------------------------------------
+HKR,,gScanResultAgeCount,,"3"
+HKR,NDI\params\gScanResultAgeCount,			ParamDesc, 0, "Scan result age count"
+HKR,NDI\params\gScanResultAgeCount,			type,      0, "dword"
+HKR,NDI\params\gScanResultAgeCount,			default,   0, "12"
+HKR,NDI\params\gScanResultAgeCount,			min,       0, "2"
+HKR,NDI\params\gScanResultAgeCount,			max,       0, "100"
+HKR,NDI\params\gScanResultAgeCount,			step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; Scan result age time
+; ----------------------------------------------------------------------------
+HKR,,gScanResultAgeNCNPS,,"120"
+HKR,NDI\params\gScanResultAgeNCNPS,			ParamDesc, 0, "Scan result age time, Not Connect No PS (seconds)"
+HKR,NDI\params\gScanResultAgeNCNPS,			type,      0, "dword"
+HKR,NDI\params\gScanResultAgeNCNPS,			default,   0, "120"
+HKR,NDI\params\gScanResultAgeNCNPS,			min,       0, "10"
+HKR,NDI\params\gScanResultAgeNCNPS,			max,       0, "10000"
+HKR,NDI\params\gScanResultAgeNCNPS,			step,      0, "1"
+
+HKR,,gScanResultAgeNCPS,,"120"
+HKR,NDI\params\gScanResultAgeNCPS,			ParamDesc, 0, "Scan result age time, Not Connect, PS on (seconds)"
+HKR,NDI\params\gScanResultAgeNCPS,			type,      0, "dword"
+HKR,NDI\params\gScanResultAgeNCPS,			default,   0, "120"
+HKR,NDI\params\gScanResultAgeNCPS,			min,       0, "10"
+HKR,NDI\params\gScanResultAgeNCPS,			max,       0, "10000"
+HKR,NDI\params\gScanResultAgeNCPS,			step,      0, "1"
+
+HKR,,gScanResultAgeCNPS,,"120"
+HKR,NDI\params\gScanResultAgeCNPS,			ParamDesc, 0, "Scan result age time, Connect No PS (seconds)"
+HKR,NDI\params\gScanResultAgeCNPS,			type,      0, "dword"
+HKR,NDI\params\gScanResultAgeCNPS,			default,   0, "120"
+HKR,NDI\params\gScanResultAgeCNPS,			min,       0, "10"
+HKR,NDI\params\gScanResultAgeCNPS,			max,       0, "10000"
+HKR,NDI\params\gScanResultAgeCNPS,			step,      0, "1"
+
+HKR,,gScanResultAgeCPS,,"120"
+HKR,NDI\params\gScanResultAgeCPS,			ParamDesc, 0, "Scan result age time, Connect PS on (seconds)"
+HKR,NDI\params\gScanResultAgeCPS,			type,      0, "dword"
+HKR,NDI\params\gScanResultAgeCPS,			default,   0, "120"
+HKR,NDI\params\gScanResultAgeCPS,			min,       0, "10"
+HKR,NDI\params\gScanResultAgeCPS,			max,       0, "10000"
+HKR,NDI\params\gScanResultAgeCPS,			step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; RSSI category for advanced roaming
+; ----------------------------------------------------------------------------
+HKR,,gRssiCatGap,,"30"
+HKR,NDI\params\gRssiCatGap,			ParamDesc, 0, "RSSI gap for Roaming"
+HKR,NDI\params\gRssiCatGap,			type,      0, "dword"
+HKR,NDI\params\gRssiCatGap,			default,   0, "30"
+HKR,NDI\params\gRssiCatGap,			min,       0, "10"
+HKR,NDI\params\gRssiCatGap,			max,       0, "100"
+HKR,NDI\params\gRssiCatGap,			step,      0, "5"
+
+; ----------------------------------------------------------------------------
+; Stat Timer interval
+; ----------------------------------------------------------------------------
+HKR,,gStatTimerInterval,,"500"
+HKR,NDI\params\gStatTimerInterval,	        ParamDesc, 0, "Stat timer interval"
+HKR,NDI\params\gStatTimerInterval,		type,      0, "dword"
+HKR,NDI\params\gStatTimerInterval,		default,   0, "500"
+HKR,NDI\params\gStatTimerInterval,		min,       0, "50"
+HKR,NDI\params\gStatTimerInterval,		max,       0, "10000"
+HKR,NDI\params\gStatTimerInterval,		step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; Short Preamble
+; ----------------------------------------------------------------------------
+HKR,,gShortPreamble,,"1"
+HKR,NDI\params\gShortPreamble,	                ParamDesc, 0, "Short Preamble"
+HKR,NDI\params\gShortPreamble,		        type,      0, "dword"
+HKR,NDI\params\gShortPreamble,		        default,   0, "1"
+HKR,NDI\params\gShortPreamble,		        min,       0, "0"
+HKR,NDI\params\gShortPreamble,		        max,       0, "1"
+HKR,NDI\params\gShortPreamble,		        step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; Beacon Interval 
+; ----------------------------------------------------------------------------
+HKR,,gBeaconInterval,,"100"
+HKR,NDI\params\gBeaconInterval,	                ParamDesc, 0, "Beacon Interval"
+HKR,NDI\params\gBeaconInterval,		        type,      0, "dword"
+HKR,NDI\params\gBeaconInterval,		        default,   0, "100"
+HKR,NDI\params\gBeaconInterval,		        min,       0, "0"
+HKR,NDI\params\gBeaconInterval,		        max,       0, "65535"
+HKR,NDI\params\gBeaconInterval,		        step,      0, "1"
+
+; ----------------------------------------------------------------------------
+
+
+;-----------------------------------------------------------------------------
+; MAC address
+;-----------------------------------------------------------------------------
+HKR,NDI\params\NetworkAddress,	                ParamDesc, 0, "MAC address"
+HKR,NDI\params\NetworkAddress,		        type,      0, "edit"
+HKR,NDI\params\NetworkAddress,		        Default,   0, ""
+HKR,NDI\params\NetworkAddress,		        LimitText, 0, "12"
+HKR,NDI\params\NetworkAddress,		        UpperCase, 0, "1"
+HKR,NDI\params\NetworkAddress,		        Optional,  0, "1"
+
+; ----------------------------------------------------------------------------
+; Idle scan
+; ----------------------------------------------------------------------------
+HKR,,gEnableIdleScan,,"0"
+HKR,NDI\params\gEnableIdleScan,	                ParamDesc, 0, "Idle Scan Enabled"
+HKR,NDI\params\gEnableIdleScan,		        type,      0, "dword"
+HKR,NDI\params\gEnableIdleScan,		        default,   0, "0"
+HKR,NDI\params\gEnableIdleScan,		        min,       0, "0"
+HKR,NDI\params\gEnableIdleScan,		        max,       0, "1"
+HKR,NDI\params\gEnableIdleScan,		        step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; *PacketCoalescing 
+; ----------------------------------------------------------------------------
+HKR,,*PacketCoalescing,,"1"
+HKR,NDI\params\*PacketCoalescing,               ParamDesc, 0, "Packet coalescing"
+HKR,NDI\params\*PacketCoalescing,               type,      0, "enum"
+HKR,NDI\params\*PacketCoalescing,               default,   0, "1"
+HKR,NDI\params\*PacketCoalescing\enum,          "0",       0, "Off"
+HKR,NDI\params\*PacketCoalescing\enum,          "1",       0, "On"
+; ----------------------------------------------------------------------------
+; P2P Operating Channel
+; ----------------------------------------------------------------------------
+HKR,,gP2POperatingChannel,,"11"
+HKR,NDI\params\gP2POperatingChannel,        ParamDesc, 0, "p2p Operating channel"
+HKR,NDI\params\gP2POperatingChannel,        type,      0, "dword"
+HKR,NDI\params\gP2POperatingChannel,        default,   0, "11"
+HKR,NDI\params\gP2POperatingChannel,        min,       0, "0"
+HKR,NDI\params\gP2POperatingChannel,        max,       0, "165"
+HKR,NDI\params\gP2POperatingChannel,        step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; P2P Listen Channel
+; ----------------------------------------------------------------------------
+HKR,,gP2PListenChannel,,"11"
+HKR,NDI\params\gP2PListenChannel,        ParamDesc, 0, "p2p listen channel"
+HKR,NDI\params\gP2PListenChannel,        type,      0, "dword"
+HKR,NDI\params\gP2PListenChannel,        default,   0, "11"
+HKR,NDI\params\gP2PListenChannel,        min,       0, "1"
+HKR,NDI\params\gP2PListenChannel,        max,       0, "11"
+HKR,NDI\params\gP2PListenChannel,        step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; gDataInactivityTimeout
+; ----------------------------------------------------------------------------
+HKR,,gDataInactivityTimeout,,"200"
+HKR,NDI\params\gDataInactivityTimeout,        ParamDesc, 0, "Data Inactivity Timeout in PS"
+HKR,NDI\params\gDataInactivityTimeout,        type,      0, "dword"
+HKR,NDI\params\gDataInactivityTimeout,        default,   0, "200"
+HKR,NDI\params\gDataInactivityTimeout,        min,       0, "1"
+HKR,NDI\params\gDataInactivityTimeout,        max,       0, "255"
+HKR,NDI\params\gDataInactivityTimeout,        step,      0, "1"
+
+
+;-----------------------------------------------------------------------------
+; Wake related
+;-----------------------------------------------------------------------------
+
+HKR,,*WakeOnPattern,,"1"
+HKR,NDI\params\*WakeOnPattern,               ParamDesc, 0, "Wake on pattern match"
+HKR,NDI\params\*WakeOnPattern,               type,      0, "enum"
+HKR,NDI\params\*WakeOnPattern,               default,   0, "1"
+HKR,NDI\params\*WakeOnPattern\enum,          "0",       0, "Disabled"
+HKR,NDI\params\*WakeOnPattern\enum,          "1",       0, "Enabled"
+
+
+; WakeOnMagicPacket is not supported
+;HKR,,*WakeOnMagicPacket,,"1"
+;HKR,NDI\params\*WakeOnMagicPacket,           ParamDesc, 0, "Wake on magic packet"
+;HKR,NDI\params\*WakeOnMagicPacket,           type,      0, "enum"
+;HKR,NDI\params\*WakeOnMagicPacket,           default,   0, "1"
+;HKR,NDI\params\*WakeOnMagicPacket\enum,      "0",       0, "Disabled"
+;HKR,NDI\params\*WakeOnMagicPacket\enum,      "1",       0, "Enabled"
+
+
+HKR,,*DeviceSleepOnDisconnect,,"1"
+HKR,NDI\params\*DeviceSleepOnDisconnect,          ParamDesc, 0, "Device Sleep On Disconnect"
+HKR,NDI\params\*DeviceSleepOnDisconnect,          type,      0, "enum"
+HKR,NDI\params\*DeviceSleepOnDisconnect,          default,   0, "1"
+HKR,NDI\params\*DeviceSleepOnDisconnect\enum,     "0",       0, "Off"
+HKR,NDI\params\*DeviceSleepOnDisconnect\enum,     "1",       0, "On"
+
+
+HKR,,*PMARPOffload,,"1"
+HKR,NDI\params\*PMARPOffload,              ParamDesc, 0, "PMARPOffload"
+HKR,NDI\params\*PMARPOffload,              type,      0, "enum"
+HKR,NDI\params\*PMARPOffload,              default,   0, "1"
+HKR,NDI\params\*PMARPOffload\enum,         "0",       0, "Off"
+HKR,NDI\params\*PMARPOffload\enum,         "1",       0, "On"
+
+HKR,,*PMNSOffload,,"1"
+HKR,NDI\params\*PMNSOffload,               ParamDesc, 0, "PMNSOffload"
+HKR,NDI\params\*PMNSOffload,               type,      0, "enum"
+HKR,NDI\params\*PMNSOffload,               default,   0, "1"
+HKR,NDI\params\*PMNSOffload\enum,          "0",       0, "Off"
+HKR,NDI\params\*PMNSOffload\enum,          "1",       0, "On"
+
+HKR,,*PMWiFiRekeyOffload,,"1"
+HKR,NDI\params\*PMWiFiRekeyOffload,        ParamDesc, 0, "PMWiFiRekeyOffload"
+HKR,NDI\params\*PMWiFiRekeyOffload,        type,      0, "enum"
+HKR,NDI\params\*PMWiFiRekeyOffload,        default,   0, "1"
+HKR,NDI\params\*PMWiFiRekeyOffload\enum,   "0",       0, "Off"
+HKR,NDI\params\*PMWiFiRekeyOffload\enum,   "1",       0, "On"
+
+
+; ----------------------------------------------------------------------------
+; Beacon Early Termination Enable and Interval Settings
+; ----------------------------------------------------------------------------
+HKR,,enableBeaconEarlyTermination,,"1"
+HKR,NDI\params\enableBeaconEarlyTermination,        ParamDesc, 0, "Beacon Early Termination"
+HKR,NDI\params\enableBeaconEarlyTermination,        type,      0, "enum"
+HKR,NDI\params\enableBeaconEarlyTermination,        default,   0, "1"
+HKR,NDI\params\enableBeaconEarlyTermination\enum,   "0",       0, "Off"
+HKR,NDI\params\enableBeaconEarlyTermination\enum,   "1",       0, "On"
+
+HKR,,beaconEarlyTerminationWakeInterval,,"11"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        ParamDesc, 0, "Beacon early termination wake interval"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        type,      0, "dword"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        default,   0, "3"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        min,       0, "2"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        max,       0, "255"
+HKR,NDI\params\beaconEarlyTerminationWakeInterval,        step,      0, "1"
+
+
+; ----------------------------------------------------------------------------
+; Telescopic Beacon Enable and Settings
+; ----------------------------------------------------------------------------
+HKR,,gTelescopicBeaconWakeupEn,,"0"
+HKR,NDI\params\gTelescopicBeaconWakeupEn,        ParamDesc, 0, "Telescopic Beacon Wakeup"
+HKR,NDI\params\gTelescopicBeaconWakeupEn,        type,      0, "enum"
+HKR,NDI\params\gTelescopicBeaconWakeupEn,        default,   0, "0"
+HKR,NDI\params\gTelescopicBeaconWakeupEn\enum,   "0",       0, "Off"
+HKR,NDI\params\gTelescopicBeaconWakeupEn\enum,   "1",       0, "On"
+
+HKR,,telescopicBeaconTransListenInterval,,"3"
+HKR,NDI\params\telescopicBeaconTransListenInterval,        ParamDesc, 0, "Telescopic Beacon Transition LI"
+HKR,NDI\params\telescopicBeaconTransListenInterval,        type,      0, "dword"
+HKR,NDI\params\telescopicBeaconTransListenInterval,        default,   0, "3"
+HKR,NDI\params\telescopicBeaconTransListenInterval,        min,       0, "0"
+HKR,NDI\params\telescopicBeaconTransListenInterval,        max,       0, "7"
+HKR,NDI\params\telescopicBeaconTransListenInterval,        step,      0, "1"
+
+HKR,,telescopicBeaconTransListenIntervalNumIdleBcns,,"3"
+HKR,NDI\params\telescopicBeaconTransListenIntervalNumIdleBcns,        ParamDesc, 0, "Telescopic Beacon Transition Idle Bcns"
+HKR,NDI\params\telescopicBeaconTransListenIntervalNumIdleBcns,        type,      0, "dword"
+HKR,NDI\params\telescopicBeaconTransListenIntervalNumIdleBcns,        default,   0, "10"
+HKR,NDI\params\telescopicBeaconTransListenIntervalNumIdleBcns,        min,       0, "3"
+HKR,NDI\params\telescopicBeaconTransListenIntervalNumIdleBcns,        max,       0, "255"
+HKR,NDI\params\telescopicBeaconTransListenIntervalNumIdleBcns,        step,      0, "1"
+
+HKR,,telescopicBeaconMaxListenInterval,,"5"
+HKR,NDI\params\telescopicBeaconMaxListenInterval,        ParamDesc, 0, "Telescopic Beacon Max LI"
+HKR,NDI\params\telescopicBeaconMaxListenInterval,        type,      0, "dword"
+HKR,NDI\params\telescopicBeaconMaxListenInterval,        default,   0, "5"
+HKR,NDI\params\telescopicBeaconMaxListenInterval,        min,       0, "0"
+HKR,NDI\params\telescopicBeaconMaxListenInterval,        max,       0, "7"
+HKR,NDI\params\telescopicBeaconMaxListenInterval,        step,      0, "1"
+
+HKR,,telescopicBeaconMaxListenIntervalNumIdleBcns,,"3"
+HKR,NDI\params\telescopicBeaconMaxListenIntervalNumIdleBcns,        ParamDesc, 0, "Telescopic Beacon Max LI Idle Bcns"
+HKR,NDI\params\telescopicBeaconMaxListenIntervalNumIdleBcns,        type,      0, "dword"
+HKR,NDI\params\telescopicBeaconMaxListenIntervalNumIdleBcns,        default,   0, "15"
+HKR,NDI\params\telescopicBeaconMaxListenIntervalNumIdleBcns,        min,       0, "3"
+HKR,NDI\params\telescopicBeaconMaxListenIntervalNumIdleBcns,        max,       0, "255"
+HKR,NDI\params\telescopicBeaconMaxListenIntervalNumIdleBcns,        step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; Enable Modulated DTIM 
+; ----------------------------------------------------------------------------
+HKR,,gEnableModulatedDTIM,,"5"
+HKR,NDI\params\gEnableModulatedDTIM,        ParamDesc, 0, "Enable Modulated DTIM"
+HKR,NDI\params\gEnableModulatedDTIM,        type,      0, "dword"
+HKR,NDI\params\gEnableModulatedDTIM,        default,   0, "5"
+HKR,NDI\params\gEnableModulatedDTIM,        min,       0, "0"
+HKR,NDI\params\gEnableModulatedDTIM,        max,       0, "10"
+HKR,NDI\params\gEnableModulatedDTIM,        step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; Enable Dynamic DTIM 
+; ----------------------------------------------------------------------------
+HKR,,gEnableDynamicDTIM,,"0"
+HKR,NDI\params\gEnableDynamicDTIM,        ParamDesc, 0, "Enable Dynamic DTIM"
+HKR,NDI\params\gEnableDynamicDTIM,        type,      0, "dword"
+HKR,NDI\params\gEnableDynamicDTIM,        default,   0, "0"
+HKR,NDI\params\gEnableDynamicDTIM,        min,       0, "0"
+HKR,NDI\params\gEnableDynamicDTIM,        max,       0, "10"
+HKR,NDI\params\gEnableDynamicDTIM,        step,      0, "1"
+
+; ----------------------------------------------------------------------------
+; Enable UseDefaultCountryInfo
+; ----------------------------------------------------------------------------
+HKR,,gUseDefaultCountryInfo,,"1"
+HKR,NDI\params\gUseDefaultCountryInfo,             ParamDesc, 0, "Use Default Country Info"
+HKR,NDI\params\gUseDefaultCountryInfo,             type,      0, "enum"
+HKR,NDI\params\gUseDefaultCountryInfo,             default,   0, "1"
+HKR,NDI\params\gUseDefaultCountryInfo\enum,        "0",       0, "Off"
+HKR,NDI\params\gUseDefaultCountryInfo\enum,        "1",       0, "On"
+
+; ----------------------------------------------------------------------------
+; Enable UseElectedCountryInfo
+; ----------------------------------------------------------------------------
+HKR,,gUseElectedCountryInfo,,"0"
+HKR,NDI\params\gUseElectedCountryInfo,             ParamDesc, 0, "Use Elected Country Info"
+HKR,NDI\params\gUseElectedCountryInfo,             type,      0, "enum"
+HKR,NDI\params\gUseElectedCountryInfo,             default,   0, "0"
+HKR,NDI\params\gUseElectedCountryInfo\enum,        "0",       0, "Off"
+HKR,NDI\params\gUseElectedCountryInfo\enum,        "1",       0, "On"
+
+; ----------------------------------------------------------------------------
+; Static parameters (these do not show on the property page)
+; ----------------------------------------------------------------------------
+; ----------------------------------------------------------------------------
+[StaticParms]
+
+; ----------------------------------------------------------------------------
+; HardwareID
+; ----------------------------------------------------------------------------
+HKR, , HardwareID    , , "WNI0000"
+
+; ----------------------------------------------------------------------------
+; Config file name
+; ----------------------------------------------------------------------------
+HKR, , ConfigFileName, ,  "QCWLAN8960cfg.dat"
+
+
+;-----------------------------------------------------------------------------
+; Localizable Strings
+;
+[Strings]
+QUALCOMM                 = "Qualcomm Inc"
+WLAN.DeviceDesc          = "Qualcomm Wireless LAN Adapter"
+WLAN.DeviceDesc.WCN      = "Qualcomm Wireless LAN Adapter"
+QctWlan.Service.DispName = "Qualcomm Wireless LAN Adapter Svc"
+QctWlan.Service.Name     = "QCTWLAN"
+DiskId1                  = "Qualcomm Wireless LAN Adapter Device Installation Disk #1"
+

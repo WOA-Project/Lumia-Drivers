@@ -1,0 +1,327 @@
+;
+; camcalibration.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/09/2016,12.0.30519.0
+CatalogFile = camcalibration.cat
+
+[DestinationDirs]
+; 11 = system32
+CamCal.Files.NTarm_11 = 12
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+01029801.dcc = 0,,
+01029802.dcc = 0,,
+01029803.dcc = 0,,
+0103BB00.dcc = 0,,
+0103BB01.dcc = 0,,
+01066401.dcc = 0,,
+01066402.dcc = 0,,
+0107A300.dcc = 0,,
+0107A301.dcc = 0,,
+0107A302.dcc = 0,,
+0107A303.dcc = 0,,
+0A08A102.dcc = 0,,
+0A08A103.dcc = 0,,
+0A08A104.dcc = 0,,
+0A08A105.dcc = 0,,
+0A214000.dcc = 0,,
+0A214001.dcc = 0,,
+0C563A01.dcc = 0,,
+0C563A02.dcc = 0,,
+0C563A03.dcc = 0,,
+0F005601.dcc = 0,,
+0F005602.dcc = 0,,
+0F005603.dcc = 0,,
+0F005604.dcc = 0,,
+0F005605.dcc = 0,,
+0F005606.dcc = 0,,
+0F005607.dcc = 0,,
+0FF00F01.dcc = 0,,
+10464101.dcc = 0,,
+10464102.dcc = 0,,
+10464103.dcc = 0,,
+10464104.dcc = 0,,
+10464105.dcc = 0,,
+10464106.dcc = 0,,
+10504101.dcc = 0,,
+10504102.dcc = 0,,
+11AD1701.dcc = 0,,
+11AD1702.dcc = 0,,
+11AD1703.dcc = 0,,
+11AD1704.dcc = 0,,
+FE000600.dfc = 0,,
+
+;*****************************************
+; CamCal  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = CamCal.Files.NTarm_11
+AddReg    = CamAddReg
+
+; System32
+[CamCal.Files.NTarm_11]
+01029801.dcc
+01029802.dcc
+01029803.dcc
+0103BB00.dcc
+0103BB01.dcc
+01066401.dcc
+01066402.dcc
+0107A300.dcc
+0107A301.dcc
+0107A302.dcc
+0107A303.dcc
+0A08A102.dcc
+0A08A103.dcc
+0A08A104.dcc
+0A08A105.dcc
+0A214000.dcc
+0A214001.dcc
+0C563A01.dcc
+0C563A02.dcc
+0C563A03.dcc
+0F005601.dcc
+0F005602.dcc
+0F005603.dcc
+0F005604.dcc
+0F005605.dcc
+0F005606.dcc
+0F005607.dcc
+0FF00F01.dcc
+10464101.dcc
+10464102.dcc
+10464103.dcc
+10464104.dcc
+10464105.dcc
+10464106.dcc
+10504101.dcc
+10504102.dcc
+11AD1701.dcc
+11AD1702.dcc
+11AD1703.dcc
+11AD1704.dcc
+FE000600.dfc
+
+[CamAddReg]
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{02A13F44-F5DE-48B3-AC57-23B65E418914}", "KSID"                       , 0x10001,  0x9
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{02A13F44-F5DE-48B3-AC57-23B65E418914}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{02A13F44-F5DE-48B3-AC57-23B65E418914}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_CHROMA_FILTER_CONTROL"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{02E5D4C4-E494-428C-944F-51A2CDE1348A}", "KSID"                       , 0x10001,  0x65
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{02E5D4C4-E494-428C-944F-51A2CDE1348A}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{02E5D4C4-E494-428C-944F-51A2CDE1348A}",                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_SET_NUM_BUFFERS"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{08256CFF-F5EE-4A6F-B442-CE91C8369D65}", "KSID"                       , 0x10001,  0xB
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{08256CFF-F5EE-4A6F-B442-CE91C8369D65}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{08256CFF-F5EE-4A6F-B442-CE91C8369D65}",                              ,        , "DUMMY_DO_NOT_REMOVE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{1D032F49-8A1B-4CC7-B9AE-8046D92614D0}", "KSID"                       , 0x10001,  0x6
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{1D032F49-8A1B-4CC7-B9AE-8046D92614D0}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{1D032F49-8A1B-4CC7-B9AE-8046D92614D0}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_FACE_REGIONS"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{4AFCEACA-40AE-4EDA-8EEB-04411755FAC5}", "KSID"                       , 0x10001,  0x1D
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{4AFCEACA-40AE-4EDA-8EEB-04411755FAC5}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{4AFCEACA-40AE-4EDA-8EEB-04411755FAC5}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_AF_STATE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{5E53A348-458D-447A-A8E7-745A2666B802}", "KSID"                       , 0x10001,  0x64
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{5E53A348-458D-447A-A8E7-745A2666B802}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{5E53A348-458D-447A-A8E7-745A2666B802}",                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_ENABLE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{6B8EA09B-8BD2-42F5-BA1B-2149A04B1EC6}", "KSID"                       , 0x10001,  0x12
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{6B8EA09B-8BD2-42F5-BA1B-2149A04B1EC6}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{6B8EA09B-8BD2-42F5-BA1B-2149A04B1EC6}",                              ,        , "NOKIA_CAMERA_PROPERTY_AMBR_SENSITIVITY"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{6EE8506A-956E-4E51-90E4-31161CDA4F9E}", "KSID"                       , 0x10001,  0x66
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{6EE8506A-956E-4E51-90E4-31161CDA4F9E}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{6EE8506A-956E-4E51-90E4-31161CDA4F9E}",                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_SET_CAPTURE_MODE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{7DC216A0-D59E-44AF-8CA7-23B4AF336A25}", "KSID"                       , 0x10001,  0xD
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{7DC216A0-D59E-44AF-8CA7-23B4AF336A25}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{7DC216A0-D59E-44AF-8CA7-23B4AF336A25}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_STILL_ET_ESTIMATE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{8FC0A28D-FA80-44E4-A4F1-6BDC18246715}", "KSID"                       , 0x10001,  0x67
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{8FC0A28D-FA80-44E4-A4F1-6BDC18246715}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{8FC0A28D-FA80-44E4-A4F1-6BDC18246715}",                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_FILL_BUFFER"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{9B9A69A1-86EE-491B-9C5C-F05DD76F5700}", "KSID"                       , 0x10001,  0xC8
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{9B9A69A1-86EE-491B-9C5C-F05DD76F5700}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{9B9A69A1-86EE-491B-9C5C-F05DD76F5700}",                              ,        , "KSPROPERTY_NOKIA_FOCUSSWEEP_MODE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{43C3EE12-D10F-4F21-8A92-958209583337}", "KSID"                       , 0x10001,  0x15
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{43C3EE12-D10F-4F21-8A92-958209583337}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{43C3EE12-D10F-4F21-8A92-958209583337}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_EXPOSURE_STARTS_TS"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{65F37202-18C3-4D29-8476-CBFE039BA902}", "KSID"                       , 0x10001,  0x68
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{65F37202-18C3-4D29-8476-CBFE039BA902}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{65F37202-18C3-4D29-8476-CBFE039BA902}",                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_STATUS"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{668ED19B-AEDE-4F79-B7A0-64364E0C5246}", "KSID"                       , 0x10001,  0x1
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{668ED19B-AEDE-4F79-B7A0-64364E0C5246}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{668ED19B-AEDE-4F79-B7A0-64364E0C5246}",                              ,        , "NOKIA_CAMERA_PROPERTY_MULTIPASS_CONTROL"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{701A9ECF-13BB-4F9D-A8E8-68F436CC05BA}", "KSID"                       , 0x10001,  0x13
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{701A9ECF-13BB-4F9D-A8E8-68F436CC05BA}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{701A9ECF-13BB-4F9D-A8E8-68F436CC05BA}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_VIDEO_3A_LOCK"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{1676DF18-201B-4A74-B387-2901B57C4597}", "KSID"                       , 0x10001,  0xC
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{1676DF18-201B-4A74-B387-2901B57C4597}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{1676DF18-201B-4A74-B387-2901B57C4597}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_STILL_ISO_ESTIMATE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{4686DF16-3FCE-491D-AE7A-D1296D3E26B1}", "KSID"                       , 0x10001,  0xC9
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{4686DF16-3FCE-491D-AE7A-D1296D3E26B1}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{4686DF16-3FCE-491D-AE7A-D1296D3E26B1}",                              ,        , "KSPROPERTY_NOKIA_ADDFOCUSSWEEP_POS"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{8481FE29-99C2-4308-9410-CF38313C07EF}", "KSID"                       , 0x10001,  0xA
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{8481FE29-99C2-4308-9410-CF38313C07EF}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{8481FE29-99C2-4308-9410-CF38313C07EF}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_SHARPENING_CONTROL"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}", "KSID"                       , 0x10001,  0xF
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_FACE_ROI_CONTROL"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{158828D1-5E9F-4D2E-B17E-42DDF2B5A0E2}", "KSID"                       , 0x10001,  0x1C
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{158828D1-5E9F-4D2E-B17E-42DDF2B5A0E2}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{158828D1-5E9F-4D2E-B17E-42DDF2B5A0E2}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_VIDEO_TIMESTAMP_2"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{62113461-D2C5-440D-887F-E252051F32F6}", "KSID"                       , 0x10001,  0x10
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{62113461-D2C5-440D-887F-E252051F32F6}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{62113461-D2C5-440D-887F-E252051F32F6}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_VIDEO_TIMESTAMP"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{A801F61E-CC6D-47AB-AF86-6840934AC277}", "KSID"                       , 0x10001,  0x69
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{A801F61E-CC6D-47AB-AF86-6840934AC277}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{A801F61E-CC6D-47AB-AF86-6840934AC277}",                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_YUV_RESOLUTION"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{A167923A-8A7C-4A39-9E2C-2F9A62F20CC5}", "KSID"                       , 0x10001,  0x0
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{A167923A-8A7C-4A39-9E2C-2F9A62F20CC5}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{A167923A-8A7C-4A39-9E2C-2F9A62F20CC5}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_VIDEO_CAF"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{BB84B146-CE51-49B0-9746-9E025C2553BC}", "KSID"                       , 0x10001,  0x18
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{BB84B146-CE51-49B0-9746-9E025C2553BC}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{BB84B146-CE51-49B0-9746-9E025C2553BC}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_RAW_DNG_ENABLED"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{C6268090-8448-4E37-BC23-5047BCE59057}", "KSID"                       , 0x10001,  0xB
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{C6268090-8448-4E37-BC23-5047BCE59057}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{C6268090-8448-4E37-BC23-5047BCE59057}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_STILL_OVER_UNDER_EXPOSURE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{D6E6D599-8E5D-4824-963A-727FEB7E6F29}", "KSID"                       , 0x10001,  0x3
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{D6E6D599-8E5D-4824-963A-727FEB7E6F29}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{D6E6D599-8E5D-4824-963A-727FEB7E6F29}",                              ,        , "NOKIA_CAMERA_PROPERTY_KEEP_STILL_STREAMING_MODE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{D72516CE-EF6B-4E35-826F-C04CD38CA521}", "KSID"                       , 0x10001,  0xE
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{D72516CE-EF6B-4E35-826F-C04CD38CA521}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{D72516CE-EF6B-4E35-826F-C04CD38CA521}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_MAX_EXPOSURE_TIME_PREVIEW"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{DA2D3EFD-CB8D-4210-BFEE-4C2D4C073242}", "KSID"                       , 0x10001,  0x7
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{DA2D3EFD-CB8D-4210-BFEE-4C2D4C073242}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{DA2D3EFD-CB8D-4210-BFEE-4C2D4C073242}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_AMBR_VALUE"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{E9B11C0F-8F2E-4CDB-910C-2975A9727BAE}", "KSID"                       , 0x10001,  0x14
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{E9B11C0F-8F2E-4CDB-910C-2975A9727BAE}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{E9B11C0F-8F2E-4CDB-910C-2975A9727BAE}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_CAPTURE_COMMAND_RCVD_TS"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{E119FACC-2672-41C7-8056-FA794EEADE96}", "KSID"                       , 0x10001,  0x16
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{E119FACC-2672-41C7-8056-FA794EEADE96}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{E119FACC-2672-41C7-8056-FA794EEADE96}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_THERMAL_INFO"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{E5772E98-8E7B-48F8-8F1E-29655CBB8942}", "KSID"                       , 0x10001,  0x8
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{E5772E98-8E7B-48F8-8F1E-29655CBB8942}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{E5772E98-8E7B-48F8-8F1E-29655CBB8942}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_MAX_EXPOSURE_TIME_STILL"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{FBCDF4C7-5711-4721-93F6-713F2FF6DD22}", "KSID"                       , 0x10001,  0x1B
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{FBCDF4C7-5711-4721-93F6-713F2FF6DD22}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{FBCDF4C7-5711-4721-93F6-713F2FF6DD22}",                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_STILL_CAF"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{FD6FF72A-8D5B-465B-8BA0-8F944C33B785}", "KSID"                       , 0x10001,  0x2
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{FD6FF72A-8D5B-465B-8BA0-8F944C33B785}", "KSSET"                      , 0x0    ,  "{80EFC5A3-B993-4AE0-9FE3-393632A63750}"
+HKLM, "SOFTWARE\Microsoft\CaptureService\OEMCustomProperties\{FD6FF72A-8D5B-465B-8BA0-8F944C33B785}",                              ,        , "NOKIA_CAMERA_PROPERTY_BM3D_CONTROL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\Barc"                                                              , "DNGDisabled"                , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\CameraCSI"                                                     , "MaxCsiLanes"                , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\CameraCSI"                                                     ,                              ,        , ""
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\Caps"                                                          , "MaxIso"                     , 0x10001,  0x640
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}"    , "SUPPORTED_VALUES"           , 0x10001,  0x7
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}"    , "TYPE"                       , 0x0    ,  "BITFIELD"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_FACE_ROI_CONTROL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\Resolution"                                                    , "PreviewResolution"          , 0x10001,  0x5
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\Resolution"                                                    , "StillResolution"            , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\Resolution"                                                    , "VideoResolution"            , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\Resolution"                                                    ,                              ,        , ""
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\Rotation"                                                      , "FlipMirror"                 , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\FFC\Rotation"                                                      ,                              ,        , ""
+HKLM, "SOFTWARE\OEM\Nokia\Camera\Flash"                                                             , "Module"                     , 0x10001,  0x6
+HKLM, "SOFTWARE\OEM\Nokia\Camera\Flash"                                                             ,                              ,        , ""
+HKLM, "SOFTWARE\OEM\Nokia\Camera\Flash\Pmic"                                                        , "PMICType"                   , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\Flash\Pmic"                                                        ,                              ,        , ""
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Caps"                                                          , "MaxET"                      , 0x10001,  0x3D0900
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Caps"                                                          , "MaxIso"                     , 0x10001,  0xC80
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Caps"                                                          , "MinIso"                     , 0x10001,  0x40
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{02A13F44-F5DE-48B3-AC57-23B65E418914}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{02A13F44-F5DE-48B3-AC57-23B65E418914}"    , "TYPE"                       , 0x0    ,  "BOOL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{02A13F44-F5DE-48B3-AC57-23B65E418914}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_CHROMA_FILTER_CONTROL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{02E5D4C4-E494-428C-944F-51A2CDE1348A}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{02E5D4C4-E494-428C-944F-51A2CDE1348A}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{02E5D4C4-E494-428C-944F-51A2CDE1348A}"    ,                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_SET_NUM_BUFFERS"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{4AFCEACA-40AE-4EDA-8EEB-04411755FAC5}"    , "RW"                         , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{4AFCEACA-40AE-4EDA-8EEB-04411755FAC5}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{4AFCEACA-40AE-4EDA-8EEB-04411755FAC5}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_AF_STATE"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{5E53A348-458D-447A-A8E7-745A2666B802}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{5E53A348-458D-447A-A8E7-745A2666B802}"    , "TYPE"                       , 0x0    ,  "BOOL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{5E53A348-458D-447A-A8E7-745A2666B802}"    ,                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_ENABLE"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{6EE8506A-956E-4E51-90E4-31161CDA4F9E}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{6EE8506A-956E-4E51-90E4-31161CDA4F9E}"    , "SUPPORTED_VALUES"           , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{6EE8506A-956E-4E51-90E4-31161CDA4F9E}"    , "TYPE"                       , 0x0    ,  "ENUM"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{6EE8506A-956E-4E51-90E4-31161CDA4F9E}"    ,                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_SET_CAPTURE_MODE"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{7DC216A0-D59E-44AF-8CA7-23B4AF336A25}"    , "RW"                         , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{7DC216A0-D59E-44AF-8CA7-23B4AF336A25}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{7DC216A0-D59E-44AF-8CA7-23B4AF336A25}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_STILL_ET_ESTIMATE"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{8FC0A28D-FA80-44E4-A4F1-6BDC18246715}"    , "RW"                         , 0x10001,  0x2
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{8FC0A28D-FA80-44E4-A4F1-6BDC18246715}"    , "TYPE"                       , 0x0    ,  "BOOL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{8FC0A28D-FA80-44E4-A4F1-6BDC18246715}"    ,                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_FILL_BUFFER"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{9B9A69A1-86EE-491B-9C5C-F05DD76F5700}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{9B9A69A1-86EE-491B-9C5C-F05DD76F5700}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{9B9A69A1-86EE-491B-9C5C-F05DD76F5700}"    ,                              ,        , "KSPROPERTY_NOKIA_FOCUSSWEEP_MODE"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{65F37202-18C3-4D29-8476-CBFE039BA902}"    , "RW"                         , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{65F37202-18C3-4D29-8476-CBFE039BA902}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{65F37202-18C3-4D29-8476-CBFE039BA902}"    ,                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_STATUS"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{701A9ECF-13BB-4F9D-A8E8-68F436CC05BA}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{701A9ECF-13BB-4F9D-A8E8-68F436CC05BA}"    , "TYPE"                       , 0x0    ,  "BITFIELD"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{701A9ECF-13BB-4F9D-A8E8-68F436CC05BA}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_VIDEO_3A_LOCK"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{1676DF18-201B-4A74-B387-2901B57C4597}"    , "RW"                         , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{1676DF18-201B-4A74-B387-2901B57C4597}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{1676DF18-201B-4A74-B387-2901B57C4597}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_STILL_ISO_ESTIMATE"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{4686DF16-3FCE-491D-AE7A-D1296D3E26B1}"    , "RW"                         , 0x10001,  0x2
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{4686DF16-3FCE-491D-AE7A-D1296D3E26B1}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{4686DF16-3FCE-491D-AE7A-D1296D3E26B1}"    ,                              ,        , "KSPROPERTY_NOKIA_ADDFOCUSSWEEP_POS"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{8481FE29-99C2-4308-9410-CF38313C07EF}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{8481FE29-99C2-4308-9410-CF38313C07EF}"    , "TYPE"                       , 0x0    ,  "BOOL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{8481FE29-99C2-4308-9410-CF38313C07EF}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_SHARPENING_CONTROL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}"    , "SUPPORTED_VALUES"           , 0x10001,  0x7
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}"    , "TYPE"                       , 0x0    ,  "BITFIELD"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{67704B03-95B8-4E66-B62F-5EF126238451}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_FACE_ROI_CONTROL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{158828D1-5E9F-4D2E-B17E-42DDF2B5A0E2}"    , "RW"                         , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{158828D1-5E9F-4D2E-B17E-42DDF2B5A0E2}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{158828D1-5E9F-4D2E-B17E-42DDF2B5A0E2}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_VIDEO_TIMESTAMP_2"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{62113461-D2C5-440D-887F-E252051F32F6}"    , "RW"                         , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{62113461-D2C5-440D-887F-E252051F32F6}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{62113461-D2C5-440D-887F-E252051F32F6}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_VIDEO_TIMESTAMP"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{A801F61E-CC6D-47AB-AF86-6840934AC277}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{A801F61E-CC6D-47AB-AF86-6840934AC277}"    , "TYPE"                       , 0x0    ,  "RESOLUTION"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{A801F61E-CC6D-47AB-AF86-6840934AC277}"    ,                              ,        , "KSPROPERTY_NOKIA_MULTIFRAME_YUV_RESOLUTION"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{A167923A-8A7C-4A39-9E2C-2F9A62F20CC5}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{A167923A-8A7C-4A39-9E2C-2F9A62F20CC5}"    , "TYPE"                       , 0x0    ,  "BOOL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{A167923A-8A7C-4A39-9E2C-2F9A62F20CC5}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_VIDEO_CAF"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{BB84B146-CE51-49B0-9746-9E025C2553BC}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{BB84B146-CE51-49B0-9746-9E025C2553BC}"    , "TYPE"                       , 0x0    ,  "BOOL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{BB84B146-CE51-49B0-9746-9E025C2553BC}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_RAW_DNG_ENABLED"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{C6268090-8448-4E37-BC23-5047BCE59057}"    , "RW"                         , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{C6268090-8448-4E37-BC23-5047BCE59057}"    , "TYPE"                       , 0x0    ,  "INT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{C6268090-8448-4E37-BC23-5047BCE59057}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_STILL_OVER_UNDER_EXPOSURE"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{D6E6D599-8E5D-4824-963A-727FEB7E6F29}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{D6E6D599-8E5D-4824-963A-727FEB7E6F29}"    , "TYPE"                       , 0x0    ,  "BOOL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{D6E6D599-8E5D-4824-963A-727FEB7E6F29}"    ,                              ,        , "NOKIA_CAMERA_PROPERTY_KEEP_STILL_STREAMING_MODE"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{D72516CE-EF6B-4E35-826F-C04CD38CA521}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{D72516CE-EF6B-4E35-826F-C04CD38CA521}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{D72516CE-EF6B-4E35-826F-C04CD38CA521}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_MAX_EXPOSURE_TIME_PREVIEW"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{E119FACC-2672-41C7-8056-FA794EEADE96}"    , "RW"                         , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{E119FACC-2672-41C7-8056-FA794EEADE96}"    , "TYPE"                       , 0x0    ,  "BITFIELD"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{E119FACC-2672-41C7-8056-FA794EEADE96}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_THERMAL_INFO"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{E5772E98-8E7B-48F8-8F1E-29655CBB8942}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{E5772E98-8E7B-48F8-8F1E-29655CBB8942}"    , "TYPE"                       , 0x0    ,  "UINT"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{E5772E98-8E7B-48F8-8F1E-29655CBB8942}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_MAX_EXPOSURE_TIME_STILL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{FBCDF4C7-5711-4721-93F6-713F2FF6DD22}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{FBCDF4C7-5711-4721-93F6-713F2FF6DD22}"    , "TYPE"                       , 0x0    ,  "BOOL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{FBCDF4C7-5711-4721-93F6-713F2FF6DD22}"    ,                              ,        , "KSPROPERTY_NOKIA_CAMERACONTROL_STILL_CAF"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{FD6FF72A-8D5B-465B-8BA0-8F944C33B785}"    , "RW"                         , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{FD6FF72A-8D5B-465B-8BA0-8F944C33B785}"    , "TYPE"                       , 0x0    ,  "BOOL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\OEMCustomProperties\{FD6FF72A-8D5B-465B-8BA0-8F944C33B785}"    ,                              ,        , "NOKIA_CAMERA_PROPERTY_BM3D_CONTROL"
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Resolution"                                                    , "DngCapture_NeededBufferSize", 0x10001,  0x12882C0
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Resolution"                                                    , "PreviewResolution"          , 0x10001,  0x5
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Resolution"                                                    , "StillResolution"            , 0x10001,  0xB
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Resolution"                                                    , "VideoResolution"            , 0x10001,  0x3
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Resolution"                                                    ,                              ,        , ""
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Rotation"                                                      , "FlipMirror"                 , 0x10001,  0x1
+HKLM, "SOFTWARE\OEM\Nokia\Camera\RFC\Rotation"                                                      ,                              ,        , ""
+
+[Strings]
+IHV     = "LumiaWoA authors"
+DiskId1 = "Camera Calibration Installation Disk #1"
+
+

@@ -1,0 +1,97 @@
+;
+; qcnull.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+DriverVer   = 10/06/2018,18.13.19.793
+
+CatalogFile.NTARM   = qcnull.arm.cat
+CatalogFile.NTARM64 = qcnull.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir                      = 12
+qcnull_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles.ARM]
+qcnull.sys = 1,arm,
+;
+
+[SourceDisksFiles.ARM64]
+qcnull.sys = 1,arm64,
+;
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NTARM,NTARM64
+
+[Standard.NTARM]
+%QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
+%BIFBattNull.DeviceDesc%    = qcnull_Device, ACPI\QCOM24C2
+%25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
+
+[Standard.NTARM64]
+%QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
+%BIFBattNull.DeviceDesc%    = qcnull_Device, ACPI\QCOM24C2
+%25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
+
+[qcnull_Device.NT]
+CopyFiles = Drivers_Dir
+
+[Drivers_Dir]
+qcnull.sys
+
+;-------------- Service installation
+[qcnull_Device.NT.Services]
+AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst
+
+; -------------- qcnull driver install sections
+[qcnull_Service_Inst]
+DisplayName   = %qcnull.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcnull.sys
+
+;
+;--- qcnull_Device Coinstaller installation ------
+;
+
+[qcnull_Device.NT.CoInstallers]
+AddReg    = qcnull_Device_CoInstaller_AddReg
+CopyFiles = qcnull_Device_CoInstaller_CopyFiles
+
+[qcnull_Device_CoInstaller_AddReg]
+;
+
+
+[qcnull_Device_CoInstaller_CopyFiles]
+;
+
+
+[qcnull_Device.NT.Wdf]
+KmdfService = qcnull, qcnull_wdfsect
+[qcnull_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE    = 0x00000002
+ManufacturerName          = "LumiaWoA authors"
+DiskName                  = "Qualcomm Null Installation Disk"
+qcnull.DeviceDesc         = "Qualcomm Null Device"
+qcnull.SVCDESC            = "Qualcomm Null Service"
+
+QcGPUNull.DeviceDesc      = "Qualcomm GPU Device (Null)"
+BIFBattNull.DeviceDesc    = "Qualcomm BIF Battery Device (Null)"
+25A0Null.DeviceDesc       = "Qualcomm App Profiler Device (Null)" 

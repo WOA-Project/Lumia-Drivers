@@ -1,0 +1,108 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcauddev.inx
+;
+;Abstract:
+;    INF file for installing the Audio Device Driver and Multi Button Headset Controller Driver
+;
+;Installation Notes: 
+;   
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Media
+ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 11/10/2014,13.3.58.0334
+CatalogFile = qcauddev_wp8974.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcauddev8974.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; Audio Device Driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]
+%AUDD.DeviceDesc% = AUDIODEVICE,ADCM\QCOM242E
+%MBHC.DeviceDesc% = AUDIODEVICE,AUDD\QCOM2468
+
+[AUDIODEVICE.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[AUDIODEVICE.NT.HW]
+Addreg = AUDIODEVICEACL
+
+[AUDIODEVICEACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir]
+qcauddev8974.sys
+
+;-------------- Service installation
+[AUDIODEVICE.NT.Services]
+AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+; -------------- AUDD driver install sections
+[AUDD_Service_Inst]
+DisplayName   = %AUDD.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcauddev8974.sys
+AddReg        = qcauddev_Reg
+
+[qcauddev_Reg]
+HKR, Parameters, R02       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, T02       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, SpeakerID1, 0x00010001, 0x7FFFFFFF
+HKR, Parameters, R00       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, T00       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, T03       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, SpeakerID2, 0x00010001, 0x7FFFFFFF
+HKR, Parameters, R04       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, T04       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, R03       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, R01       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, SpeakerID3, 0x00010001, 0x7FFFFFFF
+HKR, Parameters, T01       , 0x00010001, 0x7FFFFFFF
+HKR, Parameters, SpeakerID0, 0x00010001, 0x7FFFFFFF
+HKR, Parameters, SpeakerID4, 0x00010001, 0x7FFFFFFF
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+AUDD.DeviceDesc        = "Qualcomm Audio Device"
+MBHC.DeviceDesc        = "Qualcomm Multi Button Headset Controller"
+AUDD.SvcDesc           = "Qualcomm Audio Device Driver"
+DiskId1                = "Qualcomm Audio Device Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

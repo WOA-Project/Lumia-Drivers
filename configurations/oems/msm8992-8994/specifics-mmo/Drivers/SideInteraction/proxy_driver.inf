@@ -1,0 +1,70 @@
+;
+; proxy_driver.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %COMP%
+DriverVer   = 05/01/2019,6.25.57.445
+CatalogFile = proxy_driver.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %Installation_Disk%,,,""
+
+[SourceDisksFiles]
+proxy_driver.sys  = 1,,
+
+[Manufacturer]
+%COMP% = Standard,NTARM64
+
+[Standard.NTARM64]
+%GripProxy.DeviceDesc% = GripProxy_Inst.NT, Root\GripProxy
+
+;*****************************************
+; TchDriver client driver Install Section
+;*****************************************
+
+[GripProxy_Inst.NT]
+CopyFiles = GripProxy_Inst.NT.CopyFiles
+
+[GripProxy_Inst.NT.CopyFiles]
+proxy_driver.sys
+
+;-------------- Service installation
+[GripProxy_Inst.NT.Services]
+AddService = GripProxy, %SPSVCINST_ASSOCSERVICE%, GripProxy_Inst_Service_Inst
+
+; ------------- TchDriver driver install section
+[GripProxy_Inst_Service_Inst]
+DisplayName    = %GripProxy.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\proxy_driver.sys
+LoadOrderGroup = Base
+
+; ------------- Strings section
+[Strings]
+COMP                    = "Microsoft"
+Installation_Disk       = "GRIP Proxy Driver Installation Disk"
+GripProxy.DeviceDesc    = "GRIP Proxy Driver"
+GripProxy.SvcDesc       = "GRIP Proxy Driver Service"
+
+; ------------- non-localizable strings
+SPSVCINST_ASSOCSERVICE  = 0x00000002
+SERVICE_KERNEL_DRIVER   = 1
+SERVICE_BOOT_START      = 0
+SERVICE_SYSTEM_START    = 1
+SERVICE_DEMAND_START    = 3
+SERVICE_ERROR_NORMAL    = 1
+SERVICE_ERROR_IGNORE    = 0
+SERVICE_ERROR_CRITICAL  = 3
+REG_EXPAND_SZ           = 0x00020000
+REG_MULTI_SZ            = 0x00010000
+REG_DWORD               = 0x00010001
+REG_SZ                  = 0x00000000
+

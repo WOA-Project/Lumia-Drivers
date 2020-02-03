@@ -1,0 +1,28 @@
+;
+; eMMCHighSpeed.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 08/08/2019,1.0.0.0
+CatalogFile = eMMCHighSpeed.cat
+
+;*****************************************
+; eMMCHighSpeed  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM64]
+Addreg    = eMMCHighSpeedReg
+
+[eMMCHighSpeedReg]
+HKLM, "SYSTEM\ControlSet001\services\SdBus\Parameters", "DisableHS200Support", 0x10001, 0x0
+HKLM, "SYSTEM\ControlSet001\services\SdBus\Parameters", "DisableHS400Support", 0x10001, 0x0
+HKLM, "SYSTEM\ControlSet001\services\SdBus\Parameters", "DisableUhsSupport", 0x10001, 0x0
+HKLM, "SYSTEM\ControlSet001\services\SdBus\Parameters", "EnableEmmcSleep", 0x10001, 0x1
+
+[Strings]
+IHV = "LumiaWoA authors"
+

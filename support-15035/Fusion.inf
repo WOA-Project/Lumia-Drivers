@@ -1,0 +1,221 @@
+;
+; Fusion.inf
+;
+[Version]
+Signature       =   "$WINDOWS NT$"
+Class           =   Sensor
+ClassGuid       =   {5175d334-c371-4806-b3ba-71fd53c9258d}
+Provider        =   %IHV%
+DriverVer       =   12/07/2011,1.0.0.0000
+CatalogFile     =   fusion.cat
+
+[DestinationDirs]
+DriverDir    = 12
+ComponentDir = 11
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+wpsensorsclx.sys = 0
+fusdcmpi.sys     = 0
+wpabsvc.dll      = 0
+orientsrv.dll    = 0
+
+[Manufacturer]
+%IHV% = Standard, NTARM
+
+[Standard.NTARM]
+%fusion_devdesc%      =   Fusion_Inst.NT,     Root\Fusion
+
+[fusion_inst.nt]
+AddReg    = DeviceReg
+CopyFiles = DriverDir
+
+[DriverDir]
+fusdcmpi.sys
+wpsensorsclx.sys
+
+[DeviceReg]
+HKLM, "SYSTEM\ControlSet001\Wdf\Kmdf\SensorsClx\Versions\1\1", "Service", 0x0, "sensorsClx0101"
+HKLM, "SYSTEM\ControlSet001\Services\SensorsClx0101", "Description", 0x0, "Class Extension for all sensors"
+HKLM, "SYSTEM\ControlSet001\Services\SensorsClx0101", "DisplayName", 0x0, "Sensors Class extension driver"
+HKLM, "SYSTEM\ControlSet001\Services\SensorsClx0101", "ErrorControl", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\Services\SensorsClx0101", "Group", 0x0, "System"
+HKLM, "SYSTEM\ControlSet001\Services\SensorsClx0101", "ImagePath", 0x0, "system32\drivers\wpsensorsclx.sys"
+HKLM, "SYSTEM\ControlSet001\Services\SensorsClx0101", "Start", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\Services\SensorsClx0101", "Type", 0x10001, 0x1
+
+HKLM, "SYSTEM\ControlSet001\services\SensorsClx0101", "WPSECURITY", 0x1,\
+	  01,00,04,80,c8,00,00,00,d4,00,00,00,00,00,00,00,14,00,00,00,02,00,b4,00,05,00,00,00,00,00,38,00,00,00,00,80,01,0a,00,00,00,00,00,0f,03,00,00,00,00,04,00,00,d1,14,54,35,b9,ed,d8,6e,c7,85,10,38,ea,39,40,94,92,40,63,79,1d,0f,38,\
+	  f1,46,e6,3d,bb,1a,a3,5d,6c,00,00,24,00,00,00,00,80,01,05,00,00,00,00,00,05,15,00,00,00,d1,a7,1a,a1,53,9e,65,2f,4b,7f,77,1a,06,04,00,00,00,00,24,00,00,00,00,80,01,05,00,00,00,00,00,05,15,00,00,00,d1,a7,1a,a1,53,9e,65,2f,4b,7f,\
+	  77,1a,b2,05,00,00,00,00,14,00,ff,ff,1f,11,01,01,00,00,00,00,00,05,12,00,00,00,00,00,18,00,ff,ff,1f,11,01,02,00,00,00,00,00,05,20,00,00,00,20,02,00,00,01,01,00,00,00,00,00,05,12,00,00,00,01,01,00,00,00,00,00,05,12,00,00,00
+
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{CF441505-1E7D-4907-8E5D-A5240CA18DB6}", "Enabled", 0x10001, 0x1
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{CF441505-1E7D-4907-8E5D-A5240CA18DB6}", "MessageFileName", 0x0, "C:\windows\System32\drivers\wpsensorsclx.sys"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{CF441505-1E7D-4907-8E5D-A5240CA18DB6}", "ResourceFileName", 0x0, "C:\windows\System32\drivers\wpsensorsclx.sys"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{CF441505-1E7D-4907-8E5D-A5240CA18DB6}", , ,"Microsoft-WindowsPhone-Sensors"
+
+[Extra.DeviceReg]
+HKLM, "Software\Classes\CLSID\{DCD33DDD-2A79-40D1-8319-864D416440AA}", , ,"PSFactoryBuffer"
+HKLM, "Software\Classes\CLSID\{DCD33DDD-2A79-40D1-8319-864D416440AA}\InProcServer32", "ThreadingModel", 0x0, "Both"
+HKLM, "Software\Classes\CLSID\{DCD33DDD-2A79-40D1-8319-864D416440AA}\InProcServer32", , ,"C:\windows\System32\Windows.Devices.Sensors.dll"
+HKLM, "Software\Classes\Interface\{0fdf1895-6f9e-42ce-8d58-388c0ab8356d}", , ,"__x_Windows_CDevices_CSensors_CGyrometerReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{0fdf1895-6f9e-42ce-8d58-388c0ab8356d}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{0fdf1895-6f9e-42ce-8d58-388c0ab8356d}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{0095C65B-B6AC-475A-9F44-8B32D35A3F25}", , ,"__x_Windows_CDevices_CSensors_CIAccelerometerReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{0095C65B-B6AC-475A-9F44-8B32D35A3F25}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{0095C65B-B6AC-475A-9F44-8B32D35A3F25}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{012C1186-C3BA-46BC-AE65-7A98996CBFB8}", , ,"__x_Windows_CDevices_CSensors_COrientationSensorReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{012C1186-C3BA-46BC-AE65-7A98996CBFB8}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{012C1186-C3BA-46BC-AE65-7A98996CBFB8}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{3E5D6EAF-F169-5D60-92B0-98CD6BD8F808}", , ,"ITypedEventHandler_2_Windows__CDevices__CSensors__CAccelerometer_Windows__CDevices__CSensors__CAccelerometerShakenEventArgs"
+HKLM, "Software\Classes\Interface\{3E5D6EAF-F169-5D60-92B0-98CD6BD8F808}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{4AE91DC1-E7EB-4938-8511-AE0D6B440438}", , ,"__x_Windows_CDevices_CSensors_CInclinometerReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{4AE91DC1-E7EB-4938-8511-AE0D6B440438}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{4AE91DC1-E7EB-4938-8511-AE0D6B440438}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{5E354635-CF6B-4C63-ABD8-10252B0BF6EC}", , ,"__x_Windows_CDevices_CSensors_CIOrientationSensor"
+HKLM, "Software\Classes\Interface\{5E354635-CF6B-4C63-ABD8-10252B0BF6EC}\NumMethods", , ,"13"
+HKLM, "Software\Classes\Interface\{5E354635-CF6B-4C63-ABD8-10252B0BF6EC}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{6F3B411F-D147-59F1-BBE4-7BEC396C7B6E}", , ,"ITypedEventHandler_2_Windows__CDevices__CSensors__CInclinometer_Windows__CDevices__CSensors__CInclinometerReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{6F3B411F-D147-59F1-BBE4-7BEC396C7B6E}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{8F1549B0-E8BC-4C7E-B009-4E41DF137072}", , ,"__x_Windows_CDevices_CSensors_CCompassReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{8F1549B0-E8BC-4C7E-B009-4E41DF137072}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{8F1549B0-E8BC-4C7E-B009-4E41DF137072}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{9ABC97DF-56EC-4C25-B54D-40A68BB5B269}", , ,"__x_Windows_CDevices_CSensors_CICompassStatics"
+HKLM, "Software\Classes\Interface\{9ABC97DF-56EC-4C25-B54D-40A68BB5B269}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{9ABC97DF-56EC-4C25-B54D-40A68BB5B269}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{9F44F055-B6F6-497F-B127-1A775E501458}", , ,"__x_Windows_CDevices_CSensors_CIInclinometerReading"
+HKLM, "Software\Classes\Interface\{9F44F055-B6F6-497F-B127-1A775E501458}\NumMethods", , ,"10"
+HKLM, "Software\Classes\Interface\{9F44F055-B6F6-497F-B127-1A775E501458}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{10EF8712-FB4C-428A-898B-2765E409E669}", , ,"__x_Windows_CDevices_CSensors_CIOrientationSensorStatics"
+HKLM, "Software\Classes\Interface\{10EF8712-FB4C-428A-898B-2765E409E669}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{10EF8712-FB4C-428A-898B-2765E409E6699}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{83b6e7c9-e49d-4b39-86e6-cd554be4c5c1}", , ,"__x_Windows_CDevices_CSensors_CIGyrometerStatics"
+HKLM, "Software\Classes\Interface\{83b6e7c9-e49d-4b39-86e6-cd554be4c5c1}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{83b6e7c9-e49d-4b39-86e6-cd554be4c5c1}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{91AE0C43-E1F7-577D-A161-8AAF275EB927}", , ,"ITypedEventHandler_2_Windows__CDevices__CSensors__COrientationSensor_Windows__CDevices__CSensors__COrientationSensorReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{91AE0C43-E1F7-577D-A161-8AAF275EB927}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{95FF01D1-4A28-4F35-98E8-8178AAE4084A}", , ,"__x_Windows_CDevices_CSensors_CIAccelerometerShakenEventArgs"
+HKLM, "Software\Classes\Interface\{95FF01D1-4A28-4F35-98E8-8178AAE4084A}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{95FF01D1-4A28-4F35-98E8-8178AAE4084A}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{292FFA94-1B45-403C-BA06-B106DBA69A64}", , ,"__x_Windows_CDevices_CSensors_CICompass"
+HKLM, "Software\Classes\Interface\{292FFA94-1B45-403C-BA06-B106DBA69A64}\NumMethods", , ,"13"
+HKLM, "Software\Classes\Interface\{292FFA94-1B45-403C-BA06-B106DBA69A64}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{2648CA6F-2286-406F-9161-F0C4BD806EBF}", , ,"__x_Windows_CDevices_CSensors_CIInclinometer"
+HKLM, "Software\Classes\Interface\{2648CA6F-2286-406F-9161-F0C4BD806EBF}\NumMethods", , ,"12"
+HKLM, "Software\Classes\Interface\{2648CA6F-2286-406F-9161-F0C4BD806EBF}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{4756C993-6595-4897-BCC6-D537EE757564}", , ,"__x_Windows_CDevices_CSensors_CIOrientationSensorReading"
+HKLM, "Software\Classes\Interface\{4756C993-6595-4897-BCC6-D537EE757564}\NumMethods", , ,"9"
+HKLM, "Software\Classes\Interface\{4756C993-6595-4897-BCC6-D537EE757564}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{15171524-5786-59A5-AF5B-A01245726C44}", , ,"ITypedEventHandler_2_Windows__CDevices__CSensors__CGyrometer_Windows__CDevices__CSensors__CGyrometerReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{15171524-5786-59A5-AF5B-A01245726C44}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{82911128-513D-4DC9-B781-5EEDFBF02D0C}", , ,"__x_Windows_CDevices_CSensors_CICompassReading"
+HKLM, "Software\Classes\Interface\{82911128-513D-4DC9-B781-5EEDFBF02D0C}\NumMethods", , ,"9"
+HKLM, "Software\Classes\Interface\{82911128-513D-4DC9-B781-5EEDFBF02D0C}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{A5E28B74-5A87-4A2D-BECC-0F906EA061DD}", , ,"__x_Windows_CDevices_CSensors_CIAccelerometerStatics"
+HKLM, "Software\Classes\Interface\{A5E28B74-5A87-4A2D-BECC-0F906EA061DD}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{A5E28B74-5A87-4A2D-BECC-0F906EA061DD}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{A5E83E40-B597-5B83-92F5-5BED3926CA80}", , ,"ITypedEventHandler_2_Windows__CDevices__CSensors__CAccelerometer_Windows__CDevices__CSensors__CAccelerometerReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{A5E83E40-B597-5B83-92F5-5BED3926CA80}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{b3d6de5c-1ee4-456f-9de7-e2493b5c8e03}", , ,"__x_Windows_CDevices_CSensors_CIGyrometerReading"
+HKLM, "Software\Classes\Interface\{b3d6de5c-1ee4-456f-9de7-e2493b5c8e03}\NumMethods", , ,"10"
+HKLM, "Software\Classes\Interface\{b3d6de5c-1ee4-456f-9de7-e2493b5c8e03}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{B9FE7ACB-D351-40AF-8BB6-7AA9AE641FB7}", , ,"__x_Windows_CDevices_CSensors_CIAccelerometerReading"
+HKLM, "Software\Classes\Interface\{B9FE7ACB-D351-40AF-8BB6-7AA9AE641FB7}\NumMethods", , ,"10"
+HKLM, "Software\Classes\Interface\{B9FE7ACB-D351-40AF-8BB6-7AA9AE641FB7}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{DF184548-2711-4DA7-8098-4B82205D3C7D}", , ,"__x_Windows_CDevices_CSensors_CIAccelerometer"
+HKLM, "Software\Classes\Interface\{DF184548-2711-4DA7-8098-4B82205D3C7D}\NumMethods", , ,"14"
+HKLM, "Software\Classes\Interface\{DF184548-2711-4DA7-8098-4B82205D3C7D}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{E787D73D-A121-5AE6-B497-AB934837E57F}", , ,"ITypedEventHandler_2_Windows__CDevices__CSensors__CCompass_Windows__CDevices__CSensors__CCompassReadingChangedEventArgs"
+HKLM, "Software\Classes\Interface\{E787D73D-A121-5AE6-B497-AB934837E57F}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{F22EC551-9C30-453A-8B49-3C3EEB33CB61}", , ,"__x_Windows_CDevices_CSensors_CIInclinometerStatics"
+HKLM, "Software\Classes\Interface\{F22EC551-9C30-453A-8B49-3C3EEB33CB61}\NumMethods", , ,"7"
+HKLM, "Software\Classes\Interface\{F22EC551-9C30-453A-8B49-3C3EEB33CB61}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Classes\Interface\{fdb9a9c4-84b1-4ca2-9763-9b589506c70c}", , ,"__x_Windows_CDevices_CSensors_CIGyrometer"
+HKLM, "Software\Classes\Interface\{fdb9a9c4-84b1-4ca2-9763-9b589506c70c}\NumMethods", , ,"12"
+HKLM, "Software\Classes\Interface\{fdb9a9c4-84b1-4ca2-9763-9b589506c70c}\ProxyStubClsid32", , ,"{DCD33DDD-2A79-40D1-8319-864D416440AA}"
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\SvcHost", "WPTCBNoNetwork", 0x10000, "Orientsrv","WpAbSvc"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F8BC21F6-223C-47A8-BB3E-1BF1E7E959F7}", "Enabled", 0x10001, 0x1
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F8BC21F6-223C-47A8-BB3E-1BF1E7E959F7}", "MessageFileName", 0x0, "C:\windows\System32\wpabsvc.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F8BC21F6-223C-47A8-BB3E-1BF1E7E959F7}", "ResourceFileName", 0x0, "C:\windows\System32\wpabsvc.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F8BC21F6-223C-47A8-BB3E-1BF1E7E959F7}", , ,"Microsoft-WindowsMobile-WPAutobrightSvc"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Accelerometer", "ActivationType", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Accelerometer", "CLSID", 0x0, "{053F9A70-DF06-4077-B2BC-8A327A75DFD4}"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Accelerometer", "DllPath", 0x0, "C:\windows\System32\Windows.Devices.Sensors.dll"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Accelerometer", "Threading", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Accelerometer", "TrustLevel", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Compass", "ActivationType", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Compass", "CLSID", 0x0, "{C04C63BE-6492-4A9C-9E87-4AFAED82DF7F}"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Compass", "DllPath", 0x0, "C:\windows\System32\Windows.Devices.Sensors.dll"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Compass", "Threading", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Compass", "TrustLevel", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Gyrometer", "ActivationType", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Gyrometer", "CLSID", 0x0, "{EC37E4F4-6950-48AF-9AE6-76A01D25D7CE}"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Gyrometer", "DllPath", 0x0, "C:\windows\System32\Windows.Devices.Sensors.dll"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Gyrometer", "Threading", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Gyrometer", "TrustLevel", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Inclinometer", "ActivationType", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Inclinometer", "CLSID", 0x0, "{AB2C3F96-39A7-4C9A-9C09-67E8C8A826AD}"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Inclinometer", "DllPath", 0x0, "C:\windows\System32\Windows.Devices.Sensors.dll"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Inclinometer", "Threading", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.Inclinometer", "TrustLevel", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.OrientationSensor", "ActivationType", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.OrientationSensor", "CLSID", 0x0, "{4DB7C96E-B013-4ED9-AE55-6A625B72B4CE}"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.OrientationSensor", "DllPath", 0x0, "C:\windows\System32\Windows.Devices.Sensors.dll"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.OrientationSensor", "Threading", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Devices.Sensors.OrientationSensor", "TrustLevel", 0x10001, 0x0
+HKLM, "Software\Microsoft\WindowsRuntime\CLSID\{053F9A70-DF06-4077-B2BC-8A327A75DFD4}", "ActivatableClassId", 0x0, "Windows.Devices.Sensors.Accelerometer"
+HKLM, "Software\Microsoft\WindowsRuntime\CLSID\{4DB7C96E-B013-4ED9-AE55-6A625B72B4CE}", "ActivatableClassId", 0x0, "Windows.Devices.Sensors.OrientationSensor"
+HKLM, "Software\Microsoft\WindowsRuntime\CLSID\{AB2C3F96-39A7-4C9A-9C09-67E8C8A826AD}", "ActivatableClassId", 0x0, "Windows.Devices.Sensors.Inclinometer"
+HKLM, "Software\Microsoft\WindowsRuntime\CLSID\{C04C63BE-6492-4A9C-9E87-4AFAED82DF7F}", "ActivatableClassId", 0x0, "Windows.Devices.Sensors.Compass"
+HKLM, "Software\Microsoft\WindowsRuntime\CLSID\{EC37E4F4-6950-48AF-9AE6-76A01D25D7CE}", "ActivatableClassId", 0x0, "Windows.Devices.Sensors.Gyrometer"
+HKLM, "SYSTEM\controlset001\services\Orientsrv", "Description", 0x0, "Detects Device Orientation"
+HKLM, "SYSTEM\controlset001\services\Orientsrv", "DisplayName", 0x0, "Orientation Service"
+HKLM, "SYSTEM\controlset001\services\Orientsrv", "ErrorControl", 0x10001, 0x0
+HKLM, "SYSTEM\controlset001\services\Orientsrv", "FailureActions", 0x1, 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
+HKLM, "SYSTEM\controlset001\services\Orientsrv", "ImagePath", 0x20000, "%%SystemRoot%%\System32\svchost.exe -k WPTCBNoNetwork"
+HKLM, "SYSTEM\controlset001\services\Orientsrv", "PreshutdownTimeout", 0x10001, 0x4E20
+HKLM, "SYSTEM\controlset001\services\Orientsrv", "Start", 0x10001, 0x3
+HKLM, "SYSTEM\controlset001\services\Orientsrv", "Type", 0x10001, 0x20
+HKLM, "SYSTEM\controlset001\services\Orientsrv\Parameters", "ServiceDll", 0x20000, "%%SystemRoot%%\System32\orientsrv.dll"
+HKLM, "SYSTEM\controlset001\services\Orientsrv\Parameters", "ServiceDllUnloadOnStop", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\services\Orientsrv\TriggerInfo\0", "Action", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\services\Orientsrv\TriggerInfo\0", "Data0", 0x1, 75,38,BC,A3,3E,06,8A,41
+HKLM, "SYSTEM\ControlSet001\services\Orientsrv\TriggerInfo\0", "Data1", 0x1, 00,00,00,00,01,00,00,00
+HKLM, "SYSTEM\ControlSet001\services\Orientsrv\TriggerInfo\0", "DataType0", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\services\Orientsrv\TriggerInfo\0", "DataType1", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\services\Orientsrv\TriggerInfo\0", "Guid", 0x1, 16,28,7A,2D,5E,0C,FC,45,9C,E7,57,0E,5E,CD,E9,C9
+HKLM, "SYSTEM\ControlSet001\services\Orientsrv\TriggerInfo\0", "Type", 0x10001, 0x7
+HKLM, "SYSTEM\controlset001\services\WpAbSvc", "Description", 0x0, "WPAdaptiveBrightnessSvc to monitor ALS and adjust display"
+HKLM, "SYSTEM\controlset001\services\WpAbSvc", "DisplayName", 0x0, "WPAdaptiveBrightnessSvc"
+HKLM, "SYSTEM\controlset001\services\WpAbSvc", "ErrorControl", 0x10001, 0x0
+HKLM, "SYSTEM\controlset001\services\WpAbSvc", "FailureActions", 0x1, 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
+HKLM, "SYSTEM\controlset001\services\WpAbSvc", "ImagePath", 0x20000, "%%SystemRoot%%\System32\svchost.exe -k WPTCBNoNetwork"
+HKLM, "SYSTEM\controlset001\services\WpAbSvc", "PreshutdownTimeout", 0x10001, 0x4E20
+HKLM, "SYSTEM\controlset001\services\WpAbSvc", "Start", 0x10001, 0x3
+HKLM, "SYSTEM\controlset001\services\WpAbSvc", "Type", 0x10001, 0x20
+HKLM, "SYSTEM\controlset001\services\WpAbSvc\Parameters", "ServiceDll", 0x20000, "%%SystemRoot%%\System32\wpabsvc.dll"
+HKLM, "SYSTEM\controlset001\services\WpAbSvc\Parameters", "ServiceDllUnloadOnStop", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\services\WpAbSvc\TriggerInfo\0", "Action", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\services\WpAbSvc\TriggerInfo\0", "Data0", 0x1, 75,38,BC,A3,3E,06,8A,41
+HKLM, "SYSTEM\ControlSet001\services\WpAbSvc\TriggerInfo\0", "Data1", 0x1, 00,00,00,00,01,00,00,00
+HKLM, "SYSTEM\ControlSet001\services\WpAbSvc\TriggerInfo\0", "DataType0", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\services\WpAbSvc\TriggerInfo\0", "DataType1", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\services\WpAbSvc\TriggerInfo\0", "Guid", 0x1, 16,28,7A,2D,5E,0C,FC,45,9C,E7,57,0E,5E,CD,E9,C9
+HKLM, "SYSTEM\ControlSet001\services\WpAbSvc\TriggerInfo\0", "Type", 0x10001, 0x7
+
+[Fusion_Inst.NT.Services]
+AddService = Fusion, 0x00000002, Fusion_service_inst
+
+[Fusion_service_inst]
+DisplayName     =   %Fusion_DevDesc%
+ServiceType     =   1
+StartType       =   1
+ErrorControl    =   1
+ServiceBinary   =   %12%\fusdcmpi.sys 
+
+[Strings]
+IHV            = "LumiaWoA authors"
+fusion_devdesc = "Sensor Fusion Client Driver"
+diskIns        = "Sensor Fusion Client Installation Disk"

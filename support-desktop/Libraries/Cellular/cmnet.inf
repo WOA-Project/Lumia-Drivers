@@ -1,0 +1,47 @@
+;
+; cmnet.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/09/2016,10.0.14903.1000
+
+CatalogFile.NTARM   = cmnet.arm.cat
+CatalogFile.NTARM64 = cmnet.arm64.cat
+
+[DestinationDirs]
+; 11 = system32
+cmnet.Files.NTarm_11 = 11
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+CmOemUtil.dll      = 0,arm,
+cmnet.dll          = 0,arm,
+
+[SourceDisksFiles.ARM64]
+CmOemUtil.dll = 0,arm64,
+cmnet.dll     = 0,arm64,
+
+;*****************************************
+; cmnet  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = cmnet.Files.NTarm_11
+
+[DefaultInstall.NTARM64]
+CopyFiles = cmnet.Files.NTarm_11
+
+; System32
+[cmnet.Files.NTarm_11]
+CmOemUtil.dll
+cmnet.dll
+
+[Strings]
+IHV                    = "LumiaWoA authors"
+DiskId1                = "Windows Phone Connection Manager Installation Disk #1"
+

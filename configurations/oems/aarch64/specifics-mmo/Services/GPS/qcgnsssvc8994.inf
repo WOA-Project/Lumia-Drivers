@@ -1,0 +1,74 @@
+; 
+; Copyright (C) 2012 QUALCOMM Incorporated.
+; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+;
+; Module Name:
+;
+;    qcQcGnssSvc.inf
+;
+; Abstract:
+;
+;    INF file for installing the Qualcomm qcgnss Service
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 09/09/2015,1.0.1067.0000
+CatalogFile = qcgnsssvc8994.cat
+
+[DestinationDirs]
+QcGnssSvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+QcGnssSvc.dll = 0,,
+
+[DefaultInstall.NTARM64]
+CopyFiles = QcGnssSvc.Files
+AddReg    = QcGnssSvc_Reg
+
+[DefaultInstall.NTARM64.Services]
+AddService = QcGnssSvc,0x00000000,QcGnssSvc_Service,
+
+;ServiceType = 0x110
+;A Win32 program that runs in a process by itself (like Type16) and that can interact with users.
+;StartType = 2 SERVICE_AUTO_START
+;A service started automatically by the service control manager during system startup. 
+;ErrorControl = 1 SERVICE_ERROR_NORMAL
+;The startup program logs the error in the event log but continues the startup operation.
+
+[QcGnssSvc_Service]
+DisplayName   = "QCGnssHelperService"
+Description   = "QC GNSS Helper Service"
+ServiceType   = 0x110
+StartType     = 2
+ErrorControl  = 0
+ServiceBinary = "%%systemroot%%\system32\svchost.exe -k QCGnssSvcGroup"
+
+[QcGnssSvc_Reg]
+HKLM, System\ControlSet001\Services\QcGnssSvc             , DisplayName       , %REG_SZ%       ,  "QCGnssHelperService"
+HKLM, System\ControlSet001\Services\QcGnssSvc             , Description       , %REG_SZ%       ,  "QC GNSS Helper Service"
+HKLM, System\ControlSet001\Services\QcGnssSvc             , PreshutdownTimeout, %REG_DWORD%    ,  0x4E20
+HKLM, System\ControlSet001\Services\QcGnssSvc             , ImagePath         , %REG_EXPAND_SZ%,  "%%systemroot%%\system32\svchost.exe -k QCGnssSvcGroup"
+HKLM, System\ControlSet001\Services\QcGnssSvc             , Type              , %REG_DWORD%    ,  0x0020
+HKLM, System\ControlSet001\Services\QcGnssSvc             , Start             , %REG_DWORD%    ,  0x0002
+HKLM, System\ControlSet001\Services\QcGnssSvc             , ErrorControl      , %REG_DWORD%    ,  0x0000
+HKLM, System\ControlSet001\Services\QcGnssSvc\Parameters  , ServiceDll        , %REG_EXPAND_SZ%,  "%%SystemRoot%%\System32\QcGnssSvc.dll"
+HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, QCGnssSvcGroup    , %REG_MULTI_SZ% ,  "QcGnssSvc"
+
+[QcGnssSvc.Files]
+QcGnssSvc.dll
+
+[Strings]
+QC            = "Qualcomm"
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+

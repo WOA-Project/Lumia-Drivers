@@ -1,0 +1,62 @@
+;
+; msvc120.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/09/2016,12.0.30519.0
+
+CatalogFile.NTARM   = msvc120.arm.cat
+CatalogFile.NTARM64 = msvc120.arm64.cat
+
+[DestinationDirs]
+; 11 = system32
+MSVC120.Files.NTarm_11   = 11
+MSVC120.Files.NTarm64_11 = 11
+MSVC120.Files.NTarm_10   = 10, SysArm32
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+msvcp120.dll = 0,arm,
+msvcr120.dll = 0,arm,
+
+[SourceDisksFiles.ARM64]
+msvcarm64p120.dll = 0,arm64,
+msvcarm64r120.dll = 0,arm64,
+
+msvcp120.dll = 0,arm,
+msvcr120.dll = 0,arm,
+
+;*****************************************
+; MSVC120  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = MSVC120.Files.NTarm_11
+
+[DefaultInstall.NTARM64]
+CopyFiles = MSVC120.Files.NTarm64_11,MSVC120.Files.NTarm_10
+
+; System32
+[MSVC120.Files.NTarm_11]
+msvcp120.dll
+msvcr120.dll
+
+; System32
+[MSVC120.Files.NTarm64_11]
+msvcp120.dll, msvcarm64p120.dll, , 0x00004000,
+msvcr120.dll, msvcarm64r120.dll, , 0x00004000,
+
+; SysArm32
+[MSVC120.Files.NTarm_10]
+msvcp120.dll
+msvcr120.dll
+
+[Strings]
+IHV                    = "LumiaWoA authors"
+DiskId1                = "Microsoft Visual C++ 120 Installation Disk #1"
+

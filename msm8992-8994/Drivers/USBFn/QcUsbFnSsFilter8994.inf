@@ -1,0 +1,81 @@
+;
+; QcUsbFnSSFilter.inf
+;
+;Copyright (C) 2013,2015  by Qualcomm Technologies, Inc.  All Rights Reserved.
+;
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = USBDevice
+ClassGuid   = {88BAE032-5A81-49f0-BC3D-A4FF138216D6}
+Provider    = %Company%
+DriverVer   = 07/02/2015,1.0.1067.0000
+
+CatalogFile.NTARM   = QcUsbFnSsFilter8994.arm.cat
+CatalogFile.NTARM64 = QcUsbFnSsFilter8994.arm64.cat
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[DestinationDirs]
+QcUsbFnSSFilter.CopyFile = 12
+DefaultDestDir           = 12
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles.ARM]
+QcUsbFnSsFilter8994.sys = 1,arm,
+
+[SourceDisksFiles.ARM64]
+QcUsbFnSsFilter8994.sys = 1,arm64,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+;Include MS driver
+Include   = ufxsynopsys.inf
+Needs     = ufxsynopsys.Install.NT
+CopyFiles = QcUsbFnSSFilter.CopyFile
+
+[DefaultInstall.NTARM.Services]
+;Include MS driver
+Include    = ufxsynopsys.inf
+Needs      = ufxsynopsys.Install.NT.Services
+AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
+
+[QcUsbFnSSFilter.CopyFile]
+QcUsbFnSsFilter8994.sys
+
+[QcUsbFnSSFilter_AddReg]
+HKR, , "LowerFilters", 0x00010000, QcUsbFnSSFilter
+
+; -------------- QcUsbFnSSFilter driver install sections
+[QcUsbFnSSFilter_Service_Inst]
+DisplayName   = %Filter.SvcDesc%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 0               ; SERVICE_BOOT_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
+ServiceBinary = %12%\QcUsbFnSsFilter8994.sys
+AddReg        = QcUsbFnSSFilter_AddReg
+
+[Strings]
+Company             = "Qualcomm Technologies, Inc."
+StdMfg              = "(Standard system devices)"
+DiskId1             = "UsbFnSS PEP Filter Installation Disk #1"
+Standard.DeviceDesc = "Qualcomm UsbFnSS Filter Driver"
+Filter.SvcDesc      = "Qualcomm UsbFnSS Filter Driver"
+DiskName            = "Data"
+
+REG_SZ              = 0x00000000
+REG_BINARY          = 0x00000001
+REG_M_SZ            = 0x00010000
+REG_DWORD           = 0x00010001
+REG_QWORD           = 0x000B0001
+

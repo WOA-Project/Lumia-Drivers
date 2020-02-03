@@ -1,0 +1,98 @@
+;/*++
+;
+;Copyright (c) 2014 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcipa.INF 
+;
+;Abstract:
+;    INF file for installing the qcipa driver
+;
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM   = qcipa8994.arm.cat
+CatalogFile.NTARM64 = qcipa8994.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12                                           ; This is a directory id (dirid)
+                                                              ; 12 is equivalent to %SystemRoot%\system32\drivers for Windows 2000 and later
+[SourceDisksNames]
+1 = %DiskId1%                                                 ; A disk id and its name that contain the installation files
+
+[SourceDisksFiles.ARM]
+qcipa8994.sys = 1,arm                                         ; The source files that are used during installation and the installation
+
+[SourceDisksFiles.ARM64]
+qcipa8994.sys = 1,arm64                                       ; The source files that are used during installation and the installation
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM,NTARM64                           ; QCOM drivers may need to follow same process here?
+
+[Standard.NTARM]                                            ; Decorated model section take precedence over undecorated
+%ipa.DeviceDesc% = ipa_Device, ACPI\QCOM24B0
+
+[Standard.NTARM64]                                          ; Decorated model section take precedence over undecorated
+%ipa.DeviceDesc% = ipa_Device, ACPI\QCOM24B0
+
+[ipa_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcipa8994.sys                                                 ; Copied from the source media to the default destination directory (see [DestinationDirs])
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[ipa_Device.NT.Services]
+AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+
+;-------------- HW installation
+[ipa_Device.NT.HW]
+addreg = ipa
+
+[ipa]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- ipa driver install sections
+[ipa_Service_Inst]
+DisplayName   = %ipa.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcipa8994.sys
+AddReg        = IPA_Reg
+
+[IPA_Reg]
+HKR, "Parameters", "NumOfBuffers", 0x00010001 , 0x100
+HKR, "Parameters", "A2PCEnabled" , %REG_DWORD%, 0x1
+
+
+[ipa_Device.NT.Wdf]
+KmdfService = qcipa, ipa_wdfsect
+[ipa_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "IP Accelerator Installation Disk"
+ipa.DeviceDesc         = "Qualcomm IPA Device"
+ipa.SVCDESC            = "Qualcomm IPA Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+REG_SZ                 = 0x00000000
+REG_DWORD              = 0x00010001
+

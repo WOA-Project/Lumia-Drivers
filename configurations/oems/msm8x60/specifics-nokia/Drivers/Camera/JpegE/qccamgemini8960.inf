@@ -1,0 +1,93 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Inc.
+;
+;Module Name:
+;    qccamgemini8960.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Camera JPEG Encoder Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/01/2014,14.20.14.0006
+CatalogFile = qccamgemini8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+Drivers_Dir    = 12
+MftCopy        = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qccamgemini8960.sys  = 1
+QCJpegEncoderMFT.dll = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; Camera JPEG Encoder Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTarm
+
+[QC.NTarm]
+%Gemini.DeviceDesc% = CameraGemini_Device, ACPI\QCOM0730
+
+[CameraGemini_Device.NT]
+CopyFiles   = Drivers_Dir, MftCopy
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[CameraGemini_AddReg]
+HKLM, "SOFTWARE\Classes\CLSID\{83d175fd-272d-475e-8a2e-0de0d014b6e9}"               ,                 ,        , "Qualcomm JPEG Encoder MFT"
+HKLM, "SOFTWARE\Classes\CLSID\{83d175fd-272d-475e-8a2e-0de0d014b6e9}\InProcServer32",                 , 0x20000, "%%SystemRoot%%\System32\QCJpegEncoderMFT.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{83d175fd-272d-475e-8a2e-0de0d014b6e9}\InProcServer32", "ThreadingModel", 0x0    , "Both"
+
+[Drivers_Dir]
+qccamgemini8960.sys
+
+[MftCopy]
+QCJpegEncoderMFT.dll
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+;-------------- Service installation
+[CameraGemini_Device.NT.Services]
+AddService = Gemini,%SPSVCINST_ASSOCSERVICE%, Gemini_Service_Inst
+
+; -------------- Gemini driver install sections
+[Gemini_Service_Inst]
+DisplayName   = %Gemini.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamgemini8960.sys
+
+; Checks for compatibility with KMDF version
+[CameraGemini_Device.NT.Wdf]
+KmdfService = Gemini, CameraGemini_wdfsect
+[CameraGemini_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm"
+Gemini.SVCDESC         = "Qualcomm Camera JPEG Encoder Service"
+Gemini.DeviceDesc      = "Qualcomm Camera JPEG Encoder Driver"
+DiskId1                = "Qualcomm Camera JPEG Encoder Installation Disk"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

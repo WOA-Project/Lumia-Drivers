@@ -1,0 +1,24 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
+"Manufacturer"="Microsoft"
+"Model"="Microsoft Lumia 950 XL Dual SIM"
+"SupportHours"="Monday through Friday, 5:00 AM - 9:00 PM Pacific Time and Saturday and Sunday, 6:00 AM - 3:00 PM Pacific Time"
+"SupportPhone"="1-800-Microsoft (642-7676), TTY: 1-800-892-5234"
+"SupportURL"="http://lumia.linkmicrosoft.com/device/entry/van/nsupport"
+"Logo"="%%SystemRoot%%\System32\OEM\MMO.bmp"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\Platform\DeviceTargetingInfo]
+"PhoneFirmwareRevision"="01078.00053.16236.35005"
+"PhoneHardwareRevision"="1.0.0.0"
+"PhoneHardwareVariant"="RM-1116"
+"PhoneManufacturer"="MicrosoftMDG"
+"PhoneManufacturerDisplayName"="Microsoft"
+"PhoneManufacturerModelName"="RM-1116_12732"
+"PhoneMobileOperatorDisplayName"="Operator"
+"PhoneMobileOperatorName"="000-88"
+"PhoneModelName"="Lumia 950 XL Dual SIM"
+"PhoneOEMSupportLink"="http://lumia.linkmicrosoft.com/device/entry/van/nsupport"
+"PhoneRadioSoftwareRevision"="BO25c43.00024.0001"
+"PhoneROMLanguage"="040c"
+"PhoneSOCVersion"="8994"

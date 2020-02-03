@@ -1,0 +1,80 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+
+;Module Name:
+;    qccdi8960.INF
+;
+;Abstract:
+;    INF file for installing the Crashdump Injector Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+CatalogFile = qccdi8960.cat
+DriverVer   = 09/26/2013,1.0.3051.0000
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+qccdi8960.sys = 1,,
+
+;*****************************************
+; QCCDI Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NTarm
+
+[Standard.NTarm]
+%QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM2065
+
+[QCCDI_Device.NT]
+CopyFiles = Drivers_Dir
+Reboot
+
+[QCCDI_Device.NT.HW]
+AddReg = CDIACL
+
+[CDIACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir]
+qccdi8960.sys
+
+;-------------- Service installation
+[QCCDI_Device.NT.Services]
+AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_Service_Inst
+
+; -------------- QCCDI driver install sections
+[QCCDI_Service_Inst]
+DisplayName   = %QCCDI.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccdi8960.sys
+
+[QCCDI_Device.NT.Wdf]
+KmdfService = QCCDI, QCCDI_wdfsect
+
+[QCCDI_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName       = "Qualcomm Inc."
+DiskName               = "Qualcomm Crash Dump Injector Installation Disk"
+QCCDI.DeviceDesc       = "Qualcomm Crash Dump Injector Device"
+QCCDI.SVCDESC          = "Qualcomm Crash Dump Injector Service"
+QUALCOMM               = "Qualcomm Incorporated"
+

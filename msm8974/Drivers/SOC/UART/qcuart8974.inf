@@ -1,0 +1,55 @@
+;
+; Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = Ports
+ClassGuid   = {4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider    = %Manufacturer_Name%
+DriverVer   = 08/23/2013,1.0.1032.3201
+CatalogFile = qcuart8974.cat
+
+[SourceDisksNames]
+1 = %Disk_Description%
+
+[SourceDisksFiles]
+qcuart8974.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12 ; Windows\System32\Drivers
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%Manufacturer_Name% = Qualcomm_Models, ntarm
+
+[Qualcomm_Models.ntarm]
+%Device_Description% = UART_Install, ACPI\QCOM2424
+
+[UART_Install]
+CopyFiles = @qcuart8974.sys
+
+[UART_Install.Services]
+AddService = qcuart, 0x00000002, UART_Service_Install
+
+[UART_Service_Install]
+DisplayName   = %Service_Name%
+ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
+StartType     = 3 ; SERVICE_DEMAND_START
+ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcuart8974.sys
+
+[UART_Install.Wdf]
+KmdfService = qcuart, UART_wdfsect
+
+[UART_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+Manufacturer_Name  = "Qualcomm Technologies, Inc."
+Disk_Description   = "Qualcomm UART Device Installation Disk"
+Device_Description = "Qualcomm UART Device"
+Service_Name       = "Qualcomm UART Driver"
+

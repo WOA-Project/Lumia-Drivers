@@ -1,0 +1,171 @@
+; SynapticsTouch.INF
+; Copyright (c) 2000,2011 Microsoft Corporation
+; Copyright (c) 2018,2019 Bingxing Wang
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %MSFT%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5C}
+DriverVer   = 11/09/2019,1.0.0.0
+CatalogFile = alpha_SynapticsTouch.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %Installation_Disk%,,,""
+
+[SourceDisksFiles]
+
+;*****************************************
+; TchDriver client driver Install Section
+;*****************************************
+
+[TchDriver_Device.NT.CopyFiles]
+
+[Manufacturer]
+%MSFT% = DeviceExtensions,NTarm
+
+[DeviceExtensions.NTarm]
+%TchDriver_Device_Desc% = DeviceExtension_Install, ACPI\NOKIA_TOUCH
+
+[DeviceExtension_Install]
+AddReg    = CapButtons.NT.HW.AddReg
+AddReg    = PowerConfig.NT.HW.AddReg
+AddReg    = Configuration.NT.HW.AddReg
+AddReg    = Resolutions.NT.HW.AddReg
+AddReg    = DisplaySize.NT.HW.AddReg
+AddReg    = ButtonBacklights.NT.HW.AddReg
+AddReg    = LegacyTouchScaling.NT.HW.AddReg
+CopyFiles = TchDriver_Device.NT.CopyFiles
+
+[LegacyTouchScaling.NT.HW.AddReg]
+HKR, , "LegacyTouchScaling", 0x00010001,   0x0
+
+[CapButtons.NT.HW.AddReg]
+HKLM, "SYSTEM\TOUCH\BUTTONS", "Area", 0x0, "0,1280 768,1390"
+HKLM, "SYSTEM\TOUCH\BUTTONS", "Count", 0x10001, 0x3
+HKLM, "SYSTEM\TOUCH\BUTTONS", "Duration", 0x10001, 0x19
+HKLM, "SYSTEM\TOUCH\BUTTONS", "Intensity", 0x10001, 0x32
+HKLM, "SYSTEM\TOUCH\BUTTONS", "Vibrate", 0x10001, 0x1
+HKLM, "SYSTEM\TOUCH\BUTTONS\0", "Area", 0x0, "0,1300 216,1390"
+HKLM, "SYSTEM\TOUCH\BUTTONS\0", "Name", 0x0, ""
+HKLM, "SYSTEM\TOUCH\BUTTONS\0", "VKey", 0x10001, 0x1B
+HKLM, "SYSTEM\TOUCH\BUTTONS\1", "Area", 0x0, "297,1300 472,1390"
+HKLM, "SYSTEM\TOUCH\BUTTONS\1", "Name", 0x0, "Start"
+HKLM, "SYSTEM\TOUCH\BUTTONS\1", "VKey", 0x10001, 0x71
+HKLM, "SYSTEM\TOUCH\BUTTONS\2", "Area", 0x0, "553,1300 768,1390"
+HKLM, "SYSTEM\TOUCH\BUTTONS\2", "Name", 0x0, "Search"
+HKLM, "SYSTEM\TOUCH\BUTTONS\2", "VKey", 0x10001, 0x72
+
+[PowerConfig.NT.HW.AddReg]
+HKR, , "EnhancedPowerManagementEnabled"   , %REG_DWORD%,   0
+HKR, , "EnhancedPowerManagementUseMonitor", %REG_DWORD%,   0
+
+[Configuration.NT.HW.AddReg]
+HKLM, "%ConfigurationC%", "AbsPosFilt", 0x10001, 0x1
+HKLM, "%ConfigurationC%", "Acceleration", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "AlgorithmSelection", 0x10001, 0x1
+HKLM, "%ConfigurationC%", "Configured", 0x10001, 0x1
+;HKLM, "%ConfigurationC%", "DeltaXPosThreshold", 0x10001, 0x4
+;HKLM, "%ConfigurationC%", "DeltaYPosThreshold", 0x10001, 0x4
+;HKLM, "%ConfigurationC%", "DozeHoldoff", 0x10001, 0x5
+;HKLM, "%ConfigurationC%", "DozeInterval", 0x10001, 0x3
+;HKLM, "%ConfigurationC%", "DozeThreshold", 0x10001, 0x1E
+HKLM, "%ConfigurationC%", "Dribble", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "FingerWidthX", 0x10001, 0xEA4F
+HKLM, "%ConfigurationC%", "FingerWidthY", 0x10001, 0xDF6C
+HKLM, "%ConfigurationC%", "InterruptEnable", 0x10001, 0xF
+HKLM, "%ConfigurationC%", "LargeZScaleFactor", 0x10001, 0x51E
+HKLM, "%ConfigurationC%", "ManTrackedFinger", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "ManTrackEn", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "MaxFingerMovement", 0x10001, 0x4
+HKLM, "%ConfigurationC%", "MinFingerSeparation", 0x10001, 0xA
+;HKLM, "%ConfigurationC%", "MotionSensitivity", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "NoSleep", 0x10001, 0x1
+HKLM, "%ConfigurationC%", "PalmDetectThreshold", 0x10001, 0xB
+HKLM, "%ConfigurationC%", "PepRemovesVoltageInD3", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "RelBallistics", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "RelPosFilt", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "ReportingMode", 0x10001, 0x1
+HKLM, "%ConfigurationC%", "ReportMeasuredSize", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "ReportRate", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "SegmentationSensitivity", 0x10001, 0x70
+HKLM, "%ConfigurationC%", "SensorMaxXPos", 0x10001, 0x330
+HKLM, "%ConfigurationC%", "SensorMaxYPos", 0x10001, 0x572
+HKLM, "%ConfigurationC%", "SleepMode", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "SmallZScaleFactor", 0x10001, 0x28F5
+HKLM, "%ConfigurationC%", "SmallZThreshold", 0x10001, 0x28
+HKLM, "%ConfigurationC%", "Velocity", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "WxOffset", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "WxScaleFactor", 0x10001, 0x30
+HKLM, "%ConfigurationC%", "WyOffset", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "WyScaleFactor", 0x10001, 0x30
+HKLM, "%ConfigurationC%", "XClipHi", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "XClipLo", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "XPitch", 0x10001, 0x4800
+HKLM, "%ConfigurationC%", "YClipHi", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "YClipLo", 0x10001, 0x0
+HKLM, "%ConfigurationC%", "YPitch", 0x10001, 0x4800
+HKLM, "%ConfigurationC%", "ZHysteresis", 0x10001, 0x5
+HKLM, "%ConfigurationC%", "ZTouchThreshold", 0x10001, 0x1E
+
+[Resolutions.NT.HW.AddReg]
+HKLM, "%ScreenProps%", "DisplayLetterBoxHeightBottom", 0x10001, 0x0
+HKLM, "%ScreenProps%", "DisplayLetterBoxHeightTop", 0x10001, 0x0
+HKLM, "%ScreenProps%", "DisplayPhysicalHeight", 0x10001, 0x500
+HKLM, "%ScreenProps%", "DisplayPhysicalWidth", 0x10001, 0x320
+HKLM, "%ScreenProps%", "DisplayPillarBoxWidthLeft", 0x10001, 0x10
+HKLM, "%ScreenProps%", "DisplayPillarBoxWidthRight", 0x10001, 0x10
+HKLM, "%ScreenProps%", "TouchInvertXAxis", 0x10001, 0x0
+HKLM, "%ScreenProps%", "TouchInvertYAxis", 0x10001, 0x1
+HKLM, "%ScreenProps%", "TouchLetterBoxHeightBottom", 0x10001, 0x0
+HKLM, "%ScreenProps%", "TouchLetterBoxHeightTop", 0x10001, 0x4
+HKLM, "%ScreenProps%", "TouchPhysicalButtonHeight", 0x10001, 0x6E
+HKLM, "%ScreenProps%", "TouchPhysicalHeight", 0x10001, 0x572
+HKLM, "%ScreenProps%", "TouchPhysicalWidth", 0x10001, 0x330
+HKLM, "%ScreenProps%", "TouchPillarBoxWidthLeft", 0x10001, 0x8
+HKLM, "%ScreenProps%", "TouchPillarBoxWidthRight", 0x10001, 0x8
+HKLM, "%ScreenProps%", "TouchSwapAxes", 0x10001, 0x0
+
+[DisplaySize.NT.HW.AddReg]
+HKLM, "%DisplaySize%", "DisplayHeight10um", 0x10001, 0x2658
+HKLM, "%DisplaySize%", "DisplayWidth10um", 0x10001, 0x1732
+HKLM, "SYSTEM\TOUCH\FILTERPROPERTIES\480x800", "InitialDeadZoneThreshold", 0x10001, 0x14
+HKLM, "SYSTEM\TOUCH\FILTERPROPERTIES\800x1280", "InitialDeadZoneThreshold", 0x10001, 0x23
+
+[ButtonBacklights.NT.HW.AddReg]
+
+
+; ------------- Strings section
+[Strings]
+MSFT                   = "LumiaWoA authors"
+Manufacturer_Name      = "Synaptics"
+Installation_Disk      = "Synaptics Touch Driver Installation Disk"
+TchDriver_Device_Desc  = "Synaptics RMI4 Alpha Digitizer Device"
+TchDriver_Service      = "SynapticsTouch"
+TchDriver_Service_Desc = "Synaptics RMI4 Alpha Digitizer Driver Service"
+HIDKMDF_Service        = "mshidkmdf"
+
+; ------------- non-localizable strings
+Configuration          = "SYSTEM\TOUCH\SETTINGS"
+FFConfiguration        = "SYSTEM\TOUCH\SETTINGS\FF"
+ConfigurationC         = "SYSTEM\TOUCH\CONTROLLERSETTINGS"
+ScreenProps            = "SYSTEM\TOUCH\SCREENPROPERTIES"
+DisplaySize            = "SYSTEM\TOUCH\DISPLAYPROPERTIES"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_MULTI_SZ           = 0x00010000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+

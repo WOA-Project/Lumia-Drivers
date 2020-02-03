@@ -1,0 +1,109 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;
+;    QcBluetooth8960.INF
+;
+;Abstract:
+;    QUALCOMM's INF file for installing a SMD driver between Krait and Riva
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = QcBluetooth8960.cat
+PnPLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir   = 12
+ROODLL.CopyFiles = 11 ; windows\system32
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+QcBluetooth8960.sys   = 1,,
+qcbtradioctrl8960.dll = 1,,
+
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%QC% = VendorModels,NTARM
+
+;*****************************************
+; Serial bus driver install Section
+;*****************************************
+
+[VendorModels.NTARM]
+%Bus.DeviceDesc%     = Bus_Vendor, ACPI\QCOM2049
+%Bus.DeviceDesc_WCN% = Bus_Vendor, QWCN\QCOM2049
+
+[Bus_Vendor.NT]
+CopyFiles   = Bus.CopyFiles
+CopyFiles   = ROODLL.CopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Bus.CopyFiles]
+QcBluetooth8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[Bus_Vendor.NT.HW]
+AddReg = Bus_Vendor.NT.AddReg
+
+[Bus_Vendor.NT.AddReg]
+; Reference: http://msdn.microsoft.com/en-us/library/ff546320.aspx
+HKR,                                                                     , DeviceCharacteristics, 0x10001, 0x0100      ; Use same security checks on relative opens
+HKR,                                                                     , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;LS)"   ; DACL Protected to allow generic-all access to built-in Admin group, system, and Local Service.
+HKLM, "SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Radio Support", SupportDLL           , 0x20000, "%SystemRoot%\System32\qcbtradioctrl8960.dll"
+
+[ROODLL.CopyFiles]
+qcbtradioctrl8960.dll
+
+;-------------- Service installation
+[Bus_Vendor.NT.Services]
+AddService = QcBluetooth,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
+
+; -------------- statbus driver install sections
+[Bus_Service_Inst]
+DisplayName   = %Bus.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\QcBluetooth8960.sys
+AddReg        = QcBluetoothReg_Service
+
+[QcBluetoothReg_Service]
+HKR, , DynamicSwitch   , 0x00010001, "0"
+HKR, , BrEdrPowerClass , 0x00010001, "0"
+HKR, , LePowerClass    , 0x00010001, "1"
+HKR, , DownLoadNVMItems, 0x00000001, "0"
+HKR, , BtOnOff         , 0x00010001, "1"
+HKR, , BtleRSSI        , 0x00010001, "0"
+
+[Bus_Vendor.NT.Wdf]
+KmdfService = QcBluetooth, QcBluetooth_wdfsect
+[QcBluetooth_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Non-Localizable
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+;Localizable
+QC                     = "Qualcomm Incorporated"
+DiskId1                = "QUALCOMM Bluetooth Driver SDM Installation Disk"
+Bus.DeviceDesc         = "Qualcomm Bluetooth Device"
+Bus.DeviceDesc_WCN     = "Qualcomm Bluetooth Device"
+Bus.SVCDESC            = "Qualcomm Bluetooth Driver"
+

@@ -1,0 +1,69 @@
+[Version]
+Signature   = "$Windows NT$"
+CatalogFile = qcgnss.cat
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+DriverVer   = 12/18/2014,18.29.26.0575
+
+[DestinationDirs]
+;12 == Windows\System32\Drivers
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,""
+
+[SourceDisksFiles]
+qcgnss.sys = 1,,
+
+[Manufacturer]
+%ManufacturerName% = QCGNSS_Device,NTARM
+
+;*******************************
+; QCGNSS Install Section
+;*******************************
+
+[QCGNSS_Device.NTARM]
+%QCGNSS.DevDesc% = QCGNSS_Inst, ACPI\QCOM_GPS
+
+;---------------- copy files
+
+[QCGNSS_Inst.NT]
+CopyFiles = QCGNSSCopy
+
+[QCGNSSCopy]
+qcgnss.sys
+
+[QCGNSS_Inst.NT.HW]
+AddReg = QCGNSS_SecurityAddReg
+
+;-------------- Service installation
+[QCGNSS_Inst.NT.Services]
+AddService = QCGNSS,2,QCGNSS_ServiceInstall
+
+[QCGNSS_ServiceInstall]
+DisplayName    = %QCGNSS.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qcgnss.sys
+LoadOrderGroup = Extended Base
+
+[QCGNSS_Inst.NT.Wdf]
+KmdfService = QCGNSS, QCGNSS_wdfsect
+[QCGNSS_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[QCGNSS_SecurityAddReg]
+HKR, , DeviceCharacteristics, 0x10001, 0x00000100       ; FILE_DEVICE_SECURE_OPEN
+
+[Strings]
+MediaDescription     = "QCGNSS Collection Installation Media"
+ManufacturerName     = "Nokia Corporation"
+QCGNSS.SVCDESC       = "QCGNSS Service"
+QCGNSS.DevDesc       = "QCGNSS Device"
+
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_DEMAND_START  = 3
+SERVICE_ERROR_NORMAL  = 1
+

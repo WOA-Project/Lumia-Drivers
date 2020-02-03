@@ -1,0 +1,92 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Corporation
+;
+;Module Name:
+;    qccamfrontsensor.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Camera Sensor Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon install qccamfrontsensor_primarySMIApp ACPI\QCOM2439" to install
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qccamfrontsensor_ov4688_4m_bayer8994.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+[SourceDisksNames]
+0 = %Desc_x860%
+
+[SourceDisksFiles]
+qccamfrontsensor_ov4688_4m_bayer8994.sys = 0,,
+
+;*****************************************
+; Camera Sensor  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC, NTARM64
+
+; Following section is meant for Windows 2000 as it 
+; cannot parse decorated model sections
+;
+; Hw Id is ACPI\QCOM2439
+;
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[QC.NTARM64]
+%CameraFrontSensorOV4688.DeviceDesc% = CameraFrontSensorOV4688_Device, ACPI\QCOM2439
+
+[CameraFrontSensorOV4688_Device.NT]
+CopyFiles   = Drivers_Dir
+SubClass    = StillImage
+DeviceType  = 2
+AddProperty = WDTFSOCDeviceCategory
+
+[Drivers_Dir]
+qccamfrontsensor_ov4688_4m_bayer8994.sys
+
+[CameraFrontSensorOV4688_Device.NT.HW]
+AddReg = CameraFrontSensorOV4688_Device_Security_Reg
+ 
+[CameraFrontSensorOV4688_Device_Security_Reg]
+HKR,                         , DeviceCharacteristics, 0x10001   , 0x100
+
+HKLM, SOFTWARE\QUALCOMM\CAMERA, FFCMaxVPSIso         , 0x00010001, 0x00000640
+HKLM, SOFTWARE\QUALCOMM\CAMERA, FrontSensorId        , 0x00010001, 0x00000000
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+;-------------- Service installation
+[CameraFrontSensorOV4688_Device.NT.Services]
+AddService = CameraFrontSensorOV4688,%SPSVCINST_ASSOCSERVICE%, CameraFrontSensorOV4688_Service_Inst
+ 
+; -------------- CameraFrontSensorOV4688 driver install sections
+[CameraFrontSensorOV4688_Service_Inst]
+DisplayName   = %CameraFrontSensorOV4688.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamfrontsensor_ov4688_4m_bayer8994.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE             = 0x00000002
+QC                                 = "Qualcomm"
+CameraFrontSensorOV4688.DeviceDesc = "Qualcomm Camera Front Sensor Driver"
+CameraFrontSensorOV4688.SVCDESC    = "Qualcomm Camera Front Sensor Service"
+ClassName                          = "Qualcomm Camera Front Sensor Device"
+Desc_x860                          = "Data"
+

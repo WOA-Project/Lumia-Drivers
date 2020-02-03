@@ -1,0 +1,83 @@
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+; qcerng8960.inf
+;
+
+[Version]
+Signature    = "$WINDOWS NT$"
+Class        = SYSTEM
+ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider     = %QUALCOMM%
+DriverVer    = 09/26/2013,1.0.3051.0000
+CatalogFile  = qcerng8960.cat
+BootCritical = 1
+PnpLockDown  = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+qcerng8960.sys = 1
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTarm
+
+[Standard.NTarm]
+%QCE_RNG.DeviceDesc% = QCE_RNG_Device, ACPI\QCOM2051
+
+[QCE_RNG_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcerng8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+[QCE_RNG_Device.NT.Services]
+AddService = QCE_RNG,%SPSVCINST_ASSOCSERVICE%, QCE_RNG_Service_Inst
+
+[QCE_RNG_Device.NT.HW]
+addreg = QCERNG
+
+[QCERNG]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- QCE driver install sections
+[QCE_RNG_Service_Inst]
+DisplayName   = %QCE_RNG.SVCDESC%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %12%\qcerng8960.sys
+
+
+[QCE_RNG_Device.NT.Wdf]
+KmdfService = QCE_RNG, QCE_RNG_wdfsect
+[QCE_RNG_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskName               = "Qualcomm Crypto Engine RNG Device Installation Disk"
+QCE_RNG.DeviceDesc     = "Qualcomm Crypto Engine RNG Device"
+QCE_RNG.SVCDESC        = "Qualcomm Crypto Engine RNG Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

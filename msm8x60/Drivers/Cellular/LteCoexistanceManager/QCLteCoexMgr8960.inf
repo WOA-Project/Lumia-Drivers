@@ -1,0 +1,68 @@
+;/*=============================================================================
+;*
+;* Copyright (c) 2013 by Qualcomm Technologies, Inc.  All Rights Reserved.
+;*
+;==============================================================================*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qcltecoexmgr8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+Drivers_Dir_12 = 12
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+QcLteCoexMgr8960.sys = 1
+
+;*****************************************
+; Lte Coexistence Manager Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]
+%COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2170
+
+[COEX_Device.NT]
+CopyFiles = Drivers_Dir_12
+
+[Drivers_Dir_12]
+QcLteCoexMgr8960.sys
+
+;-------------- Service installation
+[COEX_Device.NT.Services]
+AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst
+
+; -------------- COEX driver install sections
+[COEX_Service_Inst]
+DisplayName   = %COEX.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 1               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\QcLteCoexMgr8960.sys
+
+[COEX_Device.NT.Wdf]
+KmdfService = COEX, COEX_wdfsect
+
+[COEX_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QUALCOMM               = "Qualcomm, Inc"
+DiskId1                = "Qualcomm LTE Coexistence Manager Installation Disk"
+COEX.DeviceDesc        = "Qualcomm LTE Coexistence Manager"
+COEX.SVCDESC           = "Qualcomm LTE Coexistence Manager"
+
+

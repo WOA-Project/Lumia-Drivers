@@ -1,0 +1,108 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    WCN.INF 
+;
+;Abstract:
+;    INF file for installing the WCN driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 09/26/2013,1.0.3051.0000
+CatalogFile = qcwcn_ffu8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+Drivers_Dir_12 = 12
+Drivers_Dir_24 = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcwcn8960.sys   = 1
+qcwcnss8960.mbn = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; WCN Driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTarm
+
+[Standard.NTarm]
+%WCN.DeviceDesc% = WCN_Device, ACPI\QCOM2059
+
+[WCN_Device.NT]
+CopyFiles   = Drivers_Dir_12, Drivers_Dir_24
+AddProperty = WDTFSOCDeviceCategory
+AddReg      = WCNReg
+Reboot
+
+[WCN_Device.NT.HW]
+AddReg = WCNACL
+
+[WCNACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ; Built-in Admins (BA), Local System (SY)
+
+[Drivers_Dir_12]
+qcwcn8960.sys
+
+[Drivers_Dir_24]
+qcwcnss8960.mbn
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[WCNReg]
+HKR,                                                                                              , "WcnImagePath", %REG_SZ%   , "\SystemRoot\system32\qcwcnss8960.mbn"
+; Autologger registry keys follow
+; Autologger will record trace messages to a buffer in the kernel where they can be easily used for postmortem debugging
+; It does consume additional memory though, these keys should be removed for release.
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\WCNlog                                       , Start         , %REG_DWORD%, 0
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\WCNlog                                       , Guid          , %REG_SZ%   , "{e9e57fb8-eb8e-4011-89ea-103b7e9f6f7c}" ; Arbitrary GUID to identify logger
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\WCNlog\{98d8e493-33d4-4802-ad80-4dd111760d19}, Enabled       , %REG_DWORD%, 1
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\WCNlog\{98d8e493-33d4-4802-ad80-4dd111760d19}, EnableFlags   , %REG_DWORD%, 0xFFFF
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\WCNlog\{98d8e493-33d4-4802-ad80-4dd111760d19}, EnableLevel   , %REG_DWORD%, 5
+; To control and view these traces use !wmitrace from KD, or tracelog/traceview tools in the WDK
+
+;-------------- Service installation
+[WCN_Device.NT.Services]
+AddService = QCWCN,%SPSVCINST_ASSOCSERVICE%, WCN_Service_Inst
+
+; -------------- WCN driver install sections
+[WCN_Service_Inst]
+DisplayName    = %WCN.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcwcn8960.sys
+LoadOrderGroup = Extended Base
+
+[WCN_Device.NT.Wdf]
+KmdfService = QCWCN, WCN_wdfsect
+[WCN_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Incorporated"
+DiskId1                = "Qualcomm Wireless Connectivity Subsystem Device Installation Disk"
+WCN.DeviceDesc         = "Qualcomm Wireless Connectivity Subsystem Device"
+WCN.SVCDESC            = "Qualcomm Wireless Connectivity Subsystem Driver"
+
+;Non-localizable Strings
+REG_SZ                 = 0x00000000
+REG_DWORD              = 0x00010001
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

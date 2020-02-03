@@ -1,0 +1,87 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcmbhcgpio.inx
+;
+;Abstract:
+;    INF file for installing the mbhc Driver
+;
+;Installation Notes: 
+;   
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 12/18/2014,18.34.39.0619
+CatalogFile = qcmbhcgpio_wp8960.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcmbhcgpio8960.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; mbhc driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]
+%mbhc.DeviceDesc% = mbhc_Inst,ACPI\QCOM2149
+
+[mbhc_Inst.NT]
+Copyfiles   = mbhcCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[mbhc_Inst.NT.HW]
+Addreg = mbhcACL
+
+[mbhcACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[mbhcCopyFiles]
+qcmbhcgpio8960.sys
+
+[mbhc_Inst.NT.Services]
+AddService = qcmbhcgpio,%SPSVCINST_ASSOCSERVICE%,mbhc_Service_Inst
+
+[mbhc_Service_Inst]
+DisplayName   = %mbhc.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcmbhcgpio8960.sys
+;LoadOrderGroup = Extended Base
+
+[Strings]
+;Localizable Strings
+QCOM                   = "Qualcomm"
+mbhc.DeviceDesc        = "Qualcomm Multi Button Headset Control GPIO Driver"
+mbhc.SvcDesc           = "Qualcomm Multi Button Headset Control GPIO Service"
+DiskId1                = "Qualcomm Audio MBHCGPIO Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

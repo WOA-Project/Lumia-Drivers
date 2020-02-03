@@ -1,0 +1,132 @@
+;/*++
+;
+;Copyright (c) 2011 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcbattmngr8994.INF
+;
+;Abstract:
+;    INF file for installing the QcBattMngr Wdf Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %COMP%
+ExtensionId = {21E3E289-3E58-469D-B9DF-55339CD11F4D}
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnPLockdown = 1
+
+CatalogFile.NTARM   = talkman_qcbattmngr8994.arm.cat
+CatalogFile.NTARM64 = talkman_qcbattmngr8994.arm64.cat
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; QcBattMngr client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = DeviceExtensions,NTARM,NTARM64
+
+[DeviceExtensions.NTARM]
+%DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2453
+
+[DeviceExtensions.NTARM64]
+%DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2453
+
+[DeviceExtension_Install]
+Addreg        = BMREG
+
+[BMREG]
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "BatteryCategory"             , 0x10001,  0x1
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "CurrentZone1"                , 0x10001,  0x3B6
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "CurrentZone3"                , 0x10001,  0x3B6
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "MaxBatteryCurrent"           , 0x10001,  0xBB8
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "MaxBatteryVoltage"           , 0x10001,  0x1068
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "MaxOpTemp"                   , 0x10001,  0x4B
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "MinOpTemp"                   , 0x10001,  0xFFFFFFEC
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "SafeMaxTemp"                 , 0x10001,  0x3C
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "SafeMinTemp"                 , 0x10001,  0x0
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "StandardZone"                , 0x10001,  0x2
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "SWJeita"                     , 0x10001,  0x1
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "TempHyst"                    , 0x10001,  0x4
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "TempZone1"                   , 0x10001,  0x10
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "TempZone3"                   , 0x10001,  0x30
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "TotalZones"                  , 0x10001,  0x3
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "VoltageZone1"                , 0x10001,  0x10CC
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "VoltageZone3"                , 0x10001,  0x109A
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "DefaultAlert1"               , 0x10001,  0x1D0
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "DefaultAlert2"               , 0x10001,  0x414
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "DesignCapacity"              , 0x10001,  0x2D50
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "DeviceName"                  , 0x0    ,  "BV-T5E"
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "FullChargeCapacity"          , 0x10001,  0x2D50
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "ManufactureName"             , 0x0    ,  "Microsoft"
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\CoinCharger"          , "CoinChargerRSet"             , 0x10001,  0x3
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\CoinCharger"          , "CoinChargerVSet"             , 0x10001,  0x1
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "CurrentJeitaZone1"           , 0x10001,  0x1F4
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "CurrentJeitaZone3"           , 0x10001,  0x1F4
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "MaxBatteryCurrent"           , 0x10001,  0x384
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "MaxBatteryVoltage"           , 0x10001,  0x1068
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "StandardTempZone"            , 0x10001,  0x2
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "TemperatureJeitaZone1"       , 0x10001,  0x10
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "TemperatureJeitaZone3"       , 0x10001,  0x30
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "TotalTempZone"               , 0x10001,  0x3
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "VoltageJeitaZone1"           , 0x10001,  0x1004
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Jeita"                , "VoltageJeitaZone3"           , 0x10001,  0x1004
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "AFPTriggerMaxBattTemp"       , 0x10001,  0x4B
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "AFPTriggerMinBattTemp"       , 0x10001,  0xFFFFFFEC
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "BCLLowBattPerc"              , 0x10001,  0xF
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "BCLMinIMax"                  , 0x10001,  0x9C4
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "BCLNormalBattPerc"           , 0x10001,  0x11
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "BCLVBattLow"                 , 0x10001,  0xBEA
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "DCInputCurrent"              , 0x10001,  0x2BC
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "IBattHighIRQInhibit"         , 0x10001,  0x1F4
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "iTerm"                       , 0x10001,  0xC8
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "LowBatteryVoltage"           , 0x10001,  0xDAC
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "NoIbatCalib"                 , 0x10001,  0x1
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "NominalBatteryVoltage"       , 0x10001,  0xF0A
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "OCPCurrent"                  , 0x10001,  0x1388
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "RPARA"                       , 0x10001,  0x32
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "RSLOW"                       , 0x10001,  0x1E
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "VBattLowToNormal"            , 0x10001,  0x12C
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Platform"             , "VCutOff"                     , 0x10001,  0xC80
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\RechargeMode"         , "DeltaVRechargeReduct"        , 0x10001,  0x0
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\RechargeMode"         , "DeltaVRechargeThreshold"     , 0x10001,  0x96
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\StepCharging"         , "CC1_TargetCurrent"           , 0x10001,  0x9C4
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\StepCharging"         , "CC1_TargetVoltage"           , 0x10001,  0x107C
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\StepCharging"         , "CC2_TargetCurrent"           , 0x10001,  0x640
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\StepCharging"         , "CC2_TargetVoltage"           , 0x10001,  0x1130
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\StepCharging"         , "CV1_TerminationCurrent"      , 0x10001,  0x640
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\StepCharging"         , "WorkJeitaZone"               , 0x10001,  0x2
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\Thermal"              , "IwlcMax"                     , 0x10001,  0x2BC
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifCurrentCompensationFactor", 0x0    ,  "1.125"
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifMarginHigh"               , 0x10001,  0x2
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifMarginLow"                , 0x10001,  0xFFFFFFFA
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifRate"                     , 0x0    ,  "2.0"
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifTail"                     , 0x10001,  0x7
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "NtcMarginHigh"               , 0x10001,  0x6
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "NtcMarginLow"                , 0x10001,  0xFFFFFFFD
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "NtcRate"                     , 0x0    ,  "3.0"
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "NtcTail"                     , 0x10001,  0x7
+HKLM, "SYSTEM\CurrentControlSet\Services\qcbattmngr\WDF"                  , "Force3ACharge"               , 0x10001,  0x0
+
+[Strings]
+;Localizable Strings
+COMP                   = "Qualcomm Incorporated"
+BATTMNGR.SvcDesc       = "Qualcomm Battery Manager Driver"
+DeviceDesc             = "Qualcomm Battery Manager Device"
+DiskId                 = "Qualcomm Battery Manager Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+
+
+
+

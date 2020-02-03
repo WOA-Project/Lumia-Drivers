@@ -1,0 +1,88 @@
+;/*++
+;
+;Copyright (c) 2011 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcbattminiclass8994.INF
+;
+;Abstract:
+;    INF file for installing the QC Pmic Battery Miniclass Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Battery
+ClassGuid   = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
+Provider    = %COMP%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = qcbattminiclass8994.cat
+PnPLockdown = 1
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcbattminiclass8994.sys = 1
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;************************************************
+; qc pmic battery miniclass client driver Install Section
+;************************************************
+
+[Manufacturer]
+%COMP% = Qualcomm,NTARM64
+
+[Qualcomm.NTARM64]
+%DeviceDesc% = PMIC_Inst,ACPI\QCOM2452
+%DeviceDesc% = PMIC_Inst,ACPI\QCOM24C3
+
+[PMIC_Inst.NT]
+Copyfiles   = PMICCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[PMIC_Inst.NT.HW]
+Addreg = BMINIACL
+
+[BMINIACL]
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+[PMICCopyFiles]
+qcbattminiclass8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[PMIC_Inst.NT.Services]
+AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
+
+[PMIC_Service_Inst]
+DisplayName   = %PMICBatteryMiniclass.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcbattminiclass8994.sys
+
+[Strings]
+;Localizable Strings
+COMP                         = "Qualcomm Incorporated"
+PMICBatteryMiniclass.SvcDesc = "Qualcomm PMIC Battery Miniclass Driver"
+DiskId                       = "Qualcomm PMIC Battery Miniclass Device Installation Disk"
+DeviceDesc                   = "Qualcomm PMIC Battery Miniclass Device"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE       = 0x00000002
+SERVICE_KERNEL_DRIVER        = 1
+SERVICE_DEMAND_START         = 3
+SERVICE_ERROR_NORMAL         = 1
+
+
+
+
+

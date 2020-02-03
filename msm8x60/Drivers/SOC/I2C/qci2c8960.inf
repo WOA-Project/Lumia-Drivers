@@ -1,0 +1,83 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qci2c.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks qci2cDriver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 08/27/2012,1.0.1146.0000
+CatalogFile = qci2c8960.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qci2c8960.sys = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; q8660i2c  client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTARM
+
+[QC.NTARM]
+%q8660i2c.DeviceDesc% = q8660i2c_Device, ACPI\QCOM2004
+
+[q8660i2c_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[Drivers_Dir]
+qci2c8960.sys
+
+;-------------- Service installation
+[q8660i2c_Device.NT.Services]
+AddService = "qci2c",%SPSVCINST_ASSOCSERVICE%, q8660i2c_Service_Inst
+
+; ------------- q8660i2c driver install sections
+[q8660i2c_Service_Inst]
+DisplayName   = %q8660i2c.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qci2c8960.sys
+Dependencies  = SpbCx
+
+; Checks for compatibility with KMDF version
+[q8660i2c_Device.NT.Wdf]
+KmdfService = "qci2c", q8660i2c_wdfsect
+[q8660i2c_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm I2C Controller Installation Disk"
+q8660i2c.DeviceDesc    = "Qualcomm I2C Device"
+q8660i2c.SVCDESC       = "Qualcomm I2C Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
