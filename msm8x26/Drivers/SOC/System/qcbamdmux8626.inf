@@ -1,0 +1,100 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcbamdmux.INF 
+;
+;Abstract:
+;    INF file for installing the qcbamdmux driver
+;
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcbamdmux8626.cat
+
+[DestinationDirs]
+DefaultDestDir = 12                 ; This is a directory id (dirid)
+                                    ; 12 is equivalent to %SystemRoot%\system32\drivers for Windows 2000 and later
+[SourceDisksNames]
+1 = %DiskId1%                       ; A disk id and its name that contain the installation files
+
+[SourceDisksFiles]
+qcbamdmux8626.sys = 1                     ; The source files that are used during installation and the installation
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM          ; QCOM drivers may need to follow same process here?
+
+[Standard.NTARM]                          ; Decorated model section take precedence over undecorated
+%bam_dmux.DeviceDesc% = bam_dmux_Device, ACPI\QCOM2406
+
+[bam_dmux_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcbamdmux8626.sys                             ; Copied from the source media to the default destination directory (see [DestinationDirs])
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[bam_dmux_Device.NT.Services]
+AddService = qcbam_dmux,%SPSVCINST_ASSOCSERVICE%, bam_dmux_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+
+;-------------- HW installation
+[bam_dmux_Device.NT.HW]
+addreg = bam_dmux
+
+[bam_dmux]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- bam_dmux driver install sections
+[bam_dmux_Service_Inst]
+DisplayName   = %bam_dmux.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcbamdmux8626.sys
+AddReg        = DMUX_Reg
+
+[DMUX_Reg]
+HKR, "Parameters"                                                                                 , "NumOfBuffers" , 0x00010001 , 0x100
+HKR, "Parameters"                                                                                 , "A2PCEnabled"  , %REG_DWORD%, 0x1
+
+; Adding WPP Debug
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX"                                       , BufferSize     , %REG_DWORD%,  0x00000003
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX"                                       , FileName       , %REG_SZ%   ,  "c:\Data\SystemData\ETW\dmux_trace.etl"
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX"                                       , LogFileMode    , %REG_DWORD%,  0x00001302
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX"                                       , Guid           , %REG_SZ%   ,  {61085ED3-84FB-436B-B828-8A57815E1827}
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX"                                       , ClockType      , %REG_DWORD%,  0x00000001
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX"                                       , Start          , %REG_DWORD%,  0x00000000
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX\{61085ED3-84FB-436B-B828-8A57815E1826}", Enabled        , %REG_DWORD%,  0x00000000
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX\{61085ED3-84FB-436B-B828-8A57815E1826}", EnableFlags    , %REG_DWORD%,  0x00000000
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX\{61085ED3-84FB-436B-B828-8A57815E1826}", MatchAnyKeyword, %REG_DWORD%,  0xFFFFFFFF
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\DMUX\{61085ED3-84FB-436B-B828-8A57815E1826}", EnableLevel    , %REG_DWORD%,  0x00000005
+
+[bam_dmux_Device.NT.Wdf]
+KmdfService = qcbam_dmux, bam_dmux_wdfsect
+[bam_dmux_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "BAM DMUX Installation Disk"
+bam_dmux.DeviceDesc    = "Qualcomm BAM DMUX Device"
+bam_dmux.SVCDESC       = "Qualcomm BAM DMUX Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+REG_SZ                 = 0x00000000
+REG_DWORD              = 0x00010001
+

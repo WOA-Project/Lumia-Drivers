@@ -1,0 +1,78 @@
+;/++
+;
+;Module Name:
+;
+;    qcfmtransport8626.INF
+;
+;Abstract:
+;    QUALCOMM's INF file for FM Transport Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System                                     ; FM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}  ;{13891054-2FF4-4E78-8F2F-0A8C53B9B550} ;
+
+
+Provider    = %QC%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcfmtransport8626.cat
+
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+qcfmtransport8626.sys = 1,,
+
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%StdMfg% = VendorModels,NTARM
+
+;*****************************************
+; Serial bus driver install Section
+;*****************************************
+
+[VendorModels.NTARM]
+%Bus.DeviceDesc% = Bus_Vendor, QWCN\QCOM2150
+
+[Bus_Vendor.NT]
+CopyFiles = Bus.CopyFiles
+
+[Bus.CopyFiles]
+qcfmtransport8626.sys
+
+;-------------- Service installation
+[Bus_Vendor.NT.Services]
+AddService = qcfmtransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
+
+; -------------- statbus driver install sections
+[Bus_Service_Inst]
+DisplayName   = %Bus.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcfmtransport8626.sys
+
+
+[Strings]
+;Non-Localizable
+
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+;Localizable
+QC                     = "Qualcomm Inc."
+MSFT                   = "Microsoft"
+StdMfg                 = "(Standard system devices)"
+DiskId1                = "QUALCOMM FM Transport Driver Disk #1"
+Bus.DeviceDesc         = "QUALCOMM FM Transport Driver "
+Bus.SVCDESC            = "QUALCOMM FM Transport Driver"
+

@@ -1,0 +1,90 @@
+;/*++
+;
+;Copyright (c) 2011-2013 by QUALCOMM Technologies, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcpowerkeygpio8626.INF
+;
+;Abstract:
+;    INF file for installing the Power Key GPIO Class Extension Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcpowerkeygpio8626.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcpowerkeygpio8626.sys = 1
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; powerkeygpiodriver client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = Qualcomm,NTARM
+
+[Qualcomm.NTARM]
+%PWIO.DeviceDesc% = PWIO_Inst,ACPI\QCOM241A
+
+[PWIO_Inst.NT]
+CopyFiles   = PWIOCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[PWIOCopyFiles]
+qcpowerkeygpio8626.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[PWIO_Inst.NT.Services]
+AddService = qcpowerkeygpio,%SPSVCINST_ASSOCSERVICE%,PWIO_Service_Inst
+
+[PWIO_Inst.NT.HW]
+addreg = PWIO_InstSD
+
+[PWIO_InstSD]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[PWIO_Service_Inst]
+DisplayName   = %PWIO.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcpowerkeygpio8626.sys
+
+
+[PWIO_Inst.NT.Wdf]
+KmdfService = qcpowerkeygpio, PWIO_wdfsect
+[PWIO_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Incorporated"
+PWIO.SvcDesc           = "Qualcomm Powerkey GPIO Driver"
+PWIO.DeviceDesc        = "Qualcomm Powerkey GPIO Device"
+DiskId1                = "Qualcomm Powerkey GPIO Driver Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

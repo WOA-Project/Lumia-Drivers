@@ -1,0 +1,62 @@
+;
+; Copyright (c) 2012-2014 by Qualcomm Technologies Incorporated.  All Rights Reserved.
+;
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %Manufacturer_Name%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcspi8626.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %Disk_Description%
+
+[SourceDisksFiles]
+qcspi8626.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12 ; Windows\System32\Drivers
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%Manufacturer_Name% = Qualcomm_Models, NTARM
+
+[Qualcomm_Models.NTARM]
+%Device_Description% = SPI_Install, ACPI\QCOM240C
+
+[SPI_Install]
+CopyFiles   = @qcspi8626.sys
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[SPI_Install.Services]
+AddService = qcspi, 0x00000002, SPI_Service_Install
+
+[SPI_Service_Install]
+DisplayName   = %Service_Name%
+ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
+StartType     = 3 ; SERVICE_DEMAND_START
+ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcspi8626.sys
+Dependencies  = SpbCx
+
+[SPI_Install.Wdf]
+KmdfService = qcspi, SPI_wdfsect
+
+[SPI_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+Manufacturer_Name  = "Qualcomm Technologies, Inc."
+Disk_Description   = "Qualcomm SPI Device Installation Disk"
+Device_Description = "Qualcomm SPI Device"
+Service_Name       = "Qualcomm SPI Driver"
+

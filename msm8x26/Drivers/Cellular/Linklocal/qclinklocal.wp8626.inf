@@ -1,0 +1,115 @@
+;/*++
+;
+;Copyright (c) 1990-2000  Microsoft Corporation
+;
+;Module Name:
+;    QClinklocal8660.INF or QClinklocal8960.INF
+;
+;Abstract:
+;    INF file for installing the linklocal driver (Qualcomm Wireless Network Device)
+;
+;Installation Notes: 
+;    Using Devcon:
+;      8660: Type "devcon update QClinklocal8660.inf ACPI\QCOM0EA0" to install
+;      8960: Type "devcon update QClinklocal8960.inf ACPI\QCOM2072" to install
+;
+;--*/
+
+[version]
+Signature   = "$Windows NT$"
+Class       = Net
+ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 04/26/2015,1.0.2177.0000
+Catalogfile = qclinklocal.wp8626.cat ;todo .cat file generated once driver passes WHQL
+
+[ControlFlags]
+ExcludeFromSelect = * ; Do we need this? This prevents the driver from being displayed in manual installation UI
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+qclinklocal8626.sys = 1,,
+
+[DestinationDirs]
+wwan.CopyFiles = 12
+
+[Manufacturer]
+%QCOM% = QCOM, NTarm
+
+[QCOM.NTarm]
+%wwan.DeviceDesc% = wwan.ndi, ACPI\QCOM24A7
+
+[wwan.ndi]
+Characteristics    = 0x1                       ; NCF_VIRTUAL
+*IfType            = 142                       ; IF_TYPE_IPFORWARD
+*MediaType         = 19                        ; NdisMediumIP
+*PhysicalMediaType = 19                        ; NdisPhysicalMediumOther
+EnableDhcp         = 0
+AddReg             = wwan.Reg
+CopyFiles          = wwan.CopyFiles
+
+
+[wwan.ndi.Services]
+AddService = linklocal, 2, wwan.Service, wwan.EventLog
+
+;-----------------------------------------------------------------------------
+; Virtual Miniport Common
+;-----------------------------------------------------------------------------
+[wwan.Reg]
+;HKR,    ,                         BusNumber,           0, "0"
+HKR, Ndi           , Service   , 0,  "linklocal"
+
+;-----------------------------------------------------------------------------
+;Entries to be put in add-registry-section for NdisMediumIP
+;-----------------------------------------------------------------------------
+HKR, Ndi\Interfaces, UpperRange, 0,  "flpp6"
+HKR, Ndi\Interfaces, LowerRange, 0,  "ppip"
+
+;-----------------------------------------------------------------------------
+; Driver and Service Section
+;-----------------------------------------------------------------------------
+[wwan.CopyFiles]
+qclinklocal8626.sys, , , 2,
+
+[wwan.Service]
+DisplayName    = %wwan.Service.DispName%
+ServiceType    = 1                                 ;%SERVICE_KERNEL_DRIVER%
+StartType      = 3                                 ;%SERVICE_DEMAND_START%
+ErrorControl   = 1                                 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qclinklocal8626.sys
+LoadOrderGroup = NDIS
+AddReg         = TextModeFlags.Reg
+AddReg         = osVer.Reg
+
+[wwan.EventLog]
+AddReg = wwan.AddEventLog.Reg
+
+[wwan.AddEventLog.Reg]
+HKR, , EventMessageFile, 0x00020000,  "%%SystemRoot%%\System32\netevent.dll"
+HKR, , TypesSupported  , 0x00010001,  7
+
+[TextModeFlags.Reg]
+HKR, , TextModeFlags, 0x00010001,  0x0001
+
+[osVer.Reg]
+HKR, , OSVer, 0x00010001 , 0x01 ;  0x01 = Apollo, 0x00
+
+
+[wwan.ndi.Wdf]
+KmdfService = linklocal, wwan_wdfsect
+
+[wwan_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QcomSrcDisk           = "Qualcomm Mobile Broadband Driver Disk"
+QCOM                  = "Qualcomm Inc."
+wwan.DeviceDesc       = "Qualcomm Mobile Broadband Device"
+wwan.Service.DispName = "Qualcomm Mobile Broadband Driver"
+DiskId1               = "Qualcomm Mobile Broadband Device Installation Disk #1"
+
+;Non-localizable Strings
+

@@ -1,0 +1,71 @@
+;/*++
+;
+;   Copyright (c) 2011-2013 Qualcomm Technologies, Inc.
+;               All Rights Reserved.
+;               Qualcomm Technologies Confidential and Proprietary.
+;
+;Module Name:
+;    HWNLED.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks HWNLED Driver
+;
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %COMP%
+DriverVer   = 02/19/2016,13.35.16.0652
+CatalogFile = qchwnled.cat
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+qchwnled.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; HWNLED driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = %COMP%,NTARM
+
+[Qualcomm.NTARM]
+%hwnled.DeviceDesc% = hwnled_Device,ACPI\QCOM0D50
+
+[hwnled_Device.NT]
+Copyfiles = hwnledCopyFiles
+
+[hwnledCopyFiles]
+qchwnled.sys, , , 0x100,
+
+[hwnled_Device.NT.Services]
+AddService = hwnled,%SPSVCINST_ASSOCSERVICE%,hwnled_Service_Inst
+
+[hwnled_Service_Inst]
+DisplayName    = %hwnled.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcHWNLED.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+COMP                   = "Qualcomm"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+hwnled.DeviceDesc      = "hwnled Driver"
+hwnled.SVCDESC         = "hwnled Service"
+
+
+

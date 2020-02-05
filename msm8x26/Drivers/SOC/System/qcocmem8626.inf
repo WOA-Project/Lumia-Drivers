@@ -1,0 +1,93 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    OCMEM.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks OCMEM Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon update OCMEM.inf ACPI\QCOM2403" to install
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcocmem8626.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcocmem8626.sys = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%QC% = QC, NTarm
+
+[QC.NTarm]
+%OCMEM.DeviceDesc% = OCMEM_Device, ACPI\QCOM2403
+
+[OCMEM_Device.NT]
+CopyFiles = Drivers_Dir
+Reboot
+
+[Drivers_Dir]
+qcocmem8626.sys
+
+[OCMEM_SoftwareDeviceSettings]
+HKR, , PowerManaged    , %REG_DWORD%,  1
+HKR, , EnablePtCaching , %REG_DWORD%,  0
+HKR, , EnableGuardPages, %REG_DWORD%,  1
+
+[WppReg]
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , LogFileMode, 0x00010001, 0x10080100
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , Start      , 0x00010001, 0x00000000
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , Guid       , 0x00000000, "{e09f3fb2-7e00-46e2-97ce-444491b97f68}"
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , FileName   , 0x00000000, ""
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, Enabled    , 0x00010001, 0x00000000
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, EnableFlags, 0x00010001, 0x0000FFFF
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, EnableLevel, 0x00010001, 0x00000005
+
+;-------------- Service installation
+[OCMEM_Device.NT.Services]
+AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_Service_Inst
+
+; -------------- skeletoni2c driver install sections
+[OCMEM_Service_Inst]
+DisplayName   = %OCMEM.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcocmem8626.sys
+AddReg        = OCMEM_SoftwareDeviceSettings,WppReg
+
+[OCMEM_Device.NT.Wdf]
+KmdfService = qcOCMEMv2, OCMEM_wdfsect
+
+[OCMEM_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Technologies Inc. 2013"
+OCMEM.DeviceDesc       = "Qualcomm OCMEM Device"
+OCMEM.SVCDESC          = "Qualcomm OCMEM Driver"
+DiskId                 = "Qualcomm OCMEM Driver Installation Disk"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+

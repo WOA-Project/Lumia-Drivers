@@ -1,0 +1,61 @@
+;/*++
+;
+;Copyright (c) 2012-2013  Qualcomm Technologies, Inc.
+;
+;Module Name:
+;    QCMCHDCPUML.INF
+;
+;Abstract:
+;    INF file for installing the HDCP Encryption Library for Miracast.
+;
+;Installation Notes: 
+;    
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcmchdcpuml8626.cat
+
+[DestinationDirs]
+Drivers_Dir_24 = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcmchdcpuml8626.dll = 1
+
+;*****************************************
+; MC HDCP Install Section
+;*****************************************
+[Manufacturer]
+%StdMfg% = Standard,NTARM
+
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[Standard.NTARM]
+%HDCP.DevDesc% = MCHL_Device, ACPI\QCOM24A0
+
+[MCHL_Device]
+CopyFiles = Drivers_Dir_24
+
+[Drivers_Dir_24]
+qcmchdcpuml8626.dll
+
+;-------------- Service installation
+[MCHL_Device.Services]
+AddService = ,%MCHDCPINST_ASSOCSERVICE%;
+
+[Strings]
+MCHDCPINST_ASSOCSERVICE = 0x00000002
+QCOM                    = "Qualcomm"
+StdMfg                  = "Qualcomm Technologies, INC"
+HDCP.DevDesc            = "Qualcomm Miracast HDCP Package"
+DiskId1                 = "Qualcomm Mircast HDCP Installation disk #1"
+
+

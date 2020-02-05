@@ -1,0 +1,71 @@
+;
+; qcimsVTWNIsvc8626.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcimsVTWNIsvc8626.cat
+
+[DestinationDirs]
+qcimsVTWNIsvc8626.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+qcimsVTWNIsvc8626.dll = 0,,
+
+[DefaultInstall.NTARM]
+CopyFiles = qcimsVTWNIsvc8626.Files
+AddReg    = qcimsVTWNIsvc8626_Reg
+
+[DefaultInstall.NTARM.Services]
+AddService = VTSvc,0x00000000,qcimsVTWNIsvc8626_Service,
+
+;ServiceType = 0x110
+;A Win32 program that runs in a process by itself (like Type16) and that can interact with users.
+;StartType = 2 SERVICE_AUTO_START
+;A service started automatically by the service control manager during system startup. 
+;ErrorControl = 1 SERVICE_ERROR_NORMAL
+;The startup program logs the error in the event log but continues the startup operation.
+
+[qcimsVTWNIsvc8626_Service]
+DisplayName   = "VTSvc"
+Description   = "VT Service"
+ServiceType   = 0x20
+StartType     = 3
+ErrorControl  = 0
+ServiceBinary = "%%SystemRoot%%\System32\svchost.exe -k VTSvcGroup"
+
+[qcimsVTWNIsvc8626_Reg]
+HKLM, "SYSTEM\controlset001\services\VTSvc"                          , "PreshutdownTimeout"    , 0x10001       ,  0x4E20
+HKLM, "SYSTEM\controlset001\services\VTSvc"                          , "Start"                 , 0x10001       ,  0x3
+HKLM, "SYSTEM\controlset001\services\VTSvc"                          , "Type"                  , 0x10001       ,  0x20
+HKLM, "SYSTEM\controlset001\services\VTSvc"                          , "ErrorControl"          , 0x10001       ,  0x0
+HKLM, "SYSTEM\controlset001\services\VTSvc"                          , "DisplayName"           , 0x0           ,  "VTSvc"
+HKLM, "SYSTEM\controlset001\services\VTSvc"                          , "Description"           , 0x0           ,  "VT Service"
+HKLM, "SYSTEM\controlset001\services\VTSvc"                          , "FailureActions"        , 0x1           ,  80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
+HKLM, "SYSTEM\controlset001\services\VTSvc"                          , "ImagePath"             , 0x20000       ,  "%%SystemRoot%%\System32\svchost.exe -k VTSvcGroup"
+HKLM, "SYSTEM\controlset001\services\VTSvc\Parameters"               , "ServiceDll"            , 0x20000       ,  "%%SystemRoot%%\System32\qcimsVTWNIsvc8626.dll"
+HKLM, "SYSTEM\controlset001\services\VTSvc\Parameters"               , "ServiceMain"           , 0x0           ,  "ServiceMain"
+HKLM, "SYSTEM\controlset001\services\VTSvc\Parameters"               , "ServiceDllUnloadOnStop", 0x10001       ,  0x1
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost"         , VTSvcGroup              , %REG_MULTI_SZ%,  "VTSvc"
+HKLM, "Software\Microsoft\WindowsRuntime\Server\VideoTelephonyServer", "ServiceName"           , 0x0           ,  "VTSvc"
+HKLM, "Software\Classes\AppID\{B523A26D-268E-4FE6-83A9-21DF07EDD543}", "LocalService"          , 0x0           ,  "VTSvc"
+
+[qcimsVTWNIsvc8626.Files]
+qcimsVTWNIsvc8626.dll
+
+[Strings]
+QC            = "Qualcomm"
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+
+

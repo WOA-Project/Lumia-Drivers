@@ -1,0 +1,90 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcpmic8626.INF
+;
+;Abstract:
+;    INF file for installing the QC Pmic Wdf Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcpmic8626.cat
+PnPLockdown = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcpmic8626.sys = 1
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; qcpmic client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = Qualcomm,NTARM
+
+[Qualcomm.NTARM]
+%DeviceDesc% = PMIC_Inst,ACPI\QCOM2455
+
+[PMIC_Inst.NT]
+Copyfiles   = PMICCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[PMIC_Inst.NT.HW]
+Addreg = PMICACL
+
+[PMICACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
+
+[PMICCopyFiles]
+qcpmic8626.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[PMIC_Inst.NT.Services]
+AddService = qcpmic,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
+
+[PMIC_Service_Inst]
+DisplayName    = %PMIC.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qcpmic8626.sys
+LoadOrderGroup = Filter
+
+[PMIC_Inst.NT.Wdf]
+KmdfService = qcpmic, PMIC_wdfsect
+[PMIC_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm PMIC WDF Driver Installation Disk"
+PMIC.SvcDesc           = "Qualcomm PMIC Driver"
+DeviceDesc             = "Qualcomm PMIC Device"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_ERROR_NORMAL   = 1
+
+

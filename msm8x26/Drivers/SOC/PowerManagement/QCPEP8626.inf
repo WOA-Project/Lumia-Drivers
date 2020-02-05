@@ -1,0 +1,117 @@
+;*****************************************
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;8960 PEP.inf file
+;*****************************************
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+RefVersion  = 09/16/2011,1.00.0000
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcpep8626.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;*****************************************
+; PEP Device  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTARM
+
+; DisplayName                   Section           DeviceId
+; -----------                   -------           --------
+; For ARM
+[QC.NTARM]
+%PepDevice.DeviceDesc% = Pep_Device, ACPI\QCOM2425
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2470
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2471
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2472
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2473
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2474
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2475
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2476
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2477
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2478
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2479
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM247A
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AD
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AE
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248C
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248D
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248E
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248F
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2490
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2491
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2492
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2493
+%BCL.DeviceDesc%       = Pep_Device, ACPI\QCOM2486
+
+[Pep_Device.NT]
+CopyFiles   = Pep_Device.NT.Copy
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Pep_Device.NT.HW]
+Addreg = PEPACL
+
+[PEPACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[PEP_SoftwareDeviceSettings]
+HKR , Parameters        , DisablePhaseScaling       , 0x00010001,  1
+HKR , Parameters        , DisableOfflineNotification, 0x00010001,  1
+ HKR , Parameters\SDC1   , SamplingInterval          , 0x00010001,  00000000   ; 100 msec in nano second intervals
+HKR , Parameters\SDC1   , PerfStateCount            , 0x00010001,  00000002   ; No of MSFT SD P-states
+HKR , Parameters\SDC1\P0, MaxUtilizationThreshold   , 0x00010001,  0x00000040   ; 100%
+HKR , Parameters\SDC1\P0, MinUtilizationThreshold   , 0x00010001,  00000000   ; 0%
+HKR , Parameters\SDC1\P0, Frequency                 , 0x00010001,  00000000      ; 200Mhz
+HKR , Parameters\SDC1\P0, Performance               , 0x00010001,  00000000   ; index for p0 is 0
+HKR , Parameters\SDC1\P1, MaxUtilizationThreshold   , 0x00010001,  00000000   ; 0%
+HKR , Parameters\SDC1\P1, MinUtilizationThreshold   , 0x00010001,  00000000   ; 0%
+HKR , Parameters\SDC1\P1, Frequency                 , 0x00010001,  00000000   ; 50Mhz
+HKR , Parameters\SDC1\P1, Performance               , 0x00010001,  00000001   ; index for p1 is 1
+HKR , Parameters        , WPPEnabled                , 0x00010001,  0
+[Pep_Device.NT.Copy]
+qcpep8626.sys
+
+; WHCK test
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+
+[Pep_Device.NT.Services]
+AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_Service_Inst
+
+[pep_Service_Inst]
+DisplayName    = %pep.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 0               ; SERVICE_BOOT_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcpep8626.sys
+LoadOrderGroup = Base
+AddReg         = PEP_SoftwareDeviceSettings
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+qcpep8626.sys = 1,,
+
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm Power Management Controller Disk"
+PepDevice.DeviceDesc   = "Qualcomm Power Engine Plug-in Device"
+TSENS.DeviceDesc       = "Qualcomm Temperature Sensor Device"
+pep.SVCDESC            = "Qualcomm Power Engine Plug-in Driver"
+ADC.DeviceDesc         = "Qualcomm ADC Temperature Monitor Device"
+BCL.DeviceDesc         = "Qualcomm Battery Current Limit Monitor Device"
+

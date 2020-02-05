@@ -1,0 +1,68 @@
+; qcslimbus8626.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcslimbus8626.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12                 ; This is a directory id (dirid)
+                                    ; 12 is equivalent to %SystemRoot%\system32\drivers for Windows 2000 and later
+[SourceDisksNames]
+1 = %DiskId1%                  ; A disk id and its name that contain the installation files
+
+[SourceDisksFiles]
+qcslimbus8626.sys = 1                       ; The source files that are used during installation and the installation
+
+[Manufacturer]
+%StdMfg% = Standard,NTARM          ; QCOM drivers may need to follow same process here?
+
+[Standard.NTARM]                          ; Decorated model section take precedence over undecorated
+%qcslimbus.DeviceDesc% = qcslimbus_Device, ADSP\QCOM240D   ; ACPI root, find the BAM HW in device manager to install driver
+
+[qcslimbus_Device.NT]
+CopyFiles = Drivers_Dir
+Reboot
+
+[qcslimbus_Device.NT.HW]
+Addreg = qcslimbusACL
+
+[qcslimbusACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir]
+qcslimbus8626.sys                             ; Copied from the source media to the default destination directory (see [DestinationDirs])
+
+[qcslimbus_Device.NT.Services]
+AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+
+; -------------- SMD driver install sections
+[qcslimbus_Service_Inst]
+DisplayName   = %qcslimbus.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcslimbus8626.sys
+
+
+[qcslimbus_Device.NT.Wdf]
+KmdfService = qcslimbus, qcslimbus_wdfsect
+[qcslimbus_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+StdMfg                 = "Qualcomm Inc."
+DiskId1                = "Qualcomm Slimbus Device Installation Disk #1"
+qcslimbus.DeviceDesc   = "Qualcomm Slimbus Device"
+qcslimbus.SVCDESC      = "Qualcomm Slimbus Device Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+

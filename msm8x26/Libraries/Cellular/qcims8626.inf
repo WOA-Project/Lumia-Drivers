@@ -1,0 +1,65 @@
+;
+; qcims8626
+;
+[Version]
+Signature   = "$Windows NT$"
+Class       = SYSTEM
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = "qcims8626.cat"
+
+[DestinationDirs]
+qcims8626.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+qcimssink8626.dll = 0,,
+qcimssrc8626.dll  = 0,,
+qcimsVT8626.dll   = 0,,
+qcimsvtmf8626.dll = 0,,
+vcel8626.dll      = 0,,
+
+[DefaultInstall.NTARM]
+CopyFiles = qcims8626.Files
+AddReg    = qcims8626_Reg
+
+[qcims8626_Reg]
+HKLM, "Software\Microsoft\WindowsRuntime\CLSID\{64D3109A-9F12-42A8-8D70-1F97696E4082}"            , "ActivatableClassId"                    , 0x0    ,  "qcimssinkcommunication.QcImsMediaSink"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\qcimssinkcommunication.QcImsMediaSink", "ActivationType"                        , 0x10001,  0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\qcimssinkcommunication.QcImsMediaSink", "CLSID"                                 , 0x0    ,  "{64D3109A-9F12-42A8-8D70-1F97696E4082}"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\qcimssinkcommunication.QcImsMediaSink", "DllPath"                               , 0x0    ,  "%%SystemRoot%%\System32\qcimssink8626.dll"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\qcimssinkcommunication.QcImsMediaSink", "Threading"                             , 0x10001,  0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\qcimssinkcommunication.QcImsMediaSink", "TrustLevel"                            , 0x10001,  0x0
+HKLM, "Software\Classes\Interface\{557AC807-C973-4C6D-8CBC-46A7BD191E18}"                         ,                                         ,        , "IQcImsMediaSink"
+
+HKLM, "Software\Microsoft\WindowsRuntime\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}"            , "ActivatableClassId"                    , 0x0    ,  "QcImsSrcIfDefines.QcImsSchemeHandler"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\QcImsSrcIfDefines.QcImsSchemeHandler" , "ActivationType"                        , 0x10001,  0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\QcImsSrcIfDefines.QcImsSchemeHandler" , "CLSID"                                 , 0x0    ,  "{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\QcImsSrcIfDefines.QcImsSchemeHandler" , "DllPath"                               , 0x0    ,  "%%SystemRoot%%\System32\qcimssrc8626.dll"
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\QcImsSrcIfDefines.QcImsSchemeHandler" , "Threading"                             , 0x10001,  0x0
+HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\QcImsSrcIfDefines.QcImsSchemeHandler" , "TrustLevel"                            , 0x10001,  0x0
+HKLM, "Software\Microsoft\WindowsMediaFoundation\SchemeHandlers\qcims:"                           , "{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}", 0x0    ,  "QcImsSrcSchemeHandler"
+HKLM, "Software\Classes\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}"                             ,                                         ,        , "QcImsSrcSchemeHandler"
+HKLM, "Software\Classes\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}\InProcServer32"              ,                                         , 0x20000,  "%%SystemRoot%%\System32\qcimssrc8626.dll"
+HKLM, "Software\Classes\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}\InProcServer32"              , "ThreadingModel"                        , 0x0    ,  "Both"
+
+[qcims8626.Files]
+qcimssink8626.dll
+qcimssrc8626.dll
+qcimsVT8626.dll
+qcimsvtmf8626.dll
+vcel8626.dll
+
+[Strings]
+QC            = "Qualcomm Technologies, Inc."
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+
+

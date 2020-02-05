@@ -1,0 +1,89 @@
+;/*++
+;
+;Copyright (c) 2011 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcpmic3p8626.INF
+;
+;Abstract:
+;    INF file for installing the Pmic 3rd Party Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %COMP%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcpmic3p8626.cat
+PnPLockdown = 1
+
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcpmic3p8626.sys = 1
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; qcpmic3p client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Qualcomm,NTARM
+
+[Qualcomm.NTARM]
+%DeviceDesc% = qcpmic3p_Inst,ACPI\QCOM2456
+
+[qcpmic3p_Inst.NT]
+Copyfiles   = qcpmic3pCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[qcpmic3p_Inst.NT.HW]
+Addreg = PMICPACL
+
+[PMICPACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
+
+[qcpmic3pCopyFiles]
+qcpmic3p8626.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[qcpmic3p_Inst.NT.Services]
+AddService = qcpmic3p,%SPSVCINST_ASSOCSERVICE%,qcpmic3p_Service_Inst
+
+[qcpmic3p_Service_Inst]
+DisplayName   = %qcpmic3p.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcpmic3p8626.sys
+
+[Strings]
+;Localizable Strings
+COMP                   = "Qualcomm Incorporated"
+qcpmic3p.SvcDesc       = "Qualcomm PMIC 3rd Party Driver"
+DeviceDesc             = "Qualcomm PMIC 3rd Party Driver"
+DiskId                 = "Qualcomm PMIC 3rd Party Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+
+
+
+

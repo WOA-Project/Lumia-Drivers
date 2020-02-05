@@ -1,0 +1,95 @@
+;/*++
+;
+;Copyright (c) 2012  Qualcomm Corporation
+;
+;Module Name:
+;    QCREMOTEFS.INX
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks REMOTEFS Driver
+;
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %COMP%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcremotefs8626.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcremotefs8626.sys = 1
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; remotefs driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Qualcomm,NTARM
+
+[Qualcomm.NTARM]
+%REMOTEFS.DeviceDesc% = REMOTEFS_Device,ACPI\QCOM2423
+
+[REMOTEFS_Device.NT]
+CopyFiles   = RemotefsCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[RemotefsCopyFiles]
+qcremotefs8626.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[REMOTEFS_Device.NT.Services]
+AddService = QCREMOTEFS,%SPSVCINST_ASSOCSERVICE%,REMOTEFS_Service_Inst
+
+[REMOTEFS_Device.NT.HW]
+AddReg = Remotefs_HW_Reg
+
+[REMOTEFS_Service_Inst]
+DisplayName   = %REMOTEFS.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcremotefs8626.sys
+AddReg        = Remotefs_Reg
+
+[Remotefs_Reg]
+HKR, , FileBased   , 0x00010001, "0"
+HKR, , PartitionNum, 0x00010001, "0"
+
+[Remotefs_HW_Reg]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[REMOTEFS_Device.NT.Wdf]
+KmdfService = QCREMOTEFS, REMOTEFS_wdfsect
+[REMOTEFS_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+COMP                   = "Qualcomm Inc."
+DiskId                 = "Qualcomm Remote FileSystem Device Installation Disk"
+REMOTEFS.DeviceDesc    = "Qualcomm Remote FileSystem Device"
+REMOTEFS.SVCDESC       = "Qualcomm Remote FileSystem Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+
+
+
