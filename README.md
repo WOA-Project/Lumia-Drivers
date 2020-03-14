@@ -7,7 +7,7 @@ This repository contains driver binary files for most Lumia platforms released b
 All driver binary files form a board support package to be used on Lumia devices to provide hardware support for the Windows operating system.
 
 These driver files are not perfect, typos may exist, feel free to file an issue on GitHub in case you found any.
-These repository isn't complete due to the lack of hardware. While we could theoretically add the missing devices, we want to verify the driver files indeed work on the target device. This is why some devices are not present.
+This repository isn't complete due to the lack of hardware. While we could theoretically add the missing devices, we want to verify the driver files indeed work on the target device. This is why some devices are not present.
 
 ## Resources
 
