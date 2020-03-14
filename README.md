@@ -1,24 +1,39 @@
-# Windows Driver pack for Qualcomm Snapdragon Windows Phone platforms
+
+# Windows Driver pack for Lumia platforms
 
 ![Devices](assets/banner.png)
 
-If you are deploying this driver pack using WOA Deployer for Lumia on Lumia 950s, make sure WOA Deployer version is greater or equal than 2.6.
+This repository contains driver binary files for most Lumia platforms released by Microsoft Mobile Oy from 2011 to 2016.
+All driver binary files form a board support package to be used on Lumia devices to provide hardware support for the Windows operating system.
+
+These driver files are not perfect, typos may exist, feel free to file an issue on GitHub in case you found any.
+These repository isn't complete due to the lack of hardware. While we could theoretically add the missing devices, we want to verify the driver files indeed work on the target device. This is why some devices are not present.
 
 ## Resources
 
-[Telegram group](https://t.me/joinchat/Ey6mehEPg0Fe4utQNZ9yjA)
+[Telegram group for ARM64](https://t.me/joinchat/C-AWlUUp3wxnBQeuxIEVow)
+
+[Telegram group for ARM32](https://t.me/joinchat/C-AWlVMh3jq0tnvPpLAS0Q)
 
 [Forum](https://woaproject.net)
 
-[WOA Deployer](https://github.com/WOA-Project/WOA-Deployer-Lumia)
+[WOA Deployer for ARM64 and 950 devices](https://github.com/WOA-Project/WOA-Deployer-Lumia)
 
-[WPInternals](http://wpinternals.net)
+[WPInternals for unlocking the bootloader of Lumia devices](http://wpinternals.net)
 
-[Wiki](https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki)
+[Old repository Wiki containing some information about this project](https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki)
 
 ## Copyright, License, Disclaimers and end user license agreement
 
 **Below notice must be present in all redistributed portions of this software**
+
+Copyright (c) 2017-2020 WOA-Project
+
+Copyright (c) 2011-2016 Qualcomm Incorporated
+
+Copyright (c) 2011-2016 Microsoft Mobile Oy
+
+This repository contains binary files, most of which are not made by us and were found on an engineering board firmware that leaked in 2017 for arm64, as for the rest they come from publicly available firmware files from Software Repository. Some drivers, services, apps and all INF files were made by the WOA-Project team. As some mistakes may exist, we cannot provide warranty of any kind. 
 
 - By installing this driver pack, you agree that any damage done to your phone or any loss of data is your entire responsibility and we cannot be taken responsible for data loss if it ever happens. We believe however this driver pack is safe to install. Try at your own risk!
 
@@ -26,58 +41,86 @@ If you are deploying this driver pack using WOA Deployer for Lumia on Lumia 950s
 
 **Cellular disclaimers**
 
+This Board Support package provides Cellular support to just ARM64 platforms due to software limitation with the Windows Operating System.
+
+Cellular support will be almost functional as long as the following notice is met:
+```
 We've also been telling people on engineering devices to make backups, this is especially true here.
+
 Flashing an entire eMMC image on engineering devices will not only risk damaging the device, it will also lose for *ever* the modem partitions for *your* phone.
+
 Those are unique, there's ways to recover them but it's borderline legal. If you do not have the correct modem partitions for your device, you will *never* get Cellular to work on your device.
+
 You have been warned.
+```
 
 **Contributors**
 
 We would like to thank the following people that helped:
 
+```
 - ADeltaX
+
 - Googulator
+
 - gus33000
+
 - imbushuo
+
 - @never_released
+
 - Heathcliff74 for WPInternals
+
 - Our friends in China that worked hard to bring the Hapanero ARM64 firmware into the public
-  and that provided test hardware for us.
+
+and that provided test hardware for us.
+
 - Our testers, you know who you are :)
+
 - The Windows RT Lumia projects
+
 - Qualcomm and Microsoft
+
 - and many other friends and contacts which would be too long to list here
+```
 
 The above copyright notice and this permission notice shall be included in all
+
 copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 SOFTWARE.
+
 
 ## Project Status
 
 ![Real life phones](assets/real_life_phones.jpg)
 
-Refer to https://github.com/WOA-Project/Lumia-Drivers/wiki/Status.
+Refer to https://github.com/MSM8994-8992-NT-ARM64-Drivers/Lumia-Drivers/wiki/Status for status for Lumia 950 and Lumia 950 XL devices running ARM64 Windows.
 
 ## Installing manually
 
 For preserving charset encoding, please checkout with using:
+
 ```
 git clone -c core.autocrlf=false https://github.com/WOA-Project/Lumia-Drivers
 ```
 
 ### Drivers
 
-Refer to https://github.com/WOA-Project/Lumia-Drivers/wiki/Installing-drivers-manually.
-  
-### Hapanero 
+Refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Installing-drivers-manually.
 
-To install on Hapaneros using Qualcomm's UEFI, refer to https://github.com/WOA-Project/Lumia-Drivers/wiki/Getting-started-on-Hapanero-(Qualcomm-UEFI). It is highly recommended to avoid using this on EB2 Hapanero devices, and using Lumia950XlPkg instead.
-  
+### Hapanero
 
+To install on Hapaneros using Qualcomm's UEFI, refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Getting-started-on-Hapanero-(Qualcomm-UEFI). It is highly recommended to avoid using this on EB2 Hapanero devices, and using Lumia950XlPkg instead.
