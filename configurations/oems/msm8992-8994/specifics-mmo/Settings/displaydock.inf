@@ -7,7 +7,9 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 08/08/2019,1.0.0.0
-CatalogFile = displaydock.cat
+
+CatalogFile.NTARM = displaydock.arm.cat
+CatalogFile.NTARM64 = displaydock.arm64.cat
 
 [DestinationDirs]
 Drivers_Dir_24 = 24,ProgramData\Microsoft\Windows\DeviceMetadataStore\EN-US
@@ -19,6 +21,9 @@ Drivers_Dir_24 = 24,ProgramData\Microsoft\Windows\DeviceMetadataStore\EN-US
 95357b17-9b6a-490e-8025-9b329f954a2d.devicemetadata-ms = 1,,
 
 [DefaultInstall.NTARM]
+CopyFiles = Drivers_Dir_24
+
+[DefaultInstall.NTARM64]
 CopyFiles = Drivers_Dir_24
 
 [Drivers_Dir_24]

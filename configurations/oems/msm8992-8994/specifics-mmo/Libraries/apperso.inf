@@ -7,7 +7,9 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 09/09/2015,1.0.1047.0000
-CatalogFile = APPerso.cat
+
+CatalogFile.NTARM   = APPerso.arm.cat
+CatalogFile.NTARM64 = APPerso.arm64.cat
 
 [DestinationDirs]
 APPerso.Files = 11 ; \system32 directory on Windows 2000 and later versions
@@ -15,11 +17,18 @@ APPerso.Files = 11 ; \system32 directory on Windows 2000 and later versions
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles]
-apperso.dll              = 0,,
-npetsec.dll              = 0,,
+[SourceDisksFiles.ARM]
+apperso.dll              = 0,arm,
+npetsec.dll              = 0,arm,
+
+[SourceDisksFiles.ARM64]
+apperso.dll              = 0,arm64,
+npetsec.dll              = 0,arm64,
 
 [DefaultInstall.NTARM]
+CopyFiles = APPerso.Files
+
+[DefaultInstall.NTARM64]
 CopyFiles = APPerso.Files
 
 [APPerso.Files]

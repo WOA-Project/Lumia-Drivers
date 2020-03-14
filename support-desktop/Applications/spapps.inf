@@ -13,7 +13,7 @@ CatalogFile.NTARM64 = spapps.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
-PstDrv.Files       = 10,OEM\Applications
+DefaultDestDir       = 10,OEM\Applications
 
 [SourceDisksNames]
 0 = %DiskId1%

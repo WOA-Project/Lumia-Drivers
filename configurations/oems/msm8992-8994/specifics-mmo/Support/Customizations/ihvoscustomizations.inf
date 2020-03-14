@@ -8,7 +8,9 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 08/26/2019,1.0.0.0
-CatalogFile = ihvoscustomizations.cat
+
+CatalogFile.NTARM   = ihvoscustomizations.arm.cat
+CatalogFile.NTARM64 = ihvoscustomizations.arm64.cat
 
 [DestinationDirs]
 MicrosoftADC.Files    = 16422, "Common Files\ADC\Microsoft"
@@ -32,6 +34,10 @@ ProvisioningOEM.Files = 16422, "Common Files\OEM\Provisioning"
 ;*****************************************
 
 [DefaultInstall.NTARM]
+CopyFiles = MicrosoftADC.Files,ProvisioningOEM.Files
+Addreg    = ihvoscustomizationsreg
+
+[DefaultInstall.NTARM64]
 CopyFiles = MicrosoftADC.Files,ProvisioningOEM.Files
 Addreg    = ihvoscustomizationsreg
 

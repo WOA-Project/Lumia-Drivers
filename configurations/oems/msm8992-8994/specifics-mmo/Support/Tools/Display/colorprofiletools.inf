@@ -7,7 +7,9 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 09/29/2019,1.0.0.2
-CatalogFile = colorprofiletools.cat
+
+CatalogFile.NTARM = colorprofiletools.arm.cat
+CatalogFile.NTARM64 = colorprofiletools.arm64.cat
 
 [DestinationDirs]
 System.Files   = 11
@@ -16,8 +18,16 @@ Profiles.Files = 11, spool\drivers\color ; Color profiles must be placed in the 
 [SourceDisksNames]
 0 = %DiskId1%
 
-[SourceDisksFiles]
-ColorProfileListener.exe = 0,,
+[SourceDisksFiles.ARM]
+ColorProfileListener.exe = 0,arm,
+Advanced.icm = 0,,
+Cool.icm = 0,,
+Standard.icm = 0,,
+Vivid.icm = 0,,
+"Night light.icm" = 0,,
+
+[SourceDisksFiles.ARM64]
+ColorProfileListener.exe = 0,arm64,
 Advanced.icm = 0,,
 Cool.icm = 0,,
 Standard.icm = 0,,
@@ -29,6 +39,10 @@ Vivid.icm = 0,,
 ;*****************************************
 
 [DefaultInstall.NTARM]
+CopyFiles = Profiles.Files,System.Files
+AddReg    = ProfileAction.Reg
+
+[DefaultInstall.NTARM64]
 CopyFiles = Profiles.Files,System.Files
 AddReg    = ProfileAction.Reg
 

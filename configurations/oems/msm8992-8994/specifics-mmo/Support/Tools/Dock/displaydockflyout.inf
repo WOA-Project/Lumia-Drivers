@@ -7,7 +7,9 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 09/29/2019,1.0.0.1
-CatalogFile = DisplayDockFlyout.cat
+
+CatalogFile.NTARM = DisplayDockFlyout.arm.cat
+CatalogFile.NTARM64 = DisplayDockFlyout.arm64.cat
 
 [DestinationDirs]
 DisplayDockFlyout.Files = 10,OEM\Tools
@@ -25,7 +27,7 @@ Microsoft.Toolkit.Win32.UI.XamlHost.winmd = 0,,
 CopyFiles = DisplayDockFlyout.Files
 AddReg    = DisplayDockFlyout_Reg
 
-[DefaultInstall.NTARM]
+[DefaultInstall.NTARM64]
 CopyFiles = DisplayDockFlyout.Files
 AddReg    = DisplayDockFlyout_Reg
 

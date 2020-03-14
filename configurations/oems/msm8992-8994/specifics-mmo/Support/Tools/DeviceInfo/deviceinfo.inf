@@ -7,7 +7,9 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 08/08/2019,1.0.0.0
-CatalogFile = deviceinfo.cat
+
+CatalogFile.NTARM = deviceinfo.arm.cat
+CatalogFile.NTARM64 = deviceinfo.arm64.cat
 
 [DestinationDirs]
 Drivers_Dir_24 = 11, OEM
@@ -32,6 +34,9 @@ dat.cmd = 0,,
 ;*****************************************
 
 [DefaultInstall.NTARM]
+CopyFiles = Drivers_Dir_24,PstDrv.Files
+
+[DefaultInstall.NTARM64]
 CopyFiles = Drivers_Dir_24,PstDrv.Files
 
 [Drivers_Dir_24]
