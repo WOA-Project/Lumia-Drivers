@@ -20,23 +20,35 @@ DefaultDestDir       = 10,OEM\Applications
 
 [SourceDisksFiles.ARM]
 SPApps.ps1 = 0,arm,
-CommsPhone.appxbundle = 0,arm,
-Microsoft.VCLibs.ARM.14.00.appx = 0,arm,
-Airwaves.appxbundle = 0,arm,
 
-[SourceDisksFiles.ARM64]
-SPApps.ps1 = 0,arm64,
+CommsPhone.appxbundle = 0,,
+Microsoft.VCLibs.ARM.14.00.appx = 0,,
+
+Airwaves.appxbundle = 0,,
 
 Microsoft.NET.Native.Framework.2.2.appx = 0,arm64,
 Microsoft.NET.Native.Runtime.2.2.appx = 0,arm64,
 Microsoft.VCLibs.ARM64.14.00.appx = 0,arm64,
 
-CommsPhone.appxbundle = 0,arm64,
-Microsoft.VCLibs.ARM.14.00.appx = 0,arm64,
+Chat.appxbundle = 0,arm64,
+Tips.appxbundle = 0,arm64,
+Dialer.appxbundle = 0,arm64,
+VibrationSettings.appxbundle = 0,arm64,
+
+[SourceDisksFiles.ARM64]
+SPApps.ps1 = 0,arm64,
+
+CommsPhone.appxbundle = 0,,
+Microsoft.VCLibs.ARM.14.00.appx = 0,,
+
+Airwaves.appxbundle = 0,,
+
+Microsoft.NET.Native.Framework.2.2.appx = 0,arm64,
+Microsoft.NET.Native.Runtime.2.2.appx = 0,arm64,
+Microsoft.VCLibs.ARM64.14.00.appx = 0,arm64,
 
 Chat.appxbundle = 0,arm64,
 Tips.appxbundle = 0,arm64,
-Airwaves.appxbundle = 0,arm64,
 Dialer.appxbundle = 0,arm64,
 VibrationSettings.appxbundle = 0,arm64,
 
@@ -51,14 +63,7 @@ CopyFiles = PstDrv.Files
 [DefaultInstall.NTARM64]
 CopyFiles = PstDrv.Files
 
-[PstDrv.Files.NTARM]
-SPApps.ps1
-CommsPhone.appxbundle
-Microsoft.VCLibs.ARM.14.00.appx
-Airwaves.appxbundle
-
-
-[PstDrv.Files.NTARM64]
+[PstDrv.Files]
 SPApps.ps1
 
 Microsoft.NET.Native.Framework.2.2.appx

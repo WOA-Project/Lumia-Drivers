@@ -1,7 +1,7 @@
 @echo off
 
 REM Second boot drivers
-\Windows\OEM\devcon.exe update \Windows\OEM\Drivers\ChargeArbitration.inf Root\CAD
+REM \Windows\OEM\devcon.exe update \Windows\OEM\Drivers\ChargeArbitration.inf Root\CAD
 
 call :installRootDevice fusion.inf Root\Fusion ROOT\Fusion\0000
 call :installRootDevice fusionv2.inf umdf2\FusionV2 ROOT\FusionV2\0000

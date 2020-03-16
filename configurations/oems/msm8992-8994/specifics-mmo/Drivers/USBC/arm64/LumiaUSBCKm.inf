@@ -3,21 +3,24 @@
 ;
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
-Provider    = %ManufacturerName%
-CatalogFile = LumiaUSBCKm.cat
-DriverVer = 12/04/2019,20.55.37.393
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGuid={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%ManufacturerName%
+CatalogFile=LumiaUSBCKm.cat
+DriverVer = 03/16/2020,13.34.48.450
 
 [DestinationDirs]
 DefaultDestDir = 12
+LumiaUSBCKm_Device_CoInstaller_CopyFiles = 11
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
 
 [SourceDisksFiles]
-LumiaUSBCKm.sys = 1,,
+LumiaUSBCKm.sys  = 1,,
+;
+
 
 ;*****************************************
 ; Install Section
@@ -37,7 +40,7 @@ LumiaUSBCKm.sys
 
 ;-------------- Service installation
 [LumiaUSBCKm_Device.NT.Services]
-AddService = LumiaUSBCKm, %SPSVCINST_ASSOCSERVICE%, LumiaUSBCKm_Service_Inst
+AddService = LumiaUSBCKm,%SPSVCINST_ASSOCSERVICE%, LumiaUSBCKm_Service_Inst
 
 ; -------------- LumiaUSBCKm driver install sections
 [LumiaUSBCKm_Service_Inst]
@@ -46,18 +49,31 @@ ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\LumiaUSBCKm.sys
-LoadOrderGroup = Extended Base
+
+;
+;--- LumiaUSBCKm_Device Coinstaller installation ------
+;
+
+[LumiaUSBCKm_Device.NT.CoInstallers]
+AddReg=LumiaUSBCKm_Device_CoInstaller_AddReg
+CopyFiles=LumiaUSBCKm_Device_CoInstaller_CopyFiles
+
+[LumiaUSBCKm_Device_CoInstaller_AddReg]
+;
+
+
+[LumiaUSBCKm_Device_CoInstaller_CopyFiles]
+;
+
 
 [LumiaUSBCKm_Device.NT.Wdf]
 KmdfService =  LumiaUSBCKm, LumiaUSBCKm_wdfsect
-
 [LumiaUSBCKm_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
-SPSVCINST_ASSOCSERVICE = 0x00000002
-
-ManufacturerName       = "LumiaWoA authors"
-DiskName               = "Lumia USB-C Installation Disk"
-LumiaUSBCKm.DeviceDesc = "Lumia USB-C Device (iteration=36)"
-LumiaUSBCKm.SVCDESC    = "Lumia USB-C Service"
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="LumiaWOA Project"
+DiskName = "LumiaUSBCKm Installation Disk"
+LumiaUSBCKm.DeviceDesc = "LumiaUSBCKm Device (Pol=1, iteration=30)"
+LumiaUSBCKm.SVCDESC = "LumiaUSBCKm Service"
