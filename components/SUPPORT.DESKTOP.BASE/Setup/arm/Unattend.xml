@@ -16,7 +16,7 @@
         <ThemeName>Windows Dark Theme</ThemeName>
         <WindowColor>0xFF0078D4</WindowColor>
         <DefaultThemesOff>false</DefaultThemesOff>
-        <DesktopBackground>C:\Windows\Web\Wallpaper\Windows\img0.jpg</DesktopBackground>
+        <DesktopBackground>C:\Windows\OEM\sushi.jpg</DesktopBackground>
         <UWPAppsUseLightTheme>false</UWPAppsUseLightTheme>
       </Themes>
     </component>
