@@ -1,5 +1,5 @@
 @echo off
 
-cmd.exe /c \Windows\OEM\SupportDriversOobe.cmd
-cmd.exe /c \Windows\OEM\PlatformOobe.cmd
-cmd.exe /c \Windows\OEM\IHVDriversOobe.cmd
+for /f %%f in ('dir /b /s \Windows\OEM\Setup\OOBE\*.cmd') do (
+    cmd.exe /c %%f
+)

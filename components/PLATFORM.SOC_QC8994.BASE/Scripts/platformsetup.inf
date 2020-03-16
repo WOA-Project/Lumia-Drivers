@@ -14,8 +14,9 @@ CatalogFile.NTARM64 = platformsetup.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
-PstDrv.Files  = 10,OEM
-PreOobe.Files = 10,OEM
+OOBECmd.Files        = 10,OEM\Setup\OOBE
+SpecializeCmd.Files  = 10,OEM\Setup\Specialize
+FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 
 [SourceDisksNames]
 0 = %DiskId1%
@@ -35,18 +36,20 @@ RebootWarning.exe      = 0,arm64,
 ;*****************************************
 
 [DefaultInstall.NTARM]
-CopyFiles = PstDrv.Files,PreOobe.Files
+CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
 [DefaultInstall.NTARM64]
-CopyFiles = PstDrv.Files,PreOobe.Files
+CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
-[PreOobe.Files]
+[OOBECmd.Files]
 PlatformOobe.cmd
 
 ; Windows/OEM
-[PstDrv.Files]
+[SpecializeCmd.Files]
 PlatformSpecialize.cmd
 RebootWarning.exe
+
+[FirstLogonCmd.Files]
 
 [Strings]
 IHV     = "LumiaWoA authors"

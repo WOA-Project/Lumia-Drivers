@@ -13,7 +13,9 @@ CatalogFile.NTARM = platformsetup.cat
 
 [DestinationDirs]
 ; 10 = Windows
-PreOobe.Files = 10,OEM
+OOBECmd.Files        = 10,OEM\Setup\OOBE
+SpecializeCmd.Files  = 10,OEM\Setup\Specialize
+FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 
 [SourceDisksNames]
 0 = %DiskId1%
@@ -26,10 +28,14 @@ PlatformOobe.cmd        = 0,,
 ;*****************************************
 
 [DefaultInstall.NTARM]
-CopyFiles = PreOobe.Files
+CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
-[PreOobe.Files]
+[OOBECmd.Files]
 PlatformOobe.cmd
+
+[SpecializeCmd.Files]
+
+[FirstLogonCmd.Files]
 
 [Strings]
 IHV     = "LumiaWoA authors"

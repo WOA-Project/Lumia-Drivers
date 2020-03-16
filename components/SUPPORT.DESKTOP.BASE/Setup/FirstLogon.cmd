@@ -1,12 +1,11 @@
 @echo off
 
-\Windows\OEM\SilentProvisionerT.exe
-
 reg add HKLM\Software\Policies\Microsoft\Windows\Appx /t REG_DWORD /f /v "AllowAllTrustedApps" /d "1
 
-REM System apps
-powershell -ExecutionPolicy Bypass -File \Windows\OEM\Applications\SPApps.ps1
+\Windows\OEM\SilentProvisionerT.exe
 
-cmd.exe /c \Windows\OEM\IHVSettingsFirstLogon.cmd
+for /f %%f in ('dir /b /s \Windows\OEM\Setup\FirstLogon\*.cmd') do (
+    cmd.exe /c %%f
+)
 
 \Windows\OEM\SilentProvisionerT.exe 1

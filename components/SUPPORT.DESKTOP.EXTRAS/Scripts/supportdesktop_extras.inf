@@ -1,5 +1,5 @@
 ;
-; platformsetup.inf
+; supportdesktop_extras.inf
 ;
 
 [Version]
@@ -7,9 +7,10 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 08/24/2019,1.0.0.1
+DriverVer   = 08/08/2019,1.0.0.0000
 
-CatalogFile.NTARM = platformsetup.cat
+CatalogFile.NTARM   = supportdesktop_extras.arm.cat
+CatalogFile.NTARM64 = supportdesktop_extras.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
@@ -21,23 +22,26 @@ FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 0 = %DiskId1%
 
 [SourceDisksFiles]
-PlatformOobe.cmd        = 0,,
+SupportDesktop_Extras.cmd  = 0,,
 
 ;*****************************************
-; platformsetup  Install Section
+; oemcustomizations  Install Section
 ;*****************************************
 
 [DefaultInstall.NTARM]
 CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
+[DefaultInstall.NTARM64]
+CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
+
 [OOBECmd.Files]
-PlatformOobe.cmd
 
 [SpecializeCmd.Files]
 
 [FirstLogonCmd.Files]
+SupportDesktop_Extras.cmd
 
 [Strings]
 IHV     = "LumiaWoA authors"
-DiskId1 = "Platform Setup Installation Disk #1"
+DiskId1 = "Drivers Setup Installation Disk #1"
 

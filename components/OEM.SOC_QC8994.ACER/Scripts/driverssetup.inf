@@ -14,7 +14,9 @@ CatalogFile.NTARM64 = driverssetup.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
-PstDrv.Files  = 10,OEM
+OOBECmd.Files        = 10,OEM\Setup\OOBE
+SpecializeCmd.Files  = 10,OEM\Setup\Specialize
+FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 
 [SourceDisksNames]
 0 = %DiskId1%
@@ -29,15 +31,18 @@ IHVDriversSpecialize.cmd           = 0,,
 ;*****************************************
 
 [DefaultInstall.NTARM]
-CopyFiles = PstDrv.Files
+CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
 [DefaultInstall.NTARM64]
-CopyFiles = PstDrv.Files
+CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
-; Windows/OEM
-[PstDrv.Files]
+[OOBECmd.Files]
 IHVDriversOobe.cmd
+
+[SpecializeCmd.Files]
 IHVDriversSpecialize.cmd
+
+[FirstLogonCmd.Files]
 
 [Strings]
 IHV     = "LumiaWoA authors"
