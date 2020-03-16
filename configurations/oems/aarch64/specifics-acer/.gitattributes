@@ -1,2 +1,0 @@
-# Treat everything as binary, as cat files require binary identity for signatures to match
-* -text

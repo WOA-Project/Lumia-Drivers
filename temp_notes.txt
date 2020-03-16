@@ -1,0 +1,5 @@
+dism /Image:E: /Add-Driver /Driver:D:\repos\Lumia-Drivers\components\PLATFORM.SOC_QC8994.BASE /Driver:D:\repos\Lumia-Drivers\components\PLATFORM.SOC_QC8994.SOC8994 /Driver:D:\repos\Lumia-Drivers\components\SUPPORT.DESKTOP.BASE /Driver:D:\repos\Lumia-Drivers\components\SUPPORT.DESKTOP.EXTRAS /Driver:D:\repos\Lumia-Drivers\components\SUPPORT.DESKTOP.MOBILE_BRIDGE /Driver:D:\repos\Lumia-Drivers\components\SUPPORT.DESKTOP.MOBILE_COMPONENTS /Driver:D:\repos\Lumia-Drivers\components\PLATFORM.SOC_QC8994.SOC8994AA /Driver:D:\repos\Lumia-Drivers\components\OEM.SOC_QC8994.MMO /Driver:D:\repos\Lumia-Drivers\components\OEM.SOC_QC8994.MMO_SOC8994 /Driver:D:\repos\Lumia-Drivers\components\DEVICE.SOC_QC8994.CITYMAN /Recurse
+
+
+
+

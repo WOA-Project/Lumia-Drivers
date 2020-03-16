@@ -1,0 +1,37 @@
+;
+; platformsetup.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 08/24/2019,1.0.0.1
+
+CatalogFile.NTARM = platformsetup.cat
+
+[DestinationDirs]
+; 10 = Windows
+PreOobe.Files = 10,OEM
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+PlatformOobe.cmd        = 0,,
+
+;*****************************************
+; platformsetup  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = PreOobe.Files
+
+[PreOobe.Files]
+PlatformOobe.cmd
+
+[Strings]
+IHV     = "LumiaWoA authors"
+DiskId1 = "Platform Setup Installation Disk #1"
+
