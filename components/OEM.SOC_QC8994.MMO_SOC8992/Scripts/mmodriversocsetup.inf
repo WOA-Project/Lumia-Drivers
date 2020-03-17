@@ -1,5 +1,5 @@
 ;
-; oemcustomizations.inf
+; mmodriversocsetup.inf
 ;
 
 [Version]
@@ -7,10 +7,10 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 08/08/2019,1.0.0.0
+DriverVer   = 08/08/2019,1.0.0.0000
 
-CatalogFile.NTARM   = oemcustomizations.arm.cat
-CatalogFile.NTARM64 = oemcustomizations.arm64.cat
+CatalogFile.NTARM   = mmodriversocsetup.arm.cat
+CatalogFile.NTARM64 = mmodriversocsetup.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
@@ -22,8 +22,7 @@ FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 0 = %DiskId1%
 
 [SourceDisksFiles]
-IHVSettingsFirstLogon.cmd          = 0,,
-IHVSettingsSpecialize.cmd          = 0,,
+MMOSoCDriversOobe.cmd                 = 0,,
 
 
 ;*****************************************
@@ -37,14 +36,13 @@ CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
 [OOBECmd.Files]
+MMOSoCDriversOobe.cmd
 
 [SpecializeCmd.Files]
-IHVSettingsSpecialize.cmd
 
 [FirstLogonCmd.Files]
-IHVSettingsFirstLogon.cmd
 
 [Strings]
 IHV     = "LumiaWoA authors"
-DiskId1 = "OEM Customizations Installation Disk #1"
+DiskId1 = "Drivers Setup Installation Disk #1"
 

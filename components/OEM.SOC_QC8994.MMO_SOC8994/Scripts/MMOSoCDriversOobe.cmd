@@ -1,6 +1,5 @@
 @echo off
-\Windows\OEM\devcon.exe update \Windows\OEM\Drivers\NXPPN547.inf ACPI\PN547
-call :installRootDevice proxy_driver.inf Root\GripProxy ROOT\GripProxy\0000
+call :installRootDevice qccamcore8994.inf ROOT\CORE ROOT\CORE
 
 goto :eof
 
