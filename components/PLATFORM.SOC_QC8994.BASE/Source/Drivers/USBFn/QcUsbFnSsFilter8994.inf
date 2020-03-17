@@ -49,6 +49,18 @@ Include    = ufxsynopsys.inf
 Needs      = ufxsynopsys.Install.NT.Services
 AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
 
+[DefaultInstall.NTARM64]
+;Include MS driver
+Include   = ufxsynopsys.inf
+Needs     = ufxsynopsys.Install.NT
+CopyFiles = QcUsbFnSSFilter.CopyFile
+
+[DefaultInstall.NTARM64.Services]
+;Include MS driver
+Include    = ufxsynopsys.inf
+Needs      = ufxsynopsys.Install.NT.Services
+AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
+
 [QcUsbFnSSFilter.CopyFile]
 QcUsbFnSsFilter8994.sys
 
