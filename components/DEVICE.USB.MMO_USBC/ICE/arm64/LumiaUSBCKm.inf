@@ -8,7 +8,7 @@ Class       = SYSTEM
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %ManufacturerName%
 CatalogFile = LumiaUSBCKm.cat
-DriverVer = 03/16/2020,20.40.1.826
+DriverVer = 03/17/2020,12.24.59.350
 
 [DestinationDirs]
 DefaultDestDir = 12
@@ -59,5 +59,5 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 
 ManufacturerName       = "LumiaWoA authors"
 DiskName               = "Lumia USB-C Installation Disk"
-LumiaUSBCKm.DeviceDesc = "Lumia USB-C Device (iteration=36)"
+LumiaUSBCKm.DeviceDesc = "Lumia USB-C Device (iteration=37)"
 LumiaUSBCKm.SVCDESC    = "Lumia USB-C Service"
