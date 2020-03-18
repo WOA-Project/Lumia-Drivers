@@ -1,0 +1,80 @@
+;/*++
+;
+;Copyright (C) 2013 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcrevrmnet.inx
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks revrmnet Driver
+;
+;--*/
+
+[version]
+Signature   = "$Windows NT$"
+;Class       = NetTrans
+Class       = System
+ClassGUID   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 01/28/2016,1.0.1078.0037
+CatalogFile = revrmnet8909.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%,,
+
+[SourceDisksFiles]
+qcrevrmnet.sys = 1,,
+
+[Manufacturer]
+%QCOM% = QCOM, NTARM
+
+[QCOM.NTARM]
+%QCrevrmnet.DeviceDesc% = QCrevrmnet_Device, ACPI\QCOM2498
+
+;-------------------------------------------------------------------------
+; Installation Section
+;-------------------------------------------------------------------------
+[QCrevrmnet_Device]
+CopyFiles       = Drivers_Dir
+AddReg          = Inst_Ndi
+Characteristics = 0x0
+
+[Drivers_Dir]
+qcrevrmnet.sys
+
+;-------------------------------------------------------------------------
+; Ndi installation support
+;-------------------------------------------------------------------------
+[Inst_Ndi]
+HKR, Ndi, ClsID   , 0,  {21e7e731-f286-4116-b3c2-d43ccba29f07}
+HKR, Ndi, Service ,  ,  "QCrevrmnet"
+HKR, Ndi, HelpText,  ,  %revrmnet_HelpText%
+
+
+;-------------------------------------------------------------------------
+; Service installation support
+;-------------------------------------------------------------------------
+[QCrevrmnet_Device.Services]
+AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst
+
+[QCrevrmnet_Service_Inst]
+DisplayName    = %revrmnet.SVCDESC%
+ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
+StartType      = 3 ;AUTO
+ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcrevrmnet.sys
+LoadOrderGroup = NDIS
+Tag            = 13
+Description    = %revrmnet.SVCDESC%
+
+[Strings]
+QCOM                  = "Qualcomm Inc."
+revrmnet.SVCDESC      = "Qualcomm Win8 revrmnet Service"
+QCrevrmnet.DeviceDesc = "Qualcomm Win8 revrmnet Device"
+DiskId1               = "Qualcomm qcrevrmnet Driver Disk"
+revrmnet_HelpText     = "Driver for WFP callout driver"
+

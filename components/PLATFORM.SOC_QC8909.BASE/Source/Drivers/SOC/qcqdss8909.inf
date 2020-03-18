@@ -1,0 +1,114 @@
+;/*++
+;
+;   Copyright (c) 2008-2014 QUALCOMM Technologies Incorporated.
+;               All Rights Reserved.
+;               Qualcomm Confidential and Proprietary
+;
+;Module Name:
+;    qcqdss8909.inf
+;
+;Abstract:
+;    INF file for installing the QDSS Driver
+;--*/
+
+[Version]
+Signature    = "$WINDOWS NT$"
+Class        = System
+ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider     = %QUALCOMM%
+DriverVer    = 01/28/2016,1.0.1078.0037
+CatalogFile  = qcqdss8909.cat
+BootCritical = 1
+PnpLockDown  = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcqdss8909.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; QDSS Install Section
+;*****************************************
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]
+%QDSS.DeviceDesc% = QDSS_Device, ACPI\QCOM247D
+
+[QDSS_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcqdss8909.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+[QDSS_Device.NT.Services]
+AddService = qcQDSS,%SPSVCINST_ASSOCSERVICE%, QDSS_Service_Inst
+
+;-------------- HW installation
+[QDSS_Device.NT.HW]
+addreg = QDSSSD
+
+[QDSSSD]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- QDSS driver install sections
+[QDSS_Service_Inst]
+DisplayName    = %QDSS.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+LoadOrderGroup = Base
+Tag            = 1
+ServiceBinary  = %12%\qcqdss8909.sys
+addreg         = QDSSCONFIG
+
+[QDSSCONFIG]
+HKR, Parameters, AdspSwevt              , 0x00000001, 38,00,00,00,00,46,00
+HKR, Parameters, BusTraceOn             , 0x00010001, 0x0
+HKR, Parameters, ClockSpeed             , 0x00010001,  0x1
+HKR, Parameters, TraceOn                , 0x00010001, 0
+HKR, Parameters, ETMOn                  , 0x00010001, 0
+HKR, Parameters, ETRBufferSize          , 0x00010001, 0x00100000
+HKR, Parameters, ETRFileSinkSize        , 0x00010001, 0x00A00000
+HKR, Parameters, ETWTraceControl        , 0x00010001, 0x0
+HKR, Parameters, MpssSwevt              , 0x00000001, 00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,18,02,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+HKR, Parameters, NHLOSSubSysTraceControl, 0x00010001, 0x0
+HKR, Parameters, RpmSwevt               , 0x00000001, 00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,94,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,E7,00,00,00,00,00,00,00,0E,02,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,04,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+HKR, Parameters, STMHwEventsOn          , 0x00010001, 0x0
+HKR, Parameters, STMOn                  , 0x00010001, 1
+HKR, Parameters, STMSwEventsOn          , 0x00010001, 0x0
+HKR, Parameters, TPIUMode               , 0x00010001,  0x3
+HKR, Parameters, TraceOn                , 0x00010001, 0x0
+HKR, Parameters, TraceSinkType          , 0x00010001, 0x0
+HKR, Parameters, WcnssSwevt             , 0x00000001, 00,f0,1f
+
+; Checks for compatibility with KMDF version
+[QDSS_Device.NT.Wdf]
+KmdfService = qcQDSS, QDSS_wdfsect
+[QDSS_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "QDSS Installation Disk"
+QDSS.DeviceDesc        = "Qualcomm QDSS Device"
+QDSS.SVCDESC           = "Qualcomm QDSS Driver"
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
