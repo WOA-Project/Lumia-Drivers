@@ -1,0 +1,87 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
+Provider    = %ManufacturerName%
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = AccCubeST.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+;12 == Windows\System32\Drivers\UMDF
+AlspDriverCopy = 12,UMDF
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,""
+
+[SourceDisksFiles]
+AccCubeST.dll = 1,,
+
+[Manufacturer]
+%ManufacturerName% = Standard, NTARM
+
+;*******************************
+; Install Section
+;*******************************
+
+[Standard.NTARM]
+%DeviceDesc% = CubeST_Inst, ACPI\MSHW101B
+
+;---------------- copy files
+
+[CubeST_Inst.NT]
+CopyFiles = AlspDriverCopy
+AddReg    = WdfExt_AddReg
+
+[AlspDriverCopy]
+AccCubeST.dll
+
+[CubeST_Inst.NT.HW]
+AddReg = CubeST_Inst.NT.HW.AddReg
+AddReg = CubeST_Inst_SecurityAddReg
+
+;-------------- Service installation
+[CubeST_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %CubeST_Inst.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\WUDFRd.sys
+
+;-------------- WDF specific section
+
+[CubeST_Inst.NT.Wdf]
+UmdfService              = AccCubeST, CubeST_Install
+UmdfServiceOrder         = AccCubeST
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[CubeST_Install]
+UmdfLibraryVersion = 2.0.0
+ServiceBinary      = %12%\UMDF\AccCubeST.dll
+UmdfExtensions     = SensorsCx0102
+
+[WdfExt_AddReg]
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AccCubeST", "WdfExtensions", 0x00010000, "SensorsCx0102"
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AccCubeST\Parameters", "AccRtCalibrationDllName"            ,, "LumiaAccRtCalibrationImpl1.dll"
+
+[CubeST_Inst_SecurityAddReg]
+HKR, , DeviceCharacteristics, %REG_DWORD%, 0x00000100       ; FILE_DEVICE_SECURE_OPEN
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;UD)(A;;GA;;;WD)"    ; Allow everyone to access this driver
+;HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)" ; Allow all UMDF drivers to access this driver
+
+[Strings]
+MediaDescription         = "Cube ST Accelerometer Driver Installation Disk"
+ManufacturerName         = "Nokia"
+DeviceDesc = "Cube ST Accelerometer Driver"
+CubeST_Inst.SvcDesc    = "Cube ST Accelerometer Driver"
+
+SERVICE_KERNEL_DRIVER    = 1
+SERVICE_DEMAND_START     = 3
+SERVICE_ERROR_NORMAL     = 1
+REG_DWORD                = 0x00010001
+

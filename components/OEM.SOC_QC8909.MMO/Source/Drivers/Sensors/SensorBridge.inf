@@ -1,0 +1,156 @@
+[Version]
+Signature = "$Windows NT$"
+Class=Sensor
+ClassGuid={5175D334-C371-4806-B3BA-71FD53C9258D}
+Provider=MMO
+DriverVer= 08/30/2016,20.28.32.0825
+CatalogFile   = SensorBridge.cat
+
+[DestinationDirs]
+DefaultDestDir=12,UMDF
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+MMO=MMO,NTARM
+
+[MMO.NTARM]
+%ACT.DeviceDesc%=Activity_Inst,ACPI\MSHW101C
+%STEP.DeviceDesc%=Step_Inst,ACPI\MSHW101D
+%GES.DeviceDesc%=Gesture_Inst,ACPI\MSHW101E
+%SAC.DeviceDesc%=Control_Inst,ACPI\MSHW101F
+%SPX.DeviceDesc%=Proxy_Inst,ACPI\MSHW1022
+
+;---------------------------------------------------------------------------
+; File copy
+;---------------------------------------------------------------------------
+
+[Activity_Inst.NT]
+Copyfiles=DriverCopyFiles
+
+[Activity_Inst.NT.HW]
+AddReg=Sensor_Inst_SecurityAddReg
+
+[Step_Inst.NT]
+Copyfiles=DriverCopyFiles
+
+[Step_Inst.NT.HW]
+AddReg=Sensor_Inst_SecurityAddReg
+
+[Gesture_Inst.NT]
+Copyfiles=DriverCopyFiles
+
+[Gesture_Inst.NT.HW]
+AddReg=Sensor_Inst_SecurityAddReg
+
+[Control_Inst.NT]
+Copyfiles=DriverCopyFiles
+
+[Control_Inst.NT.HW]
+AddReg=Sensor_Inst_SecurityAddReg
+
+[Proxy_Inst.NT]
+Copyfiles=DriverCopyFiles
+
+[Proxy_Inst.NT.HW]
+AddReg=Sensor_Inst_SecurityAddReg
+
+
+[Sensor_Inst_SecurityAddReg]
+HKR,,DeviceCharacteristics,0x10001,0x00000100       ; FILE_DEVICE_SECURE_OPEN
+HKR,,Security,,"D:P(A;;GR;;;BA)(A;;GR;;;SY)(A;;GR;;;S-1-5-84-0-0-0-0-0)" ; DACL to allow generic-read access to built-in
+                                                                         ; Admin group, System, and UMDF drivers.
+
+[DriverCopyFiles]
+SensorBridge.dll
+
+[SourceDisksNames]
+1 = %Installation_Disk%,,,""
+
+[SourceDisksFiles]
+SensorBridge.dll = 1,
+
+;---------------------------------------------------------------------------
+; Service installation
+;---------------------------------------------------------------------------
+
+[Activity_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[Step_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[Gesture_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[Control_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[Proxy_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %WudfRdDisplayName%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\WUDFRd.sys
+
+
+;---------------------------------------------------------------------------
+; WDF
+;---------------------------------------------------------------------------
+
+[Activity_Inst.NT.Wdf]
+UmdfService              = MmoSensorBridgeService, MmoSensorBridgeService_Install
+UmdfServiceOrder         = MmoSensorBridgeService
+UmdfDirectHardwareAccess = RejectDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[Step_Inst.NT.Wdf]
+UmdfService              = MmoSensorBridgeService, MmoSensorBridgeService_Install
+UmdfServiceOrder         = MmoSensorBridgeService
+UmdfDirectHardwareAccess = RejectDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[Gesture_Inst.NT.Wdf]
+UmdfService              = MmoSensorBridgeService, MmoSensorBridgeService_Install
+UmdfServiceOrder         = MmoSensorBridgeService
+UmdfDirectHardwareAccess = RejectDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[Control_Inst.NT.Wdf]
+UmdfService              = MmoSensorBridgeService, MmoSensorBridgeService_Install
+UmdfServiceOrder         = MmoSensorBridgeService
+UmdfDirectHardwareAccess = RejectDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[Proxy_Inst.NT.Wdf]
+UmdfService              = MmoSensorBridgeService, MmoSensorBridgeService_Install
+UmdfServiceOrder         = MmoSensorBridgeService
+UmdfDirectHardwareAccess = RejectDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy   = CannotUseFsContexts
+
+[MmoSensorBridgeService_Install]
+UmdfLibraryVersion       = 2.0
+ServiceBinary            = %12%\UMDF\SensorBridge.dll
+
+[Strings]
+ACT.DeviceDesc="MMO Activity Detection driver"
+STEP.DeviceDesc="MMO Step Counter driver"
+GES.DeviceDesc="MMO Gesture Recognition driver"
+SAC.DeviceDesc="Sensor Algorithm Control driver"
+SPX.DeviceDesc="Sensor Proxy driver"
+
+WudfRdDisplayName      = "Windows Driver Foundation - User-mode Driver Framework Reflector"
+Installation_Disk = "Sensor Bridge Installation Disk"
+
+SERVICE_KERNEL_DRIVER    = 1
+SERVICE_DEMAND_START     = 3
+SERVICE_ERROR_NORMAL     = 1

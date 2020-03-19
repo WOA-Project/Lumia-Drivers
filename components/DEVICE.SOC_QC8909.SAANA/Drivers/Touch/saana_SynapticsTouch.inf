@@ -18,12 +18,16 @@ DefaultDestDir = 12
 1 = %Installation_Disk%,,,""
 
 [SourceDisksFiles]
+SynaFWVendor1.img = 1,,
+SynaFWVendor2.img = 1,,
 
 ;*****************************************
 ; TchDriver client driver Install Section
 ;*****************************************
 
 [TchDriver_Device.NT.CopyFiles]
+SynaFWVendor1.img
+SynaFWVendor2.img
 
 [Manufacturer]
 %MSFT% = DeviceExtensions,NTarm

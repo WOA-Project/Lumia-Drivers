@@ -1,0 +1,1324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConstraintModel>
+  <Limits> 
+    <Resource>
+      <ID>PhoneConstrainsts</ID> <!-- In PhoneCall Only 1Host Render Globally Allowed -->
+      <Consumption>20</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID> <!-- 8 Audio sessions Allowed Globally -->
+      <Consumption>8</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> <!-- 1 offload Allowed Globally and offload not allowed in FM state -->
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID> <!-- 1 Capture Allowed Globally unless second capture is BT RAW and Any capture other than ICR is not allowed during voice call-->
+      <Consumption>2</Consumption>
+    </Resource>
+  </Limits>
+
+  <ExclusiveEndpoints>
+    <Endpoint>
+      <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+      <TopologyName>TopologySpeakerHeadset</TopologyName> <!-- Topology filter reference string-->
+      <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+    </Endpoint>
+    <Endpoint>
+      <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+      <TopologyName>TopologyHandsetSpeaker</TopologyName> <!-- Topology filter reference string-->
+      <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+    </Endpoint>
+<!-- %&# MMO_start: REASON_Exclusive endpoints based on HW resources (I2S ports) and use cases. OWNER_saku.auvinen@microsoft.com -->
+    <Endpoint>
+      <HWID>AUDD\QCOM2451</HWID>
+      <TopologyName>TopologyBthHfpSpeaker</TopologyName>
+      <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+    </Endpoint>
+    <Endpoint>
+      <HWID>AUDD\QCOM2451</HWID>
+      <TopologyName>TopologyBthHfpSpeakerWB</TopologyName>
+      <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+    </Endpoint>
+<!-- %&# MMO_end: REASON_Exclusive endpoints based on HW resources (I2S ports) and use cases. OWNER_saku.auvinen@microsoft.com -->
+  </ExclusiveEndpoints>
+
+  <ExclusiveEndpoints>
+    <Endpoint>
+      <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+      <TopologyName>TopologyMicIn</TopologyName> <!-- Topology filter reference string-->
+      <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+    </Endpoint>
+    <Endpoint>
+      <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+      <TopologyName>TopologyMicHeadset</TopologyName> <!-- Topology filter reference string-->
+      <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+    </Endpoint>
+    <Endpoint>
+      <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+      <TopologyName>TopologyMicArray1</TopologyName> <!-- Topology filter reference string-->
+      <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+    </Endpoint>
+    <Endpoint>
+      <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+      <TopologyName>TopologyHandsetMic</TopologyName> <!-- Topology filter reference string-->
+      <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+    </Endpoint>
+	<Endpoint>
+      <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+      <TopologyName>TopologyBthHfpMic</TopologyName> <!-- Topology filter reference string-->
+      <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+    </Endpoint>
+    <Endpoint>
+      <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+      <TopologyName>TopologyBthHfpMicWB</TopologyName> <!-- Topology filter reference string-->
+      <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+    </Endpoint>	
+  </ExclusiveEndpoints>
+  
+  <ResourceConsumer>
+    <!-- Phone call Active-->
+    <ConsumerInfo>
+      <PhoneCall>
+	  <CallState>Active</CallState>
+	  </PhoneCall>
+    </ConsumerInfo>
+	<Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>18</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>0</Consumption>
+    </Resource>  
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+
+  <ResourceConsumer>
+     <!-- Phone call local hold--> 
+    <ConsumerInfo>
+      <PhoneCall>
+	  <CallState>Hold</CallState>
+	  </PhoneCall>
+    </ConsumerInfo>
+	<Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>18</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>0</Consumption>
+    </Resource>   
+    <Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+
+  <ResourceConsumer>
+    <!-- FM -->
+    <ConsumerInfo>
+      <FM />
+    </ConsumerInfo>
+	<Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource> 
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>2</Consumption>
+    </Resource> 
+    <Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>1</Consumption>
+    </Resource>	
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>	
+  </ResourceConsumer>
+ 
+  <ResourceConsumer>
+    <!-- Keyword Detector (SVA) -->
+    <ConsumerInfo>
+      <KeywordDetector />
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource> 
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>0</Consumption>
+    </Resource>   
+    <Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>2</Consumption>
+    </Resource>	  
+  </ResourceConsumer>
+ 
+  <ResourceConsumer>
+    <!-- AudioStream to speaker, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>	
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>    
+  </ResourceConsumer>
+  
+  <ResourceConsumer>
+    <!-- AudioStream to speaker, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource> 
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>	
+  </ResourceConsumer>
+  
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+  <ResourceConsumer>
+    <!-- AudioStream to Speaker, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType> <!-- Host -->
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to 1 as APO effect used in Boxer. Set this to 3 if DSP effects taken in use  -->
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>    
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>	
+  </ResourceConsumer>
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->
+  <ResourceConsumer>
+    <!-- AudioStream to speaker, default mode, offload -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Offload</ConnectorType> <!-- Offload -->
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource> 
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>	
+  </ResourceConsumer>
+   
+  <ResourceConsumer>
+    <!-- AudioStream to speaker, default mode, loopback -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+		<Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Loopback</ConnectorType> <!-- Loopback -->
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>  
+    <Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>	
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>	
+  </ResourceConsumer>
+  
+  
+  <ResourceConsumer>
+    <!-- AudioStream from mic, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyMicIn</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>
+
+  <ResourceConsumer>
+    <!-- AudioStream from mic, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyMicIn</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>   
+     
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->
+  <ResourceConsumer>
+    <!-- AudioStream from MicIn, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyMicIn</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to three not to allow communications recording during a call (DSP effect used)  -->    
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer> 
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->
+  <ResourceConsumer>
+    <!-- AudioStream to speakerHeadSet, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeakerHeadset</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>    
+    <Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+  
+  <ResourceConsumer>
+    <!-- AudioStream to speakerHeadset, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeakerHeadset</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>  
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+  
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com --> 
+  <ResourceConsumer>
+    <!-- AudioStream to SpeakerHeadset, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeakerHeadset</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType> <!-- Host -->
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to 1 as APO effect used in Boxer. Set this to 3 if DSP effects taken in use  -->
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>    
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com --> 
+  <ResourceConsumer>
+    <!-- AudioStream to speakerHeadSet, default mode, offload -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeakerHeadset</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Offload</ConnectorType> <!-- Offload -->
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>    
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+   
+  <ResourceConsumer>
+    <!-- AudioStream to speakerHeadset, default mode, loopback -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologySpeakerHeadset</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+		<Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Loopback</ConnectorType> <!-- Loopback -->
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>	
+  </ResourceConsumer>
+  
+  <ResourceConsumer>
+    <!-- AudioStream from micHeadSet, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyMicHeadset</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>
+
+  <ResourceConsumer>
+    <!-- AudioStream from micHeadSet, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyMicHeadset</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>
+  
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+  <ResourceConsumer>
+    <!-- AudioStream from MicHeadset, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyMicHeadset</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to three not to allow communications recording during a call (DSP effect used)  --> 
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer> 
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+    <ResourceConsumer>
+    <!-- AudioStream to HandSetspeaker, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyHandsetSpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>   
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>	
+  </ResourceConsumer>
+  
+  <ResourceConsumer>
+    <!-- AudioStream to HandSetspeaker, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyHandsetSpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>   
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer> 
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+  <ResourceConsumer>
+    <!-- AudioStream to HandsetSpeaker, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyHandsetSpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType> <!-- Host -->
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to 1 as APO effect used in Boxer. Set this to 3 if DSP effects taken in use  -->
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>    
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->    
+  <ResourceConsumer>
+    <!-- AudioStream to HandSetspeaker, default mode, Loopback -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyHandsetSpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+		<Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Loopback</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>   
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>   
+  
+  <ResourceConsumer>
+    <!-- AudioStream from micHandSet, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyHandsetMic</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>
+
+  <ResourceConsumer>
+    <!-- AudioStream from micHandSet, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyHandsetMic</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>   
+    
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+  <ResourceConsumer>
+    <!-- AudioStream from HandsetMic, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyHandsetMic</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to three not to allow communications recording during a call (DSP effect used)  --> 
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    </ResourceConsumer> 
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+  <ResourceConsumer>
+    <!-- AudioStream to BTSCospeaker, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpSpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>	
+  </ResourceConsumer>
+  
+  <ResourceConsumer>
+    <!-- AudioStream to BTSCospeaker, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpSpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>   
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>	
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer> 
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+  <ResourceConsumer>
+    <!-- AudioStream to BthHfpSpeaker, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpSpeaker</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType> <!-- Host -->
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to 1 as APO effect used in Boxer. Set this to 3 if DSP effects taken in use  -->
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>    
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->    
+  <ResourceConsumer>
+    <!-- AudioStream from BTScoMic, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpMic</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>
+
+  <ResourceConsumer>
+    <!-- AudioStream from BTScoMic, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpMic</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>   
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+  <ResourceConsumer>
+    <!-- AudioStream from BthHfpMic, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpMic</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to three not to allow communications recording during a call (DSP effect used)  --> 
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer> 
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->
+  <ResourceConsumer>
+    <!-- AudioStream to BTSCospeakerWB, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpSpeakerWB</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource> 
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>	
+  </ResourceConsumer>
+  
+  <ResourceConsumer>
+    <!-- AudioStream to BTSCospeakerWB, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpSpeakerWB</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource> 
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+	<Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer> 
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->
+  <ResourceConsumer>
+    <!-- AudioStream to BthHfpSpeakerWB, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpSpeakerWB</TopologyName> <!-- Topology filter reference string-->
+        <PinId>1</PinId> <!-- KSPIN_TOPO_LINEOUT_DEST -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType> <!-- Host -->
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to 1 as APO effect used in Boxer. Set this to 3 if DSP effects taken in use  -->
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>    
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->    
+  <ResourceConsumer>
+    <!-- AudioStream from BTScoMicWB, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpMicWB</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>
+
+  <ResourceConsumer>
+    <!-- AudioStream from BTScoMicWB, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpMicWB</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>   
+  
+<!-- %&# MMO_start: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+  <ResourceConsumer>
+    <!-- AudioStream from BthHfpMicWB, communication mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyBthHfpMicWB</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{98951333-B9CD-48B1-A0A3-FF40682D73F7}</Mode> <!--Signal processing mode communication-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <!-- Consumption set to three not to allow communications recording during a call (DSP effect used)  --> 
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>OffloadConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer> 
+<!-- %&# MMO_end: REASON_Communications mode restrictions for Boxer. OWNER_saku.auvinen@microsoft.com -->  
+   <ResourceConsumer>
+    <!-- AudioStream from MicArray, default mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyMicArray1</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>3</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>	
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer>
+
+  <ResourceConsumer>
+    <!-- AudioStream from MicArray, raw mode, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyMicArray1</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_MIC_ELEMENTS -->
+        <Mode>{9E90EA20-B493-4FD1-A1A8-7E1361A956CF}</Mode> <!--Signal processing mode raw-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+  </ResourceConsumer> 
+  
+   <ResourceConsumer>
+    <!-- AudioStream from CellularWaveFilter, BIDI1 Capture, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyCellular</TopologyName> <!-- Topology filter reference string-->
+        <PinId>0</PinId> <!-- KSPIN_TOPO_BIDI1 -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>  
+  
+  <ResourceConsumer>
+    <!-- AudioStream from CellularWaveFilter, BIDI2 Capture, host -->
+    <ConsumerInfo>
+      <Stream>
+        <HWID>AUDD\QCOM2451</HWID> <!-- Example of h/w id specified in phoneaudiosample.inf -->
+        <TopologyName>TopologyCellular</TopologyName> <!-- Topology filter reference string-->
+        <PinId>2</PinId> <!-- KSPIN_TOPO_BIDI2 -->
+        <Mode>{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}</Mode> <!--Signal processing mode default-->
+        <ConnectorType>Host</ConnectorType>
+      </Stream>
+    </ConsumerInfo>
+    <Resource>
+      <ID>PhoneConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioSessions</ID>
+      <Consumption>1</Consumption>
+    </Resource>
+	<Resource>
+      <ID>OffloadConstrainsts</ID> 
+      <Consumption>0</Consumption>
+    </Resource>
+    <Resource>
+      <ID>AudioCaptureConstrainsts</ID>
+      <Consumption>0</Consumption>
+    </Resource>
+  </ResourceConsumer>
+  
+</ConstraintModel>

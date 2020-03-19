@@ -12,6 +12,8 @@ if "%type%"=="RM-1118" reg import \Windows\OEM\Settings\talkmands.reg
 
 if "%type%"=="RX-127" reg import \Windows\OEM\Settings\hapaneroeb1.reg
 
+if "%type%"=="RM-1152" reg import \Windows\OEM\Settings\saanass.reg
+
 for /f "delims=" %%a in ('call \Windows\OEM\Settings\dat.cmd %SystemDrive%\DPP\MMO\product.dat HWID') do (
     set hwid=%%a
 )
