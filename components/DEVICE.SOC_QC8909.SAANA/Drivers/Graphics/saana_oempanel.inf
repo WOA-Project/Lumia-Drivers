@@ -1,0 +1,120 @@
+;/*++
+;
+; Copyright (c) 2012-2013 Qualcomm Technologies, Inc.  All Rights Reserved.
+; Qualcomm Technologies Proprietary and Confidential
+;
+;Module Name:
+;    oempanel.INF
+;
+;Abstract:
+;    INF file for installing the OEM Class Extension Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon update oempanel.inf ACPI\MSHW1004" to install
+;
+;--*/
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QC%
+ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD11E4B}
+DriverVer   = 03/24/2010, 07.14.2.8061
+CatalogFile = saana_oempanel.cat
+
+;*****************************************
+; oem panel client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = DeviceExtensions,NTARM
+
+[DeviceExtensions.NTARM]
+%OEM.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1004
+
+[DeviceExtension_Install]
+AddReg    = OEM_ServiceReg
+
+[OEM_ServiceReg]
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LedGroup3_Pct,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_SRELimitLow_Vendor_0,0x00010001,0xE3004E20
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_SRELimitHigh_Vendor_0,0x00010001,0x0000C350
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitK_NitOut0,0x00010001,0x0000000A
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut2,0x00010001,0x00000044
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn8,0x00010001,0x00000DAC
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", Flags,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut6,0x00010001,0x000000F0
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn1,0x00010001,0x00000002
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn4,0x00010001,0x00000064
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LedSearchButton,0x00010001,0x0000000F
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn7,0x00010001,0x000003E8
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", COLOR_GoldenPhone,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", EsdInterval,0x00010001,0x00001388
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", AD_CalibrationB,0x00010001,0x0000005F
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitK_LuxIn0,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", AD_RegsInUse,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitK_LuxIn3,0x00010001,0x00000064
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LedGroup0_Pct,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut4,0x00010001,0x00000090
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_SmartCoverWindowScalerPct,0x00010001,0x00000065
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut8,0x00010001,0x00000190
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut11,0x00010001,0x00000320
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LedGroup2_Pct,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", HwPlatform,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", AD_CalibrationD,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_SRELimitLow_Vendor_1,0x00010001,0xC1004E20
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_SRELimitHigh_Vendor_1,0x00010001,0x0000C350
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LedWinButton,0x00010001,0x0000000F
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", EsdFailLimit,0x00010001,0x00000003
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_SRELimitMed_Vendor_0,0x00010001,0x0000C350
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn10,0x00010001,0x0000C350
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn0,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn3,0x00010001,0x00000028
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitK_NitOut3,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_CAbcLevel_Vendor_0,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitK_LuxIn2,0x00010001,0x00000060
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut3,0x00010001,0x00000068
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_GlassDampingCompensationFactor,0x00010001,0x00000064
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", EsdEnabled,0x00010001,0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", AD_TFilterControl,0x00010001,0x00000005
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitK_NitOut1,0x00010001,0x00000032
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut1,0x00010001,0x00000024
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_CAbcLevel_Vendor_1,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut5,0x00010001,0x000000C8
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_ThermalMaxDeg,0x00010001,0xFFFFFFFF
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut9,0x00010001,0x000001E0
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LedGroup1_Pct,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", AD_CalibrationA,0x00010001,0x00000012
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LedBackButton,0x00010001,0x0000000F
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn9,0x00010001,0x00003A98
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", AD_CalibrationC,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn2,0x00010001,0x0000000A
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut10,0x00010001,0x0000028A
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn5,0x00010001,0x000000FA
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_SRELimitMed_Vendor_1,0x00010001,0x0000C350
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", AD_MaxIterations,0x00010001,0x00000040
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", AD_StrengthLimit,0x00010001,0x00000080
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitK_LuxIn1,0x00010001,0x0000001E
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn6,0x00010001,0x000001F4
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_LuxIn11,0x00010001,0x000186A0
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LedBoostBrightness_1,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_GlanceBrightness_Pct,0x00010001,0x00000007
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitK_NitOut2,0x00010001,0x00000064
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", IsUpsideDown,0x00010001,0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut0,0x00010001,0x0000000C
+HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", LIGHT_LuxToNitD_NitOut7,0x00010001,0x00000118
+
+[Strings]
+;Localizable Strings
+QC                     = "Nokia"
+OEM.SvcDesc            = "Nokia Panel Driver Service"
+OEM.DeviceDesc         = "Nokia Panel Driver"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_NORMAL   = 1
+
