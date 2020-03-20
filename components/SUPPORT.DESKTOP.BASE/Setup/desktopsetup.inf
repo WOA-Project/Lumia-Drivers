@@ -25,7 +25,6 @@ PreOobe.Files = 10,Setup\Scripts
 FirstLogon.cmd         = 0,,
 Oobe.cmd               = 0,,
 SpecializeCommands.cmd = 0,,
-sushi.jpg              = 0,,
 
 [SourceDisksFiles.ARM]
 devcon.exe             = 0,arm,
@@ -66,7 +65,6 @@ SilentProvisionerL.exe
 SilentProvisionerT.exe
 devcon.exe
 FirstLogon.cmd
-sushi.jpg
 
 [Strings]
 IHV     = "LumiaWoA authors"
