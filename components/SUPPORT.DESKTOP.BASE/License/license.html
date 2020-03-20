@@ -65,11 +65,11 @@
     </style>
 </head>
 <body>
-<B><FONT SIZE=3><P ALIGN="RIGHT">Last updated: September 2019</P>
-  <P>LUMIAWOA SOFTWARE LICENSE TERMS</P>
-  <P>DESKTOP WINDOWS (ARM64) DRIVER COLLECTION FOR MSM8992/8994 SOCS</P>
+<B><FONT SIZE=3><P ALIGN="RIGHT">Last updated March 2020</P>
+  <P>WOA-PROJECT SOFTWARE LICENSE TERMS</P>
+  <P>DESKTOP WINDOWS DRIVER COLLECTION FOR QUALCOMM WINDOWS PHONE PLATFORMS</P>
 </B>
-<P>This driver pack can be found at WOA-Project/MSM8994-8992-NT-ARM64-Drivers on Github.</P>
+<P>This driver pack can be found at WOA-Project/Lumia-Drivers on Github.</P>
 <B>
   <DIR>
     <DIR>
@@ -96,6 +96,21 @@
 				<P>- Lumia 950 XL Dual SIM</P>
 				<P>- Lumia Hapanero v1</P>
 				<P>- Lumia Hapanero v2</P>
+				<P>- Acer Jade Primo</P>
+				<P>- Lumia 650</P>
+				<P>- Lumia 640 XL</P>
+				<P>- Lumia 640 XL AT&T </P>
+				<P>- Lumia 1520 AT&T </P>
+				<P>- Lumia 1520</P>
+				<P>- Lumia Icon</P>
+				<P>- Lumia 930</P>
+				<P>- Lumia 830</P>
+				<P>- Lumia 730</P>
+				<P>- Lumia 735</P>
+				<P>- Lumia 1020 AT&T </P>
+				<P>- Lumia 920</P>
+				<P>- Lumia Alpha v1</P>
+				<P>- Lumia Alpha v2</P>
 			</DIR>
 		</DIR>
 		
@@ -108,18 +123,7 @@
 			<P>- Cameras are not working</P>
 			<P>- Some miracast devices cannot be used for projection under WOA. This includes most notably the HP lapdock, and a few OEM laptops.</P>
 			<P>- Abnormal CPU usage is observed under S0 (network connected) state leading to poor battery performance when the device is asleep</P>
-			<P>- USB C support is not finished. To get power out (VBUS) on your device, follow these steps:</P>
-			<DIR>
-				<P>i.	 Open regedit
-				<P>ii.	 Navigate to HKEY_LOCAL_MACHINE\SYSTEM\usbc
-				<P>iii.	 Create a new DWORD 32-bit value named: VbusEnable
-				<DIR>
-					<P>1.	 Set it to 0 to disable VBUS</P>
-					<P>2.	 Set it to 1 to enable VBUS</P>
-				</DIR>
-				<P>iv.	 Reboot the device with no charger plugged in</P>
-				<P><B>Important:</B> Do not plug an external power source when VBUS is enabled on your device. The device may charge by itself when VBUS is enabled, you can revert the Charging Arbitration Driver to the build version to prevent this but you'll break charging.</P>
-			</DIR>
+			<P>- USB C support is not finished.</P>
 			<P>- HDMI out is not functional</P>
 			<P>- x86 DirectX support is missing, you won't be able to run applications designed for DirectX and built for x86 on your phone</P>
 			<P>- Incoming call notifications may sometime not wake up the device (linked to S0 issues)</P>
@@ -127,7 +131,7 @@
 			<P>- Iris scanner won't work for Cityman/Talkman devices</P>
 			<P>- Talkman devices may require a manual reboot during setup</P>
 			<P>- Talkman devices may have occasional screen black outs for 1 second</P>
-			<P>- Cellular doesn't work on build 18912 and higher</P>
+			<P>- Cellular doesn't work fully on build 18912 and higher</P>
 		</DIR>
 		
 		<B><P>4. Credits.</P>
@@ -155,7 +159,7 @@
 		</DIR>
 		
 		<P></P>
-		<B><P>Hello from San Fransisco (US), France, Italy, Germany, Spain, Hungary</P></B>
+		<B><P>Hello from San Francisco (US), France, Italy, Germany, Spain, Hungary</P></B>
   </DIR>
 </DIR>
 </FONT>
