@@ -1,0 +1,95 @@
+;/*++
+;
+;Copyright (c) 2011 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcbattmngr8909.INF
+;
+;Abstract:
+;    INF file for installing the QcBattMngr Wdf Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %COMP%
+ExtensionId = {21E3E289-3E58-469D-B9DF-55339CD11F4D}
+DriverVer   = 07/02/2015,1.0.1067.0000
+CatalogFile = guilin_qcbattmngr8909.cat
+PnPLockdown = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; QcBattMngr client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = DeviceExtensions,NTARM
+
+[DeviceExtensions.NTARM]
+%DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2453
+
+[DeviceExtension_Install]
+Addreg        = BMREG
+
+[BMREG]
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\CoinCharger,CoinChargerVSet,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\CoinCharger,CoinChargerRSet,0x00010001,0x00000003
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\CoinCharger,CoinChargerEn,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,ManufactureName,0x00000000,"Microsoft"
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,DefaultAlert2,0x00010001,0x000002A3
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,DefaultAlert1,0x00010001,0x00000177
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,BatteryUniqueId,0x00000000,"Microsoft_1234"
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,BatteryManufactureMonth,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,FullChargeCapacity,0x00010001,0x00001D4C
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,DesignCapacity,0x00010001,0x00001D4C
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,DeviceName,0x00000000,"Microsoft Device"
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,BatteryManufactureYear,0x00010001,0x000007DF
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,BatteryManufactureDate,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BatteryInfo,BatterySerialNum,0x00000000,"123456"
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,SelectJeitaConfig,0x00010001,0x00000001
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,TempHyst,0x00010001,0x00000002
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,CurrentJeitaZone3,0x00010001,0x00000438
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,CurrentJeitaZone1,0x00010001,0x00000384
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,MaxBatteryCurrent,0x00010001,0x00000438
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,MaxBatteryVoltage,0x00010001,0x00001068
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,SafeMinTemp,0x00010001,0x00000000
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,SafeMaxtemp,0x00010001,0x0000003C
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,TemperatureJeitaZone3,0x00010001,0x00000032
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,TemperatureJeitaZone1,0x00010001,0x0000000A
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,StandardTempZone,0x00010001,0x00000002
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,VoltageJeitaZone3,0x00010001,0x00001004
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,VoltageJeitaZone1,0x00010001,0x00001004
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Jeita,TotalTempZone,0x00010001,0x00000003
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BattErrorHandle,SmartAuthStateAction,0x00010001,0x00000000
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BattErrorHandle,NormalStateAction,0x00010001,0x00000000
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\BattErrorHandle,UnknownStateAction,0x00010001,0x00000000
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\ThermalCorrect,NtcTail,0x00010001,0x0000000A
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\ThermalCorrect,NtcMargingLow,0x00010001,0xFFFFFFF9
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\ThermalCorrect,NtcMargingHigh,0x00010001,0x00000002
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\ThermalCorrect,NtcRate,0x00000000,"1.5"
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Platform,EmptyBatteryVoltage,0x00010001,0x00000CE4
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Platform,LowBatteryVoltage,0x00010001,0x00000D48
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Platform,NominalBatteryVoltage,0x00010001,0x00000E74
+HKLM,SYSTEM\CurrentControlSet\services\QcBattMngr\Platform,TermBatteryCurrent,0x00010001,0x00000096
+
+[Strings]
+;Localizable Strings
+COMP                   = "Qualcomm Incorporated"
+BATTMNGR.SvcDesc       = "Qualcomm Battery Manager Driver"
+DeviceDesc             = "Qualcomm Battery Manager Device"
+DiskId                 = "Qualcomm Battery Manager Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+
+
+
+
