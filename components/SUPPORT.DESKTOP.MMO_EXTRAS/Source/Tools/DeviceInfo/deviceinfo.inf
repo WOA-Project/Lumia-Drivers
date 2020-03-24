@@ -27,6 +27,8 @@ hapaneroeb2.reg = 0,,
 talkmands.reg = 0,,
 talkmanss.reg = 0,,
 saanass.reg = 0,,
+guilinds1.reg = 0,,
+guilinds2.reg = 0,,
 setoeminfo.cmd = 0,,
 dat.cmd = 0,,
 
@@ -51,6 +53,8 @@ hapaneroeb2.reg
 talkmands.reg
 talkmanss.reg
 saanass.reg
+guilinds1.reg
+guilinds2.reg
 setoeminfo.cmd
 dat.cmd
 
