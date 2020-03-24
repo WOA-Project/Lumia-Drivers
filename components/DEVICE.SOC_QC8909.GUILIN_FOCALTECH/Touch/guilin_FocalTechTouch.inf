@@ -1,0 +1,193 @@
+; FocalTechTouch.INF
+; Copyright (c) 2000,2011 Microsoft Corporation
+; Copyright (c) 2018,2019 Bingxing Wang
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %MSFT%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5C}
+DriverVer   = 11/09/2019,1.0.0.0
+CatalogFile = guilin_FocalTechTouch.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %Installation_Disk%,,,""
+
+[SourceDisksFiles]
+
+;*****************************************
+; TchDriver client driver Install Section
+;*****************************************
+
+[TchDriver_Device.NT.CopyFiles]
+
+[Manufacturer]
+%MSFT% = DeviceExtensions,NTarm
+
+[DeviceExtensions.NTarm]
+%TchDriver_Device_Desc% = DeviceExtension_Install, ACPI\MSHW1003
+
+[DeviceExtension_Install]
+AddReg    = CapButtons.NT.HW.AddReg
+AddReg    = PowerConfig.NT.HW.AddReg
+AddReg    = Configuration.NT.HW.AddReg
+AddReg    = Resolutions.NT.HW.AddReg
+AddReg    = DisplaySize.NT.HW.AddReg
+AddReg    = ButtonBacklights.NT.HW.AddReg
+AddReg    = LegacyTouchScaling.NT.HW.AddReg
+CopyFiles = TchDriver_Device.NT.CopyFiles
+
+[LegacyTouchScaling.NT.HW.AddReg]
+HKR, , "LegacyTouchScaling", 0x00010001,   0x0
+
+[CapButtons.NT.HW.AddReg]
+HKLM,SYSTEM\TOUCH\BUTTONS,Count,0x00010001,0x00000003
+HKLM,SYSTEM\TOUCH\BUTTONS\0,VKey,0x00010001,0x0000001B
+HKLM,SYSTEM\TOUCH\BUTTONS\0,Name,0x00000000,"Back"
+HKLM,SYSTEM\TOUCH\BUTTONS\1,VKey,0x00010001,0x00000071
+HKLM,SYSTEM\TOUCH\BUTTONS\1,Name,0x00000000,"Start"
+HKLM,SYSTEM\TOUCH\BUTTONS\2,VKey,0x00010001,0x00000072
+HKLM,SYSTEM\TOUCH\BUTTONS\2,Name,0x00000000,"Search"
+
+[PowerConfig.NT.HW.AddReg]
+HKR, , "EnhancedPowerManagementEnabled"   , %REG_DWORD%,   0
+HKR, , "EnhancedPowerManagementUseMonitor", %REG_DWORD%,   0
+
+[Configuration.NT.HW.AddReg]
+HKLM, %Configuration%, Vendor01HighResMaxTxLimit,0x00010001,0x000001C2
+HKLM, %Configuration%, ReprogramFw00,0x00010001,0x00000009
+HKLM, %Configuration%, ReprogramFw01,0x00010001,0x000000FF
+HKLM, %Configuration%, Vendor00BaselineMinMaxMaxPixelLimit,0x00010001,0x00002AF8
+HKLM, %Configuration%, Vendor01IncludeAbsSenseRawCapTest,0x00010001,0x00000000
+HKLM, %Configuration%, Vendor00RxElectrodeMaskTouch2D,0x00010001,0xFFFFFFFF
+HKLM, %Configuration%, Vendor00ProductId0,0x00010001,0x00000050
+HKLM, %Configuration%, Vendor01ProductId1,0x00010001,0x0000004C
+HKLM, %Configuration%, Vendor00TxElectrodeMaskButtons,0x00010001,0x00000000
+HKLM, %Configuration%, VendorCount,0x00010001,0x00000001
+HKLM, %Configuration%, Vendor00ProductId3,0x00010001,0x00000030
+HKLM, %Configuration%, Vendor01RxAmount,0x00010001,0x0000001B
+HKLM, %Configuration%, Vendor00ProductId6,0x00010001,0x00000037
+HKLM, %Configuration%, Vendor00ProductId9,0x00010001,0x00000032
+HKLM, %Configuration%, Vendor01HighResMaxRxLimit,0x00010001,0x000001C2
+HKLM, %Configuration%, Revision00,0x00010001,0x000000FF
+HKLM, %Configuration%, Vendor01ProductId0,0x00010001,0x00000050
+HKLM, %Configuration%, Vendor01ProductId3,0x00010001,0x00000030
+HKLM, %Configuration%, Vendor01ProductId6,0x00010001,0x00000039
+HKLM, %Configuration%, Vendor01ProductId9,0x00010001,0x00000046
+HKLM, %Configuration%, DoubleTapDeadZoneWidth100um,0x00010001,0x00000032
+HKLM, %Configuration%, SmartCoverSupported,0x00010001,0x00000001
+HKLM, %Configuration%, Vendor00RxAmount,0x00010001,0x00000020
+HKLM, %Configuration%, Vendor00ProductId8,0x00010001,0x00000030
+HKLM, %Configuration%, Vendor01RxElectrodeMaskTouch2D,0x00010001,0x00FFFFFF
+HKLM, %Configuration%, Vendor00HighResMaxTxLimit,0x00010001,0x000001C2
+HKLM, %Configuration%, Vendor01AbsSenseRawCapMinLimit,0x00010001,0x000003E8
+HKLM, %Configuration%, Vendor01,0x00010001,0x0000000B
+HKLM, %Configuration%, Vendor00TxElectrodeMaskTouch2D,0x00010001,0x0003FFFF
+HKLM, %Configuration%, Vendor01BaselineMinMaxMinPixelLimit,0x00010001,0x00000000
+HKLM, %Configuration%, Vendor01ProductId4,0x00010001,0x00000033
+HKLM, %Configuration%, Vendor01RxElectrodeMaskButtons,0x00010001,0x00000000
+HKLM, %Configuration%, Vendor00HighResMaxRxLimit,0x00010001,0x000001C2
+HKLM, %Configuration%, Vendor00ProductId2,0x00010001,0x00000047
+HKLM, %Configuration%, Vendor01HighResMinImageLimit,0x00010001,0xFFFFFE70
+HKLM, %Configuration%, Vendor00ProductId5,0x00010001,0x00000034
+HKLM, %Configuration%, ChargerDetectionSupported,0x00010001,0x00000000
+HKLM, %Configuration%, ImprovedTouchSupported,0x00010001,0x00000000
+HKLM, %Configuration%, ForceFlash,0x00010001,0x00000001
+HKLM, %Configuration%, Vendor01ProductId2,0x00010001,0x00000047
+HKLM, %Configuration%, Vendor01AbsSenseRawCapMaxLimit,0x00010001,0x00000BB8
+HKLM, %Configuration%, Vendor01ProductId5,0x00010001,0x00000032
+HKLM, %Configuration%, Vendor01ProductId8,0x00010001,0x00000046
+HKLM, %Configuration%, Vendor01IncludeBaselineMinMaxTest,0x00010001,0x00000000
+HKLM, %Configuration%, Vendor00HighResMinImageLimit,0x00010001,0xFFFFFE70
+HKLM, %Configuration%, Vendor01IncludeFullBaselineTest,0x00010001,0x00000001
+HKLM, %Configuration%, Vendor01BaselineMinMaxMaxPixelLimit,0x00010001,0x0000157C
+HKLM, %Configuration%, Vendor00,0x00010001,0x00000000
+HKLM, %Configuration%, Vendor00IncludeFullBaselineTest,0x00010001,0x00000001
+HKLM, %Configuration%, DoubleTapMaxTapTime10ms,0x00010001,0x00000023
+HKLM, %Configuration%, Vendor01TxAmount,0x00010001,0x0000000E
+HKLM, %Configuration%, Vendor00RxElectrodeMaskButtons,0x00010001,0x00000000
+HKLM, %Configuration%, DoubleTapDeadZoneHeight100um,0x00010001,0x00000032
+HKLM, %Configuration%, Vendor00IncludeBaselineMinMaxTest,0x00010001,0x00000000
+HKLM, %Configuration%, Vendor01AbsSenseRawCapTxRxStart,0x00010001,0x0000000E
+HKLM, %Configuration%, DeviceId,0x00010001,0x00000001
+HKLM, %Configuration%, Vendor01IncludeHighResTest,0x00010001,0x00000001
+HKLM, %Configuration%, Vendor00ProductId1,0x00010001,0x0000004C
+HKLM, %Configuration%, Vendor00IncludeHighResTest,0x00010001,0x00000001
+HKLM, %Configuration%, Vendor00ProductId4,0x00010001,0x00000034
+HKLM, %Configuration%, Vendor00ProductId7,0x00010001,0x0000002D
+HKLM, %Configuration%, Revision01,0x00010001,0x000000FF
+HKLM, %Configuration%, WakeupGestureSupported,0x00010001,0x00000001
+HKLM, %Configuration%, Vendor00IncludeAbsSenseRawCapTest,0x00010001,0x00000001
+HKLM, %Configuration%, Vendor00TxAmount,0x00010001,0x00000012
+HKLM, %Configuration%, Vendor01ProductId7,0x00010001,0x0000002D
+HKLM, %Configuration%, Vendor01TxElectrodeMaskTouch2D,0x00010001,0x00001FFF
+HKLM, %Configuration%, Vendor00BaselineMinMaxMinPixelLimit,0x00010001,0x00000000
+HKLM, %Configuration%, DoubleTapMaxTapDistance100um,0x00010001,0x0000001E
+HKLM, %Configuration%, Vendor01TxElectrodeMaskButtons,0x00010001,0x00000000
+HKLM, %Configuration%, Vendor01AbsSenseRawCapTxRxEnd,0x00010001,0x00000025
+HKLM, %Configuration%, ControllerType,0x00010001,0x00000E74
+
+HKLM, %FFConfiguration%, StartButton,0x00010001,0x00000000
+HKLM, %FFConfiguration%, EnableWakeupGesture,0x00010001,0x00000001
+HKLM, %FFConfiguration%, SearchButton,0x00010001,0x00000002
+HKLM, %FFConfiguration%, BackButton,0x00010001,0x00000001
+
+[Resolutions.NT.HW.AddReg]
+HKLM, %ScreenProps%, DisplayWidth10um,0x00010001,0x00001BBC
+HKLM, %ScreenProps%, TouchInvertYAxis,0x00010001,0x00000000
+HKLM, %ScreenProps%, TouchPhysicalButtonHeight,0x00010001,0x00000000
+HKLM, %ScreenProps%, TouchInvertXAxis,0x00010001,0x00000000
+HKLM, %ScreenProps%, DisplayLetterBoxHeightTop,0x00010001,0x00000000
+HKLM, %ScreenProps%, TouchSwapAxes,0x00010001,0x00000000
+HKLM, %ScreenProps%, DisplayHeight10um,0x00010001,0x00003106
+HKLM, %ScreenProps%, TouchPillarBoxHeightTop,0x00010001,0x00000000
+HKLM, %ScreenProps%, TouchPhysicalHeight,0x00010001,0x00000500
+HKLM, %ScreenProps%, DisplayLetterBoxHeightBottom,0x00010001,0x00000000
+HKLM, %ScreenProps%, DisplayPhysicalHeight,0x00010001,0x00000500
+HKLM, %ScreenProps%, TouchPillarBoxHeightBottom,0x00010001,0x00000000
+HKLM, %ScreenProps%, TouchPhysicalWidth,0x00010001,0x000002D0
+HKLM, %ScreenProps%, DisplayPillarBoxWidthRight,0x00010001,0x00000000
+HKLM, %ScreenProps%, DisplayPillarBoxWidthLeft,0x00010001,0x00000000
+HKLM, %ScreenProps%, TouchPillarBoxWidthLeft,0x00010001,0x00000000
+HKLM, %ScreenProps%, DisplayPhysicalWidth,0x00010001,0x000002D0
+HKLM, %ScreenProps%, TouchPillarBoxWidthRight,0x00010001,0x00000000
+
+[DisplaySize.NT.HW.AddReg]
+HKLM, %DisplaySize%, DisplayWidth10um,0x00010001,0x00001BBC
+HKLM, %DisplaySize%, DisplayHeight10um,0x00010001,0x00003106
+
+[ButtonBacklights.NT.HW.AddReg]
+
+; ------------- Strings section
+[Strings]
+MSFT                   = "LumiaWoA authors"
+Manufacturer_Name      = "FocalTech"
+Installation_Disk      = "FocalTech Touch Driver Installation Disk"
+TchDriver_Device_Desc  = "FocalTech 5x Guilin Digitizer Device"
+TchDriver_Service      = "FocalTechTouch"
+TchDriver_Service_Desc = "FocalTech 5x Guilin Digitizer Driver Service"
+HIDKMDF_Service        = "mshidkmdf"
+
+; ------------- non-localizable strings
+Configuration          = "SYSTEM\TOUCH\SETTINGS"
+FFConfiguration        = "SYSTEM\TOUCH\SETTINGS\FF"
+ScreenProps            = "SYSTEM\TOUCH\SCREENPROPERTIES"
+DisplaySize            = "SYSTEM\TOUCH\DISPLAYPROPERTIES"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_MULTI_SZ           = 0x00010000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+
