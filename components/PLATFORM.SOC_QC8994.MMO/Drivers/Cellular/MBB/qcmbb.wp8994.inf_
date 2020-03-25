@@ -21,7 +21,9 @@ Class       = Net
 ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0
-Catalogfile = qcmbb8994.cat ;todo .cat file generated once driver passes WHQL
+
+Catalogfile.NTARM   = qcmbb8994.arm.cat ;todo .cat file generated once driver passes WHQL
+Catalogfile.NTARM64 = qcmbb8994.arm64.cat ;todo .cat file generated once driver passes WHQL
 
 [ControlFlags]
 ExcludeFromSelect = *       ; Do we need this? This prevents the driver from being displayed in manual installation UI
@@ -29,19 +31,34 @@ ExcludeFromSelect = *       ; Do we need this? This prevents the driver from bei
 [SourceDisksNames]
 1 = %DiskId1%,,,""
 
-[SourceDisksFiles]
-qcmbb8994.sys = 1,,
+[SourceDisksFiles.ARM]
+qcmbb8994.wa.sys = 1,arm,
+qcmbb8994.wp.sys = 1,arm,
+
+[SourceDisksFiles.ARM64]
+qcmbb8994.wa.sys = 1,arm64,
+qcmbb8994.wp.sys = 1,arm64,
 
 [DestinationDirs]
-wwan.CopyFiles = 12
+wwan.wp.CopyFiles = 12
+wwan.wa.CopyFiles = 12
 
 [Manufacturer]
-%QCOM% = QCOM, NTARM
+%QCOM% = QCOM, NTARM, NTARM64
 
 [QCOM.NTARM]
-%wwan.DeviceDesc% = wwan.ndi, QCMS\QCOM0EA0
+%wwan.DeviceDesc% = wwan.wp.ndi, QCMS\QCOM0EA0
 
-[wwan.ndi]
+[QCOM.NTARM.10.0...18909]
+%wwan.DeviceDesc% = wwan.wa.ndi, QCMS\QCOM0EA0
+
+[QCOM.NTARM64]
+%wwan.DeviceDesc% = wwan.wp.ndi, QCMS\QCOM0EA0
+
+[QCOM.NTARM64.10.0...18909]
+%wwan.DeviceDesc% = wwan.wa.ndi, QCMS\QCOM0EA0
+
+[wwan.wp.ndi]
 Include            = netvchannel.inf
 Needs              = NetVChannel
 Characteristics    = 0x4                      ; NCF_PHYSICAL
@@ -50,7 +67,18 @@ Characteristics    = 0x4                      ; NCF_PHYSICAL
 *PhysicalMediaType = 8                        ; NdisPhysicalMediumWirelessWan
 EnableDhcp         = 0
 AddReg             = wwan.Reg
-CopyFiles          = wwan.CopyFiles
+CopyFiles          = wwan.wp.CopyFiles
+
+[wwan.wa.ndi]
+Include            = netvchannel.inf
+Needs              = NetVChannel
+Characteristics    = 0x4                      ; NCF_PHYSICAL
+*IfType            = 244                      ; IF_TYPE_WWANPP2
+*MediaType         = 9                        ; NdisMediumWirelessWan
+*PhysicalMediaType = 8                        ; NdisPhysicalMediumWirelessWan
+EnableDhcp         = 0
+AddReg             = wwan.Reg
+CopyFiles          = wwan.wa.CopyFiles
 
 [wwan.ndi.HW]
 Include = netvchannel.inf
@@ -85,8 +113,11 @@ HKR, Ndi\Interfaces, LowerRange, 0,  "ppip, vchannel"
 ;-----------------------------------------------------------------------------
 ; Driver and Service Section
 ;-----------------------------------------------------------------------------
-[wwan.CopyFiles]
-qcmbb8994.sys, , , 2,
+[wwan.wp.CopyFiles]
+qcmbb8994.sys, qcmbb8994.wp.sys, , 2,
+
+[wwan.wa.CopyFiles]
+qcmbb8994.sys, qcmbb8994.wa.sys, , 2,
 
 [wwan.Service]
 DisplayName    = %wwan.Service.DispName%

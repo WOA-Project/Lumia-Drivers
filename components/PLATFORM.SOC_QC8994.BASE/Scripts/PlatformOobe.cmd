@@ -1,15 +1,7 @@
 @echo off
 
 REM MBB
-powershell -command "[System.Environment]::OSVersion.Version.Build" > psout.txt
-set /p osbuild=<psout.txt
-del psout.txt
-
-if %osbuild% gtr 18908 (
-    \Windows\OEM\devcon.exe update \Windows\OEM\Drivers\WA\qcmbb.wp8994.inf QCMS\QCOM0EA0
-) else (
-    \Windows\OEM\devcon.exe update \Windows\OEM\Drivers\WP\qcmbb.wp8994.inf QCMS\QCOM0EA0
-)
+\Windows\OEM\devcon.exe update \Windows\OEM\Drivers\qcmbb.wp8994.inf QCMS\QCOM0EA0
 
 for /f "delims=*" %%f in ('dir /b /s \Windows\System32\DriverStore\FileRepository\qcxhcifilter*.inf') do \Windows\OEM\devcon.exe update %%f URS\QCOM24B6^&HOST
 
