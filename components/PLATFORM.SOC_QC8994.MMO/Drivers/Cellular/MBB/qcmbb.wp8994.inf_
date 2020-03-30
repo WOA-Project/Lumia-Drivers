@@ -80,19 +80,36 @@ EnableDhcp         = 0
 AddReg             = wwan.Reg
 CopyFiles          = wwan.wa.CopyFiles
 
-[wwan.ndi.HW]
+[wwan.wp.ndi.HW]
 Include = netvchannel.inf
 Needs   = NetVChannel.HW
 
-[wwan.ndi.CoInstallers]
+[wwan.wp.ndi.CoInstallers]
 Include = netvchannel.inf
 Needs   = NetVChannel.CoInstallers
 
-[wwan.ndi.Interfaces]
+[wwan.wp.ndi.Interfaces]
 Include = netvchannel.inf
 Needs   = NetVChannel.Interfaces
 
-[wwan.ndi.Services]
+[wwan.wp.ndi.Services]
+Include    = netvchannel.inf
+Needs      = NetVChannel.Services
+AddService = mbb, 2, wwan.Service, wwan.EventLog
+
+[wwan.wa.ndi.HW]
+Include = netvchannel.inf
+Needs   = NetVChannel.HW
+
+[wwan.wa.ndi.CoInstallers]
+Include = netvchannel.inf
+Needs   = NetVChannel.CoInstallers
+
+[wwan.wa.ndi.Interfaces]
+Include = netvchannel.inf
+Needs   = NetVChannel.Interfaces
+
+[wwan.wa.ndi.Services]
 Include    = netvchannel.inf
 Needs      = NetVChannel.Services
 AddService = mbb, 2, wwan.Service, wwan.EventLog
@@ -155,7 +172,10 @@ HKR, Ndi\params\*WakeOnPattern,                 type,                     0, "en
 HKR, Ndi\params\*WakeOnPattern\enum,            "0",                      0, %Disabled%
 HKR, Ndi\params\*WakeOnPattern\enum,            "1",                      0, %Enabled%
 
-[wwan.ndi.Wdf]
+[wwan.wp.ndi.Wdf]
+KmdfService = mbb, wwan_wdfsect
+
+[wwan.wa.ndi.Wdf]
 KmdfService = mbb, wwan_wdfsect
 
 [wwan_wdfsect]

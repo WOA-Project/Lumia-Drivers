@@ -1,0 +1,85 @@
+;/*++
+;
+;Copyright (c) 2013-2014  QualComm Inc
+;
+;Module Name:
+;    QCCAMCORE8992.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks CORE Driver
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=SYSTEM
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%QC%
+DriverVer=09/20/2014,5.00.3788
+
+CatalogFile.NTARM   = qccamcore8992.arm.cat
+CatalogFile.NTARM64 = qccamcore8992.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles.ARM]
+qccamcore8992.sys  = 1,arm,
+
+[SourceDisksFiles.ARM64]
+qccamcore8992.sys  = 1,arm64,
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+;*****************************************
+; CORE  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC%=QC, NTARM, NTARM64
+
+[QC.NTARM]
+%CORE.DeviceDesc%=CORE_Device, ROOT\CORE
+
+[CORE_Device.NTARM]
+CopyFiles=Drivers_Dir
+
+[QC.NTARM64]
+%CORE.DeviceDescNull%=CORE_Device, ROOT\CORE
+
+[CORE_Device.NTARM64]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+qccamcore8992.sys
+
+[CORE_Device.NTARM.HW]
+AddReg=CORE_Device_Security_Reg
+ 
+[CORE_Device_Security_Reg]
+HKR,,DeviceCharacteristics,0x10001,0x100
+
+;-------------- Service installation
+[CORE_Device.NTARM.Services]
+AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst
+
+; -------------- CORE driver install sections
+[CORE_Service_Inst]
+DisplayName    = %CORE.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+;StartType      = 2               ; SERVICE_AUTO_START 
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qccamcore8992.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+QC = "Qualcomm Inc."
+DiskId1 = "Qualcomm Camera CORE Installation Disk"
+CORE.DeviceDesc = "Qualcomm Camera CORE Driver"
+CORE.DeviceDesc = "Qualcomm Camera CORE Driver (Null)"
+CORE.SVCDESC = "Qualcomm Camera CORE Service"

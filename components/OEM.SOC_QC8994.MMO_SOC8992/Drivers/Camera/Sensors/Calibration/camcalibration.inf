@@ -1,0 +1,83 @@
+;
+; camcalibration.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/09/2016,12.0.30519.0
+
+CatalogFile.NTARM   = camcalibration.arm.cat
+CatalogFile.NTARM64 = camcalibration.arm64.cat
+
+[DestinationDirs]
+; 11 = system32
+CamCal.Files.NTarm_11 = 12
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+06002000.dfc = 0,,
+0A214000.dcc = 0,,
+0A214001.dcc = 0,,
+0AEACA01.dcc = 0,,
+0AEACA02.dcc = 0,,
+0AEACA04.dcc = 0,,
+0AEACA05.dcc = 0,,
+0AEACA11.dcc = 0,,
+0AEACA12.dcc = 0,,
+0AEACA14.dcc = 0,,
+0AEACA15.dcc = 0,,
+0C086101.dcc = 0,,
+10454101.dcc = 0,,
+10454102.dcc = 0,,
+10454103.dcc = 0,,
+10454104.dcc = 0,,
+10454105.dcc = 0,,
+10454106.dcc = 0,,
+10454107.dcc = 0,,
+10454110.dcc = 0,,
+10454111.dcc = 0,,
+10454112.dcc = 0,,
+
+;*****************************************
+; CamCal  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = CamCal.Files.NTarm_11
+
+[DefaultInstall.NTARM64]
+CopyFiles = CamCal.Files.NTarm_11
+
+; System32
+[CamCal.Files.NTarm_11]
+06002000.dfc
+0A214000.dcc
+0A214001.dcc
+0AEACA01.dcc
+0AEACA02.dcc
+0AEACA04.dcc
+0AEACA05.dcc
+0AEACA11.dcc
+0AEACA12.dcc
+0AEACA14.dcc
+0AEACA15.dcc
+0C086101.dcc
+10454101.dcc
+10454102.dcc
+10454103.dcc
+10454104.dcc
+10454105.dcc
+10454106.dcc
+10454107.dcc
+10454110.dcc
+10454111.dcc
+10454112.dcc
+
+[Strings]
+IHV                    = "LumiaWoA authors"
+DiskId1                = "Camera Calibration Installation Disk #1"
+

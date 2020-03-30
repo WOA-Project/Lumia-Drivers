@@ -1,0 +1,89 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Inc
+;
+;Module Name:
+;    qccamflashtertiary8992.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Flash Tertiary Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM   = qccamflashtertiary8992.arm.cat
+CatalogFile.NTARM64 = qccamflashtertiary8992.arm64.cat
+
+[DestinationDirs]
+FLASH.Files_12 = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+qccamflashtertiary8992.sys = 1,arm
+
+[SourceDisksFiles.ARM64]
+qccamflashtertiary8992.sys = 1,arm64
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; FLASH  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC, NTARM, NTARM64
+
+[QC.NTARM]
+%FLASH.DeviceDesc% = CameraFlashTertiary_Device, ACPI\QCOM244C
+
+[QC.NTARM64]
+%FLASH.DeviceDesc% = CameraFlashTertiary_Device, ACPI\QCOM244C
+
+[CameraFlashTertiary_Device.NT]
+CopyFiles   = flash.Files_12
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[flash.Files_12]
+qccamflashtertiary8992.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[CameraFlashTertiary_Device.NT.HW]
+AddReg = CameraFlashTertiary_Device_Security_Reg
+ 
+[CameraFlashTertiary_Device_Security_Reg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+;-------------- Service installation
+[CameraFlashTertiary_Device.NT.Services]
+AddService = qcFlashTertiary,%SPSVCINST_ASSOCSERVICE%, FLASH_Service_Inst
+
+; -------------- FLASH driver install sections
+[FLASH_Service_Inst]
+DFLASHlayName = %FLASH.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamflashtertiary8992.sys
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm Camera Flash Tertiary Installation Disk"
+FLASH.SVCDESC          = "Qualcomm Camera Flash Tertiary Driver"
+FLASH.DeviceDesc       = "Qualcomm Camera Flash Tertiary Device"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

@@ -1,0 +1,95 @@
+[Version]
+Signature="$WINDOWS NT$"
+Class=SYSTEM
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%MMO%
+DriverVer=07/10/2013,12.55.5.110
+
+CatalogFile.NTARM   = icaros_cam_esp.arm.cat
+CatalogFile.NTARM64 = icaros_cam_esp.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+[SourceDisksNames]
+0=%Desc_x860%
+
+[SourceDisksFiles.ARM]
+icaros_cam_esp.sys=0,arm,
+
+[SourceDisksFiles.ARM64]
+icaros_cam_esp.sys=0,arm64,
+
+;*****************************************
+; Camera Sensor  Install Section
+;*****************************************
+
+[Manufacturer]
+%MMO%=MMO, NTarm, NTarm64
+
+; Following section is meant for Windows 2000 as it 
+; cannot parse decorated model sections
+;
+; Hw Id is ACPI\MSHW1010
+;
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[MMO.NTarm]
+%CameraESP.DeviceDesc%=CameraESP_Device, ACPI\MSHW1010
+
+[MMO.NTarm64]
+%CameraESP.DeviceDescNull%=CameraESP_Device, ACPI\MSHW1010
+
+[CameraESP_Device.NT]
+CopyFiles=Drivers_Dir
+AddPowerSetting=Temperature_Power_Setting
+SubClass=StillImage
+AddReg=CameraESP_Device_Security_Reg
+
+[Drivers_Dir]
+icaros_cam_esp.sys
+
+[CameraESP_Device.NT.HW]
+AddReg=CameraESP_Device_Security_Reg
+ 
+[CameraESP_Device_Security_Reg]
+HKR,,DeviceCharacteristics,0x10001,0x100
+
+;-------------- Service installation
+[CameraESP_Device.NT.Services]
+AddService = CameraESP,%SPSVCINST_ASSOCSERVICE%, CameraESP_Service_Inst
+
+; -------------- CameraESP driver install sections
+[CameraESP_Service_Inst]
+DisplayName    = %CameraESP.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 1               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\icaros_cam_esp.sys
+
+[Temperature_Power_Setting]
+SubGroup = {7D54AE13-7A01-469d-8AF3-6FF4662C5371}
+Setting = {E5FDE9D7-7A0E-4048-81BB-A77CAF7B349F}, "Simulated Machine Temperature", "Specify the simulated temperature of the system."
+ValueRange = 1, 10000, 1, "Tenths of degrees Kelvin"
+
+; Max Power savings, AC
+Default = {A1841308-3541-4FAB-BC81-F71556F20B4A}, 0, 1
+; Max Power savings, DC
+Default = {A1841308-3541-4FAB-BC81-F71556F20B4A}, 1, 1
+; No power savings, AC
+Default = {8C5E7FDA-E8BF-4A96-9A85-A6E23A8C635C}, 0, 1 
+; No power savings, DC
+Default = {8C5E7FDA-E8BF-4A96-9A85-A6E23A8C635C}, 1, 1
+; Balanced Laptop performance, AC
+Default = {381B4222-F694-41F0-9685-FF5BB260DF2E}, 0, 1
+; Balanced Laptop performance, DC
+Default = {381B4222-F694-41F0-9685-FF5BB260DF2E}, 1, 1
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+MMO = "MMO"
+CameraESP.DeviceDesc = "Icaros Extra Sensory Perception Driver"
+CameraESP.DeviceDescNull = "Icaros Extra Sensory Perception Driver (Null)"
+CameraESP.SVCDESC = "Icaros Extra Sensory Perception Service"
+Desc_x860= "Data"

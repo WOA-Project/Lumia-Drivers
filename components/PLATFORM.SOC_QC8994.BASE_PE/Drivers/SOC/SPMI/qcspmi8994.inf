@@ -1,0 +1,94 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcspmi.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks qcspmiDriver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM   = qcspmi8994.arm.cat
+CatalogFile.NTARM64 = qcspmi8994.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles.ARM]
+qcspmi8994.sys = 1,arm,
+
+[SourceDisksFiles.ARM64]
+qcspmi8994.sys = 1,arm64,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM,NTARM64
+
+[Standard.NTARM]
+%qcspmi.DeviceDesc% = qcspmi_Device, ACPI\QCOM2404
+
+[Standard.NTARM64]
+%qcspmi.DeviceDesc% = qcspmi_Device, ACPI\QCOM2404
+
+[qcspmi_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[Drivers_Dir]
+qcspmi8994.sys
+
+;-------------- Service installation
+[qcspmi_Device.NT.Services]
+AddService = qcspmi,%SPSVCINST_ASSOCSERVICE%, qcspmi_Service_Inst
+
+; -------------- qcspmi driver install sections
+[qcspmi_Service_Inst]
+DisplayName    = %qcspmi.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qcspmi8994.sys
+LoadOrderGroup = Filter
+Tag            = 2
+
+[qcspmi_Device.NT.Wdf]
+KmdfService = qcspmi, qcspmi_wdfsect
+
+[qcspmi_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskName               = "Qualcomm SPMI Device Installation Disk"
+qcspmi.DeviceDesc      = "Qualcomm SPMI Device"
+qcspmi.SVCDESC         = "Qualcomm SPMI Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_ERROR_NORMAL   = 1
+

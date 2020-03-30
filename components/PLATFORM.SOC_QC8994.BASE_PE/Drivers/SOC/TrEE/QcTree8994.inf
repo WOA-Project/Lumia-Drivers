@@ -1,0 +1,156 @@
+;/*++
+;
+;Copyright (c) 2014 Qualcomm Technologies, Inc.  All Rights Reserved.
+;
+;Module Name:
+;
+;    QcTrEE.INF
+;
+;Abstract:
+;    INF file for installing Qualcomm TrEE driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM   = QcTrEE8994.arm.cat
+CatalogFile.NTARM64 = QcTrEE8994.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;*****************************************
+; QcTrEE Device Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM,NTARM64
+
+[Standard.NTARM]
+; DisplayName       		Section           DeviceId
+; -----------       		-------           --------
+%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24BA
+%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24B9
+
+[Standard.NTARM64]
+; DisplayName       		Section           DeviceId
+; -----------       		-------           --------
+%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24BA
+%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24B9
+
+[QcTrEE.NT]
+CopyFiles   = QcTrEE.NT.Copy
+AddProperty = WDTFSOCDeviceCategory
+
+[QcTrEE.NT.Copy]
+QcTrEE8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+
+[QcTrEE.NT.Services]
+AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst
+
+[QcTrEE_Service_Inst]
+DisplayName    = %QcTrEE.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 0               ; SERVICE_BOOT_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\QcTrEE8994.sys
+Dependencies   = WindowsTrustedRT,WindowsTrustedRTProxy,fastfat
+LoadOrderGroup = Extended Base
+Tag            = 10
+AddReg         = QcTrEE_SecureService_AddReg
+
+[QcTrEE_SecureService_AddReg]
+HKR, %PassThroughService.RegKey%, Enabled       , %REG_DWORD%   , 1
+HKR, %PassThroughService.RegKey%, MajorVersion  , %REG_DWORD%   , 1
+HKR, %PassThroughService.RegKey%, MinorVersion  , %REG_DWORD%   , 0
+HKR, %PassThroughService.RegKey%, OSDependencies, %REG_MULTI_SZ%, %RpmbOsService%
+
+HKR, %TPMService.RegKey%        , Enabled       , %REG_DWORD%   , 1
+HKR, %TPMService.RegKey%        , MajorVersion  , %REG_DWORD%   , 1
+HKR, %TPMService.RegKey%        , MinorVersion  , %REG_DWORD%   , 1
+HKR, %TPMService.RegKey%        , OSDependencies, %REG_MULTI_SZ%, %RpmbOsService%,%ClockOsService%
+
+HKR, %EFIVarService.RegKey%     , Enabled       , %REG_DWORD%   , 1
+HKR, %EFIVarService.RegKey%     , MajorVersion  , %REG_DWORD%   , 1
+HKR, %EFIVarService.RegKey%     , MinorVersion  , %REG_DWORD%   , 0
+HKR, %EFIVarService.RegKey%     , OSDependencies, %REG_MULTI_SZ%, %RpmbOsService%,%ClockOsService%
+
+HKR, %WinSecAppService.RegKey%  , Enabled       , %REG_DWORD%   , 1
+HKR, %WinSecAppService.RegKey%  , SecureApp     , %REG_DWORD%   , 1
+HKR, %WinSecAppService.RegKey%  , LoadApp       , %REG_DWORD%   , 0
+HKR, %WinSecAppService.RegKey%  , AppName       ,               , "qcom.tz.winsecapp"
+HKR, %WinSecAppService.RegKey%  , MajorVersion  , %REG_DWORD%   , 1
+HKR, %WinSecAppService.RegKey%  , MinorVersion  , %REG_DWORD%   , 0
+HKR, %WinSecAppService.RegKey%  , OSDependencies, %REG_MULTI_SZ%, %RpmbOsService%,%ClockOsService%
+
+HKR, %PlayReadyService.RegKey%  , Enabled       , %REG_DWORD%   , 1
+HKR, %PlayReadyService.RegKey%  , SecureApp     , %REG_DWORD%   , 1
+HKR, %PlayReadyService.RegKey%  , LoadApp       , %REG_DWORD%   , 1
+HKR, %PlayReadyService.RegKey%  , AppName       ,               , "playread"
+HKR, %PlayReadyService.RegKey%  , FileName      ,               , "pr_3_0.mbn"
+HKR, %PlayReadyService.RegKey%  , MajorVersion  , %REG_DWORD%   , 1
+HKR, %PlayReadyService.RegKey%  , MinorVersion  , %REG_DWORD%   , 0
+HKR, %PlayReadyService.RegKey%  , OSDependencies, %REG_MULTI_SZ%, %ClockOsService%
+
+HKR, %SdkSecAppService.RegKey%  , Enabled       , %REG_DWORD%   , 0
+HKR, %SdkSecAppService.RegKey%  , SecureApp     , %REG_DWORD%   , 1
+HKR, %SdkSecAppService.RegKey%  , LoadApp       , %REG_DWORD%   , 1
+HKR, %SdkSecAppService.RegKey%  , AppName       ,               , "qcom.tz.sdksecapp"
+HKR, %SdkSecAppService.RegKey%  , FileName      ,               , "sdksecap.mbn"
+HKR, %SdkSecAppService.RegKey%  , MajorVersion  , %REG_DWORD%   , 1
+HKR, %SdkSecAppService.RegKey%  , MinorVersion  , %REG_DWORD%   , 0
+HKR, %SdkSecAppService.RegKey%  , OSDependencies, %REG_MULTI_SZ%, %RpmbOsService%,%ClockOsService%
+
+HKR, %IsswAppService.RegKey%    , Enabled       , %REG_DWORD%   , 0
+HKR, %IsswAppService.RegKey%    , SecureApp     , %REG_DWORD%   , 1
+HKR, %IsswAppService.RegKey%    , LoadApp       , %REG_DWORD%   , 0
+HKR, %IsswAppService.RegKey%    , AppName       ,               , "tz.issw"
+HKR, %IsswAppService.RegKey%    , MajorVersion  , %REG_DWORD%   , 1
+HKR, %IsswAppService.RegKey%    , MinorVersion  , %REG_DWORD%   , 0
+HKR, %IsswAppService.RegKey%    , OSDependencies, %REG_MULTI_SZ%, %IsswRelatedService%,%ClockOsService%
+
+HKR, %OsServices.RegKey%        ,               , %REG_KEY_ONLY%,
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles.ARM]
+QcTrEE8994.sys = 1,arm,
+
+[SourceDisksFiles.ARM64]
+QcTrEE8994.sys = 1,arm64,
+
+[Strings]
+SPSVCINST_ASSOCSERVICE    = 0x00000002
+QUALCOMM                  = "Qualcomm Inc."
+StdMfg                    = "(Standard system devices)"
+ClassName                 = "QcTrEE"
+DiskId1                   = "QcTrEE Installation Disk #1"
+QcTrEE.DeviceDesc         = "Qualcomm TrEE Device"
+QcTrEE.SVCDESC            = "Qualcomm TrEE Device Driver"
+PassThroughService.RegKey = "Parameters\SecureServices\{AE865C08-4A07-404D-BE51-D9A0465E23E5}"
+TPMService.RegKey         = "Parameters\SecureServices\{36DEAA79-C5DD-447C-95E6-B3859589291A}"
+EFIVarService.RegKey      = "Parameters\SecureServices\{699AA2F1-A42E-40DF-BABE-3AAAD2BB6A47}"
+WinSecAppService.RegKey   = "Parameters\SecureServices\{16A1AB50-7413-4875-893D-2E5AA0B79888}"
+PlayReadyService.RegKey   = "Parameters\SecureServices\{F4637010-03C3-42CD-B932-B48ADF3A6A54}"
+SdkSecAppService.RegKey   = "Parameters\SecureServices\{B6902B2E-44C7-43C5-B840-FF3A406B08FA}"
+IsswAppService.RegKey     = "Parameters\SecureServices\{77A02A29-7F29-4307-9F76-2ADC1F8B6C1D}"
+OsServices.RegKey         = "Parameters\OsServices"
+RpmbOsService             = "{27447C21-BCC3-4D07-A05B-A3395BB4EEE7}"
+ClockOsService            = "{48BCEDD3-171C-4FA5-B039-5971CF188746}"
+IsswRelatedService        = "{05272F96-AD1A-4497-97C2-16B965B197B3}"
+REG_DWORD                 = 0x00010001
+REG_MULTI_SZ              = 0x00010008
+REG_KEY_ONLY              = 0x00000010
+

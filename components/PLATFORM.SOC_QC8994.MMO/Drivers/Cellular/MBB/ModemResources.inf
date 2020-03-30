@@ -44,8 +44,8 @@ qcmbb8994.wa.sys, qcmbb8994.wa.arm.sys, , 0x00004000,
 qcmbb8994.wp.sys, qcmbb8994.wp.arm.sys, , 0x00004000,
 
 [ModemResources.ARM64.Files]
-qcmbb8994.wa.sys, qcmbb8994.wa.arm.sys, , 0x00004000,
-qcmbb8994.wp.sys, qcmbb8994.wp.arm.sys, , 0x00004000,
+qcmbb8994.wa.sys, qcmbb8994.wa.arm64.sys, , 0x00004000,
+qcmbb8994.wp.sys, qcmbb8994.wp.arm64.sys, , 0x00004000,
 
 [Strings]
 IHV = "LumiaWoA authors"

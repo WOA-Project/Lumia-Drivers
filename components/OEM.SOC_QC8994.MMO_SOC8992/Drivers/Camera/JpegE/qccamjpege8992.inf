@@ -1,0 +1,131 @@
+;;/*++
+;
+;Copyright (c) 2010-2012  QualComm Corporation
+;
+;Module Name:
+;    qccamjpege8992.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Camera JPEG Encoder Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 07/02/2015,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTARM   = qccamjpege8992.arm.cat
+CatalogFile.NTARM64 = qccamjpege8992.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+QCWic.Files    = 11
+QCWic32.Files  = 11
+QCWicArm.Files = 10, SysArm32
+
+; ================= Class section =====================
+[SourceDisksNames]
+0 = %Desc_x860%
+
+[SourceDisksFiles.ARM]
+qccamjpege8992.sys = 0,arm,
+QcWicEncoder8992.dll=0,arm64,
+QcWicEncoderARM8992.dll=0,arm,
+
+[SourceDisksFiles.ARM64]
+qccamjpege8992.sys = 0,arm64,
+QcWicEncoder8992.dll=0,arm64,
+QcWicEncoderARM8992.dll=0,arm,
+
+;*****************************************
+; Camera JPEG Encoder Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC, NTARM, NTARM64
+
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[QC.NTARM]
+%JpegE.DeviceDesc% = CameraJpegE32_Device, ACPI\QCOM2467
+
+[QC.NTARM64]
+%JpegE.DeviceDesc% = CameraJpegE_Device, ACPI\QCOM2467
+
+[CameraJpegE32_Device.NT]
+CopyFiles   = Drivers_Dir,QCWic32.Files
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[CameraJpegE_Device.NT]
+CopyFiles   = Drivers_Dir,QCWic.Files,QCWicArm.Files
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qccamjpege8992.sys
+
+[QCWic.Files]
+QcWicEncoder8992.dll
+
+[QCWic32.Files]
+QcWicEncoder8992.dll, QcWicEncoderARM8992.dll, , 0x00004000,
+
+[QCWicArm.Files]
+QcWicEncoder8992.dll, QcWicEncoderARM8992.dll, , 0x00004000,
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[CameraJpegE32_Device.NT.HW]
+AddReg = CameraJpegE_Device_Security_Reg,WicRegistration
+ 
+[CameraJpegE_Device.NT.HW]
+AddReg = CameraJpegE_Device_Security_Reg,WicRegistration,WicRegistration64
+ 
+[CameraJpegE_Device_Security_Reg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100
+
+[WicRegistration]
+; system32
+; QcWicEncoder and Postproc registry settings
+HKLM, SOFTWARE\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                                          ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
+HKLM, SOFTWARE\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,                           ,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\QcWicEncoder8992.dll"
+HKLM, SOFTWARE\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,             ThreadingModel,               ,"Both"
+
+[WicRegistration64]
+HKLM, SOFTWARE\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                              ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
+HKLM, SOFTWARE\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,               ,%REG_EXPAND_SZ%,"%%SystemRoot%%\SysArm32\QcWicEncoder8992.dll"
+HKLM, SOFTWARE\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32, ThreadingModel,               ,"Both"
+
+;-------------- Service installation
+[CameraJpegE32_Device.NT.Services]
+AddService = JpegE,%SPSVCINST_ASSOCSERVICE%, JpegE_Service_Inst
+
+[CameraJpegE_Device.NT.Services]
+AddService = JpegE,%SPSVCINST_ASSOCSERVICE%, JpegE_Service_Inst
+
+; -------------- Jpeg Encoder driver install sections
+[JpegE_Service_Inst]
+DisplayName   = %JpegE.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamjpege8992.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QC                     = "Qualcomm"
+JpegE.SVCDESC          = "Qualcomm Camera JPEG Encoder Service"
+ClassName              = "Qualcomm Camera JPEG Encoder Driver"
+JpegE.DeviceDesc       = "Qualcomm Camera JPEG Encoder Driver"
+Desc_x860              = "Data"
+
+REG_SZ        = 0x00000000
+REG_EXPAND_SZ = 0x00020000
+
+

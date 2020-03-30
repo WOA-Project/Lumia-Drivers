@@ -1,0 +1,104 @@
+;/*++
+;
+;Copyright (c) 2015  QualComm Corporation
+;
+;Module Name:
+;    qccamsensor_tertiarySMIApp.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Camera Sensor Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon install qccamsensor_tertiarySMIApp.inf ACPI\QCOM2436" to install
+;
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=SYSTEM
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%QC%
+DriverVer=09/29/2011,11.45.15.875
+
+CatalogFile.NTARM   = qccamsensor_tertiarySMIApp8992.arm.cat
+CatalogFile.NTARM64 = qccamsensor_tertiarySMIApp8992.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+[SourceDisksNames]
+0=%Desc_x860%
+
+[SourceDisksFiles.ARM]
+qccamsensor_tertiarySMIApp8992.sys=0,arm,
+
+[SourceDisksFiles.ARM64]
+qccamsensor_tertiarySMIApp8992.sys=0,arm64,
+
+;*****************************************
+; Camera Sensor  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC%=QC, NTARM, NTARM64
+
+; Following section is meant for Windows 2000 as it 
+; cannot parse decorated model sections
+;
+; Hw Id is ACPI\QCOM2436
+;
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[QC.NTARM]
+%CameraTertiarySensor.DeviceDesc%=CameraTertiarySensor_Device, ACPI\QCOM2436
+
+[QC.NTARM64]
+%CameraTertiarySensor.DeviceDescNull%=CameraTertiarySensor_Device, ACPI\QCOM2436
+
+[CameraTertiarySensor_Device.NTARM]
+CopyFiles=Drivers_Dir
+SubClass=StillImage
+DeviceType=2
+
+[CameraTertiarySensor_Device.NTARM64]
+CopyFiles=Drivers_Dir
+SubClass=StillImage
+DeviceType=2
+
+[Drivers_Dir]
+qccamsensor_tertiarySMIApp8992.sys
+
+[CameraTertiarySensor_Device.NTARM.HW]
+AddReg=CameraTertiarySensor_Device_Security_Reg
+ 
+[CameraTertiarySensor_Device.NTARM64.HW]
+AddReg=CameraTertiarySensor_Device_Security_Reg
+ 
+[CameraTertiarySensor_Device_Security_Reg]
+HKR,,DeviceCharacteristics,0x10001,0x100
+
+;-------------- Service installation
+[CameraTertiarySensor_Device.NTARM.Services]
+AddService = CameraTertiarySensor,%SPSVCINST_ASSOCSERVICE%, CameraTertiarySensor_Service_Inst
+
+[CameraTertiarySensor_Device.NTARM64.Services]
+AddService = CameraTertiarySensor,%SPSVCINST_ASSOCSERVICE%, CameraTertiarySensor_Service_Inst
+
+; -------------- CameraSensor driver install sections
+[CameraTertiarySensor_Service_Inst]
+DisplayName    = %CameraTertiarySensor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qccamsensor_tertiarySMIApp8992.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+QC = "Qualcomm"
+MSFT = "MicroSoft"
+CameraTertiarySensor.DeviceDesc = "Qualcomm Camera Tertiary Sensor Driver"
+CameraTertiarySensor.DeviceDescNull = "Qualcomm Camera Tertiary Sensor Driver (Null)"
+CameraTertiarySensor.SVCDESC = "Qualcomm Camera Tertiary Sensor Service"
+ClassName       = "Qualcomm Camera Tertiary Sensor Device"
+Desc_x860= "Data"

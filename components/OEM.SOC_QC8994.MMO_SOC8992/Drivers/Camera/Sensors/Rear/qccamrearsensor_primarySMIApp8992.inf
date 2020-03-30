@@ -1,0 +1,104 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Corporation
+;
+;Module Name:
+;    qccamfrontsensor.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Camera Sensor Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon install qccamrearsensor_primarySMIApp ACPI\QCOM2434" to install
+;
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=SYSTEM
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%QC%
+DriverVer=08/30/2011,12.55.5.110
+
+CatalogFile.NTARM   = qccamrearsensor_primarySMIApp8992.arm.cat
+CatalogFile.NTARM64 = qccamrearsensor_primarySMIApp8992.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+[SourceDisksNames]
+0=%Desc_x860%
+
+[SourceDisksFiles.ARM]
+qccamrearsensor_primarySMIApp8992.sys=0,arm,
+
+[SourceDisksFiles.ARM64]
+qccamrearsensor_primarySMIApp8992.sys=0,arm64,
+
+;*****************************************
+; Camera Sensor  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC%=QC, NTARM, NTARM64
+
+; Following section is meant for Windows 2000 as it 
+; cannot parse decorated model sections
+;
+; Hw Id is ACPI\QCOM2434
+;
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[QC.NTARM]
+%CameraRearSensor.DeviceDesc%=CameraRearSensor_Device, ACPI\QCOM2434 
+
+[QC.NTARM64]
+%CameraRearSensor.DeviceDescNull%=CameraRearSensor_Device, ACPI\QCOM2434 
+
+[CameraRearSensor_Device.NTARM]
+CopyFiles=Drivers_Dir
+SubClass=StillImage
+DeviceType=2
+
+[CameraRearSensor_Device.NTARM64]
+CopyFiles=Drivers_Dir
+SubClass=StillImage
+DeviceType=2
+
+[Drivers_Dir]
+qccamrearsensor_primarySMIApp8992.sys
+
+[CameraRearSensor_Device.NTARM.HW]
+AddReg=CameraRearSensor_Device_Security_Reg
+ 
+[CameraRearSensor_Device.NTARM64.HW]
+AddReg=CameraRearSensor_Device_Security_Reg
+ 
+[CameraRearSensor_Device_Security_Reg]
+HKR,,DeviceCharacteristics,0x10001,0x100
+
+;-------------- Service installation
+[CameraRearSensor_Device.NTARM.Services]
+AddService = CameraRearSensor,%SPSVCINST_ASSOCSERVICE%, CameraRearSensor_Service_Inst
+
+[CameraRearSensor_Device.NTARM64.Services]
+AddService = CameraRearSensor,%SPSVCINST_ASSOCSERVICE%, CameraRearSensor_Service_Inst
+ 
+; -------------- CameraRearSensor driver install sections
+[CameraRearSensor_Service_Inst]
+DisplayName    = %CameraRearSensor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qccamrearsensor_primarySMIApp8992.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+QC = "Qualcomm"
+MSFT = "MicroSoft"
+CameraRearSensor.DeviceDesc = "Qualcomm Camera Rear Sensor Driver"
+CameraRearSensor.DeviceDescNull = "Qualcomm Camera Rear Sensor Driver (Null)"
+CameraRearSensor.SVCDESC = "Qualcomm Camera Rear Sensor Service"
+ClassName       = "Qualcomm Camera Rear Sensor Device"
+Desc_x860= "Data"
