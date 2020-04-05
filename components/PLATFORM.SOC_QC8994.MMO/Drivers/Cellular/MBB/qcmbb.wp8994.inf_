@@ -44,7 +44,7 @@ wwan.wp.CopyFiles = 12
 wwan.wa.CopyFiles = 12
 
 [Manufacturer]
-%QCOM% = QCOM, NTARM, NTARM64
+%QCOM% = QCOM, NTARM, NTARM64, NTARM.10.0...18909, NTARM64.10.0...18909
 
 [QCOM.NTARM]
 %wwan.DeviceDesc% = wwan.wp.ndi, QCMS\QCOM0EA0
