@@ -16,8 +16,10 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QUALCOMM%
 DriverVer   = 07/02/2015,1.0.1067.0000
-CatalogFile = qcsubsys8994.cat
 PnpLockDown = 1
+
+CatalogFile.NTARM   = qcsubsys8994.arm.cat
+CatalogFile.NTARM64 = qcsubsys8994.arm64.cat
 
 [DestinationDirs]
 Drivers_Dir_12 = 12
@@ -27,11 +29,16 @@ Drivers_Dir_24 = 11
 1 = %DiskId1%
 
 [SourceDisksFiles]
-qcsubsys8994.sys = 1
 qcadsp8994.mbn   = 1
 qcdsp1v28994.mbn = 1
 qcdsp28994.mbn   = 1
 ;qcwcnss8994.mbn = 1
+
+[SourceDisksFiles.ARM]
+qcsubsys8994.sys = 1,arm
+
+[SourceDisksFiles.ARM64]
+qcsubsys8994.sys = 1,arm64
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -41,7 +48,18 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QUALCOMM% = Standard,NTARM64
+%QUALCOMM% = Standard,NTARM,NTARM64
+
+[Standard.NTARM]
+%WCN.DeviceDesc%            = SUBSYS_Device,            ACPI\QCOM242A
+%ADSP.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242B
+%AMSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242C
+%SERVICEMANAGER.DeviceDesc% = SUBSYS_Device, ACPI\QCOM24B8
+%AMSSCXThermal.DeviceDesc%  = SUBSYS_Device,  ACPI\QCOM24C0
+%SCSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM24C1
+%TEST.DeviceDesc%           = SUBSYS_Device,           ADSP\DEADCODE
+%TEST.DeviceDesc%           = SUBSYS_Device,           QCMS\DEADCODE
+%TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
 
 [Standard.NTARM64]
 %WCN.DeviceDesc%            = SUBSYS_Device,            ACPI\QCOM242A

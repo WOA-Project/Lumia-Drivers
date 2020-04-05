@@ -1,0 +1,89 @@
+;/*++
+;
+;Copyright (c) 2012 by Qualcomm Inc.  All Rights Reserved.
+;
+;Module Name:
+;    ACDB.inx
+;
+;Abstract:
+;    INF file for installing the ACDB Driver
+;
+;Installation Notes: 
+;   
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 12/18/2014,18.34.39.0978
+CatalogFile = qcacdb_wp8960.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcacdb8960.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; acdb driver Install Section
+;*****************************************
+
+[Manufacturer]
+%StdMfg% = Standard,NTARM
+
+[Standard.NTARM]
+%ACDB.DeviceDesc% = ACDB_Device, ACPI\QCOM2122
+
+[ACDB_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[ACDB_Device.NT.HW]
+Addreg = ACDB_ACL
+
+[ACDB_ACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir]
+qcacdb8960.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[ACDB_Device.NT.Services]
+AddService = qcacdb,%SPSVCINST_ASSOCSERVICE%,ACDB_Service_Inst
+
+[ACDB_Service_Inst]
+DisplayName    = %ACDB.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qcacdb8960.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+;Localizable Strings
+StdMfg                 = "(Standard system devices)"
+DiskId                 = "Audio Calibration Data Base Installation Disk"
+QC                     = "Qualcomm"
+ACDB.DeviceDesc        = "ACDB Driver"
+ACDB.SvcDesc           = "ACDB Service"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+REG_SZ                 = 0x00000000
+

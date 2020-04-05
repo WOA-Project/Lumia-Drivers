@@ -16,8 +16,10 @@ ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %COMP%
 ExtensionId = {21E3E289-3E58-469D-B9DF-55339CD11F4D}
 DriverVer   = 07/02/2015,1.0.1067.0000
-CatalogFile = hapanero_qcbattmngr8994.cat
 PnPLockdown = 1
+
+CatalogFile.NTARM   = hapanero_qcbattmngr8994.arm.cat
+CatalogFile.NTARM64 = hapanero_qcbattmngr8994.arm64.cat
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -27,9 +29,12 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = DeviceExtensions,NTarm64
+%COMP% = DeviceExtensions,NTARM,NTARM64
 
-[DeviceExtensions.NTarm64]
+[DeviceExtensions.NTARM]
+%DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2453
+
+[DeviceExtensions.NTARM64]
 %DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2453
 
 [DeviceExtension_Install]

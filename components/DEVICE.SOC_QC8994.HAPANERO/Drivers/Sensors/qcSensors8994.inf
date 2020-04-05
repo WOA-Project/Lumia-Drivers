@@ -15,8 +15,10 @@ Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %ManufacturerName%
 DriverVer   = 07/02/2015,1.0.1057.0
-CatalogFile = qcSensors8994.cat
 PnpLockDown = 1
+
+CatalogFile.NTARM   = qcSensors8994.arm.cat
+CatalogFile.NTARM64 = qcSensors8994.arm64.cat
 
 [DestinationDirs]
 ;12 == Windows\System32\Drivers\UMDF
@@ -26,16 +28,23 @@ UMDriverCopy     = 11
 [SourceDisksNames]
 1 = %MediaDescription%,,,""
 
-[SourceDisksFiles]
-qcSensors8994.dll          = 1,,
-qcSensor1UM8994.dll        = 1,,
+[SourceDisksFiles.ARM]
+qcSensors8994.dll          = 1,arm,
+qcSensor1UM8994.dll        = 1,arm,
+
+[SourceDisksFiles.ARM64]
+qcSensors8994.dll          = 1,arm64,
+qcSensor1UM8994.dll        = 1,arm64,
 
 [Manufacturer]
-%ManufacturerName% = Sensor_Device,NTARM64
+%ManufacturerName% = Sensor_Device,NTARM,NTARM64
 
 ;*******************************
 ; qcSensors Install Section
 ;*******************************
+
+[Sensor_Device.NTARM]
+%DevDesc% = Sensor_Inst, ACPI\QCOM2495
 
 [Sensor_Device.NTARM64]
 %DevDesc% = Sensor_Inst, ACPI\QCOM2495

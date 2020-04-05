@@ -9,7 +9,9 @@ ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %MSFT%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5C}
 DriverVer   = 11/09/2019,1.0.0.0
-CatalogFile = hapanero_SynapticsTouch.cat
+
+CatalogFile.NTARM   = hapanero_SynapticsTouch.arm.cat
+CatalogFile.NTARM64 = hapanero_SynapticsTouch.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 12
@@ -30,7 +32,10 @@ SynaFWVendor1.img, , , 0x100,
 SynaFWVendor2.img, , , 0x100,
 
 [Manufacturer]
-%MSFT% = DeviceExtensions,NTarm64
+%MSFT% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%TchDriver_Device_Desc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1003
 
 [DeviceExtensions.NTarm64]
 %TchDriver_Device_Desc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1003
