@@ -27,11 +27,11 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
+%QC% = QC,NTARM,NTARM64,NTARM64.10.0...19500
 
 ; DisplayName                   Section           DeviceId
 ; -----------                   -------           --------
-[QC.NTarm]
+[QC.NTARM]
 %PepDevice.DeviceDesc% = Pep_Device, ACPI\QCOM2425
 %TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2470
 %TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2471
@@ -61,7 +61,37 @@ ExcludeFromSelect = *
 
 ; DisplayName                   Section           DeviceId
 ; -----------                   -------           --------
-[QC.NTarm64]
+[QC.NTARM64]
+%PepDevice.DeviceDesc% = Pep_Device, ACPI\QCOM2425
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2470
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2471
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2472
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2473
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2474
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2475
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2477
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2479
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM247A
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24A8
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24A9
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AA
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AB
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AD
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AE
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AF
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248C
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248D
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248E
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248F
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2490
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2491
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2492
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2493
+%BCL.DeviceDesc%       = Pep_Device, ACPI\QCOM2486
+
+; DisplayName                   Section           DeviceId
+; -----------                   -------           --------
+[QC.NTARM64.10.0...19500]
 %PepDevice.DeviceDesc% = Pep_Device_NPM, ACPI\QCOM2425
 %TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2470
 %TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2471
