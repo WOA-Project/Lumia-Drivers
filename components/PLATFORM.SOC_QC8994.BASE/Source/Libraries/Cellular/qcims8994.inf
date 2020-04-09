@@ -3,8 +3,8 @@
 ;
 [Version]
 Signature   = "$Windows NT$"
-Class       = SYSTEM
-ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1057.0000
 
@@ -31,11 +31,20 @@ qcimsVT8994.dll = 0,arm64,
 qcimsvtmf8994.dll = 0,arm64,
 vcel8994.dll = 0,arm64,
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%QC%=QC,NTARM,NTARM64
+
+[QC.NTARM]
+%IMS.DeviceDesc%=IMS, SWC\VID_QCOM&PID_0EA0&SID_0008
+
+[QC.NTARM64]
+%IMS.DeviceDesc%=IMS, SWC\VID_QCOM&PID_0EA0&SID_0008
+
+[IMS.NTARM]
 CopyFiles = qcims8994.Files
 AddReg    = qcims8994_Reg
 
-[DefaultInstall.NTARM64]
+[IMS.NTARM64]
 CopyFiles = qcims8994.Files2
 AddReg    = qcims8994_Reg
 
@@ -73,7 +82,8 @@ qcimsvtmf8994.dll
 vcel8994.dll
 
 [Strings]
-QC            = "Qualcomm Technologies, Inc."
+QC             = "Qualcomm Technologies, Inc."
+IMS.DeviceDesc = "Qualcomm IP Multimedia System Libraries"
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000

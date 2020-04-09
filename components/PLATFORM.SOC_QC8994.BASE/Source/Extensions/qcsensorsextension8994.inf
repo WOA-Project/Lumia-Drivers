@@ -1,0 +1,44 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QC%
+ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F56}
+DriverVer   = 04/08/2020,1.0.0.0
+
+CatalogFile.NTARM   = qcsensorsextension8994.arm.cat
+CatalogFile.NTARM64 = qcsensorsextension8994.arm64.cat
+
+[Manufacturer]
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%Sensors.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2495
+
+[DeviceExtensions.NTarm64]
+%Sensors.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2495
+
+[DeviceExtension_Install.NT]
+; No changes
+
+[DeviceExtension_Install.NT.Components]
+; Libraries
+AddComponent = CI_SoftwareComponent           ,, CI_Install
+AddComponent = SI_SoftwareComponent           ,, SI_Install
+AddComponent = DiagLogging_SoftwareComponent  ,, DiagLogging_Install
+
+[CI_Install]
+ComponentIds = VID_QCOM&PID_0EA0&SID_0006
+
+[SI_Install]
+ComponentIds = VID_QCOM&PID_0EA0&SID_0007
+
+[DiagLogging_Install]
+ComponentIds = VID_QCOM&PID_0EA0&SID_000C
+
+[Strings]
+;Localizable Strings
+QC                 = "Qualcomm Technologies, Inc."
+Sensors.DeviceDesc = "Qualcomm Sensors Collection Extension" 
+
+

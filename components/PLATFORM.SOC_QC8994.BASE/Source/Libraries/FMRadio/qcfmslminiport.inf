@@ -3,8 +3,8 @@
 ;
 [Version]
 Signature   = "$Windows NT$"
-Class       = SYSTEM
-ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 
@@ -23,11 +23,20 @@ qcfmslminiport.dll = 0,arm,
 [SourceDisksFiles.ARM64]
 qcfmslminiport.dll = 0,arm64,
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%QC%=QC,NTARM,NTARM64
+
+[QC.NTARM]
+%FM.DeviceDesc%=FMS, SWC\VID_QCOM&PID_24B1&SID_0001
+
+[QC.NTARM64]
+%FM.DeviceDesc%=FMS, SWC\VID_QCOM&PID_24B1&SID_0001
+
+[FMS.NTARM]
 CopyFiles = qcfmslminiport.Files
 AddReg    = qcfmslminiport_Reg
 
-[DefaultInstall.NTARM64]
+[FMS.NTARM64]
 CopyFiles = qcfmslminiport.Files
 AddReg    = qcfmslminiport_Reg
 
@@ -48,6 +57,7 @@ qcfmslminiport.dll
 
 [Strings]
 QC            = "Qualcomm Technologies, Inc."
+FM.DeviceDesc = "Qualcomm FM Transport Miniport Library"
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000

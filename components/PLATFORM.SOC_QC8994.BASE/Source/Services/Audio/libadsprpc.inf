@@ -12,8 +12,8 @@
 ;
 [Version]
 Signature   = "$Windows NT$"
-Class       = SYSTEM
-ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 
@@ -32,18 +32,27 @@ libadsprpc.dll = 0,arm,
 [SourceDisksFiles.ARM64]
 libadsprpc.dll = 0,arm64,
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%QC%=QC,NTARM,NTARM64
+
+[QC.NTARM]
+%LibADSPRPC.DeviceDesc%=LibADSP, SWC\VID_QCOM&PID_248A&SID_0001
+
+[QC.NTARM64]
+%LibADSPRPC.DeviceDesc%=LibADSP, SWC\VID_QCOM&PID_248A&SID_0001
+
+[LibADSP.NTARM]
 CopyFiles = libadsprpc.Files
 AddReg    = libadsprpc_Reg
 
-[DefaultInstall.NTARM64]
+[LibADSP.NTARM64]
 CopyFiles = libadsprpc.Files
 AddReg    = libadsprpc_Reg
 
-[DefaultInstall.NTARM.Services]
+[LibADSP.NTARM.Services]
 AddService = libadsprpc,0x00000000,libadsprpc_Service,
 
-[DefaultInstall.NTARM64.Services]
+[LibADSP.NTARM64.Services]
 AddService = libadsprpc,0x00000000,libadsprpc_Service,
 
 ;ServiceType = 0x110
@@ -76,7 +85,8 @@ HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, libadsprpcGroup, %RE
 libadsprpc.dll
 
 [Strings]
-QC            = "Qualcomm Technologies, Inc."
+QC                    = "Qualcomm Technologies, Inc."
+LibADSPRPC.DeviceDesc =  "Qualcomm ADSP RPC Library"
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000

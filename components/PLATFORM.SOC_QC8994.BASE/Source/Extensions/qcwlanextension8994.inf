@@ -1,0 +1,42 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QC%
+ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F5A}
+DriverVer   = 04/08/2020,1.0.0.0
+
+CatalogFile.NTARM   = qcwlanextension8994.arm.cat
+CatalogFile.NTARM64 = qcwlanextension8994.arm64.cat
+
+[Manufacturer]
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%WLAN.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
+
+[DeviceExtensions.NTarm64]
+%WLAN.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
+
+[DeviceExtension_Install.NT]
+; No changes
+
+[DeviceExtension_Install.NT.Components]
+; Libraries
+AddComponent = CI_SoftwareComponent           ,, CI_Install
+
+; Services
+AddComponent = wifinotifiersrvc_SoftwareComponent  ,, wifinotifiersrvc_Install
+
+[wifinotifiersrvc_Install]
+ComponentIds = VID_168C&PID_003E&SID_0001
+
+[CI_Install]
+ComponentIds = VID_QCOM&PID_0EA0&SID_0006
+
+[Strings]
+;Localizable Strings
+QC              = "Qualcomm Technologies, Inc."
+WLAN.DeviceDesc  = "Qualcomm WLAN Extension" 
+
+

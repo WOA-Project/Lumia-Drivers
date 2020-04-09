@@ -3,8 +3,8 @@
 ;
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0000
 ;DriverVer.NTARM = 09/09/2015,1.0.1078.0053
@@ -34,10 +34,19 @@ qcsiarm64um8994.dll = 0,arm64,
 ; sium  Install Section
 ;*****************************************
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%QC%=QC,NTARM,NTARM64
+
+[QC.NTARM]
+%SIUM.DeviceDesc%=SIUM, SWC\VID_QCOM&PID_0EA0&SID_0007
+
+[QC.NTARM64]
+%SIUM.DeviceDesc%=SIUM, SWC\VID_QCOM&PID_0EA0&SID_0007
+
+[SIUM.NTARM]
 CopyFiles = qcsi.Files.NTarm_11
 
-[DefaultInstall.NTARM64]
+[SIUM.NTARM64]
 CopyFiles = qcsi.Files.NTarm64_11,qcsi.Files.NTarm64_10
 
 ; System32
@@ -57,6 +66,6 @@ REG_SZ                 = 0x00000000
 SPSVCINST_ASSOCSERVICE = 0x00000002
 QCOM                   = "Qualcomm"
 QC                     = "Qualcomm Technologies, INC"
-DiskId1                = "QCSI Installation Disk #1"
-QCSI.DeviceDesc        = "QCSI Library Package"
+DiskId1                = "Qualcomm QMI Service Interface User Mode Installation Disk #1"
+SIUM.DeviceDesc        = "Qualcomm QMI Service Interface User Mode Library"
 

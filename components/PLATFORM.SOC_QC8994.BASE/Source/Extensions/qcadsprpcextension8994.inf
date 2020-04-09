@@ -1,0 +1,35 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QC%
+ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F51}
+DriverVer   = 04/08/2020,1.0.0.0
+
+CatalogFile.NTARM   = qcadsprpcextension8994.arm.cat
+CatalogFile.NTARM64 = qcadsprpcextension8994.arm64.cat
+
+[Manufacturer]
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%ADSPRPC.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_248A
+
+[DeviceExtensions.NTarm64]
+%ADSPRPC.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_248A
+
+[DeviceExtension_Install.NT]
+; No changes
+
+[DeviceExtension_Install.NT.Components]
+AddComponent = LibADSPRPC_SoftwareComponent,, LibADSPRPC_Install
+
+[LibADSPRPC_Install]
+ComponentIds = VID_QCOM&PID_248A&SID_0001
+
+[Strings]
+;Localizable Strings
+QC                 = "Qualcomm Technologies, Inc."
+ADSPRPC.DeviceDesc = "Qualcomm ADSP RPC Subsystem Extension" 
+
+

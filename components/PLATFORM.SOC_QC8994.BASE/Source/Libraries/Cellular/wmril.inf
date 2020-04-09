@@ -3,8 +3,8 @@
 ;
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,30.0.0.0
 
@@ -23,11 +23,20 @@ WMRil.dll                = 0,arm,
 [SourceDisksFiles.ARM64]
 WMRil.dll                = 0,arm64,
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%QC%=QC,NTARM,NTARM64
+
+[QC.NTARM]
+%WMRIL.DeviceDesc%=WMRIL, SWC\VID_QCOM&PID_0EA0&SID_000B
+
+[QC.NTARM64]
+%WMRIL.DeviceDesc%=WMRIL, SWC\VID_QCOM&PID_0EA0&SID_000B
+
+[WMRIL.NTARM]
 CopyFiles = WMRil.Files
 AddReg    = WMRil_Reg
 
-[DefaultInstall.NTARM64]
+[WMRIL.NTARM64]
 CopyFiles = WMRil.Files
 AddReg    = WMRil_Reg
 
@@ -78,7 +87,8 @@ HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, RILPath, %REG
 WMRil.dll
 
 [Strings]
-QC            = "Qualcomm"
+QC               = "Qualcomm"
+WMRIL.DeviceDesc = "Qualcomm Windows Mobile Radio Interface Layer Library"
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000

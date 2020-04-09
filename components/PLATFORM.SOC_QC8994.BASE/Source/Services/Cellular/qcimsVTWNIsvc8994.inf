@@ -3,8 +3,8 @@
 ;
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1057.0000
 
@@ -23,18 +23,27 @@ qcimsVTWNIsvc8994.dll = 0,arm,
 [SourceDisksFiles.ARM64]
 qcimsVTWNIsvc8994.dll = 0,arm64,
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%QC%=QC,NTARM,NTARM64
+
+[QC.NTARM]
+%IMSVTWNI.DeviceDesc%=IMSVTWNI, SWC\VID_QCOM&PID_0EA0&SID_0004
+
+[QC.NTARM64]
+%IMSVTWNI.DeviceDesc%=IMSVTWNI, SWC\VID_QCOM&PID_0EA0&SID_0004
+
+[IMSVTWNI.NTARM]
 CopyFiles = qcimsVTWNIsvc8994.Files
 AddReg    = qcimsVTWNIsvc8994_Reg
 
-[DefaultInstall.NTARM64]
+[IMSVTWNI.NTARM64]
 CopyFiles = qcimsVTWNIsvc8994.Files
 AddReg    = qcimsVTWNIsvc8994_Reg
 
-[DefaultInstall.NTARM.Services]
+[IMSVTWNI.NTARM.Services]
 AddService = VTSvc,0x00000000,qcimsVTWNIsvc8994_Service,
 
-[DefaultInstall.NTARM64.Services]
+[IMSVTWNI.NTARM64.Services]
 AddService = VTSvc,0x00000000,qcimsVTWNIsvc8994_Service,
 
 ;ServiceType = 0x110
@@ -72,7 +81,8 @@ HKLM, "Software\Classes\AppID\{B523A26D-268E-4FE6-83A9-21DF07EDD543}", "LocalSer
 qcimsVTWNIsvc8994.dll
 
 [Strings]
-QC            = "Qualcomm"
+QC                  = "Qualcomm"
+IMSVTWNI.DeviceDesc = "Qualcomm IP Multimedia System VTWNI Service"
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000

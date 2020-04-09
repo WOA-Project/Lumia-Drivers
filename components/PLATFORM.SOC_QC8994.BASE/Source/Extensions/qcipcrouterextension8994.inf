@@ -1,0 +1,36 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QC%
+ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F53}
+DriverVer   = 04/08/2020,1.0.0.0
+
+CatalogFile.NTARM   = qcipcrouterextension8994.arm.cat
+CatalogFile.NTARM64 = qcipcrouterextension8994.arm64.cat
+
+[Manufacturer]
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%IPC.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_240A
+
+[DeviceExtensions.NTarm64]
+%IPC.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_240A
+
+[DeviceExtension_Install.NT]
+; No changes
+
+[DeviceExtension_Install.NT.Components]
+; Libraries
+AddComponent = Socket_SoftwareComponent       ,, Socket_Install
+
+[Socket_Install]
+ComponentIds = VID_QCOM&PID_0EA0&SID_0009
+
+[Strings]
+;Localizable Strings
+QC             = "Qualcomm Technologies, Inc."
+IPC.DeviceDesc = "Qualcomm IPC Router Extension" 
+
+

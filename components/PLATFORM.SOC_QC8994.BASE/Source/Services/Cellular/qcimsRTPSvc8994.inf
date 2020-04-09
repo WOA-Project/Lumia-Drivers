@@ -3,8 +3,8 @@
 ;
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1057.0000
 
@@ -23,18 +23,27 @@ qcimsRTPSvc8994.dll = 0,arm,
 [SourceDisksFiles.ARM64]
 qcimsRTPSvc8994.dll = 0,arm64,
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%QC%=QC,NTARM,NTARM64
+
+[QC.NTARM]
+%IMSRTP.DeviceDesc%=IMSRTP, SWC\VID_QCOM&PID_0EA0&SID_0003
+
+[QC.NTARM64]
+%IMSRTP.DeviceDesc%=IMSRTP, SWC\VID_QCOM&PID_0EA0&SID_0003
+
+[IMSRTP.NTARM]
 CopyFiles = qcimsRTPSvc8994.Files
 AddReg    = qcimsRTPSvc8994_Reg
 
-[DefaultInstall.NTARM64]
+[IMSRTP.NTARM64]
 CopyFiles = qcimsRTPSvc8994.Files
 AddReg    = qcimsRTPSvc8994_Reg
 
-[DefaultInstall.NTARM.Services]
+[IMSRTP.NTARM.Services]
 AddService = RTPSvc,0x00000000,qcimsRTPSvc8994_Service,
 
-[DefaultInstall.NTARM64.Services]
+[IMSRTP.NTARM64.Services]
 AddService = RTPSvc,0x00000000,qcimsRTPSvc8994_Service,
 
 ;ServiceType = 0x110
@@ -71,7 +80,8 @@ HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", RTPSvcGroup, %REG_
 qcimsRTPSvc8994.dll
 
 [Strings]
-QC            = "Qualcomm"
+QC                = "Qualcomm"
+IMSRTP.DeviceDesc = "Qualcomm IP Multimedia System RTP Service" 
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000
