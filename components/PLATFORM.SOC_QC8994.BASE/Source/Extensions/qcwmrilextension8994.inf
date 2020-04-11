@@ -1,0 +1,36 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QC%
+ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F62}
+DriverVer   = 04/08/2020,1.0.0.0
+
+CatalogFile.NTARM   = qcwmrilextension8994.arm.cat
+CatalogFile.NTARM64 = qcwmrilextension8994.arm64.cat
+
+[Manufacturer]
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%WMRil.DeviceDesc% = DeviceExtension_Install, SWC\VID_QCOM&PID_0EA0&SID_000B
+
+[DeviceExtensions.NTarm64]
+%WMRil.DeviceDesc% = DeviceExtension_Install, SWC\VID_QCOM&PID_0EA0&SID_000B
+
+[DeviceExtension_Install.NT]
+; No changes
+
+[DeviceExtension_Install.NT.Components]
+; Services
+AddComponent = RILAdaptation_SoftwareComponent  ,, RILAdaptation_Install
+
+[RILAdaptation_Install]
+ComponentIds = VID_MSHW&PID_0001&SID_0001
+
+[Strings]
+;Localizable Strings
+QC                = "Qualcomm Technologies, Inc."
+WMRil.DeviceDesc  = "Qualcomm WMRil Extension" 
+
+

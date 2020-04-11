@@ -22,11 +22,6 @@ CatalogFile.NTARM64 = qcgnssextension8994.arm64.cat
 ; No changes
 
 [DeviceExtension_Install.NT.Components]
-; Libraries
-AddComponent = CI_SoftwareComponent           ,, CI_Install
-
-[CI_Install]
-ComponentIds = VID_QCOM&PID_0EA0&SID_0006
 
 [Strings]
 ;Localizable Strings

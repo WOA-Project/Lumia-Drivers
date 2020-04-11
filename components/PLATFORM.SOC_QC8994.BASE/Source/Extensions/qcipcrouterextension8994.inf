@@ -24,9 +24,17 @@ CatalogFile.NTARM64 = qcipcrouterextension8994.arm64.cat
 [DeviceExtension_Install.NT.Components]
 ; Libraries
 AddComponent = Socket_SoftwareComponent       ,, Socket_Install
+AddComponent = CI_SoftwareComponent           ,, CI_Install
+AddComponent = SI_SoftwareComponent           ,, SI_Install
 
 [Socket_Install]
 ComponentIds = VID_QCOM&PID_0EA0&SID_0009
+
+[CI_Install]
+ComponentIds = VID_QCOM&PID_0EA0&SID_0006
+
+[SI_Install]
+ComponentIds = VID_QCOM&PID_0EA0&SID_0007
 
 [Strings]
 ;Localizable Strings

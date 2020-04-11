@@ -23,11 +23,7 @@ CatalogFile.NTARM64 = qcfmsltransportextension8994.arm64.cat
 
 [DeviceExtension_Install.NT.Components]
 ; Libraries
-AddComponent = CI_SoftwareComponent           ,, CI_Install
 AddComponent = fmslminiport_SoftwareComponent ,, fmslminiport_Install
-
-[CI_Install]
-ComponentIds = VID_QCOM&PID_0EA0&SID_0006
 
 [fmslminiport_Install]
 ComponentIds = VID_QCOM&PID_24B1&SID_0001

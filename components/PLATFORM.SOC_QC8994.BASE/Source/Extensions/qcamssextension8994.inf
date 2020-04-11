@@ -6,17 +6,17 @@ Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F52}
 DriverVer   = 04/08/2020,1.0.0.0
 
-CatalogFile.NTARM   = qcmbbextension8994.arm.cat
-CatalogFile.NTARM64 = qcmbbextension8994.arm64.cat
+CatalogFile.NTARM   = qcamssextension8994.arm.cat
+CatalogFile.NTARM64 = qcamssextension8994.arm64.cat
 
 [Manufacturer]
 %QC% = DeviceExtensions,NTarm,NTarm64
 
 [DeviceExtensions.NTarm]
-%MBB.DeviceDesc% = DeviceExtension_Install, QCMS\QCOM0EA0
+%MBB.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_242C
 
 [DeviceExtensions.NTarm64]
-%MBB.DeviceDesc% = DeviceExtension_Install, QCMS\QCOM0EA0
+%MBB.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_242C
 
 [DeviceExtension_Install.NT]
 ; No changes
@@ -29,12 +29,9 @@ AddComponent = imsRTPSvc_SoftwareComponent    ,, imsRTPSvc_Install
 AddComponent = imsVTWNIsvc_SoftwareComponent  ,, imsVTWNIsvc_Install
 
 ; Libraries
-AddComponent = CI_SoftwareComponent           ,, CI_Install
-AddComponent = SI_SoftwareComponent           ,, SI_Install
 AddComponent = Ims_SoftwareComponent          ,, Ims_Install
 AddComponent = SSD_SoftwareComponent          ,, SSD_Install
 AddComponent = WMRIL_SoftwareComponent        ,, WMRIL_Install
-AddComponent = DiagLogging_SoftwareComponent  ,, DiagLogging_Install
 
 [ImsDataDeamon_Install]
 ComponentIds = VID_QCOM&PID_0EA0&SID_0001
@@ -48,12 +45,6 @@ ComponentIds = VID_QCOM&PID_0EA0&SID_0003
 [imsVTWNIsvc_Install]
 ComponentIds = VID_QCOM&PID_0EA0&SID_0004
 
-[CI_Install]
-ComponentIds = VID_QCOM&PID_0EA0&SID_0006
-
-[SI_Install]
-ComponentIds = VID_QCOM&PID_0EA0&SID_0007
-
 [Ims_Install]
 ComponentIds = VID_QCOM&PID_0EA0&SID_0008
 
@@ -63,12 +54,9 @@ ComponentIds = VID_QCOM&PID_0EA0&SID_000A
 [WMRIL_Install]
 ComponentIds = VID_QCOM&PID_0EA0&SID_000B
 
-[DiagLogging_Install]
-ComponentIds = VID_QCOM&PID_0EA0&SID_000C
-
 [Strings]
 ;Localizable Strings
 QC             = "Qualcomm Technologies, Inc."
-MBB.DeviceDesc = "Qualcomm Mobile Broadband Extension" 
+MBB.DeviceDesc = "Qualcomm Advanced Modem Subsystem Extension" 
 
 

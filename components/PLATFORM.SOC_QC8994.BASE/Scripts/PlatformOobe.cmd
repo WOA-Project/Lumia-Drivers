@@ -3,8 +3,6 @@
 REM MBB
 \Windows\OEM\devcon.exe update \Windows\OEM\Drivers\qcmbb.wp8994.inf QCMS\QCOM0EA0
 
-for /f "delims=*" %%f in ('dir /b /s \Windows\System32\DriverStore\FileRepository\qcxhcifilter*.inf') do \Windows\OEM\devcon.exe update %%f URS\QCOM24B6^&HOST
-
 \Windows\OEM\devcon.exe status @QCMS\QCOM0EA0\*1 | findstr "43" > nul
 if %errorlevel%==0 (
     \Windows\OEM\devcon.exe remove @QCMS\QCOM0EA0\*1

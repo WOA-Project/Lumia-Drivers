@@ -22,17 +22,11 @@ CatalogFile.NTARM64 = qcwlanextension8994.arm64.cat
 ; No changes
 
 [DeviceExtension_Install.NT.Components]
-; Libraries
-AddComponent = CI_SoftwareComponent           ,, CI_Install
-
 ; Services
 AddComponent = wifinotifiersrvc_SoftwareComponent  ,, wifinotifiersrvc_Install
 
 [wifinotifiersrvc_Install]
 ComponentIds = VID_168C&PID_003E&SID_0001
-
-[CI_Install]
-ComponentIds = VID_QCOM&PID_0EA0&SID_0006
 
 [Strings]
 ;Localizable Strings

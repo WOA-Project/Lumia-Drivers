@@ -3,8 +3,8 @@
 ;
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
 DriverVer   = 01/01/2020,10.0.14903.1000
 
@@ -28,18 +28,27 @@ phoneinfo.dll            = 0,arm,
 RILAdaptationService.exe = 0,arm64,
 phoneinfo.dll            = 0,arm64,
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%IHV%=IHV,NTARM,NTARM64
+
+[IHV.NTARM]
+%IHV.DeviceDesc%=RILA, SWC\VID_MSHW&PID_0001&SID_0001
+
+[IHV.NTARM64]
+%IHV.DeviceDesc%=RILA, SWC\VID_MSHW&PID_0001&SID_0001
+
+[RILA.NTARM]
 CopyFiles = RILAdaptation.Files
 ;AddReg    = RILAdaptation_Reg
 
-[DefaultInstall.NTARM64]
+[RILA.NTARM64]
 CopyFiles = RILAdaptation.Files
 AddReg    = RILAdaptation_Reg
 
-[DefaultInstall.NTARM.Services]
+[RILA.NTARM.Services]
 ;AddService = RILAdaptation,0x00000000,RILAdaptation_Service,
 
-[DefaultInstall.NTARM64.Services]
+[RILA.NTARM64.Services]
 AddService = RILAdaptation,0x00000000,RILAdaptation_Service,
 
 [RILAdaptation_Service]
@@ -84,7 +93,8 @@ phoneinfo.dll
 QxdmFilter.bin
 
 [Strings]
-IHV           = "LumiaWoA authors"
+IHV            = "LumiaWoA authors"
+IHV.DeviceDesc = "Adaptation Layer connecting EMB Stack with IHVRIL Driver"
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000

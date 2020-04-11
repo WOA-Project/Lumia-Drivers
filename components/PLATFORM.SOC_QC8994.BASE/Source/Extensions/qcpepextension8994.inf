@@ -23,7 +23,6 @@ CatalogFile.NTARM64 = qcpepextension8994.arm64.cat
 
 [DeviceExtension_Install.NT.Components]
 ; Libraries
-AddComponent = CI_SoftwareComponent           ,, CI_Install
 AddComponent = PPM_SoftwareComponent          ,, PPM_Install
 
 ; Services
@@ -34,9 +33,6 @@ ComponentIds = VID_QCOM&PID_2425&SID_0001
 
 [ShutdownSvc_Install]
 ComponentIds = VID_QCOM&PID_2425&SID_0002
-
-[CI_Install]
-ComponentIds = VID_QCOM&PID_0EA0&SID_0006
 
 [Strings]
 ;Localizable Strings
