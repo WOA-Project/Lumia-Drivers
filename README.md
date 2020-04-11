@@ -107,7 +107,7 @@ SOFTWARE.
 
 ![Real life phones](assets/real_life_phones.jpg)
 
-Refer to https://github.com/MSM8994-8992-NT-ARM64-Drivers/Lumia-Drivers/wiki/Status for status for Lumia 950 and Lumia 950 XL devices running ARM64 Windows.
+Refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Status for status for Lumia 950 and Lumia 950 XL devices running ARM64 Windows.
 
 ## Installing manually
 
