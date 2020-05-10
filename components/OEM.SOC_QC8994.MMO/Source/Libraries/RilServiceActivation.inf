@@ -3,8 +3,8 @@
 ;
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
 DriverVer   = 11/10/2019,1.0.0.1
 
@@ -23,15 +23,25 @@ RilServiceActivation.exe = 0,arm,
 [SourceDisksFiles.ARM64]
 RilServiceActivation.exe = 0,arm64,
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%IHV%=IHV,NTARM,NTARM64
+
+[IHV.NTARM]
+%RILServiceActivation.DeviceDesc%=RILServiceActivation, SWC\VID_QCOM&PID_0EA0&SID_00A2
+
+[IHV.NTARM64]
+%RILServiceActivation.DeviceDesc%=RILServiceActivation, SWC\VID_QCOM&PID_0EA0&SID_00A2
+
+[RILServiceActivation.NTARM]
 CopyFiles = RilServiceActivation.Files
 
-[DefaultInstall.NTARM64]
+[RILServiceActivation.NTARM64]
 CopyFiles = RilServiceActivation.Files
 
 [RilServiceActivation.Files]
 RilServiceActivation.exe
 
 [Strings]
-IHV = "LumiaWoA authors"
+IHV                             = "LumiaWoA authors"
+RILServiceActivation.DeviceDesc = "Radio Interface Layer Service Activation Application"
 
