@@ -27,11 +27,11 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
+%QC% = QC,NTARM,NTARM64,NTARM64.10.0...19500
 
 ; DisplayName                   Section           DeviceId
 ; -----------                   -------           --------
-[QC.NTarm]
+[QC.NTARM]
 %PepDevice.DeviceDesc% = Pep_Device, ACPI\QCOM2425
 %TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2470
 %TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2471
@@ -61,40 +61,65 @@ ExcludeFromSelect = *
 
 ; DisplayName                   Section           DeviceId
 ; -----------                   -------           --------
-[QC.NTarm64]
-%PepDevice.DeviceDesc% = Pep_Device_ARM64, ACPI\QCOM2425
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2470
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2471
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2472
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2473
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2474
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2475
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2477
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2479
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM247A
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24A8
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24A9
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AA
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AB
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AD
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AE
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AF
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM248C
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM248D
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM248E
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM248F
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2490
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2491
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2492
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2493
-%BCL.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2486
+[QC.NTARM64]
+%PepDevice.DeviceDesc% = Pep_Device, ACPI\QCOM2425
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2470
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2471
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2472
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2473
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2474
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2475
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2477
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2479
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM247A
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24A8
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24A9
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AA
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AB
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AD
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AE
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM24AF
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248C
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248D
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248E
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM248F
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2490
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2491
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2492
+%ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2493
+%BCL.DeviceDesc%       = Pep_Device, ACPI\QCOM2486
+
+; DisplayName                   Section           DeviceId
+; -----------                   -------           --------
+[QC.NTARM64.10.0...19500]
+%PepDevice.DeviceDesc% = Pep_Device_NPM, ACPI\QCOM2425
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2470
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2471
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2472
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2473
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2474
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2475
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2477
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM2479
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM247A
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM24A8
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM24A9
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM24AA
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM24AB
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM24AD
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM24AE
+%TSENS.DeviceDesc%     = Pep_Device_NPM, ACPI\QCOM24AF
+%ADC.DeviceDesc%       = Pep_Device_NPM, ACPI\QCOM248C
+%ADC.DeviceDesc%       = Pep_Device_NPM, ACPI\QCOM248D
+%ADC.DeviceDesc%       = Pep_Device_NPM, ACPI\QCOM248E
+%ADC.DeviceDesc%       = Pep_Device_NPM, ACPI\QCOM248F
+%ADC.DeviceDesc%       = Pep_Device_NPM, ACPI\QCOM2490
+%ADC.DeviceDesc%       = Pep_Device_NPM, ACPI\QCOM2491
+%ADC.DeviceDesc%       = Pep_Device_NPM, ACPI\QCOM2492
+%ADC.DeviceDesc%       = Pep_Device_NPM, ACPI\QCOM2493
+%BCL.DeviceDesc%       = Pep_Device_NPM, ACPI\QCOM2486
 
 [Pep_Device.NT]
-CopyFiles   = Pep_Device.NT.Copy
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
-[Pep_Device_ARM64.NT]
 CopyFiles   = Pep_Device.NT.Copy
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -102,7 +127,12 @@ Reboot
 [Pep_Device.NT.HW]
 Addreg = PEPACL
 
-[Pep_Device_ARM64.NT.HW]
+[Pep_Device_NPM.NT]
+CopyFiles   = Pep_Device.NT.Copy
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Pep_Device_NPM.NT.HW]
 Addreg = PEPACL
 
 [PEPACL]
@@ -168,7 +198,7 @@ HKR , Parameters\SDC2\P2, MinUtilizationThreshold     , 0x00010001,  0x00000000
 HKR , Parameters\SDC2\P2, Frequency                   , 0x00010001,  0x0000c350
 HKR , Parameters\SDC2\P2, Performance                 , 0x00010001,  0x00000002
 
-[PEP_SoftwareDeviceSettings_MicroPEP]
+[PEP_NPM_SoftwareDeviceSettings]
 HKR , Parameters        , BCLMode                     , 0x00010001,  0x00000001
 HKR , Parameters        , CprFlags                    , 0x00010001,  0x00000000
 HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000000
@@ -186,7 +216,7 @@ HKR , Parameters        , DisablePhaseScaling         , 0x00010001,  0x00000001
 HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000000
 HKR , Parameters        , EapsFlags                   , 0x00010001,  0x00000200
 HKR , Parameters        , EnableIdleCrashDebug        , 0x00010001,  0x00000001
-HKR , Parameters        , EnableMicroPep              , 0x00010001,  0x00000000 ; Disabled due to issues on 8992, will cause a crash
+HKR , Parameters        , EnableMicroPep              , 0x00010001,  0x00000001
 HKR , Parameters        , EnableMsftSdPStates         , 0x00010001,  0x00000001
 HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000000 ; Disabled due to issues on 8992, will cause a crash
 HKR , Parameters        , ErrataFlags                 , 0x00010001,  0x80000001
@@ -240,8 +270,8 @@ qcpep8992.sys
 [Pep_Device.NT.Services]
 AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_Service_Inst
 
-[Pep_Device_ARM64.NT.Services]
-AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_Service_Inst_micropep
+[Pep_Device_NPM.NT.Services]
+AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_npm_Service_Inst
 
 [pep_Service_Inst]
 DisplayName    = %pep.SVCDESC%
@@ -253,7 +283,7 @@ LoadOrderGroup = Base
 Tag            = 17
 AddReg         = PEP_SoftwareDeviceSettings
 
-[pep_Service_Inst_micropep]
+[pep_npm_Service_Inst]
 DisplayName    = %pep.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
@@ -261,7 +291,7 @@ ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\qcpep8992.sys
 LoadOrderGroup = Base
 Tag            = 17
-AddReg         = PEP_SoftwareDeviceSettings_MicroPEP
+AddReg         = PEP_NPM_SoftwareDeviceSettings
 
 [SourceDisksNames]
 1 = %DiskId1%

@@ -1,0 +1,41 @@
+;
+; chargingresources.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 08/08/2019,1.0.0.0
+CatalogFile = chargingresources.cat
+
+[DestinationDirs]
+; 10 = Windows
+PstDrv.Files  = 10,OEM\Drivers
+PreOobe.Files = 10,Setup\Scripts
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+chargearbitration.cat_             = 0,,
+chargearbitration.inf_             = 0,,
+CAD.sys                            = 0,,
+
+;*****************************************
+; chargingresources  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM64]
+CopyFiles = PstDrv.Files
+
+; Windows/OEM
+[PstDrv.Files]
+chargearbitration.cat, chargearbitration.cat_, , 0x00004000,
+ChargeArbitration.inf, ChargeArbitration.inf_, , 0x00004000,
+CAD.sys              , CAD.sys               , , 0x00004000,
+
+[Strings]
+IHV                    = "LumiaWoA authors"
+DiskId1                = "Charging Resources Installation Disk #1"

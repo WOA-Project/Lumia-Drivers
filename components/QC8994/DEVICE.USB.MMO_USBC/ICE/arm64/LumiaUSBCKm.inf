@@ -4,60 +4,77 @@
 
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Class       = USB
+ClassGuid   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %ManufacturerName%
 CatalogFile = LumiaUSBCKm.cat
-DriverVer = 03/27/2020,18.30.43.720
+DriverVer   = 08/25/2019,10.17.6.552
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir                           = 12
+LumiaUSBCKm_Device_CoInstaller_CopyFiles = 11
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
 
 [SourceDisksFiles]
 LumiaUSBCKm.sys = 1,,
+;
+
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName%=Standard,NTARM64
+%ManufacturerName% = Standard,NTARM64
 
 [Standard.NTARM64]
-%LumiaUSBCKm.DeviceDesc%=LumiaUSBCKm_Device, ACPI\LUMI0001
+%LumiaUSBCKm.DeviceDesc% = LumiaUSBCKm_Device, ACPI\LUMI0001
 
 [LumiaUSBCKm_Device.NT]
-CopyFiles=Drivers_Dir
+CopyFiles = Drivers_Dir
 
 [Drivers_Dir]
 LumiaUSBCKm.sys
 
 ;-------------- Service installation
 [LumiaUSBCKm_Device.NT.Services]
-AddService = LumiaUSBCKm, %SPSVCINST_ASSOCSERVICE%, LumiaUSBCKm_Service_Inst
+AddService = LumiaUSBCKm,%SPSVCINST_ASSOCSERVICE%, LumiaUSBCKm_Service_Inst
 
 ; -------------- LumiaUSBCKm driver install sections
 [LumiaUSBCKm_Service_Inst]
-DisplayName    = %LumiaUSBCKm.SVCDESC%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\LumiaUSBCKm.sys
-LoadOrderGroup = Extended Base
+DisplayName   = %LumiaUSBCKm.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\LumiaUSBCKm.sys
+
+;
+;--- LumiaUSBCKm_Device Coinstaller installation ------
+;
+
+[LumiaUSBCKm_Device.NT.CoInstallers]
+AddReg    = LumiaUSBCKm_Device_CoInstaller_AddReg
+CopyFiles = LumiaUSBCKm_Device_CoInstaller_CopyFiles
+
+[LumiaUSBCKm_Device_CoInstaller_AddReg]
+;
+
+
+[LumiaUSBCKm_Device_CoInstaller_CopyFiles]
+;
+
 
 [LumiaUSBCKm_Device.NT.Wdf]
-KmdfService =  LumiaUSBCKm, LumiaUSBCKm_wdfsect
-
+KmdfService = LumiaUSBCKm, LumiaUSBCKm_wdfsect
 [LumiaUSBCKm_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-
 ManufacturerName       = "LumiaWoA authors"
-DiskName               = "Lumia USB-C Installation Disk"
-LumiaUSBCKm.DeviceDesc = "Lumia USB-C Device (iteration=37)"
-LumiaUSBCKm.SVCDESC    = "Lumia USB-C Service"
+DiskName               = "LumiaUSBCKm Installation Disk"
+LumiaUSBCKm.DeviceDesc = "LumiaUSBCKm Device (Pol=1, iteration=23)"
+LumiaUSBCKm.SVCDESC    = "LumiaUSBCKm Service"
+
