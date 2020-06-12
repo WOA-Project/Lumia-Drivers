@@ -45,5 +45,5 @@ apperso.dll
 npetsec.dll
 
 [Strings]
-IHV     = "LumiaWoA authors"
-APPerso = "Application Processor Personalisation Library"
+IHV                = "LumiaWoA authors"
+APPerso.DeviceDesc = "Application Processor Personalisation Library"
