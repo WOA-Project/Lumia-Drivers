@@ -23,7 +23,7 @@ FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 
 [SourceDisksFiles]
 IHVDriversOobe.cmd                 = 0,,
-IHVDriversSpecialize.cmd           = 0,,
+zIHVDriversSpecialize.cmd          = 0,,
 
 
 ;*****************************************
@@ -40,7 +40,7 @@ CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 IHVDriversOobe.cmd
 
 [SpecializeCmd.Files]
-IHVDriversSpecialize.cmd
+zIHVDriversSpecialize.cmd
 
 [FirstLogonCmd.Files]
 
