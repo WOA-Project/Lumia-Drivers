@@ -12,6 +12,8 @@ if %osbuild% gtr 17763 set ossupport=1903
 copy \Windows\OEM\Drivers\MSNfcI2C547.%ossupport%.dll \Windows\OEM\Drivers\MSNfcI2C547.dll
 copy \Windows\OEM\Drivers\nxppn547.%ossupport%.cat \Windows\OEM\Drivers\nxppn547.cat
 
+\Windows\OEM\devcon.exe update \Windows\OEM\Drivers\oempanel.inf ACPI\MSHW1004
+
 REM Additional power plan settings
 powercfg /setdcvalueindex SCHEME_CURRENT SUB_SLEEP STANDBYIDLE 60
 powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP STANDBYIDLE 60
