@@ -8,7 +8,7 @@ Class       = SYSTEM
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %ManufacturerName%
 CatalogFile = LumiaUSBCKm.cat
-DriverVer = 06/20/2020,15.21.25.311
+DriverVer = 06/27/2020,17.1.58.869
 PnpLockdown = 1
 
 [DestinationDirs]
