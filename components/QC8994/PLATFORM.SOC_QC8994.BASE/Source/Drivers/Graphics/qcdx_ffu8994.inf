@@ -227,6 +227,82 @@ HKLM, SOFTWARE\Classes\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef
 HKLM, SOFTWARE\Classes\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                                                                    , MFTFlags              , %REG_DWORD%    , 0x6
 HKLM, SOFTWARE\Classes\MediaFoundation\Transforms\Categories\d6c02d4b-6833-45b4-971a-05a4b04bab91\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                    ,                       , 0x10
 
+
+; Various settings
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SYSTEM\MultiMedia\DeviceCapability\ResourceSettings", "VideoProcessor", 0x10001, 0xFD200
+
 [QCDX_MftRegistration_64]
 ; system32
 ; qcvidencarm64mfth2648994.dll
@@ -351,6 +427,81 @@ HKLM, SOFTWARE\Classes\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef
 HKLM, SOFTWARE\Classes\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                                                                    , MFTFlags              , %REG_DWORD%    , 0x6
 HKLM, SOFTWARE\Classes\MediaFoundation\Transforms\Categories\d6c02d4b-6833-45b4-971a-05a4b04bab91\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                    ,                       , 0x10
 
+; Various settings
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23"            , "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15"            , "StepSize"            , 0x10001        ,  0x1
+HKLM, "SYSTEM\MultiMedia\DeviceCapability\ResourceSettings", "VideoProcessor", 0x10001, 0xFD200
+
 ; sysarm32
 ; qcvidencarm32mfth2648994.dll
 HKLM, SOFTWARE\Classes\WowAA32Node\CLSID\{7790EE16-08E3-426d-AADA-F96774308EA1}                                                                                       ,                       ,                , %QC_ENCODE_H264%
@@ -473,6 +624,80 @@ HKLM, SOFTWARE\Classes\WowAA32Node\MediaFoundation\Transforms\df20ddfa-0d19-463a
 	  E5,D8,EF,6E,FD,69,76,4B,2D,C0,D6,33,68,B4,45,97,1A,05,A4,B0,4B,AB,91
 HKLM, SOFTWARE\Classes\WowAA32Node\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                                                                    , MFTFlags              , %REG_DWORD%    , 0x6
 HKLM, SOFTWARE\Classes\WowAA32Node\MediaFoundation\Transforms\Categories\d6c02d4b-6833-45b4-971a-05a4b04bab91\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                    ,                       , 0x10
+
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{300A0000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B2160000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9810000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9820000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9840000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Max"                 , 0x10001        ,  0x1000
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_22", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Max"                 , 0x10001        ,  0x870
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "Min"                 , 0x10001        ,  0x40
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{2ED8BA05-0AD3-42DC-B0D0-BC95AC396AC8}_23", "StepSize"            , 0x10001        ,  0x2
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Max"                 , 0x10001        ,  0x7270E00
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "Min"                 , 0x10001        ,  0xFA0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_13", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Max"                 , 0x10001        ,  0xEA60
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "Min"                 , 0x10001        ,  0x0
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\MTP\ObjectFormats\{B9850000-AE6C-4804-98BA-C57B46965FE7}\ObjectProperties\{346F2163-F998-4146-8B01-D19B4C00DE9A}_15", "StepSize"            , 0x10001        ,  0x1
+HKLM, "SOFTWARE\WowAA32Node\Microsoft\Windows Media Foundation\HardwareMFT", "EnableDecoders", 0x10001, 0x1
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
