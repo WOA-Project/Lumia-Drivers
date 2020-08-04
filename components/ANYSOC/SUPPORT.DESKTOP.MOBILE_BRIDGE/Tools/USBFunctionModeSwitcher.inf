@@ -20,7 +20,10 @@ Shortcut.Files                = 16407        ; All Users\Start Menu\Programs
 
 [SourceDisksFiles.ARM64]
 USBFunctionModeSwitcher.exe      = 0,,
-TaskDialog.dll                   = 0,,
+coreclr.dll                      = 0,,
+clrjit.dll                       = 0,,
+mscordaccore.dll                 = 0,,
+clrcompression.dll               = 0,,
 "USB Function Mode Switcher.lnk" = 0,,
 
 [DefaultInstall.NTARM64]
@@ -28,7 +31,10 @@ CopyFiles = USBFunctionModeSwitcher.Files,Shortcut.Files
 
 [USBFunctionModeSwitcher.Files]
 USBFunctionModeSwitcher.exe
-TaskDialog.dll
+coreclr.dll
+clrjit.dll
+mscordaccore.dll
+clrcompression.dll
 
 [Shortcut.Files]
 "USB Function Mode Switcher.lnk"
