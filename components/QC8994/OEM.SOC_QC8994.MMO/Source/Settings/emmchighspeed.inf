@@ -19,6 +19,9 @@ CatalogFile.NTARM64 = eMMCHighSpeed.arm64.cat
 [DefaultInstall.NTARM]
 Addreg    = eMMCHighSpeedReg
 
+[DefaultInstall.NTARM64]
+Addreg    = eMMCHighSpeedReg
+
 [eMMCHighSpeedReg]
 HKLM, "SYSTEM\ControlSet001\services\SdBus\Parameters", "DisableHS200Support", 0x10001, 0x0
 HKLM, "SYSTEM\ControlSet001\services\SdBus\Parameters", "DisableHS400Support", 0x10001, 0x0
