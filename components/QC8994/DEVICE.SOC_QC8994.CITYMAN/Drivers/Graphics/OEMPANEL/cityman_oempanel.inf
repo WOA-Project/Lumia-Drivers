@@ -18,9 +18,9 @@
 Signature   = "$Windows NT$"
 Class       = Extension
 ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
-Provider    = %QC%
+Provider    = %SAMSUNG%
 ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD11E4B}
-DriverVer   = 03/24/2010, 07.14.2.8061
+DriverVer   = 09/05/2020, 8.0.0.0
 
 CatalogFile.NTARM   = cityman_oempanel.arm.cat
 CatalogFile.NTARM64 = cityman_oempanel.arm64.cat
@@ -30,7 +30,7 @@ CatalogFile.NTARM64 = cityman_oempanel.arm64.cat
 ;*****************************************
 
 [Manufacturer]
-%QC% = DeviceExtensions,NTARM,NTARM64
+%SAMSUNG% = DeviceExtensions,NTARM,NTARM64
 
 [DeviceExtensions.NTARM]
 %OEM.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1004
@@ -40,6 +40,12 @@ CatalogFile.NTARM64 = cityman_oempanel.arm64.cat
 
 [DeviceExtension_Install]
 AddReg    = OEM_ServiceReg
+
+[DeviceExtension_Install.HW]
+AddReg = FriendlyName_AddReg
+
+[FriendlyName_AddReg]
+HKR,,FriendlyName,, "Samsung 5.7-inch 1440x2560 (WQHD) 518ppi AM-OLED 16.7M Colors Display Panel (AMS567DJ06)"
 
 [OEM_ServiceReg]
 HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", "AD_CalibrationA", 0x10001, 0x12
@@ -113,9 +119,8 @@ HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", "LIGHT_T
 
 [Strings]
 ;Localizable Strings
-QC                     = "Nokia"
-OEM.SvcDesc            = "Nokia Panel Driver Service"
-OEM.DeviceDesc         = "Nokia Panel Driver"
+SAMSUNG                = "Samsung"
+OEM.DeviceDesc         = "Samsung 5.7-inch 1440x2560 (WQHD) 518ppi AM-OLED 16.7M Colors Display Panel (AMS567DJ06)"
 
 ;Non-Localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
