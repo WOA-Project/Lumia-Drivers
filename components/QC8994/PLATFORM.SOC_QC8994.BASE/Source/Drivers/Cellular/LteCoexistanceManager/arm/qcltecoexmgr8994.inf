@@ -10,10 +10,8 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QUALCOMM%
 DriverVer   = 07/02/2015,1.0.1076.0000
+CatalogFile = QcLteCoexMgr8994.cat
 PnpLockDown = 1
-
-CatalogFile.NTARM = QcLteCoexMgr8994.arm.cat
-CatalogFile.NTARM64 = QcLteCoexMgr8994.arm64.cat
 
 [DestinationDirs]
 Drivers_Dir_12 = 12
@@ -23,23 +21,17 @@ Drivers_Dir_12 = 12
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-QcLteCoexMgr8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-QcLteCoexMgr8994.sys = 1,arm64
+[SourceDisksFiles]
+QcLteCoexMgr8994.sys = 1,
 
 ;*****************************************
 ; Lte Coexistence Manager Install Section
 ;*****************************************
 
 [Manufacturer]
-%QUALCOMM% = Standard,NTARM,NTARM64
+%QUALCOMM% = Standard,NTARM
 
 [Standard.NTARM]
-%COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
-
-[Standard.NTARM64]
 %COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
 
 [COEX_Device.NT]
