@@ -11,7 +11,7 @@ This repository isn't complete due to the lack of hardware. While we could theor
 
 ## Resources
 
-[Telegram group for ARM64](https://t.me/joinchat/C-AWlUUp3wxnBQeuxIEVow)
+[Telegram group for ARM64](https://t.me/joinchat/C-AWlUUp3wxdcLRKwNOYsA)
 
 [Telegram group for ARM32](https://t.me/joinchat/C-AWlVMh3jq0tnvPpLAS0Q)
 
