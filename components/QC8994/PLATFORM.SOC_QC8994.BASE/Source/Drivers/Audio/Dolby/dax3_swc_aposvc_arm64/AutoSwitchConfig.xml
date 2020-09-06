@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Applications priority="1">
+        <APP name="bluejeans.exe" profile="Voice" />
+        <APP name="skype.exe" profile="Voice" />
+        <APP name="skypehost.exe" profile="Voice" />
+        <APP name="lync.exe" profile="Voice" />
+        <APP name="viber.exe" profile="Voice" />
+        <APP name="espace.exe" profile="Voice" />
+        <APP name="wechat.exe" profile="Voice" />
+        <APP name="wechatweb.exe" profile="Voice" />
+        <APP name="micromsg.exe" profile="Voice" />
+        <APP name="qq.exe" profile="Voice" />
+        <APP name="qq.launch.exe" profile="Voice" />
+        <APP name="alexa.exe" profile="Voice" />
+        <APP name="lineapp.exe" profile="Voice" />
+        <APP name="dingtalk.exe" profile="Voice" />
+    </Applications>
+    <Applications priority="2">
+        <APP name="wmplayer.exe" profile="Dynamic" />
+        <APP name="music.ui.exe" profile="Music" />
+        <APP name="video.ui.exe" profile="Movie" />
+        <APP name="vlc.exe" profile="Dynamic" />
+        <APP name="dolbyuwp.exe" profile="Movie" />
+        <APP name="spotify.exe" profile="Music" />
+        <APP name="hulu.gibson.exe" profile="Movie" />
+        <APP name="95FE1D22.VUDUMoviesandTV_0wkekwh8d6p78!App" profile="Movie" />
+        <APP name="PandoraMediaInc.29680B314EFC2_n619g4d5j0fnw!App" profile="Music"/>
+        <APP name="4DF9E0F8.Netflix_mcm4njqhnhss8!Netflix.App" profile="Movie" />
+        <APP name="SmartRemote.exe" profile="Movie"/>
+        <APP name="qqmusic.exe" profile="Music" />
+        <APP name="baidumusic.exe" profile="Music" />
+        <APP name="kugou.exe" profile="Music" />
+        <APP name="cloudmusic.exe" profile="Music" />
+        <APP name="kwwebkit.exe" profile="Music" />
+        <APP name="kwservice.exe" profile="Music" />
+        <APP name="youkudesktop.exe" profile="Movie"/>
+        <APP name="qyplayer.exe" profile="Movie"/>
+        <APP name="qqlive.exe" profile="Movie"/>
+        <APP name="cbox.exe" profile="Movie"/>
+        <APP name="mgtv.exe" profile="Movie"/>
+        <APP name="xmp.exe" profile="Movie"/>
+        <APP name="stormplayer.exe" profile="Movie"/>
+        <APP name="livehime.exe" profile="Movie"/>
+        <APP name="qqplayer.exe" profile="Movie"/>
+        <APP name="kmplayer64.exe" profile="Dynamic" />
+    </Applications>
+    <Applications priority="3">
+        <APP name="microsoftedgecp.exe" profile="Dynamic" />
+        <APP name="microsoftedgebchost.exe" profile="Dynamic" />
+        <APP name="chrome.exe" profile="Dynamic" />
+        <APP name="iexplore.exe" profile="Dynamic" />
+        <APP name="facebook.exe" profile="Dynamic" />
+        <APP name="youdaodict.exe" profile="Voice" />
+        <APP name="firefox.exe" profile="Dynamic" />
+        <APP name="qqbrowser.exe" profile="Dynamic" />
+        <APP name="360se.exe" profile="Dynamic" />
+        <APP name="360chrome.exe" profile="Dynamic" />
+        <APP name="sogouexplorer.exe" profile="Dynamic" />
+        <APP name="liebao.exe" profile="Dynamic" />
+        <APP name="realplay.exe" profile="Dynamic" />
+    </Applications>
+    <Applications priority="4">
+        <APP name="leagueclient.exe" profile="Game" />
+        <APP name="dnf.exe" profile="Game" />
+        <APP name="gameapp.exe" profile="Game" />
+        <APP name="asphalt8.exe" profile="Game" />
+        <APP name="hearthstone.exe" profile="Game" />
+        <APP name="csgo.exe" profile="Game" />
+        <APP name="witcher3.exe" profile="Game" />
+        <APP name="crossfire.exe" profile="Game" />
+        <APP name="ntcls_daemon.exe" profile="Game" />
+        <APP name="battle.net.exe" profile="Game" />
+        <APP name="mhmain.exe" profile="Game" />
+        <APP name="dota2.exe" profile="Game" />
+        <APP name="tgame.exe" profile="Game" />
+    </Applications>
+</Config>
