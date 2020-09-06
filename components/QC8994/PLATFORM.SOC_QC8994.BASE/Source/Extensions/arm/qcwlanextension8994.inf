@@ -5,17 +5,12 @@ ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F5A}
 DriverVer   = 04/08/2020,1.0.0.0
-
-CatalogFile.NTARM   = qcwlanextension8994.arm.cat
-CatalogFile.NTARM64 = qcwlanextension8994.arm64.cat
+CatalogFile = qcwlanextension8994.arm.cat
 
 [Manufacturer]
-%QC% = DeviceExtensions,NTarm,NTarm64
+%QC% = DeviceExtensions,NTarm
 
 [DeviceExtensions.NTarm]
-%WLAN.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
-
-[DeviceExtensions.NTarm64]
 %WLAN.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
 
 [DeviceExtension_Install.NT]
