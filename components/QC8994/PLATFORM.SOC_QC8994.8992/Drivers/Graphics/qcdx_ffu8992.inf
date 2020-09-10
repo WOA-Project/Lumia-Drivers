@@ -25,8 +25,8 @@ CatalogFile.NTARM64 = qcdx_ffu8992.arm64.cat
 AddReg = FriendlyName_AddReg
 
 [FriendlyName_AddReg]
-HKR,,FriendlyName,, "Qualcomm(R) Adreno(TM) 418 GPU"
+HKR,,FriendlyName,, "Qualcomm Adreno 418"
 
 [Strings]
 QC                     = "Qualcomm Incorporated"
-QC_Device              = "Qualcomm(R) Adreno(TM) 418 GPU"
+QC_Device              = "Qualcomm Adreno 418"
