@@ -79,8 +79,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 QUALCOMM               = "Qualcomm Inc."
 DiskId1                = "IP Accelerator Installation Disk"
-ipa.DeviceDesc         = "Qualcomm IPA Device"
-ipa.SVCDESC            = "Qualcomm IPA Driver"
+ipa.DeviceDesc         = "Qualcomm(R) Bus Device"
+ipa.SVCDESC            = "Qualcomm(R) Bus Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002

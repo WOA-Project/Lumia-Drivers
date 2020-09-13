@@ -80,8 +80,8 @@ ServiceBinary = %12%\qcpmic3p8994.sys
 [Strings]
 ;Localizable Strings
 COMP                   = "Qualcomm Incorporated"
-qcpmic3p.SvcDesc       = "Qualcomm PMIC 3rd Party Driver"
-DeviceDesc             = "Qualcomm PMIC 3rd Party Driver"
+qcpmic3p.SvcDesc       = "Qualcomm(R) Power Management"
+DeviceDesc             = "Qualcomm(R) Power Management"
 DiskId                 = "Qualcomm PMIC 3rd Party Installation Disk"
 
 ;Non-Localizable Strings

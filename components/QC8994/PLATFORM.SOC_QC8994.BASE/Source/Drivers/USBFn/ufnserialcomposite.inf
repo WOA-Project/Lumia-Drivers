@@ -400,7 +400,7 @@ QCCompositeDevice.DeviceDesc1_DPL = "USB Function SerialClass (MODEM)"
 QCCompositeDevice.DeviceDesc2_DPL = "USB Function SerialClass (RmNet)"
 QCCompositeDevice.DeviceDesc3_DPL = "USB Function SerialClass (DPL)"
 
-QCCompositeDevice.SVCDESC         = "Qualcomm USB Composite Device Driver"
+QCCompositeDevice.SVCDESC         = "Qualcomm(R) Bus Device"
 
 REG_SZ                            = 0x00000000
 REG_BINARY                        = 0x00000001

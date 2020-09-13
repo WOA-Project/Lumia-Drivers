@@ -65,6 +65,6 @@ KmdfLibraryVersion = 1.15
 [Strings]
 Manufacturer_Name  = "Qualcomm Technologies, Inc."
 Disk_Description   = "Qualcomm SPI Device Installation Disk"
-Device_Description = "Qualcomm SPI Device"
-Service_Name       = "Qualcomm SPI Driver"
+Device_Description = "Qualcomm(R) Bus Device"
+Service_Name       = "Qualcomm(R) Bus Device"
 

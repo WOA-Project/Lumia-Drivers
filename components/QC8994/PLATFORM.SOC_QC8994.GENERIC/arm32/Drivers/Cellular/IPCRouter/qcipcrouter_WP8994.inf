@@ -101,10 +101,10 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM               = "Qualcomm Incorporated"
+QUALCOMM               = "Qualcomm Technologies, Inc."
 DiskId1                = "WDF IPC_ROUTER Installation Disk"
-IPC_ROUTER.DeviceDesc  = "Qualcomm IPC Router Device"
-IPC_ROUTER.SVCDESC     = "Qualcomm IPC Router Driver"
+IPC_ROUTER.DeviceDesc  = "Qualcomm(R) Data Device"
+IPC_ROUTER.SVCDESC     = "Qualcomm(R) Data Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002

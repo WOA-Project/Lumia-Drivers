@@ -87,10 +87,10 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QUALCOMM               = "Qualcomm Inc."
+QUALCOMM               = "Qualcomm Technologies, Inc."
 DiskId1                = "ADC Installation Disk"
-ADC.DeviceDesc         = "Qualcomm ADC Device"
-ADC.SVCDESC            = "Qualcomm ADC Driver"
+ADC.DeviceDesc         = "Qualcomm(R) Hexagon(TM) V56 DSP"
+ADC.SVCDESC            = "Qualcomm(R) Hexagon(TM) V56 DSP"
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_DEMAND_START   = 3
 SERVICE_ERROR_NORMAL   = 1

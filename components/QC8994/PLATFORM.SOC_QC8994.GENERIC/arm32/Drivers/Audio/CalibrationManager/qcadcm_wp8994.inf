@@ -76,11 +76,11 @@ Addreg        = ADCMReg_Service
 
 [Strings]
 ;Localizable Strings
-QCOM                   = "Qualcomm Inc."
+QCOM                   = "Qualcomm Technologies, Inc."
 StdMfg                 = "(Standard system devices)"
 DiskId1                = "ADCM Installation Disk"
-ADCM.DeviceDesc        = "Qualcomm Audio DSP and Calibration Manager Device"
-ADCM.SVCDESC           = "Qualcomm Audio DSP and Calibration Manager"
+ADCM.DeviceDesc        = "Qualcomm(R) Aqstic(TM)"
+ADCM.SVCDESC           = "Qualcomm(R) Aqstic(TM)"
 
 ;Non-Localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002

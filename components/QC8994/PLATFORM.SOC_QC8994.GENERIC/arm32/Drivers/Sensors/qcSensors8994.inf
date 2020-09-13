@@ -124,7 +124,7 @@ HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;UD)(
 [Strings]
 MediaDescription      = "Qualcomm Sensor Collection Installation Media"
 ManufacturerName      = "Qualcomm"
-DevDesc               = "Qualcomm Sensor Collection"
+DevDesc               = "Qualcomm(R) All-Ways Aware(TM) Hub"
 WudfRdDisplayName     = "Windows Driver Foundation - User-mode Driver Framework Reflector"
 
 SERVICE_KERNEL_DRIVER = 1

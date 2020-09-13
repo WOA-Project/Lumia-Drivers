@@ -88,8 +88,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 QC                     = "Qualcomm Inc."
 DiskId1                = "Qualcomm PMIC WDF Driver Installation Disk"
-PMIC.SvcDesc           = "Qualcomm PMIC Driver"
-DeviceDesc             = "Qualcomm PMIC Device"
+PMIC.SvcDesc           = "Qualcomm(R) Power Management"
+DeviceDesc             = "Qualcomm(R) Power Management"
 
 ;Non-Localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002

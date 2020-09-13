@@ -80,8 +80,8 @@ ServiceBinary = %12%\qcpmicgpio8994.sys
 [Strings]
 ;Localizable Strings
 COMP                   = "Qualcomm Inc."
-PMIO.SvcDesc           = "Qualcomm PMIC GPIO Client Driver"
-DeviceDesc             = "Qualcomm PMIC GPIO Client Device"
+PMIO.SvcDesc           = "Qualcomm(R) Power Management"
+DeviceDesc             = "Qualcomm(R) Power Management"
 DiskId                 = "Qualcomm PMIC GPIO Client Driver Installation Disk"
 
 ;Non-Localizable Strings

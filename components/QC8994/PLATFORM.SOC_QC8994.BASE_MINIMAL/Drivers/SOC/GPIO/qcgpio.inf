@@ -74,8 +74,8 @@ ServiceBinary = %12%\qcgpio.sys
 [Strings]
 ;Localizable Strings
 COMP                   = "CompanyName"
-GPIO.SvcDesc           = "GPIO Client Device"
-GPIO.DeviceDesc        = "GPIO Client Device"
+GPIO.SvcDesc           = "Qualcomm(R) System Manager Device"
+GPIO.DeviceDesc        = "Qualcomm(R) System Manager Device"
 DiskId                 = "Qualcomm GPIO Client Device Driver Installation Disk"
 
 ;Non-Localizable Strings

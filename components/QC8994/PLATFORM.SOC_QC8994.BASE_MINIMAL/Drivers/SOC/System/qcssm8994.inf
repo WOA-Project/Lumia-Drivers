@@ -83,7 +83,7 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 QUALCOMM               = "Qualcomm, Inc."
 StdMfg                 = "(Standard system devices)"
 DiskId1                = "Ssm Installation Disk #1"
-SSM.DeviceDesc         = "Ssm Driver"
-SSM.SVCDESC            = "Qualcomm Ssm Service"
+SSM.DeviceDesc         = "Qualcomm(R) System Manager Device"
+SSM.SVCDESC            = "Qualcomm(R) System Manager Device"
 ClassName              = "System"
 

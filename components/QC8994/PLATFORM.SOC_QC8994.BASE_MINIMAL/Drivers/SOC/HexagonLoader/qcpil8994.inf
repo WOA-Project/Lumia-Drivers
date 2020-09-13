@@ -104,8 +104,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 QUALCOMM               = "Qualcomm Incorporated"
 DiskId1                = "Qualcomm Peripheral Image Loader (PIL) Driver Installation Disk #1"
-PIL.DeviceDesc         = "Qualcomm Peripheral Image Loader Device"
-PIL.SVCDESC            = "Qualcomm Peripheral Image Loader Driver"
+PIL.DeviceDesc         = "Qualcomm(R) System Manager Device"
+PIL.SVCDESC            = "Qualcomm(R) System Manager Device"
 
 ;Non-localizable Strings
 REG_SZ                 = 0x00000000

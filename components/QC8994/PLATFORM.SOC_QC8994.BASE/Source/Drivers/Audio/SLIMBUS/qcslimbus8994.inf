@@ -92,8 +92,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 ManufacturerName       = "Qualcomm Inc."
 DiskName               = "Qualcomm Slimbus Device Installation Disk"
-qcslimbus.DeviceDesc   = "Qualcomm Slimbus Device"
-qcslimbus.SVCDESC      = "Qualcomm Slimbus Device Driver"
+qcslimbus.DeviceDesc   = "Qualcomm(R) Bus Device"
+qcslimbus.SVCDESC      = "Qualcomm(R) Bus Device"
 REG_SZ                 = 0x00000000
 REG_BINARY             = 0x00000001
 REG_EXPAND_SZ          = 0x00020000

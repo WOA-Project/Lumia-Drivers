@@ -248,8 +248,8 @@ HKR, , DeviceCharacteristics, 0x10001, 0x00000100       ; FILE_DEVICE_SECURE_OPE
 [Strings]
 MediaDescription      = "Qualcomm qcgnss Collection Installation Media"
 ManufacturerName      = "Qualcomm"
-DevDesc               = "Qualcomm qcgnss Collection"
-WudfRdDisplayName     = "Windows Driver Foundation - User-mode Driver Framework Reflector"
+DevDesc               = "Qualcomm(R) Location"
+WudfRdDisplayName     = "Qualcomm(R) Location"
 
 SERVICE_KERNEL_DRIVER = 1
 SERVICE_DEMAND_START  = 3

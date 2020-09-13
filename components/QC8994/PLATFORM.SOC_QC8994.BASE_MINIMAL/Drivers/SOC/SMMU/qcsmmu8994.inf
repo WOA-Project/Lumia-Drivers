@@ -102,8 +102,8 @@ KmdfLibraryVersion = 1.13
 [Strings]
 ;Localizable Strings
 QC                     = "Qualcomm Inc."
-SMMU.DeviceDesc        = "Qualcomm System MMU v2 Device"
-SMMU.SVCDESC           = "Qualcomm System MMU v2 Driver"
+SMMU.DeviceDesc        = "Qualcomm(R) Memory and File System Device"
+SMMU.SVCDESC           = "Qualcomm(R) Memory and File System Device"
 DiskId                 = "Qualcomm System MMU v2 Driver Installation Disk"
 
 ;Non-localizable Strings

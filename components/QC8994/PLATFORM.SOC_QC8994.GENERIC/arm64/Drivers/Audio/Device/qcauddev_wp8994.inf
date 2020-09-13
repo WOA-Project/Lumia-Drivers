@@ -15,8 +15,8 @@
 
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Class       = Media
+ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0000
 CatalogFile = qcauddev8994.cat
@@ -40,10 +40,12 @@ Drivers_Dir = 12
 
 [Standard.NTARM64]
 %AUDD.DeviceDesc% = AUDIODEVICE,ADCM\QCOM242E
-%MBHC.DeviceDesc% = AUDIODEVICE,AUDD\QCOM2468
+%MBHC.DeviceDesc% = MBHC       ,AUDD\QCOM2468
 
 [AUDIODEVICE.NT]
 CopyFiles = Drivers_Dir
+
+[MBHC.NT]
 
 [Drivers_Dir]
 qcauddev8994.sys
@@ -51,6 +53,9 @@ qcauddev8994.sys
 ;-------------- Service installation
 [AUDIODEVICE.NT.Services]
 AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
+
+[MBHC.NT.Services]
+AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,MBHC_Service_Inst
 
 ; -------------- AUDD driver install sections
 [AUDD_Service_Inst]
@@ -61,6 +66,15 @@ ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\qcauddev8994.sys
 Tag            = 10
 AddReg         = AUDDSpkrProtReg,CPEPathReg
+LoadOrderGroup = Extended Base
+
+[MBHC_Service_Inst]
+DisplayName    = %MBHC.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\qcauddev8994.sys
+Tag            = 10
 LoadOrderGroup = Extended Base
 
 [AUDDSpkrProtReg]
@@ -96,9 +110,10 @@ REG_DWORD              = 0x00010001
 SPSVCINST_ASSOCSERVICE = 0x00000002
 QCOM                   = "Qualcomm"
 StdMfg                 = "(Standard system devices)"
-AUDD.DeviceDesc        = "Qualcomm Audio Device"
-MBHC.DeviceDesc        = "Qualcomm Multi Button Headset Controller"
-AUDD.SvcDesc           = "Qualcomm Audio Device Driver"
+AUDD.DeviceDesc        = "Qualcomm(R) Aqstic(TM)"
+MBHC.DeviceDesc        = "Qualcomm(R) System Manager Device"
+AUDD.SvcDesc           = "Qualcomm(R) Aqstic(TM)"
+MBHC.SvcDesc           = "Qualcomm(R) System Manager Device"
 DiskId1                = "Qualcomm Audio Device Installation Disk"
 
 
