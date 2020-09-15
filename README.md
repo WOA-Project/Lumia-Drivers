@@ -11,7 +11,7 @@ This repository isn't complete due to the lack of hardware. While we could theor
 
 ## Resources
 
-[Telegram group for ARM64](https://t.me/joinchat/C-AWlUUp3wxnBQeuxIEVow)
+[Telegram group for ARM64](https://t.me/joinchat/C-AWlUUp3wxdcLRKwNOYsA)
 
 [Telegram group for ARM32](https://t.me/joinchat/C-AWlVMh3jq0tnvPpLAS0Q)
 
@@ -107,7 +107,7 @@ SOFTWARE.
 
 ![Real life phones](assets/real_life_phones.jpg)
 
-Refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Status for status for Lumia 950 and Lumia 950 XL devices running ARM64 Windows.
+Refer to https://woa-project.github.io/LumiaWOA/status/ for status for Lumia 950 and Lumia 950 XL devices running ARM64 Windows.
 
 ## Installing manually
 
