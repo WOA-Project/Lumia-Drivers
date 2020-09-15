@@ -739,57 +739,57 @@ QCOM                                             = "Qualcomm"
 MfgName                                          = "QUALCOMM"
 QcCopyRight                                      = "Copyright (c) 2011 Qualcomm Inc All rights Reserved"
 
-QCAUD_A.DeviceDesc                               = "QCAUD Real Time (WaveRT) Driver for Qualcomm SoC"
-QCAUD.SvcDesc                                    = "Service for Qualcomm SoC WDM Audio Driver"
+QCAUD_A.DeviceDesc                               = "Qualcomm(R) Aqstic(TM)"
+QCAUD.SvcDesc                                    = "Qualcomm(R) Aqstic(TM)"
 
 ;; friendly names
 QCAUD.WaveSpeaker.szPname                        = "QCAUD Wave Speaker"
-QCAUD.TopologySpeaker.szPname                    = "QCAUD Topology Speaker"
+QCAUD.TopologySpeaker.szPname                    = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveSpeakerHeadset.szPname                 = "QCAUD Wave Speaker Headset"
-QCAUD.TopologySpeakerHeadset.szPname             = "QCAUD Topology Speaker Headset"
+QCAUD.TopologySpeakerHeadset.szPname             = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveHdmi.szPname                           = "QCAUD Wave HDMI"
-QCAUD.TopologyHdmi.szPname                       = "QCAUD Topology HDMI"
+QCAUD.TopologyHdmi.szPname                       = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveCellular.szPname                       = "QCAUD Wave Cellular"
-QCAUD.TopologyCellular.szPname                   = "QCAUD Topology Cellular"
+QCAUD.TopologyCellular.szPname                   = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveFmRx.szPname                           = "QCAUD Wave FM RX"
-QCAUD.TopologyFmRx.szPname                       = "QCAUD Topology FM RX"
+QCAUD.TopologyFmRx.szPname                       = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveMicHeadset.szPname                     = "QCAUD Wave Microphone Headset"
-QCAUD.TopologyMicHeadset.szPname                 = "QCAUD Topology Microphone Headset"
+QCAUD.TopologyMicHeadset.szPname                 = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveMicIn.szPname                          = "QCAUD Wave Microphone"
-QCAUD.TopologyMicIn.szPname                      = "QCAUD Topology Microphone"
+QCAUD.TopologyMicIn.szPname                      = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveMicArray1.szPname                      = "QCAUD Wave Microphone Array - Front"
-QCAUD.TopologyMicArray1.szPname                  = "QCAUD Topology Microphone Array - Front"
+QCAUD.TopologyMicArray1.szPname                  = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveBthHfpSpeaker.szPname                  = "QCAUD Wave Bluetooth HFP Speaker"
-QCAUD.TopologyBthHfpSpeaker.szPname              = "QCAUD Topology Bluetooth HFP Speaker"
+QCAUD.TopologyBthHfpSpeaker.szPname              = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveBthHfpMic.szPname                      = "QCAUD Wave Bluetooth HFP Microphone"
-QCAUD.TopologyBthHfpMic.szPname                  = "QCAUD Topology Bluetooth HFP Microphone"
+QCAUD.TopologyBthHfpMic.szPname                  = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveBthHfpSpeakerWB.szPname                = "QCAUD Wave Bluetooth HFP Speaker Wideband"
-QCAUD.TopologyBthHfpSpeakerWB.szPname            = "QCAUD Topology Bluetooth HFP Speaker Wideband"
+QCAUD.TopologyBthHfpSpeakerWB.szPname            = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveBthHfpMicWB.szPname                    = "QCAUD Wave Bluetooth HFP Microphone Wideband"
-QCAUD.TopologyBthHfpMicWB.szPname                = "QCAUD Topology Bluetooth HFP Microphone Wideband"
+QCAUD.TopologyBthHfpMicWB.szPname                = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveHeadsetSpeaker.szPname                 = "QCAUD Wave Headset Speaker"
-QCAUD.TopologyHeadsetSpeaker.szPname             = "QCAUD Topology Headset Speaker"
+QCAUD.TopologyHeadsetSpeaker.szPname             = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveHeadsetMic.szPname                     = "QCAUD Wave Headset Microphone"
-QCAUD.TopologyHeadsetMic.szPname                 = "QCAUD Topology Headset Microphone"
+QCAUD.TopologyHeadsetMic.szPname                 = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveHandsetSpeaker.szPname                 = "QCAUD Wave Handset Speaker"
-QCAUD.TopologyHandsetSpeaker.szPname             = "QCAUD Topology Handset Speaker"
+QCAUD.TopologyHandsetSpeaker.szPname             = "Qualcomm(R) Aqstic(TM)"
 
 QCAUD.WaveHandsetMic.szPname                     = "QCAUD Wave Handset Microphone"
-QCAUD.TopologyHandsetMic.szPname                 = "QCAUD Topology Handset Microphone"
+QCAUD.TopologyHandsetMic.szPname                 = "Qualcomm(R) Aqstic(TM)"
 
 MicArray1CustomName                              = "Internal Microphone Array - Front"
 MicInCustomName                                  = "Internal Microphone"

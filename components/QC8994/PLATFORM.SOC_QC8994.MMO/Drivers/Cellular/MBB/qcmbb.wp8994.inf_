@@ -185,8 +185,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 QcomSrcDisk           = "Qualcomm WWAN Driver Disk"
 QCOM                  = "Qualcomm Inc."
-wwan.DeviceDesc       = "Qualcomm Mobile Broadband Device"
-wwan.Service.DispName = "Qualcomm Mobile Broadband Driver"
+wwan.DeviceDesc       = "Qualcomm(R) Snapdragon(TM) X10 LTE Modem Device"
+wwan.Service.DispName = "Qualcomm(R) Snapdragon(TM) X10 LTE Modem Device"
 DiskId1               = "Qualcomm NDIS Miniport Device Installation Disk #1"
 Disabled              = "Disabled"
 Enabled               = "Enabled"
