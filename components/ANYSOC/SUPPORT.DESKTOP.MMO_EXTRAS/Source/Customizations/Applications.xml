@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationSource Version="1.0">
+  <ConfigurationSet Type="provxml" ProductID="0b792c7c-14dc-df11-a844-00237de2db9e" Data="$(_provisionCab)\0a0f4f23-ada0-4521-a6ac-402255028867.provxml" mcc="262" />
+  <ConfigurationSet Type="provxml" ProductID="79098b6a-aae4-4eb9-b73f-87ffbf3e106d" Data="$(_provisionCab)\32cc39f6-257b-406c-81c1-b40fced3ea51.provxml" mcc="262" />
+  <ConfigurationSet Type="provxml" ProductID="5b6dddb4-3bcd-409e-afd0-e1ccc0351bc5" Data="$(_provisionCab)\3da18433-7e65-425c-970c-7cc349354cc6.provxml" mcc="262" />
+  <ConfigurationSet Type="provxml" ProductID="8e247eba-c6f2-4d76-b0b9-b06378b89ae0" Data="$(_provisionCab)\23efe92c-7b7c-4f6f-a85d-08708f5d33f7.provxml" mcc="262" />
+  <ConfigurationSet Type="provxml" ProductID="aebbdef8-1792-488b-a7be-7596a1720166" Data="$(_provisionCab)\eb1c377f-8626-4131-8a41-de7105118237.provxml" mcc="262" />
+  <ConfigurationSet Type="provxml" ProductID="de4bf68e-f892-4f53-8036-7de3de0d276f" Data="$(_provisionCab)\3436bc06-372d-4e22-a2e1-e06add18098e.provxml" mcc="262" />
+  <ConfigurationSet Type="provxml" ProductID="c3a509cd-61d6-df11-a844-00237de2db9e" Data="$(_provisionCab)\d6ff70ec-f5cb-4bf0-b596-df1987c4e0ad.provxml" mcc="262" />
+  <ConfigurationSet Type="provxml" ProductID="e8aa6b5e-7b6c-4d54-928c-bdb684e382f3" Data="$(_provisionCab)\e633eef9-b4c7-4efe-91bb-796760c0f090.provxml" mcc="262" />
+  <ConfigurationSet Type="provxml" ProductID="bdc813dd-c20b-41f8-8646-de72fa0b365d" Data="$(_provisionCab)\e7571eb8-f23d-4b6f-9bf9-1251430c0425.provxml" mcc="262" />
+  <ConfigurationSet Type="provxml" ProductID="0b792c7c-14dc-df11-a844-00237de2db9e" Data="$(_provisionCab)\578f4da2-d844-4836-94d7-4aa599d8cf60.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="0b792c7c-14dc-df11-a844-00237de2db9e" Data="$(_provisionCab)\578f4da2-d844-4836-94d7-4aa599d8cf60.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="0b792c7c-14dc-df11-a844-00237de2db9e" Data="$(_provisionCab)\578f4da2-d844-4836-94d7-4aa599d8cf60.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="0b792c7c-14dc-df11-a844-00237de2db9e" Data="$(_provisionCab)\578f4da2-d844-4836-94d7-4aa599d8cf60.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="0b792c7c-14dc-df11-a844-00237de2db9e" Data="$(_provisionCab)\578f4da2-d844-4836-94d7-4aa599d8cf60.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="0b792c7c-14dc-df11-a844-00237de2db9e" Data="$(_provisionCab)\578f4da2-d844-4836-94d7-4aa599d8cf60.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="79098b6a-aae4-4eb9-b73f-87ffbf3e106d" Data="$(_provisionCab)\7ca69db0-ad0b-4db0-b245-032fbb0d5cec.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="79098b6a-aae4-4eb9-b73f-87ffbf3e106d" Data="$(_provisionCab)\7ca69db0-ad0b-4db0-b245-032fbb0d5cec.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="79098b6a-aae4-4eb9-b73f-87ffbf3e106d" Data="$(_provisionCab)\7ca69db0-ad0b-4db0-b245-032fbb0d5cec.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="79098b6a-aae4-4eb9-b73f-87ffbf3e106d" Data="$(_provisionCab)\7ca69db0-ad0b-4db0-b245-032fbb0d5cec.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="79098b6a-aae4-4eb9-b73f-87ffbf3e106d" Data="$(_provisionCab)\7ca69db0-ad0b-4db0-b245-032fbb0d5cec.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="79098b6a-aae4-4eb9-b73f-87ffbf3e106d" Data="$(_provisionCab)\7ca69db0-ad0b-4db0-b245-032fbb0d5cec.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="12520a0d-e895-437c-9c71-ad071352b2be" Data="$(_provisionCab)\f5065888-81c9-40f7-a6df-2224df4ffb12.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="12520a0d-e895-437c-9c71-ad071352b2be" Data="$(_provisionCab)\f5065888-81c9-40f7-a6df-2224df4ffb12.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="12520a0d-e895-437c-9c71-ad071352b2be" Data="$(_provisionCab)\f5065888-81c9-40f7-a6df-2224df4ffb12.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="12520a0d-e895-437c-9c71-ad071352b2be" Data="$(_provisionCab)\f5065888-81c9-40f7-a6df-2224df4ffb12.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="12520a0d-e895-437c-9c71-ad071352b2be" Data="$(_provisionCab)\f5065888-81c9-40f7-a6df-2224df4ffb12.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="12520a0d-e895-437c-9c71-ad071352b2be" Data="$(_provisionCab)\f5065888-81c9-40f7-a6df-2224df4ffb12.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="5b6dddb4-3bcd-409e-afd0-e1ccc0351bc5" Data="$(_provisionCab)\49dca591-d8f7-4936-b5d1-64bd6be95d68.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="5b6dddb4-3bcd-409e-afd0-e1ccc0351bc5" Data="$(_provisionCab)\49dca591-d8f7-4936-b5d1-64bd6be95d68.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="5b6dddb4-3bcd-409e-afd0-e1ccc0351bc5" Data="$(_provisionCab)\49dca591-d8f7-4936-b5d1-64bd6be95d68.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="5b6dddb4-3bcd-409e-afd0-e1ccc0351bc5" Data="$(_provisionCab)\49dca591-d8f7-4936-b5d1-64bd6be95d68.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="5b6dddb4-3bcd-409e-afd0-e1ccc0351bc5" Data="$(_provisionCab)\49dca591-d8f7-4936-b5d1-64bd6be95d68.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="5b6dddb4-3bcd-409e-afd0-e1ccc0351bc5" Data="$(_provisionCab)\49dca591-d8f7-4936-b5d1-64bd6be95d68.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="8e247eba-c6f2-4d76-b0b9-b06378b89ae0" Data="$(_provisionCab)\143fbf13-290c-4f70-b3f2-bb51e1717a21.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="8e247eba-c6f2-4d76-b0b9-b06378b89ae0" Data="$(_provisionCab)\143fbf13-290c-4f70-b3f2-bb51e1717a21.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="8e247eba-c6f2-4d76-b0b9-b06378b89ae0" Data="$(_provisionCab)\143fbf13-290c-4f70-b3f2-bb51e1717a21.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="8e247eba-c6f2-4d76-b0b9-b06378b89ae0" Data="$(_provisionCab)\143fbf13-290c-4f70-b3f2-bb51e1717a21.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="8e247eba-c6f2-4d76-b0b9-b06378b89ae0" Data="$(_provisionCab)\143fbf13-290c-4f70-b3f2-bb51e1717a21.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="8e247eba-c6f2-4d76-b0b9-b06378b89ae0" Data="$(_provisionCab)\143fbf13-290c-4f70-b3f2-bb51e1717a21.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="aebbdef8-1792-488b-a7be-7596a1720166" Data="$(_provisionCab)\4201e618-349c-4731-8452-c160d50aa8a7.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="aebbdef8-1792-488b-a7be-7596a1720166" Data="$(_provisionCab)\4201e618-349c-4731-8452-c160d50aa8a7.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="aebbdef8-1792-488b-a7be-7596a1720166" Data="$(_provisionCab)\4201e618-349c-4731-8452-c160d50aa8a7.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="aebbdef8-1792-488b-a7be-7596a1720166" Data="$(_provisionCab)\4201e618-349c-4731-8452-c160d50aa8a7.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="aebbdef8-1792-488b-a7be-7596a1720166" Data="$(_provisionCab)\4201e618-349c-4731-8452-c160d50aa8a7.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="aebbdef8-1792-488b-a7be-7596a1720166" Data="$(_provisionCab)\4201e618-349c-4731-8452-c160d50aa8a7.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="de4bf68e-f892-4f53-8036-7de3de0d276f" Data="$(_provisionCab)\8678f542-4057-4f79-b916-c3f20fad5324.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="de4bf68e-f892-4f53-8036-7de3de0d276f" Data="$(_provisionCab)\8678f542-4057-4f79-b916-c3f20fad5324.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="de4bf68e-f892-4f53-8036-7de3de0d276f" Data="$(_provisionCab)\8678f542-4057-4f79-b916-c3f20fad5324.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="de4bf68e-f892-4f53-8036-7de3de0d276f" Data="$(_provisionCab)\8678f542-4057-4f79-b916-c3f20fad5324.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="de4bf68e-f892-4f53-8036-7de3de0d276f" Data="$(_provisionCab)\8678f542-4057-4f79-b916-c3f20fad5324.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="de4bf68e-f892-4f53-8036-7de3de0d276f" Data="$(_provisionCab)\8678f542-4057-4f79-b916-c3f20fad5324.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="c3a509cd-61d6-df11-a844-00237de2db9e" Data="$(_provisionCab)\360a7785-df54-45f5-9583-f884dcaf02c9.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="c3a509cd-61d6-df11-a844-00237de2db9e" Data="$(_provisionCab)\360a7785-df54-45f5-9583-f884dcaf02c9.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="c3a509cd-61d6-df11-a844-00237de2db9e" Data="$(_provisionCab)\360a7785-df54-45f5-9583-f884dcaf02c9.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="c3a509cd-61d6-df11-a844-00237de2db9e" Data="$(_provisionCab)\360a7785-df54-45f5-9583-f884dcaf02c9.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="c3a509cd-61d6-df11-a844-00237de2db9e" Data="$(_provisionCab)\360a7785-df54-45f5-9583-f884dcaf02c9.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="c3a509cd-61d6-df11-a844-00237de2db9e" Data="$(_provisionCab)\360a7785-df54-45f5-9583-f884dcaf02c9.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="e8aa6b5e-7b6c-4d54-928c-bdb684e382f3" Data="$(_provisionCab)\79ebd5b4-bbb3-48e1-93c3-c3547f6970b9.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="e8aa6b5e-7b6c-4d54-928c-bdb684e382f3" Data="$(_provisionCab)\79ebd5b4-bbb3-48e1-93c3-c3547f6970b9.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="e8aa6b5e-7b6c-4d54-928c-bdb684e382f3" Data="$(_provisionCab)\79ebd5b4-bbb3-48e1-93c3-c3547f6970b9.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="e8aa6b5e-7b6c-4d54-928c-bdb684e382f3" Data="$(_provisionCab)\79ebd5b4-bbb3-48e1-93c3-c3547f6970b9.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="e8aa6b5e-7b6c-4d54-928c-bdb684e382f3" Data="$(_provisionCab)\79ebd5b4-bbb3-48e1-93c3-c3547f6970b9.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="e8aa6b5e-7b6c-4d54-928c-bdb684e382f3" Data="$(_provisionCab)\79ebd5b4-bbb3-48e1-93c3-c3547f6970b9.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="bdc813dd-c20b-41f8-8646-de72fa0b365d" Data="$(_provisionCab)\0478c9aa-1f88-4072-a67a-f77bf2bb734d.provxml" mcc="262" mnc="01" gid1="01" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="bdc813dd-c20b-41f8-8646-de72fa0b365d" Data="$(_provisionCab)\0478c9aa-1f88-4072-a67a-f77bf2bb734d.provxml" mcc="262" mnc="01" gid1="02" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="bdc813dd-c20b-41f8-8646-de72fa0b365d" Data="$(_provisionCab)\0478c9aa-1f88-4072-a67a-f77bf2bb734d.provxml" mcc="262" mnc="01" gid1="03" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="bdc813dd-c20b-41f8-8646-de72fa0b365d" Data="$(_provisionCab)\0478c9aa-1f88-4072-a67a-f77bf2bb734d.provxml" mcc="262" mnc="01" gid1="04" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="bdc813dd-c20b-41f8-8646-de72fa0b365d" Data="$(_provisionCab)\0478c9aa-1f88-4072-a67a-f77bf2bb734d.provxml" mcc="262" mnc="01" gid1="99" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="bdc813dd-c20b-41f8-8646-de72fa0b365d" Data="$(_provisionCab)\0478c9aa-1f88-4072-a67a-f77bf2bb734d.provxml" mcc="262" mnc="01" gid1="4B" uiname="Telekom Germany" />
+  <ConfigurationSet Type="provxml" ProductID="c3a509cd-61d6-df11-a844-00237de2db9e" Data="$(_provisionCab)\88aa1d52-9f6d-4fc1-89b0-a160bb6b0d9e.provxml" mcc="222" />
+  <ConfigurationSet Type="provxml" ProductID="e8aa6b5e-7b6c-4d54-928c-bdb684e382f3" Data="$(_provisionCab)\b08ca788-4974-4430-ac03-9881469f4f76.provxml" mcc="222" />
+  <ConfigurationSet Type="provxml" ProductID="aaf4b5b9-37fc-4b38-a4f1-6276b65f3e53" Data="$(_provisionCab)\54cc1920-e2bd-44af-b1ad-3a7dc11fd938.provxml" mcc="222" />
+  <ConfigurationSet Type="provxml" ProductID="ef9060ed-0e00-4bff-9fba-98357ffefba9" Data="$(_provisionCab)\499f0d85-87f0-4535-b42d-717c743b826c.provxml" mcc="222" />
+  <ConfigurationSet Type="provxml" ProductID="237d7ead-79d8-df11-a844-00237de2db9e" Data="$(_provisionCab)\a1a6ead8-cc4d-4212-8fff-a770048b6898.provxml" mcc="222" />
+  <ConfigurationSet Type="provxml" ProductID="c3a509cd-61d6-df11-a844-00237de2db9e" Data="$(_provisionCab)\9c93190c-f947-4136-8728-94a7077d7b96.provxml" mcc="222" mnc="99" spn="3 ITA" uiname="H3G Italy" />
+  <ConfigurationSet Type="provxml" ProductID="e8aa6b5e-7b6c-4d54-928c-bdb684e382f3" Data="$(_provisionCab)\f2172a36-675d-45d0-8a98-2df78b40ac32.provxml" mcc="222" mnc="99" spn="3 ITA" uiname="H3G Italy" />
+  <ConfigurationSet Type="provxml" ProductID="aaf4b5b9-37fc-4b38-a4f1-6276b65f3e53" Data="$(_provisionCab)\c7062e96-5fda-492a-a67f-1131f8407467.provxml" mcc="222" mnc="99" spn="3 ITA" uiname="H3G Italy" />
+  <ConfigurationSet Type="provxml" ProductID="ef9060ed-0e00-4bff-9fba-98357ffefba9" Data="$(_provisionCab)\4d6b4c32-ad99-4fea-9a0f-3d81eb14472d.provxml" mcc="222" mnc="99" spn="3 ITA" uiname="H3G Italy" />
+  <ConfigurationSet Type="provxml" ProductID="237d7ead-79d8-df11-a844-00237de2db9e" Data="$(_provisionCab)\ddb9e50e-9d7f-451a-9406-af316aaf6051.provxml" mcc="222" mnc="99" spn="3 ITA" uiname="H3G Italy" />
+  <ConfigurationSet Type="provxml" ProductID="0b792c7c-14dc-df11-a844-00237de2db9e" Data="$(_provisionCab)\aa037def-5d2b-4cf2-9550-f0192b15109f.provxml" mcc="292" />
+  <ConfigurationSet Type="provxml" ProductID="6afc48f8-07c8-493d-b85d-f363511719a4" Data="$(_provisionCab)\b1b69a3e-07eb-4e41-a4e5-65b582837bf1.provxml" mcc="292" />
+  <ConfigurationSet Type="provxml" ProductID="aaf4b5b9-37fc-4b38-a4f1-6276b65f3e53" Data="$(_provisionCab)\8d006546-5109-4f6b-9f8b-84e0a52a2c87.provxml" mcc="292" />
+  <ConfigurationSet Type="provxml" ProductID="aebbdef8-1792-488b-a7be-7596a1720166" Data="$(_provisionCab)\c572a88d-1172-444c-afc4-541d018e6748.provxml" mcc="292" />
+  <ConfigurationSet Type="provxml" ProductID="b6c65940-a710-4be8-8805-85d57215dfaf" Data="$(_provisionCab)\c6687354-2718-40e3-8a57-12fba324123c.provxml" mcc="292" />
+  <ConfigurationSet Type="provxml" ProductID="e5723a43-42c8-4e25-b322-115f07bd44f1" Data="$(_provisionCab)\549d518c-b4f7-434d-bcd1-a0c6e4638cec.provxml" mcc="292" />
+  <ConfigurationSet Type="provxml" ProductID="afae337c-41d2-df11-9eae-00237de2db9e" Data="$(_provisionCab)\98bfdb33-f966-45bc-b50f-525e2aae3124.provxml" mcc="292" />
+  <ConfigurationSet Type="provxml" ProductID="0b792c7c-14dc-df11-a844-00237de2db9e" Data="$(_provisionCab)\7efc1d4a-1fb3-4f44-825c-0a06863d2938.provxml" mcc="225" />
+  <ConfigurationSet Type="provxml" ProductID="6afc48f8-07c8-493d-b85d-f363511719a4" Data="$(_provisionCab)\0db8c8d6-4411-4b84-81f2-57ac2367e0fa.provxml" mcc="225" />
+  <ConfigurationSet Type="provxml" ProductID="aaf4b5b9-37fc-4b38-a4f1-6276b65f3e53" Data="$(_provisionCab)\dc1d329e-53e8-4477-bbdc-09c96ab4ac95.provxml" mcc="225" />
+  <ConfigurationSet Type="provxml" ProductID="aebbdef8-1792-488b-a7be-7596a1720166" Data="$(_provisionCab)\7f395c1b-e9c3-453d-937a-9f9cd6ae210e.provxml" mcc="225" />
+  <ConfigurationSet Type="provxml" ProductID="e5723a43-42c8-4e25-b322-115f07bd44f1" Data="$(_provisionCab)\64f440e7-a041-4482-afd4-d071a63ffb36.provxml" mcc="225" />
+  <ConfigurationSet Type="provxml" ProductID="afae337c-41d2-df11-9eae-00237de2db9e" Data="$(_provisionCab)\544eebbf-9806-42c2-b1a6-566531104b32.provxml" mcc="225" />
+</ConfigurationSource>

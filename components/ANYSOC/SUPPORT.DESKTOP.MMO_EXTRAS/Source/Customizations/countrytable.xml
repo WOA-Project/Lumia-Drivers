@@ -1,0 +1,1014 @@
+<!--Source: http://www.itu.int/pub/T-SP-OB.1019-2013-->
+<countrytable>
+    <country mcc="202" iso3166="GR" GeoID="98"/><!-- Greece -->
+
+    <country mcc="204" iso3166="NL" GeoID="176"/><!-- Netherlands -->
+
+    <country mcc="206" iso3166="BE" GeoID="21"/><!-- Belgium -->
+
+    <country mcc="208" iso3166="FR" GeoID="84"/><!-- France -->
+
+    <country mcc="212" iso3166="MC" GeoID="158"/><!-- Monaco -->
+
+    <country mcc="213" iso3166="AD" GeoID="8"/><!-- Andorra -->
+
+    <country mcc="214" iso3166="ES" GeoID="217"/><!-- Spain -->
+
+    <country mcc="216" iso3166="HU" GeoID="109"/><!-- Hungary -->
+
+    <country mcc="218" iso3166="BA" GeoID="25"/><!-- Bosnia and Herzegovina -->
+
+    <country mcc="219" iso3166="HR" GeoID="108"/><!-- Croatia -->
+
+    <country mcc="220" iso3166="RS" GeoID="271"/><!-- Serbia (Republic of) -->
+
+    <country mcc="222" iso3166="IT" GeoID="118"/><!-- Italy -->
+
+    <country mcc="225" iso3166="VA" GeoID="253"/><!-- Vatican City State -->
+
+    <country mcc="226" iso3166="RO" GeoID="200"/><!-- Romania -->
+
+    <country mcc="228" iso3166="CH" GeoID="223"/><!-- Switzerland -->
+
+    <country mcc="230" iso3166="CZ" GeoID="75"/><!-- Czech Republic -->
+
+    <country mcc="231" iso3166="SK" GeoID="143"/><!-- Slovakia -->
+
+    <country mcc="232" iso3166="AT" GeoID="14"/><!-- Austria -->
+
+    <country mcc="234" iso3166="GB" GeoID="242"/><!-- United Kingdom -->
+
+    <country mcc="235" iso3166="GB" GeoID="242"/><!-- United Kingdom -->
+    
+    <country mcc="238" iso3166="DK" GeoID="61"/><!-- Denmark -->
+
+    <country mcc="240" iso3166="SE" GeoID="221"/><!-- Sweden -->
+
+    <country mcc="242" iso3166="NO" GeoID="177"/><!-- Norway -->
+
+    <country mcc="244" iso3166="FI" GeoID="77"/><!-- Finland -->
+
+    <country mcc="246" iso3166="LT" GeoID="141"/><!-- Lithuania -->
+
+    <country mcc="247" iso3166="LV" GeoID="140"/><!-- Latvia -->
+
+    <country mcc="248" iso3166="EE" GeoID="70"/><!-- Estonia -->
+
+    <country mcc="250" iso3166="RU" GeoID="203"/><!-- Russian Federation -->
+
+    <country mcc="255" iso3166="UA" GeoID="241"/><!-- Ukraine -->
+
+    <country mcc="257" iso3166="BY" GeoID="29"/><!-- Belarus -->
+
+    <country mcc="259" iso3166="MD" GeoID="152"/><!-- Moldova -->
+
+    <country mcc="260" iso3166="PL" GeoID="191"/><!-- Poland -->
+
+    <country mcc="262" iso3166="DE" GeoID="94"/><!-- Germany -->
+
+    <country mcc="266" iso3166="GI" GeoID="90"/><!-- Gibraltar (UK) -->
+
+    <country mcc="268" iso3166="PT" GeoID="193"/><!-- Portugal -->
+
+    <country mcc="270" iso3166="LU" GeoID="147"/><!-- Luxembourg -->
+
+    <country mcc="272" iso3166="IE" GeoID="68"/><!-- Ireland -->
+
+    <country mcc="274" iso3166="IS" GeoID="110"/><!-- Iceland -->
+
+    <country mcc="276" iso3166="AL" GeoID="6"/><!-- Albania -->
+
+    <country mcc="278" iso3166="MT" GeoID="163"/><!-- Malta -->
+
+    <country mcc="280" iso3166="CY" GeoID="59"/><!-- Cyprus -->
+
+    <country mcc="282" iso3166="GE" GeoID="88"/><!-- Georgia -->
+
+    <country mcc="283" iso3166="AM" GeoID="7"/><!-- Armenia -->
+
+    <country mcc="284" iso3166="BG" GeoID="35"/><!-- Bulgaria -->
+
+    <country mcc="286" iso3166="TR" GeoID="235"/><!-- Turkey -->
+
+    <country mcc="288" iso3166="FO" GeoID="81"/><!-- Faroe Islands (Denmark) -->
+
+    <country mcc="290" iso3166="GL" GeoID="93"/><!-- Greenland (Denmark) -->
+
+    <country mcc="292" iso3166="SM" GeoID="214"/><!-- San Marino -->
+
+    <country mcc="293" iso3166="SI" GeoID="212"/><!-- Slovenia -->
+
+    <country mcc="294" iso3166="MK" GeoID="19618"/><!-- Republic of Macedonia -->
+
+    <country mcc="295" iso3166="LI" GeoID="145"/><!-- Liechtenstein -->
+
+    <country mcc="297" iso3166="ME" GeoID="270"/><!-- Montenegro (Republic of) -->
+
+    <country mcc="302" iso3166="CA" GeoID="39"><!-- Canada -->
+		<mnclist>
+			<mnc id="220"/>
+			<mnc id="221"/>
+			<mnc id="222"/>
+			<mnc id="250"/>
+			<mnc id="270"/>
+			<mnc id="290"/>
+			<mnc id="320"/>
+			<mnc id="340"/>
+			<mnc id="360"/>
+			<mnc id="370"/>
+			<mnc id="380"/>
+			<mnc id="390"/>
+			<mnc id="490"/>
+			<mnc id="500"/>
+			<mnc id="510"/>
+			<mnc id="530"/>
+			<mnc id="560"/>
+			<mnc id="570"/>
+			<mnc id="590"/>
+			<mnc id="610"/>
+			<mnc id="620"/>
+			<mnc id="630"/>
+			<mnc id="640"/>
+			<mnc id="656"/>
+			<mnc id="660"/>
+			<mnc id="670"/>
+			<mnc id="680"/>
+			<mnc id="690"/>
+			<mnc id="710"/>
+			<mnc id="720"/>
+			<mnc id="730"/>
+			<mnc id="740"/>
+			<mnc id="760"/>
+			<mnc id="770"/>
+			<mnc id="780"/>
+			<mnc id="860"/>
+			<mnc id="880"/>
+			<mnc id="940"/>
+			<mnc id="990"/>
+		</mnclist>
+    </country>
+    
+    <country mcc="308" iso3166="PM" GeoID="206"/><!-- Saint Pierre and Miquelon (France) -->
+
+    <country mcc="310" iso3166="US" GeoID="244"><!-- United States of America -->
+		<mnclist>
+            <mnc id="000"/>
+            <mnc id="010"/>
+			<mnc id="012"/>
+			<mnc id="013"/>
+			<mnc id="016"/>
+			<mnc id="017"/>
+			<mnc id="020"/>
+			<mnc id="030"/>
+			<mnc id="035"/>
+			<mnc id="040"/>
+			<mnc id="050"/>
+			<mnc id="060"/>
+			<mnc id="070"/>
+			<mnc id="080"/>
+			<mnc id="090"/>
+			<mnc id="100"/>
+			<mnc id="110"/>
+			<mnc id="120"/>
+			<mnc id="130"/>
+			<mnc id="140"/>
+			<mnc id="150"/>
+			<mnc id="160"/>
+			<mnc id="170"/>
+			<mnc id="180"/>
+			<mnc id="190"/>
+			<mnc id="200"/>
+			<mnc id="210"/>
+			<mnc id="220"/>
+			<mnc id="230"/>
+			<mnc id="240"/>
+			<mnc id="250"/>
+			<mnc id="260"/>
+			<mnc id="270"/>
+			<mnc id="280"/>
+			<mnc id="290"/>
+			<mnc id="300"/>
+			<mnc id="310"/>
+			<mnc id="320"/>
+			<mnc id="330"/>
+			<mnc id="340"/>
+			<mnc id="350"/>
+			<mnc id="360"/>
+			<mnc id="370"/>
+			<mnc id="380"/>
+			<mnc id="390"/>
+			<mnc id="400"/>
+			<mnc id="410"/>
+			<mnc id="420"/>
+			<mnc id="430"/>
+			<mnc id="440"/>
+			<mnc id="450"/>
+			<mnc id="460"/>
+			<mnc id="470"/>
+			<mnc id="480"/>
+			<mnc id="490"/>
+			<mnc id="500"/>
+			<mnc id="510"/>
+			<mnc id="520"/>
+			<mnc id="530"/>
+			<mnc id="540"/>
+			<mnc id="550"/>
+			<mnc id="560"/>
+			<mnc id="570"/>
+			<mnc id="580"/>
+			<mnc id="590"/>
+			<mnc id="600"/>
+			<mnc id="610"/>
+			<mnc id="620"/>
+			<mnc id="640"/>
+			<mnc id="650"/>
+			<mnc id="660"/>
+			<mnc id="670"/>
+			<mnc id="680"/>
+			<mnc id="690"/>
+			<mnc id="700"/>
+			<mnc id="710"/>
+			<mnc id="720"/>
+			<mnc id="730"/>
+			<mnc id="740"/>
+			<mnc id="750"/>
+			<mnc id="760"/>
+			<mnc id="770"/>
+			<mnc id="780"/>
+			<mnc id="790"/>
+			<mnc id="800"/>
+			<mnc id="810"/>
+			<mnc id="820"/>
+			<mnc id="830"/>
+			<mnc id="840"/>
+			<mnc id="850"/>
+			<mnc id="860"/>
+			<mnc id="870"/>
+			<mnc id="880"/>
+			<mnc id="890"/>
+			<mnc id="900"/>
+			<mnc id="910"/>
+			<mnc id="920"/>
+			<mnc id="930"/>
+			<mnc id="940"/>
+			<mnc id="950"/>
+			<mnc id="960"/>
+			<mnc id="970"/>
+			<mnc id="980"/>
+			<mnc id="990"/>
+		</mnclist>
+    </country>
+
+    <country mcc="311" iso3166="US" GeoID="244"/><!-- United States of America -->
+		<mnclist>
+			<mnc id="000"/>
+			<mnc id="010"/>
+			<mnc id="020"/>
+			<mnc id="030"/>
+			<mnc id="040"/>
+			<mnc id="050"/>
+			<mnc id="060"/>
+			<mnc id="070"/>
+			<mnc id="080"/>
+			<mnc id="090"/>
+			<mnc id="100"/>
+			<mnc id="110"/>
+			<mnc id="120"/>
+			<mnc id="130"/>
+			<mnc id="140"/>
+			<mnc id="150"/>
+			<mnc id="160"/>
+			<mnc id="170"/>
+			<mnc id="180"/>
+			<mnc id="190"/>
+			<mnc id="200"/>
+			<mnc id="210"/>
+			<mnc id="220"/>
+			<mnc id="230"/>
+			<mnc id="240"/>
+			<mnc id="250"/>
+			<mnc id="260"/>
+			<mnc id="270"/>
+			<mnc id="271"/>
+			<mnc id="272"/>
+			<mnc id="273"/>
+			<mnc id="274"/>
+			<mnc id="275"/>
+			<mnc id="276"/>
+			<mnc id="277"/>
+			<mnc id="278"/>
+			<mnc id="279"/>
+			<mnc id="280"/>
+			<mnc id="281"/>
+			<mnc id="282"/>
+			<mnc id="283"/>
+			<mnc id="284"/>
+			<mnc id="285"/>
+			<mnc id="286"/>
+			<mnc id="287"/>
+			<mnc id="288"/>
+			<mnc id="289"/>
+			<mnc id="290"/>
+			<mnc id="300"/>
+			<mnc id="310"/>
+			<mnc id="320"/>
+			<mnc id="330"/>
+			<mnc id="340"/>
+			<mnc id="350"/>
+			<mnc id="360"/>
+			<mnc id="370"/>
+			<mnc id="380"/>
+			<mnc id="390"/>
+			<mnc id="410"/>
+			<mnc id="420"/>
+			<mnc id="430"/>
+			<mnc id="440"/>
+			<mnc id="450"/>
+			<mnc id="460"/>
+			<mnc id="470"/>
+			<mnc id="480"/>
+			<mnc id="481"/>
+			<mnc id="482"/>
+			<mnc id="483"/>
+			<mnc id="484"/>
+			<mnc id="485"/>
+			<mnc id="486"/>
+			<mnc id="487"/>
+			<mnc id="488"/>
+			<mnc id="489"/>
+			<mnc id="490"/>
+			<mnc id="500"/>
+			<mnc id="510"/>
+			<mnc id="520"/>
+			<mnc id="530"/>
+			<mnc id="540"/>
+			<mnc id="550"/>
+			<mnc id="560"/>
+			<mnc id="570"/>
+			<mnc id="580"/>
+			<mnc id="590"/>
+			<mnc id="600"/>
+			<mnc id="610"/>
+			<mnc id="620"/>
+			<mnc id="630"/>
+			<mnc id="640"/>
+			<mnc id="650"/>
+			<mnc id="660"/>
+			<mnc id="670"/>
+			<mnc id="680"/>
+			<mnc id="690"/>
+			<mnc id="700"/>
+			<mnc id="710"/>
+			<mnc id="720"/>
+			<mnc id="730"/>
+			<mnc id="740"/>
+			<mnc id="750"/>
+			<mnc id="760"/>
+			<mnc id="770"/>
+			<mnc id="800"/>
+			<mnc id="810"/>
+			<mnc id="820"/>
+			<mnc id="830"/>
+			<mnc id="840"/>
+			<mnc id="850"/>
+			<mnc id="860"/>
+			<mnc id="870"/>
+			<mnc id="880"/>
+			<mnc id="890"/>
+			<mnc id="900"/>
+			<mnc id="910"/>
+			<mnc id="920"/>
+			<mnc id="940"/>
+			<mnc id="950"/>
+			<mnc id="960"/>
+			<mnc id="970"/>
+			<mnc id="980"/>
+			<mnc id="990"/>
+		</mnclist>
+
+    <country mcc="312" iso3166="US" GeoID="244"><!-- United States of America -->
+		<mnclist>
+			<mnc id="010"/>
+			<mnc id="020"/>
+			<mnc id="030"/>
+			<mnc id="040"/>
+			<mnc id="050"/>
+			<mnc id="060"/>
+			<mnc id="070"/>
+			<mnc id="080"/>
+			<mnc id="090"/>
+			<mnc id="100"/>
+			<mnc id="110"/>
+			<mnc id="120"/>
+			<mnc id="130"/>
+			<mnc id="140"/>
+			<mnc id="150"/>
+			<mnc id="160"/>
+			<mnc id="170"/>
+			<mnc id="180"/>
+			<mnc id="190"/>
+			<mnc id="200"/>
+	    </mnclist>
+    </country>
+    
+    <country mcc="313" iso3166="US" GeoID="244"><!-- United States of America -->
+		<mnclist>
+			<mnc id="100"/>
+	    </mnclist>
+    </country>
+
+    <country mcc="314" iso3166="US" GeoID="244"/><!-- United States of America -->
+
+    <country mcc="315" iso3166="US" GeoID="244"/><!-- United States of America -->
+
+    <country mcc="316" iso3166="US" GeoID="244"><!-- United States of America -->
+		<mnclist>
+			<mnc id="010"/>
+			<mnc id="011"/>
+	    </mnclist>
+    </country>
+
+    <country mcc="330" iso3166="PR" GeoID="202"><!-- Puerto Rico (US) -->
+		<mnclist>
+			<mnc id="010"/>
+			<mnc id="011"/>
+			<mnc id="110"/>
+	  </mnclist>
+    </country>
+    
+    <country mcc="332" iso3166="VI" GeoID="252"/><!-- United States Virgin Islands (US) -->
+
+    <country mcc="334" iso3166="MX" GeoID="166"><!-- Mexico -->
+		<mnclist>
+			<mnc id="020"/>
+			<mnc id="030"/><!-- 05-Jun-14: Added Movistar --> 
+			<mnc id="050"/><!-- 07-Feb-14: Added Iusacell/Unefon -->
+			<mnc id="090"/><!-- 16-Jul-15: Added Nextel -->
+		</mnclist>
+    </country>
+
+    <country mcc="338" iso3166="JM" GeoID="124"><!-- Jamaica -->
+		<mnclist>
+			<mnc id="020"/>
+			<mnc id="110"/>
+			<mnc id="180"/>
+		</mnclist>
+    </country>
+
+    <country mcc="340" iso3166="GP" GeoID="321"/><!-- Guadeloupe (France) -->
+
+    <country mcc="340" iso3166="MQ" GeoID="330"/><!-- Martinique (France) -->
+
+    <country mcc="340" iso3166="GF" GeoID="317"/><!-- French Guiana (France) -->
+    
+    <country mcc="342" iso3166="BB" GeoID="18"><!-- Barbados -->
+		<mnclist>
+			<mnc id="600"/>
+			<mnc id="820"/>
+		</mnclist>
+    </country>
+
+    <country mcc="344" iso3166="AG" GeoID="2"><!-- Antigua and Barbuda -->
+    	<mnclist>
+			<mnc id="030"/>
+			<mnc id="920"/>
+			<mnc id="930"/>
+		</mnclist>
+    </country>
+
+    <country mcc="346" iso3166="KY" GeoID="307"><!-- Cayman Islands (UK) -->
+        <mnclist>
+			<mnc id="140"/>
+		</mnclist>
+    </country>
+
+    <country mcc="348" iso3166="VG" GeoID="351"><!-- British Virgin Islands (UK) -->
+        <mnclist>
+			<mnc id="170"/>
+			<mnc id="370"/>
+			<mnc id="570"/>
+			<mnc id="770"/>
+		</mnclist>
+    </country>
+
+    <country mcc="350" iso3166="BM" GeoID="20"><!-- Bermuda (UK) -->
+        <mnclist>
+			<mnc id="000"/>
+		</mnclist>
+    </country>
+
+    <country mcc="352" iso3166="GD" GeoID="91"><!-- Grenada -->
+        <mnclist>
+			<mnc id="110"/>
+		</mnclist>
+    </country>
+
+    <country mcc="354" iso3166="MS" GeoID="332"><!-- Montserrat (UK) -->
+        <mnclist>
+			<mnc id="860"/>
+		</mnclist>
+    </country>
+
+    <country mcc="356" iso3166="KN" GeoID="207"><!-- Saint Kitts and Nevis -->
+        <mnclist>
+			<mnc id="110"/>
+		</mnclist>
+    </country>
+
+    <country mcc="358" iso3166="LC" GeoID="218"><!-- Saint Lucia -->
+        <mnclist>
+			<mnc id="110"/>
+		</mnclist>
+    </country>
+
+    <country mcc="360" iso3166="VC" GeoID="248"><!-- Saint Vincent and the Grenadines -->
+        <mnclist>
+			<mnc id="110"/>
+		</mnclist>
+    </country>
+
+    <country mcc="362" iso3166="CW" GeoID="273"/><!-- Curaçao (Netherlands) -->
+
+    <country mcc="363" iso3166="AW" GeoID="302"/><!-- Aruba (Netherlands) -->
+
+    <country mcc="364" iso3166="BS" GeoID="22"/><!-- Bahamas -->    
+
+    <country mcc="365" iso3166="AI" GeoID="300"><!-- Anguilla -->
+        <mnclist>
+			<mnc id="840"/>
+			<mnc id="010"/>
+		</mnclist>
+    </country>
+
+    <country mcc="366" iso3166="DM" GeoID="63"><!-- Dominica -->
+        <mnclist>
+			<mnc id="110"/>
+		</mnclist>
+    </country>
+
+    <country mcc="368" iso3166="CU" GeoID="56"/><!-- Cuba -->
+
+    <country mcc="370" iso3166="DO" GeoID="65"/><!-- Dominican Republic -->
+
+    <country mcc="372" iso3166="HT" GeoID="103"/><!-- Haiti -->
+
+    <country mcc="374" iso3166="TT" GeoID="225"><!-- Trinidad and Tobago -->
+		<mnclist>
+			<mnc id="130"/>
+			<mnc id="140"/>
+		</mnclist>
+    </country>
+
+    <country mcc="376" iso3166="TC" GeoID="349"><!-- Turks and Caicos Islands (UK) -->
+		<mnclist>
+			<mnc id="350"/>
+			<mnc id="352"/>
+			<mnc id="360"/>
+		</mnclist>
+    </country>
+
+    <country mcc="400" iso3166="AZ" GeoID="5"/><!-- Azerbaijani Republic -->
+
+    <country mcc="401" iso3166="KZ" GeoID="137"/><!-- Kazakhstan -->
+
+    <country mcc="402" iso3166="BT" GeoID="34"/><!-- Bhutan -->
+
+    <country mcc="404" iso3166="IN" GeoID="113"/><!-- India -->
+		    
+    <country mcc="405" iso3166="IN" GeoID="113"><!-- India -->
+		<mnclist>
+			<mnc id="025"/>
+			<mnc id="026"/>
+			<mnc id="027"/>
+			<mnc id="029"/>
+			<mnc id="030"/>
+			<mnc id="031"/>
+			<mnc id="032"/>
+			<mnc id="033"/>
+			<mnc id="034"/>
+			<mnc id="035"/>
+			<mnc id="036"/>
+			<mnc id="037"/>
+			<mnc id="038"/>
+			<mnc id="039"/>
+			<mnc id="040"/>
+			<mnc id="041"/>
+			<mnc id="042"/>
+			<mnc id="043"/>
+			<mnc id="044"/>
+			<mnc id="045"/>
+			<mnc id="046"/>
+			<mnc id="047"/>
+			<mnc id="750"/>
+			<mnc id="751"/>
+			<mnc id="752"/>
+			<mnc id="753"/>
+			<mnc id="754"/>
+			<mnc id="755"/>
+			<mnc id="756"/>
+			<mnc id="799"/>
+			<mnc id="800"/>
+			<mnc id="801"/>
+			<mnc id="802"/>
+			<mnc id="803"/>
+			<mnc id="804"/>
+			<mnc id="805"/>
+			<mnc id="806"/>
+			<mnc id="807"/>
+			<mnc id="808"/>
+			<mnc id="809"/>
+			<mnc id="810"/>
+			<mnc id="811"/>
+			<mnc id="812"/>
+			<mnc id="818"/>
+			<mnc id="819"/>
+			<mnc id="820"/>
+			<mnc id="821"/>
+			<mnc id="822"/>
+			<mnc id="824"/>
+			<mnc id="827"/>
+			<mnc id="834"/>
+			<mnc id="840"/>
+			<mnc id="844"/>
+			<mnc id="845"/>
+			<mnc id="848"/>
+			<mnc id="850"/>
+			<mnc id="854"/>
+			<mnc id="855"/>
+			<mnc id="856"/>
+			<mnc id="857"/>
+			<mnc id="858"/>
+			<mnc id="859"/>
+			<mnc id="860"/>
+			<mnc id="861"/>
+			<mnc id="862"/>
+			<mnc id="863"/>
+			<mnc id="864"/>
+			<mnc id="865"/>
+			<mnc id="866"/>
+			<mnc id="867"/>
+			<mnc id="868"/>
+			<mnc id="869"/>
+			<mnc id="870"/>
+			<mnc id="871"/>
+			<mnc id="872"/>
+			<mnc id="873"/>
+			<mnc id="874"/>
+			<mnc id="875"/>
+			<mnc id="880"/>
+			<mnc id="881"/>
+			<mnc id="912"/>
+			<mnc id="913"/>
+			<mnc id="914"/>
+			<mnc id="917"/>
+			<mnc id="927"/>
+			<mnc id="929"/>
+		</mnclist>
+    </country>
+
+    <country mcc="406" iso3166="IN" GeoID="113"/><!-- India -->
+
+    <country mcc="410" iso3166="PK" GeoID="190"/><!-- Pakistan -->
+
+    <country mcc="412" iso3166="AF" GeoID="3"/><!-- Afghanistan -->
+
+    <country mcc="413" iso3166="LK" GeoID="42"/><!-- Sri Lanka -->
+
+    <country mcc="414" iso3166="MM" GeoID="27"/><!-- Myanmar -->
+
+    <country mcc="415" iso3166="LB" GeoID="139"/><!-- Lebanon -->
+
+    <country mcc="416" iso3166="JO" GeoID="126"/><!-- Jordan -->
+
+    <country mcc="417" iso3166="SY" GeoID="222"/><!-- Syria -->
+
+    <country mcc="418" iso3166="IQ" GeoID="121"/><!-- Iraq -->
+
+    <country mcc="419" iso3166="KW" GeoID="136"/><!-- Kuwait -->
+
+    <country mcc="420" iso3166="SA" GeoID="205"/><!-- Saudi Arabia -->
+
+    <country mcc="421" iso3166="YE" GeoID="261"/><!-- Yemen -->
+
+    <country mcc="422" iso3166="OM" GeoID="164"/><!-- Oman -->
+
+    <country mcc="424" iso3166="AE" GeoID="224"/><!-- United Arab Emirates -->
+
+    <country mcc="425" iso3166="IL" GeoID="117"/><!-- Israel -->
+
+    <country mcc="425" iso3166="PS" GeoID="184"/><!-- Palestine -->
+
+    <country mcc="426" iso3166="BH" GeoID="17"/><!-- Bahrain -->
+
+    <country mcc="427" iso3166="QA" GeoID="197"/><!-- Qatar -->
+
+    <country mcc="428" iso3166="MN" GeoID="154"/><!-- Mongolia -->
+
+    <country mcc="429" iso3166="NP" GeoID="178"/><!-- Nepal -->
+
+    <country mcc="430" iso3166="AE" GeoID="224"/><!-- United Arab Emirates -->
+
+    <country mcc="431" iso3166="AE" GeoID="224"/><!-- United Arab Emirates -->
+
+    <country mcc="432" iso3166="IR" GeoID="116"/><!-- Iran -->
+
+    <country mcc="434" iso3166="UZ" GeoID="247"/><!-- Uzbekistan -->
+
+    <country mcc="436" iso3166="TJ" GeoID="228"/><!-- Tajikistan -->
+
+    <country mcc="437" iso3166="KG" GeoID="130"/><!-- Kyrgyz Republic -->
+
+    <country mcc="438" iso3166="TM" GeoID="238"/><!-- Turkmenistan -->
+
+    <country mcc="440" iso3166="JP" GeoID="122"/><!-- Japan -->
+
+    <country mcc="441" iso3166="JP" GeoID="122"/><!-- Japan -->
+
+    <country mcc="450" iso3166="KR" GeoID="134"/><!-- Korea, South -->
+
+    <country mcc="452" iso3166="VN" GeoID="251"/><!-- Viet Nam -->
+
+    <country mcc="454" iso3166="HK" GeoID="104"/><!-- Hong Kong (PRC) -->
+
+    <country mcc="455" iso3166="MO" GeoID="151"/><!-- Macau (PRC) -->
+
+    <country mcc="456" iso3166="KH" GeoID="40"/><!-- Cambodia -->
+
+    <country mcc="457" iso3166="LA" GeoID="138"/><!-- Laos -->
+
+    <country mcc="460" iso3166="CN" GeoID="45"/><!-- China -->
+
+    <country mcc="461" iso3166="CN" GeoID="45"/><!-- China -->
+
+    <country mcc="466" iso3166="TW" GeoID="237"/><!-- Taiwan -->
+
+    <country mcc="467" iso3166="KP" GeoID="131"/><!-- Korea, North -->
+
+    <country mcc="470" iso3166="BD" GeoID="23"/><!-- Bangladesh -->
+
+    <country mcc="472" iso3166="MV" GeoID="165"/><!-- Maldives -->
+
+    <country mcc="502" iso3166="MY" GeoID="167"><!-- Malaysia -->
+    <mnclist>
+			<mnc id="153"/>
+		</mnclist>
+    </country>
+
+    <country mcc="505" iso3166="AU" GeoID="12"/><!-- Australia -->
+
+    <country mcc="510" iso3166="ID" GeoID="111"/><!-- Indonesia -->
+
+    <country mcc="514" iso3166="TL" GeoID="7299303"/><!-- Timor-Leste -->
+
+    <country mcc="515" iso3166="PH" GeoID="201"><!-- Philippines -->
+    <mnclist>
+			<mnc id="034"/>
+			<mnc id="036"/>
+		</mnclist>
+    </country>
+    
+    <country mcc="520" iso3166="TH" GeoID="227"/><!-- Thailand -->
+
+    <country mcc="525" iso3166="SG" GeoID="215"/><!-- Singapore -->
+
+    <country mcc="528" iso3166="BN" GeoID="37"/><!-- Brunei Darussalam -->
+
+    <country mcc="530" iso3166="NZ" GeoID="183"/><!-- New Zealand -->
+
+    <country mcc="534" iso3166="MP" GeoID="337"/><!-- Northern Mariana Islands (US) -->
+
+    <country mcc="535" iso3166="GU" GeoID="322"/><!-- Guam (US) -->
+
+    <country mcc="537" iso3166="PG" GeoID="194"/><!-- Papua New Guinea -->
+
+    <country mcc="539" iso3166="TO" GeoID="231"/><!-- Tonga -->
+
+    <country mcc="540" iso3166="SB" GeoID="30"/><!-- Solomon Islands -->
+
+    <country mcc="541" iso3166="VU" GeoID="174"/><!-- Vanuatu -->
+
+    <country mcc="542" iso3166="FJ" GeoID="78"/><!-- Fiji -->
+
+    <country mcc="542" iso3166="NR" GeoID="180"/><!-- Nauru -->
+
+    <country mcc="543" iso3166="WF" GeoID="352"/><!-- Wallis and Futuna (France) -->
+
+    <country mcc="544" iso3166="AS" GeoID="10"/><!-- American Samoa (US) -->
+
+    <country mcc="545" iso3166="KI" GeoID="133"/><!-- Kiribati -->
+
+    <country mcc="546" iso3166="NC" GeoID="334"/><!-- New Caledonia (France) -->
+
+    <country mcc="547" iso3166="PF" GeoID="318"/><!-- French Polynesia (France) -->
+
+    <country mcc="548" iso3166="CK" GeoID="312"/><!-- Cook Islands (NZ) -->
+
+    <country mcc="549" iso3166="WS" GeoID="259"/><!-- Samoa -->
+
+    <country mcc="550" iso3166="FM" GeoID="80"/><!-- Federated States of Micronesia -->
+
+    <country mcc="551" iso3166="MH" GeoID="199"/><!-- Marshall Islands -->
+
+    <country mcc="552" iso3166="PW" GeoID="195"/><!-- Palau -->
+
+    <country mcc="553" iso3166="TV" GeoID="236"/><!-- Tuvalu -->
+
+    <country mcc="555" iso3166="NU" GeoID="335"/><!-- Niue -->
+
+    <country mcc="602" iso3166="EG" GeoID="67"/><!-- Egypt -->
+
+    <country mcc="603" iso3166="DZ" GeoID="4"/><!-- Algeria -->
+
+    <country mcc="604" iso3166="MA" GeoID="159"/><!-- Morocco -->
+
+    <country mcc="605" iso3166="TN" GeoID="234"/><!-- Tunisia -->
+
+    <country mcc="606" iso3166="LY" GeoID="148"/><!-- Libya -->	
+
+    <country mcc="607" iso3166="GM" GeoID="86"/><!-- Gambia -->
+
+    <country mcc="608" iso3166="SN" GeoID="210"/><!-- Senegal -->
+
+    <country mcc="609" iso3166="MR" GeoID="162"/><!-- Mauritania -->
+
+    <country mcc="610" iso3166="ML" GeoID="157"/><!-- Mali -->
+
+    <country mcc="611" iso3166="GN" GeoID="100"/><!-- Guinea -->
+
+    <country mcc="612" iso3166="CI" GeoID="119"/><!-- Côte d'Ivoire -->
+
+    <country mcc="613" iso3166="BF" GeoID="245"/><!-- Burkina Faso -->
+
+    <country mcc="614" iso3166="NE" GeoID="173"/><!-- Niger -->
+
+    <country mcc="615" iso3166="TG" GeoID="232"/><!-- Togolese Republic -->
+
+    <country mcc="616" iso3166="BJ" GeoID="28"/><!-- Benin -->
+
+    <country mcc="617" iso3166="MU" GeoID="160"/><!-- Mauritius -->
+
+    <country mcc="618" iso3166="LR" GeoID="142"/><!-- Liberia -->
+
+    <country mcc="619" iso3166="SL" GeoID="213"/><!-- Sierra Leone -->
+
+    <country mcc="620" iso3166="GH" GeoID="89"/><!-- Ghana -->
+
+    <country mcc="621" iso3166="NG" GeoID="175"/><!-- Nigeria -->
+
+    <country mcc="622" iso3166="TD" GeoID="41"/><!-- Chad -->
+
+    <country mcc="623" iso3166="CF" GeoID="55"/><!-- Central African Republic -->
+
+    <country mcc="624" iso3166="CM" GeoID="49"/><!-- Cameroon -->
+
+    <country mcc="625" iso3166="CV" GeoID="57"/><!-- Cape Verde -->
+
+    <country mcc="626" iso3166="ST" GeoID="233"/><!-- São Tomé and Príncipe -->
+
+    <country mcc="627" iso3166="GQ" GeoID="69"/><!-- Equatorial Guinea -->
+
+    <country mcc="628" iso3166="GA" GeoID="87"/><!-- Gabonese Republic -->
+
+    <country mcc="629" iso3166="CG" GeoID="43"/><!-- Republic of the Congo -->
+
+    <country mcc="630" iso3166="CD" GeoID="44"/><!-- Democratic Republic of the Congo -->
+
+    <country mcc="631" iso3166="AO" GeoID="9"/><!-- Angola -->
+
+    <country mcc="632" iso3166="GW" GeoID="196"/><!-- Guinea-Bissau -->
+
+    <country mcc="633" iso3166="SC" GeoID="208"/><!-- Seychelles -->
+
+    <country mcc="634" iso3166="SD" GeoID="219"/><!-- Sudan -->
+
+    <country mcc="635" iso3166="RW" GeoID="204"/><!-- Rwandese Republic -->
+
+    <country mcc="636" iso3166="ET" GeoID="73"/><!-- Ethiopia -->
+
+    <country mcc="637" iso3166="SO" GeoID="216"/><!-- Somalia -->
+
+    <country mcc="638" iso3166="DJ" GeoID="62"/><!-- Djibouti -->
+
+    <country mcc="639" iso3166="KE" GeoID="129"/><!-- Kenya -->
+
+    <country mcc="640" iso3166="TZ" GeoID="239"/><!-- Tanzania -->
+
+    <country mcc="641" iso3166="UG" GeoID="240"/><!-- Uganda -->
+
+    <country mcc="642" iso3166="BI" GeoID="38"/><!-- Burundi -->
+
+    <country mcc="643" iso3166="MZ" GeoID="168"/><!-- Mozambique -->
+
+    <country mcc="645" iso3166="ZM" GeoID="263"/><!-- Zambia -->
+
+    <country mcc="646" iso3166="MG" GeoID="149"/><!-- Madagascar -->
+
+    <country mcc="647" iso3166="RE" GeoID="198"/><!-- Réunion (France) -->
+
+    <country mcc="648" iso3166="ZW" GeoID="264"/><!-- Zimbabwe -->
+
+    <country mcc="649" iso3166="NA" GeoID="254"/><!-- Namibia -->
+
+    <country mcc="650" iso3166="MW" GeoID="156"/><!-- Malawi -->
+
+    <country mcc="651" iso3166="LS" GeoID="146"/><!-- Lesotho -->
+
+    <country mcc="652" iso3166="BW" GeoID="19"/><!-- Botswana -->
+
+    <country mcc="653" iso3166="SZ" GeoID="260"/><!-- Swaziland -->
+
+    <country mcc="654" iso3166="KM" GeoID="50"/><!-- Comoros -->
+
+    <country mcc="655" iso3166="ZA" GeoID="209"/><!-- South Africa -->
+
+    <country mcc="657" iso3166="ER" GeoID="71"/><!-- Eritrea -->
+  
+    <country mcc="659" iso3166="SS" GeoID="276"/><!-- South Sudan -->
+
+    <country mcc="666" iso3166="US" GeoID="244"/><!-- United States of America for testing only-->
+
+    <country mcc="702" iso3166="BZ" GeoID="24 "/><!-- Belize -->
+
+    <country mcc="704" iso3166="GT" GeoID="99"/><!-- Guatemala -->
+
+    <country mcc="706" iso3166="SV" GeoID="72"/><!-- El Salvador -->
+
+    <country mcc="708" iso3166="HN" GeoID="106"><!-- Honduras -->
+		<mnclist>
+			<mnc id="001"/>
+			<mnc id="002"/>
+			<mnc id="040"/>
+		</mnclist>
+    </country>
+
+    <country mcc="710" iso3166="NI" GeoID="182"><!-- Nicaragua -->
+    <mnclist>
+			<mnc id="300"/><!-- 11-Mar-14: Added MNC 300 (Movistar Nicaragua) -->
+		</mnclist>
+		</country>
+		
+    <country mcc="712" iso3166="CR" GeoID="54"/><!-- Costa Rica -->
+
+    <country mcc="714" iso3166="PA" GeoID="192"><!-- Panama -->
+		<mnclist>
+			<mnc id="020"/>
+		</mnclist>
+    </country>
+
+    <country mcc="716" iso3166="PE" GeoID="187"/><!-- Perú -->
+
+    <country mcc="722" iso3166="AR" GeoID="11"><!-- Argentine Republic -->
+		<mnclist>
+			<!--mnc id="010"/--><!-- 07-Feb-14: Removed: Movistar valid MNC 01 -->
+			<!--mnc id="020"/--><!-- 07-Feb-14: Removed: Nextel valid MNC 02 -->
+			<!--mnc id="070"/--><!-- 07-Feb-14: Removed: Movistar valid MNC 07 -->
+			<mnc id="310"/>
+			<mnc id="320"/>
+			<mnc id="330"/>
+			<!--mnc id="341"/--><!-- 07-Feb-14: Removed: Telecom Personal va MNC 34 -->
+		</mnclist>
+    </country>
+
+    <country mcc="724" iso3166="BR" GeoID="32"/><!-- Brazil -->
+
+    <country mcc="730" iso3166="CL" GeoID="46"/><!-- Chile -->
+
+    <country mcc="732" iso3166="CO" GeoID="51"><!-- Colombia -->
+		<mnclist>
+			<mnc id="001"/>
+			<mnc id="002"/>
+			<mnc id="020"/>
+			<mnc id="099"/>
+			<mnc id="101"/>
+			<mnc id="102"/>
+			<mnc id="103"/>
+			<mnc id="111"/>
+			<mnc id="123"/>
+			<mnc id="130"/>
+			<mnc id="187"/>
+		</mnclist>
+    </country>
+
+    <country mcc="734" iso3166="VE" GeoID="249"/><!-- Venezuela -->
+
+    <country mcc="736" iso3166="BO" GeoID="26"/><!-- Bolivia -->
+
+    <country mcc="738" iso3166="GY" GeoID="101"/><!-- Guyana -->
+
+    <country mcc="740" iso3166="EC" GeoID="66"/><!-- Ecuador -->
+
+    <country mcc="744" iso3166="PY" GeoID="185"/><!-- Paraguay -->
+
+    <country mcc="746" iso3166="SR" GeoID="181"/><!-- Suriname -->
+
+    <country mcc="748" iso3166="UY" GeoID="246"/><!-- Uruguay -->
+
+    <country mcc="750" iso3166="FK" GeoID="315"><!-- Falkland Islands (UK) -->
+		<mnclist>
+			<mnc id="001"/>
+    </mnclist>
+    </country>
+    
+    <country mcc="001" iso3166="US" GeoID="244"/><!-- United States of America -->
+    
+</countrytable>

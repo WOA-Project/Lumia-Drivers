@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationSourceList Version="1.0">
+  <ConfigurationSource Name="Applications" Path="$(_adc)\Microsoft\Applications.xml">
+    <EventList>
+      <Event Name="Uicc_Apps" />
+    </EventList>
+  </ConfigurationSource>
+  <ConfigurationSource Name="Uicc_Connectivity" Path="$(_adc)\Microsoft\Uicc_Connectivity.xml">
+    <EventList>
+      <Event Name="Uicc_Connectivity" />
+    </EventList>
+  </ConfigurationSource>
+  <ConfigurationSource Name="Uicc_RunOnce" Path="$(_adc)\Microsoft\Uicc_RunOnce.xml">
+    <EventList>
+      <Event Name="Uicc_RunOnce" />
+    </EventList>
+  </ConfigurationSource>
+  <ConfigurationSource Name="Uicc_General" Path="$(_adc)\Microsoft\Uicc_General.xml">
+    <EventList>
+      <Event Name="Uicc_General" />
+    </EventList>
+  </ConfigurationSource>
+</ConfigurationSourceList>

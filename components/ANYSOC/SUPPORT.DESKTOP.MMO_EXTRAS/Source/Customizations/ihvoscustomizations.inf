@@ -7,7 +7,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 08/26/2019,1.0.0.0
+DriverVer   = 07/20/2020,1.0.0.1
 
 CatalogFile.NTARM   = ihvoscustomizations.arm.cat
 CatalogFile.NTARM64 = ihvoscustomizations.arm64.cat
@@ -20,14 +20,14 @@ ProvisioningOEM.Files = 16422, "Common Files\OEM\Provisioning"
 0 = %DiskId1%
 
 [SourceDisksFiles]
-;Applications.xml                  = 0,,
-;countrytable.xml                  = 0,,
-;MasterDatastore.xml               = 0,,
-;ProvisionData.cab                 = 0,,
-;ProvisionDataCriticalSettings.cab = 0,,
-;Uicc_Connectivity.xml             = 0,,
-;Uicc_General.xml                  = 0,,
-;Uicc_RunOnce.xml                  = 0,,
+Applications.xml                  = 0,,
+countrytable.xml                  = 0,,
+MasterDatastore.xml               = 0,,
+ProvisionData.cab                 = 0,,
+ProvisionDataCriticalSettings.cab = 0,,
+Uicc_Connectivity.xml             = 0,,
+Uicc_General.xml                  = 0,,
+Uicc_RunOnce.xml                  = 0,,
 
 ;*****************************************
 ; ihvoscustomizations  Install Section
@@ -43,17 +43,17 @@ Addreg    = ihvoscustomizationsreg
 
 ; %CommonProgramFiles%\ADC\Microsoft
 [MicrosoftADC.Files]
-;Applications.xml
-;MasterDatastore.xml
-;ProvisionData.cab,,,0x00000800 ;COPYFLG_NODECOMP
-;ProvisionDataCriticalSettings.cab,,,0x00000800 ;COPYFLG_NODECOMP
-;Uicc_Connectivity.xml
-;Uicc_General.xml
-;Uicc_RunOnce.xml
+Applications.xml
+MasterDatastore.xml
+ProvisionData.cab,,,0x00000800 ;COPYFLG_NODECOMP
+ProvisionDataCriticalSettings.cab,,,0x00000800 ;COPYFLG_NODECOMP
+Uicc_Connectivity.xml
+Uicc_General.xml
+Uicc_RunOnce.xml
 
 ; %CommonProgramFiles%\OEM\Provisioning
 [ProvisioningOEM.Files]
-;countrytable.xml
+countrytable.xml
 
 [ihvoscustomizationsreg]
 HKLM, "SYSTEM\ControlSet001\services\Wlansvc\Parameters\OEM\SystemCapabilities", "CoexistenceSupport", 0x10001, 0x1
@@ -67,20 +67,20 @@ HKLM, "SOFTWARE\Microsoft\WlanSvc", "NoResetRecoveryForLimitDetection", 0x10001,
 HKLM, "SOFTWARE\Microsoft\WcmSvc\WiFiNetworkManager\Config", "EnableWEPDiscovery", 0x10001, 0x0
 HKLM, "SOFTWARE\Microsoft\WcmSvc\WiFiNetworkManager\Config", "SignalStrengthDelta", 0x10001, 0x14
 
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "CriticalSettingsVersion", 0x0, "0.0.0.0"
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "DisableSIMBLD", 0x10001, 0x0
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "EmulateMccWhenNoUicc", 0x10001, 0x1
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "Enable", 0x10001, 0x1
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "InvariantCleanupDelay", 0x10001, 0x1C20
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "OOBESimUnlockTimeout", 0x10001, 0x493E0
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "Override_MccTablePath_MS", 0x10001, 0x1
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "PersistVariantData", 0x10001, 0x0
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "PostVariantCleanupDelay", 0x10001, 0x10E0
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "PreferredSlot", 0x10001, 0x0
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "ProvisionDataCABPath", 0x20000, "%%CommonProgramFiles%%\ADC\Microsoft\ProvisionData.cab"
-;HKLM, "SOFTWARE\Microsoft\Multivariant", "ProvisionDataCriticalSettingsCABPath", 0x20000, "%%CommonProgramFiles%%\ADC\Microsoft\ProvisionDataCriticalSettings.cab"
+HKLM, "SOFTWARE\Microsoft\Multivariant", "CriticalSettingsVersion", 0x0, "0.0.0.0"
+HKLM, "SOFTWARE\Microsoft\Multivariant", "DisableSIMBLD", 0x10001, 0x0
+HKLM, "SOFTWARE\Microsoft\Multivariant", "EmulateMccWhenNoUicc", 0x10001, 0x1
+HKLM, "SOFTWARE\Microsoft\Multivariant", "Enable", 0x10001, 0x1
+HKLM, "SOFTWARE\Microsoft\Multivariant", "InvariantCleanupDelay", 0x10001, 0x1C20
+HKLM, "SOFTWARE\Microsoft\Multivariant", "OOBESimUnlockTimeout", 0x10001, 0x493E0
+HKLM, "SOFTWARE\Microsoft\Multivariant", "Override_MccTablePath_MS", 0x10001, 0x1
+HKLM, "SOFTWARE\Microsoft\Multivariant", "PersistVariantData", 0x10001, 0x0
+HKLM, "SOFTWARE\Microsoft\Multivariant", "PostVariantCleanupDelay", 0x10001, 0x10E0
+HKLM, "SOFTWARE\Microsoft\Multivariant", "PreferredSlot", 0x10001, 0x0
+HKLM, "SOFTWARE\Microsoft\Multivariant", "ProvisionDataCABPath", 0x20000, "%%CommonProgramFiles%%\ADC\Microsoft\ProvisionData.cab"
+HKLM, "SOFTWARE\Microsoft\Multivariant", "ProvisionDataCriticalSettingsCABPath", 0x20000, "%%CommonProgramFiles%%\ADC\Microsoft\ProvisionDataCriticalSettings.cab"
 
-;HKLM, "SOFTWARE\Microsoft\ADC", "RunADC", 0x10001, 0x0
+HKLM, "SOFTWARE\Microsoft\ADC", "RunADC", 0x10001, 0x0
 
 HKLM, "SOFTWARE\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellData", "LTEAttachGUIDs", 0x10000, "9476C91D-608F-47B6-856A-1D90C1BED333"
 HKLM, "SOFTWARE\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellData", "MaxNumberOfPDPContexts", 0x10001, 0x4

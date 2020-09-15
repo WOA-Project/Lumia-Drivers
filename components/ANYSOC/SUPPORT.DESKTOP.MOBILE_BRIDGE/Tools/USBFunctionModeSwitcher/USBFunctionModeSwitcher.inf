@@ -1,0 +1,50 @@
+;
+; USBFunctionModeSwitcher.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/29/2019,1.0.0.3
+
+CatalogFile.NTARM   = USBFunctionModeSwitcher.arm.cat
+CatalogFile.NTARM64 = USBFunctionModeSwitcher.arm64.cat
+
+[DestinationDirs]
+USBFunctionModeSwitcher.Files = 10,OEM\Tools ; \Windows\OEM\Tools
+Shortcut.Files                = 16407        ; All Users\Start Menu\Programs
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles.ARM64]
+USBFunctionModeSwitcher.exe      = 0,,
+coreclr.dll                      = 0,,
+clrjit.dll                       = 0,,
+mscordaccore.dll                 = 0,,
+clrcompression.dll               = 0,,
+"USB Function Mode Switcher.lnk" = 0,,
+
+[DefaultInstall.NTARM64]
+CopyFiles = USBFunctionModeSwitcher.Files,Shortcut.Files
+
+[USBFunctionModeSwitcher.Files]
+USBFunctionModeSwitcher.exe
+coreclr.dll
+clrjit.dll
+mscordaccore.dll
+clrcompression.dll
+
+[Shortcut.Files]
+"USB Function Mode Switcher.lnk"
+
+[Strings]
+IHV           = "LumiaWoA authors"
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+
