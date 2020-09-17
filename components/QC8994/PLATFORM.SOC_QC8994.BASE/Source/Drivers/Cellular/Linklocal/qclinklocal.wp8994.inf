@@ -48,10 +48,10 @@ wwan.CopyFiles = 12
 %wwan.DeviceDesc% = wwan.ndi, ACPI\QCOM24A7
 
 [wwan.ndi]
-Characteristics    = 0x1                   ; NCF_VIRTUAL
-*IfType            = 142                    ; IF_TYPE_IPFORWARD
-*MediaType         = 19                        ; NdisMediumIP
-*PhysicalMediaType = 19                        ; NdisPhysicalMediumOther
+Characteristics    = 0x9                   ; NCF_VIRTUAL | NCF_HIDDEN
+*IfType            = 142                   ; IF_TYPE_IPFORWARD
+*MediaType         = 19                    ; NdisMediumIP
+*PhysicalMediaType = 19                    ; NdisPhysicalMediumOther
 EnableDhcp         = 0
 AddReg             = wwan.Reg
 CopyFiles          = wwan.CopyFiles
