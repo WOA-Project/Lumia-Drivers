@@ -25,15 +25,18 @@ CatalogFile.NTARM64 = QCDIAGROUTER8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 12
+System_Dir     = 11
                                     
 [SourceDisksNames]
 1 = %DiskId1%
 
 [SourceDisksFiles.ARM]
-QCDIAGROUTER8994.sys = 1,arm
+QCDIAGROUTER8994.sys  = 1,arm
+qcdiaglogging8994.dll = 1,arm
 
 [SourceDisksFiles.ARM64]
-QCDIAGROUTER8994.sys = 1,arm64
+QCDIAGROUTER8994.sys  = 1,arm64
+qcdiaglogging8994.dll = 1,arm64
 
 [Manufacturer]
 %QC% = QC,NTARM,NTARM64
@@ -45,15 +48,18 @@ QCDIAGROUTER8994.sys = 1,arm64
 %DIAGROUTER.DeviceDesc% = DiagRouter_Device, ACPI\QCOM2413
 
 [DiagRouter_Device.NT]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir, System_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-
 [Drivers_Dir]
 QCDIAGROUTER8994.sys
+
+[System_Dir]
+qcdiaglogging8994.dll
+
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD},2,7,,2
 
 [DiagRouter_Device.NT.Services]
 AddService = QCDIAGROUTER,%SPSVCINST_ASSOCSERVICE%, DiagRouter_Service_Inst
@@ -92,8 +98,8 @@ HKR, , TransportType, 0x00010001, "0"
 ;Localizable Strings
 QC                     = "Qualcomm Incorporated"
 DiskId1                = "DiagRouter Installation Disk"
-DIAGROUTER.DeviceDesc  = "Qualcomm Diagnostic Router Device"
-DIAGROUTER.SVCDESC     = "Qualcomm Diagnostic Router Driver"
+DIAGROUTER.DeviceDesc  = "Qualcomm(R) System Manager Device"
+DIAGROUTER.SVCDESC     = "Qualcomm(R) System Manager Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
