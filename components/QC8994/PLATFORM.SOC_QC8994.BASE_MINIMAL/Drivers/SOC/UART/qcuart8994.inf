@@ -59,6 +59,6 @@ KmdfLibraryVersion = 1.15
 [Strings]
 Manufacturer_Name  = "Qualcomm Technologies, Inc."
 Disk_Description   = "Qualcomm UART Device Installation Disk"
-Device_Description = "Qualcomm UART Device"
-Service_Name       = "Qualcomm UART Driver"
+Device_Description = "Qualcomm(R) Bus Device"
+Service_Name       = "Qualcomm(R) Bus Device"
 

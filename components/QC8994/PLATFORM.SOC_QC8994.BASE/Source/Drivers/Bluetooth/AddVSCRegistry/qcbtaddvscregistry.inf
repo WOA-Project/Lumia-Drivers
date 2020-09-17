@@ -16,7 +16,7 @@ Signature      = "$Windows NT$"
 Provider       = %QC%
 Class          = Bluetooth
 CLASSGUID      = {e0cbf06c-cd8b-4647-bb8a-263b43f0f974};
-DriverVer      = 07/02/2015,1.0.1067.0
+DriverVer      = 04/17/2020,1.0.1080.0000
 
 CatalogFile.NTARM   = qcbtaddvscregistry.arm.cat
 CatalogFile.NTARM64 = qcbtaddvscregistry.arm64.cat
@@ -54,7 +54,7 @@ HKR, , "VsMsftOpCode", 0x00010001, 0xFD70
 
 [Strings]
 QC         = "Qualcomm Incorporated"
-BthRadio1  = "Bluetooth Radio Driver"
-BthRadio2  = "Bluetooth Radio Driver "
+BthRadio1  = "Qualcomm(R) Bluetooth Radio Driver"
+BthRadio2  = "Qualcomm(R) Bluetooth Radio Driver "
 SourceDisk = "QUALCOMM Bluetooth Driver Installation Disk"
 

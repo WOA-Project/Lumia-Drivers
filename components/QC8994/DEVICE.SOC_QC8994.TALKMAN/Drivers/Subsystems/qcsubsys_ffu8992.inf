@@ -154,7 +154,7 @@ REG_DWORD                 = 0x00010001
 SPSVCINST_ASSOCSERVICE    = 0x00000002
 
 ; localizable
-QUALCOMM                  = "Qualcomm Incorporated"
+QUALCOMM                  = "Qualcomm Technologies, Incorporated"
 DiskId1                   = "Qualcomm Combined Subsystem Driver Installation Disk"
 ADSP.DeviceDesc           = "Qualcomm Audio DSP Subsystem Device"
 AMSS.DeviceDesc           = "Qualcomm Advanced Modem Subsystem Device"
@@ -163,5 +163,5 @@ WCN.DeviceDesc            = "Qualcomm Wireless Connectivity Subsystem Device"
 TEST.DeviceDesc           = "Qualcomm Combined Subsystem Driver Test Device"
 SERVICEMANAGER.DeviceDesc = "Qualcomm Service Manager Device"
 SCSS.DeviceDesc           = "Qualcomm Sensors Subsystem Bus Device"
-SUBSYS.SVCDESC            = "Qualcomm Combined Subsystem Driver"
+SUBSYS.SVCDESC            = "Qualcomm(R) Data Device"
 

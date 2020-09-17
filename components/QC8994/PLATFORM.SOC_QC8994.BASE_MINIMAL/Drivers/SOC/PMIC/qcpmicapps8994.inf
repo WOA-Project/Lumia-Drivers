@@ -79,8 +79,8 @@ ServiceBinary = %12%\qcpmicapps8994.sys
 [Strings]
 ;Localizable Strings
 COMP                   = "Qualcomm Inc."
-PMICApps.SvcDesc       = "Qualcomm PMIC Apps Driver"
-DeviceDesc             = "Qualcomm PMIC Apps Device"
+PMICApps.SvcDesc       = "Qualcomm(R) Power Management"
+DeviceDesc             = "Qualcomm(R) Power Management"
 DiskId                 = "Qualcomm PMIC Apps Installation Disk"
 
 ;Non-Localizable Strings

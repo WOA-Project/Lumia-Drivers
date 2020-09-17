@@ -555,8 +555,8 @@ qcviddecmft8994.dll
 ;  *******Localizable Strings*******
 QC                     = "Qualcomm Incorporated"
 DiskDesc               = "Qualcomm Adreno Graphics"
-QC_Device              = "Qualcomm Adreno 430"
-ServiceName            = "Qualcomm Adreno Graphics"
+QC_Device              = "Qualcomm(R) Adreno(TM) 430 GPU"
+ServiceName            = "Qualcomm(R) Adreno(TM) 430 GPU"
 
 QC_ENCODE_H264         = "QCOM Hardware Encoder - H264"
 QC_ENCODE_MPEG4        = "QCOM Hardware Encoder - MPEG4"

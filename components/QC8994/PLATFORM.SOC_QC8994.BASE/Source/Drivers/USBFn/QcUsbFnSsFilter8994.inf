@@ -7,8 +7,8 @@
 
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = USBDevice
-ClassGuid   = {88BAE032-5A81-49f0-BC3D-A4FF138216D6}
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %Company%
 DriverVer   = 07/02/2015,1.0.1067.0000
 
@@ -82,8 +82,8 @@ AddReg        = QcUsbFnSSFilter_AddReg
 Company             = "Qualcomm Technologies, Inc."
 StdMfg              = "(Standard system devices)"
 DiskId1             = "UsbFnSS PEP Filter Installation Disk #1"
-Standard.DeviceDesc = "Qualcomm UsbFnSS Filter Driver"
-Filter.SvcDesc      = "Qualcomm UsbFnSS Filter Driver"
+Standard.DeviceDesc = "Qualcomm(R) Bus Device"
+Filter.SvcDesc      = "Qualcomm(R) Bus Device"
 DiskName            = "Data"
 
 REG_SZ              = 0x00000000

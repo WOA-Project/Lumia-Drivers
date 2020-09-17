@@ -91,8 +91,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 QUALCOMM               = "Qualcomm Inc."
 DiskId1                = "Qualcomm Secure Channel Manager Device Installation Disk"
-SCM.DeviceDesc         = "Qualcomm Secure Channel Manager Device"
-SCM.SVCDESC            = "Qualcomm Secure Channel Manager Driver"
+SCM.DeviceDesc         = "Qualcomm(R) System Manager Device"
+SCM.SVCDESC            = "Qualcomm(R) System Manager Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002

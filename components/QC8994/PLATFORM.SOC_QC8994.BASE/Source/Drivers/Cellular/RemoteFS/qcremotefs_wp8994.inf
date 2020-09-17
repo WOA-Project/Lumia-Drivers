@@ -89,8 +89,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 COMP                   = "Qualcomm Inc."
 DiskId                 = "Qualcomm Remote FileSystem Device Installation Disk"
-REMOTEFS.DeviceDesc    = "Qualcomm Remote FileSystem Device"
-REMOTEFS.SVCDESC       = "Qualcomm Remote FileSystem Driver"
+REMOTEFS.DeviceDesc    = "Qualcomm(R) Memory and File System Device"
+REMOTEFS.SVCDESC       = "Qualcomm(R) Memory and File System Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002

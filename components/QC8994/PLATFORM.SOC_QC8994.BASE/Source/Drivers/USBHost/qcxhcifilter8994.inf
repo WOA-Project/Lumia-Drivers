@@ -86,8 +86,8 @@ AddReg        = QcXhciFilter_Service_AddReg
 Company             = "Qualcomm Technologies, Inc."
 StdMfg              = "(Standard system devices)"
 DiskId1             = "XHCI PEP Filter Installation Disk #1"
-Standard.DeviceDesc = "Qualcomm USB XHCI Filter Device"
-Filter.SvcDesc      = "Qualcomm USB XHCI Filter Driver"
+Standard.DeviceDesc = "Qualcomm(R) Bus Device"
+Filter.SvcDesc      = "Qualcomm(R) Bus Device"
 DiskName            = "Data"
 
 REG_SZ              = 0x00000000

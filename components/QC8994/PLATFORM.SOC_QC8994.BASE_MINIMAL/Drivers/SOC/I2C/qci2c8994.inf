@@ -83,8 +83,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 QC                     = "Qualcomm Inc."
 DiskId1                = "Qualcomm I2C Controller Installation Disk"
-qci2c.DeviceDesc       = "Qualcomm I2C Device"
-qci2c.SVCDESC          = "Qualcomm I2C Driver"
+qci2c.DeviceDesc       = "Qualcomm(R) Bus Device"
+qci2c.SVCDESC          = "Qualcomm(R) Bus Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002

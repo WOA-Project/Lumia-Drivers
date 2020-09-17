@@ -92,8 +92,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 QUALCOMM               = "Qualcomm Incorporated"
 DiskId1                = "Qualcomm Reset Power Error Notifier Device Installation Disk"
-RPEN.DeviceDesc        = "Qualcomm Reset Power Error Notifier Device"
-RPEN.SVCDESC           = "Qualcomm Reset Power Error Notifier Driver"
+RPEN.DeviceDesc        = "Qualcomm(R) System Manager Device"
+RPEN.SVCDESC           = "Qualcomm(R) System Manager Device"
 
 ;Non-localizable Strings
 REG_SZ                 = 0x00000000

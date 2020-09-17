@@ -76,8 +76,8 @@ LoadOrderGroup = Extended Base
 ;Localizable Strings
 QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "ADSPRPC Installation Disk"
-ADSPRPC.DeviceDesc     = "Qualcomm ADSP RPC Subsystem Driver"
-ADSPRPC.SVCDESC        = "Qualcomm ADSP RPC Subsystem Driver"
+ADSPRPC.DeviceDesc     = "Qualcomm(R) Hexagon(TM) V56 DSP"
+ADSPRPC.SVCDESC        = "Qualcomm(R) Hexagon(TM) V56 DSP"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
