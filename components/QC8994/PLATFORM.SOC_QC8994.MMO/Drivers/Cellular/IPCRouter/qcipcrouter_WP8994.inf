@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2011 Qualcomm Inc.
+;Copyright (c) 2011,2019 Qualcomm Inc.
 ;
 ;Module Name:
 ;    qcipcrouter8994.INF
@@ -23,15 +23,22 @@ CatalogFile.NTARM64 = qcipcrouter8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 12
+System_Dir     = 11
 
 [SourceDisksNames]
 1 = %DiskId1%
 
 [SourceDisksFiles.ARM]
-qcipcrouter8994.sys = 1,arm
+qcipcrouter8994.sys   = 1,arm
+qsocketipcrum8994.dll = 1,arm
+qccium8994.dll        = 1,arm
+qcsium8994.dll        = 1,arm
 
 [SourceDisksFiles.ARM64]
-qcipcrouter8994.sys = 1,arm64
+qcipcrouter8994.sys   = 1,arm64
+qsocketipcrum8994.dll = 1,arm64
+qccium8994.dll        = 1,arm64
+qcsium8994.dll        = 1,arm64
 
 ;*****************************************
 ; IPC_ROUTER  Install Section
@@ -47,7 +54,7 @@ qcipcrouter8994.sys = 1,arm64
 %IPC_ROUTER.DeviceDesc% = IPC_ROUTER_Device, ACPI\QCOM240A
 
 [IPC_ROUTER_Device.NT]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir, System_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -55,6 +62,11 @@ Reboot
 qcipcrouter8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[System_Dir]
+qsocketipcrum8994.dll
+qccium8994.dll
+qcsium8994.dll
 
 ;-------------- Service installation
 [IPC_ROUTER_Device.NT.Services]
@@ -109,10 +121,10 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM               = "Qualcomm Incorporated"
+QUALCOMM               = "Qualcomm Technologies, Inc."
 DiskId1                = "WDF IPC_ROUTER Installation Disk"
-IPC_ROUTER.DeviceDesc  = "Qualcomm IPC Router Device"
-IPC_ROUTER.SVCDESC     = "Qualcomm IPC Router Driver"
+IPC_ROUTER.DeviceDesc  = "Qualcomm(R) Data Device"
+IPC_ROUTER.SVCDESC     = "Qualcomm(R) Data Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
