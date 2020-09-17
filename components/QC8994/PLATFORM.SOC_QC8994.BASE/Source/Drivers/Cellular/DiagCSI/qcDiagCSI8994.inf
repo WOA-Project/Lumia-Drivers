@@ -77,8 +77,8 @@ Tag            = 10
 ;Localizable Strings
 QC                     = "Qualcomm Incorporated"
 DiskId1                = "DiagCSI Installation Disk"
-DIAGCSI.DeviceDesc     = "Qualcomm Diagnostic Consumer Interface Device"
-DIAGCSI.SVCDESC        = "Qualcomm Diagnostic Consumer Interface Driver"
+DIAGCSI.DeviceDesc     = "Qualcomm(R) System Manager Device"
+DIAGCSI.SVCDESC        = "Qualcomm(R) System Manager Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002

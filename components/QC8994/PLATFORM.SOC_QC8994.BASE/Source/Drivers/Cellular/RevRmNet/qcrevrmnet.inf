@@ -81,8 +81,8 @@ Description    = %revrmnet.SVCDESC%
 
 [Strings]
 QCOM                  = "Qualcomm Inc."
-revrmnet.SVCDESC      = "Qualcomm Win8 revrmnet Service"
-QCrevrmnet.DeviceDesc = "Qualcomm Win8 revrmnet Device"
+revrmnet.SVCDESC      = "Qualcomm(R) Data Device"
+QCrevrmnet.DeviceDesc = "Qualcomm(R) Data Device"
 DiskId1               = "Qualcomm qcrevrmnet Driver Disk"
 revrmnet_HelpText     = "Driver for WFP callout driver"
 

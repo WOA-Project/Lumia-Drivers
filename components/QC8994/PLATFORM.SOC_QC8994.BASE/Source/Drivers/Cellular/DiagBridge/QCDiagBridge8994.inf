@@ -88,8 +88,8 @@ KmdfLibraryVersion = 1.15
 ;Localizable Strings
 ManufacturerName        = "Qualcomm Incorporated"
 DiskName                = "Qualcomm Diagnostic Bridge Installation Disk"
-QCDiagBridge.DeviceDesc = "Qualcomm Diagnostic Bridge Device"
-QCDiagBridge.SVCDESC    = "Qualcomm Diagnostic Bridge Driver"
+QCDiagBridge.DeviceDesc = "Qualcomm(R) Data Device"
+QCDiagBridge.SVCDESC    = "Qualcomm(R) Data Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE  = 0x00000002
