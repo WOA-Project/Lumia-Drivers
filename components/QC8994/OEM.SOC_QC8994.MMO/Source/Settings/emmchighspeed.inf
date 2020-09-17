@@ -27,7 +27,7 @@ Addreg    = eMMCHighSpeedReg
 ;HKLM, "SYSTEM\ControlSet001\services\SdBus\Parameters" , "DisableHS400Support", 0x10001, 0x1
 ;HKLM, "SYSTEM\ControlSet001\services\SdBus\Parameters" , "DisableUhsSupport", 0x10001, 0x0
 ;HKLM, "SYSTEM\ControlSet001\services\SdBus\Parameters" , "EnableEmmcSleep", 0x10001, 0x0
-HKLM, "SYSTEM\ControlSet001\services\sdstor\Parameters", "PackedCommandEnable", 0x10001, 0x1
+;HKLM, "SYSTEM\ControlSet001\services\sdstor\Parameters", "PackedCommandEnable", 0x10001, 0x1
 
 [Strings]
 IHV = "LumiaWoA authors"

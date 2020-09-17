@@ -140,6 +140,11 @@ ServiceBinary = %12%\qcsubsys8992.sys
 AddReg        = SUBSYS_Service_AddReg
 
 [SUBSYS_Service_AddReg]
+HKR, Parameters, "AdspRestartEnabled", 0x00010001, 0x0
+HKR, Parameters, "AmssRestartEnabled", 0x00010001, 0x01
+HKR, Parameters, "MaxRestartCount", 0x00010001, 0x03
+HKR, Parameters, "RestartTimer", 0x00010001, 0x1e0
+HKR, Parameters, "WcnRestartEnabled", 0x00010001, 0x0
 HKR, Parameters\DIAG, "FreeReservedMemory", 0x00010001, 0x01
 
 [SUBSYS_Device.NT.Wdf]

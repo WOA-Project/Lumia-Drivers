@@ -49,7 +49,6 @@ qccdi8994.sys = 1,arm64,
 
 [QCCDI_Device.NT]
 CopyFiles   = Drivers_Dir
-AddReg      = QCCDIReg
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -66,6 +65,9 @@ HKR, Parameters, "PreserveOld"  , 0x00010001, 00
 HKR, Parameters, "DumpSubFolder", %REG_SZ%  , "ssr_dumps"
 HKR, Parameters, "DumpRoot"     , %REG_SZ%  , "\??\c:\"
 
+HKR, Parameters, "SkipEbootFuseStatus", 0x00010001, 0x01
+HKR, Parameters, "CrashDumpDbgFlags"  , 0x00010001, 0x07
+
 ;
 [Drivers_Dir]
 qccdi8994.sys
@@ -81,6 +83,7 @@ ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %12%\qccdi8994.sys
+AddReg        = QCCDIReg
 
 [QCCDI_Device.NT.Wdf]
 KmdfService = QCCDI, QCCDI_wdfsect
