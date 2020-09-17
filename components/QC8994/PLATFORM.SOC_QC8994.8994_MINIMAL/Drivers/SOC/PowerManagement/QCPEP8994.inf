@@ -205,8 +205,8 @@ qcpep8994.sys = 1,arm64
 ;Localizable Strings
 QC                     = "Qualcomm Inc."
 DiskId1                = "Qualcomm Power Management Controller Disk"
-PepDevice.DeviceDesc   = "Qualcomm(R) System Manager Device"
-pep.SVCDESC            = "Qualcomm(R) System Manager Device"
+PepDevice.DeviceDesc   = "Qualcomm Power Engine Plug-in Device"
+pep.SVCDESC            = "Qualcomm Power Engine Plug-in Driver"
 TSENS.DeviceDesc       = "Qualcomm Temperature Sensor Device"
 ADC.DeviceDesc         = "Qualcomm ADC Temperature Monitor Device"
 BCL.DeviceDesc         = "Qualcomm Battery Current Limit Monitor Device"

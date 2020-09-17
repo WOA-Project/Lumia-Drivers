@@ -1,0 +1,79 @@
+;
+; TypeCMux.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class = System
+ClassGuid = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%ManufacturerName%
+CatalogFile=TypeCMux.cat
+DriverVer = 08/13/2020,18.8.55.956
+
+[DestinationDirs]
+DefaultDestDir = 12
+TypeCMux_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+TypeCMux.sys  = 1,,
+;
+
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTARM64
+
+[Standard.NTARM64]
+%TypeCMux.DeviceDesc%=TypeCMux_Device, ACPI\MSHW1009
+
+[TypeCMux_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+TypeCMux.sys
+
+;-------------- Service installation
+[TypeCMux_Device.NT.Services]
+AddService = TypeCMux,%SPSVCINST_ASSOCSERVICE%, TypeCMux_Service_Inst
+
+; -------------- TypeCMux driver install sections
+[TypeCMux_Service_Inst]
+DisplayName    = %TypeCMux.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\TypeCMux.sys
+
+;
+;--- TypeCMux_Device Coinstaller installation ------
+;
+
+[TypeCMux_Device.NT.CoInstallers]
+AddReg=TypeCMux_Device_CoInstaller_AddReg
+CopyFiles=TypeCMux_Device_CoInstaller_CopyFiles
+
+[TypeCMux_Device_CoInstaller_AddReg]
+;
+
+
+[TypeCMux_Device_CoInstaller_CopyFiles]
+;
+
+
+[TypeCMux_Device.NT.Wdf]
+KmdfService =  TypeCMux, TypeCMux_wdfsect
+[TypeCMux_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="LumiaWoA authors"
+DiskName = "TypeCMux Installation Disk"
+TypeCMux.DeviceDesc = "TI HD3SS460 Type-C Alternate Mode MUX"
+TypeCMux.SVCDESC = "TypeCMux Service"

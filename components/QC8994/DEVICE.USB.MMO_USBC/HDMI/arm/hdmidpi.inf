@@ -1,0 +1,50 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+DriverVer   = 01/04/2015,0.6.0000.0
+CatalogFile = hdmidpidriver.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+hdmidpi.sys  = 1,,
+
+[Manufacturer]
+%ManufacturerName%=MMO,NTARM
+
+[MMO.NTARM]
+%DeviceDescription%=hdmidpi_Inst,ACPI\MSHW1007
+
+[hdmidpi_Inst.NT]
+CopyFiles=HdmiDpiDriversCopyFiles
+AddReg=HdmiDpiDriver_SecurityAddReg
+
+[HdmiDpiDriversCopyFiles]
+hdmidpi.sys
+
+[HdmiDpiDriver_SecurityAddReg]
+HKR,,DeviceCharacteristics,0x10001,0x100
+
+[hdmidpi_Inst.NT.Services]
+AddService = hdmidpi,%SPSVCINST_ASSOCSERVICE%,hdmidpi_Service_Inst
+
+[hdmidpi_Service_Inst]
+DisplayName    = %DisplayName%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\hdmidpi.sys
+LoadOrderGroup = Base
+
+[Strings]
+ManufacturerName         = "MMO"
+DiskName                 = "HDMI DPI Installation Disk"
+DisplayName              = "HDMI DPI driver"
+DeviceDescription        = "HDMI to Displayport driver"
+SPSVCINST_ASSOCSERVICE   = 0x00000002
