@@ -5,14 +5,15 @@
 ;*/
 
 [Version]
-Signature = "$Windows NT$"
-Class     = Bluetooth
-ClassGuid = {e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
-Provider  = %QCA%
-DriverVer = 06/03/2018,1.0.1078.0001
+Signature      = "$Windows NT$"
+Class          = System
+ClassGuid      = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider       = %QCA%
+DriverVer      = 07/02/2015,2.3.0.6
+PnpLockDown    = 1
 
-CatalogFile.NTARM   = qcbtfmuart8994.arm.cat
-CatalogFile.NTARM64 = qcbtfmuart8994.arm64.cat
+CatalogFile.NTARM   = qcbtuart8994.arm.cat
+CatalogFile.NTARM64 = qcbtuart8994.arm64.cat
 
 [DestinationDirs]
 BTUART.Files = 12
@@ -21,10 +22,10 @@ BTUART.Files = 12
 1 = %SourceDisk%,,1
 
 [SourceDisksFiles.ARM]
-qcbtfmuart8994.sys = 1,arm,
+qcbtuart8994.sys     = 1,arm,
 
 [SourceDisksFiles.ARM64]
-qcbtfmuart8994.sys = 1,arm64,
+qcbtuart8994.sys     = 1,arm64,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -42,25 +43,32 @@ ExcludeFromSelect = *
 CopyFiles = BTUART.Files
 
 [BTUART.Files]
-qcbtfmuart8994.sys
+qcbtuart8994.sys
 
 [QCABTUART.NT.HW]
 AddReg = BTUART.HW.AddReg
 
 [BTUART.HW.AddReg]
-HKR,,DeviceCharacteristics,0x10001,0x0100                  ; Use same security checks on relative opens
-HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;LS)"   ; Allow generic-all access to Built-in administrators and Local system 
+HKR, , DeviceCharacteristics, 0x10001, 0x0100                  ; Use same security checks on relative opens
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;LS)"   ; Allow generic-all access to Built-in administrators and Local system
 
 [QCABTUART.NT.Services]
 AddService = QcBluetooth,0x00000002,BTUART_Service
 
 [BTUART_Service]
-DisplayName    = %SvcDispName%
-ServiceType    = 1  ; SERVICE_KERNEL_DRIVER
-StartType      = 3  ; SERVICE_DEMAND_START 
-ErrorControl   = 1  ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qcbtfmuart8994.sys
-AddReg	       = BTUART_Service.AddReg, WPPReg
+DisplayName   = %SvcDispName%
+ServiceType   = 1  ; SERVICE_KERNEL_DRIVER
+StartType     = 3  ; SERVICE_DEMAND_START
+ErrorControl  = 1  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcbtuart8994.sys
+AddReg        = BTUART_Service.AddReg, WPPReg
+AddProperty   = WDTFSOCDeviceCategory
+
+
+[WDTFSOCDeviceCategory]
+{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 19, 13, , 1
+{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 1D, 7 , , 0
+
 
 [BTUART_Service.AddReg]
 HKR, Parameters, DebugFlags                       , 0x10001, 0xC000C000
@@ -99,6 +107,7 @@ HKR, Parameters, AFHEnabled                       , 0x10001, 1
 HKR, Parameters, FWLogEnabled                     , 0x10001, 0
 HKR, Parameters, DynamicSwitch                    , 0x10001, 0
 
+
 [WPPReg]
 HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTUart                                       , Start      , %REG_DWORD%, 0x0
 HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTUart                                       , Guid       , %REG_SZ%   , "{625DA9FD-B3B2-41F5-A731-36A59AF561DC}"
@@ -108,9 +117,10 @@ HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6
 
 
 [Strings]
-QCA                = "Qualcomm Atheros Communications Inc."
-SourceDisk         = "Qualcomm Atheros Bluetooth Extensibility Transport Driver Installation Disk"
-SvcDispName        = "Qualcomm(R) Bluetooth Device"
-UartBTAPQ8994      = "Qualcomm(R) Bluetooth Device"
-REG_DWORD          = 0x00010001
-REG_SZ             = 0x00000000
+QCA           = "Qualcomm Atheros Communications Inc."
+SourceDisk    = "Qualcomm Atheros Bluetooth Extensibility Transport Driver Installation Disk"
+SvcDispName   = "Bluetooth UART Transport Driver"
+UartBTAPQ8994 = "Qualcomm Atheros Bluetooth UART Transport Driver"
+REG_DWORD     = 0x00010001
+REG_SZ        = 0x00000000
+
