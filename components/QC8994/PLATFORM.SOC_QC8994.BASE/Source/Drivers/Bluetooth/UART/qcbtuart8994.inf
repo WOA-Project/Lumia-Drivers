@@ -6,8 +6,8 @@
 
 [Version]
 Signature      = "$Windows NT$"
-Class          = System
-ClassGuid      = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Class          = Bluetooth
+ClassGuid      = {e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
 Provider       = %QCA%
 DriverVer      = 07/02/2015,2.3.0.6
 PnpLockDown    = 1
@@ -119,8 +119,8 @@ HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6
 [Strings]
 QCA           = "Qualcomm Atheros Communications Inc."
 SourceDisk    = "Qualcomm Atheros Bluetooth Extensibility Transport Driver Installation Disk"
-SvcDispName   = "Bluetooth UART Transport Driver"
-UartBTAPQ8994 = "Qualcomm Atheros Bluetooth UART Transport Driver"
+SvcDispName   = "Qualcomm(R) Bluetooth Device"
+UartBTAPQ8994 = "Qualcomm(R) Bluetooth Device"
 REG_DWORD     = 0x00010001
 REG_SZ        = 0x00000000
 
