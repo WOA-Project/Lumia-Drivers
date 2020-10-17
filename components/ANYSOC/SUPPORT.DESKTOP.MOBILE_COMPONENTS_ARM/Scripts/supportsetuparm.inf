@@ -1,0 +1,42 @@
+;
+; supportsetuparm.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 08/08/2019,1.0.0.0000
+CatalogFile = supportsetuparm.cat
+
+[DestinationDirs]
+OOBECmd.Files        = 10,OEM\Setup\OOBE
+SpecializeCmd.Files  = 10,OEM\Setup\Specialize
+FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+SupportDriversOobeARM.cmd                 = 0,,
+
+
+;*****************************************
+; oemcustomizations  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
+
+[OOBECmd.Files]
+SupportDriversOobeARM.cmd
+
+[SpecializeCmd.Files]
+
+[FirstLogonCmd.Files]
+
+[Strings]
+IHV     = "LumiaWoA authors"
+DiskId1 = "Drivers Setup Installation Disk #1"
+

@@ -1,6 +1,6 @@
 @echo off
 
-call :installRootDevice fusionv2.inf umdf2\FusionV2 ROOT\FusionV2\0000
+call :installRootDevice fusion.inf Root\Fusion ROOT\Fusion\0000
 
 goto :eof
 
