@@ -1,7 +1,7 @@
 ;-------------------------------------------------------------------------------
 ; QCAWLAN8994.INF
 ;
-; Qualcomm Wireless LAN NDIS Miniport Adapter
+; Qualcomm Atheros Wireless LAN NDIS Miniport Adapter
 ;
 ; Copyright (c) Qualcomm Inc.  All rights reserved.
 
@@ -10,87 +10,89 @@
 Signature   = "$Windows NT$"
 Class       = Net
 ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %ATHEROS%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcwlan8994.arm.cat
-CatalogFile.NTARM64 = qcwlan8994.arm64.cat
+CatalogFile.NTARM   = QCWLAN8994.arm.cat
+CatalogFile.NTARM64 = QCWLAN8994.arm64.cat
 
 [Manufacturer]
-%QUALCOMM% = QUALCOMM, NTARM, NTARM64
+%ATHEROS%   = ATHEROS,NTARM,NTARM64
 
-[ControlFlags]
+;[ControlFlags]
+;ExcludeFromSelect = *
 
-[QUALCOMM.NTARM]
+[Atheros.NTARM]
 ; DisplayName               Section                 DeviceID
 ; -----------               -------                 --------
 ;legacy HW Entries
-%WLAN.DeviceDesc%     = QcWlan.ndi,     PCI\VEN_168C&DEV_003E
+%ATHR.DeviceDesc.6320%     = ATHR_DEV_988x.ndi,     PCI\VEN_168C&DEV_003E
 
-[QUALCOMM.NTARM64]
+[Atheros.NTARM64]
 ; DisplayName               Section                 DeviceID
 ; -----------               -------                 --------
 ;legacy HW Entries
-%WLAN.DeviceDesc%     = QcWlan.ndi,     PCI\VEN_168C&DEV_003E
+%ATHR.DeviceDesc.6320%     = ATHR_DEV_988x.ndi,     PCI\VEN_168C&DEV_003E
+
+[ATHR_DEV_988x.ndi.NTARM]
+Characteristics    = 0x84
+BusType            = 5
+AddReg             = atheros_arm.reg, atheros11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, WpBugCheckOnTargetFailure.Reg, pldr.reg
+DelReg             = atheros.DelReg
+CopyFiles          = atheros.CopyFiles
+*IfType            = 71        ; IF_TYPE_IEEE80211
+*MediaType         = 16        ; NdisMediumNative802_11
+*PhysicalMediaType = 9         ; NdisPhysicalMediumNative802_11
+Include            = pci.inf, netvwifibus.inf
+Needs              = VWiFiBus.CopyFiles
+AddProperty        = WDTFSOCDeviceCategory
+
+[ATHR_DEV_988x.ndi.NTARM64]
+Characteristics    = 0x84
+BusType            = 5
+AddReg             = atheros_arm.reg, atheros11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, WpBugCheckOnTargetFailure.Reg, pldr.reg
+DelReg             = atheros.DelReg
+CopyFiles          = atheros.CopyFiles
+*IfType            = 71        ; IF_TYPE_IEEE80211
+*MediaType         = 16        ; NdisMediumNative802_11
+*PhysicalMediaType = 9         ; NdisPhysicalMediumNative802_11
+Include            = pci.inf, netvwifibus.inf
+Needs              = VWiFiBus.CopyFiles
+AddProperty        = WDTFSOCDeviceCategory
 
 ; WLAN Device category for SoCs (WLAN is of type NORMAL = 0)
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD},2,7,,0
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
 
-[QcWlan.ndi.NTARM.Services]
-AddService = qcwlan, 2, QcWlan.Service, QcWlan.EventLog
+[ATHR_DEV_988x.ndi.NTARM.Services]
+AddService = QCWLAN8994, 2, atheros.Service, atheros.EventLog
 Include    = netvwifibus.inf
 Needs      = VWiFiBus.Services
 
-[QcWlan.ndi.NTARM64.Services]
-AddService = qcwlan, 2, QcWlan.Service, QcWlan.EventLog
+[ATHR_DEV_988x.ndi.NTARM64.Services]
+AddService = QCWLAN8994, 2, atheros.Service, atheros.EventLog
 Include    = netvwifibus.inf
 Needs      = VWiFiBus.Services
 
-[QcWlan.ndi.NTARM.HW]
+[ATHR_DEV_988x.ndi.NTARM.HW]
 AddReg  = MSI.reg
 Include = pci.inf,netvwifibus.inf
+;Needs   = PciIoSpaceNotRequired.HW, PciD3ColdSupported.HW, VWiFiBus.PnPFilterRegistration.HW
 Needs   = PciIoSpaceNotRequired.HW, VWiFiBus.PnPFilterRegistration.HW
 
-[QcWlan.ndi.NTARM64.HW]
+[ATHR_DEV_988x.ndi.NTARM64.HW]
 AddReg  = MSI.reg
 Include = pci.inf,netvwifibus.inf
+;Needs   = PciIoSpaceNotRequired.HW, PciD3ColdSupported.HW, VWiFiBus.PnPFilterRegistration.HW
 Needs   = PciIoSpaceNotRequired.HW, VWiFiBus.PnPFilterRegistration.HW
 
-[QcWlan.ndi.NTARM]
-Include            = pci.inf, netvwifibus.inf
-Needs              = VWiFiBus.CopyFiles
-*IfType            = 71        ; IF_TYPE_IEEE80211
-*MediaType         = 16        ; NdisMediumNative802_11
-*PhysicalMediaType = 9         ; NdisPhysicalMediumNative802_11
-Characteristics    = 0x84
-BusType            = 5
-AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, WpBugCheckOnTargetFailure.Reg, pldr.reg
-CopyFiles          = QcWlan.CopyFiles
-AddProperty        = WDTFSOCDeviceCategory
+;;End of Others Section
 
-[QcWlan.ndi.NTARM64]
-Include            = pci.inf, netvwifibus.inf
-Needs              = VWiFiBus.CopyFiles
-*IfType            = 71        ; IF_TYPE_IEEE80211
-*MediaType         = 16        ; NdisMediumNative802_11
-*PhysicalMediaType = 9         ; NdisPhysicalMediumNative802_11
-Characteristics    = 0x84    ; NCF_PHYSICAL | NCF_HAS_UI
-BusType            = 5
-AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, WpBugCheckOnTargetFailure.Reg, pldr.reg
-CopyFiles          = QcWlan.CopyFiles
-AddProperty        = WDTFSOCDeviceCategory
-
-;-----------------------------------------------------------------------------
-; Wireless Local Area Network Adaptor Common
-;-----------------------------------------------------------------------------
-[QcWlan.Reg]
-HKR, Ndi\Interfaces, UpperRange, 0, "ndis5"
-HKR, Ndi\Interfaces, LowerRange, 0, "wlan,ethernet,vwifi"
-HKR, Ndi\Interfaces, DefUpper,   0, "ndis5"
-HKR, Ndi\Interfaces, DefLower,   0, "ethernet"
-HKR, Ndi,            Service,    0, %QcWlan.Service.Name%
+[atheros_arm.reg]
+HKR, Ndi,                           Service,    0, "QCWLAN8994"
+HKR, Ndi\Interfaces,                UpperRange, 0, "ndis5"
+HKR, Ndi\Interfaces,                LowerRange, 0, "wlan,ethernet,vwifi"
 
 HKR,,*ReceiveBuffers  , 0      , "256"
 HKR,,*TransmitBuffers , 0      , "896"
@@ -106,61 +108,7 @@ HKR,,scanTimeValid    , 0      , "60"
 HKR,,shortPreamble    , 0      , "1"
 HKR,,smpsDynamic      , 0      , "0"
 
-;-----------------------------------------------------------------------------
-;Source
-;-----------------------------------------------------------------------------
-[SourceDisksNames]
-;
-; diskid = description[, [tagfile] [, <unused>, subdir]]
-;
-1 = %DiskId1%,,
-
-
-[SourceDisksFiles.ARM]
-qcwlan8994.sys = 1,arm,
-;qwlan30.bin = 1,,
-;bdwlan30.bin = 1,,
-
-
-[SourceDisksFiles.ARM64]
-qcwlan8994.sys = 1,arm64,
-;qwlan30.bin = 1,,
-;bdwlan30.bin = 1,,
-
-;-----------------------------------------------------------------------------
-; DestinationDirs
-;-----------------------------------------------------------------------------
-[DestinationDirs]
-QcWlan.CopyFiles            = 12
-;QcWlan_FW.CopyFiles         = 12
-;QcWlan_BD.CopyFiles         = 12
-DefaultDestDir               = 11
-
-[QcWlan.CopyFiles]
-qcwlan8994.sys,,,2
-
-;[QcWlan_FW.CopyFiles]
-;qwlan30.bin,,,2
-
-;[QcWlan_BD.CopyFiles]
-;bdwlan30.bin,,,2
-
-
-
-
-;-----------------------------------------------------------------------------
-; Driver and Service Section
-;-----------------------------------------------------------------------------
-
-[QcWlan.Service]
-DisplayName     = %QcWlan.Service.DispName%
-ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
-StartType       = 3 ;%SERVICE_DEMAND_START%
-ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
-ServiceBinary   = %13%\qcwlan8994.sys
-LoadOrderGroup  = NDIS
-
-[QcWlan11n.reg]
+[atheros11n.reg]
 HKR, Ndi\params\*ReceiveBuffers,    ParamDesc,  0, "%ReceiveBuffers%"
 HKR, Ndi\params\*ReceiveBuffers,    default,    0, "256"
 HKR, Ndi\params\*ReceiveBuffers,    min,        0, "1"
@@ -221,12 +169,91 @@ HKR, Ndi\params\scanTimeValid,      base,       0,  "10"
 HKR, Ndi\params\scanTimeValid,      type,       0,  "int"
 
 
+[atheros.DelReg]
+HKR,Ndi\Params\tpc
+HKR,,tpc
+HKR,,AdHocBand
+HKR,,AwakeTimePerf
+HKR,,beaconInterval
+HKR,,bkScanEnable
+HKR,,ccode
+HKR,,FragThreshold
+HKR,,HwTxRetries
+HKR,,rateCtrlEnable
+HKR,,RTSThreshold
+HKR,,halPcieClockReq
+HKR,Ndi\params,radioEnable,0x2000
+HKR,Ndi\params,sleepMode,0x2000
+HKR,,gpioFunc0ActHi
+HKR,,gpioFunc1ActHi
+HKR,,gpioLedCustom
+HKR,,gpioPinFunc0
+HKR,,gpioPinFunc1
+HKR, Ndi\params\NetworkAddress
+HKR,,NetworkAddress
+HKR, Ndi\params\*ReceiveBuffers
+HKR,,*ReceiveBuffers
+HKR, Ndi\params\*TransmitBuffers
+HKR,,*TransmitBuffers
+HKR, Ndi\params\EnableACS
+HKR,,EnableACS
+HKR, Ndi\params\PreferredSapBand
+HKR,,PreferredSapBand
+HKR, Ndi\params\roamPolicy
+HKR,,roamPolicy
+HKR,,rxChainMask
+HKR,,txChainMaskLegacy
+HKR,,rxChainMaskLegacy
+HKR,,rxChainDetect
+HKR,,rxChainDetectRef
+HKR,,rxChainDetectThreshA
+HKR,,rxChainDetectThreshG
+HKR,,rxChainDetectDeltaA
+HKR,,rxChainDetectDeltaG
+HKR, Ndi\params\smpsDynamic
+HKR, Ndi\params\D0PCEnable
+HKR, Ndi\params\shortPreamble
+HKR, Ndi\params\scanTimeValid
+HKR,,wmeEnabled
+HKR,,halPcieWaen
+HKR,,halPcieDetach
+HKR,,ampEnable
+HKR,,btCoexAntDivEnable
+HKR,,wowEnable
+HKR,,ProtocolPS
+HKR,,TxBfeeEnable
+HKR,,translateNullSsid
+HKR,,defaultIbssChannel
+HKR,,paprdEnable
+HKR,,lnaDivUseBtAntEnable
+HKR,,antCtrlComm2gSwitchEnable
+HKR,,extLnaCtlGpio
+HKR,,rateCtrlTxFastDrop
+HKR,,antDivLowRssiCfg
+HKR,,btCoexDivDefVal
+HKR,,antDivFastDivBias
+HKR,,extAttenMarginCfg
+
+[smpsDynamic.reg]
+HKR, Ndi\params\smpsDynamic,            ParamDesc,  0,  %smpsDynamic%
+HKR, Ndi\params\smpsDynamic,            Base,       0,  "10"
+HKR, Ndi\params\smpsDynamic,            default,    0,  "0"
+HKR, Ndi\params\smpsDynamic,            type,       0,  "enum"
+HKR, Ndi\params\smpsDynamic\enum,       "1",        0,  %Enable%
+HKR, Ndi\params\smpsDynamic\enum,       "0",        0,  %Disable%
+
 [D0PC.reg]
 HKR, NDI\params\D0PCEnable,ParamDesc,,          %D0PCDesc%
 HKR, NDI\params\D0PCEnable,type,,               "enum"
 HKR, NDI\params\D0PCEnable,Default,,            "1"
 HKR, NDI\params\D0PCEnable\enum,0,,             %Disable%
 HKR, NDI\params\D0PCEnable\enum,1,,             %Enable%
+
+[MSI.reg]
+HKR, "Interrupt Management", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x00010001, 1
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLimit, 0x00010001, 8
 
 [wowenable.reg]
 HKR,,                                 wowEnable,                      0x00010001,  "1"
@@ -240,33 +267,6 @@ HKR,,                                 TxBfeeEnable,                           0x
 ; Enable Mcc adaptive schedular
 ; ----------------------------------------------------------------------------
 HKR,,AdaptiveSchedulerEnable,0x00010001,1
-
-; ----------------------------------------------------------------------------
-; Driver Mode (FTM mode)
-; ----------------------------------------------------------------------------
-[DriverMode.Reg]
-HKR,,DriverMode,0x00010001,0
-
-[QcWlan.EventLog]
-AddReg = QcWlan.AddEventLog.reg
-
-[QcWlan.AddEventLog.reg]
-HKR,,EventMessageFile, 0x00020000, "%%SystemRoot%%\System32\netevent.dll"
-HKR,,TypesSupported,   0x00010001, 7
-
-[smpsDynamic.reg]
-HKR, Ndi\params\smpsDynamic,            ParamDesc,  0,  %smpsDynamic%
-HKR, Ndi\params\smpsDynamic,            Base,       0,  "10"
-HKR, Ndi\params\smpsDynamic,            default,    0,  "0"
-HKR, Ndi\params\smpsDynamic,            type,       0,  "enum"
-HKR, Ndi\params\smpsDynamic\enum,       "1",        0,  %Enable%
-HKR, Ndi\params\smpsDynamic\enum,       "0",        0,  %Disable%
-
-[MSI.reg]
-HKR, "Interrupt Management", 0x00000010
-HKR, "Interrupt Management\MessageSignaledInterruptProperties", 0x00000010
-HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x00010001, 1
-HKR, "Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLimit, 0x00010001, 8
 
 [ProtocolPS.reg]
 HKR,,                                 ProtocolPowerSave,                      0x00010001,  "1"
@@ -286,21 +286,73 @@ HKR,,BoardDataFileName, 0x00000000, "bdwlan30.bin"
 ;HKR, NDI\IHVExtensions, AdapterOUI,         0x10001,   00123456
 ;HKR, NDI\IHVExtensions, ExtensibilityDLL,   0x00000,   "c:\\windows\\system32\\wlan_ihv.dll"
 
+; ----------------------------------------------------------------------------
+; Driver Mode (FTM mode)
+; ----------------------------------------------------------------------------
+[DriverMode.Reg]
+HKR,,DriverMode,0x00010001,0
+
 [pldr.reg]
 HKLM, SYSTEM\CurrentControlSet\services\WlanSvc\parameters\OEM\SystemCapabilities, WLANPlatformLevelDeviceResetSupported, 0x10001, "1"
 
 [WpBugCheckOnTargetFailure.Reg]
 HKR,,WpBugCheckOnTargetFailure,0x00010001,0
 
-;-----------------------------------------------------------------------------
-; Localizable Strings
-;-----------------------------------------------------------------------------
+[atheros.Service]
+DisplayName     = %ATHR.Service.DispName%
+ServiceType     = 1         ;SERVICE_KERNEL_DRIVER
+StartType       = 3; 0:SERVICE_BOOT_START; 3:SERVICE_DEMAND_START
+ErrorControl    = 1         ;SERVICE_ERROR_NORMAL
+ServiceBinary   = %12%\qcwlan8994.sys
+LoadOrderGroup  = NDIS
+
+[atheros.EventLog]
+AddReg = atheros.AddEventLog.reg
+
+[atheros.AddEventLog.reg]
+HKR,,EventMessageFile, 0x00020000, "%%SystemRoot%%\System32\netevent.dll"
+HKR,,TypesSupported,   0x00010001, 7
+
+
+[atheros.CopyFiles]
+qcwlan8994.sys,,,2
+
+
+;[atheros_NTARM.CopyFiles]
+;qcwlan8994.sys,,,2
+
+;[atheros_FW.CopyFiles]
+;qwlan30.bin,,,2
+
+;[atheros_BD.CopyFiles]
+;bdwlan30.bin,,,2
+
+[SourceDisksNames]
+1 = %DiskDescription%,,,""
+
+
+[SourceDisksFiles.ARM]
+qcwlan8994.sys = 1,arm,
+;qwlan30.bin = 1,,
+;bdwlan30.bin = 1,,
+
+
+[SourceDisksFiles.ARM64]
+qcwlan8994.sys = 1,arm64,
+;qwlan30.bin = 1,,
+;bdwlan30.bin = 1,,
+
+[DestinationDirs]
+atheros.CopyFiles            = 12
+;atheros_FW.CopyFiles         = 12
+;atheros_BD.CopyFiles         = 12
+DefaultDestDir               = 11
+
 [Strings]
-QUALCOMM                     = "Qualcomm Inc"
-WLAN.DeviceDesc              = "Qualcomm(R) Wi-Fi B/G/N/AC (2x2) Svc"
-QcWlan.Service.DispName      = "Qualcomm(R) Wi-Fi B/G/N/AC (2x2) Svc"
-QcWlan.Service.Name          = "qcwlan"
-DiskId1                      = "Qualcomm Wireless LAN Adapter Device Installation Disk #1"
+Msft                         = "Microsoft"
+Atheros                      = "Atheros Communications Inc."
+ATHR.Service.DispName        = "Atheros Extensible Wireless LAN device driver"
+DiskDescription              = "Atheros Sample Driver Disk 1"
 TransmitBuffers              = "Transmit Buffers"
 Enable                       = "Enable"
 Disable                      = "Disable"
@@ -324,3 +376,4 @@ bkScanEnable                 = "BackgroundScan On/Off"
 radioEnable                  = "Radio On/Off"
 smpsDynamic                  = "Dynamic MIMO Power Save"
 D0PCDesc                     = "D0 PacketCoalescing"
+ATHR.DeviceDesc.6320         = "Qualcomm Atheros AR6320 Wireless Network Adapter"
