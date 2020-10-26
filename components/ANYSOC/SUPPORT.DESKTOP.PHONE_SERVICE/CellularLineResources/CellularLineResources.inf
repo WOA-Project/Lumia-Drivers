@@ -115,7 +115,7 @@ Ringback_450Hz_1500ms.wav
 
 [CellularLinesEnabledReg]
 HKLM, "SOFTWARE\Microsoft\Phone\Settings\PhoneLineFactories", "Cellular", 0x0, "{ceec07ce-cde4-4b1b-ba82-e36910d1c465}"
-HKLM, "SOFTWARE\Microsoft\Phone\Settings\PhoneLineFactories", "IMS"     , 0x0, "{04E9894C-C756-4FCE-B11C-F38888D01279}"
+;HKLM, "SOFTWARE\Microsoft\Phone\Settings\PhoneLineFactories", "IMS"     , 0x0, "{04E9894C-C756-4FCE-B11C-F38888D01279}"
 
 [CellularLineResourcesReg]
 HKLM, "SOFTWARE\Microsoft\Phone", ,0x10
