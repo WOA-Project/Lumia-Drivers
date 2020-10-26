@@ -186,7 +186,7 @@ HKR , Parameters        , DisablePhaseScaling         , 0x00010001,  0x00000001
 HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000000
 HKR , Parameters        , EapsFlags                   , 0x00010001,  0x00000200
 HKR , Parameters        , EnableIdleCrashDebug        , 0x00010001,  0x00000001
-HKR , Parameters        , EnableMicroPep              , 0x00010001,  0x00000000 ; Disabled due to issues on 8992, will cause a crash
+HKR , Parameters        , EnableMicroPep              , 0x00010001,  0x00000001
 HKR , Parameters        , EnableMsftSdPStates         , 0x00010001,  0x00000000
 HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000000 ; Disabled due to issues on 8992, will cause a crash
 HKR , Parameters        , ErrataFlags                 , 0x00010001,  0x80000001
