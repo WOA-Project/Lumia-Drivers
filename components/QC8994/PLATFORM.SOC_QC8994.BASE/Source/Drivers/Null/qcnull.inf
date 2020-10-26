@@ -38,12 +38,10 @@ qcnull.sys = 1,arm64,
 
 [Standard.NTARM]
 %QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
-%BIFBattNull.DeviceDesc%    = qcnull_Device, ACPI\QCOM24C2
 %25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
 
 [Standard.NTARM64]
 %QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
-%BIFBattNull.DeviceDesc%    = qcnull_Device, ACPI\QCOM24C2
 %25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
 
 [qcnull_Device.NT]
@@ -93,5 +91,4 @@ qcnull.DeviceDesc         = "Qualcomm Null Device"
 qcnull.SVCDESC            = "Qualcomm Null Service"
 
 QcGPUNull.DeviceDesc      = "Qualcomm GPU Device (Null)"
-BIFBattNull.DeviceDesc    = "Qualcomm BIF Battery Device (Null)"
 25A0Null.DeviceDesc       = "Qualcomm App Profiler Device (Null)" 
