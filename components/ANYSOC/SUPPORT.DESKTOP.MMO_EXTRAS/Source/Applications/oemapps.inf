@@ -17,11 +17,8 @@ PstDrv.Files        = 10,OEM\Applications
 0 = %DiskId1%
 
 [SourceDisksFiles]
-OEMApps.ps1 = 0,,
-
-AdvancedInfo.appxbundle = 0,,
-ColorProfile.appxbundle = 0,,
-
+LumiaWOA.AdvancedInfo_btf4vqatnxdpt.appxbundle = 0,,
+LumiaWOA.ColorProfile_btf4vqatnxdpt.appxbundle = 0,,
 
 ;*****************************************
 ; oemapps  Install Section
@@ -31,10 +28,8 @@ ColorProfile.appxbundle = 0,,
 CopyFiles = PstDrv.Files
 
 [PstDrv.Files]
-OEMApps.ps1
-
-AdvancedInfo.appxbundle
-ColorProfile.appxbundle
+LumiaWOA.AdvancedInfo_btf4vqatnxdpt.appxbundle
+LumiaWOA.ColorProfile_btf4vqatnxdpt.appxbundle
 
 [Strings]
 IHV     = "LumiaWoA authors"

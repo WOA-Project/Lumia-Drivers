@@ -6,85 +6,62 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 08/08/2019,1.0.0.1
+DriverVer   = 10/12/2020,1.0.0.2
 
 CatalogFile.NTARM   = spapps.arm.cat
 CatalogFile.NTARM64 = spapps.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
-DefaultDestDir       = 10,OEM\Applications
+PstDrv.Files = 10,OEM\Applications
+AppDepARM    = 10,OEM\Applications\Dependencies\arm
+AppDepARM64  = 10,OEM\Applications\Dependencies\arm64
 
 [SourceDisksNames]
 0 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-SPApps.ps1 = 0,arm,
+[SourceDisksFiles]
+Microsoft.CommsPhone_8wekyb3d8bbwe.appxbundle         = 0,arm,
+8419TigerWang.Airwaves_hv6sjhp5j6q2j.appxbundle       = 0,,
+1407ADeltaX.MobileShell_eajxzv172mp1p.msixbundle      = 0,arm64,
+LumiaWOA.Chat_btf4vqatnxdpt.appxbundle                = 0,arm64,
+LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle              = 0,arm64,
+LumiaWOA.Tips_btf4vqatnxdpt.appxbundle                = 0,arm64,
+LumiaWOA.VibrationSettings_btf4vqatnxdpt.appxbundle   = 0,arm64,
 
-CommsPhone.appxbundle = 0,,
-Microsoft.VCLibs.ARM.14.00.appx = 0,,
-
-Airwaves.appxbundle = 0,,
-
-Microsoft.NET.Native.Framework.2.2.appx = 0,arm64,
-Microsoft.NET.Native.Runtime.2.2.appx = 0,arm64,
-Microsoft.VCLibs.ARM64.14.00.appx = 0,arm64,
-Microsoft.VCLibs.arm64.14.00.Desktop.appx = 0,arm64,
-
-Chat.appxbundle = 0,arm64,
-Tips.appxbundle = 0,arm64,
-Dialer.appxbundle = 0,arm64,
-VibrationSettings.appxbundle = 0,arm64,
-MobileShell.msixbundle = 0,arm64,
-
-[SourceDisksFiles.ARM64]
-SPApps.ps1 = 0,arm64,
-
-CommsPhone.appxbundle = 0,,
-Microsoft.VCLibs.ARM.14.00.appx = 0,,
-
-Airwaves.appxbundle = 0,,
-
-Microsoft.NET.Native.Framework.2.2.appx = 0,arm64,
-Microsoft.NET.Native.Runtime.2.2.appx = 0,arm64,
-Microsoft.VCLibs.ARM64.14.00.appx = 0,arm64,
-Microsoft.VCLibs.arm64.14.00.Desktop.appx = 0,arm64,
-
-Chat.appxbundle = 0,arm64,
-Tips.appxbundle = 0,arm64,
-Dialer.appxbundle = 0,arm64,
-VibrationSettings.appxbundle = 0,arm64,
-MobileShell.msixbundle = 0,arm64,
-
+Microsoft.VCLibs.140.00.arm_8wekyb3d8bbwe.appx        = 0,arm,
+Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe.appx = 0,arm64,
+Microsoft.NET.Native.Runtime.2.2_8wekyb3d8bbwe.appx   = 0,arm64,
+Microsoft.VCLibs.140.00.UWPDesktop_8wekyb3d8bbwe.appx = 0,arm64,
+Microsoft.VCLibs.140.00_8wekyb3d8bbwe.appx            = 0,arm64,
 
 ;*****************************************
 ; spapps  Install Section
 ;*****************************************
 
 [DefaultInstall.NTARM]
-CopyFiles = PstDrv.Files
+CopyFiles = PstDrv.Files,AppDepARM,AppDepARM64
 
 [DefaultInstall.NTARM64]
-CopyFiles = PstDrv.Files
+CopyFiles = PstDrv.Files,AppDepARM,AppDepARM64
 
 [PstDrv.Files]
-SPApps.ps1
+1407ADeltaX.MobileShell_eajxzv172mp1p.msixbundle
+8419TigerWang.Airwaves_hv6sjhp5j6q2j.appxbundle
+LumiaWOA.Chat_btf4vqatnxdpt.appxbundle
+LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle
+LumiaWOA.Tips_btf4vqatnxdpt.appxbundle
+LumiaWOA.VibrationSettings_btf4vqatnxdpt.appxbundle
+Microsoft.CommsPhone_8wekyb3d8bbwe.appxbundle
 
-Microsoft.NET.Native.Framework.2.2.appx
-Microsoft.NET.Native.Runtime.2.2.appx
-Microsoft.VCLibs.ARM64.14.00.appx
-Microsoft.VCLibs.arm64.14.00.Desktop.appx
+[AppDepARM]
+Microsoft.VCLibs.140.00_8wekyb3d8bbwe.appx, Microsoft.VCLibs.140.00.arm_8wekyb3d8bbwe.appx, , 0x00004000,
 
-CommsPhone.appxbundle
-Microsoft.VCLibs.ARM.14.00.appx
-
-Chat.appxbundle
-Tips.appxbundle
-Airwaves.appxbundle
-Dialer.appxbundle
-VibrationSettings.appxbundle
-MobileShell.msixbundle
-
+[AppDepARM64]
+Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe.appx
+Microsoft.NET.Native.Runtime.2.2_8wekyb3d8bbwe.appx
+Microsoft.VCLibs.140.00.UWPDesktop_8wekyb3d8bbwe.appx
+Microsoft.VCLibs.140.00_8wekyb3d8bbwe.appx
 
 [Strings]
 IHV                    = "LumiaWoA authors"

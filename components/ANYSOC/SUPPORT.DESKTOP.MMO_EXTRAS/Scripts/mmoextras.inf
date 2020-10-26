@@ -22,7 +22,6 @@ FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 0 = %DiskId1%
 
 [SourceDisksFiles]
-MMOExtrasFirstLogon.cmd          = 0,,
 MMOExtrasSpecialize.cmd          = 0,,
 
 
@@ -42,7 +41,6 @@ CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 MMOExtrasSpecialize.cmd
 
 [FirstLogonCmd.Files]
-MMOExtrasFirstLogon.cmd
 
 [Strings]
 IHV     = "LumiaWoA authors"

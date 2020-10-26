@@ -28,18 +28,18 @@ SpecializeCommands.cmd = 0,,
 Wallpaper.jpg          = 0,,
 
 [SourceDisksFiles.ARM]
-devcon.exe             = 0,arm,
-SilentProvisioner.exe  = 0,arm,
-SilentProvisionerL.exe = 0,arm,
-SilentProvisionerT.exe = 0,arm,
-Unattend.xml           = 0,arm,
+devcon.exe                 = 0,arm,
+SilentProvisioner.exe      = 0,arm,
+SilentProvisionerL.exe     = 0,arm,
+ApplicationProvisioner.exe = 0,arm,
+Unattend.xml               = 0,arm,
 
 [SourceDisksFiles.ARM64]
-devcon.exe             = 0,arm64,
-SilentProvisioner.exe  = 0,arm64,
-SilentProvisionerL.exe = 0,arm64,
-SilentProvisionerT.exe = 0,arm64,
-Unattend.xml           = 0,arm64,
+devcon.exe                 = 0,arm64,
+SilentProvisioner.exe      = 0,arm64,
+SilentProvisionerL.exe     = 0,arm64,
+ApplicationProvisioner.exe = 0,arm64,
+Unattend.xml               = 0,arm64,
 
 ;*****************************************
 ; desktopsetup  Install Section
@@ -63,7 +63,7 @@ Oobe.cmd
 SpecializeCommands.cmd
 SilentProvisioner.exe
 SilentProvisionerL.exe
-SilentProvisionerT.exe
+ApplicationProvisioner.exe
 devcon.exe
 FirstLogon.cmd
 Wallpaper.jpg
