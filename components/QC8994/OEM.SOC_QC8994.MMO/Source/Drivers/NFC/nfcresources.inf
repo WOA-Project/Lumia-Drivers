@@ -19,13 +19,11 @@ PstDrv.Files  = 10,OEM\Drivers
 
 [SourceDisksFiles]
 NXPPN547.inf_                      = 0,,
+nxppn547.cat_                      = 0,,
 nxppn547fw.dat                     = 0,,
 MSNfcI2C547.1803.dll               = 0,,
-nxppn547.1803.cat_                 = 0,,
 MSNfcI2C547.1809.dll               = 0,,
-nxppn547.1809.cat_                 = 0,,
 MSNfcI2C547.1903.dll               = 0,,
-nxppn547.1903.cat_                 = 0,,
 
 
 ;*****************************************
@@ -37,10 +35,8 @@ CopyFiles = PstDrv.Files
 
 ; Windows/OEM
 [PstDrv.Files]
-NXPPN547.inf,        NXPPN547.inf_,      , 0x00004000,
-nxppn547.1803.cat,   nxppn547.1803.cat_, , 0x00004000,
-nxppn547.1809.cat,   nxppn547.1809.cat_, , 0x00004000,
-nxppn547.1903.cat,   nxppn547.1903.cat_, , 0x00004000,
+NXPPN547.inf,   NXPPN547.inf_, , 0x00004000,
+nxppn547.cat,   nxppn547.cat_, , 0x00004000,
 nxppn547fw.dat
 MSNfcI2C547.1803.dll
 MSNfcI2C547.1809.dll
