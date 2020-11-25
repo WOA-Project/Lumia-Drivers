@@ -33,7 +33,7 @@ Msril.sys                    = 1,arm64
 DefaultDestDir = 12
 
 [Manufacturer]                              ; predefined name
-%Msft% = MSFT,NTX86,NTAMD64,NTARM,NTARM64
+%Msft% = MSFT,NTARM,NTARM64
 
 [MSFT.NTX86]
 %CellUserModeInterconnect.DeviceDescription% = CellUserModeInterconnect,ROOT\CellUserModeInterconnect

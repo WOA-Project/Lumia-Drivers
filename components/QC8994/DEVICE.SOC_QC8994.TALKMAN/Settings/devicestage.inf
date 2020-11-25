@@ -18,7 +18,7 @@ Drivers_Dir_24 = 24,ProgramData\Microsoft\Windows\DeviceMetadataStore\EN-US
 1 = %DiskId1%
 
 [SourceDisksFiles]
-d03957ff-526f-40a2-a191-f987182046bd.devicemetadata-ms = 1,,
+d03957ff-526f-40a2-a191-f987182046be.devicemetadata-ms = 1,,
 
 [DefaultInstall.NTARM]
 CopyFiles = Drivers_Dir_24
@@ -27,7 +27,7 @@ CopyFiles = Drivers_Dir_24
 CopyFiles = Drivers_Dir_24
 
 [Drivers_Dir_24]
-d03957ff-526f-40a2-a191-f987182046bd.devicemetadata-ms,,,0x00000800 ;COPYFLG_NODECOMP
+d03957ff-526f-40a2-a191-f987182046be.devicemetadata-ms,,,0x00000800 ;COPYFLG_NODECOMP
 
 [Strings]
 IHV     = "LumiaWoA authors"

@@ -1,0 +1,107 @@
+;
+; NcsdSvc.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 09/09/2015,1.0.1067.0000
+CatalogFile = ncsdsvc.cat
+
+[DestinationDirs]
+NcsdSvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+NcsdRes.dll = 0,,
+Ncsd.dll = 0,,
+NcsdPluginSvc.dll = 0,,
+WPCOREUTIL.dll = 0,,
+
+[DefaultInstall.NTARM64]
+CopyFiles = NcsdSvc.Files
+AddReg    = NcsdSvc_Reg
+
+[DefaultInstall.NTARM64.Services]
+AddService = NcsdPluginSvc,0x00000000,NcsdSvc_Service,
+
+[NcsdSvc_Service]
+DisplayName   = "NcsdPluginSvc"
+Description   = "Native Care Service"
+ServiceType   = 0x20
+StartType     = 2
+ErrorControl  = 0
+ServiceBinary = "%%systemroot%%\system32\OEMServiceHost.exe -k NsgExtUti"
+
+[NcsdSvc_Reg]
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", , ,"NcsdEtw"
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%%SystemRoot%%\System32\NcsdRes.dll"
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%%SystemRoot%%\System32\NcsdRes.dll"
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "Enabled", 0x10001, 0x1
+
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\SvcHost", "NsgExtUti", 0x00010008, \
+	"NcsdPluginSvc"
+
+HKLM, "SOFTWARE\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "NcsdPluginSvc.dll"
+
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "DisplayName", 0x00000000, "NcsdPluginSvc"
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "Type", 0x00010001, 0x00000020
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "RequiredPrivileges", 0x00010008, \
+	"SeShutdownPrivilege", "SeChangeNotifyPrivilege", "SeIncreaseWorkingSetPrivilege", "SeCreateGlobalPrivilege"
+
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "Start", 0x00010001, 0x00000003
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "ImagePath", 0x00020000, "C:\windows\System32\OEMServiceHost.exe -k NsgExtUti"
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "FailureActions", 0x00000001, \
+	80,51,01,00,00,00,00,00,00,00,00,00,04,00,00, \ ; Q·············
+	00,14,00,00,00,01,00,00,00,E8,03,00,00,01,00, \ ; ·········è·····
+	00,00,E8,03,00,00,01,00,00,00,E8,03,00,00,00, \ ; ··è·······è····
+	00,00,00,00,00,00,00                            ; ·······
+
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "ServiceSidType", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "PreshutdownTimeout", 0x00010001, 0x00004E20
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "Description", 0x00000000, "Native Care Service"
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "ErrorControl", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc", "ObjectName", 0x00000000, "LocalSystem"
+
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\Parameters", "ServiceDllUnloadOnStop", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\Parameters", "ServiceDll", 0x00020000, "%%SystemRoot%%\System32\NcsdPluginSvc.dll"
+
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\0", "Action", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\0", "Type", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\0", "Guid", 0x00000001, \
+	26,F7,AF,7E,CC,34,04,42,B0,9D,F9,54,71,B8,73, \ ; &÷¯~Ì4·B°ùTq¸s
+	CF                                              ; Ï
+
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\1", "Data1", 0x00000001, \
+	00,00,00,00,01,00,00,00                         ; ········
+
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\1", "DataType0", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\1", "Type", 0x00010001, 0x00000007
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\1", "Data0", 0x00000001, \
+	75,38,BC,A3,3E,06,8A,41                         ; u8¼£>·A
+
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\1", "Action", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\1", "Guid", 0x00000001, \
+	16,28,7A,2D,5E,0C,FC,45,9C,E7,57,0E,5E,CD,E9, \ ; ·(z-^·üEçW·^Íé
+	C9                                              ; É
+
+HKLM, "SYSTEM\CurrentControlSet\services\NcsdPluginSvc\TriggerInfo\1", "DataType1", 0x00010001, 0x00000001
+
+[NcsdSvc.Files]
+NcsdRes.dll
+Ncsd.dll
+NcsdPluginSvc.dll
+WPCOREUTIL.dll
+
+[Strings]
+QC            = "Qualcomm"
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+

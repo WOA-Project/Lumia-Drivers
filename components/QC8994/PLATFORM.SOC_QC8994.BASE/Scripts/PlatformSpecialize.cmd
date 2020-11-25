@@ -1,5 +1,44 @@
 @echo off
-
+  
+  REM Additional power plan settings
+  REM Windows By Default thinks this platform is not a mobile device,
+  REM So it treats the power button as a normal power button, 
+  REM which engages shutdown and does not lock the device
+  
+  powercfg /setdcvalueindex SCHEME_CURRENT SUB_SLEEP STANDBYIDLE 60
+  powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP STANDBYIDLE 60
+  
+  powercfg /setdcvalueindex SCHEME_CURRENT SUB_SLEEP HYBRIDSLEEP Off
+  powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP HYBRIDSLEEP Off
+  
+  powercfg /setdcvalueindex SCHEME_CURRENT SUB_SLEEP HIBERNATEIDLE 0
+  powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP HIBERNATEIDLE 0
+  
+  powercfg /setdcvalueindex SCHEME_CURRENT SUB_BUTTONS LIDACTION 1
+  powercfg /setacvalueindex SCHEME_CURRENT SUB_BUTTONS LIDACTION 1
+  
+  powercfg /setdcvalueindex SCHEME_CURRENT SUB_BUTTONS PBUTTONACTION 1
+  powercfg /setacvalueindex SCHEME_CURRENT SUB_BUTTONS PBUTTONACTION 1
+  
+  powercfg /setdcvalueindex SCHEME_CURRENT SUB_BUTTONS SBUTTONACTION 1
+  powercfg /setacvalueindex SCHEME_CURRENT SUB_BUTTONS SBUTTONACTION 1
+  
+  powercfg /setdcvalueindex SCHEME_CURRENT SUB_VIDEO VIDEOIDLE 60
+  powercfg /setacvalueindex SCHEME_CURRENT SUB_VIDEO VIDEOIDLE 60
+  
+  powercfg /setdcvalueindex SCHEME_CURRENT SUB_VIDEO ADAPTBRIGHT On
+  powercfg /setacvalueindex SCHEME_CURRENT SUB_VIDEO ADAPTBRIGHT On
+  
+  REM Disable WinRE (Unsupported scenario)
+  reagentc.exe /disable
+  
+  REM Battery slider (Disabled temporarily)
+  
+  REM powercfg /setdcvalueindex OVERLAY_SCHEME_HIGH SUB_PROCESSOR PERFEPP 50
+  REM powercfg /setacvalueindex OVERLAY_SCHEME_HIGH SUB_PROCESSOR PERFEPP 33
+  REM powercfg /setdcvalueindex OVERLAY_SCHEME_MAX SUB_PROCESSOR PERFEPP 33
+  REM powercfg /setacvalueindex OVERLAY_SCHEME_MAX SUB_PROCESSOR PERFEPP 25
+  
   REM Power settings for MSM8992/MSM8994
   
   POWERCFG /SETACVALUEINDEX SCHEME_CURRENT SUB_PROCESSOR 0300f6f8-abd6-45A9-b74f-4908691a40b5 1
@@ -99,6 +138,7 @@
   REG ADD HKLM\SYSTEM\CurrentControlSet\services\fvevol /v MaxCryptoRequestsPerIo /t REG_DWORD /d 4 /f
   REG ADD HKLM\SYSTEM\CurrentControlSet\services\fvevol /v MaxDecryptRequests /t REG_DWORD /d 4 /f
 
+  REM Audio Driver Installation
   \Windows\OEM\devcon.exe update \Windows\OEM\Drivers\qcaud8994.inf AUDD\QCOM2451
 
   REM Show a warning on MSM8992 for broken reboots

@@ -19,11 +19,9 @@ APPerso.Files = 11 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksFiles.ARM]
 apperso.dll              = 0,arm,
-npetsec.dll              = 0,arm,
 
 [SourceDisksFiles.ARM64]
 apperso.dll              = 0,arm64,
-npetsec.dll              = 0,arm64,
 
 [Manufacturer]
 %IHV%=IHV,NTARM,NTARM64
@@ -42,7 +40,6 @@ CopyFiles = APPerso.Files
 
 [APPerso.Files]
 apperso.dll
-npetsec.dll
 
 [Strings]
 IHV                = "LumiaWoA authors"

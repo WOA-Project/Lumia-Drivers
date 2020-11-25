@@ -23,10 +23,8 @@ ModemResources.ARM64.Files = 10,OEM\Drivers\arm64
 qcmbb8994.arm.cat_   = 0,,
 qcmbb8994.arm64.cat_ = 0,,
 qcmbb.wp8994.inf_    = 0,,
-qcmbb8994.wa.arm.sys = 0,,
-qcmbb8994.wp.arm.sys = 0,,
-qcmbb8994.wa.arm64.sys = 0,,
-qcmbb8994.wp.arm64.sys = 0,,
+qcmbb8994.arm.sys    = 0,,
+qcmbb8994.arm64.sys  = 0,,
 
 [DefaultInstall.NTARM]
 CopyFiles = ModemResources.Files,ModemResources.ARM.Files,ModemResources.ARM64.Files
@@ -40,12 +38,10 @@ qcmbb8994.arm64.cat, qcmbb8994.arm64.cat_, , 0x00004000,
 qcmbb.wp8994.inf, qcmbb.wp8994.inf_, , 0x00004000,
 
 [ModemResources.ARM.Files]
-qcmbb8994.wa.sys, qcmbb8994.wa.arm.sys, , 0x00004000,
-qcmbb8994.wp.sys, qcmbb8994.wp.arm.sys, , 0x00004000,
+qcmbb8994.sys, qcmbb8994.arm.sys, , 0x00004000,
 
 [ModemResources.ARM64.Files]
-qcmbb8994.wa.sys, qcmbb8994.wa.arm64.sys, , 0x00004000,
-qcmbb8994.wp.sys, qcmbb8994.wp.arm64.sys, , 0x00004000,
+qcmbb8994.sys, qcmbb8994.arm64.sys, , 0x00004000,
 
 [Strings]
 IHV = "LumiaWoA authors"

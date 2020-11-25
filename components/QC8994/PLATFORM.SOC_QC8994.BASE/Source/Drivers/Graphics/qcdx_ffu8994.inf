@@ -474,6 +474,8 @@ HKLM, SOFTWARE\Classes\WowAA32Node\MediaFoundation\Transforms\df20ddfa-0d19-463a
 HKLM, SOFTWARE\Classes\WowAA32Node\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                                                                    , MFTFlags              , %REG_DWORD%    , 0x6
 HKLM, SOFTWARE\Classes\WowAA32Node\MediaFoundation\Transforms\Categories\d6c02d4b-6833-45b4-971a-05a4b04bab91\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                    ,                       , 0x10
 
+HKLM, SOFTWARE\Policies\Microsoft\Edge, HardwareAccelerationModeEnabled, %REG_DWORD%, 0
+
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
 

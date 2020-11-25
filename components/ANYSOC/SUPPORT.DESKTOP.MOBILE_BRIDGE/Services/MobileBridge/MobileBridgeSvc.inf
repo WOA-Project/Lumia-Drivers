@@ -6,22 +6,24 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 08/01/2020,1.0.0.0
+DriverVer   = 11/22/2020,1.0.0.3
 CatalogFile = MobileBridgeSvc.cat
 
 [DestinationDirs]
 MobileBridgeSvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
-Media.Files = 10, Media
+OEMAssets.Files       = 11, OEM
+;Media.Files           = 10, Media
 
 [SourceDisksNames]
 0 = "Disk"
 
 [SourceDisksFiles]
 MobileBridgeSvc.exe = 0,,
-Alert_charging.wma  = 0,,
+;Alert_charging.wma  = 0,,
+MMO.bmp = 0,,
 
 [DefaultInstall.NTARM64]
-CopyFiles = MobileBridgeSvc.Files,Media.Files
+CopyFiles = MobileBridgeSvc.Files,OEMAssets.Files ;,Media.Files
 AddReg    = MobileBridgeSvc_Reg
 
 [DefaultInstall.NTARM64.Services]
@@ -36,7 +38,7 @@ ErrorControl  = 1
 ServiceBinary = "%%SystemRoot%%\System32\MobileBridgeSvc.exe"
 
 [MobileBridgeSvc_Reg]
-HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "DependOnService", 0x10000, "RILAdaptation"
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "DependOnService", 0x10000, "RILAdaptation" ;, "Audiosrv"
 HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "Start", 0x10001, 0x2
 HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "Type", 0x10001, 0x10
 HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "ErrorControl", 0x10001, 0x1
@@ -59,8 +61,11 @@ HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc\Security", "Security", 0x1,
 [MobileBridgeSvc.Files]
 MobileBridgeSvc.exe
 
-[Media.Files]
-Alert_charging.wma
+[OEMAssets.Files]
+MMO.bmp
+
+;[Media.Files]
+;Alert_charging.wma
 
 [Strings]
 IHV           = "Lumia WoA authors"

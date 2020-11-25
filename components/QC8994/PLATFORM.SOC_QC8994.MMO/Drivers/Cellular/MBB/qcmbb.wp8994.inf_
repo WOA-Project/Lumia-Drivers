@@ -32,33 +32,24 @@ ExcludeFromSelect = *       ; Do we need this? This prevents the driver from bei
 1 = %DiskId1%,,,""
 
 [SourceDisksFiles.ARM]
-qcmbb8994.wa.sys = 1,arm,
-qcmbb8994.wp.sys = 1,arm,
+qcmbb8994.sys = 1,arm,
 
 [SourceDisksFiles.ARM64]
-qcmbb8994.wa.sys = 1,arm64,
-qcmbb8994.wp.sys = 1,arm64,
+qcmbb8994.sys = 1,arm64,
 
 [DestinationDirs]
-wwan.wp.CopyFiles = 12
-wwan.wa.CopyFiles = 12
+wwan.CopyFiles = 12
 
 [Manufacturer]
-%QCOM% = QCOM, NTARM, NTARM64, NTARM.10.0...18909, NTARM64.10.0...18909
+%QCOM% = QCOM, NTARM, NTARM64
 
 [QCOM.NTARM]
-%wwan.DeviceDesc% = wwan.wp.ndi, QCMS\QCOM0EA0
-
-[QCOM.NTARM.10.0...18909]
-%wwan.DeviceDesc% = wwan.wa.ndi, QCMS\QCOM0EA0
+%wwan.DeviceDesc% = wwan.ndi, QCMS\QCOM0EA0
 
 [QCOM.NTARM64]
-%wwan.DeviceDesc% = wwan.wp.ndi, QCMS\QCOM0EA0
+%wwan.DeviceDesc% = wwan.ndi, QCMS\QCOM0EA0
 
-[QCOM.NTARM64.10.0...18909]
-%wwan.DeviceDesc% = wwan.wa.ndi, QCMS\QCOM0EA0
-
-[wwan.wp.ndi]
+[wwan.ndi]
 Include            = netvchannel.inf
 Needs              = NetVChannel
 Characteristics    = 0x4                      ; NCF_PHYSICAL
@@ -67,49 +58,21 @@ Characteristics    = 0x4                      ; NCF_PHYSICAL
 *PhysicalMediaType = 8                        ; NdisPhysicalMediumWirelessWan
 EnableDhcp         = 0
 AddReg             = wwan.Reg
-CopyFiles          = wwan.wp.CopyFiles
+CopyFiles          = wwan.CopyFiles
 
-[wwan.wa.ndi]
-Include            = netvchannel.inf
-Needs              = NetVChannel
-Characteristics    = 0x4                      ; NCF_PHYSICAL
-*IfType            = 244                      ; IF_TYPE_WWANPP2
-*MediaType         = 9                        ; NdisMediumWirelessWan
-*PhysicalMediaType = 8                        ; NdisPhysicalMediumWirelessWan
-EnableDhcp         = 0
-AddReg             = wwan.Reg
-CopyFiles          = wwan.wa.CopyFiles
-
-[wwan.wp.ndi.HW]
+[wwan.ndi.HW]
 Include = netvchannel.inf
 Needs   = NetVChannel.HW
 
-[wwan.wp.ndi.CoInstallers]
+[wwan.ndi.CoInstallers]
 Include = netvchannel.inf
 Needs   = NetVChannel.CoInstallers
 
-[wwan.wp.ndi.Interfaces]
+[wwan.ndi.Interfaces]
 Include = netvchannel.inf
 Needs   = NetVChannel.Interfaces
 
-[wwan.wp.ndi.Services]
-Include    = netvchannel.inf
-Needs      = NetVChannel.Services
-AddService = mbb, 2, wwan.Service, wwan.EventLog
-
-[wwan.wa.ndi.HW]
-Include = netvchannel.inf
-Needs   = NetVChannel.HW
-
-[wwan.wa.ndi.CoInstallers]
-Include = netvchannel.inf
-Needs   = NetVChannel.CoInstallers
-
-[wwan.wa.ndi.Interfaces]
-Include = netvchannel.inf
-Needs   = NetVChannel.Interfaces
-
-[wwan.wa.ndi.Services]
+[wwan.ndi.Services]
 Include    = netvchannel.inf
 Needs      = NetVChannel.Services
 AddService = mbb, 2, wwan.Service, wwan.EventLog
@@ -130,11 +93,8 @@ HKR, Ndi\Interfaces, LowerRange, 0,  "ppip, vchannel"
 ;-----------------------------------------------------------------------------
 ; Driver and Service Section
 ;-----------------------------------------------------------------------------
-[wwan.wp.CopyFiles]
-qcmbb8994.sys, qcmbb8994.wp.sys, , 2,
-
-[wwan.wa.CopyFiles]
-qcmbb8994.sys, qcmbb8994.wa.sys, , 2,
+[wwan.CopyFiles]
+qcmbb8994.sys
 
 [wwan.Service]
 DisplayName    = %wwan.Service.DispName%
@@ -172,10 +132,7 @@ HKR, Ndi\params\*WakeOnPattern,                 type,                     0, "en
 HKR, Ndi\params\*WakeOnPattern\enum,            "0",                      0, %Disabled%
 HKR, Ndi\params\*WakeOnPattern\enum,            "1",                      0, %Enabled%
 
-[wwan.wp.ndi.Wdf]
-KmdfService = mbb, wwan_wdfsect
-
-[wwan.wa.ndi.Wdf]
+[wwan.ndi.Wdf]
 KmdfService = mbb, wwan_wdfsect
 
 [wwan_wdfsect]

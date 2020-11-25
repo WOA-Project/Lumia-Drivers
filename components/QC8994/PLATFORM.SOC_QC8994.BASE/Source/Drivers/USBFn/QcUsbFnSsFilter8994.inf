@@ -51,7 +51,7 @@ QcUsbFnSsFilter8994.sys = 1,arm64,
 [QcUsbFnSSFilter.NT]
 ;Include MS driver
 Include   = ufxsynopsys.inf
-Needs     = ufxsynopsys.Install.NT
+Needs     = ufxsynopsys.Install_Qualcomm.NT
 CopyFiles = QcUsbFnSSFilter.CopyFile
 
 FeatureScore=80 ; Override feature score for PnP to pick QC filter driver
@@ -59,14 +59,20 @@ FeatureScore=80 ; Override feature score for PnP to pick QC filter driver
 [QcUsbFnSSFilter.NT.Services]
 ;Include MS driver
 Include    = ufxsynopsys.inf
-Needs      = ufxsynopsys.Install.NT.Services
+Needs      = ufxsynopsys.Install_Qualcomm.NT.Services
 AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
+
+[QcUsbFnSSFilter.NT.HW]
+;Include MS driver
+Include    = ufxsynopsys.inf
+Needs      = ufxsynopsys.Install_Qualcomm.NT.HW
+AddReg     = QcUsbFnSSFilter_AddReg
 
 [QcUsbFnSSFilter.CopyFile]
 QcUsbFnSsFilter8994.sys
 
 [QcUsbFnSSFilter_AddReg]
-HKR, , "LowerFilters", 0x00010000, QcUsbFnSSFilter
+HKR,, "LowerFilters", 0x00010000, QcUsbFnSSFilter
 
 ; -------------- QcUsbFnSSFilter driver install sections
 [QcUsbFnSSFilter_Service_Inst]
@@ -76,7 +82,6 @@ StartType     = 0               ; SERVICE_BOOT_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
 ServiceBinary = %12%\QcUsbFnSsFilter8994.sys
-AddReg        = QcUsbFnSSFilter_AddReg
 
 [Strings]
 Company             = "Qualcomm Technologies, Inc."
