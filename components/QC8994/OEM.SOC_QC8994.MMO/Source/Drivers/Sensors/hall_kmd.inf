@@ -36,7 +36,7 @@ hall_kmd.sys  = 1,arm64,
 
 [hall_kmd_Device.NT]
 CopyFiles = hall_kmd_Device.NT.CopyFiles
-AddReg    = hall_kmd_Device.NT.AddReg
+;AddReg    = hall_kmd_Device.NT.AddReg
 
 [hall_kmd_Device.NT.CopyFiles]
 hall_kmd.sys,,,0x100
