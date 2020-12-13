@@ -1,0 +1,48 @@
+;/*++
+;
+;Copyright © 2013-2015 Microsoft Mobile. All Rights Reserved.
+;
+;Module Name:
+;    AlsPrxAlphamon.inf 
+;
+;Abstract:
+;    INF file for installing QPDS-T900/QPDS-T930 Proximity and Ambient Light Sensor Driver
+;
+;--*/
+[Version]
+Signature   = "$Windows NT$"
+Class       = Extension
+ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %ManufacturerName%
+ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD22E4B}
+DriverVer   = 06/08/2016,1.0.1078.0053
+
+CatalogFile.NTARM   = talkman_alsprxalphamon.arm.cat
+CatalogFile.NTARM64 = talkman_alsprxalphamon.arm64.cat
+
+[Manufacturer]
+ManufacturerName% = DeviceExtensions, NTARM, NTARM64
+
+[DeviceExtensions.NTARM]
+%DevDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1016
+
+[DeviceExtensions.NTARM64]
+%DevDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1016
+
+[DeviceExtension_Install]
+AddReg = Alphamon_Inst.NT.HW.AddReg
+
+[Alphamon_Inst.NT.HW.AddReg]
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffB", %REG_DWORD%, 0x4b29
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffC", %REG_DWORD%, 0x602
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffD", %REG_DWORD%, 0x94b
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffGA", %REG_DWORD%, 0x192e6
+
+[Strings]
+;Localizable Strings
+ManufacturerName = "MMO"
+DevDesc          = "QPDS-T900/QPDS-T930 Proximity and Ambient Light Sensor Driver"
+
+;Non-Localizable Strings
+REG_DWORD        = 0x00010001
+
