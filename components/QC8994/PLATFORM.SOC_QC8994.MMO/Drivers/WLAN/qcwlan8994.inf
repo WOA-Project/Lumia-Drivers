@@ -300,7 +300,7 @@ HKR, NDI\params\D0PCEnable\enum,1,,             %Enable%
 
 [wowenable.reg]
 HKR,,                                 wowEnable,                  0x00010001,  "1"
-HKR,,                                 D3ColdSupported,            0x00010001,  "1"
+HKR,,                                 D3ColdSupported,            0x00010001,  "0" ;"1" Currently broken with reboots after a lock
 HKR,,                                 gAOACSupported,             0x00010001,  "1"
 
 [TxBf.reg]
