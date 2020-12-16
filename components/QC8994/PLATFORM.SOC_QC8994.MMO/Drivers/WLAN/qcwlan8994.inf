@@ -66,7 +66,8 @@ Needs              = VWiFiBus.CopyFiles
 *PhysicalMediaType = 9         ; NdisPhysicalMediumNative802_11
 Characteristics    = 0x84
 BusType            = 5
-AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, WpBugCheckOnTargetFailure.Reg, pldr.reg
+AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
+DelReg             = QcWlan.DelReg
 CopyFiles          = QcWlan.CopyFiles
 AddProperty        = WDTFSOCDeviceCategory
 
@@ -78,7 +79,8 @@ Needs              = VWiFiBus.CopyFiles
 *PhysicalMediaType = 9         ; NdisPhysicalMediumNative802_11
 Characteristics    = 0x84
 BusType            = 5
-AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, WpBugCheckOnTargetFailure.Reg, pldr.reg
+AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
+DelReg             = QcWlan.DelReg
 CopyFiles          = QcWlan.CopyFiles
 AddProperty        = WDTFSOCDeviceCategory
 
@@ -91,6 +93,92 @@ HKR, Ndi\Interfaces,                LowerRange, 0, "wlan,ethernet,vwifi"
 HKR, Ndi\Interfaces,                DefUpper,   0, "ndis5"
 HKR, Ndi\Interfaces,                DefLower,   0, "ethernet"
 HKR, Ndi,                           Service,    0, %QcWlan.Service.Name%
+
+HKR,,ignore11dBeacon,0x00010001,1
+HKR,,CountryName,,"2G"
+HKR,,linkQualityChangeThresh,0x00010001,2
+HKR,,gEnableModulatedDTIM,0x00010001,3
+HKR,,gMaxLIModulatedDTIM,0x00010001,5
+HKR,,WfdGoEnable11b,0x00010001,0
+HKR,,Enable11acWfd,0x00010001,1
+HKR,,WfdEnable2GHT40,0x00010001,1
+HKR,,hsEnable,0x00010001,1
+HKR,,roamPrefer5GHz,0x00010001,1
+HKR,,Roam_FullPassiveScan,0x00010001,1
+HKR,,ScanOptimizationChannelCount,0x00010001,0
+
+HKLM, SOFTWARE\Microsoft\WlanSvc, NoResetRecoveryForLimitDetection, 0x10001, "1"
+
+HKLM, SYSTEM\CurrentControlSet\services\WlanSvc\parameters\OEM\SystemCapabilities, WLANPlatformLevelDeviceResetSupported, 0x10001, "1"
+HKLM, SYSTEM\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, CoexistenceSupport, 0x10001, "1"
+HKLM, SYSTEM\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, SimultaneousMultiChannelSupported, 0x10001, "1"
+HKLM, SYSTEM\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, WLANFunctionLevelDeviceResetSupported, 0x10001, "1"
+HKLM, SYSTEM\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, NumAntennaConnected, 0x10001, "2"
+
+[QcWlan.DelReg]
+HKR,Ndi\Params\tpc
+HKR,,tpc
+HKR,,AdHocBand
+HKR,,AwakeTimePerf
+HKR,,beaconInterval
+HKR,,bkScanEnable
+HKR,,ccode
+HKR,,FragThreshold
+HKR,,HwTxRetries
+HKR,,rateCtrlEnable
+HKR,,RTSThreshold
+HKR,,halPcieClockReq
+HKR,Ndi\params,radioEnable,0x2000
+HKR,Ndi\params,sleepMode,0x2000
+HKR,,gpioFunc0ActHi
+HKR,,gpioFunc1ActHi
+HKR,,gpioLedCustom
+HKR,,gpioPinFunc0
+HKR,,gpioPinFunc1
+HKR, Ndi\params\NetworkAddress
+HKR,,NetworkAddress
+HKR, Ndi\params\*ReceiveBuffers
+HKR,,*ReceiveBuffers
+HKR, Ndi\params\*TransmitBuffers
+HKR,,*TransmitBuffers
+HKR, Ndi\params\EnableACS
+HKR,,EnableACS
+HKR, Ndi\params\PreferredSapBand
+HKR,,PreferredSapBand
+HKR, Ndi\params\roamPolicy
+HKR,,roamPolicy
+HKR,,rxChainMask
+HKR,,txChainMaskLegacy
+HKR,,rxChainMaskLegacy
+HKR,,rxChainDetect
+HKR,,rxChainDetectRef
+HKR,,rxChainDetectThreshA
+HKR,,rxChainDetectThreshG
+HKR,,rxChainDetectDeltaA
+HKR,,rxChainDetectDeltaG
+HKR, Ndi\params\smpsDynamic
+HKR, Ndi\params\D0PCEnable
+HKR, Ndi\params\shortPreamble
+HKR, Ndi\params\scanTimeValid
+HKR,,wmeEnabled
+HKR,,halPcieWaen
+HKR,,halPcieDetach
+HKR,,ampEnable
+HKR,,btCoexAntDivEnable
+HKR,,wowEnable
+HKR,,ProtocolPS
+HKR,,TxBfeeEnable
+HKR,,translateNullSsid
+HKR,,defaultIbssChannel
+HKR,,paprdEnable
+HKR,,lnaDivUseBtAntEnable
+HKR,,antCtrlComm2gSwitchEnable
+HKR,,extLnaCtlGpio
+HKR,,rateCtrlTxFastDrop
+HKR,,antDivLowRssiCfg
+HKR,,btCoexDivDefVal
+HKR,,antDivFastDivBias
+HKR,,extAttenMarginCfg
 
 ;-----------------------------------------------------------------------------
 ;Source
@@ -139,7 +227,7 @@ DisplayName     = %QcWlan.Service.DispName%
 ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
 StartType       = 3 ;%SERVICE_DEMAND_START%
 ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
-ServiceBinary   = %13%\qcwlan8994.sys
+ServiceBinary   = %12%\qcwlan8994.sys
 LoadOrderGroup  = NDIS
 
 [QcWlan11n.reg]
@@ -268,8 +356,8 @@ HKR,,BoardDataFileName, 0x00000000, "bdwlan30.bin"
 ;HKR, NDI\IHVExtensions, AdapterOUI,         0x10001,   00123456
 ;HKR, NDI\IHVExtensions, ExtensibilityDLL,   0x00000,   "c:\\windows\\system32\\wlan_ihv.dll"
 
-[pldr.reg]
-HKLM, SYSTEM\CurrentControlSet\services\WlanSvc\parameters\OEM\SystemCapabilities, WLANPlatformLevelDeviceResetSupported, 0x10001, "1"
+[BugCheckOnTargetLost.Reg]
+HKR,,BugCheckOnTargetLost,0x00010001,0
 
 [WpBugCheckOnTargetFailure.Reg]
 HKR,,WpBugCheckOnTargetFailure,0x00010001,0

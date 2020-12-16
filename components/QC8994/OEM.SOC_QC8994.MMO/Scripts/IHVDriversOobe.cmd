@@ -8,7 +8,6 @@ reg add HKLM\SYSTEM\HallSensor /v Polarity /t REG_DWORD /d 0
 reg add HKLM\SYSTEM\HallSensor /v Disabled /t REG_DWORD /d 0
 
 REM Drivers
-\Windows\OEM\devcon.exe update \Windows\OEM\Drivers\NXPPN547.inf ACPI\PN547
 call :installRootDevice proxy_driver.inf Root\GripProxy ROOT\GripProxy\0000
 
 goto :eof

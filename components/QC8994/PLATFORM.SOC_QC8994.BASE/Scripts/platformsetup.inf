@@ -23,13 +23,6 @@ FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 
 [SourceDisksFiles]
 PlatformOobe.cmd        = 0,,
-PlatformSpecialize.cmd = 0,,
-
-[SourceDisksFiles.ARM]
-RebootWarning.exe      = 0,arm,
-
-[SourceDisksFiles.ARM64]
-RebootWarning.exe      = 0,arm64,
 
 ;*****************************************
 ; platformsetup  Install Section
@@ -46,8 +39,6 @@ PlatformOobe.cmd
 
 ; Windows/OEM
 [SpecializeCmd.Files]
-PlatformSpecialize.cmd
-RebootWarning.exe
 
 [FirstLogonCmd.Files]
 
