@@ -103,8 +103,8 @@ Tag            = 10
 [Strings]
 QC                     = "Qualcomm Technologies Inc"
 Configuration          = "Config"
-hwnhaptics.DeviceDesc  = "Qualcomm Haptics Device"
-hwnhaptics.SVCDESC     = "Qualcomm Haptics Driver"
+hwnhaptics.DeviceDesc  = "Qualcomm(R) System Manager Device"
+hwnhaptics.SVCDESC     = "Qualcomm(R) System Manager Device"
 DiskId1                = "Qualcomm haptics Driver Installation Disk"
 
 ; ------------- non-localizable strings

@@ -90,8 +90,8 @@ KmdfLibraryVersion = 1.15
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
 QC                     = "Qualcomm Technologies Inc."
-ABD.DeviceDesc         = "Qualcomm ACPI Bridge Device"
-ABD.SVCDESC            = "Qualcomm ACPI Bridge Driver"
+ABD.DeviceDesc         = "Qualcomm(R) ACPI Bridge Device"
+ABD.SVCDESC            = "Qualcomm(R) ACPI Bridge Device"
 REG_DWORD              = 0x00010001
 DiskId                 = "Qualcomm ACPI Bridge Driver Installation Disk"
 

@@ -476,6 +476,9 @@ HKLM, SOFTWARE\Classes\WowAA32Node\MediaFoundation\Transforms\Categories\d6c02d4
 
 HKLM, SOFTWARE\Policies\Microsoft\Edge, HardwareAccelerationModeEnabled, %REG_DWORD%, 0
 
+; Circumscribe Miracast Session on 8994 to macroblocks for 1080@60 when max is 4k@30
+HKLM, SOFTWARE\Microsoft\Windows Media Foundation\Network, MiracastPreserveVideoEncoderMBRate, %REG_DWORD%, "0x85980"
+
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
 

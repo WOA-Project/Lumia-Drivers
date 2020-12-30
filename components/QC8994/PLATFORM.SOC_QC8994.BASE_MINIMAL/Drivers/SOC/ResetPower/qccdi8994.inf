@@ -95,8 +95,8 @@ KmdfLibraryVersion = 1.11
 SPSVCINST_ASSOCSERVICE = 0x00000002
 ManufacturerName       = "Qualcomm Incorporated"
 DiskName               = "Qualcomm Crash Dump Injector Installation Disk"
-QCCDI.DeviceDesc       = "Qualcomm Crash Dump Injector Device"
-QCCDI.SVCDESC          = "Qualcomm Crash Dump Injector Service"
+QCCDI.DeviceDesc       = "Qualcomm(R) System Manager Device"
+QCCDI.SVCDESC          = "Qualcomm(R) System Manager Device"
 QUALCOMM               = "Qualcomm Incorporated"
 REG_SZ                 = 0x00000000
 

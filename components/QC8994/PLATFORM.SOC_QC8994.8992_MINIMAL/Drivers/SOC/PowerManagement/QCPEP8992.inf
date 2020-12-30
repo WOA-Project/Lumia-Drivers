@@ -62,39 +62,39 @@ ExcludeFromSelect = *
 ; DisplayName                   Section           DeviceId
 ; -----------                   -------           --------
 [QC.NTarm64]
-%PepDevice.DeviceDesc% = Pep_Device_ARM64, ACPI\QCOM2425
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2470
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2471
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2472
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2473
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2474
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2475
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2477
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM2479
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM247A
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24A8
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24A9
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AA
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AB
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AD
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AE
-%TSENS.DeviceDesc%     = Pep_Device_ARM64, ACPI\QCOM24AF
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM248C
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM248D
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM248E
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM248F
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2490
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2491
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2492
-%ADC.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2493
-%BCL.DeviceDesc%       = Pep_Device_ARM64, ACPI\QCOM2486
+%PepDevice.DeviceDesc% = Pep_64_Device, ACPI\QCOM2425
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM2470
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM2471
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM2472
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM2473
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM2474
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM2475
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM2477
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM2479
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM247A
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM24A8
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM24A9
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM24AA
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM24AB
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM24AD
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM24AE
+%TSENS.DeviceDesc%     = Pep_64_Device, ACPI\QCOM24AF
+%ADC.DeviceDesc%       = Pep_64_Device, ACPI\QCOM248C
+%ADC.DeviceDesc%       = Pep_64_Device, ACPI\QCOM248D
+%ADC.DeviceDesc%       = Pep_64_Device, ACPI\QCOM248E
+%ADC.DeviceDesc%       = Pep_64_Device, ACPI\QCOM248F
+%ADC.DeviceDesc%       = Pep_64_Device, ACPI\QCOM2490
+%ADC.DeviceDesc%       = Pep_64_Device, ACPI\QCOM2491
+%ADC.DeviceDesc%       = Pep_64_Device, ACPI\QCOM2492
+%ADC.DeviceDesc%       = Pep_64_Device, ACPI\QCOM2493
+%BCL.DeviceDesc%       = Pep_64_Device, ACPI\QCOM2486
 
 [Pep_Device.NT]
 CopyFiles   = Pep_Device.NT.Copy
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Pep_Device_ARM64.NT]
+[Pep_64_Device.NT]
 CopyFiles   = Pep_Device.NT.Copy
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -102,7 +102,7 @@ Reboot
 [Pep_Device.NT.HW]
 Addreg = PEPACL
 
-[Pep_Device_ARM64.NT.HW]
+[Pep_64_Device.NT.HW]
 Addreg = PEPACL
 
 [PEPACL]
@@ -168,26 +168,26 @@ HKR , Parameters\SDC2\P2, MinUtilizationThreshold     , 0x00010001,  0x00000000
 HKR , Parameters\SDC2\P2, Frequency                   , 0x00010001,  0x0000c350
 HKR , Parameters\SDC2\P2, Performance                 , 0x00010001,  0x00000002
 
-[PEP_SoftwareDeviceSettings_MicroPEP]
+[PEP_64_SoftwareDeviceSettings]
 HKR , Parameters        , BCLMode                     , 0x00010001,  0x00000001
 HKR , Parameters        , CprFlags                    , 0x00010001,  0x00000000
-HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000000
+HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000001 ; Modified
 HKR , Parameters        , DisableCCI                  , 0x00010001,  0x00000000
 HKR , Parameters        , DisableCoreRotation         , 0x00010001,  0x00000000
 HKR , Parameters        , DisableCpuRet               , 0x00010001,  0x000000FF
 HKR , Parameters        , DisableCpuVdd               , 0x00010001,  0x00000000
-HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000000
+HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000001 ; Modified
 HKR , Parameters        , DisableL2Collapse           , 0x00010001,  0x00000000
 HKR , Parameters        , DisableL2GDHS               , 0x00010001,  0x00000003
-HKR , Parameters        , DisableL2Ret                , 0x00010001,  0x00000000
+HKR , Parameters        , DisableL2Ret                , 0x00010001,  0x00000003 ; Modified
 HKR , Parameters        , DisableOfflineNotification  , 0x00010001,  0x00000001
 HKR , Parameters        , DisablePCE                  , 0x00010001,  0x00000000
 HKR , Parameters        , DisablePhaseScaling         , 0x00010001,  0x00000001
-HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000000
+HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000001 ; Modified
 HKR , Parameters        , EapsFlags                   , 0x00010001,  0x00000200
 HKR , Parameters        , EnableIdleCrashDebug        , 0x00010001,  0x00000001
 HKR , Parameters        , EnableMicroPep              , 0x00010001,  0x00000001
-HKR , Parameters        , EnableMsftSdPStates         , 0x00010001,  0x00000000
+HKR , Parameters        , EnableMsftSdPStates         , 0x00010001,  0x00000001 ; Modified
 HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000000 ; Disabled due to issues on 8992, will cause a crash
 HKR , Parameters        , ErrataFlags                 , 0x00010001,  0x80000001
 HKR , Parameters        , WPPEnabled                  , 0x00010001,  0x00000000
@@ -228,6 +228,9 @@ HKR , Parameters\SDC2\P2, MinUtilizationThreshold     , 0x00010001,  0x00000000
 HKR , Parameters\SDC2\P2, Frequency                   , 0x00010001,  0x0000c350
 HKR , Parameters\SDC2\P2, Performance                 , 0x00010001,  0x00000002
 
+HKLM, SYSTEM\CurrentControlSet\Control\Power,                 PoFxSystemIrpWaitForReportDevicePowered, 0x00010001, 1
+HKLM, SYSTEM\CurrentControlSet\Control\Session Manager\Power, HiberbootEnabled                       , 0x00010001, 0
+
 [Pep_Device.NT.Copy]
 qcpep8992.sys
 
@@ -240,8 +243,8 @@ qcpep8992.sys
 [Pep_Device.NT.Services]
 AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_Service_Inst
 
-[Pep_Device_ARM64.NT.Services]
-AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_Service_Inst_micropep
+[Pep_64_Device.NT.Services]
+AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_64_Service_Inst
 
 [pep_Service_Inst]
 DisplayName    = %pep.SVCDESC%
@@ -253,7 +256,7 @@ LoadOrderGroup = Base
 Tag            = 17
 AddReg         = PEP_SoftwareDeviceSettings
 
-[pep_Service_Inst_micropep]
+[pep_64_Service_Inst]
 DisplayName    = %pep.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
@@ -261,7 +264,7 @@ ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\qcpep8992.sys
 LoadOrderGroup = Base
 Tag            = 17
-AddReg         = PEP_SoftwareDeviceSettings_MicroPEP
+AddReg         = PEP_64_SoftwareDeviceSettings
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -278,9 +281,9 @@ QC                     = "Qualcomm Inc."
 DiskId1                = "Qualcomm Power Management Controller Disk"
 PepDevice.DeviceDesc   = "Qualcomm(R) System Manager Device"
 pep.SVCDESC            = "Qualcomm(R) System Manager Device"
-TSENS.DeviceDesc       = "Qualcomm Temperature Sensor Device"
-ADC.DeviceDesc         = "Qualcomm ADC Temperature Monitor Device"
-BCL.DeviceDesc         = "Qualcomm Battery Current Limit Monitor Device"
+TSENS.DeviceDesc       = "Qualcomm(R) System Manager Device"
+ADC.DeviceDesc         = "Qualcomm(R) Hexagon(TM) V56 DSP"
+BCL.DeviceDesc         = "Qualcomm(R) Power Management"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
