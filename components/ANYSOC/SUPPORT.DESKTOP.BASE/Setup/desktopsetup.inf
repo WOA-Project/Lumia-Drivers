@@ -25,7 +25,7 @@ PreOobe.Files = 10,Setup\Scripts
 FirstLogon.cmd         = 0,,
 Oobe.cmd               = 0,,
 SpecializeCommands.cmd = 0,,
-Wallpaper.jpg          = 0,,
+Wallpaper.png          = 0,,
 
 [SourceDisksFiles.ARM]
 devcon.exe                 = 0,arm,
@@ -66,7 +66,7 @@ SilentProvisionerL.exe
 ApplicationProvisioner.exe
 devcon.exe
 FirstLogon.cmd
-Wallpaper.jpg
+Wallpaper.png
 
 [Strings]
 IHV     = "LumiaWoA authors"

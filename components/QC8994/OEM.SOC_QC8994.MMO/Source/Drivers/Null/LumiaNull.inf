@@ -7,7 +7,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %ManufacturerName%
-DriverVer   = 10/06/2018,18.13.19.793
+DriverVer   = 01/01/2021,18.13.19.793
 
 CatalogFile.NTARM   = LumiaNull.arm.cat
 CatalogFile.NTARM64 = LumiaNull.arm64.cat
@@ -94,9 +94,9 @@ KmdfLibraryVersion = 1.15
 [Strings]
 SPSVCINST_ASSOCSERVICE   = 0x00000002
 ManufacturerName         = "LumiaWoA authors"
-DiskName                 = "LumiaNull Installation Disk"
-LumiaNull.DeviceDesc     = "LumiaNull Device"
-LumiaNull.SVCDESC        = "LumiaNull Service"
+DiskName                 = "LumiaWoA Null Driver Installation Disk"
+LumiaNull.DeviceDesc     = "LumiaWoA Null Device"
+LumiaNull.SVCDESC        = "LumiaWoA Null Service"
 
 ;
 ; Touch test interfaces
@@ -118,8 +118,8 @@ WPCrasherNull.DeviceDesc = "Nokia Windows Phone Crasher Device (Null)"
 ;
 ; Unavailable Microsoft Mobile Oy (MMO) drivers
 ;
-1008Null.DeviceDesc      = "Microsoft Eno gpio Driver (Null)"
-100CNull.DeviceDesc      = "Stub Driver (100C) (Null)"
-100DNull.DeviceDesc      = "Stub Driver (100D) (Null)"
-1014Null.DeviceDesc      = "Stub Driver (1014) (Null)"
-1019Null.DeviceDesc      = "MMO VisaST Device (Null)"
+1008Null.DeviceDesc      = "Microsoft Mobile Diagnostic GPIOs and Fairchild Digitally Programmable TinyBuck(R) Regulator (FAN53526) (Null)"
+100CNull.DeviceDesc      = "Microsoft Mobile TCCT (100C) (Null)"
+100DNull.DeviceDesc      = "Microsoft Mobile SMDH (100D) (Null)"
+1014Null.DeviceDesc      = "Microsoft Mobile MCPU (1014) (Null)"
+1019Null.DeviceDesc      = "TI Class-D Mono Audio Amplifier with Class-G Boost and Speaker Sense (TAS2552) (Null)"

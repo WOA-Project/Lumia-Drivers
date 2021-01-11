@@ -115,6 +115,10 @@ HKLM, SYSTEM\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilitie
 HKLM, SYSTEM\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, WLANFunctionLevelDeviceResetSupported, 0x10001, "1"
 HKLM, SYSTEM\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, NumAntennaConnected, 0x10001, "2"
 
+HKLM, "SOFTWARE\Microsoft\WcmSvc\WiFiNetworkManager\Config", "SignalStrengthDelta", 0x00010001, 0x00000014
+HKLM, "SOFTWARE\Microsoft\WcmSvc\WiFiNetworkManager\Config", "EnableWEPDiscovery", 0x00010001, 0x00000000
+HKLM, "SOFTWARE\Microsoft\WcmSvc\WiFiNetworkManager\Config", "DefaultSharingState", 0x00010001, 0x00000001
+
 [QcWlan.DelReg]
 HKR,Ndi\Params\tpc
 HKR,,tpc

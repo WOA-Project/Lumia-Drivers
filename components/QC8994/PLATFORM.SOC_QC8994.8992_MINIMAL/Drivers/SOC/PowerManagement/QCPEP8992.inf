@@ -168,26 +168,50 @@ HKR , Parameters\SDC2\P2, MinUtilizationThreshold     , 0x00010001,  0x00000000
 HKR , Parameters\SDC2\P2, Frequency                   , 0x00010001,  0x0000c350
 HKR , Parameters\SDC2\P2, Performance                 , 0x00010001,  0x00000002
 
+HKLM, SYSTEM\CurrentControlSet\Control\Power,                 PoFxSystemIrpWaitForReportDevicePowered, 0x00010001, 1
+HKLM, SYSTEM\CurrentControlSet\Control\Session Manager\Power, HiberbootEnabled                       , 0x00010001, 0
+
+HKLM, "SYSTEM\CurrentControlSet\Control\ACPIEX", "ComplianceFlags", 0x00010001, 0x00000007
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power", "DripsWatchdogAction", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "Description", 0x00020000, "Specify the simulated temperature of the system."
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueUnits", 0x00020000, "Tenths of degrees Kelvin"
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "FriendlyName", 0x00020000, "Simulated Machine Temperature"
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueIncrement", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueMin", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueMax", 0x00010001, 0x00002710
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "ACSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DCSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c", "ACSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c", "DCSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\a1841308-3541-4fab-bc81-f71556f20b4a", "ACSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\a1841308-3541-4fab-bc81-f71556f20b4a", "DCSettingIndex", 0x00010001, 0x00000001
+
+
 [PEP_64_SoftwareDeviceSettings]
 HKR , Parameters        , BCLMode                     , 0x00010001,  0x00000001
 HKR , Parameters        , CprFlags                    , 0x00010001,  0x00000000
-HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000001 ; Modified
+HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000000
 HKR , Parameters        , DisableCCI                  , 0x00010001,  0x00000000
 HKR , Parameters        , DisableCoreRotation         , 0x00010001,  0x00000000
 HKR , Parameters        , DisableCpuRet               , 0x00010001,  0x000000FF
 HKR , Parameters        , DisableCpuVdd               , 0x00010001,  0x00000000
-HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000001 ; Modified
+HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000000
 HKR , Parameters        , DisableL2Collapse           , 0x00010001,  0x00000000
 HKR , Parameters        , DisableL2GDHS               , 0x00010001,  0x00000003
-HKR , Parameters        , DisableL2Ret                , 0x00010001,  0x00000003 ; Modified
+HKR , Parameters        , DisableL2Ret                , 0x00010001,  0x00000000
 HKR , Parameters        , DisableOfflineNotification  , 0x00010001,  0x00000001
 HKR , Parameters        , DisablePCE                  , 0x00010001,  0x00000000
 HKR , Parameters        , DisablePhaseScaling         , 0x00010001,  0x00000001
-HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000001 ; Modified
+HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000000
 HKR , Parameters        , EapsFlags                   , 0x00010001,  0x00000200
 HKR , Parameters        , EnableIdleCrashDebug        , 0x00010001,  0x00000001
 HKR , Parameters        , EnableMicroPep              , 0x00010001,  0x00000001
-HKR , Parameters        , EnableMsftSdPStates         , 0x00010001,  0x00000001 ; Modified
+HKR , Parameters        , EnableMsftSdPStates         , 0x00010001,  0x00000000
 HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000000 ; Disabled due to issues on 8992, will cause a crash
 HKR , Parameters        , ErrataFlags                 , 0x00010001,  0x80000001
 HKR , Parameters        , WPPEnabled                  , 0x00010001,  0x00000000
@@ -230,6 +254,26 @@ HKR , Parameters\SDC2\P2, Performance                 , 0x00010001,  0x00000002
 
 HKLM, SYSTEM\CurrentControlSet\Control\Power,                 PoFxSystemIrpWaitForReportDevicePowered, 0x00010001, 1
 HKLM, SYSTEM\CurrentControlSet\Control\Session Manager\Power, HiberbootEnabled                       , 0x00010001, 0
+
+HKLM, "SYSTEM\CurrentControlSet\Control\ACPIEX", "ComplianceFlags", 0x00010001, 0x00000007
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power", "DripsWatchdogAction", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "Description", 0x00020000, "Specify the simulated temperature of the system."
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueUnits", 0x00020000, "Tenths of degrees Kelvin"
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "FriendlyName", 0x00020000, "Simulated Machine Temperature"
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueIncrement", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueMin", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueMax", 0x00010001, 0x00002710
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "ACSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DCSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c", "ACSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c", "DCSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\a1841308-3541-4fab-bc81-f71556f20b4a", "ACSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\a1841308-3541-4fab-bc81-f71556f20b4a", "DCSettingIndex", 0x00010001, 0x00000001
 
 [Pep_Device.NT.Copy]
 qcpep8992.sys

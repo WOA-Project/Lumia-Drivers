@@ -3,10 +3,10 @@
 ;
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = System
-ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
-Provider    = %COMP%
-DriverVer   = 05/01/2019,6.25.57.445
+Class       = Sensor
+ClassGUID   = {5175D334-C371-4806-B3BA-71FD53C9258D}
+Provider    = %VendorName%
+DriverVer   = 01/01/2021,6.25.57.445
 CatalogFile = proxy_driver.cat
 
 [DestinationDirs]
@@ -49,10 +49,11 @@ LoadOrderGroup = Base
 
 ; ------------- Strings section
 [Strings]
-COMP                    = "Microsoft"
-Installation_Disk       = "GRIP Proxy Driver Installation Disk"
-GripProxy.DeviceDesc    = "GRIP Proxy Driver"
-GripProxy.SvcDesc       = "GRIP Proxy Driver Service"
+VendorName              = "MMO"
+COMP                    = "Microsoft Mobile Oy"
+Installation_Disk       = "Microsoft Mobile Grip Detection Proxy Installation Disk"
+GripProxy.DeviceDesc    = "Microsoft Mobile Grip Detection Proxy"
+GripProxy.SvcDesc       = "Microsoft Mobile Grip Detection Proxy Driver"
 
 ; ------------- non-localizable strings
 SPSVCINST_ASSOCSERVICE  = 0x00000002

@@ -3,10 +3,10 @@
 ;
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = System
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = MMO
-DriverVer   = 01/14/2015,12.20.34.54
+Class       = Media
+ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider    = %ProviderName%
+DriverVer   = 01/01/2021,12.20.34.54
 CatalogFile = attsdriver.cat
 
 [SourceDisksNames]
@@ -18,9 +18,6 @@ attsdriver.sys = 3426
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
 DefaultDestDir = 12
-
-[ControlFlags]
-ExcludeFromSelect = *
 
 ;*****************************************
 ; ATTS  Install Section
@@ -58,9 +55,10 @@ HKR, , Security             ,        , "D:P(A;;GA;;;SY)(A;;GA;;;BA)"
 
 [Strings]
 ;Localizable Strings
-StdMfg                = "(Standard system devices)"
-SvcDesc               = "attsdriver"
-DeviceDesc            = "attsdriver"
+ProviderName          = "MMO"
+StdMfg                = "Microsoft Mobile Oy"
+SvcDesc               = "Microsoft Mobile Audio TTS Driver"
+DeviceDesc            = "Microsoft Mobile Audio TTS"
 
 ;Non-Localizable Strings
 SERVICE_KERNEL_DRIVER = 1

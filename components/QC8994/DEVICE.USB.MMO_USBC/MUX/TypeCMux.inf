@@ -1,0 +1,74 @@
+;
+; TypeCMux.inf
+;
+[Version]
+Signature = "$WINDOWS NT$"
+Class     = USB
+ClassGUID = {36FC9E60-C465-11CF-8056-444553540000}
+Provider  = %ProviderName%
+DriverVer = 01/01/2021,18.8.55.956
+
+CatalogFile.NTARM   = TypeCMux.arm.cat
+CatalogFile.NTARM64 = TypeCMux.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles.ARM]
+TypeCMux.sys  = 1,arm,
+
+[SourceDisksFiles.ARM64]
+TypeCMux.sys  = 1,arm64,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard, NTARM, NTARM64
+
+[Standard.NTARM]
+%TypeCMux.DeviceDesc%=TypeCMux_Device, ACPI\MSHW1009
+
+[Standard.NTARM64]
+%TypeCMux.DeviceDesc%=TypeCMux_Device, ACPI\MSHW1009
+
+[TypeCMux_Device.NT]
+CopyFiles = TypeCMux_CopyFiles
+AddReg    = TypeCMuxDriver_SecurityAddReg
+
+[TypeCMux_CopyFiles]
+TypeCMux.sys
+
+[TypeCMuxDriver_SecurityAddReg]
+HKR,,DeviceCharacteristics,0x10001,0x100
+
+;-------------- Service installation
+[TypeCMux_Device.NT.Services]
+AddService = TypeCMux, %SPSVCINST_ASSOCSERVICE%, TypeCMux_Service_Inst
+
+; -------------- TypeCMux driver install sections
+[TypeCMux_Service_Inst]
+DisplayName    = %TypeCMux.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\TypeCMux.sys
+LoadOrderGroup = Base
+
+[TypeCMux_Device.NT.Wdf]
+KmdfService =  TypeCMux, TypeCMux_wdfsect
+
+[TypeCMux_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ProviderName           = "MMO and LumiaWoA authors"
+ManufacturerName       = "Texas Instruments"
+DiskName               = "TI USB-C Alternate Mode Multiplexer (HD3SS460) Installation Disk"
+TypeCMux.DeviceDesc    = "TI USB-C Alternate Mode Multiplexer (HD3SS460)"
+TypeCMux.SVCDESC       = "TI USB-C Alternate Mode Multiplexer (HD3SS460) Driver"

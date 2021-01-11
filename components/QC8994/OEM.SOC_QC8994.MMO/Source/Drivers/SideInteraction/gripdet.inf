@@ -5,8 +5,8 @@
 Signature   = "$WINDOWS NT$"
 Class       = Sensor
 ClassGUID   = {5175D334-C371-4806-B3BA-71FD53C9258D}
-Provider    = %ManufacturerName%
-DriverVer   = 05/01/2019,6.25.57.445
+Provider    = %VendorName%
+DriverVer   = 01/01/2021,6.25.57.445
 CatalogFile = gripdet.cat
 
 [DestinationDirs]
@@ -180,10 +180,11 @@ LoadOrderGroup = Base
 
 ; ------------- Strings section
 [Strings]
-ManufacturerName        = "MSFT"
-Installation_Disk       = "Grip Detection Driver Installation Disk"
-TchDriver_Device_Desc   = "Grip Detection Driver"
-TchDriver_Service_Desc  = "Grip Detection Driver Service"
+VendorName              = "MMO"
+ManufacturerName        = "Analog Devices"
+Installation_Disk       = "Analog Devices CapTouch Programmable Controller (AD7147) Installation Disk"
+TchDriver_Device_Desc   = "Analog Devices CapTouch Programmable Controller (AD7147)"
+TchDriver_Service_Desc  = "Analog Devices CapTouch Programmable Controller (AD7147) Driver"
 
 ; ------------- non-localizable strings
 SPSVCINST_ASSOCSERVICE  = 0x00000002

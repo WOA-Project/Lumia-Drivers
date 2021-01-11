@@ -43,5 +43,5 @@ RilServiceActivation.exe
 
 [Strings]
 IHV                             = "LumiaWoA authors"
-RILServiceActivation.DeviceDesc = "Radio Interface Layer Service Activation Application"
+RILServiceActivation.DeviceDesc = "LumiaWoA Radio Interface Layer Service Activation Application"
 

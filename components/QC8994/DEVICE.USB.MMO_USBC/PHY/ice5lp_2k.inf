@@ -1,0 +1,73 @@
+;
+; ice5lp_2k.inf
+;
+[Version]
+Signature = "$WINDOWS NT$"
+Class     = USB
+ClassGUID = {36FC9E60-C465-11CF-8056-444553540000}
+Provider  = %ProviderName%
+DriverVer = 01/01/2021,12.21.0.313
+
+CatalogFile.NTARM   = ice5lp_2k.arm.cat
+CatalogFile.NTARM64 = ice5lp_2k.arm64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles.ARM]
+ice5lp_2k.sys  = 1,arm,
+
+[SourceDisksFiles.ARM64]
+ice5lp_2k.sys  = 1,arm64,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard, NTARM, NTARM64
+
+[Standard.NTARM]
+%ice5lp_2k.DeviceDesc%=ice5lp_2k_Device, ACPI\MSHW1006
+
+[Standard.NTARM64]
+%ice5lp_2k.DeviceDesc%=ice5lp_2k_Device, ACPI\MSHW1006
+
+[ice5lp_2k_Device.NT]
+CopyFiles = ice5lp_2k_CopyFiles
+
+[ice5lp_2k_CopyFiles]
+ice5lp_2k.sys
+
+;-------------- Service installation
+[ice5lp_2k_Device.NT.Services]
+AddService = ice5lp_2k, %SPSVCINST_ASSOCSERVICE%, ice5lp_2k_Service_Inst
+
+; -------------- ice5lp_2k driver install sections
+[ice5lp_2k_Service_Inst]
+DisplayName    = %ice5lp_2k.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\ice5lp_2k.sys
+LoadOrderGroup = Extended Base
+
+;
+;--- ice5lp_2k_Device Coinstaller installation ------
+;
+[ice5lp_2k_Device.NT.Wdf]
+KmdfService = ice5lp_2k, ice5lp_2k_wdfsect
+
+[ice5lp_2k_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ProviderName           = "MMO and LumiaWoA authors"
+ManufacturerName       = "Lattice Semiconductor"
+DiskName               = "Lattice USB-C Power Delivery Physical Layer (UC120) Installation Disk"
+ice5lp_2k.DeviceDesc   = "Lattice USB-C Power Delivery Physical Layer (UC120)"
+ice5lp_2k.SVCDESC      = "Lattice USB-C Power Delivery Physical Layer (UC120) Driver"

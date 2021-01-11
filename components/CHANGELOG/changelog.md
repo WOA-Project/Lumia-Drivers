@@ -1,5 +1,5 @@
-## Lumia Drivers BSP - Version 2012.1
-**Released:** 12/13/2020 16:00 PM UTC+1
+## Lumia Drivers BSP - Version 2101-prerelease
+**Released:** 01/10/2021 07:40 PM UTC+1
 
 **Quality:** Preview
 
@@ -12,14 +12,9 @@ Make sure battery is charged to 100% before continuing. If this is not the case,
 
 ### Release notes
 
-This release shares the same release notes as version 2012, with the following additions:
-
-- Fixed Ambient light sensor calibration data on Talkman
-- Fixed Pedometer support
-- Fixed Activity sensor support
-- Fixed Hall sensor support
-
-See https://github.com/WOA-Project/Lumia-Drivers/releases/download/2012/Lumia_Drivers_v2012.pdf
+ ¯\_(ツ)_/¯
+ ¯\_(ツ)_/¯
+ ¯\_(ツ)_/¯
 
 ### Bug reporting
 

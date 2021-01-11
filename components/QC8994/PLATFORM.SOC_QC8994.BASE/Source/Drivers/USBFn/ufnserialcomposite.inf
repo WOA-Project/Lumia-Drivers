@@ -94,31 +94,31 @@ ufnserialclass.sys
 
 ;-------------- Interface specific information
 ;[UfnBus_Child_00_SER.HW]
-;AddReg = UfnBus_DIAG_AddReg
+;AddReg = UfnBus_DIAG_AddReg, DeviceConfigurationReg
 ;[UfnBus_Child_01_SER.HW]
-;AddReg = UfnBus_MODEM_AddReg
+;AddReg = UfnBus_MODEM_AddReg, DeviceConfigurationReg
 ;[UfnBus_Child_02_SER.HW]
-;AddReg = UfnBus_NMEA_AddReg
+;AddReg = UfnBus_NMEA_AddReg, DeviceConfigurationReg
 [UfnBus_Child_03_SER.HW]
-AddReg = UfnBus_TRACE_AddReg
+AddReg = UfnBus_TRACE_AddReg, DeviceConfigurationReg
 
 ;[UfnBus_Child_00_NET.HW]
-;AddReg = UfnBus_DIAG_AddReg
+;AddReg = UfnBus_DIAG_AddReg, DeviceConfigurationReg
 [UfnBus_Child_01_NET.HW]
-AddReg = UfnBus_NMEA_AddReg
+AddReg = UfnBus_NMEA_AddReg, DeviceConfigurationReg
 ;[UfnBus_Child_02_NET.HW]
-;AddReg = UfnBus_MODEM_AddReg
+;AddReg = UfnBus_MODEM_AddReg, DeviceConfigurationReg
 ;[UfnBus_Child_03_NET.HW]
-;AddReg = UfnBus_RMNET_AddReg
+;AddReg = UfnBus_RMNET_AddReg, DeviceConfigurationReg
 
 [UfnBus_Child_00_DPL.HW]
-AddReg = UfnBus_DIAG_AddReg
+AddReg = UfnBus_DIAG_AddReg, DeviceConfigurationReg
 [UfnBus_Child_01_DPL.HW]
-AddReg = UfnBus_MODEM_AddReg
+AddReg = UfnBus_MODEM_AddReg, DeviceConfigurationReg
 [UfnBus_Child_02_DPL.HW]
-AddReg = UfnBus_RMNET_AddReg
+AddReg = UfnBus_RMNET_AddReg, DeviceConfigurationReg
 [UfnBus_Child_03_DPL.HW]
-AddReg = UfnBus_DPL_AddReg
+AddReg = UfnBus_DPL_AddReg, DeviceConfigurationReg
 
 
 [UfnBus_DIAG_AddReg]
@@ -199,6 +199,17 @@ Group         = filter          ; Needed for boot-critical loading per ServiceGr
 ServiceBinary = %12%\ufnserialclass.sys
 ;AddReg         = ufnserialclass_Service_Inst.AddReg
 AddReg        = DeviceReg
+
+[DeviceConfigurationReg]
+hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , InterfaceList                 , 0x00010000, "DIAG","MODEM","RMNET","DPL"
+hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , bmAttributes                  , 0x00010001, 0x00000080
+hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , bMaxPower                     , 0x00010001, 0x000000FA
+hklm, system\currentcontrolset\control\usbfn\configurations\rmnetcompositeconfig                                 , InterfaceList                 , 0x00010000, "DIAG","NMEA","MODEM","RMNET"
+hklm, system\currentcontrolset\control\usbfn\configurations\rmnetcompositeconfig                                 , bmAttributes                  , 0x00010001, 0x00000080
+hklm, system\currentcontrolset\control\usbfn\configurations\rmnetcompositeconfig                                 , bMaxPower                     , 0x00010001, 0x000000FA
+hklm, system\currentcontrolset\control\usbfn\configurations\serialcompositeconfig                                , InterfaceList                 , 0x00010000, "DIAG","MODEM","NMEA","TRACE"
+hklm, system\currentcontrolset\control\usbfn\configurations\serialcompositeconfig                                , bmAttributes                  , 0x00010001, 0x00000080
+hklm, system\currentcontrolset\control\usbfn\configurations\serialcompositeconfig                                , bMaxPower                     , 0x00010001, 0x000000FA
 
 [DeviceReg]
 hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , CurrentConfiguration          , 0x00000000, "SerialCompositeConfig"
@@ -286,15 +297,7 @@ hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\int
 hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\vidstream                , InterfaceDescriptor           , 0x00000001, 09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
 hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\vidstream                , InterfaceGuid                 , 0x00000000, "{31648E59-6FCB-4D81-9C97-D00999B0459A}"
 hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\interfaces\vidstream                , MSOSExtendedPropertyDescriptor, 0x00000001, 74,01,00,00,00,01,05,00,05,00,84,00,00,00,01,00,00,00,28,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,6E,00,74,00,65,00,72,00,66,00,61,00,63,00,65,00,47,00,55,00,49,00,44,00,00,00,4E,00,00,00,7B,00,33,00,31,00,36,00,34,00,38,00,45,00,35,00,39,00,2D,00,36,00,46,00,43,00,42,00,2D,00,34,00,44,00,38,00,31,00,2D,00,39,00,43,00,39,00,37,00,2D,00,44,00,30,00,30,00,39,00,39,00,39,00,42,00,30,00,34,00,35,00,39,00,41,00,7D,00,00,00,36,00,00,00,04,00,00,00,24,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,64,00,6C,00,65,00,45,00,6E,00,61,00,62,00,6C,00,65,00,64,00,00,00,04,00,00,00,01,00,00,00,34,00,00,00,04,00,00,00,22,00,44,00,65,00,66,00,61,00,75,00,6C,00,74,00,49,00,64,00,6C,00,65,00,53,00,74,00,61,00,74,00,65,00,00,00,04,00,00,00,01,00,00,00,38,00,00,00,04,00,00,00,26,00,44,00,65,00,66,00,61,00,75,00,6C,00,74,00,49,00,64,00,6C,00,65,00,54,00,69,00,6D,00,65,00,6F,00,75,00,74,00,00,00,04,00,00,00,10,27,00,00,44,00,00,00,04,00,00,00,32,00,55,00,73,00,65,00,72,00,53,00,65,00,74,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,64,00,6C,00,65,00,45,00,6E,00,61,00,62,00,6C,00,65,00,64,00,00,00,04,00,00,00,01,00,00,00
-hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , InterfaceList                 , 0x00010000, "DIAG","MODEM","RMNET","DPL"
-hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , bmAttributes                  , 0x00010001, 0x00000080
-hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , bMaxPower                     , 0x00010001, 0x000000FA
-hklm, system\currentcontrolset\control\usbfn\configurations\rmnetcompositeconfig                                 , InterfaceList                 , 0x00010000, "DIAG","NMEA","MODEM","RMNET"
-hklm, system\currentcontrolset\control\usbfn\configurations\rmnetcompositeconfig                                 , bmAttributes                  , 0x00010001, 0x00000080
-hklm, system\currentcontrolset\control\usbfn\configurations\rmnetcompositeconfig                                 , bMaxPower                     , 0x00010001, 0x000000FA
-hklm, system\currentcontrolset\control\usbfn\configurations\serialcompositeconfig                                , InterfaceList                 , 0x00010000, "DIAG","MODEM","NMEA","TRACE"
-hklm, system\currentcontrolset\control\usbfn\configurations\serialcompositeconfig                                , bmAttributes                  , 0x00010001, 0x00000080
-hklm, system\currentcontrolset\control\usbfn\configurations\serialcompositeconfig                                , bMaxPower                     , 0x00010001, 0x000000FA
+
 hklm, system\currentcontrolset\control\usbfn\interfaces\diag                                                     , InterfaceGUID                 , 0x00000000, "{3641691D-B4BD-4715-BB46-641FD214E147}"
 hklm, system\currentcontrolset\control\usbfn\interfaces\diag                                                     , InterfaceDescriptor           , 0x00000001, 09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
 hklm, system\currentcontrolset\control\usbfn\interfaces\dpl                                                      , InterfaceGUID                 , 0x00000000, "{873852F2-0D2A-4442-80A9-2DD869F41A5C}"
@@ -368,6 +371,9 @@ hklm, system\currentcontrolset\control\wmi\autologger\ufnserial\{d5393b53-8aae-4
 ;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial\{D5393B53-8AAE-40B1-938B-C207E999605F}", EnableFlags        , %REG_DWORD%   ,  0x00000000
 ;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial\{D5393B53-8AAE-40B1-938B-C207E999605F}", MatchAnyKeyword    , %REG_DWORD%   ,  0xFFFFFFFF
 ;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial\{D5393B53-8AAE-40B1-938B-C207E999605F}", EnableLevel        , %REG_DWORD%   ,  0x00000004
+
+[DeviceConfigurationReg.Security]
+"D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;AU)(A;;GA;;;BG)(A;;GA;;;S-1-15-2-1)(A;;GA;;;WD)"
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""

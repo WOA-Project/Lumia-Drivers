@@ -1,5 +1,5 @@
 @echo off
-call :installRootDevice tyc.inf umdf2\tyc ROOT\tyc\0000
+call :installRootDevice typeccontroller.inf umdf2\tyc ROOT\tyc\0000
 
 goto :eof
 

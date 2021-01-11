@@ -1,12 +1,12 @@
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = System
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %ManufacturerName%
-DriverVer   = 01/04/2015,0.6.0000.0
+Class       = USB
+ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
+Provider    = %ProviderName%
+DriverVer   = 01/01/2021,0.6.0000.0
 
-CatalogFile.NTARM   = hdmidpidriver.arm.cat
-CatalogFile.NTARM64 = hdmidpidriver.arm64.cat
+CatalogFile.NTARM   = hdmidpi.arm.cat
+CatalogFile.NTARM64 = hdmidpi.arm64.cat
 
 [SourceDisksNames]
 3426=windows cd
@@ -54,9 +54,10 @@ ServiceBinary  = %12%\hdmidpi.sys
 LoadOrderGroup = Base
 
 [Strings]
-ManufacturerName         = "MMO"
-DisplayName              = "HDMI DPI driver"
-DeviceDescription        = "HDMI to Displayport driver"
+ProviderName             = "MMO"
+ManufacturerName         = "Analogix Semiconductor"
+DisplayName              = "Analogix 4096x2160p30 (Ultra-HD) SlimPort(R) transmitter (ANX7816) Driver"
+DeviceDescription        = "Analogix 4096x2160p30 (Ultra-HD) SlimPort(R) transmitter (ANX7816)"
 SPSVCINST_ASSOCSERVICE   = 0x00000002
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3

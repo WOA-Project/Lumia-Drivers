@@ -23,7 +23,7 @@ Addreg    = phonereleaseversionReg
 Addreg    = phonereleaseversionReg
 
 [phonereleaseversionReg]
-HKLM, "SYSTEM\Platform\DeviceTargetingInfo", "PhoneReleaseVersion", 0x0,  "Lumi"
+HKLM, "SYSTEM\Platform\DeviceTargetingInfo", "PhoneReleaseVersion", 0x0,  "Version 2101-prerelease"
 
 [Strings]
 IHV                    = "LumiaWoA authors"

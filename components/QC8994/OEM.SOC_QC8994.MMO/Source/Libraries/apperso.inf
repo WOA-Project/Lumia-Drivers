@@ -43,4 +43,4 @@ apperso.dll
 
 [Strings]
 IHV                = "LumiaWoA authors"
-APPerso.DeviceDesc = "Application Processor Personalisation Library"
+APPerso.DeviceDesc = "Microsoft Mobile Application Processor Personalisation Library"

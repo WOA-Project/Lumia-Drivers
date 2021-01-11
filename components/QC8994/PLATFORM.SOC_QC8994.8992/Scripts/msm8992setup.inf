@@ -41,6 +41,8 @@ CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
 [OOBECmd.Files]
+MSM8992Specialize.cmd
+RebootWarning.exe
 
 ; Windows/OEM
 [SpecializeCmd.Files]

@@ -92,7 +92,7 @@ AddReg        = DiagRouterReg
 HKR, , TCPPort      , 0x00000000,  "2500"
 HKR, , HostAsName   , 0x00010001, "0"
 HKR, , ServerName   , 0x00000000, "server ip address"
-HKR, , TransportType, 0x00010001, "0"
+HKR, , TransportType, 0x00010001, "1"
 
 [Strings]
 ;Localizable Strings

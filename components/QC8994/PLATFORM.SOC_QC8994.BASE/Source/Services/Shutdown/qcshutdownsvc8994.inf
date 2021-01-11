@@ -65,26 +65,39 @@ AddService = QcShutdownSvc,0x00000000,ShutdownSvc_Service,
 [ShutdownSvc_Service]
 DisplayName   = "QcShutdownSvc"
 Description   = "QC SOC Shutdown Service"
-ServiceType   = 0x110
+ServiceType   = 0x20
 StartType     = 2
-ErrorControl  = 1
+ErrorControl  = 0
 ServiceBinary = "%%systemroot%%\system32\svchost.exe -k QcShutdownSvcGroup"
 
 [ShutdownSvc_Reg]
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , DisplayName          , %REG_SZ%       ,  "QcShutdownSvc"
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , Description          , %REG_SZ%       ,  "QC SOC Shutdown Service"
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , ObjectName           , %REG_SZ%       ,  "LocalSystem"
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , ImagePath            , %REG_EXPAND_SZ%,  "%%systemroot%%\system32\svchost.exe -k QcShutdownSvcGroup"
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , Type                 , %REG_DWORD%    ,  0x0110
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , Start                , %REG_DWORD%    ,  0x0002
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , ErrorControl         , %REG_DWORD%    ,  0x0001
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , SendWindowsShutdown  , %REG_DWORD%    ,  0x0001
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , SendModemShutdown    , %REG_DWORD%    ,  0x0001
-HKLM, System\ControlSet001\Services\QcShutdownSvc                                  , SendSubSystemShutdown, %REG_DWORD%    ,  0x0001
-HKLM, System\ControlSet001\Services\QcShutdownSvc\Parameters                       , ServiceDll           , %REG_EXPAND_SZ%,  "%%SystemRoot%%\System32\QcShutdownSvc8994.dll"
-HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost                         , QcShutdownSvcGroup   , %REG_MULTI_SZ% ,  "QcShutdownSvc"
-HKLM, System\ControlSet001\Control\ManufacturingMode\Default\Services\QcShutdownSvc, Start                , %REG_DWORD%    ,  0x0002
-HKLM, System\ControlSet001\Control\ManufacturingMode\factory\Services\QcShutdownSvc, Start                , %REG_DWORD%    ,  0x0002
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ObjectName", 0x00000000, "LocalSystem"
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ErrorControl", 0x00010001, 0x00000000
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ServiceSidType", 0x00010001, 0x00000001
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "FailureActions", 0x00000001, \
+	80,51,01,00,00,00,00,00,00,00,00,00,04,00,00, \ ; Q·············
+	00,14,00,00,00,01,00,00,00,E8,03,00,00,01,00, \ ; ·········è·····
+	00,00,E8,03,00,00,01,00,00,00,E8,03,00,00,00, \ ; ··è·······è····
+	00,00,00,00,00,00,00                            ; ·······
+
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Type", 0x00010001, 0x00000020
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "RequiredPrivileges", 0x00010008, \
+	"SeShutdownPrivilege", "SeChangeNotifyPrivilege", "SeIncreaseWorkingSetPrivilege", "SeCreateGlobalPrivilege"
+
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "PreshutdownTimeout", 0x00010001, 0x00004E20
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "DisplayName", 0x00000000, "QcShutdownSvc"
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Description", 0x00000000, "QC SOC Shutdown Service"
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ImagePath", 0x00020000, "C:\windows\System32\oemsvchost.exe -k QcShutdownSvcGroup"
+
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%%SystemRoot%%\System32\QcShutdownSvc8994.dll"
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceMain", 0x00000000, "ServiceMain"
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDllUnloadOnStop", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\ManufacturingMode\Default\Services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
+HKLM, "SYSTEM\CurrentControlSet\Control\ManufacturingMode\factory\Services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
+
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", QcShutdownSvcGroup, %REG_MULTI_SZ% , "QcShutdownSvc"
 
 [ShutdownSvc.Files]
 QcShutdownSvc8994.dll

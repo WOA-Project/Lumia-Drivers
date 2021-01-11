@@ -112,7 +112,7 @@ HKR, %SdkSecAppService.RegKey%  , MajorVersion  , %REG_DWORD%   , 1
 HKR, %SdkSecAppService.RegKey%  , MinorVersion  , %REG_DWORD%   , 0
 HKR, %SdkSecAppService.RegKey%  , OSDependencies, %REG_MULTI_SZ%, %RpmbOsService%,%ClockOsService%
 
-HKR, %IsswAppService.RegKey%    , Enabled       , %REG_DWORD%   , 0
+HKR, %IsswAppService.RegKey%    , Enabled       , %REG_DWORD%   , 1
 HKR, %IsswAppService.RegKey%    , SecureApp     , %REG_DWORD%   , 1
 HKR, %IsswAppService.RegKey%    , LoadApp       , %REG_DWORD%   , 0
 HKR, %IsswAppService.RegKey%    , AppName       ,               , "tz.issw"
