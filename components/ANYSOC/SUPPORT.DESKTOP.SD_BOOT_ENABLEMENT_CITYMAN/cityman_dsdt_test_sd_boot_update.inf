@@ -1,0 +1,41 @@
+;
+; cityman_dsdt_test_sd_boot_update.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 01/12/2021,1.0.0.0
+
+CatalogFile.NTARM   = cityman_dsdt_test_sd_boot_update.arm.cat
+CatalogFile.NTARM64 = cityman_dsdt_test_sd_boot_update.arm64.cat
+
+[DestinationDirs]
+; 11 = system32
+cityman_dsdt_test_sd_boot_update.Files = 11
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+ACPITABL.dat = 0,,
+
+;*****************************************
+; cityman_dsdt_test_sd_boot_update  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = cityman_dsdt_test_sd_boot_update.Files
+
+[DefaultInstall.NTARM64]
+CopyFiles = cityman_dsdt_test_sd_boot_update.Files
+
+; System32
+[cityman_dsdt_test_sd_boot_update.Files]
+ACPITABL.dat
+
+[Strings]
+IHV                    = "LumiaWoA authors"
+DiskId1                = "DSDT Test SD Boot Update Installation Disk #1"
+
