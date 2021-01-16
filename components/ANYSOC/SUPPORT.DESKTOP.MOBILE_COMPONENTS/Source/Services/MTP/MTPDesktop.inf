@@ -8,6 +8,7 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = "LumiaWoA authors"
 DriverVer   = 11/21/2020,1.0.0.4
 CatalogFile = MTPDesktop.cat
+PnpLockdown = 1
 
 [SourceDisksNames]
 0 = "Disk"
@@ -55,47 +56,47 @@ D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;IU)
 [MTP_Registry]
 HKLM, "SOFTWARE\Classes\CLSID\{485BE2CC-3C49-41C6-917E-167D74AF0888}", "", 0x00000000, "MtpDeviceServiceAuthentication"
 
-HKLM, "SOFTWARE\Classes\CLSID\{485BE2CC-3C49-41C6-917E-167D74AF0888}\InprocServer32", "", 0x00000000, "C:\Windows\System32\Mtp.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{485BE2CC-3C49-41C6-917E-167D74AF0888}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\Mtp.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{485BE2CC-3C49-41C6-917E-167D74AF0888}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Classes\CLSID\{5B5485BB-F559-4C62-B478-73DE67ABFC3A}", "", 0x00000000, "MtpDeviceServiceHints"
 
-HKLM, "SOFTWARE\Classes\CLSID\{5B5485BB-F559-4C62-B478-73DE67ABFC3A}\InprocServer32", "", 0x00000000, "C:\Windows\System32\Mtp.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{5B5485BB-F559-4C62-B478-73DE67ABFC3A}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\Mtp.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{5B5485BB-F559-4C62-B478-73DE67ABFC3A}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Classes\CLSID\{6E9EB340-40A9-4af4-A4D0-1FC3AFC8EB11}", "", 0x00000000, "MtpDeviceServiceMetadata"
 
-HKLM, "SOFTWARE\Classes\CLSID\{6E9EB340-40A9-4af4-A4D0-1FC3AFC8EB11}\InprocServer32", "", 0x00000000, "C:\Windows\System32\Mtp.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{6E9EB340-40A9-4af4-A4D0-1FC3AFC8EB11}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\Mtp.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{6E9EB340-40A9-4af4-A4D0-1FC3AFC8EB11}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Classes\CLSID\{856311EA-98F6-495F-9568-41C749B6C7C9}", "", 0x00000000, "MtpPropertyStore"
 
-HKLM, "SOFTWARE\Classes\CLSID\{856311EA-98F6-495F-9568-41C749B6C7C9}\InprocServer32", "", 0x00000000, "C:\Windows\System32\Mtp.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{856311EA-98F6-495F-9568-41C749B6C7C9}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\Mtp.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{856311EA-98F6-495F-9568-41C749B6C7C9}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Classes\CLSID\{A6F79F9B-DF1F-43E7-980D-CECABEBA47B0}", "", 0x00000000, "MtpObjectCollection"
 
-HKLM, "SOFTWARE\Classes\CLSID\{A6F79F9B-DF1F-43E7-980D-CECABEBA47B0}\InprocServer32", "", 0x00000000, "C:\Windows\System32\Mtp.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{A6F79F9B-DF1F-43E7-980D-CECABEBA47B0}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\Mtp.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{A6F79F9B-DF1F-43E7-980D-CECABEBA47B0}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Classes\CLSID\{D670A06C-C6EE-43CA-BD7E-814DE7EF9224}", "", 0x00000000, "MtpDeviceServiceApps"
 
-HKLM, "SOFTWARE\Classes\CLSID\{D670A06C-C6EE-43CA-BD7E-814DE7EF9224}\InprocServer32", "", 0x00000000, "C:\Windows\System32\Mtp.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{D670A06C-C6EE-43CA-BD7E-814DE7EF9224}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\Mtp.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{D670A06C-C6EE-43CA-BD7E-814DE7EF9224}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Classes\CLSID\{DA9E3AED-8067-494E-8DB0-B4225AE551FF}", "", 0x00000000, "MtpDeviceServiceStatus"
 
-HKLM, "SOFTWARE\Classes\CLSID\{DA9E3AED-8067-494E-8DB0-B4225AE551FF}\InprocServer32", "", 0x00000000, "C:\Windows\System32\Mtp.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{DA9E3AED-8067-494E-8DB0-B4225AE551FF}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\Mtp.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{DA9E3AED-8067-494E-8DB0-B4225AE551FF}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Classes\CLSID\{DF9E4CD5-82F1-4D88-B3D1-0412F3D22F96}", "", 0x00000000, "MtpDeviceService"
 
-HKLM, "SOFTWARE\Classes\CLSID\{DF9E4CD5-82F1-4D88-B3D1-0412F3D22F96}\InprocServer32", "", 0x00000000, "C:\Windows\System32\Mtp.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{DF9E4CD5-82F1-4D88-B3D1-0412F3D22F96}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\Mtp.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{DF9E4CD5-82F1-4D88-B3D1-0412F3D22F96}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Classes\CLSID\{EBD756CF-5F5F-486D-B677-E4BDC4AFF593}", "", 0x00000000, "MtpObject"
 
-HKLM, "SOFTWARE\Classes\CLSID\{EBD756CF-5F5F-486D-B677-E4BDC4AFF593}\InprocServer32", "", 0x00000000, "C:\Windows\System32\Mtp.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{EBD756CF-5F5F-486D-B677-E4BDC4AFF593}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\Mtp.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{EBD756CF-5F5F-486D-B677-E4BDC4AFF593}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Microsoft\MTP", "MTPStorageName", 0x00000000, "Phone"
@@ -2076,7 +2077,7 @@ HKLM, "SYSTEM\CurrentControlSet\Control\USBFN\Interfaces\MTP", "InterfaceDescrip
 
 HKLM, "SOFTWARE\Classes\CLSID\{4cd7b058-ee73-4885-af9f-d8adc79b80f5}", "", 0x00000000, "MtpDBService"
 
-HKLM, "SOFTWARE\Classes\CLSID\{4cd7b058-ee73-4885-af9f-d8adc79b80f5}\InprocServer32", "", 0x00000000, "C:\Windows\System32\MtpDBService.dll"
+HKLM, "SOFTWARE\Classes\CLSID\{4cd7b058-ee73-4885-af9f-d8adc79b80f5}\InprocServer32", "", 0x00000000, "%%SystemRoot%%\System32\MtpDBService.dll"
 HKLM, "SOFTWARE\Classes\CLSID\{4cd7b058-ee73-4885-af9f-d8adc79b80f5}\InprocServer32", "ThreadingModel", 0x00000000, "Both"
 
 HKLM, "SOFTWARE\Microsoft\MTP", "MTPDPCLSID", 0x00000000, "{4cd7b058-ee73-4885-af9f-d8adc79b80f5}"

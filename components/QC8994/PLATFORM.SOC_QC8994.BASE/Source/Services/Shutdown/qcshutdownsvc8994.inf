@@ -16,6 +16,7 @@ Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 09/09/2015,1.0.1067.0000
+PnpLockdown = 1
 
 CatalogFile.NTARM   = qcshutdownsvc8994.arm.cat
 CatalogFile.NTARM64 = qcshutdownsvc8994.arm64.cat
@@ -88,7 +89,7 @@ HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "PreshutdownTimeout", 0x000
 HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "DisplayName", 0x00000000, "QcShutdownSvc"
 HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
 HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Description", 0x00000000, "QC SOC Shutdown Service"
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ImagePath", 0x00020000, "C:\windows\System32\oemsvchost.exe -k QcShutdownSvcGroup"
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ImagePath", 0x00020000, "%%SystemRoot%%\System32\oemsvchost.exe -k QcShutdownSvcGroup"
 
 HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%%SystemRoot%%\System32\QcShutdownSvc8994.dll"
 HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceMain", 0x00000000, "ServiceMain"

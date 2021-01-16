@@ -7,6 +7,7 @@ Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
 DriverVer   = 11/10/2019,1.0.0.1
+PnpLockdown = 1
 
 CatalogFile.NTARM   = RilServiceActivation.arm.cat
 CatalogFile.NTARM64 = RilServiceActivation.arm64.cat

@@ -17,6 +17,7 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 09/09/2015,1.0.1067.0000
 CatalogFile = qcgnsssvc8994.cat
+PnpLockdown = 1
 
 [DestinationDirs]
 QcGnssSvc.Files = 11 ; \system32 directory on Windows 2000 and later versions

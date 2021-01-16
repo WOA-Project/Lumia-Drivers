@@ -5,6 +5,7 @@ ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F58}
 DriverVer   = 04/08/2020,1.0.0.0
+PnpLockdown = 1
 
 CatalogFile.NTARM   = qcfmsltransportextension8994.arm.cat
 CatalogFile.NTARM64 = qcfmsltransportextension8994.arm64.cat

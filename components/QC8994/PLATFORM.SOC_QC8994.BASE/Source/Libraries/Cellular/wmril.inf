@@ -7,6 +7,7 @@ Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,30.0.0.0
+PnpLockdown = 1
 
 CatalogFile.NTARM   = wmril.arm.cat
 CatalogFile.NTARM64 = wmril.arm64.cat

@@ -4,6 +4,7 @@ Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %MMO%
 DriverVer   = 06/08/2016,1.0.1078.0053
+PnpLockdown = 1
 
 CatalogFile.NTARM   = hall_kmd.arm.cat
 CatalogFile.NTARM64 = hall_kmd.arm64.cat

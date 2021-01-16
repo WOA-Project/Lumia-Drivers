@@ -8,6 +8,7 @@ Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %ManufacturerName%
 DriverVer   = 10/06/2018,18.13.19.793
+PnpLockdown = 1
 
 CatalogFile.NTARM   = qcnull.arm.cat
 CatalogFile.NTARM64 = qcnull.arm64.cat

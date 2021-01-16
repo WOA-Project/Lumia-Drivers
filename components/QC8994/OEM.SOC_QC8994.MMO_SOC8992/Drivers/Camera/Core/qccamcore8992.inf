@@ -14,7 +14,8 @@ Signature="$WINDOWS NT$"
 Class=SYSTEM
 ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider=%QC%
-DriverVer=09/20/2014,5.00.3788
+DriverVer=09/20/2014,5.0.0.3788
+PnpLockdown = 1
 
 CatalogFile.NTARM   = qccamcore8992.arm.cat
 CatalogFile.NTARM64 = qccamcore8992.arm64.cat
@@ -81,5 +82,5 @@ SPSVCINST_ASSOCSERVICE= 0x00000002
 QC = "Qualcomm Inc."
 DiskId1 = "Qualcomm Camera CORE Installation Disk"
 CORE.DeviceDesc = "Qualcomm Camera CORE Driver"
-CORE.DeviceDesc = "Qualcomm Camera CORE Driver (Null)"
+CORE.DeviceDescNull = "Qualcomm Camera CORE Driver (Null)"
 CORE.SVCDESC = "Qualcomm Camera CORE Service"

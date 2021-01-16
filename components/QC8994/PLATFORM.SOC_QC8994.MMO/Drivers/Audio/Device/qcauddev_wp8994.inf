@@ -64,7 +64,7 @@ qcauddev8994.sys
 AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
 
 [MBHC.NT.Services]
-AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,MBHC_Service_Inst
+AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
 
 ; -------------- AUDD driver install sections
 [AUDD_Service_Inst]
@@ -74,17 +74,10 @@ StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\qcauddev8994.sys
 Tag            = 10
-AddReg         = AUDDSpkrProtReg,CPEPathReg
 LoadOrderGroup = Extended Base
 
-[MBHC_Service_Inst]
-DisplayName    = %MBHC.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START 
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\qcauddev8994.sys
-Tag            = 10
-LoadOrderGroup = Extended Base
+[AUDIODEVICE.NT.HW]
+AddReg = AUDDSpkrProtReg,CPEPathReg
 
 [AUDDSpkrProtReg]
 HKR, Parameters, "SpeakerID0", %REG_DWORD%, 0x7fffffff

@@ -7,6 +7,7 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 11/17/2020,1.0.0.2
+PnpLockdown = 1
 
 CatalogFile.NTARM   = MobileBridge.arm.cat
 CatalogFile.NTARM64 = MobileBridge.arm64.cat
@@ -36,11 +37,11 @@ Vivid.icm         = 0,,
 
 [DefaultInstall.NTARM]
 CopyFiles = MobileBridge.Files,Profiles.Files
-AddReg    = MobileBridge_Reg,AutoRotate_Reg,HapticsNotifications_Reg,Settings_Reg,ProfileAction.Reg
+AddReg    = MobileBridge_Reg,AutoRotate_Reg,HapticsNotifications_Reg,ProfileAction.Reg
 
 [DefaultInstall.NTARM64]
 CopyFiles = MobileBridge.Files,Profiles.Files
-AddReg    = MobileBridge_Reg,AutoRotate_Reg,HapticsNotifications_Reg,Settings_Reg,ProfileAction.Reg
+AddReg    = MobileBridge_Reg,AutoRotate_Reg,HapticsNotifications_Reg,ProfileAction.Reg
 
 [MobileBridge.Files]
 MobileBridge.exe
@@ -58,7 +59,7 @@ HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run",          "MobileBridge", 
 [AutoRotate_Reg]
 HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\AutoRotation", "SensorPresent", %REG_DWORD%, 0x1
 
-[Settings_Reg]
+[HapticsNotifications_Reg]
 HKLM, "SOFTWARE\OEM\Vibra",                                     "Duration",      %REG_DWORD%, 0x5
 HKLM, "SOFTWARE\OEM\Vibra",                                     "Intensity",     %REG_DWORD%, 0x50
 HKLM, "SOFTWARE\OEM\Vibra",                                     "Enabled",       %REG_DWORD%, 0x1

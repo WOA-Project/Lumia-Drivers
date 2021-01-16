@@ -8,6 +8,7 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 09/08/2019,1.0.0.1
+PnpLockdown = 1
 
 CatalogFile.NTARM   = CellularLineResources.arm.cat
 CatalogFile.NTARM64 = CellularLineResources.arm64.cat
@@ -233,8 +234,8 @@ HKLM, "SOFTWARE\Microsoft\CallAndMessagingEnhancement\CallOriginApp", "DefaultCa
 
 HKLM, "SOFTWARE\Microsoft\RcsPresence", ,0x10
 
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\SystemNotification", "DefaultSound", 0x0, "C:\Windows\Media\default.wav"
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\SystemNotification", "Directory", 0x0, "C:\Windows\Media\"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\SystemNotification", "DefaultSound", 0x0, "%%SystemRoot%%\Media\default.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\SystemNotification", "Directory", 0x0, "%%SystemRoot%%\Media\"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\SystemNotification", "InitVol", 0x10001, 0x55
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\SystemNotification", "Script", 0x0, "p"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\SystemNotification", "StreamClassId", 0x10001, 0x3
@@ -242,22 +243,22 @@ HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\SystemNotification\RingerO
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\SystemNotification\RingerOffVibrateOn", "InitVol", 0x10001, 0x0
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall", "BypassECBM", 0x10001, 0x1
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall", "DefaultSound", 0x0, "C:\Windows\Media\HWandSW.wav"
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall", "Directory", 0x0, "C:\Windows\Media\"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall", "DefaultSound", 0x0, "%%SystemRoot%%\Media\HWandSW.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall", "Directory", 0x0, "%%SystemRoot%%\Media\"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall", "InitVol", 0x10001, 0x64
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall", "Script", 0x0, "p"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall", "StreamClassId", 0x10001, 0x6
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall", "VoiceTextSound", 0x0, "InCallVoiceText"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall2", "BypassECBM", 0x10001, 0x1
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall2", "DefaultSound", 0x0, "C:\Windows\Media\HWandSW.wav"
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall2", "Directory", 0x0, "C:\Windows\Media\"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall2", "DefaultSound", 0x0, "%%SystemRoot%%\Media\HWandSW.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall2", "Directory", 0x0, "%%SystemRoot%%\Media\"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall2", "InitVol", 0x10001, 0x64
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall2", "Script", 0x0, "p"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\InCall2", "StreamClassId", 0x10001, 0x6
 
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification", "DefaultSound", 0x0, "C:\Windows\Media\Alert_calendar.wma"
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification", "Directory", 0x0, "C:\Windows\Media\"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification", "DefaultSound", 0x0, "%%SystemRoot%%\Media\Alert_calendar.wma"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification", "Directory", 0x0, "%%SystemRoot%%\Media\"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification", "DisabledForAudioCapture", 0x10001, 0x1
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification", "InitVol", 0x10001, 0x64
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification", "Script", 0x0, "p"
@@ -266,8 +267,8 @@ HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification\RingerOffVibr
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification\RingerOffVibrateOn", "Script", 0x0, "v0.1"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\Notification\RingerOnVibrateOn", "Script", 0x0, "v0.1p"
 
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\DTMF", "DefaultSound", 0x0, "C:\Windows\Media\default.wav"
-HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\DTMF", "Directory", 0x0, "C:\Windows\Media\"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\DTMF", "DefaultSound", 0x0, "%%SystemRoot%%\Media\default.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\DTMF", "Directory", 0x0, "%%SystemRoot%%\Media\"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\DTMF", "InitVol", 0x10001, 0x2d
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\DTMF", "Script", 0x0, "p"
 HKLM, "SOFTWARE\Microsoft\EventSounds\SoundCategories\DTMF", "StreamClassId", 0x10001, 0x7
@@ -279,20 +280,20 @@ HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Keypress", "BeepScript", 0x0, "p"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Keypress", "Category", 0x0, "SystemNotification"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Keypress", "Disabled", 0x10001, 0x0
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Keypress", "InitVol", 0x10001, 0x32
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Keypress", "Sound", 0x0, "C:\Windows\Media\HWandSW.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Keypress", "Sound", 0x0, "%%SystemRoot%%\Media\HWandSW.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Keypress\RingerOffVibrateOff", "InitVol", 0x10001, 0x0
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Keypress\RingerOffVibrateOn", "InitVol", 0x10001, 0x0
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyCDMA", "Category", 0x0, "InCall2"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyCDMA", "Script", 0x0, "apr"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyCDMA", "Sound", 0x0, "C:\Windows\Media\BusyCDMA.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyCDMA", "Sound", 0x0, "%%SystemRoot%%\Media\BusyCDMA.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallDrop", "Category", 0x0, "InCall"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallDrop", "Sound", 0x0, "C:\Windows\Media\calldrop.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallDrop", "Sound", 0x0, "%%SystemRoot%%\Media\calldrop.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallWaiting", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallWaiting", "Script", 0x0, "pw3.5p"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallWaiting", "Sound", 0x0, "C:\Windows\Media\Callwait.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallWaiting", "Sound", 0x0, "%%SystemRoot%%\Media\Callwait.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallWaiting\VoiceText\RingerOffVibrateOff", "Script", 0x0, "p"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallWaiting\VoiceText\RingerOffVibrateOn", "Script", 0x0, "p"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallWaiting\VoiceText\RingerOnVibrateOff", "Script", 0x0, "p"
@@ -300,145 +301,145 @@ HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\CallWaiting\VoiceText\RingerOnVibra
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Congestion", "Category", 0x0, "InCall2"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Congestion", "Script", 0x0, "apr"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Congestion", "Sound", 0x0, "C:\Windows\Media\congestion.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Congestion", "Sound", 0x0, "%%SystemRoot%%\Media\congestion.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\InCallBuzz", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\InCallBuzz", "Script", 0x0, "p"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\InCallBuzz", "Sound", 0x0, "C:\Windows\Media\InCallBuzz.wma"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\InCallBuzz", "Sound", 0x0, "%%SystemRoot%%\Media\InCallBuzz.wma"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\NetworkDrop", "Category", 0x0, "InCall"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\NetworkDrop", "Sound", 0x0, "C:\Windows\Media\calldrop.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\NetworkDrop", "Sound", 0x0, "%%SystemRoot%%\Media\calldrop.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Notification", "Category", 0x0, "Notification"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Notification", "Sound", 0x0, "C:\Windows\Media\default.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Notification", "Sound", 0x0, "%%SystemRoot%%\Media\default.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\NotificationToast", "Category", 0x0, "Notification"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\NotificationToast", "Disabled", 0x10001, 0x0
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\NotificationToast", "Sound", 0x0, "C:\Windows\Media\Alert-05.wma"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\NotificationToast", "Sound", 0x0, "%%SystemRoot%%\Media\Alert-05.wma"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\NotificationToast\RingerOffVibrateOn", "Script", 0x0, "v0.2w0.3v0.2w0.1v0.2"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\NotificationToast\RingerOnVibrateOn", "Script", 0x0, "v0.2w0.3v0.2w0.1v0.2p"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\PingRing", "Category", 0x0, "InCall"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\PingRing", "Sound", 0x0, "C:\Windows\Media\PingRing.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\PingRing", "Sound", 0x0, "%%SystemRoot%%\Media\PingRing.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Pip", "Category", 0x0, "InCall"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Pip", "Sound", 0x0, "C:\Windows\Media\PIP.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Pip", "Sound", 0x0, "%%SystemRoot%%\Media\PIP.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Reorder", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Reorder", "Script", 0x0, "apr"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Reorder", "Sound", 0x0, "C:\Windows\Media\Reorder.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Reorder", "Sound", 0x0, "%%SystemRoot%%\Media\Reorder.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\TransferComplete", "Category", 0x0, "InCall2"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\TransferComplete", "Sound", 0x0, "C:\Windows\Media\transfercomplete.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\TransferComplete", "Sound", 0x0, "%%SystemRoot%%\Media\transfercomplete.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyAustralia", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyAustralia", "Script", 0x0, "apw0.375r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyAustralia", "Sound", 0x0, "C:\Windows\Media\Busy_425Hz_375ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyAustralia", "Sound", 0x0, "%%SystemRoot%%\Media\Busy_425Hz_375ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyCzech", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyCzech", "Script", 0x0, "apw0.33r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyCzech", "Sound", 0x0, "C:\Windows\Media\Busy_425Hz_330ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyCzech", "Sound", 0x0, "%%SystemRoot%%\Media\Busy_425Hz_330ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyGermany", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyGermany", "Script", 0x0, "apw0.48r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyGermany", "Sound", 0x0, "C:\Windows\Media\Busy_425Hz_480ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyGermany", "Sound", 0x0, "%%SystemRoot%%\Media\Busy_425Hz_480ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyRomania", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyRomania", "Script", 0x0, "apw0.17r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyRomania", "Sound", 0x0, "C:\Windows\Media\Busy_450Hz_170ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyRomania", "Sound", 0x0, "%%SystemRoot%%\Media\Busy_450Hz_170ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyTone", "Category", 0x0, "InCall2"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyTone", "Script", 0x0, "apr"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyTone", "Sound", 0x0, "C:\Windows\Media\Busy.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyTone", "Sound", 0x0, "%%SystemRoot%%\Media\Busy.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyUK", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyUK", "Script", 0x0, "apw0.375r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyUK", "Sound", 0x0, "C:\Windows\Media\Busy_400Hz_375ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\BusyUK", "Sound", 0x0, "%%SystemRoot%%\Media\Busy_400Hz_375ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf#", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf#", "Sound", 0x0, "C:\Windows\Media\Dtmfpd.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf#", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmfpd.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf0", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf0", "Sound", 0x0, "C:\Windows\Media\Dtmf0.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf0", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf0.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf1", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf1", "Sound", 0x0, "C:\Windows\Media\Dtmf1.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf1", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf1.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf2", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf2", "Sound", 0x0, "C:\Windows\Media\Dtmf2.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf2", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf2.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf3", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf3", "Sound", 0x0, "C:\Windows\Media\Dtmf3.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf3", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf3.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf4", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf4", "Sound", 0x0, "C:\Windows\Media\Dtmf4.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf4", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf4.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf5", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf5", "Sound", 0x0, "C:\Windows\Media\Dtmf5.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf5", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf5.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf6", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf6", "Sound", 0x0, "C:\Windows\Media\Dtmf6.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf6", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf6.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf7", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf7", "Sound", 0x0, "C:\Windows\Media\Dtmf7.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf7", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf7.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf8", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf8", "Sound", 0x0, "C:\Windows\Media\Dtmf8.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf8", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf8.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf9", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf9", "Sound", 0x0, "C:\Windows\Media\Dtmf9.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf9", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmf9.wav"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf*", "Category", 0x0, "DTMF"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf*", "Sound", 0x0, "C:\Windows\Media\Dtmfast.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Dtmf*", "Sound", 0x0, "%%SystemRoot%%\Media\Dtmfast.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Ringback", "Category", 0x0, "InCall2"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Ringback", "Script", 0x0, "apw4r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Ringback", "Sound", 0x0, "C:\Windows\Media\ringback.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\Ringback", "Sound", 0x0, "%%SystemRoot%%\Media\ringback.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackAustralia", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackAustralia", "Script", 0x0, "apw0.2pw2r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackAustralia", "Sound", 0x0, "C:\Windows\Media\Ringback_400Hzx25Hz.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackAustralia", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_400Hzx25Hz.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackCzech", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackCzech", "Script", 0x0, "apw4r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackCzech", "Sound", 0x0, "C:\Windows\Media\Ringback_425Hz_1000ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackCzech", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_425Hz_1000ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackFrance", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackFrance", "Script", 0x0, "apw3.5r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackFrance", "Sound", 0x0, "C:\Windows\Media\Ringback_440Hz_1500ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackFrance", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_440Hz_1500ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackGermany", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackGermany", "Script", 0x0, "apw4r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackGermany", "Sound", 0x0, "C:\Windows\Media\Ringback_425Hz_1000ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackGermany", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_425Hz_1000ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackIndia", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackIndia", "Script", 0x0, "apw0.2pw2r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackIndia", "Sound", 0x0, "C:\Windows\Media\Ringback_425Hzx25Hz.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackIndia", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_425Hzx25Hz.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackIreland", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackIreland", "Script", 0x0, "apw0.2pw2r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackIreland", "Sound", 0x0, "C:\Windows\Media\Ringback_400Hz+450Hz.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackIreland", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_400Hz+450Hz.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackItaly", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackItaly", "Script", 0x0, "apw4r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackItaly", "Sound", 0x0, "C:\Windows\Media\Ringback_425Hz_1000ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackItaly", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_425Hz_1000ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackMexico", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackMexico", "Script", 0x0, "apw4r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackMexico", "Sound", 0x0, "C:\Windows\Media\Ringback_425Hz_1000ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackMexico", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_425Hz_1000ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackNewZealand", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackNewZealand", "Script", 0x0, "apw0.2pw2r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackNewZealand", "Sound", 0x0, "C:\Windows\Media\Ringback_400Hz+450Hz.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackNewZealand", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_400Hz+450Hz.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackQatar", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackQatar", "Script", 0x0, "apw0.2pw2r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackQatar", "Sound", 0x0, "C:\Windows\Media\Ringback_400Hz+450Hz.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackQatar", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_400Hz+450Hz.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackRomania", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackRomania", "Script", 0x0, "apw4.5r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackRomania", "Sound", 0x0, "C:\Windows\Media\Ringback_450Hz_1500ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackRomania", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_450Hz_1500ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackSpain", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackSpain", "Script", 0x0, "apw3.5r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackSpain", "Sound", 0x0, "C:\Windows\Media\Ringback_425Hz_1500ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackSpain", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_425Hz_1500ms.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackUK", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackUK", "Script", 0x0, "apw0.2pw2r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackUK", "Sound", 0x0, "C:\Windows\Media\Ringback_400Hz+450Hz.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackUK", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_400Hz+450Hz.wav"
 
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackUSA", "Category", 0x0, "InCall"
 HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackUSA", "Script", 0x0, "apw4r"
-HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackUSA", "Sound", 0x0, "C:\Windows\Media\Ringback_440Hz+480Hz_2000ms.wav"
+HKLM, "SOFTWARE\Microsoft\EventSounds\Sounds\RingbackUSA", "Sound", 0x0, "%%SystemRoot%%\Media\Ringback_440Hz+480Hz_2000ms.wav"
 
 
 [Strings]

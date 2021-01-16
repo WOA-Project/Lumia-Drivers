@@ -4,6 +4,7 @@ Class       = USB
 ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %ProviderName%
 DriverVer   = 01/01/2021,0.6.0000.0
+PnpLockdown = 1
 
 CatalogFile.NTARM   = hdmidpi.arm.cat
 CatalogFile.NTARM64 = hdmidpi.arm64.cat

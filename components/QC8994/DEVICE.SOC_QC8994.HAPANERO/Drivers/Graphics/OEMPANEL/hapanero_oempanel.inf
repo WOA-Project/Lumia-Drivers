@@ -21,6 +21,7 @@ ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %QC%
 ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD11E4B}
 DriverVer   = 03/24/2010, 07.14.2.8061
+PnpLockdown = 1
 
 CatalogFile.NTARM   = hapanero_oempanel.arm.cat
 CatalogFile.NTARM64 = hapanero_oempanel.arm64.cat

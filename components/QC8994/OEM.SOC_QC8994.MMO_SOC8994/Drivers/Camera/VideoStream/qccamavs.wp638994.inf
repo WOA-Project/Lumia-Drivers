@@ -22,6 +22,7 @@ Class       = CAMERA
 ClassGUID   = %CAMERA_DEVICES_CLSID%
 Provider    = %QC%
 DriverVer   = 06/07/2011,1.0.0.0
+PnpLockdown = 1
 
 Catalogfile.NTARM   = qccamavs8994.arm.cat
 Catalogfile.NTARM64 = qccamavs8994.arm64.cat

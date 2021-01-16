@@ -14,6 +14,7 @@ ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 provider    = %QCOM%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F4E}
 DriverVer   = 07/02/2015,1.0.1067.0
+PnpLockdown = 1
 
 CatalogFile.NTARM   = talkman_qcaud8994.arm.cat
 CatalogFile.NTARM64 = talkman_qcaud8994.arm64.cat

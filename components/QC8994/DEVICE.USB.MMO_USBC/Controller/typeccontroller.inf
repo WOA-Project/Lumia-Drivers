@@ -7,6 +7,7 @@ Class     = USB
 ClassGUID = {36FC9E60-C465-11CF-8056-444553540000}
 Provider  = %VendorName%
 DriverVer = 01/01/2021,2.00.00.01
+PnpLockdown = 1
 
 CatalogFile.NTARM   = typeccontroller.arm.cat
 CatalogFile.NTARM64 = typeccontroller.arm64.cat

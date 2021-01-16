@@ -8,6 +8,7 @@ ClassGUID   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
 DriverVer   = 01/01/2021,6.25.57.445
 CatalogFile = gripdet.cat
+PnpLockdown = 1
 
 [DestinationDirs]
 DefaultDestDir = 12

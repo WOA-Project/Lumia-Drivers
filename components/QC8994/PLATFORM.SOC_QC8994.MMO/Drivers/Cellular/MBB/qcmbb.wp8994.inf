@@ -21,6 +21,7 @@ Class       = Net
 ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0
+PnpLockdown = 1
 
 Catalogfile.NTARM   = qcmbb8994.arm.cat ;todo .cat file generated once driver passes WHQL
 Catalogfile.NTARM64 = qcmbb8994.arm64.cat ;todo .cat file generated once driver passes WHQL

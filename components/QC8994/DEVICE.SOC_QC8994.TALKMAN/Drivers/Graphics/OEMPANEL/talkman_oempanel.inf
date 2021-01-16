@@ -21,6 +21,7 @@ ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %SAMSUNG%
 ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD11E4B}
 DriverVer   = 09/05/2020, 8.0.0.0
+PnpLockdown = 1
 
 CatalogFile.NTARM   = talkman_oempanel.arm.cat
 CatalogFile.NTARM64 = talkman_oempanel.arm64.cat

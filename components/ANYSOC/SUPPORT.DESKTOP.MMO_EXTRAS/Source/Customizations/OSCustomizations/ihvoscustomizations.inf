@@ -8,6 +8,7 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 07/20/2020,1.0.0.1
+PnpLockdown = 1
 
 CatalogFile.NTARM   = ihvoscustomizations.arm.cat
 CatalogFile.NTARM64 = ihvoscustomizations.arm64.cat

@@ -8,6 +8,7 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = "LumiaWoA authors"
 DriverVer   = 11/20/2019,1.0.0.0
 CatalogFile = MTPOEM.cat
+PnpLockdown = 1
 
 [SourceDisksNames]
 0 = "Disk"
@@ -39,6 +40,6 @@ OEMAvatar_White.cab,,,0x00000800       ; COPYFLG_NODECOMP
 D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;WD)
 
 [MTP_Registry]
-HKLM, "SOFTWARE\Microsoft\MTP", "OEMAVATAR", 0x00000000, "C:\Windows\System32\OEMAvatar_Black.cab"
-HKLM, "SOFTWARE\Microsoft\MTP", "OEMICON", 0x00000000, "C:\Windows\System32\DevIcon_Black.ico"
+HKLM, "SOFTWARE\Microsoft\MTP", "OEMAVATAR", 0x00000000, "%%SystemRoot%%\System32\OEMAvatar_Black.cab"
+HKLM, "SOFTWARE\Microsoft\MTP", "OEMICON", 0x00000000, "%%SystemRoot%%\System32\DevIcon_Black.ico"
 

@@ -8,6 +8,7 @@ ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
 Provider    = %ProviderName%
 DriverVer   = 01/01/2021,12.20.34.54
 CatalogFile = attsdriver.cat
+PnpLockdown = 1
 
 [SourceDisksNames]
 3426 = windows cd

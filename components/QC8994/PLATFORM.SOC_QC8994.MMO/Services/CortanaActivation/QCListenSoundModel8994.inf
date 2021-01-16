@@ -16,6 +16,7 @@ Class       = SYSTEM
 ClassGUID   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.0.1
+PnpLockdown = 1
 
 CatalogFile.NTARM   = "QCListenSoundModel.arm.cat"
 CatalogFile.NTARM64 = "QCListenSoundModel.arm64.cat"

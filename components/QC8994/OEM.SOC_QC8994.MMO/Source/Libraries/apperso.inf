@@ -7,6 +7,7 @@ Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
 DriverVer   = 09/09/2015,1.0.1047.0000
+PnpLockdown = 1
 
 CatalogFile.NTARM   = APPerso.arm.cat
 CatalogFile.NTARM64 = APPerso.arm64.cat

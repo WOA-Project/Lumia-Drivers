@@ -20,6 +20,7 @@ Class       = Monitor
 ClassGuid   = {4d36e96e-e325-11ce-bfc1-08002be10318}
 Provider    = %VendorName%
 DriverVer   = 01/01/2021, 07.14.2.8061
+PnpLockdown = 1
 
 CatalogFile.NTARM   = oempanel.arm.cat
 CatalogFile.NTARM64 = oempanel.arm64.cat
@@ -66,9 +67,9 @@ HKLM, "SOFTWARE\Microsoft\AutoBrightness", "ABSMonitorControl", 0x10001, 0x1
 HKLM, "SOFTWARE\Microsoft\Shell\OEM\Brightness", "HideAutoBrightness", 0x10001, 0x0
 
 HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "Enabled", 0x10001, 0x1
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "ResourceFileName", 0x0, "C:\windows\System32\drivers\oempanel_etw.dll"
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "ResourceFileName", 0x0, "%%SystemRoot%%\System32\Drivers\oempanel_etw.dll"
 HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", , 0x0, "Nokia-OemPanel"
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "MessageFileName", 0x0, "C:\windows\System32\drivers\oempanel_etw.dll"
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "MessageFileName", 0x0, "%%SystemRoot%%\System32\Drivers\oempanel_etw.dll"
 
 HKLM, "SOFTWARE\OEM\Autobrightness", "ABSPercentIntensityMapping", 0x10000, "50","51"
 HKLM, "SOFTWARE\OEM\Autobrightness", "ABSRangeMilliLuxMapping", 0x10000, "1","MAX"

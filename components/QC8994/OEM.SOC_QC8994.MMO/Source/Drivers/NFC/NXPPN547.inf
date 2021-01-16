@@ -38,6 +38,7 @@ ClassGuid   = {5630831C-06C9-4856-B327-F5D32586E060}
 Provider    = %NXP%
 DriverVer   = 07/23/2013,1.0.0.0
 CatalogFile = NXPPN547.cat
+PnpLockdown = 1
 
 [SourceDisksNames]
 1 = %MediaDescription%

@@ -17,6 +17,7 @@ ClassGUID   = {4d36e968-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,11.18.1067.0000
 ;DriverVer.NTARM   = 07/02/2015,11.18.1078.0053
+PnpLockdown = 1
 
 CatalogFile.NTARM   = qcdx_ffu8994.arm.cat
 CatalogFile.NTARM64 = qcdx_ffu8994.arm64.cat
@@ -94,14 +95,12 @@ FeatureScore = D1
 CopyFiles    = QCDX.Files.NTarm_12,QCDX.Files.NTarm_11
 AddReg       = QCDX_SoftwareDeviceSettings, QCDX_MftRegistration
 AddProperty  = WDTFSOCDeviceCategory
-Reboot
 
 [QCDX_Inst_ARM64.NT]
 FeatureScore = D1
 CopyFiles    = QCDX.Files.NTarm_12,QCDX.Files.NTarm64_11,QCDX.Files.NTarm64_10
 AddReg       = QCDX_SoftwareDeviceSettings_64, QCDX_MftRegistration_64
 AddProperty  = WDTFSOCDeviceCategory
-Reboot
 
 [QCDX_MftRegistration]
 ; system32

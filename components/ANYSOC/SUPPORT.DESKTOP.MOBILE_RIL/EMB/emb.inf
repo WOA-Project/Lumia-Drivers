@@ -10,6 +10,7 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318};
 CatalogFile = emb.cat
 Provider    = %Msft%
 DriverVer   = 01/01/2020,10.0.14903.1000
+PnpLockdown = 1
 
 CatalogFile.NTARM   = emb.arm.cat
 CatalogFile.NTARM64 = emb.arm64.cat

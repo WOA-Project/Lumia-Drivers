@@ -7,6 +7,7 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 01/12/2021,1.0.0.0
+PnpLockdown = 1
 
 CatalogFile.NTARM   = hapanero_dsdt_test_sd_boot_update.arm.cat
 CatalogFile.NTARM64 = hapanero_dsdt_test_sd_boot_update.arm64.cat

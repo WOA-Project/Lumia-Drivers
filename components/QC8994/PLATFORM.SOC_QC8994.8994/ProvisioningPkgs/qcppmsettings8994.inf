@@ -7,6 +7,7 @@ Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QCOM%
 DriverVer   = 09/09/2015,1.0.1078.0046
+PnpLockdown = 1
 
 CatalogFile.NTARM   = qcppmsettings8994.arm.cat
 CatalogFile.NTARM64 = qcppmsettings8994.arm64.cat

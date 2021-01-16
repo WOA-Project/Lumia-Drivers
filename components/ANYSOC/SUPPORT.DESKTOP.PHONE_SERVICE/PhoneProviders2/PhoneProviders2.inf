@@ -8,6 +8,7 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 09/09/2016,10.0.19564.1005
 CatalogFile = PhoneProviders2.cat
+PnpLockdown = 1
 
 [DestinationDirs]
 ; 11 = system32
@@ -29,11 +30,11 @@ AddReg    = PhoneProviders.Reg
 
 [PhoneProviders.Reg]
 HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}               ,               , 0x00000002, "Cellular LineFactory"
-HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer32,               , 0x00000002, "%11%\PhoneProviders2.dll"
+HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer32,               , 0x00000002, "%%SystemRoot%%\System32\PhoneProviders2.dll"
 HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer32, ThreadingModel, 0x00000002, "Both"
 
 HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}               ,               , 0x00000002, "IMS LineFactory"
-HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32,               , 0x00000002, "%11%\PhoneProviders2.dll"
+HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32,               , 0x00000002, "%%SystemRoot%%\System32\PhoneProviders2.dll"
 HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32, ThreadingModel, 0x00000002, "Both"
 
 ; System32

@@ -19,6 +19,7 @@ Class=SYSTEM
 ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider=%QC%
 DriverVer=09/29/2011,11.45.15.875
+PnpLockdown = 1
 
 CatalogFile.NTARM   = qccamfrontsensor_secondarySMIApp8992.arm.cat
 CatalogFile.NTARM64 = qccamfrontsensor_secondarySMIApp8992.arm64.cat

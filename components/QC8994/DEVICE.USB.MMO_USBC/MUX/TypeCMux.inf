@@ -7,6 +7,7 @@ Class     = USB
 ClassGUID = {36FC9E60-C465-11CF-8056-444553540000}
 Provider  = %ProviderName%
 DriverVer = 01/01/2021,18.8.55.956
+PnpLockdown = 1
 
 CatalogFile.NTARM   = TypeCMux.arm.cat
 CatalogFile.NTARM64 = TypeCMux.arm64.cat

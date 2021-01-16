@@ -13,6 +13,7 @@ Class       = MEDIA
 ClassGUID   = {4d36e96c-e325-11ce-bfc1-08002be10318}
 provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0
+PnpLockdown = 1
 
 CatalogFile.NTARM   = qcaud8994.arm.cat
 CatalogFile.NTARM64 = qcaud8994.arm64.cat

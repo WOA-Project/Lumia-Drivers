@@ -16,12 +16,13 @@ ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %ManufacturerName%
 ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD22E4B}
 DriverVer   = 06/08/2016,1.0.1078.0053
+PnpLockdown = 1
 
 CatalogFile.NTARM   = talkman_alsprxalphamon.arm.cat
 CatalogFile.NTARM64 = talkman_alsprxalphamon.arm64.cat
 
 [Manufacturer]
-ManufacturerName% = DeviceExtensions, NTARM, NTARM64
+%ManufacturerName% = DeviceExtensions, NTARM, NTARM64
 
 [DeviceExtensions.NTARM]
 %DevDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1016
