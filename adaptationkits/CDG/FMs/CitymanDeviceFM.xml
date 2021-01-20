@@ -25,6 +25,8 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC8994.CITYMAN\Drivers\Audio\AUDDEV" Name="cityman_qcauddev_wp8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC8994.CITYMAN\Drivers\Battery" Name="cityman_qcbattmngr8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC8994.CITYMAN\Drivers\Bluetooth" Name="cityman_qcbtuart8994.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC8994.CITYMAN\Drivers\Graphics\DX" Name="cityman_qcdx_ffu8994.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC8994.CITYMAN\Drivers\Graphics\OEMPANEL" Name="cityman_oempanel.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC8994.CITYMAN\Drivers\Sensors" Name="cityman_alsprxalphamon.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC8994.CITYMAN\Drivers\Subsystems" Name="qcsubsys_ffu8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC8994.CITYMAN\Drivers\Touch" Name="cityman_SynapticsTouch.inf" />
@@ -57,6 +59,7 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO\Source\Services\NCSd" Name="NcsdSvc.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO\Source\Services\OEMSvcHost" Name="OEMServiceHost.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO\Source\Settings" Name="emmchighspeed.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_GRAPHICS\Source\Graphics" Name="oempanel.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\Authentication" Name="CameraAuthDriver_arm.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\Core" Name="qccamcore8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\Flash\Rear" Name="qccamflash8994.inf" />
@@ -70,6 +73,7 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\Sensors\Rear" Name="qccamrearsensor_primarySMIApp8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\Thermal" Name="icaros_cam_esp.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\Thermal" Name="icaros_cam_esp_thermal.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\VideoStream" Name="qccamavs.wp638994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.8994\ProvisioningPkgs" Name="qcppmsettings8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.8994_MINIMAL\Drivers\SOC\PowerManagement" Name="QCPEP8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\Audio\ResourceConstraints" Name="qcaudresconst8994.inf" />
@@ -88,13 +92,13 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\Cellular\RevRmNet" Name="qcrevrmnet.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\Cellular\RmNetBridge" Name="qcrmnetbridge8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\FMRadio" Name="qcfmsltransport8994.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\Graphics" Name="qcdx_ffu8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\Null" Name="NullResources.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\Null" Name="qcnull.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\USBFn" Name="QcUsbFnSsFilter8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\USBFn" Name="ufnserialcomposite.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\USBHost" Name="qcxhcifilter8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\VibrationMotor" Name="qchwnhaptics8994.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Drivers\WLAN" Name="qcwlanfw8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Extensions" Name="qcadsprpcextension8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Extensions" Name="qcamssextension8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE\Source\Extensions" Name="qcfmsltransportextension8994.inf" />
@@ -123,7 +127,7 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE_MINIMAL\Drivers\SOC\Crypto" Name="qcbcryptcipherkm8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE_MINIMAL\Drivers\SOC\Diagnostic" Name="qcqdss8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE_MINIMAL\Drivers\SOC\GPIO" Name="qcgpio.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE_MINIMAL_WCOS\Drivers\SOC\HexagonLoader" Name="qcpil8994.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE_MINIMAL\Drivers\SOC\HexagonLoader" Name="qcpil8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE_MINIMAL\Drivers\SOC\I2C" Name="qci2c8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE_MINIMAL\Drivers\SOC\LED" Name="qchwnled8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.BASE_MINIMAL\Drivers\SOC\PMIC" Name="qcpmic3p8994.inf" />
@@ -159,19 +163,24 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Drivers\Cellular\Qmux" Name="qcqmux_WP8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Drivers\WLAN" Name="qcwlan8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Services\CortanaActivation" Name="QCListenSoundModel8994.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.BASE\Settings\Version" Name="phonereleaseversion.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.BASE\Signature" Name="desktopsignature.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\MTP" Name="MTPOEM.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileBridgeSvc.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_BRIDGE\Tools\MobileBridge" Name="MobileBridge.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Libraries\ApplicationChambers" Name="ApplicationChambers.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Libraries\Cellular" Name="cmnet.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Libraries\General" Name="luvc120.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Libraries\General" Name="msvc140.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\System" Name="interactiveservices.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\System" Name="phonent.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\USBFn" Name="usbdefaults.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.BASE\Settings\Version" Name="phonereleaseversion.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.BASE\Signature" Name="desktopsignature.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileBridgeSvc.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Libraries\ApplicationChambers" Name="ApplicationChambers.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Libraries\General" Name="luvc120.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Libraries\General" Name="msvc140.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Settings\System" Name="interactiveservices.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Settings\System" Name="phonent.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Settings\System" Name="ResourceManager.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Settings\USBFn" Name="usbdefaults.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_RIL\EMB" Name="emb.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_RIL\PhoneInfo" Name="phoneinfo.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_RIL\RILAdaptation" Name="riladaptationsvc.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_RIL\RILSecurityManagerSettings" Name="RILSecurityManagerSettings.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.PHONE_SERVICE\CellularLineResources" Name="CellularLineResources.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.PHONE_SERVICE\PhoneProviders2" Name="PhoneProviders2.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.PLATFORM_EXEMPT_CITYMAN" Name="PlatformExemptCityman.inf" />
     </BaseDriverPackages> 
   </Drivers>
   <OEMDevicePlatformPackages>
