@@ -1,3 +1,5 @@
+WARNING: guide currently obsolete
+
 1) place this package in the MSPackages root folder
 2) adjust paths in OEMInput as needed
 3) run build.cmd

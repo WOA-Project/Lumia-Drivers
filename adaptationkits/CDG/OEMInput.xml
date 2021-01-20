@@ -17,7 +17,6 @@
     <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WindowsCoreNonProductionFM.xml</AdditionalFM>
     <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WindowsCoreInternalOnlyFM.xml</AdditionalFM>
     <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCAppsFM.xml</AdditionalFM>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCEmulatorFM.xml</AdditionalFM>
     <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCSelfhostFM.xml</AdditionalFM>
     <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCNonProductionFM.xml</AdditionalFM>
     <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WCOSCDGFM.xml</AdditionalFM>
@@ -30,19 +29,14 @@
       <Feature>ALLOW_CONNECTEDSTANDBY</Feature>
       <Feature>CAD_CHARGING</Feature>
       <Feature>CONTAINERHOST_TESTTOOLS</Feature>
-      <Feature>EMULATOR_DEVTOOLS_ON</Feature>
       <Feature>INPUT_COMPANION_COMPOSER</Feature>
-      <Feature>KDUSB_ON</Feature>
-      <Feature>MANUFACTURING_ENABLEBASICDISPLAYFALLBACK</Feature>
       <Feature>MODERNPC_POLICY</Feature>
       <Feature>RESOLUTION_1440X2560</Feature>
-      <Feature>SKIP_INTERACTIVE_OOBE</Feature>
-      <Feature>STATESEPARATION_DEVMODE</Feature>
+      <Feature>STATESEPARATION_ON</Feature>
       <Feature>STATESEPARATION_TALKMAN_EXEMPT</Feature>
       <Feature>WCOS_ACCESSIBLITY_NARRATOR</Feature>
       <Feature>WCOS_APP_CENTENNIALRUNTIME</Feature>
       <Feature>WCOS_APP_CONTAINERAPP</Feature>
-      <Feature>WCOS_APP_WIN32SUPPORT_ARGON</Feature>
       <Feature>WCOS_AUDIO_MMESUPPORT</Feature>
       <Feature>WCOS_CLOUD_FILES</Feature>
       <Feature>WCOS_CONTAINERS</Feature>
