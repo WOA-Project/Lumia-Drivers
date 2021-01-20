@@ -22,7 +22,7 @@ CatalogFile.NTARM   = qcshutdownsvc8994.arm.cat
 CatalogFile.NTARM64 = qcshutdownsvc8994.arm64.cat
 
 [DestinationDirs]
-ShutdownSvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
+ShutdownSvc.Files = 13 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksNames]
 0 = "Disk"
@@ -44,11 +44,11 @@ QcShutdownSvc8994.dll = 0,arm64,
 
 [ShutdownSvc.NTARM]
 CopyFiles = ShutdownSvc.Files
-AddReg    = ShutdownSvc_Reg
+AddReg    = ShutdownSvc_Reg, ShutdownSvc_path_Reg
 
 [ShutdownSvc.NTARM64]
 CopyFiles = ShutdownSvc.Files
-AddReg    = ShutdownSvc_Reg
+AddReg    = ShutdownSvc_Reg, ShutdownSvc_path_64_Reg
 
 [ShutdownSvc.NTARM.Services]
 AddService = QcShutdownSvc,0x00000000,ShutdownSvc_Service,
@@ -91,7 +91,6 @@ HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Start", 0x00010001, 0x0000
 HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Description", 0x00000000, "QC SOC Shutdown Service"
 HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ImagePath", 0x00020000, "%%SystemRoot%%\System32\oemsvchost.exe -k QcShutdownSvcGroup"
 
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%%SystemRoot%%\System32\QcShutdownSvc8994.dll"
 HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceMain", 0x00000000, "ServiceMain"
 HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDllUnloadOnStop", 0x00010001, 0x00000001
 
@@ -99,6 +98,12 @@ HKLM, "SYSTEM\CurrentControlSet\Control\ManufacturingMode\Default\Services\QcShu
 HKLM, "SYSTEM\CurrentControlSet\Control\ManufacturingMode\factory\Services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
 
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", QcShutdownSvcGroup, %REG_MULTI_SZ% , "QcShutdownSvc"
+
+[ShutdownSvc_path_Reg]
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%13%\arm\QcShutdownSvc8994.dll"
+
+[ShutdownSvc_path_64_Reg]
+HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%13%\arm64\QcShutdownSvc8994.dll"
 
 [ShutdownSvc.Files]
 QcShutdownSvc8994.dll

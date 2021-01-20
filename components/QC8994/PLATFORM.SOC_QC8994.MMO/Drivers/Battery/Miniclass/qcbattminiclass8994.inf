@@ -31,7 +31,7 @@ qcbattminiclass8994.sys = 1,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -48,8 +48,8 @@ ExcludeFromSelect = *
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM24C3
 
 [Qualcomm.NTARM64]
-%DeviceDesc% = PMIC_Inst,ACPI\QCOM2452
-%DeviceDesc% = PMIC_Inst,ACPI\QCOM24C3
+%DeviceDesc% = PMIC_64_Inst,ACPI\QCOM2452
+%DeviceDesc% = PMIC_64_Inst,ACPI\QCOM24C3
 
 [PMIC_Inst.NT]
 Copyfiles   = PMICCopyFiles
@@ -58,6 +58,21 @@ Reboot
 
 [PMIC_Inst.NT.HW]
 Addreg = BMINIACL
+
+[PMIC_Inst.NT.Services]
+AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
+
+
+[PMIC_64_Inst.NT]
+Copyfiles   = PMICCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[PMIC_64_Inst.NT.HW]
+Addreg = BMINIACL
+
+[PMIC_64_Inst.NT.Services]
+AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_64_Service_Inst
 
 [BMINIACL]
 HKR, , DeviceCharacteristics, 0x10001, 0x100
@@ -68,15 +83,19 @@ qcbattminiclass8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
 
-[PMIC_Inst.NT.Services]
-AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
-
 [PMIC_Service_Inst]
 DisplayName   = %PMICBatteryMiniclass.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %12%\qcbattminiclass8994.sys
+ServiceBinary = %13%\arm\qcbattminiclass8994.sys
+
+[PMIC_64_Service_Inst]
+DisplayName   = %PMICBatteryMiniclass.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm64\qcbattminiclass8994.sys
 
 [Strings]
 ;Localizable Strings

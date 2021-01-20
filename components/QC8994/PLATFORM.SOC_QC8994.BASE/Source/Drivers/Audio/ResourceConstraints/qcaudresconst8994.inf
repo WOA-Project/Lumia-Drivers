@@ -39,7 +39,7 @@ Addreg    = audresconstReg
 CopyFiles = AudioResourceConstraints.CopyList
 
 [DestinationDirs]
-AudioResourceConstraints.CopyList = 11; windows\system32
+AudioResourceConstraints.CopyList = 13; driverStore
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -51,7 +51,7 @@ AudioResourceConstraints_8994.xml = 1
 AudioResourceConstraints_8994.xml
 
 [audresconstReg]
-HKLM, SYSTEM\MultiMedia\DeviceCapability\ResourceSettings\XMLConfig, AudioResourceConstraintExamplePath, , "%%SystemRoot%%\System32\AudioResourceConstraints_8994.xml"
+HKLM, SYSTEM\MultiMedia\DeviceCapability\ResourceSettings\XMLConfig, AudioResourceConstraintExamplePath, , "%13%\AudioResourceConstraints_8994.xml"
 
 [Strings]
 REG_SZ                 = 0x00000000

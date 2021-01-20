@@ -21,7 +21,7 @@ CatalogFile.NTARM = qcfmsltransport8994.arm.cat
 CatalogFile.NTARM64 = qcfmsltransport8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 
 [SourceDisksNames]
@@ -48,28 +48,40 @@ ExcludeFromSelect = *
 %Bus.DeviceDesc% = Bus_Vendor, ACPI\QCOM24B1
 
 [VendorModels.NTARM64]
-%Bus.DeviceDesc% = Bus_Vendor, ACPI\QCOM24B1
+%Bus.DeviceDesc% = Bus_64_Vendor, ACPI\QCOM24B1
 
 [Bus_Vendor.NT]
 CopyFiles   = Bus.CopyFiles
 AddProperty = WDTFSOCDeviceCategory
+
+[Bus_Vendor.NT.HW]
+AddReg = Bus_Vendor_NT.AddReg
+
+;-------------- Service installation
+[Bus_Vendor.NT.Services]
+AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
+
+
+[Bus_64_Vendor.NT]
+CopyFiles   = Bus.CopyFiles
+AddProperty = WDTFSOCDeviceCategory
+
+[Bus_64_Vendor.NT.HW]
+AddReg = Bus_Vendor_NT.AddReg
+
+;-------------- Service installation
+[Bus_64_Vendor.NT.Services]
+AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_64_Service_Inst
 
 [WDTFSOCDeviceCategory]
 
 [Bus.CopyFiles]
 qcfmsltransport8994.sys
 
-[Bus_Vendor.NT.HW]
-AddReg = Bus_Vendor.NT.AddReg
-
-[Bus_Vendor.NT.AddReg]
+[Bus_Vendor_NT.AddReg]
 ; Reference: http://msdn.microsoft.com/en-us/library/ff546320.aspx
 HKR, , DeviceCharacteristics, 0x10001, 0x0100      ; Use same security checks on relative opens
 HKR, , Exclusive            , 0x10001, 0x1      ; exlusive device, only one handle can be opened
-
-;-------------- Service installation
-[Bus_Vendor.NT.Services]
-AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
 
 ; -------------- statbus driver install sections
 [Bus_Service_Inst]
@@ -77,7 +89,15 @@ DisplayName   = %Bus.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcfmsltransport8994.sys
+ServiceBinary = %13%\arm\qcfmsltransport8994.sys
+AddReg        = WPPReg
+
+[Bus_64_Service_Inst]
+DisplayName   = %Bus.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcfmsltransport8994.sys
 AddReg        = WPPReg
 
 [WPPReg]

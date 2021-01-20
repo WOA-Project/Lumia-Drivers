@@ -34,7 +34,7 @@ qcauddev8994.sys = 1,arm
 qcauddev8994.sys = 1,arm64
 
 [DestinationDirs]
-Drivers_Dir = 12
+Drivers_Dir = 13
 
 ;*****************************************
 ; Audio Device Driver Install Section
@@ -48,23 +48,40 @@ Drivers_Dir = 12
 %MBHC.DeviceDesc% = MBHC       ,AUDD\QCOM2468
 
 [Standard.NTARM64]
-%AUDD.DeviceDesc% = AUDIODEVICE,ADCM\QCOM242E
-%MBHC.DeviceDesc% = MBHC       ,AUDD\QCOM2468
+%AUDD.DeviceDesc% = AUDIODEVICE_64,ADCM\QCOM242E
+%MBHC.DeviceDesc% = MBHC_64       ,AUDD\QCOM2468
 
 [AUDIODEVICE.NT]
 CopyFiles = Drivers_Dir
 
-[MBHC.NT]
+[AUDIODEVICE.NT.HW]
+AddReg = AUDDSpkrProtReg,CPEPathReg
 
-[Drivers_Dir]
-qcauddev8994.sys
-
-;-------------- Service installation
 [AUDIODEVICE.NT.Services]
 AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
 
+[MBHC.NT]
+
 [MBHC.NT.Services]
 AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
+
+
+[AUDIODEVICE_64.NT]
+CopyFiles = Drivers_Dir
+
+[AUDIODEVICE_64.NT.HW]
+AddReg = AUDDSpkrProtReg,CPEPathReg
+
+[AUDIODEVICE_64.NT.Services]
+AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_64_Service_Inst
+
+[MBHC_64.NT]
+
+[MBHC_64.NT.Services]
+AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_64_Service_Inst
+
+[Drivers_Dir]
+qcauddev8994.sys
 
 ; -------------- AUDD driver install sections
 [AUDD_Service_Inst]
@@ -72,12 +89,16 @@ DisplayName    = %AUDD.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qcauddev8994.sys
-Tag            = 10
+ServiceBinary  = %13%\arm\qcauddev8994.sys
 LoadOrderGroup = Extended Base
 
-[AUDIODEVICE.NT.HW]
-AddReg = AUDDSpkrProtReg,CPEPathReg
+[AUDD_64_Service_Inst]
+DisplayName    = %AUDD.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qcauddev8994.sys
+LoadOrderGroup = Extended Base
 
 [AUDDSpkrProtReg]
 HKR, Parameters, "SpeakerID0", %REG_DWORD%, 0x7fffffff

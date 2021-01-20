@@ -23,7 +23,7 @@ CatalogFile.NTARM   = revrmnet8994.arm.cat
 CatalogFile.NTARM64 = revrmnet8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskId1%,,
@@ -41,7 +41,7 @@ qcrevrmnet.sys = 1,arm64,
 %QCrevrmnet.DeviceDesc% = QCrevrmnet_Device, ACPI\QCOM2498
 
 [QCOM.NTARM64]
-%QCrevrmnet.DeviceDesc% = QCrevrmnet_Device, ACPI\QCOM2498
+%QCrevrmnet.DeviceDesc% = QCrevrmnet_64_Device, ACPI\QCOM2498
 
 ;-------------------------------------------------------------------------
 ; Installation Section
@@ -50,6 +50,29 @@ qcrevrmnet.sys = 1,arm64,
 CopyFiles       = Drivers_Dir
 AddReg          = Inst_Ndi
 Characteristics = 0x0
+
+;-------------------------------------------------------------------------
+; Service installation support
+;-------------------------------------------------------------------------
+[QCrevrmnet_Device.Services]
+AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst
+
+
+;-------------------------------------------------------------------------
+; Installation Section
+;-------------------------------------------------------------------------
+[QCrevrmnet_64_Device]
+CopyFiles       = Drivers_Dir
+AddReg          = Inst_Ndi
+Characteristics = 0x0
+
+;-------------------------------------------------------------------------
+; Service installation support
+;-------------------------------------------------------------------------
+[QCrevrmnet_64_Device.Services]
+AddService = QCrevrmnet,2,QCrevrmnet_64_Service_Inst
+
+
 
 [Drivers_Dir]
 qcrevrmnet.sys
@@ -63,20 +86,22 @@ HKR, Ndi, Service ,  ,  "QCrevrmnet"
 HKR, Ndi, HelpText,  ,  %revrmnet_HelpText%
 
 
-;-------------------------------------------------------------------------
-; Service installation support
-;-------------------------------------------------------------------------
-[QCrevrmnet_Device.Services]
-AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst
-
 [QCrevrmnet_Service_Inst]
 DisplayName    = %revrmnet.SVCDESC%
 ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
 StartType      = 3 ;AUTO
 ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qcrevrmnet.sys
+ServiceBinary  = %13%\arm\qcrevrmnet.sys
 LoadOrderGroup = NDIS
-Tag            = 13
+Description    = %revrmnet.SVCDESC%
+
+[QCrevrmnet_64_Service_Inst]
+DisplayName    = %revrmnet.SVCDESC%
+ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
+StartType      = 3 ;AUTO
+ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qcrevrmnet.sys
+LoadOrderGroup = NDIS
 Description    = %revrmnet.SVCDESC%
 
 [Strings]

@@ -31,7 +31,7 @@ qcbattmngr8994.sys = 1,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -47,7 +47,7 @@ ExcludeFromSelect = *
 %DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2453
 
 [Qualcomm.NTARM64]
-%DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2453
+%DeviceDesc% = BATTMNGR_64_Inst,ACPI\QCOM2453
 
 [BATTMNGR_Inst.NT]
 Copyfiles   = BATTMNGRCopyFiles
@@ -56,6 +56,21 @@ Reboot
 
 [BATTMNGR_Inst.NT.HW]
 Addreg = BMACL
+
+[BATTMNGR_Inst.NT.Services]
+AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst
+
+
+[BATTMNGR_64_Inst.NT]
+Copyfiles   = BATTMNGRCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[BATTMNGR_64_Inst.NT.HW]
+Addreg = BMACL
+
+[BATTMNGR_64_Inst.NT.Services]
+AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_64_Service_Inst
 
 [BMACL]
 HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
@@ -66,15 +81,19 @@ qcbattmngr8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD},2,7,,0
 
-[BATTMNGR_Inst.NT.Services]
-AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst
-
 [BATTMNGR_Service_Inst]
 DisplayName   = %BATTMNGR.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %12%\qcbattmngr8994.sys
+ServiceBinary = %13%\arm\qcbattmngr8994.sys
+
+[BATTMNGR_64_Service_Inst]
+DisplayName   = %BATTMNGR.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm64\qcbattmngr8994.sys
 
 [Strings]
 ;Localizable Strings

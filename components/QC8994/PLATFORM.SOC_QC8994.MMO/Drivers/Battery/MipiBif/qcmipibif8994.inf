@@ -33,7 +33,7 @@ qcmipibif8994.sys = 3426,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -49,25 +49,39 @@ ExcludeFromSelect = *
 %DeviceDesc% = MipiBif_Inst,ACPI\QCOM2459
 
 [Qualcomm.NTARM64]
-%DeviceDesc% = MipiBif_Inst,ACPI\QCOM2459
+%DeviceDesc% = MipiBif_64_Inst,ACPI\QCOM2459
 
 [MipiBif_Inst.NT]
 Copyfiles = MipiBifCopyFiles
 
-[MipiBifCopyFiles]
-qcmipibif8994.sys, , , 0x100,
-
 [MipiBif_Inst.NT.Services]
 AddService = qcmipibif,%SPSVCINST_ASSOCSERVICE%,MipiBif_Service_Inst
+
+
+[MipiBif_64_Inst.NT]
+Copyfiles = MipiBifCopyFiles
+
+[MipiBif_64_Inst.NT.Services]
+AddService = qcmipibif,%SPSVCINST_ASSOCSERVICE%,MipiBif_64_Service_Inst
+
+[MipiBifCopyFiles]
+qcmipibif8994.sys, , , 0x100,
 
 [MipiBif_Service_Inst]
 DisplayName    = %%MipiBif.SvcDesc%%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %12%\qcmipibif8994.sys
+ServiceBinary  = %13%\arm\qcmipibif8994.sys
 LoadOrderGroup = Extended Base
-Tag            = 9
+
+[MipiBif_64_Service_Inst]
+DisplayName    = %%MipiBif.SvcDesc%%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm64\qcmipibif8994.sys
+LoadOrderGroup = Extended Base
 
 [Strings]
 ;Localizable Strings

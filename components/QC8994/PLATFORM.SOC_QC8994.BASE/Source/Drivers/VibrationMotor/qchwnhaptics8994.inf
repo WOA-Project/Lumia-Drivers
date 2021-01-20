@@ -35,7 +35,7 @@ qchwnhaptics8994.sys = 1,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -51,17 +51,48 @@ ExcludeFromSelect = *
 %hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
 
 [Qualcomm.NTARM64]
-%hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
+%hwnhaptics.DeviceDesc% = hwnhaptics_64_Device, ACPI\QCOM24A4
 
 [hwnhaptics_Device.NT]
 Copyfiles = hwnhapticsCopyFiles
 
-[hwnhapticsCopyFiles]
-qchwnhaptics8994.sys, , , 0x100,
-
 [hwnhaptics_Device.NT.HW]
 AddReg = DriverInst.NT.HW.AddReg
 AddReg = Configuration.NT.HW.AddReg
+
+[hwnhaptics_Device.NT.Services]
+AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst
+
+
+[hwnhaptics_64_Device.NT]
+Copyfiles = hwnhapticsCopyFiles
+
+[hwnhaptics_64_Device.NT.HW]
+AddReg = DriverInst.NT.HW.AddReg
+AddReg = Configuration.NT.HW.AddReg
+
+[hwnhaptics_64_Device.NT.Services]
+AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_64_Service_Inst
+
+
+[hwnhaptics_Service_Inst]
+DisplayName    = %hwnhaptics.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm\qchwnhaptics8994.sys
+LoadOrderGroup = Extended Base
+
+[hwnhaptics_64_Service_Inst]
+DisplayName    = %hwnhaptics.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm64\qchwnhaptics8994.sys
+LoadOrderGroup = Extended Base
+
+[hwnhapticsCopyFiles]
+qchwnhaptics8994.sys, , , 0x100,
 
 [DriverInst.NT.HW.AddReg]
 HKR, Mode, "AutoResCalibMode", %REG_SZ%, "2"
@@ -87,18 +118,6 @@ HKR, %Configuration%, "DirectModeAccelerationDuration", %REG_DWORD%,  6
 HKR, %Configuration%, "HapticsSource"                 , %REG_DWORD%,  0
 HKR, %Configuration%, "HapticsTrigger"                , %REG_DWORD%,  0
 HKR, %Configuration%, "PlayRateCode"                  , %REG_DWORD%,  0x3CF
-
-[hwnhaptics_Device.NT.Services]
-AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst
-
-[hwnhaptics_Service_Inst]
-DisplayName    = %hwnhaptics.SVCDESC%
-ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_DEMAND_START%
-ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %12%\qchwnhaptics8994.sys
-LoadOrderGroup = Extended Base
-Tag            = 10
 
 [Strings]
 QC                     = "Qualcomm Technologies Inc"

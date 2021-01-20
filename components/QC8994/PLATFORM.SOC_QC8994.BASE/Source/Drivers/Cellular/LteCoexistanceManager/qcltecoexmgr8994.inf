@@ -16,7 +16,7 @@ CatalogFile.NTARM   = QcLteCoexMgr8994.arm.cat
 CatalogFile.NTARM64 = QcLteCoexMgr8994.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir_12 = 12
+Drivers_Dir_12 = 13
 
 ; ================= Class section =====================
 
@@ -40,17 +40,29 @@ QcLteCoexMgr8994.sys = 1,arm64
 %COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
 
 [Standard.NTARM64]
-%COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
+%COEX.DeviceDesc% = COEX_64_Device, ACPI\QCOM2487
 
 [COEX_Device.NT]
 CopyFiles = Drivers_Dir_12
 
-[Drivers_Dir_12]
-QcLteCoexMgr8994.sys
-
-;-------------- Service installation
 [COEX_Device.NT.Services]
 AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst
+
+[COEX_Device.NT.Wdf]
+KmdfService = COEX, COEX_wdfsect
+
+
+[COEX_64_Device.NT]
+CopyFiles = Drivers_Dir_12
+
+[COEX_64_Device.NT.Services]
+AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_64_Service_Inst
+
+[COEX_64_Device.NT.Wdf]
+KmdfService = COEX, COEX_wdfsect
+
+[Drivers_Dir_12]
+QcLteCoexMgr8994.sys
 
 ; -------------- COEX driver install sections
 [COEX_Service_Inst]
@@ -58,10 +70,14 @@ DisplayName   = %COEX.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 1               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\QcLteCoexMgr8994.sys
+ServiceBinary = %13%\arm\QcLteCoexMgr8994.sys
 
-[COEX_Device.NT.Wdf]
-KmdfService = COEX, COEX_wdfsect
+[COEX_64_Service_Inst]
+DisplayName   = %COEX.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 1               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\QcLteCoexMgr8994.sys
 
 [COEX_wdfsect]
 KmdfLibraryVersion = 1.15

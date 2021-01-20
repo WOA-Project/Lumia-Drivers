@@ -22,7 +22,7 @@ CatalogFile.NTARM   = qcrmnetbridge8994.arm.cat
 CatalogFile.NTARM64 = qcrmnetbridge8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -40,18 +40,31 @@ qcrmnetbridge8994.sys = 1,arm64,
 %RMNBRG.DeviceDesc% = RMNBRG_Device, ACPI\QCOM2148
 
 [QCOM.NTARM64]
-%RMNBRG.DeviceDesc% = RMNBRG_Device, ACPI\QCOM2148
+%RMNBRG.DeviceDesc% = RMNBRG_64_Device, ACPI\QCOM2148
 
 [RMNBRG_Device.NT]
 CopyFiles = Drivers_Dir
 
-[Drivers_Dir]
-qcrmnetbridge8994.sys
-
-
 ;-------------- Service installation
 [RMNBRG_Device.NT.Services]
 AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst
+
+[RMNBRG_Device.NT.Wdf]
+KmdfService = RMNBRG, RMNBRG_wdfsect
+
+
+[RMNBRG_64_Device.NT]
+CopyFiles = Drivers_Dir
+
+;-------------- Service installation
+[RMNBRG_64_Device.NT.Services]
+AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_64_Service_Inst
+
+[RMNBRG_64_Device.NT.Wdf]
+KmdfService = RMNBRG, RMNBRG_wdfsect
+
+[Drivers_Dir]
+qcrmnetbridge8994.sys
 
 ; -------------- rmnetbridge driver install sections
 [RMNBRG_Service_Inst]
@@ -59,12 +72,17 @@ DisplayName    = %RMNBRG.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qcrmnetbridge8994.sys
+ServiceBinary  = %13%\arm\qcrmnetbridge8994.sys
 LoadOrderGroup = Extended Base
-Tag            = 10
 
-[RMNBRG_Device.NT.Wdf]
-KmdfService = RMNBRG, RMNBRG_wdfsect
+[RMNBRG_64_Service_Inst]
+DisplayName    = %RMNBRG.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qcrmnetbridge8994.sys
+LoadOrderGroup = Extended Base
+
 [RMNBRG_wdfsect]
 KmdfLibraryVersion = 1.15
 

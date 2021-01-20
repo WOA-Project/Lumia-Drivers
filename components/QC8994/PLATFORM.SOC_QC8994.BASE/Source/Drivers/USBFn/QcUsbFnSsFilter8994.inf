@@ -20,8 +20,8 @@ CatalogFile.NTARM64 = QcUsbFnSsFilter8994.arm64.cat
 ExcludeFromSelect = *
 
 [DestinationDirs]
-QcUsbFnSSFilter.CopyFile = 12
-DefaultDestDir           = 12
+QcUsbFnSSFilter.CopyFile = 13
+DefaultDestDir           = 13
 
 ; ================= Class section =====================
 
@@ -46,7 +46,7 @@ QcUsbFnSsFilter8994.sys = 1,arm64,
 ;%Standard.DeviceDesc%=QcUsbFnSSFilter, ACPI\QCOM24B6     ;Standalone mode
 
 [Standard.NTARM64]
-%Standard.DeviceDesc%=QcUsbFnSSFilter, URS\QCOM24B6&FUNCTION ;URS mode
+%Standard.DeviceDesc%=QcUsbFnSSFilter_64, URS\QCOM24B6&FUNCTION ;URS mode
 ;%Standard.DeviceDesc%=QcUsbFnSSFilter, ACPI\QCOM24B6     ;Standalone mode
 
 [QcUsbFnSSFilter.NT]
@@ -69,6 +69,27 @@ Include    = ufxsynopsys.inf
 Needs      = ufxsynopsys.Install_Qualcomm.NT.HW
 AddReg     = QcUsbFnSSFilter_AddReg
 
+
+[QcUsbFnSSFilter_64.NT]
+;Include MS driver
+Include   = ufxsynopsys.inf
+Needs     = ufxsynopsys.Install_Qualcomm.NT
+CopyFiles = QcUsbFnSSFilter.CopyFile
+
+FeatureScore=80 ; Override feature score for PnP to pick QC filter driver
+
+[QcUsbFnSSFilter_64.NT.Services]
+;Include MS driver
+Include    = ufxsynopsys.inf
+Needs      = ufxsynopsys.Install_Qualcomm.NT.Services
+AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_64_Service_Inst
+
+[QcUsbFnSSFilter_64.NT.HW]
+;Include MS driver
+Include    = ufxsynopsys.inf
+Needs      = ufxsynopsys.Install_Qualcomm.NT.HW
+AddReg     = QcUsbFnSSFilter_AddReg
+
 [QcUsbFnSSFilter.CopyFile]
 QcUsbFnSsFilter8994.sys
 
@@ -82,7 +103,15 @@ ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 0               ; SERVICE_BOOT_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
-ServiceBinary = %12%\QcUsbFnSsFilter8994.sys
+ServiceBinary = %13%\arm\QcUsbFnSsFilter8994.sys
+
+[QcUsbFnSSFilter_64_Service_Inst]
+DisplayName   = %Filter.SvcDesc%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 0               ; SERVICE_BOOT_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
+ServiceBinary = %13%\arm64\QcUsbFnSsFilter8994.sys
 
 [Strings]
 Company             = "Qualcomm Technologies, Inc."

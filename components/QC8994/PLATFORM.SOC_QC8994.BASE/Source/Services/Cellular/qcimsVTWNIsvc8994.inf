@@ -13,7 +13,7 @@ CatalogFile.NTARM   = qcimsVTWNIsvc8994.arm.cat
 CatalogFile.NTARM64 = qcimsVTWNIsvc8994.arm64.cat
 
 [DestinationDirs]
-qcimsVTWNIsvc8994.Files = 11 ; \system32 directory on Windows 2000 and later versions
+qcimsVTWNIsvc8994.Files = 13 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksNames]
 0 = "Disk"
@@ -35,11 +35,11 @@ qcimsVTWNIsvc8994.dll = 0,arm64,
 
 [IMSVTWNI.NTARM]
 CopyFiles = qcimsVTWNIsvc8994.Files
-AddReg    = qcimsVTWNIsvc8994_Reg
+AddReg    = qcimsVTWNIsvc8994_Reg, qcimsVTWNIsvc8994_path_Reg
 
 [IMSVTWNI.NTARM64]
 CopyFiles = qcimsVTWNIsvc8994.Files
-AddReg    = qcimsVTWNIsvc8994_Reg
+AddReg    = qcimsVTWNIsvc8994_Reg, qcimsVTWNIsvc8994_path_64_Reg
 
 [IMSVTWNI.NTARM.Services]
 AddService = VTSvc,0x00000000,qcimsVTWNIsvc8994_Service,
@@ -64,7 +64,6 @@ HKLM, "System\ControlSet001\Services\VTSvc"                 , "ImagePath"       
 HKLM, "System\ControlSet001\Services\VTSvc"                 , "Start"                 , %REG_DWORD%    , 0x3
 HKLM, "System\ControlSet001\Services\VTSvc"                 , "Type"                  , %REG_DWORD%    , 0x20
 HKLM, "System\ControlSet001\Services\VTSvc"                 , "PreshutdownTimeout"    , %REG_DWORD%    , 0x4E20
-HKLM, "System\ControlSet001\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%%SystemRoot%%\System32\qcimsVTWNIsvc8994.dll"
 HKLM, "System\ControlSet001\Services\VTSvc\Parameters"      , "ServiceMain"           , %REG_SZ%       , "ServiceMain"
 HKLM, "System\ControlSet001\Services\VTSvc\Parameters"      , "ServiceDllUnloadOnStop", %REG_DWORD%    , 0x1
 
@@ -72,6 +71,12 @@ HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", "VTSvcGroup"      
 
 ;HKLM, "Software\Microsoft\WindowsRuntime\Server\VideoTelephonyServer", "ServiceName" , %REG_SZ%, "VTSvc"
 HKLM, "Software\Classes\AppID\{B523A26D-268E-4FE6-83A9-21DF07EDD543}", "LocalService", %REG_SZ%, "VTSvc"
+
+[qcimsVTWNIsvc8994_path_Reg]
+HKLM, "System\ControlSet001\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\arm\qcimsVTWNIsvc8994.dll"
+
+[qcimsVTWNIsvc8994_path_64_Reg]
+HKLM, "System\ControlSet001\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\arm64\qcimsVTWNIsvc8994.dll"
 
 [qcimsVTWNIsvc8994.Files]
 qcimsVTWNIsvc8994.dll

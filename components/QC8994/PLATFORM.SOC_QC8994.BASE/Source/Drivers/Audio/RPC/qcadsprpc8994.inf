@@ -24,7 +24,7 @@ CatalogFile.NTARM   = qcadsprpc8994.arm.cat
 CatalogFile.NTARM64 = qcadsprpc8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13; driverStore
                                     
 [SourceDisksNames]
 1 = %DiskId1%
@@ -42,9 +42,12 @@ qcadsprpc8994.sys = 1,arm64
 %ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
 
 [QC.NTARM64]                         ; NTARM64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
-%ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
+%ADSPRPC.DeviceDesc% = ADSPRPC_64_Device, ACPI\QCOM248A
 
 [ADSPRPC_Device.NT]
+CopyFiles = Drivers_Dir
+
+[ADSPRPC_64_Device.NT]
 CopyFiles = Drivers_Dir
 
 [ControlFlags]
@@ -59,6 +62,12 @@ AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_Service_Inst
 [ADSPRPC_Device.NT.Wdf]
 KmdfService = QCADSPRPC, ADSPRPC_Service_kmdfInst
 
+[ADSPRPC_64_Device.NT.Services]
+AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_64_Service_Inst
+
+[ADSPRPC_64_Device.NT.Wdf]
+KmdfService = QCADSPRPC, ADSPRPC_Service_kmdfInst
+
 [ADSPRPC_Service_kmdfInst]
 KmdfLibraryVersion = 1.15
 
@@ -69,7 +78,15 @@ DisplayName    = %ADSPRPC.SVCDESC%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qcadsprpc8994.sys
+ServiceBinary  = %13%\arm\qcadsprpc8994.sys
+LoadOrderGroup = Extended Base
+
+[ADSPRPC_64_Service_Inst]
+DisplayName    = %ADSPRPC.SVCDESC%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qcadsprpc8994.sys
 LoadOrderGroup = Extended Base
 
 [Strings]

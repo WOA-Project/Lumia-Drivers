@@ -22,7 +22,7 @@ CatalogFile.NTARM   = "libadsprpc.arm.cat"
 CatalogFile.NTARM64 = "libadsprpc.arm64.cat"
 
 [DestinationDirs]
-libadsprpc.Files = 11 ; \system32 directory on Windows 2000 and later versions
+libadsprpc.Files = 13 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksNames]
 0 = "Disk"
@@ -44,11 +44,11 @@ libadsprpc.dll = 0,arm64,
 
 [LibADSP.NTARM]
 CopyFiles = libadsprpc.Files
-AddReg    = libadsprpc_Reg
+AddReg    = libadsprpc_Reg, libadsprpc_path_Reg
 
 [LibADSP.NTARM64]
 CopyFiles = libadsprpc.Files
-AddReg    = libadsprpc_Reg
+AddReg    = libadsprpc_Reg, libadsprpc_path_64_Reg
 
 [LibADSP.NTARM.Services]
 AddService = libadsprpc,0x00000000,libadsprpc_Service,
@@ -79,8 +79,13 @@ HKLM, System\ControlSet001\Services\libadsprpc            , ImagePath      , %RE
 HKLM, System\ControlSet001\Services\libadsprpc            , Type           , %REG_DWORD%    ,  0x0110
 HKLM, System\ControlSet001\Services\libadsprpc            , Start          , %REG_DWORD%    ,  0x0003
 HKLM, System\ControlSet001\Services\libadsprpc            , ErrorControl   , %REG_DWORD%    ,  0x0001
-HKLM, System\ControlSet001\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%%SystemRoot%%\System32\libadsprpc.dll"
 HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, libadsprpcGroup, %REG_MULTI_SZ% ,  "libadsprpc"
+
+[libadsprpc_path_Reg]
+HKLM, System\ControlSet001\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm\libadsprpc.dll"
+
+[libadsprpc_path_64_Reg]
+HKLM, System\ControlSet001\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm64\libadsprpc.dll"
 
 [libadsprpc.Files]
 libadsprpc.dll

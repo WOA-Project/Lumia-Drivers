@@ -13,7 +13,7 @@ CatalogFile.NTARM   = qcimsRTPSvc8994.arm.cat
 CatalogFile.NTARM64 = qcimsRTPSvc8994.arm64.cat
 
 [DestinationDirs]
-qcimsRTPSvc8994.Files = 11 ; \system32 directory on Windows 2000 and later versions
+qcimsRTPSvc8994.Files = 13 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksNames]
 0 = "Disk"
@@ -35,11 +35,11 @@ qcimsRTPSvc8994.dll = 0,arm64,
 
 [IMSRTP.NTARM]
 CopyFiles = qcimsRTPSvc8994.Files
-AddReg    = qcimsRTPSvc8994_Reg
+AddReg    = qcimsRTPSvc8994_Reg, qcimsRTPSvc8994_path_Reg
 
 [IMSRTP.NTARM64]
 CopyFiles = qcimsRTPSvc8994.Files
-AddReg    = qcimsRTPSvc8994_Reg
+AddReg    = qcimsRTPSvc8994_Reg, qcimsRTPSvc8994_path_64_Reg
 
 [IMSRTP.NTARM.Services]
 AddService = RTPSvc,0x00000000,qcimsRTPSvc8994_Service,
@@ -72,10 +72,15 @@ HKLM, "SYSTEM\controlset001\services\RTPSvc", "Description", 0x0, "RTP Service"
 HKLM, "SYSTEM\controlset001\services\RTPSvc", "DependOnService", 0x10000, "IMSDATAsvc"
 HKLM, "SYSTEM\controlset001\services\RTPSvc", "FailureActions", 0x1, 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
 HKLM, "SYSTEM\controlset001\services\RTPSvc", "ImagePath", 0x20000, "%%SystemRoot%%\System32\svchost.exe -k RTPSvcGroup"
-HKLM, "SYSTEM\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%%SystemRoot%%\System32\qcimsRTPSvc8994.dll"
 HKLM, "SYSTEM\controlset001\services\RTPSvc\Parameters", "ServiceMain", 0x0, "ServiceMain"
 HKLM, "SYSTEM\controlset001\services\RTPSvc\Parameters", "ServiceDllUnloadOnStop", 0x10001, 0x1
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", RTPSvcGroup, %REG_MULTI_SZ%, "RTPSvc"
+
+[qcimsRTPSvc8994_path_Reg]
+HKLM, "SYSTEM\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%13%\arm\qcimsRTPSvc8994.dll"
+
+[qcimsRTPSvc8994_path_64_Reg]
+HKLM, "SYSTEM\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%13%\arm64\qcimsRTPSvc8994.dll"
 
 [qcimsRTPSvc8994.Files]
 qcimsRTPSvc8994.dll

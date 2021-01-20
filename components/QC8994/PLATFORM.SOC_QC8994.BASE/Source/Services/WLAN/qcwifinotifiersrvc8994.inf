@@ -22,7 +22,7 @@ CatalogFile.NTARM   = qcwifinotifiersrvc8994.arm.cat
 CatalogFile.NTARM64 = qcwifinotifiersrvc8994.arm64.cat
 
 [DestinationDirs]
-WifiNotifierSrvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
+WifiNotifierSrvc.Files = 13 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksNames]
 0 = "Disk"
@@ -44,11 +44,11 @@ qcwifinotifiersrvc8994.dll = 0,arm64,
 
 [WLAN.NTARM]
 CopyFiles = WifiNotifierSrvc.Files
-AddReg    = WifiNotifierSrvc_Reg
+AddReg    = WifiNotifierSrvc_Reg, WifiNotifierSrvc_path_Reg
 
 [WLAN.NTARM64]
 CopyFiles = WifiNotifierSrvc.Files
-AddReg    = WifiNotifierSrvc_Reg
+AddReg    = WifiNotifierSrvc_Reg, WifiNotifierSrvc_path_64_Reg
 
 [WLAN.NTARM.Services]
 AddService = WifiNotifierSrvc,0x00000000,WifiNotifierSrvc_Service,
@@ -79,8 +79,13 @@ HKLM, System\ControlSet001\Services\WifiNotifierSrvc           , ImagePath   , %
 HKLM, System\ControlSet001\Services\WifiNotifierSrvc           , Type        , %REG_DWORD%    ,  0x0110
 HKLM, System\ControlSet001\Services\WifiNotifierSrvc           , Start       , %REG_DWORD%    ,  0x0002
 HKLM, System\ControlSet001\Services\WifiNotifierSrvc           , ErrorControl, %REG_DWORD%    ,  0x0001
-HKLM, System\ControlSet001\Services\WifiNotifierSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%,  "%%SystemRoot%%\System32\qcwifinotifiersrvc8994.dll"
 HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost     , IhvSvcGrp   , %REG_MULTI_SZ% ,  "WifiNotifierSrvc"
+
+[WifiNotifierSrvc_path_Reg]
+HKLM, System\ControlSet001\Services\WifiNotifierSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%,  "%13%\arm\qcwifinotifiersrvc8994.dll"
+
+[WifiNotifierSrvc_path_64_Reg]
+HKLM, System\ControlSet001\Services\WifiNotifierSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%,  "%13%\arm64\qcwifinotifiersrvc8994.dll"
 
 [WifiNotifierSrvc.Files]
 qcwifinotifiersrvc8994.dll

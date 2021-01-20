@@ -36,7 +36,7 @@ qclinklocal8994.sys = 1,arm,
 qclinklocal8994.sys = 1,arm64,
 
 [DestinationDirs]
-wwan.CopyFiles = 12
+wwan.CopyFiles = 13
 
 [Manufacturer]
 %QCOM% = QCOM,NTARM,NTARM64
@@ -45,7 +45,7 @@ wwan.CopyFiles = 12
 %wwan.DeviceDesc% = wwan.ndi, ACPI\QCOM24A7
 
 [QCOM.NTARM64]
-%wwan.DeviceDesc% = wwan.ndi, ACPI\QCOM24A7
+%wwan.DeviceDesc% = wwan_64.ndi, ACPI\QCOM24A7
 
 [wwan.ndi]
 Characteristics    = 0x9                   ; NCF_VIRTUAL | NCF_HIDDEN
@@ -56,9 +56,27 @@ EnableDhcp         = 0
 AddReg             = wwan.Reg
 CopyFiles          = wwan.CopyFiles
 
-
 [wwan.ndi.Services]
 AddService = linklocal, 2, wwan.Service, wwan.EventLog
+
+[wwan.ndi.Wdf]
+KmdfService = linklocal, wwan_wdfsect
+
+
+[wwan_64.ndi]
+Characteristics    = 0x9                   ; NCF_VIRTUAL | NCF_HIDDEN
+*IfType            = 142                   ; IF_TYPE_IPFORWARD
+*MediaType         = 19                    ; NdisMediumIP
+*PhysicalMediaType = 19                    ; NdisPhysicalMediumOther
+EnableDhcp         = 0
+AddReg             = wwan.Reg
+CopyFiles          = wwan.CopyFiles
+
+[wwan_64.ndi.Services]
+AddService = linklocal, 2, wwan_64.Service, wwan.EventLog
+
+[wwan_64.ndi.Wdf]
+KmdfService = linklocal, wwan_wdfsect
 
 ;-----------------------------------------------------------------------------
 ; Virtual Miniport Common
@@ -84,12 +102,22 @@ DisplayName    = %wwan.Service.DispName%
 ServiceType    = 1                                 ;%SERVICE_KERNEL_DRIVER%
 StartType      = 3                                 ;%SERVICE_DEMAND_START%
 ErrorControl   = 1                                 ;%SERVICE_ERROR_NORMAL%
-ServiceBinary  = %12%\qclinklocal8994.sys
+ServiceBinary  = %13%\arm\qclinklocal8994.sys
 LoadOrderGroup = NDIS
 AddReg         = TextModeFlags.Reg
 AddReg         = osVer.Reg
 AddReg         = MaxAdapters.Reg
-Tag            = 13
+
+[wwan_64.Service]
+DisplayName    = %wwan.Service.DispName%
+ServiceType    = 1                                 ;%SERVICE_KERNEL_DRIVER%
+StartType      = 3                                 ;%SERVICE_DEMAND_START%
+ErrorControl   = 1                                 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm64\qclinklocal8994.sys
+LoadOrderGroup = NDIS
+AddReg         = TextModeFlags.Reg
+AddReg         = osVer.Reg
+AddReg         = MaxAdapters.Reg
 
 [wwan.EventLog]
 AddReg = wwan.AddEventLog.Reg
@@ -107,9 +135,6 @@ HKR, , OSVer, 0x00010001 , 0x01 ;  0x01 = Apollo, 0x00
 [MaxAdapters.Reg]
 HKR, , MaxNumAdapters, 0x00010001,  0x00000009
 
-
-[wwan.ndi.Wdf]
-KmdfService = linklocal, wwan_wdfsect
 
 [wwan_wdfsect]
 KmdfLibraryVersion = 1.15

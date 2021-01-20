@@ -24,7 +24,7 @@ CatalogFile.NTARM   = QCDIAGCSI8994.arm.cat
 CatalogFile.NTARM64 = QCDIAGCSI8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
                                     
 [SourceDisksNames]
 1 = %DiskId1%
@@ -42,22 +42,31 @@ QCDIAGCSI8994.sys = 1,arm64
 %DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM2412
 
 [QC.NTARM64]                         ; NTARM64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
-%DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM2412
+%DIAGCSI.DeviceDesc% = DiagCSI_64_Device, ACPI\QCOM2412
 
 [DiagCSI_Device.NT]
 CopyFiles = Drivers_Dir
-
-[ControlFlags]
-ExcludeFromSelect = *
-
-[Drivers_Dir]
-QCDIAGCSI8994.sys                        
 
 [DiagCSI_Device.NT.Services]
 AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_Service_Inst
 
 [DiagCSI_Device.NT.Wdf]
 KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
+
+[DiagCSI_64_Device.NT]
+CopyFiles = Drivers_Dir
+
+[DiagCSI_64_Device.NT.Services]
+AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_64_Service_Inst
+
+[DiagCSI_64_Device.NT.Wdf]
+KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Drivers_Dir]
+QCDIAGCSI8994.sys                        
 
 [DiagCSI_Service_kmdfInst]
 KmdfLibraryVersion = 1.15
@@ -69,9 +78,16 @@ DisplayName    = %DIAGCSI.SVCDESC%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\QCDIAGCSI8994.sys
+ServiceBinary  = %13%\arm\QCDIAGCSI8994.sys
 LoadOrderGroup = Extended Base
-Tag            = 10
+
+[DIAGCSI_64_Service_Inst]
+DisplayName    = %DIAGCSI.SVCDESC%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\QCDIAGCSI8994.sys
+LoadOrderGroup = Extended Base
 
 [Strings]
 ;Localizable Strings

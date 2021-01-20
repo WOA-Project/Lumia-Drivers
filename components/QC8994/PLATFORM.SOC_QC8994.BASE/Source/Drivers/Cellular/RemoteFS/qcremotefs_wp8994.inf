@@ -33,7 +33,7 @@ qcremotefs8994.sys = 1,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 ;*****************************************
 ; remotefs driver Install Section
@@ -46,12 +46,36 @@ DefaultDestDir = 12
 %REMOTEFS.DeviceDesc% = REMOTEFS_Device,ACPI\QCOM2423
 
 [Qualcomm.NTARM64]
-%REMOTEFS.DeviceDesc% = REMOTEFS_Device,ACPI\QCOM2423
+%REMOTEFS.DeviceDesc% = REMOTEFS_64_Device,ACPI\QCOM2423
 
 [REMOTEFS_Device.NT]
 CopyFiles   = RemotefsCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
+
+[REMOTEFS_Device.NT.Services]
+AddService = QCREMOTEFS,%SPSVCINST_ASSOCSERVICE%,REMOTEFS_Service_Inst
+
+[REMOTEFS_Device.NT.Wdf]
+KmdfService = QCREMOTEFS, REMOTEFS_wdfsect
+
+[REMOTEFS_Device.NT.HW]
+AddReg = Remotefs_HW_Reg
+
+
+[REMOTEFS_64_Device.NT]
+CopyFiles   = RemotefsCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[REMOTEFS_64_Device.NT.Services]
+AddService = QCREMOTEFS,%SPSVCINST_ASSOCSERVICE%,REMOTEFS_64_Service_Inst
+
+[REMOTEFS_64_Device.NT.Wdf]
+KmdfService = QCREMOTEFS, REMOTEFS_wdfsect
+
+[REMOTEFS_64_Device.NT.HW]
+AddReg = Remotefs_HW_Reg
 
 [RemotefsCopyFiles]
 qcremotefs8994.sys
@@ -59,18 +83,20 @@ qcremotefs8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
 
-[REMOTEFS_Device.NT.Services]
-AddService = QCREMOTEFS,%SPSVCINST_ASSOCSERVICE%,REMOTEFS_Service_Inst
-
-[REMOTEFS_Device.NT.HW]
-AddReg = Remotefs_HW_Reg
-
 [REMOTEFS_Service_Inst]
 DisplayName   = %REMOTEFS.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcremotefs8994.sys
+ServiceBinary = %13%\arm\qcremotefs8994.sys
+AddReg        = Remotefs_Reg
+
+[REMOTEFS_64_Service_Inst]
+DisplayName   = %REMOTEFS.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcremotefs8994.sys
 AddReg        = Remotefs_Reg
 
 [Remotefs_Reg]
@@ -80,8 +106,6 @@ HKR, , PartitionNum, 0x00010001, "0"
 [Remotefs_HW_Reg]
 HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
-[REMOTEFS_Device.NT.Wdf]
-KmdfService = QCREMOTEFS, REMOTEFS_wdfsect
 [REMOTEFS_wdfsect]
 KmdfLibraryVersion = 1.15
 

@@ -13,7 +13,7 @@ CatalogFile.NTARM   = qcImsDataDaemon8994.arm.cat
 CatalogFile.NTARM64 = qcImsDataDaemon8994.arm64.cat
 
 [DestinationDirs]
-qcImsDataDaemon8994.Files = 11 ; \system32 directory on Windows 2000 and later versions
+qcImsDataDaemon8994.Files = 13 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksNames]
 0 = "Disk"
@@ -35,11 +35,11 @@ qcImsDataDaemon8994.dll = 0,arm64,
 
 [IMSData.NTARM]
 CopyFiles = qcImsDataDaemon8994.Files
-AddReg    = qcImsDataDaemon8994_Reg
+AddReg    = qcImsDataDaemon8994_Reg, qcImsDataDaemon8994_path_Reg
 
 [IMSData.NTARM64]
 CopyFiles = qcImsDataDaemon8994.Files
-AddReg    = qcImsDataDaemon8994_Reg
+AddReg    = qcImsDataDaemon8994_Reg, qcImsDataDaemon8994_path_64_Reg
 
 [IMSData.NTARM.Services]
 AddService = IMSDATAsvc,0x00000000,qcImsDataDaemon8994_Service,
@@ -71,10 +71,15 @@ HKLM, "SYSTEM\controlset001\services\IMSDATAsvc", "DisplayName", 0x0, "IMSDATAsv
 HKLM, "SYSTEM\controlset001\services\IMSDATAsvc", "Description", 0x0, "QC Data Daemon Service"
 HKLM, "SYSTEM\controlset001\services\IMSDATAsvc", "FailureActions", 0x1, 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
 HKLM, "SYSTEM\controlset001\services\IMSDATAsvc", "ImagePath", 0x20000, "%%SystemRoot%%\System32\svchost.exe -k IMSDATAsvcGroup"
-HKLM, "SYSTEM\controlset001\services\IMSDATAsvc\Parameters", "ServiceDll", 0x20000, "%%SystemRoot%%\System32\qcImsDataDaemon8994.dll"
 HKLM, "SYSTEM\controlset001\services\IMSDATAsvc\Parameters", "ServiceMain", 0x0, "ServiceMain"
 HKLM, "SYSTEM\controlset001\services\IMSDATAsvc\Parameters", "ServiceDllUnloadOnStop", 0x10001, 0x1
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", IMSDATAsvcGroup, %REG_MULTI_SZ%, "IMSDATAsvc"
+
+[qcImsDataDaemon8994_path_Reg]
+HKLM, "SYSTEM\controlset001\services\IMSDATAsvc\Parameters", "ServiceDll", 0x20000, "%13%\arm\qcImsDataDaemon8994.dll"
+
+[qcImsDataDaemon8994_path_64_Reg]
+HKLM, "SYSTEM\controlset001\services\IMSDATAsvc\Parameters", "ServiceDll", 0x20000, "%13%\arm64\qcImsDataDaemon8994.dll"
 
 [qcImsDataDaemon8994.Files]
 qcImsDataDaemon8994.dll

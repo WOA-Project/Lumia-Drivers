@@ -20,8 +20,8 @@ CatalogFile.NTARM64 = QcXhciFilter8994.arm64.cat
 ExcludeFromSelect = *
 
 [DestinationDirs]
-QcXhciFilter.CopyFile = 12
-DefaultDestDir        = 12
+QcXhciFilter.CopyFile = 13
+DefaultDestDir        = 13
 
 ; ================= Class section =====================
 
@@ -45,7 +45,7 @@ QcXhciFilter8994.sys = 1,arm64,
 %Standard.DeviceDesc% = QcXhciFilter.NT, URS\QCOM24B6&HOST ;URS mode
 
 [Standard.NTARM64]
-%Standard.DeviceDesc% = QcXhciFilter.NT, URS\QCOM24B6&HOST ;URS mode
+%Standard.DeviceDesc% = QcXhciFilter_64.NT, URS\QCOM24B6&HOST ;URS mode
 
 [QcXhciFilter.NT]
 Include      = usbxhci.inf
@@ -58,12 +58,29 @@ Include    = usbxhci.inf
 Needs      = Generic_NoDebug.Install.NT.Services
 AddService = QcXhciFilter,, QcXhciFilter_Service_Inst
 
-[QcXhciFilter.CopyFile]
-QcXhciFilter8994.sys
-
 [QcXhciFilter.NT.HW]
 AddReg = QcXhciFilter_AddReg
 AddReg = QcXhciFilter_SDDLString
+
+
+[QcXhciFilter_64.NT]
+Include      = usbxhci.inf
+Needs        = Generic_NoDebug.Install.NT
+CopyFiles    = QcXhciFilter.CopyFile
+FeatureScore = 80 ; required for XHCI driver from usbxhci.inf
+
+[QcXhciFilter_64.Services]
+Include    = usbxhci.inf
+Needs      = Generic_NoDebug.Install.NT.Services
+AddService = QcXhciFilter,, QcXhciFilter_64_Service_Inst
+
+[QcXhciFilter_64.HW]
+AddReg = QcXhciFilter_AddReg
+AddReg = QcXhciFilter_SDDLString
+
+
+[QcXhciFilter.CopyFile]
+QcXhciFilter8994.sys
 
 [QcXhciFilter_AddReg]
 HKR, , "LowerFilters", 0x00010000, QcXhciFilter
@@ -80,7 +97,15 @@ DisplayName   = %Filter.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\QcXhciFilter8994.sys
+ServiceBinary = %13%\arm\QcXhciFilter8994.sys
+AddReg        = QcXhciFilter_Service_AddReg
+
+[QcXhciFilter_64_Service_Inst]
+DisplayName   = %Filter.SvcDesc%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\QcXhciFilter8994.sys
 AddReg        = QcXhciFilter_Service_AddReg
 
 [Strings]

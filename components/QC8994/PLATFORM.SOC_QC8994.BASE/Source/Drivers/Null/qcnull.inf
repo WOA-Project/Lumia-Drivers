@@ -14,7 +14,7 @@ CatalogFile.NTARM   = qcnull.arm.cat
 CatalogFile.NTARM64 = qcnull.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir                      = 12
+DefaultDestDir                      = 13
 qcnull_Device_CoInstaller_CopyFiles = 11
 
 ; ================= Class section =====================
@@ -42,18 +42,40 @@ qcnull.sys = 1,arm64,
 %25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
 
 [Standard.NTARM64]
-%QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
-%25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
+%QcGPUNull.DeviceDesc%      = qcnull_64_Device, ACPI\QCOM_GPU
+%25A0Null.DeviceDesc%       = qcnull_64_Device, ACPI\QCOM25A0
 
 [qcnull_Device.NT]
 CopyFiles = Drivers_Dir
 
-[Drivers_Dir]
-qcnull.sys
+[qcnull_Device.NT.Wdf]
+KmdfService = qcnull, qcnull_wdfsect
+
+[qcnull_Device.NT.CoInstallers]
+AddReg    = qcnull_Device_CoInstaller_AddReg
+CopyFiles = qcnull_Device_CoInstaller_CopyFiles
 
 ;-------------- Service installation
 [qcnull_Device.NT.Services]
 AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst
+
+
+[qcnull_64_Device.NT]
+CopyFiles = Drivers_Dir
+
+[qcnull_64_Device.NT.Wdf]
+KmdfService = qcnull, qcnull_wdfsect
+
+[qcnull_64_Device.NT.CoInstallers]
+AddReg    = qcnull_Device_CoInstaller_AddReg
+CopyFiles = qcnull_Device_CoInstaller_CopyFiles
+
+;-------------- Service installation
+[qcnull_64_Device.NT.Services]
+AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_64_Service_Inst
+
+[Drivers_Dir]
+qcnull.sys
 
 ; -------------- qcnull driver install sections
 [qcnull_Service_Inst]
@@ -61,15 +83,18 @@ DisplayName   = %qcnull.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcnull.sys
+ServiceBinary = %13%\arm\qcnull.sys
+
+[qcnull_64_Service_Inst]
+DisplayName   = %qcnull.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcnull.sys
 
 ;
 ;--- qcnull_Device Coinstaller installation ------
 ;
-
-[qcnull_Device.NT.CoInstallers]
-AddReg    = qcnull_Device_CoInstaller_AddReg
-CopyFiles = qcnull_Device_CoInstaller_CopyFiles
 
 [qcnull_Device_CoInstaller_AddReg]
 ;
@@ -78,9 +103,6 @@ CopyFiles = qcnull_Device_CoInstaller_CopyFiles
 [qcnull_Device_CoInstaller_CopyFiles]
 ;
 
-
-[qcnull_Device.NT.Wdf]
-KmdfService = qcnull, qcnull_wdfsect
 [qcnull_wdfsect]
 KmdfLibraryVersion = 1.15
 

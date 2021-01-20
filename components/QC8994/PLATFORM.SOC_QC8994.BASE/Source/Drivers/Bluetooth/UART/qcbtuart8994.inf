@@ -16,7 +16,7 @@ CatalogFile.NTARM   = qcbtuart8994.arm.cat
 CatalogFile.NTARM64 = qcbtuart8994.arm64.cat
 
 [DestinationDirs]
-BTUART.Files = 12
+BTUART.Files = 13
 
 [SourceDisksNames]
 1 = %SourceDisk%,,1
@@ -37,30 +37,48 @@ ExcludeFromSelect = *
 %UartBtAPQ8994% = QCABTUART, ACPI\QCOM24B2
 
 [QCABT.NTARM64]
-%UartBtAPQ8994% = QCABTUART, ACPI\QCOM24B2
+%UartBtAPQ8994% = QCABTUART_64, ACPI\QCOM24B2
 
 [QCABTUART.NT]
 CopyFiles = BTUART.Files
 
-[BTUART.Files]
-qcbtuart8994.sys
-
 [QCABTUART.NT.HW]
 AddReg = BTUART.HW.AddReg
+
+[QCABTUART.NT.Services]
+AddService = QcBluetooth,0x00000002,BTUART_Service
+
+[QCABTUART_64.NT]
+CopyFiles = BTUART.Files
+
+[QCABTUART_64.NT.HW]
+AddReg = BTUART.HW.AddReg
+
+[QCABTUART_64.NT.Services]
+AddService = QcBluetooth,0x00000002,BTUART_64_Service
+
+[BTUART.Files]
+qcbtuart8994.sys
 
 [BTUART.HW.AddReg]
 HKR, , DeviceCharacteristics, 0x10001, 0x0100                  ; Use same security checks on relative opens
 HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;LS)"   ; Allow generic-all access to Built-in administrators and Local system
-
-[QCABTUART.NT.Services]
-AddService = QcBluetooth,0x00000002,BTUART_Service
 
 [BTUART_Service]
 DisplayName   = %SvcDispName%
 ServiceType   = 1  ; SERVICE_KERNEL_DRIVER
 StartType     = 3  ; SERVICE_DEMAND_START
 ErrorControl  = 1  ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcbtuart8994.sys
+ServiceBinary = %13%\arm\qcbtuart8994.sys
+AddReg        = BTUART_Service.AddReg, WPPReg
+AddProperty   = WDTFSOCDeviceCategory
+
+[BTUART_64_Service]
+DisplayName   = %SvcDispName%
+ServiceType   = 1  ; SERVICE_KERNEL_DRIVER
+StartType     = 3  ; SERVICE_DEMAND_START
+ErrorControl  = 1  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcbtuart8994.sys
 AddReg        = BTUART_Service.AddReg, WPPReg
 AddProperty   = WDTFSOCDeviceCategory
 

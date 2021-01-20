@@ -46,22 +46,15 @@ PETrust = true
 %QCAUD_A.DeviceDesc% = QCAUD_A, AUDD\QCOM2451
 
 [QUALCOMM.NTARM64]
-%QCAUD_A.DeviceDesc% = QCAUD_A, AUDD\QCOM2451
-
+%QCAUD_A.DeviceDesc% = QCAUD_A_64, AUDD\QCOM2451
 
 [DestinationDirs]
-QCAUD_A.CopyList                  = 12 ; windows\system32\drivers
+QCAUD_A.CopyList                  = 13 ; windows\system32\drivers
 ProxyAPO.CopyList                 = 11; windows\system32
 
 ;======================================================
 ;QCAUD_A 
 ;======================================================
-
-[QCAUD_A.AddProperty]
-{F3E80BEF-1723-4FF2-BCC4-7F83DC5E46D4}, 2, 7, , 0
-
-[QCAUD_A.CopyList]
-qcaud8994.sys
 
 [ProxyAPO.CopyList]
 ProxyAPO.dll
@@ -88,6 +81,15 @@ HKLM, %MEDIA_CATEGORIES%\%HandsetSpeakerCustomNameGUID%   , Name                
 HKLM, %MEDIA_CATEGORIES%\%CellularBD1CustomNameGUID%      , Name                ,           , %CellularBD1CustomName%
 HKLM, %MEDIA_CATEGORIES%\%CellularBD2CustomNameGUID%      , Name                ,           , %CellularBD2CustomName%
 HKLM, %MEDIA_CATEGORIES%\%FmRxCustomNameGUID%             , Name                ,           , %FmRxCustomName%
+
+[QCAUD_A.AddProperty]
+{F3E80BEF-1723-4FF2-BCC4-7F83DC5E46D4}, 2, 7, , 0
+
+[QCAUD_A.SecurityAddReg]
+HKR, , DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
+
+[QCAUD_A.CopyList]
+qcaud8994.sys
 
 [ProxyAPO.AddReg]
 ; Mode effect APO COM registration
@@ -459,6 +461,15 @@ CopyFiles   = QCAUD_A.CopyList,ProxyAPO.CopyList
 AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg
 AddProperty = QCAUD_A.AddProperty
 
+[QCAUD_A.NT.HW]
+AddReg = AUDIOHW.AddReg
+AddReg = QCAUD_A.SecurityAddReg
+
+[QCAUD_A.NT.Wdf]
+KmdfService = QCAUD, QCAUD_A_WdfSect
+
+[QCAUD_A.NT.Services]
+AddService = QCAUD,0x00000002,QCAUD_Service_Inst
 
 [QCAUD_A.NT.Interfaces]
 ;
@@ -589,15 +600,168 @@ AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHands
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
 
-[QCAUD_A.NT.Services]
-AddService = QCAUD,0x00000002,QCAUD_Service_Inst
+
+[QCAUD_A_64.NT]
+Include     = ks.inf,wdmaudio.inf
+Needs       = KS.Registration, WDMAUDIO.Registration, MsApoFxProxy.Registration
+CopyFiles   = QCAUD_A.CopyList,ProxyAPO.CopyList
+AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg
+AddProperty = QCAUD_A.AddProperty
+
+[QCAUD_A_64.NT.HW]
+AddReg = AUDIOHW.AddReg
+AddReg = QCAUD_A.SecurityAddReg
+
+[QCAUD_A_64.NT.Wdf]
+KmdfService = QCAUD, QCAUD_A_WdfSect
+
+[QCAUD_A_64.NT.Services]
+AddService = QCAUD,0x00000002,QCAUD_64_Service_Inst
+
+[QCAUD_A_64.NT.Interfaces]
+;
+; Interfaces for speaker (internal) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveSpeaker%, QCAUD.I.WaveSpeaker
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveSpeaker%, QCAUD.I.WaveSpeaker
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveSpeaker%, QCAUD.I.WaveSpeaker
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologySpeaker%, QCAUD.I.TopologySpeaker
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologySpeaker%, QCAUD.I.TopologySpeaker
+
+;
+; Interfaces for speaker (external: Headset) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveSpeakerHeadset%, QCAUD.I.WaveSpeakerHeadset
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveSpeakerHeadset%, QCAUD.I.WaveSpeakerHeadset
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveSpeakerHeadset%, QCAUD.I.WaveSpeakerHeadset
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologySpeakerHeadset%, QCAUD.I.TopologySpeakerHeadset
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologySpeakerHeadset%, QCAUD.I.TopologySpeakerHeadset
+
+;
+; Interfaces for cellular render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveCellular%, QCAUD.I.WaveCellular
+AddInterface = %KSCATEGORY_CAPTURE%, %KSNAME_WaveCellular%, QCAUD.I.WaveCellular
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveCellular%, QCAUD.I.WaveCellular
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyCellular%, QCAUD.I.TopologyCellular
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyCellular%, QCAUD.I.TopologyCellular
+
+;
+; Interfaces for FM RX (Internal) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
+AddInterface = %KSCATEGORY_CAPTURE%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyFmRx%, QCAUD.I.TopologyFmRx
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyFmRx%, QCAUD.I.TopologyFmRx
+
+;
+; Interfaces for microphone (external: Headset) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyMicHeadset%, QCAUD.I.TopologyMicHeadset
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyMicHeadset%, QCAUD.I.TopologyMicHeadset
+
+;
+; Interfaces for microphone (internal) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyMicIn%, QCAUD.I.TopologyMicIn
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyMicIn%, QCAUD.I.TopologyMicIn
+
+;
+; Interfaces for microphone array 1 (internal: front) capture endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicArray1%, QCAUD.I.WaveMicArray1
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicArray1%, QCAUD.I.WaveMicArray1
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveMicArray1%, QCAUD.I.WaveMicArray1
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyMicArray1%, QCAUD.I.TopologyMicArray1
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyMicArray1%, QCAUD.I.TopologyMicArray1
+
+;
+; Interfaces for HDMI (external) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveHdmi%, QCAUD.I.WaveHdmi
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveHdmi%, QCAUD.I.WaveHdmi
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHdmi%, QCAUD.I.WaveHdmi
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyHdmi%, QCAUD.I.TopologyHdmi
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHdmi%, QCAUD.I.TopologyHdmi
+
+
+;
+; Interfaces for Bluetooth HFP speaker (external) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveBthHfpSpeaker%, QCAUD.I.WaveBthHfpSpeaker
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveBthHfpSpeaker%, QCAUD.I.WaveBthHfpSpeaker
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpSpeaker%, QCAUD.I.WaveBthHfpSpeaker
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyBthHfpSpeaker%, QCAUD.I.TopologyBthHfpSpeaker
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpSpeaker%, QCAUD.I.TopologyBthHfpSpeaker
+
+;
+; Interfaces for Bluetooth HFP mic (external) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyBthHfpMic%, QCAUD.I.TopologyBthHfpMic
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpMic%, QCAUD.I.TopologyBthHfpMic
+
+;
+; Interfaces for Bluetooth HFP speaker (external) Wideband render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveBthHfpSpeakerWB%, QCAUD.I.WaveBthHfpSpeakerWB
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveBthHfpSpeakerWB%, QCAUD.I.WaveBthHfpSpeakerWB
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpSpeakerWB%, QCAUD.I.WaveBthHfpSpeakerWB
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyBthHfpSpeakerWB%, QCAUD.I.TopologyBthHfpSpeakerWB
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpSpeakerWB%, QCAUD.I.TopologyBthHfpSpeakerWB
+
+;
+; Interfaces for Bluetooth HFP mic (external) Wideband capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyBthHfpMicWB%, QCAUD.I.TopologyBthHfpMicWB
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpMicWB%, QCAUD.I.TopologyBthHfpMicWB
+
+
+;
+; Interfaces for Handset Speaker (internal) render endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveHandsetSpeaker%, QCAUD.I.WaveHandsetSpeaker
+AddInterface = %KSCATEGORY_RENDER%, %KSNAME_WaveHandsetSpeaker%, QCAUD.I.WaveHandsetSpeaker
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHandsetSpeaker%, QCAUD.I.WaveHandsetSpeaker
+AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyHandsetSpeaker%, QCAUD.I.TopologyHandsetSpeaker
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetSpeaker%, QCAUD.I.TopologyHandsetSpeaker
+
+;
+; Interfaces for Handset mic (Internal) capture endpoint 
+;
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
+AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
+AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
+AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
+AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
+
 
 [QCAUD_Service_Inst]
 DisplayName   = %QCAUD.SvcDesc%
 ServiceType   = 1
 StartType     = 3
 ErrorControl  = 1
-ServiceBinary = %10%\system32\drivers\qcaud8994.sys
+ServiceBinary = %13%\arm\qcaud8994.sys
+AddReg        = QCAUD.AddReg.service
+
+[QCAUD_64_Service_Inst]
+DisplayName   = %QCAUD.SvcDesc%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %13%\arm64\qcaud8994.sys
 AddReg        = QCAUD.AddReg.service
 
 [QCAUD.AddReg.Service]
@@ -611,10 +775,6 @@ HKR, "Feature", "IsICRSupported", 0x10001, 0x1
 ;HKR, "Feature", "IsModemRestartSupported", 0x10001, 0x1
 HKR, "Feature", "IsSingleVoiceSessionSupported", 0x10001, 0x0
 
-[QCAUD_A.NT.HW]
-AddReg = AUDIOHW.AddReg
-AddReg = QCAUD_A.SecurityAddReg
-
 [AUDIOHW.AddReg]
 ; FILE_DEVICE_SOUND
 HKR, , DeviceType    , 0x10001   , 0x0000001D
@@ -622,14 +782,9 @@ HKR, , DeviceType    , 0x10001   , 0x0000001D
 HKR, , Security      ,           , "D:P(A;;GA;;;SY)(A;;GRGWGX;;;BA)(A;;GRGWGX;;;WD)(A;;GRGWGX;;;RC)"
 HKR, , "LowerFilters", 0x00010000, "vhf"
 
-[QCAUD_A.SecurityAddReg]
-HKR, , DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
-
 ;======================================================
 ; WDF
 ;======================================================
-[QCAUD_A.NT.Wdf]
-KmdfService = QCAUD, QCAUD_A_WdfSect
 [QCAUD_A_WdfSect]
 KmdfLibraryVersion = 1.15
 

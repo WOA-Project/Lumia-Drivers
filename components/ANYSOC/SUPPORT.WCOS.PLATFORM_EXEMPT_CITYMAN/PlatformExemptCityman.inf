@@ -20,8 +20,6 @@ AddReg = PlatformExempt_AddReg
 ; qcwlan8994.inf
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\qwlan30.bin" , 0x00000000, "qcwlan8994.inf\qwlan30.bin"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\bdwlan30.bin", 0x00000000, "qcwlan8994.inf\bdwlan0.bin"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\Data.msc"    , 0x00000000, "qcwlan8994.inf\Data.msc"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\Data.msc"    , 0x00000000, "qcwlan8994.inf\Data.msc"
 
 ;
@@ -73,13 +71,6 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\nvm_tlv_3.2.bin"     , 0x00000000, "cityman_qcbtuart8994.inf\nvm_tlv_3.2.bin"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\rampatch_tlv_3.0.tlv", 0x00000000, "cityman_qcbtuart8994.inf\rampatch_tlv_3.0.tlv"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\rampatch_tlv_3.2.tlv", 0x00000000, "cityman_qcbtuart8994.inf\rampatch_tlv_3.2.tlv"
-
-;
-; qcsubsys_ffu8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcadsp8994.mbn"  , 0x00000000, "qcsubsys_ffu8994.inf\qcadsp8994.mbn"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdsp1v28994.mbn", 0x00000000, "qcsubsys_ffu8994.inf\qcdsp1v28994.mbn"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdsp28994.mbn"  , 0x00000000, "qcsubsys_ffu8994.inf\qcdsp28994.mbn"
 
 ;
 ; SynapticsTouch.inf
@@ -271,11 +262,6 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\Provisioning\Packages\PPMSettings-8994Profiles.ppkg", 0x00000000, "qcppmsettings8994.inf\PPMSettings-8994Profiles.ppkg"
 
 ;
-; qcaudresconst8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\AudioResourceConstraints_8994.xml", 0x00000000, "qcaudresconst8994.inf\AudioResourceConstraints_8994.xml"
-
-;
 ; qcDiagRouter8994.inf
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdiaglogging8994.dll", 0x00000000, "qcDiagRouter8994.inf\arm64\qcdiaglogging8994.dll"
@@ -291,58 +277,9 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\WMRil.dll", 0x00000000, "wmril.inf\arm64\WMRil.dll"
 
 ;
-; qcims8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimssink8994.dll", 0x00000000, "qcims8994.inf\arm64\qcimssink8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimssrc8994.dll" , 0x00000000, "qcims8994.inf\arm64\qcimssrc8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimsVT8994.dll"  , 0x00000000, "qcims8994.inf\arm64\qcimsVT8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimsvtmf8994.dll", 0x00000000, "qcims8994.inf\arm64\qcimsvtmf8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\vcel8994.dll"     , 0x00000000, "qcims8994.inf\arm64\vcel8994.dll"
-
-;
 ; qcfmslminiport.inf
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcfmslminiport.dll", 0x00000000, "qcfmslminiport.inf\arm64\qcfmslminiport.dll"
-
-;
-; libadsprpc.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\libadsprpc.dll", 0x00000000, "libadsprpc.inf\arm64\libadsprpc.dll"
-
-;
-; qcImsDataDaemon8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcImsDataDaemon8994.dll", 0x00000000, "qcImsDataDaemon8994.inf\arm64\qcImsDataDaemon8994.dll"
-
-;
-; qcImsQMIDaemon8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcImsQMIDaemon8994.dll", 0x00000000, "qcImsQMIDaemon8994.inf\arm64\qcImsQMIDaemon8994.dll"
-
-;
-; qcimsRTPSvc8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimsRTPSvc8994.dll", 0x00000000, "qcimsRTPSvc8994.inf\arm64\qcimsRTPSvc8994.dll"
-
-;
-; qcimsVTWNIsvc8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimsVTWNIsvc8994.dll", 0x00000000, "qcimsVTWNIsvc8994.inf\arm64\qcimsVTWNIsvc8994.dll"
-
-;
-; qcremoteatsrvc8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcremoteatsrvc8994.dll", 0x00000000, "qcremoteatsrvc8994.inf\arm64\qcremoteatsrvc8994.dll"
-
-;
-; qcremoteatsrvc8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcShutdownSvc8994.dll", 0x00000000, "qcshutdownsvc8994.inf\arm64\QcShutdownSvc8994.dll"
-
-;
-; qcwifinotifiersrvc8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcwifinotifiersrvc8994.dll", 0x00000000, "qcwifinotifiersrvc8994.inf\arm64\qcwifinotifiersrvc8994.dll"
 
 ;
 ; ApplicationChambers.inf
@@ -393,8 +330,8 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ;
 ; riladaptationsvc.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QxdmFilter.bin"          , 0x00000000, "riladaptationsvc.inf\QxdmFilter.bin"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\RILAdaptationService.exe", 0x00000000, "riladaptationsvc.inf\arm64\RILAdaptationService.exe"
+;HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QxdmFilter.bin"          , 0x00000000, "riladaptationsvc.inf\QxdmFilter.bin"
+;HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\RILAdaptationService.exe", 0x00000000, "riladaptationsvc.inf\arm64\RILAdaptationService.exe"
 
 ;
 ; CellularLineResources.inf

@@ -22,8 +22,8 @@ CatalogFile.NTARM   = qcsubsys8994.arm.cat
 CatalogFile.NTARM64 = qcsubsys8994.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir_12 = 12
-Drivers_Dir_24 = 11
+Drivers_Dir_12 = 13
+Drivers_Dir_24 = 13
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -62,17 +62,22 @@ ExcludeFromSelect = *
 %TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
 
 [Standard.NTARM64]
-%WCN.DeviceDesc%            = SUBSYS_Device,            ACPI\QCOM242A
-%ADSP.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242B
-%AMSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242C
-%SERVICEMANAGER.DeviceDesc% = SUBSYS_Device, ACPI\QCOM24B8
-%AMSSCXThermal.DeviceDesc%  = SUBSYS_Device,  ACPI\QCOM24C0
-%SCSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM24C1
-%TEST.DeviceDesc%           = SUBSYS_Device,           ADSP\DEADCODE
-%TEST.DeviceDesc%           = SUBSYS_Device,           QCMS\DEADCODE
-%TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
+%WCN.DeviceDesc%            = SUBSYS_64_Device,            ACPI\QCOM242A
+%ADSP.DeviceDesc%           = SUBSYS_64_Device,           ACPI\QCOM242B
+%AMSS.DeviceDesc%           = SUBSYS_64_Device,           ACPI\QCOM242C
+%SERVICEMANAGER.DeviceDesc% = SUBSYS_64_Device, ACPI\QCOM24B8
+%AMSSCXThermal.DeviceDesc%  = SUBSYS_64_Device,  ACPI\QCOM24C0
+%SCSS.DeviceDesc%           = SUBSYS_64_Device,           ACPI\QCOM24C1
+%TEST.DeviceDesc%           = SUBSYS_64_Device,           ADSP\DEADCODE
+%TEST.DeviceDesc%           = SUBSYS_64_Device,           QCMS\DEADCODE
+%TEST.DeviceDesc%           = SUBSYS_64_Device,           QWCN\DEADCODE
 
 [SUBSYS_Device.NT]
+CopyFiles   = Drivers_Dir_12,Drivers_Dir_24
+AddReg      = SUBSYSReg
+AddProperty = WDTFSOCDeviceCategory
+
+[SUBSYS_64_Device.NT]
 CopyFiles   = Drivers_Dir_12,Drivers_Dir_24
 AddReg      = SUBSYSReg
 AddProperty = WDTFSOCDeviceCategory
@@ -80,6 +85,9 @@ AddProperty = WDTFSOCDeviceCategory
 [WDTFSOCDeviceCategory]
 
 [SUBSYS_Device.NT.HW]
+AddReg = SUBSYSACL
+
+[SUBSYS_64_Device.NT.HW]
 AddReg = SUBSYSACL
 
 [SUBSYSACL]
@@ -96,19 +104,19 @@ qcdsp28994.mbn
 
 [SUBSYSReg]
 ; ADSP registry values
-HKR ,                                                                                         , "AdspImagePath"         , %REG_SZ%   , "c:\windows\system32\qcadsp8994.mbn"
+HKR ,                                                                                         , "AdspImagePath"         , %REG_SZ%   , "%13%\qcadsp8994.mbn"
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{D58464D3-5B28-4ea6-A2E2-E8E57C5C69B8}, MemoryReservation       , %REG_DWORD%, 0x01800000
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{D58464D3-5B28-4ea6-A2E2-E8E57C5C69B8}, MemoryAlignment         , %REG_DWORD%, 0x00100000
 
 ; AMSS registry values
-HKR ,                                                                                         , "AmssFwImagePath"       , %REG_SZ%   , "c:\windows\system32\qcdsp1v28994.mbn"
-HKR ,                                                                                         , "AmssSwImagePath"       , %REG_SZ%   , "c:\windows\system32\qcdsp28994.mbn"
-HKR ,                                                                                         , "AmssOverideFwImagePath", %REG_SZ%   , "c:\windows\system32\qcdsp1v28994.mbn"
-HKR ,                                                                                         , "AmssOverideSwImagePath", %REG_SZ%   , "c:\windows\system32\qcdsp28994.mbn"
+HKR ,                                                                                         , "AmssFwImagePath"       , %REG_SZ%   , "%13%\qcdsp1v28994.mbn"
+HKR ,                                                                                         , "AmssSwImagePath"       , %REG_SZ%   , "%13%\qcdsp28994.mbn"
+HKR ,                                                                                         , "AmssOverideFwImagePath", %REG_SZ%   , "%13%\qcdsp1v28994.mbn"
+HKR ,                                                                                         , "AmssOverideSwImagePath", %REG_SZ%   , "%13%\qcdsp28994.mbn"
 
 ; Image Paths for APQ variants
-HKR ,                                                                                         , "AmssAPQFWImagePath"    , %REG_SZ%   , "\SystemRoot\system32\"
-HKR ,                                                                                         , "AmssAPQSWImagePath"    , %REG_SZ%   , "\SystemRoot\system32\"
+HKR ,                                                                                         , "AmssAPQFWImagePath"    , %REG_SZ%   , "%13%\"
+HKR ,                                                                                         , "AmssAPQSWImagePath"    , %REG_SZ%   , "%13%\"
 
 ; AMSS Memory Alignment
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{936DC601-5530-4b82-9D2A-72A488BEC7C1}, MemoryAlignment         , %REG_DWORD%, 0x00400000
@@ -122,12 +130,15 @@ HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{BA58766D-ABF2-4402-88D7
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{BA58766D-ABF2-4402-88D7-90AB243F6C77}, IsOverridden            , %REG_DWORD%, 1
 
 ; WCN registry values
-HKR ,                                                                                         , "WcnImagePath"          , %REG_SZ%   , "c:\windows\system32\qcwcnss8994.mbn"
+HKR ,                                                                                         , "WcnImagePath"          , %REG_SZ%   , "%13%\qcwcnss8994.mbn"
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38-BB33030C58B2}, MemoryReservation       , %REG_DWORD%, 0
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38-BB33030C58B2}, MemoryAlignment         , %REG_DWORD%, 0x00100000
 
 ;-------------- Service installation
 [SUBSYS_Device.NT.Services]
+AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst
+
+[SUBSYS_64_Device.NT.Services]
 AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst
 
 ; -------------- Subsystem driver install sections
@@ -136,7 +147,15 @@ DisplayName   = %SUBSYS.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcsubsys8994.sys
+ServiceBinary = %13%\arm\qcsubsys8994.sys
+AddReg        = SUBSYS_Service_AddReg
+
+[SUBSYS_64_Service_Inst]
+DisplayName   = %SUBSYS.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcsubsys8994.sys
 AddReg        = SUBSYS_Service_AddReg
 
 [SUBSYS_Service_AddReg]
@@ -145,7 +164,6 @@ HKR, Parameters, "AmssRestartEnabled", 0x00010001, 0x01
 HKR, Parameters, "MaxRestartCount", 0x00010001, 0x03
 HKR, Parameters, "RestartTimer", 0x00010001, 0x1e0
 HKR, Parameters, "WcnRestartEnabled", 0x00010001, 0x0
-HKR, Parameters, "MBNOverrideEnabled", 0x00010001, 0x1
 HKR, Parameters\DIAG, "FreeReservedMemory", 0x00010001, 0x01
 
 [SUBSYS_Device.NT.Wdf]

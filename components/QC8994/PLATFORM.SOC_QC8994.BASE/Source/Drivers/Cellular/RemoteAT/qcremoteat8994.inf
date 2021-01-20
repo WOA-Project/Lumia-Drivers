@@ -22,7 +22,7 @@ CatalogFile.NTARM   = qcremoteat8994.arm.cat
 CatalogFile.NTARM64 = qcremoteat8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -40,18 +40,30 @@ qcremoteat8994.sys = 1,arm64,
 %RemoteAt.DeviceDesc% = RemoteAt_Device, ACPI\QCOM2155
 
 [QCOM.NTARM64]
-%RemoteAt.DeviceDesc% = RemoteAt_Device, ACPI\QCOM2155
+%RemoteAt.DeviceDesc% = RemoteAt_64_Device, ACPI\QCOM2155
 
 [RemoteAt_Device.NT]
 CopyFiles = Drivers_Dir
 
+[RemoteAt_Device.NT.Wdf]
+KmdfService = RemoteAt, RemoteAt_wdfsect
+
+[RemoteAt_Device.NT.Services]
+AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst
+
+
+[RemoteAt_64_Device.NT]
+CopyFiles = Drivers_Dir
+
+[RemoteAt_64_Device.NT.Wdf]
+KmdfService = RemoteAt, RemoteAt_wdfsect
+
+[RemoteAt_64_Device.NT.Services]
+AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_64_Service_Inst
+
 [Drivers_Dir]
 qcremoteat8994.sys
 
-
-;-------------- Service installation
-[RemoteAt_Device.NT.Services]
-AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst
 
 ; -------------- RemoteAt driver install sections
 [RemoteAt_Service_Inst]
@@ -59,11 +71,18 @@ DisplayName    = %RemoteAt.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qcremoteat8994.sys
+ServiceBinary  = %13%\arm\qcremoteat8994.sys
 LoadOrderGroup = Extended Base
 
-[RemoteAt_Device.NT.Wdf]
-KmdfService = RemoteAt, RemoteAt_wdfsect
+; -------------- RemoteAt driver install sections
+[RemoteAt_64_Service_Inst]
+DisplayName    = %RemoteAt.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qcremoteat8994.sys
+LoadOrderGroup = Extended Base
+
 [RemoteAt_wdfsect]
 KmdfLibraryVersion = 1.15
 
