@@ -32,7 +32,7 @@ qcpmic3p8994.sys = 1,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -48,14 +48,22 @@ ExcludeFromSelect = *
 %DeviceDesc% = qcpmic3p_Inst,ACPI\QCOM2456
 
 [Qualcomm.NTARM64]
-%DeviceDesc% = qcpmic3p_Inst,ACPI\QCOM2456
+%DeviceDesc% = qcpmic3p_64_Inst,ACPI\QCOM2456
 
 [qcpmic3p_Inst.NT]
 Copyfiles   = qcpmic3pCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
+[qcpmic3p_64_Inst.NT]
+Copyfiles   = qcpmic3pCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
 [qcpmic3p_Inst.NT.HW]
+Addreg = PMICPACL
+
+[qcpmic3p_64_Inst.NT.HW]
 Addreg = PMICPACL
 
 [PMICPACL]
@@ -70,12 +78,22 @@ qcpmic3p8994.sys
 [qcpmic3p_Inst.NT.Services]
 AddService = qcpmic3p,%SPSVCINST_ASSOCSERVICE%,qcpmic3p_Service_Inst
 
+[qcpmic3p_64_Inst.NT.Services]
+AddService = qcpmic3p,%SPSVCINST_ASSOCSERVICE%,qcpmic3p_64_Service_Inst
+
 [qcpmic3p_Service_Inst]
 DisplayName   = %qcpmic3p.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %12%\qcpmic3p8994.sys
+ServiceBinary = %13%\arm\qcpmic3p8994.sys
+
+[qcpmic3p_64_Service_Inst]
+DisplayName   = %qcpmic3p.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm64\qcpmic3p8994.sys
 
 [Strings]
 ;Localizable Strings

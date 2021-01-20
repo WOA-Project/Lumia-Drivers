@@ -31,7 +31,7 @@ qcpmicapps8994.sys = 1,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -47,14 +47,22 @@ ExcludeFromSelect = *
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM2457
 
 [Qualcomm.NTARM64]
-%DeviceDesc% = PMIC_Inst,ACPI\QCOM2457
+%DeviceDesc% = PMIC_64_Inst,ACPI\QCOM2457
 
 [PMIC_Inst.NT]
 Copyfiles   = PMICCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
+[PMIC_64_Inst.NT]
+Copyfiles   = PMICCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
 [PMIC_Inst.NT.HW]
+Addreg = PMICAPPACL
+
+[PMIC_64_Inst.NT.HW]
 Addreg = PMICAPPACL
 
 [PMICAPPACL]
@@ -69,12 +77,22 @@ qcpmicapps8994.sys
 [PMIC_Inst.NT.Services]
 AddService = qcpmicapps,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
 
+[PMIC_64_Inst.NT.Services]
+AddService = qcpmicapps,%SPSVCINST_ASSOCSERVICE%,PMIC_64_Service_Inst
+
 [PMIC_Service_Inst]
 DisplayName   = %PMICApps.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %12%\qcpmicapps8994.sys
+ServiceBinary = %13%\arm\qcpmicapps8994.sys
+
+[PMIC_64_Service_Inst]
+DisplayName   = %PMICApps.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm64\qcpmicapps8994.sys
 
 [Strings]
 ;Localizable Strings

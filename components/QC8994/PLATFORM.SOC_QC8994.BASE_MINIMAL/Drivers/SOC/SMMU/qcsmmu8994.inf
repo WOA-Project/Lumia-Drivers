@@ -25,7 +25,7 @@ CatalogFile.NTARM   = qcsmmu8994.arm.cat
 CatalogFile.NTARM64 = qcsmmu8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskId%
@@ -46,9 +46,15 @@ ExcludeFromSelect = *
 %SMMU.DeviceDesc% = SMMU_Device, ACPI\QCOM2400
 
 [QC.NTARM64]
-%SMMU.DeviceDesc% = SMMU_Device, ACPI\QCOM2400
+%SMMU.DeviceDesc% = SMMU_64_Device, ACPI\QCOM2400
 
 [SMMU_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+AddReg      = WppReg
+Reboot
+
+[SMMU_64_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
@@ -85,16 +91,29 @@ HKR, , EnableTestInterface, %REG_DWORD%,  1
 [SMMU_Device.NT.Services]
 AddService = qcsmmuv2,%SPSVCINST_ASSOCSERVICE%, SMMU_Service_Inst
 
+[SMMU_64_Device.NT.Services]
+AddService = qcsmmuv2,%SPSVCINST_ASSOCSERVICE%, SMMU_64_Service_Inst
+
 ; -------------- skeletoni2c driver install sections
 [SMMU_Service_Inst]
 DisplayName   = %SMMU.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcsmmu8994.sys
+ServiceBinary = %13%\arm\qcsmmu8994.sys
+AddReg        = SMMU_SoftwareDeviceSettings
+
+[SMMU_64_Service_Inst]
+DisplayName   = %SMMU.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcsmmu8994.sys
 AddReg        = SMMU_SoftwareDeviceSettings
 
 [SMMU_Device.NT.Wdf]
+KmdfService = qcsmmuv2, SMMU_wdfsect
+[SMMU_64_Device.NT.Wdf]
 KmdfService = qcsmmuv2, SMMU_wdfsect
 [SMMU_wdfsect]
 KmdfLibraryVersion = 1.13

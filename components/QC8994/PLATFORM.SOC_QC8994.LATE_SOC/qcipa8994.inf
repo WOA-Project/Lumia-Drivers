@@ -23,7 +23,7 @@ CatalogFile.NTARM   = qcipa8994.arm.cat
 CatalogFile.NTARM64 = qcipa8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12                                           ; This is a directory id (dirid)
+DefaultDestDir = 13                                           ; This is a directory id (dirid)
                                                               ; 12 is equivalent to %SystemRoot%\system32\drivers for Windows 2000 and later
 [SourceDisksNames]
 1 = %DiskId1%                                                 ; A disk id and its name that contain the installation files
@@ -41,9 +41,14 @@ qcipa8994.sys = 1,arm64                                       ; The source files
 %ipa.DeviceDesc% = ipa_Device, ACPI\QCOM24B0
 
 [Standard.NTARM64]                                          ; Decorated model section take precedence over undecorated
-%ipa.DeviceDesc% = ipa_Device, ACPI\QCOM24B0
+%ipa.DeviceDesc% = ipa_64_Device, ACPI\QCOM24B0
 
 [ipa_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[ipa_64_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -57,8 +62,14 @@ qcipa8994.sys                                                 ; Copied from the 
 [ipa_Device.NT.Services]
 AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
+[ipa_64_Device.NT.Services]
+AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_64_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+
 ;-------------- HW installation
 [ipa_Device.NT.HW]
+addreg = ipa
+
+[ipa_64_Device.NT.HW]
 addreg = ipa
 
 [ipa]
@@ -70,7 +81,15 @@ DisplayName   = %ipa.SVCDESC%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcipa8994.sys
+ServiceBinary = %13%\arm\qcipa8994.sys
+AddReg        = IPA_Reg
+
+[ipa_64_Service_Inst]
+DisplayName   = %ipa.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcipa8994.sys
 AddReg        = IPA_Reg
 
 [IPA_Reg]
@@ -79,6 +98,8 @@ HKR, "Parameters", "A2PCEnabled" , %REG_DWORD%, 0x1
 
 
 [ipa_Device.NT.Wdf]
+KmdfService = qcipa, ipa_wdfsect
+[ipa_64_Device.NT.Wdf]
 KmdfService = qcipa, ipa_wdfsect
 [ipa_wdfsect]
 KmdfLibraryVersion = 1.15

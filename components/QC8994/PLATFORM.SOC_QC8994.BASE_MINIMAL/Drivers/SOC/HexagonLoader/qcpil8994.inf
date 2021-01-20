@@ -22,7 +22,7 @@ CatalogFile.NTARM   = qcpil8994.arm.cat
 CatalogFile.NTARM64 = qcpil8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -47,9 +47,15 @@ ExcludeFromSelect = *
 %PIL.DeviceDesc% = PIL_Device, ACPI\QCOM2429
 
 [QC.NTARM64]
-%PIL.DeviceDesc% = PIL_Device, ACPI\QCOM2429
+%PIL.DeviceDesc% = PIL_64_Device, ACPI\QCOM2429
 
 [PIL_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+AddReg      = WppReg
+Reboot
+
+[PIL_64_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
@@ -85,6 +91,9 @@ HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8d
 [PIL_Device.NT.Services]
 AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_Service_Inst
 
+[PIL_64_Device.NT.Services]
+AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_64_Service_Inst
+
 ; -------------- PIL driver install sections
 [PIL_Service_Inst]
 DisplayName    = %PIL.SVCDESC%
@@ -93,9 +102,20 @@ StartType      = 0               ; SERVICE_BOOT_START (0)
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 LoadOrderGroup = Base            ; First of all driver groups to load
 Tag            = 17              ; First to load within the "Base" driver group
-ServiceBinary  = %12%\qcpil8994.sys
+ServiceBinary  = %13%\arm\qcpil8994.sys
+
+[PIL_64_Service_Inst]
+DisplayName    = %PIL.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 0               ; SERVICE_BOOT_START (0)
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+LoadOrderGroup = Base            ; First of all driver groups to load
+Tag            = 17              ; First to load within the "Base" driver group
+ServiceBinary  = %13%\arm64\qcpil8994.sys
 
 [PIL_Device.NT.Wdf]
+KmdfService = qcPILC, PIL_wdfsect
+[PIL_64_Device.NT.Wdf]
 KmdfService = qcPILC, PIL_wdfsect
 [PIL_wdfsect]
 KmdfLibraryVersion = 1.15

@@ -23,7 +23,7 @@ CatalogFile.NTARM   = qccdi8994.arm.cat
 CatalogFile.NTARM64 = qccdi8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
@@ -45,9 +45,14 @@ qccdi8994.sys = 1,arm64,
 %QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM245B
 
 [Standard.NTARM64]
-%QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM245B
+%QCCDI.DeviceDesc% = QCCDI_64_Device, ACPI\QCOM245B
 
 [QCCDI_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[QCCDI_64_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -55,6 +60,9 @@ Reboot
 [WDTFSOCDeviceCategory]
 
 [QCCDI_Device.NT.HW]
+AddReg = CDIACL
+
+[QCCDI_64_Device.NT.HW]
 AddReg = CDIACL
 
 [CDIACL]
@@ -76,16 +84,30 @@ qccdi8994.sys
 [QCCDI_Device.NT.Services]
 AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_Service_Inst
 
+[QCCDI_64_Device.NT.Services]
+AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_64_Service_Inst
+
 ; -------------- QCCDI driver install sections
 [QCCDI_Service_Inst]
 DisplayName   = %QCCDI.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qccdi8994.sys
+ServiceBinary = %13%\arm\qccdi8994.sys
+AddReg        = QCCDIReg
+
+[QCCDI_64_Service_Inst]
+DisplayName   = %QCCDI.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qccdi8994.sys
 AddReg        = QCCDIReg
 
 [QCCDI_Device.NT.Wdf]
+KmdfService = QCCDI, QCCDI_wdfsect
+
+[QCCDI_64_Device.NT.Wdf]
 KmdfService = QCCDI, QCCDI_wdfsect
 
 [QCCDI_wdfsect]

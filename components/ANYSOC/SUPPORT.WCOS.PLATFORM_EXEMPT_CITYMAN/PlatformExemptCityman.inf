@@ -1,0 +1,402 @@
+[Version] 
+Signature   = "$WINDOWS NT$" 
+Class       = System
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %IHV% 
+DriverVer   = 01/01/2021,1.0.0.0
+PnpLockDown = 1
+
+CatalogFile.NTARM   = PlatformExemptCityman.arm.cat
+CatalogFile.NTARM64 = PlatformExemptCityman.arm64.cat
+
+[DefaultInstall.NTARM]
+AddReg = PlatformExempt_AddReg
+
+[DefaultInstall.NTARM64]
+AddReg = PlatformExempt_AddReg
+
+[PlatformExempt_AddReg]
+;
+; qcwlan8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\qwlan30.bin" , 0x00000000, "qcwlan8994.inf\qwlan30.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\bdwlan30.bin", 0x00000000, "qcwlan8994.inf\bdwlan0.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\Data.msc"    , 0x00000000, "qcwlan8994.inf\Data.msc"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\Data.msc"    , 0x00000000, "qcwlan8994.inf\Data.msc"
+
+;
+; qcdx_ffu8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdx11compiler8994.dll"  , 0x00000000, "qcdx_ffu8994.inf\arm64\qcdx11arm64compiler8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdx11um8994.dll"        , 0x00000000, "qcdx_ffu8994.inf\arm64\qcdx11arm64um8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qchdcpumd8994.dll"       , 0x00000000, "qcdx_ffu8994.inf\arm64\qchdcpumd8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcviddecmft8994.dll"     , 0x00000000, "qcdx_ffu8994.inf\arm64\qcviddecarm64mft8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcVidEncmftH2638994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm64\QcVidEncarm64mftH2638994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcVidEncmftH2648994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm64\QcVidEncarm64mftH2648994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcVidEncmftHEVC8994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm64\QcVidEncarm64mftHEVC8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcVidEncMftMPEG48994.dll", 0x00000000, "qcdx_ffu8994.inf\arm64\QcVidEncarm64MftMPEG48994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcvidencum8994.dll"      , 0x00000000, "qcdx_ffu8994.inf\arm64\qcvidencarm64um8994.dll"
+
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcdx11compiler8994.dll"  , 0x00000000, "qcdx_ffu8994.inf\arm\qcdx11compiler8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcdx11um8994.dll"        , 0x00000000, "qcdx_ffu8994.inf\arm\qcdx11um8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qchdcpumd8994.dll"       , 0x00000000, "qcdx_ffu8994.inf\arm\qchdcpumd8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcviddecmft8994.dll"     , 0x00000000, "qcdx_ffu8994.inf\arm\qcviddecmft8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\QcVidEncmftH2638994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm\QcVidEncmftH2638994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\QcVidEncmftH2648994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm\QcVidEncmftH2648994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\QcVidEncmftHEVC8994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm\QcVidEncmftHEVC8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\QcVidEncMftMPEG48994.dll", 0x00000000, "qcdx_ffu8994.inf\arm\QcVidEncMftMPEG48994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcvidencum8994.dll"      , 0x00000000, "qcdx_ffu8994.inf\arm\qcvidencum8994.dll"
+
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcvss8994.mbn"           , 0x00000000, "cityman_qcdx_ffu8994.inf\qcvss8994.mbn"
+
+;
+; qcacsp8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Bluetooth_cal_8994.acdb", 0x00000000, "cityman_qcacsp_wp8994.inf\Bluetooth_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Codec_cal_8994.acdb"    , 0x00000000, "cityman_qcacsp_wp8994.inf\Codec_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\General_cal_8994.acdb"  , 0x00000000, "cityman_qcacsp_wp8994.inf\General_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Global_cal_8994.acdb"   , 0x00000000, "cityman_qcacsp_wp8994.inf\Global_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Handset_cal_8994.acdb"  , 0x00000000, "cityman_qcacsp_wp8994.inf\Handset_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Hdmi_cal_8994.acdb"     , 0x00000000, "cityman_qcacsp_wp8994.inf\Hdmi_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Headset_cal_8994.acdb"  , 0x00000000, "cityman_qcacsp_wp8994.inf\Headset_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Speaker_cal_8994.acdb"  , 0x00000000, "cityman_qcacsp_wp8994.inf\Speaker_cal_8994.acdb"
+
+;
+; qcauddev_wp8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qccpe8994.mbn", 0x00000000, "cityman_qcauddev_wp8994.inf\qccpe8994.mbn"
+
+;
+; qcbtuart8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\nvm_tlv_3.0.bin"     , 0x00000000, "cityman_qcbtuart8994.inf\nvm_tlv_3.0.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\nvm_tlv_3.2.bin"     , 0x00000000, "cityman_qcbtuart8994.inf\nvm_tlv_3.2.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\rampatch_tlv_3.0.tlv", 0x00000000, "cityman_qcbtuart8994.inf\rampatch_tlv_3.0.tlv"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\rampatch_tlv_3.2.tlv", 0x00000000, "cityman_qcbtuart8994.inf\rampatch_tlv_3.2.tlv"
+
+;
+; qcsubsys_ffu8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcadsp8994.mbn"  , 0x00000000, "qcsubsys_ffu8994.inf\qcadsp8994.mbn"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdsp1v28994.mbn", 0x00000000, "qcsubsys_ffu8994.inf\qcdsp1v28994.mbn"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdsp28994.mbn"  , 0x00000000, "qcsubsys_ffu8994.inf\qcdsp28994.mbn"
+
+;
+; SynapticsTouch.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\SynaFWVendor1.img", 0x00000000, "cityman_SynapticsTouch.inf\SynaFWVendor1.img"
+
+;
+; typeccontroller.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\DreamLifter.exe"  , 0x00000000, "typeccontroller.inf\arm\DreamLifter.exe"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\tyc.dll"          , 0x00000000, "typeccontroller.inf\arm\tyc.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\WppRecorderUM.dll", 0x00000000, "typeccontroller.inf\arm\WppRecorderUM.dll"
+
+;
+; ngp_drv.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\ngp_drv.dll", 0x00000000, "ngp_drv.inf\arm64\ngp_drv.dll"
+
+;
+; NXPPN547.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\MSNfcI2C547.dll", 0x00000000, "NXPPN547.inf\MSNfcI2C547.1903.dll"
+
+;
+; AlsPrxAlphamon.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\AlsPrxAlphamon.dll", 0x00000000, "AlsPrxAlphamon.inf\arm64\AlsPrxAlphamon.dll"
+
+;
+; LumiaActivityDriver.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\LumiaActivityDriver.dll", 0x00000000, "LumiaActivityDriver.inf\arm64\LumiaActivityDriver.dll"
+
+;
+; LumiaActivityDriver.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\LumiaPedometerDriver.dll", 0x00000000, "LumiaPedometerDriver.inf\arm64\LumiaPedometerDriver.dll"
+
+;
+; qcSensors8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\qcSensors8994.dll", 0x00000000, "qcSensors8994.inf\arm64\qcSensors8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcSensor1UM8994.dll"           , 0x00000000, "qcSensors8994.inf\arm64\qcSensor1UM8994.dll"
+
+;
+; SscAlgorithmBridge8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\SscAlgorithmBridge8994.dll", 0x00000000, "SscAlgorithmBridge8994.inf\arm64\SscAlgorithmBridge8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\LumiaActivityDetectionV2.dll"           , 0x00000000, "SscAlgorithmBridge8994.inf\arm64\LumiaActivityDetectionV2.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\LumiaGestureRecognition.dll"            , 0x00000000, "SscAlgorithmBridge8994.inf\arm64\LumiaGestureRecognition.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\LumiaSensorAlgorithmControl.dll"        , 0x00000000, "SscAlgorithmBridge8994.inf\arm64\LumiaSensorAlgorithmControl.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\LumiaStepCounterV2.dll"                 , 0x00000000, "SscAlgorithmBridge8994.inf\arm64\LumiaStepCounterV2.dll"
+
+;
+; apperso.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\apperso.dll", 0x00000000, "apperso.inf\arm64\apperso.dll"
+
+;
+; npetsec.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\npetsec.dll", 0x00000000, "npetsec.inf\arm64\npetsec.dll"
+
+;
+; RilServiceActivation.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\RilServiceActivation.exe", 0x00000000, "RilServiceActivation.inf\arm64\RilServiceActivation.exe"
+
+;
+; qcgnsssvc8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcGnssSvc.dll", 0x00000000, "qcgnsssvc8994.inf\QcGnssSvc.dll"
+
+;
+; ngp_svc.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\ngp_svc.exe"  , 0x00000000, "ngp_svc.inf\arm64\ngp_svc.exe"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\ngp_core.dll" , 0x00000000, "ngp_svc.inf\arm64\ngp_core.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\ngp_main.dll" , 0x00000000, "ngp_svc.inf\arm64\ngp_main.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\ngp_tp.dll"   , 0x00000000, "ngp_svc.inf\arm64\ngp_tp.dll"
+
+;
+; NcsdSvc.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Ncsd.dll"         , 0x00000000, "NcsdSvc.inf\arm64\Ncsd.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\NcsdPluginSvc.dll", 0x00000000, "NcsdSvc.inf\arm64\NcsdPluginSvc.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\NcsdRes.dll"      , 0x00000000, "NcsdSvc.inf\arm64\NcsdRes.dll"
+
+;
+; OEMServiceHost.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\OEMServiceHost.exe", 0x00000000, "OEMServiceHost.inf\arm64\NcsdPluginSvc.dll"
+
+;
+; oempanel.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\ColorData.bin"   , 0x00000000, "oempanel.inf\ColorData.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\oempanel_etw.dll", 0x00000000, "oempanel.inf\arm64\oempanel_etw.dll"
+
+;
+; halextqctimer8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\HalExtQCTimer.dll", 0x00000000, "halextqctimer8994.inf\arm64\HalExtQCTimer.dll"
+
+;
+; halextqcwdogtimer8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\HalExtQCWdogTimer.dll", 0x00000000, "halextqcwdogtimer8994.inf\arm64\HalExtQCWdogTimer.dll"
+
+;
+; qcaud8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\ProxyAPO.dll", 0x00000000, "qcaud8994.inf\arm64\ProxyAPO.dll"
+
+;
+; qcipcrouter_WP8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qccium8994.dll"       , 0x00000000, "qcipcrouter_WP8994.inf\arm64\qccium8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcsium8994.dll"       , 0x00000000, "qcipcrouter_WP8994.inf\arm64\qcsium8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qsocketipcrum8994.dll", 0x00000000, "qcipcrouter_WP8994.inf\arm64\qsocketipcrum8994.dll"
+
+;
+; QCListenSoundModel8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QCListenSoundModel.dll"                              , 0x00000000, "QCListenSoundModel8994.inf\arm64\QCListenSoundModel.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\de-DE\config"                  , 0x00000000, "QCListenSoundModel8994.inf\deDEconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\de-DE\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\deDEVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-AU\config"                  , 0x00000000, "QCListenSoundModel8994.inf\enAUconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-AU\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\enAUVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-CA\config"                  , 0x00000000, "QCListenSoundModel8994.inf\enCAconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-CA\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\enCAVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-GB\config"                  , 0x00000000, "QCListenSoundModel8994.inf\enGBconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-GB\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\enGBVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-IN\config"                  , 0x00000000, "QCListenSoundModel8994.inf\enINconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-IN\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\enINVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-US\config"                  , 0x00000000, "QCListenSoundModel8994.inf\enUSconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-US\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\enUSVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-ES\config"                  , 0x00000000, "QCListenSoundModel8994.inf\esESconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-ES\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\esESVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\fr-FR\config"                  , 0x00000000, "QCListenSoundModel8994.inf\frFRconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\fr-FR\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\frFRVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\it-IT\config"                  , 0x00000000, "QCListenSoundModel8994.inf\itITconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\it-IT\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\itITVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\ja-JP\config"                  , 0x00000000, "QCListenSoundModel8994.inf\jaJPconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\ja-JP\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\jaJPVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\zh-CN\config"                  , 0x00000000, "QCListenSoundModel8994.inf\zhCNconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\zh-CN\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\zhCNVoiceActivationModel.bin"
+
+;
+; qcaudresconst8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\AudioResourceConstraints_8994.xml", 0x00000000, "qcaudresconst8994.inf\AudioResourceConstraints_8994.xml"
+
+;
+; qcDiagRouter8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdiaglogging8994.dll", 0x00000000, "qcDiagRouter8994.inf\arm64\qcdiaglogging8994.dll"
+
+;
+; qcssd8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\BinaryPartitionDecrypt.dll", 0x00000000, "qcssd8994.inf\arm64\BinaryPartitionDecrypt.dll"
+
+;
+; wmril.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\WMRil.dll", 0x00000000, "wmril.inf\arm64\WMRil.dll"
+
+;
+; qcims8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimssink8994.dll", 0x00000000, "qcims8994.inf\arm64\qcimssink8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimssrc8994.dll" , 0x00000000, "qcims8994.inf\arm64\qcimssrc8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimsVT8994.dll"  , 0x00000000, "qcims8994.inf\arm64\qcimsVT8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimsvtmf8994.dll", 0x00000000, "qcims8994.inf\arm64\qcimsvtmf8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\vcel8994.dll"     , 0x00000000, "qcims8994.inf\arm64\vcel8994.dll"
+
+;
+; qcfmslminiport.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcfmslminiport.dll", 0x00000000, "qcfmslminiport.inf\arm64\qcfmslminiport.dll"
+
+;
+; libadsprpc.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\libadsprpc.dll", 0x00000000, "libadsprpc.inf\arm64\libadsprpc.dll"
+
+;
+; qcImsDataDaemon8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcImsDataDaemon8994.dll", 0x00000000, "qcImsDataDaemon8994.inf\arm64\qcImsDataDaemon8994.dll"
+
+;
+; qcImsQMIDaemon8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcImsQMIDaemon8994.dll", 0x00000000, "qcImsQMIDaemon8994.inf\arm64\qcImsQMIDaemon8994.dll"
+
+;
+; qcimsRTPSvc8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimsRTPSvc8994.dll", 0x00000000, "qcimsRTPSvc8994.inf\arm64\qcimsRTPSvc8994.dll"
+
+;
+; qcimsVTWNIsvc8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcimsVTWNIsvc8994.dll", 0x00000000, "qcimsVTWNIsvc8994.inf\arm64\qcimsVTWNIsvc8994.dll"
+
+;
+; qcremoteatsrvc8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcremoteatsrvc8994.dll", 0x00000000, "qcremoteatsrvc8994.inf\arm64\qcremoteatsrvc8994.dll"
+
+;
+; qcremoteatsrvc8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcShutdownSvc8994.dll", 0x00000000, "qcshutdownsvc8994.inf\arm64\QcShutdownSvc8994.dll"
+
+;
+; qcwifinotifiersrvc8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcwifinotifiersrvc8994.dll", 0x00000000, "qcwifinotifiersrvc8994.inf\arm64\qcwifinotifiersrvc8994.dll"
+
+;
+; ApplicationChambers.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\ChamberProf.dll"    , 0x00000000, "ApplicationChambers.inf\arm64\ChamberProf.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\SecRuntime.dll"     , 0x00000000, "ApplicationChambers.inf\arm64\SecRuntime.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\SecurityRuntime.dll", 0x00000000, "ApplicationChambers.inf\arm64\SecurityRuntime.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\wpcoreutil.dll"     , 0x00000000, "ApplicationChambers.inf\arm64\wpcoreutil.dll"
+
+;
+; luvc120.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\luvcp120.dll", 0x00000000, "luvc120.inf\arm64\luvcarm64p120.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\luvcr120.dll", 0x00000000, "luvc120.inf\arm64\luvcarm64r120.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\luvcp120.dll", 0x00000000, "luvc120.inf\arm\luvcp120.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\luvcr120.dll", 0x00000000, "luvc120.inf\arm\luvcr120.dll"
+
+;
+; msvc140.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\concrt140.dll"   , 0x00000000, "msvc140.inf\arm64\concrt140.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\msvcp140.dll"    , 0x00000000, "msvc140.inf\arm64\msvcarm64p140.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\vcruntime140.dll", 0x00000000, "msvc140.inf\arm64\vcarm64runtime140.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\msvcp140.dll"    , 0x00000000, "msvc140.inf\arm\msvcp140.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\vccorlib140.dll" , 0x00000000, "msvc140.inf\arm\vccorlib140.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\vcruntime140.dll", 0x00000000, "msvc140.inf\arm\vcruntime140.dll"
+
+;
+; FM Radio Interface.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\FMInterfaceSvc.exe", 0x00000000, "FM Radio Interface.inf\FMInterfaceSvc.exe"
+
+;
+; MobileBridgeSvc.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\MobileBridgeSvc.exe", 0x00000000, "MobileBridgeSvc.inf\MobileBridgeSvc.exe"
+
+;
+; MobileBridge.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\MobileBridge.exe", 0x00000000, "MobileBridge.inf\arm64\MobileBridge.exe"
+
+;
+; phoneinfo.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\phoneinfo.dll", 0x00000000, "phoneinfo.inf\arm64\phoneinfo.dll"
+
+;
+; riladaptationsvc.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QxdmFilter.bin"          , 0x00000000, "riladaptationsvc.inf\QxdmFilter.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\RILAdaptationService.exe", 0x00000000, "riladaptationsvc.inf\arm64\RILAdaptationService.exe"
+
+;
+; CellularLineResources.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Busy.wav"                       , 0x00000000, "CellularLineResources.inf\Busy.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\BusyCDMA.wav"                   , 0x00000000, "CellularLineResources.inf\BusyCDMA.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Busy_425Hz_330ms.wav"           , 0x00000000, "CellularLineResources.inf\Busy_425Hz_330ms.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Busy_425Hz_375ms.wav"           , 0x00000000, "CellularLineResources.inf\Busy_425Hz_375ms.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Busy_425Hz_480ms.wav"           , 0x00000000, "CellularLineResources.inf\Busy_425Hz_480ms.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Busy_450Hz_170ms.wav"           , 0x00000000, "CellularLineResources.inf\Busy_450Hz_170ms.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Calldrop.wav"                   , 0x00000000, "CellularLineResources.inf\Calldrop.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Callwait.wav"                   , 0x00000000, "CellularLineResources.inf\Callwait.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Congestion.wav"                 , 0x00000000, "CellularLineResources.inf\Congestion.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Default.wav"                    , 0x00000000, "CellularLineResources.inf\Default.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf0.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf0.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf1.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf1.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf2.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf2.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf3.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf3.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf4.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf4.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf5.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf5.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf6.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf6.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf7.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf7.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf8.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf8.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmf9.wav"                      , 0x00000000, "CellularLineResources.inf\dtmf9.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmfast.wav"                    , 0x00000000, "CellularLineResources.inf\dtmfast.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\dtmfpd.wav"                     , 0x00000000, "CellularLineResources.inf\dtmfpd.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\HWandSW.wav"                    , 0x00000000, "CellularLineResources.inf\HWandSW.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\PingRing.wav"                   , 0x00000000, "CellularLineResources.inf\PingRing.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Pip.wav"                        , 0x00000000, "CellularLineResources.inf\Pip.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Reorder.wav"                    , 0x00000000, "CellularLineResources.inf\Reorder.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\ringback.wav"                   , 0x00000000, "CellularLineResources.inf\ringback.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Ringback_400Hz+450Hz.wav"       , 0x00000000, "CellularLineResources.inf\Ringback_400Hz+450Hz.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Ringback_400Hzx25Hz.wav"        , 0x00000000, "CellularLineResources.inf\Ringback_400Hzx25Hz.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Ringback_425Hzx25Hz.wav"        , 0x00000000, "CellularLineResources.inf\Ringback_425Hzx25Hz.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Ringback_425Hz_1000ms.wav"      , 0x00000000, "CellularLineResources.inf\Ringback_425Hz_1000ms.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Ringback_425Hz_1500ms.wav"      , 0x00000000, "CellularLineResources.inf\Ringback_425Hz_1500ms.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Ringback_440Hz+480Hz_2000ms.wav", 0x00000000, "CellularLineResources.inf\Ringback_440Hz+480Hz_2000ms.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Ringback_440Hz_1500ms.wav"      , 0x00000000, "CellularLineResources.inf\Ringback_440Hz_1500ms.wav"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\Media\Ringback_450Hz_1500ms.wav"      , 0x00000000, "CellularLineResources.inf\Ringback_450Hz_1500ms.wav"
+
+;
+; PhoneProviders2.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\PhoneProviders2.dll", 0x00000000, "PhoneProviders2.inf\PhoneProviders2.dll"
+
+[Strings]
+IHV = "LumiaWoA authors"

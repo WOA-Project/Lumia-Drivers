@@ -31,7 +31,7 @@ qcpmic8994.sys = 1,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -47,14 +47,22 @@ ExcludeFromSelect = *
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM2455
 
 [Qualcomm.NTARM64]
-%DeviceDesc% = PMIC_Inst,ACPI\QCOM2455
+%DeviceDesc% = PMIC_64_Inst,ACPI\QCOM2455
 
 [PMIC_Inst.NT]
 Copyfiles   = PMICCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
+[PMIC_64_Inst.NT]
+Copyfiles   = PMICCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
 [PMIC_Inst.NT.HW]
+Addreg = PMICACL
+
+[PMIC_64_Inst.NT.HW]
 Addreg = PMICACL
 
 [PMICACL]
@@ -69,16 +77,29 @@ qcpmic8994.sys
 [PMIC_Inst.NT.Services]
 AddService = qcpmic,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
 
+[PMIC_64_Inst.NT.Services]
+AddService = qcpmic,%SPSVCINST_ASSOCSERVICE%,PMIC_64_Service_Inst
+
 [PMIC_Service_Inst]
 DisplayName    = %PMIC.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_BOOT_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %12%\qcpmic8994.sys
+ServiceBinary  = %13%\arm\qcpmic8994.sys
 LoadOrderGroup = Filter
-Tag            = 2
+
+[PMIC_64_Service_Inst]
+DisplayName    = %PMIC.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm64\qcpmic8994.sys
+LoadOrderGroup = Filter
 
 [PMIC_Inst.NT.Wdf]
+KmdfService = qcpmic, PMIC_wdfsect
+
+[PMIC_64_Inst.NT.Wdf]
 KmdfService = qcpmic, PMIC_wdfsect
 
 [PMIC_wdfsect]

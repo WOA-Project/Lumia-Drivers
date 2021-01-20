@@ -17,7 +17,7 @@ CatalogFile.NTARM   = qcpep8992.arm.cat
 CatalogFile.NTARM64 = qcpep8992.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -295,9 +295,8 @@ DisplayName    = %pep.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qcpep8992.sys
+ServiceBinary  = %13%\arm\qcpep8992.sys
 LoadOrderGroup = Base
-Tag            = 17
 AddReg         = PEP_SoftwareDeviceSettings
 
 [pep_64_Service_Inst]
@@ -305,9 +304,8 @@ DisplayName    = %pep.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qcpep8992.sys
+ServiceBinary  = %13%\arm64\qcpep8992.sys
 LoadOrderGroup = Base
-Tag            = 17
 AddReg         = PEP_64_SoftwareDeviceSettings
 
 [SourceDisksNames]

@@ -96,15 +96,15 @@ qcdsp28994.mbn
 
 [SUBSYSReg]
 ; ADSP registry values
-HKR ,                                                                                         , "AdspImagePath"         , %REG_SZ%   , "\SystemRoot\system32\qcadsp8994.mbn"
+HKR ,                                                                                         , "AdspImagePath"         , %REG_SZ%   , "c:\windows\system32\qcadsp8994.mbn"
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{D58464D3-5B28-4ea6-A2E2-E8E57C5C69B8}, MemoryReservation       , %REG_DWORD%, 0x01800000
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{D58464D3-5B28-4ea6-A2E2-E8E57C5C69B8}, MemoryAlignment         , %REG_DWORD%, 0x00100000
 
 ; AMSS registry values
-HKR ,                                                                                         , "AmssFwImagePath"       , %REG_SZ%   , "\SystemRoot\system32\qcdsp1v28994.mbn"
-HKR ,                                                                                         , "AmssSwImagePath"       , %REG_SZ%   , "\SystemRoot\system32\qcdsp28994.mbn"
-HKR ,                                                                                         , "AmssOverideFwImagePath", %REG_SZ%   , "\SystemRoot\system32\qcdsp1v28926.mbn"
-HKR ,                                                                                         , "AmssOverideSwImagePath", %REG_SZ%   , "\SystemRoot\system32\qcdsp28926.mbn"
+HKR ,                                                                                         , "AmssFwImagePath"       , %REG_SZ%   , "c:\windows\system32\qcdsp1v28994.mbn"
+HKR ,                                                                                         , "AmssSwImagePath"       , %REG_SZ%   , "c:\windows\system32\qcdsp28994.mbn"
+HKR ,                                                                                         , "AmssOverideFwImagePath", %REG_SZ%   , "c:\windows\system32\qcdsp1v28994.mbn"
+HKR ,                                                                                         , "AmssOverideSwImagePath", %REG_SZ%   , "c:\windows\system32\qcdsp28994.mbn"
 
 ; Image Paths for APQ variants
 HKR ,                                                                                         , "AmssAPQFWImagePath"    , %REG_SZ%   , "\SystemRoot\system32\"
@@ -122,7 +122,7 @@ HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{BA58766D-ABF2-4402-88D7
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{BA58766D-ABF2-4402-88D7-90AB243F6C77}, IsOverridden            , %REG_DWORD%, 1
 
 ; WCN registry values
-HKR ,                                                                                         , "WcnImagePath"          , %REG_SZ%   , "\SystemRoot\system32\qcwcnss8994.mbn"
+HKR ,                                                                                         , "WcnImagePath"          , %REG_SZ%   , "c:\windows\system32\qcwcnss8994.mbn"
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38-BB33030C58B2}, MemoryReservation       , %REG_DWORD%, 0
 HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38-BB33030C58B2}, MemoryAlignment         , %REG_DWORD%, 0x00100000
 
@@ -145,6 +145,7 @@ HKR, Parameters, "AmssRestartEnabled", 0x00010001, 0x01
 HKR, Parameters, "MaxRestartCount", 0x00010001, 0x03
 HKR, Parameters, "RestartTimer", 0x00010001, 0x1e0
 HKR, Parameters, "WcnRestartEnabled", 0x00010001, 0x0
+HKR, Parameters, "MBNOverrideEnabled", 0x00010001, 0x1
 HKR, Parameters\DIAG, "FreeReservedMemory", 0x00010001, 0x01
 
 [SUBSYS_Device.NT.Wdf]

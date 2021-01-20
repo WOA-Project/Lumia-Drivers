@@ -22,7 +22,7 @@ CatalogFile.NTARM   = qcrpen8994.arm.cat
 CatalogFile.NTARM64 = qcrpen8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
                                                
 [SourceDisksNames]
 1 = %DiskId1%
@@ -40,7 +40,7 @@ qcrpen8994.sys = 1,arm64
 %RPEN.DeviceDesc% = RPEN_Device, ACPI\QCOM245C
 
 [Standard.NTARM64]                                    
-%RPEN.DeviceDesc% = RPEN_Device, ACPI\QCOM245C
+%RPEN.DeviceDesc% = RPEN_64_Device, ACPI\QCOM245C
 
 [RPEN_Device.NT]
 CopyFiles   = Drivers_Dir
@@ -48,7 +48,16 @@ AddProperty = WDTFSOCDeviceCategory
 AddReg      = RPENReg
 Reboot
 
+[RPEN_64_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+AddReg      = RPENReg
+Reboot
+
 [RPEN_Device.NT.HW]
+AddReg = RPENACL
+
+[RPEN_64_Device.NT.HW]
 AddReg = RPENACL
 
 [RPENACL]
@@ -73,6 +82,10 @@ qcrpen8994.sys
 
 [RPEN_Device.NT.Services]
 AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst
+
+[RPEN_64_Device.NT.Services]
+AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_64_Service_Inst
+
                                                
 
 ; -------------- RPEN driver install sections
@@ -81,9 +94,18 @@ DisplayName   = %RPEN.SVCDESC%
 ServiceType   = 1                              ; SERVICE_KERNEL_DRIVER
 StartType     = 3                              ; SERVICE_DEMAND_START
 ErrorControl  = 1                              ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcrpen8994.sys
+ServiceBinary = %13%\arm\qcrpen8994.sys
+
+[RPEN_64_Service_Inst]
+DisplayName   = %RPEN.SVCDESC%
+ServiceType   = 1                              ; SERVICE_KERNEL_DRIVER
+StartType     = 3                              ; SERVICE_DEMAND_START
+ErrorControl  = 1                              ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcrpen8994.sys
 
 [RPEN_Device.NT.Wdf]
+KmdfService = QCRPEN, RPEN_wdfsect
+[RPEN_64_Device.NT.Wdf]
 KmdfService = QCRPEN, RPEN_wdfsect
 [RPEN_wdfsect]
 KmdfLibraryVersion = 1.15

@@ -21,7 +21,7 @@ CatalogFile.NTARM   = qcspmi8994.arm.cat
 CatalogFile.NTARM64 = qcspmi8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
                                     
 [ControlFlags]
 ExcludeFromSelect = *
@@ -46,9 +46,14 @@ qcspmi8994.sys = 1,arm64,
 %qcspmi.DeviceDesc% = qcspmi_Device, ACPI\QCOM2404
 
 [Standard.NTARM64]
-%qcspmi.DeviceDesc% = qcspmi_Device, ACPI\QCOM2404
+%qcspmi.DeviceDesc% = qcspmi_64_Device, ACPI\QCOM2404
 
 [qcspmi_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[qcspmi_64_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -63,17 +68,30 @@ qcspmi8994.sys
 [qcspmi_Device.NT.Services]
 AddService = qcspmi,%SPSVCINST_ASSOCSERVICE%, qcspmi_Service_Inst
 
+[qcspmi_64_Device.NT.Services]
+AddService = qcspmi,%SPSVCINST_ASSOCSERVICE%, qcspmi_64_Service_Inst
+
 ; -------------- qcspmi driver install sections
 [qcspmi_Service_Inst]
 DisplayName    = %qcspmi.SVCDESC%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_BOOT_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %12%\qcspmi8994.sys
+ServiceBinary  = %13%\arm\qcspmi8994.sys
 LoadOrderGroup = Filter
-Tag            = 2
+
+[qcspmi_64_Service_Inst]
+DisplayName    = %qcspmi.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm64\qcspmi8994.sys
+LoadOrderGroup = Filter
 
 [qcspmi_Device.NT.Wdf]
+KmdfService = qcspmi, qcspmi_wdfsect
+
+[qcspmi_64_Device.NT.Wdf]
 KmdfService = qcspmi, qcspmi_wdfsect
 
 [qcspmi_wdfsect]

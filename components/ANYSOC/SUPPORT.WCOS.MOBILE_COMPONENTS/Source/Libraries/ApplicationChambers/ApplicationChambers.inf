@@ -1,0 +1,54 @@
+;
+; ApplicationChambers.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 09/09/2016,10.0.14903.1000
+PnpLockdown = 1
+
+CatalogFile.NTARM   = ApplicationChambers.arm.cat
+CatalogFile.NTARM64 = ApplicationChambers.arm64.cat
+
+[DestinationDirs]
+; 11 = system32
+ApplicationChambers.Files.NTarm_11 = 11
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+ChamberProf.dll     = 0,arm,
+SecRuntime.dll      = 0,arm,
+SecurityRuntime.dll = 0,arm,
+wpcoreutil.dll      = 0,arm,
+
+[SourceDisksFiles.ARM64]
+ChamberProf.dll     = 0,arm64,
+SecRuntime.dll      = 0,arm64,
+SecurityRuntime.dll = 0,arm64,
+wpcoreutil.dll      = 0,arm64,
+
+;*****************************************
+; ApplicationChambers  Install Section
+;*****************************************
+
+[DefaultInstall.NTARM]
+CopyFiles = ApplicationChambers.Files.NTarm_11
+
+[DefaultInstall.NTARM64]
+CopyFiles = ApplicationChambers.Files.NTarm_11
+
+; System32
+[ApplicationChambers.Files.NTarm_11]
+ChamberProf.dll
+SecRuntime.dll
+SecurityRuntime.dll
+wpcoreutil.dll
+
+[Strings]
+IHV                    = "LumiaWoA authors"
+DiskId1                = "Windows Phone Connection Manager Installation Disk #1"
+

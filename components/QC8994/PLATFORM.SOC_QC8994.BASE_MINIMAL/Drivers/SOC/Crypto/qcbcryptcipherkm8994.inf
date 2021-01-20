@@ -16,7 +16,7 @@ CatalogFile.NTARM   = qcBCryptCipherKM8994.arm.cat
 CatalogFile.NTARM64 = qcBCryptCipherKM8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -41,9 +41,14 @@ qcBCryptCipherKM8994.sys = 1,arm64
 %BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_Device, ACPI\QCOM241D
 
 [Standard.NTARM64]
-%BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_Device, ACPI\QCOM241D
+%BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_64_Device, ACPI\QCOM241D
 
 [BCryptCipher_KM_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[BCryptCipher_KM_64_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -59,8 +64,14 @@ qcBCryptCipherKM8994.sys
 [BCryptCipher_KM_Device.NT.Services]
 AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_Service_Inst
 
+[BCryptCipher_KM_64_Device.NT.Services]
+AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_64_Service_Inst
+
 ;-------------- HW installation
 [BCryptCipher_KM_Device.NT.HW]
+addreg = BCryptCipher_KM
+
+[BCryptCipher_KM_64_Device.NT.HW]
 addreg = BCryptCipher_KM
 
 [BCryptCipher_KM]
@@ -72,10 +83,19 @@ DisplayName   = %BCryptCipher_KM.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcBCryptCipherKM8994.sys
+ServiceBinary = %13%\arm\qcBCryptCipherKM8994.sys
+
+[BCryptCipher_KM_64_Service_Inst]
+DisplayName   = %BCryptCipher_KM.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcBCryptCipherKM8994.sys
 
 
 [BCryptCipher_KM_Device.NT.Wdf]
+KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect
+[BCryptCipher_KM_64_Device.NT.Wdf]
 KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect
 [BCryptCipher_KM_wdfsect]
 KmdfLibraryVersion = 1.15

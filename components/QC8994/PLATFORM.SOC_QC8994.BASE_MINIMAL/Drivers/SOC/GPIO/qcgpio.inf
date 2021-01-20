@@ -24,7 +24,7 @@ CatalogFile.NTARM64 = qcgpio.arm64.cat
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskId%
@@ -49,9 +49,13 @@ ExcludeFromSelect = *
 %GPIO.DeviceDesc% = GPIO_Inst,ACPI\QCOM2405
 
 [QcGpioComp.NTARM64]
-%GPIO.DeviceDesc% = GPIO_Inst,ACPI\QCOM2405
+%GPIO.DeviceDesc% = GPIO_64_Inst,ACPI\QCOM2405
 
 [GPIO_Inst.NT]
+Copyfiles   = GPIOCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+
+[GPIO_64_Inst.NT]
 Copyfiles   = GPIOCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 
@@ -64,12 +68,22 @@ qcgpio.sys, , , 0x100,
 [GPIO_Inst.NT.Services]
 AddService = qcgpio,%SPSVCINST_ASSOCSERVICE%,GPIO_Service_Inst
 
+[GPIO_64_Inst.NT.Services]
+AddService = qcgpio,%SPSVCINST_ASSOCSERVICE%,GPIO_64_Service_Inst
+
 [GPIO_Service_Inst]
 DisplayName   = %GPIO.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %12%\qcgpio.sys
+ServiceBinary = %13%\arm\qcgpio.sys
+
+[GPIO_64_Service_Inst]
+DisplayName   = %GPIO.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm64\qcgpio.sys
 
 [Strings]
 ;Localizable Strings

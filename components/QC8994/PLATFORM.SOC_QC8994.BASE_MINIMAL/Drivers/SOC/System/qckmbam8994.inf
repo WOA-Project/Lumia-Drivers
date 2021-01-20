@@ -25,7 +25,7 @@ CatalogFile.NTARM   = qckmBam8994.arm.cat
 CatalogFile.NTARM64 = qckmBam8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12                                           ; This is a directory id (dirid)
+DefaultDestDir = 13                                           ; This is a directory id (dirid)
                                                               ; 12 is equivalent to %SystemRoot%\system32\drivers for Windows 2000 and later
 [SourceDisksNames]
 1 = %DiskId1%                                                 ; A disk id and its name that contain the installation files
@@ -43,14 +43,22 @@ qckmbam8994.sys = 1,arm64                                      ; The source file
 %BAM.DeviceDesc% = BAM_Device, ACPI\QCOM2401                    ; ACPI root, find the BAM HW in device manager to install driver
 
 [Standard.NTARM64]                                          ; Decorated model section take precedence over undecorated
-%BAM.DeviceDesc% = BAM_Device, ACPI\QCOM2401                    ; ACPI root, find the BAM HW in device manager to install driver
+%BAM.DeviceDesc% = BAM_64_Device, ACPI\QCOM2401                    ; ACPI root, find the BAM HW in device manager to install driver
 
 [BAM_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
+[BAM_64_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
 [BAM_Device.NT.HW]
+Addreg = BAMACL
+
+[BAM_64_Device.NT.HW]
 Addreg = BAMACL
 
 [BAMACL]
@@ -65,15 +73,28 @@ qckmbam8994.sys                                               ; Copied from the 
 [BAM_Device.NT.Services]
 AddService = qcbam,%SPSVCINST_ASSOCSERVICE%, BAM_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
+[BAM_64_Device.NT.Services]
+AddService = qcbam,%SPSVCINST_ASSOCSERVICE%, BAM_64_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+
 ; -------------- SMD driver install sections
 [BAM_Service_Inst]
 DisplayName   = %BAM.SVCDESC%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qckmbam8994.sys
+ServiceBinary = %13%\arm\qckmbam8994.sys
+
+[BAM_64_Service_Inst]
+DisplayName   = %BAM.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qckmbam8994.sys
 
 [BAM_Device.NT.Wdf]
+KmdfService = qcbam, BAM_wdfsect
+
+[BAM_64_Device.NT.Wdf]
 KmdfService = qcbam, BAM_wdfsect
 
 [BAM_wdfsect]

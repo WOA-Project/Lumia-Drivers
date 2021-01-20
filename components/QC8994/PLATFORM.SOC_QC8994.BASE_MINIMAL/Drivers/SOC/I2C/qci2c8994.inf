@@ -21,7 +21,7 @@ CatalogFile.NTARM   = qci2c8994.arm.cat
 CatalogFile.NTARM64 = qci2c8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -46,9 +46,14 @@ ExcludeFromSelect = *
 %qci2c.DeviceDesc% = qci2c_Device, ACPI\QCOM240E
 
 [QC.NTARM64]
-%qci2c.DeviceDesc% = qci2c_Device, ACPI\QCOM240E
+%qci2c.DeviceDesc% = qci2c_64_Device, ACPI\QCOM240E
 
 [qci2c_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[qci2c_64_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -63,17 +68,31 @@ qci2c8994.sys
 [qci2c_Device.NT.Services]
 AddService = "qci2c",%SPSVCINST_ASSOCSERVICE%, qci2c_Service_Inst
 
+[qci2c_64_Device.NT.Services]
+AddService = "qci2c",%SPSVCINST_ASSOCSERVICE%, qci2c_64_Service_Inst
+
 ; ------------- qci2c driver install sections
 [qci2c_Service_Inst]
 DisplayName   = %qci2c.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qci2c8994.sys
+ServiceBinary = %13%\arm\qci2c8994.sys
+Dependencies  = SpbCx
+
+[qci2c_64_Service_Inst]
+DisplayName   = %qci2c.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qci2c8994.sys
 Dependencies  = SpbCx
 
 ; Checks for compatibility with KMDF version
 [qci2c_Device.NT.Wdf]
+KmdfService = "qci2c", qci2c_wdfsect
+
+[qci2c_64_Device.NT.Wdf]
 KmdfService = "qci2c", qci2c_wdfsect
 
 [qci2c_wdfsect]

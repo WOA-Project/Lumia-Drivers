@@ -32,7 +32,7 @@ qcadc8994.sys = 1,arm
 qcadc8994.sys = 1,arm64
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
                                     
 [ControlFlags]
 ExcludeFromSelect = *
@@ -47,9 +47,14 @@ ExcludeFromSelect = *
 %ADC.DeviceDesc% = ADC_Device, ACPI\QCOM240F
 
 [Standard.NTARM64]
-%ADC.DeviceDesc% = ADC_Device, ACPI\QCOM240F
+%ADC.DeviceDesc% = ADC_64_Device, ACPI\QCOM240F
 
 [ADC_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[ADC_64_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -64,8 +69,14 @@ qcadc8994.sys
 [ADC_Device.NT.Services]
 AddService = qcADC,%SPSVCINST_ASSOCSERVICE%, ADC_Service_Inst
 
+[ADC_64_Device.NT.Services]
+AddService = qcADC,%SPSVCINST_ASSOCSERVICE%, ADC_64_Service_Inst
+
 ;-------------- HW installation
 [ADC_Device.NT.HW]
+addreg = ADCSD
+
+[ADC_64_Device.NT.HW]
 addreg = ADCSD
 
 [ADCSD]
@@ -77,10 +88,19 @@ DisplayName   = %ADC.SVCDESC%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %12%\qcadc8994.sys
+ServiceBinary = %13%\arm\qcadc8994.sys
+
+[ADC_64_Service_Inst]
+DisplayName   = %ADC.SVCDESC%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm64\qcadc8994.sys
 
 ; Checks for compatibility with KMDF version
 [ADC_Device.NT.Wdf]
+KmdfService = qcADC, ADC_wdfsect
+[ADC_64_Device.NT.Wdf]
 KmdfService = qcADC, ADC_wdfsect
 [ADC_wdfsect]
 KmdfLibraryVersion = 1.15

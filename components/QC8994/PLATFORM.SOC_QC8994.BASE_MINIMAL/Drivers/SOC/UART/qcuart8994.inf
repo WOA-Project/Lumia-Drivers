@@ -23,7 +23,7 @@ qcuart8994.sys = 1,arm
 qcuart8994.sys = 1,arm64
 
 [DestinationDirs]
-DefaultDestDir = 12 ; Windows\System32\Drivers
+DefaultDestDir = 13 ; Windows\System32\Drivers
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -35,22 +35,38 @@ ExcludeFromSelect = *
 %Device_Description% = UART_Install, ACPI\QCOM2424
 
 [Qualcomm_Models.NTARM64]
-%Device_Description% = UART_Install, ACPI\QCOM2424
+%Device_Description% = UART_64_Install, ACPI\QCOM2424
 
 [UART_Install]
 CopyFiles = @qcuart8994.sys
 
+[UART_64_Install]
+CopyFiles = @qcuart8994.sys
+
 [UART_Install.Services]
 AddService = qcuart, 0x00000002, UART_Service_Install
+
+[UART_64_Install.Services]
+AddService = qcuart, 0x00000002, UART_64_Service_Install
 
 [UART_Service_Install]
 DisplayName   = %Service_Name%
 ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
 StartType     = 3 ; SERVICE_DEMAND_START
 ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcuart8994.sys
+ServiceBinary = %13%\arm\qcuart8994.sys
+
+[UART_64_Service_Install]
+DisplayName   = %Service_Name%
+ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
+StartType     = 3 ; SERVICE_DEMAND_START
+ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcuart8994.sys
 
 [UART_Install.Wdf]
+KmdfService = qcuart, UART_wdfsect
+
+[UART_64_Install.Wdf]
 KmdfService = qcuart, UART_wdfsect
 
 [UART_wdfsect]

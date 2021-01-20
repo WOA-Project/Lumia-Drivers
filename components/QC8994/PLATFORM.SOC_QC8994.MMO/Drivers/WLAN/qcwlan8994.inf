@@ -39,12 +39,12 @@ CatalogFile.NTARM64 = qcwlan8994.arm64.cat
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD},2,7,,0
 
 [QcWlan.ndi.NTARM.Services]
-AddService = qcwlan, 2, QcWlan.Service, QcWlan.EventLog
+AddService = qcwlan, 2, QcWlan.ndi.NTARM.Service, QcWlan.EventLog
 Include    = netvwifibus.inf
 Needs      = VWiFiBus.Services
 
 [QcWlan.ndi.NTARM64.Services]
-AddService = qcwlan, 2, QcWlan.Service, QcWlan.EventLog
+AddService = qcwlan, 2, QcWlan.ndi.NTARM64.Service, QcWlan.EventLog
 Include    = netvwifibus.inf
 Needs      = VWiFiBus.Services
 
@@ -68,7 +68,7 @@ Characteristics    = 0x84
 BusType            = 5
 AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
 DelReg             = QcWlan.DelReg
-CopyFiles          = QcWlan.CopyFiles
+CopyFiles          = QcWlan.CopyFiles, QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
 AddProperty        = WDTFSOCDeviceCategory
 
 [QcWlan.ndi.NTARM64]
@@ -81,7 +81,7 @@ Characteristics    = 0x84
 BusType            = 5
 AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
 DelReg             = QcWlan.DelReg
-CopyFiles          = QcWlan.CopyFiles
+CopyFiles          = QcWlan.CopyFiles, QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
 AddProperty        = WDTFSOCDeviceCategory
 
 ;-----------------------------------------------------------------------------
@@ -196,42 +196,56 @@ HKR,,extAttenMarginCfg
 
 [SourceDisksFiles.ARM]
 qcwlan8994.sys = 1,arm,
-;qwlan30.bin = 1,,
-;bdwlan30.bin = 1,,
+qwlan30.bin = 1,,
+bdwlan30.bin = 1,,
+Data.msc = 1,,
 
 [SourceDisksFiles.ARM64]
 qcwlan8994.sys = 1,arm64,
-;qwlan30.bin = 1,,
-;bdwlan30.bin = 1,,
+qwlan30.bin = 1,,
+bdwlan30.bin = 1,,
+Data.msc = 1,,
 
 ;-----------------------------------------------------------------------------
 ; DestinationDirs
 ;-----------------------------------------------------------------------------
 [DestinationDirs]
-QcWlan.CopyFiles            = 12
-;QcWlan_FW.CopyFiles         = 12
-;QcWlan_BD.CopyFiles         = 12
-DefaultDestDir               = 11
+QcWlan.CopyFiles            = 13
+QcWlan_FW.CopyFiles         = 12
+QcWlan_BD.CopyFiles         = 13
+QcWlan_Data.CopyFiles       = 12
+DefaultDestDir              = 12
 
 [QcWlan.CopyFiles]
 qcwlan8994.sys,,,2
 
-;[QcWlan_FW.CopyFiles]
-;qwlan30.bin,,,2
+[QcWlan_FW.CopyFiles]
+qwlan30.bin,,,2
 
-;[QcWlan_BD.CopyFiles]
-;bdwlan30.bin,,,2
+[QcWlan_BD.CopyFiles]
+bdwlan30.bin,,,2
+
+[QcWlan_Data.CopyFiles]
+Data.msc,,,2
 
 ;-----------------------------------------------------------------------------
 ; Driver and Service Section
 ;-----------------------------------------------------------------------------
 
-[QcWlan.Service]
+[QcWlan.ndi.NTARM.Service]
 DisplayName     = %QcWlan.Service.DispName%
 ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
 StartType       = 3 ;%SERVICE_DEMAND_START%
 ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
-ServiceBinary   = %12%\qcwlan8994.sys
+ServiceBinary   = %13%\arm\qcwlan8994.sys
+LoadOrderGroup  = NDIS
+
+[QcWlan.ndi.NTARM64.Service]
+DisplayName     = %QcWlan.Service.DispName%
+ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType       = 3 ;%SERVICE_DEMAND_START%
+ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary   = %13%\arm64\qcwlan8994.sys
 LoadOrderGroup  = NDIS
 
 [QcWlan11n.reg]
@@ -350,6 +364,7 @@ HKR,,FWFileName, 0x00000000, "qwlan30.bin"
 
 [BD_30.reg]
 HKR,,BoardDataFileName, 0x00000000, "bdwlan30.bin"
+HKR,,BoardDataFilePath, 0x00000000, "%13%"
 
 ; ----------------------------------------------------------------------------
 ; NAN registry entries
@@ -358,7 +373,7 @@ HKR,,BoardDataFileName, 0x00000000, "bdwlan30.bin"
 
 ; Add IHVExtensions for NAN
 ;HKR, NDI\IHVExtensions, AdapterOUI,         0x10001,   00123456
-;HKR, NDI\IHVExtensions, ExtensibilityDLL,   0x00000,   "c:\\windows\\system32\\wlan_ihv.dll"
+;HKR, NDI\IHVExtensions, ExtensibilityDLL,   0x00000,   "%%SystemRoot%%\system32\wlan_ihv.dll"
 
 [BugCheckOnTargetLost.Reg]
 HKR,,BugCheckOnTargetLost,0x00010001,0

@@ -23,7 +23,7 @@ CatalogFile.NTARM   = QcTrEE8994.arm.cat
 CatalogFile.NTARM64 = QcTrEE8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 ;*****************************************
 ; QcTrEE Device Install Section
@@ -41,10 +41,14 @@ DefaultDestDir = 12
 [Standard.NTARM64]
 ; DisplayName       		Section           DeviceId
 ; -----------       		-------           --------
-%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24BA
-%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24B9
+%QcTrEE.DeviceDesc% = QcTrEE_64, ACPI\QCOM24BA
+%QcTrEE.DeviceDesc% = QcTrEE_64, ACPI\QCOM24B9
 
 [QcTrEE.NT]
+CopyFiles   = QcTrEE.NT.Copy
+AddProperty = WDTFSOCDeviceCategory
+
+[QcTrEE_64.NT]
 CopyFiles   = QcTrEE.NT.Copy
 AddProperty = WDTFSOCDeviceCategory
 
@@ -59,15 +63,27 @@ QcTrEE8994.sys
 [QcTrEE.NT.Services]
 AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst
 
+[QcTrEE_64.NT.Services]
+AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_64_Service_Inst
+
 [QcTrEE_Service_Inst]
 DisplayName    = %QcTrEE.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\QcTrEE8994.sys
+ServiceBinary  = %13%\arm\QcTrEE8994.sys
 Dependencies   = WindowsTrustedRT,WindowsTrustedRTProxy,fastfat
 LoadOrderGroup = Extended Base
-Tag            = 10
+AddReg         = QcTrEE_SecureService_AddReg
+
+[QcTrEE_64_Service_Inst]
+DisplayName    = %QcTrEE.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 0               ; SERVICE_BOOT_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\QcTrEE8994.sys
+Dependencies   = WindowsTrustedRT,WindowsTrustedRTProxy,fastfat
+LoadOrderGroup = Extended Base
 AddReg         = QcTrEE_SecureService_AddReg
 
 [QcTrEE_SecureService_AddReg]

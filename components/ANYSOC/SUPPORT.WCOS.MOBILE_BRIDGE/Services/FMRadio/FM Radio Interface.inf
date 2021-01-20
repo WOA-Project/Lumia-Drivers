@@ -1,0 +1,60 @@
+;
+; FM Radio Interface.inf
+; 
+; Installs a service to proxy FM radio requests to the FM miniport driver.
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = "LumiaWoA authors"
+DriverVer   = 08/24/2019,1.2.3.6
+CatalogFile = "FM Radio Interface.cat"
+
+;
+ ; \system32 directory on Windows 2000 and later versions
+;
+[DestinationDirs]
+MiniportInterface.Files = 11
+
+[SourceDisksNames]
+0 = "FM Radio Interface Installation Disk"
+
+[SourceDisksFiles]
+FMInterfaceSvc.exe = 0
+
+[MiniportInterface.Files]
+FMInterfaceSvc.exe
+
+;
+; DefaultInstall: "right clicking on the INF file and selecting Install"
+; Two tasks: copy the executable, and add the display name and description keys
+;
+[DefaultInstall.NTARM64]
+CopyFiles = MiniportInterface.Files
+AddReg = MiniportInterfaceRegistry
+
+;
+; Add a service with this name and then start it
+;
+[DefaultInstall.NTARM64.Services]
+AddService = FM Radio Miniport Interface,0x00000800,MiniportInterfaceService
+
+;
+; The service should run in its own process, start on system launch, and only print an error if it fails to start
+;
+[MiniportInterfaceService]
+ServiceType = 0x10
+StartType = 0x2
+ErrorControl = 0x1
+ServiceBinary = "%%SystemRoot%%\System32\FMInterfaceSvc.exe"
+
+;
+; Add localised strings for the display name and description using registry string redirection
+; Ensure the service runs with minimal privileges in NT AUTHORITY\LocalService
+;
+[MiniportInterfaceRegistry]
+HKLM,"SYSTEM\ControlSet001\Services\FM Radio Miniport Interface","DisplayName",,"@%%SystemRoot%%\System32\FMInterfaceSvc.exe,-1"
+HKLM,"SYSTEM\ControlSet001\Services\FM Radio Miniport Interface","Description",,"@%%SystemRoot%%\System32\FMInterfaceSvc.exe,-2"
+HKLM,"SYSTEM\ControlSet001\Services\FM Radio Miniport Interface","ObjectName",,"NT AUTHORITY\LocalService"

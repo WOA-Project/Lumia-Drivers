@@ -35,7 +35,7 @@ qchwnled8994.sys = 1,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -51,9 +51,12 @@ ExcludeFromSelect = *
 %hwnled.DeviceDesc% = hwnled_Device, ACPI\QCOM24A3
 
 [Qualcomm.NTARM64]
-%hwnled.DeviceDesc% = hwnled_Device, ACPI\QCOM24A3
+%hwnled.DeviceDesc% = hwnled_64_Device, ACPI\QCOM24A3
 
 [hwnled_Device.NT]
+Copyfiles = hwnledCopyFiles
+
+[hwnled_64_Device.NT]
 Copyfiles = hwnledCopyFiles
 
 [hwnledCopyFiles]
@@ -62,14 +65,24 @@ qchwnled8994.sys, , , 0x100,
 [hwnled_Device.NT.Services]
 AddService = hwnled,%SPSVCINST_ASSOCSERVICE%,hwnled_Service_Inst
 
+[hwnled_64_Device.NT.Services]
+AddService = hwnled,%SPSVCINST_ASSOCSERVICE%,hwnled_64_Service_Inst
+
 [hwnled_Service_Inst]
 DisplayName    = %hwnled.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qchwnled8994.sys
+ServiceBinary  = %13%\arm\qchwnled8994.sys
 LoadOrderGroup = Extended Base
-Tag            = 10
+
+[hwnled_64_Service_Inst]
+DisplayName    = %hwnled.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qchwnled8994.sys
+LoadOrderGroup = Extended Base
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002

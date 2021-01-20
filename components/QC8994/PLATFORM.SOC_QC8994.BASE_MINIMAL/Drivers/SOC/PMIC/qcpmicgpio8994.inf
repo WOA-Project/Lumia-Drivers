@@ -32,7 +32,7 @@ qcpmicgpio8994.sys = 1,arm64
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -48,14 +48,22 @@ ExcludeFromSelect = *
 %DeviceDesc% = PMIO_Inst,ACPI\QCOM2458
 
 [Qualcomm.NTARM64]
-%DeviceDesc% = PMIO_Inst,ACPI\QCOM2458
+%DeviceDesc% = PMIO_64_Inst,ACPI\QCOM2458
 
 [PMIO_Inst.NT]
 Copyfiles   = PMIOCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
+[PMIO_64_Inst.NT]
+Copyfiles   = PMIOCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
 [PMIO_Inst.NT.HW]
+Addreg = PMICGPIOACL
+
+[PMIO_64_Inst.NT.HW]
 Addreg = PMICGPIOACL
 
 [PMICGPIOACL]
@@ -70,12 +78,22 @@ qcpmicgpio8994.sys
 [PMIO_Inst.NT.Services]
 AddService = qcpmgpio,%SPSVCINST_ASSOCSERVICE%,PMIO_Service_Inst
 
+[PMIO_64_Inst.NT.Services]
+AddService = qcpmgpio,%SPSVCINST_ASSOCSERVICE%,PMIO_64_Service_Inst
+
 [PMIO_Service_Inst]
 DisplayName   = %PMIO.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %12%\qcpmicgpio8994.sys
+ServiceBinary = %13%\arm\qcpmicgpio8994.sys
+
+[PMIO_64_Service_Inst]
+DisplayName   = %PMIO.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm64\qcpmicgpio8994.sys
 
 [Strings]
 ;Localizable Strings

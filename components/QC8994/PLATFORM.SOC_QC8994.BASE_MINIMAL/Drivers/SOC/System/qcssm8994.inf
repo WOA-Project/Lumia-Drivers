@@ -24,7 +24,7 @@ CatalogFile.NTARM   = QCSSM8994.arm.cat                                ; This fi
 CatalogFile.NTARM64 = QCSSM8994.arm64.cat                              ; This file is given when a driver passes WHQL testing
 
 [DestinationDirs]
-DefaultDestDir = 12                                        ; This is a directory id (dirid)
+DefaultDestDir = 13                                        ; This is a directory id (dirid)
                                                            ; 12 is equivalent to %SystemRoot%\system32\drivers for Windows 2000 and later
 
 [SourceDisksNames]
@@ -43,9 +43,12 @@ QCSSM8994.sys = 1,arm64,
 %SSM.DeviceDesc% = Ssm_Device, ACPI\QCOM2414
 
 [Standard.NTARM64]                                         ; Decorated model section take precedence over undecorated
-%SSM.DeviceDesc% = Ssm_Device, ACPI\QCOM2414
+%SSM.DeviceDesc% = Ssm_64_Device, ACPI\QCOM2414
 
 [Ssm_Device.NT]
+CopyFiles = Drivers_Dir
+
+[Ssm_64_Device.NT]
 CopyFiles = Drivers_Dir
 
 
@@ -57,7 +60,13 @@ QCSSM8994.sys                                              ; Copied from the sou
 [Ssm_Device.NT.Services]
 AddService = SSM,%SPSVCINST_ASSOCSERVICE%, Ssm_Service_Inst; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
+[Ssm_64_Device.NT.Services]
+AddService = SSM,%SPSVCINST_ASSOCSERVICE%, Ssm_64_Service_Inst; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+
 [Ssm_Device.NT.Wdf]
+KmdfService = Ssm, Ssm_Service_kmdfInst
+
+[Ssm_64_Device.NT.Wdf]
 KmdfService = Ssm, Ssm_Service_kmdfInst
 
 [Ssm_Service_kmdfInst]
@@ -70,9 +79,17 @@ DisplayName    = %SSM.SVCDESC%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\QCSSM8994.sys
+ServiceBinary  = %13%\arm\QCSSM8994.sys
 LoadOrderGroup = Extended Base
-Tag            = 10
+AddReg         = SsmReg
+
+[SSM_64_Service_Inst]
+DisplayName    = %SSM.SVCDESC%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\QCSSM8994.sys
+LoadOrderGroup = Extended Base
 AddReg         = SsmReg
 
 [SsmReg]

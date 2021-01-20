@@ -23,7 +23,7 @@ CatalogFile.NTARM   = qcabd8994.arm.cat
 CatalogFile.NTARM64 = qcabd8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 ; ================= Class section =====================
 
@@ -43,9 +43,15 @@ qcabd8994.sys = 1,arm64
 %ABD.DeviceDesc% = ABD_Device, ACPI\QCOM2431
 
 [QC.NTARM64]
-%ABD.DeviceDesc% = ABD_Device, ACPI\QCOM2431
+%ABD.DeviceDesc% = ABD_64_Device, ACPI\QCOM2431
 
 [ABD_Device.NT]
+CopyFiles   = Drivers_Dir
+AddReg      = AbdReg
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[ABD_64_Device.NT]
 CopyFiles   = Drivers_Dir
 AddReg      = AbdReg
 AddProperty = WDTFSOCDeviceCategory
@@ -55,6 +61,9 @@ Reboot
 HKLM, System\CurrentControlSet\Control\ACPIEX, ComplianceFlags, %REG_DWORD%,  0x7
 
 [ABD_Device.NT.HW]
+Addreg = AbdACL
+
+[ABD_64_Device.NT.HW]
 Addreg = AbdACL
 
 [AbdACL]
@@ -73,16 +82,28 @@ ExcludeFromSelect = *
 [ABD_Device.NT.Services]
 AddService = qcABD,%SPSVCINST_ASSOCSERVICE%, ABD_Service_Inst
 
+[ABD_64_Device.NT.Services]
+AddService = qcABD,%SPSVCINST_ASSOCSERVICE%, ABD_64_Service_Inst
+
 ; -------------- ABD driver install sections
 [ABD_Service_Inst]
 DisplayName   = %ABD.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcabd8994.sys
+ServiceBinary = %13%\arm\qcabd8994.sys
+
+[ABD_64_Service_Inst]
+DisplayName   = %ABD.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcabd8994.sys
 
 ; Checks for compatibility with KMDF version
 [ABD_Device.NT.Wdf]
+KmdfService = qcABD, ABD_wdfsect
+[ABD_64_Device.NT.Wdf]
 KmdfService = qcABD, ABD_wdfsect
 [ABD_wdfsect]
 KmdfLibraryVersion = 1.15

@@ -25,7 +25,7 @@ CatalogFile.NTARM64 = "HalExtQCWdogTimer.arm64.cat"
 ExcludeFromSelect = *
 
 [DestinationDirs]
-DefaultDestDir = 11 ; DIRID_SYSTEM
+DefaultDestDir = 13 ; DIRID_DRIVERSTORE
 
 [SourceDisksNames]
 1 = %DISK_ID%
@@ -52,19 +52,29 @@ HalExt = true
 %QC_TIMERS% = QC_TIMERS,  ACPI\QCOM100B
 
 [DeviceList.NTARM64]
-%QC_TIMERS% = QC_TIMERS,  ACPI\QCOM100B
+%QC_TIMERS% = QC_TIMERS_64,  ACPI\QCOM100B
 
 [QC_TIMERS]
 AddReg    = QC_TIMERS_AddReg
 CopyFiles = QC_TIMERS_CopyFiles
 
+[QC_TIMERS_64]
+AddReg    = QC_TIMERS_AddReg
+CopyFiles = QC_TIMERS_CopyFiles
+
 [QC_TIMERS_AddReg]
-HKLM, "%OSEDB%\VEN_QCOM&DEV_100B", "HALExtension", , "HalExtQCWdogTimer.dll"
+HKLM, "%OSEDB%\VEN_QCOM&DEV_100B", "HALExtension", , "%13%\arm\HalExtQCWdogTimer.dll"
+
+[QC_TIMERS_64_AddReg]
+HKLM, "%OSEDB%\VEN_QCOM&DEV_100B", "HALExtension", , "%13%\arm64\HalExtQCWdogTimer.dll"
 
 [QC_TIMERS_CopyFiles]
 HalExtQCWdogTimer.dll, , , 0x00001000,
 
 [QC_TIMERS.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%
+
+[QC_TIMERS_64.Services]
 AddService = , %SPSVCINST_ASSOCSERVICE%
 
 [Strings]
