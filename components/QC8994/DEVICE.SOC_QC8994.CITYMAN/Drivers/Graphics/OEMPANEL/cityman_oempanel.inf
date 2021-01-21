@@ -42,12 +42,6 @@ CatalogFile.NTARM64 = cityman_oempanel.arm64.cat
 [DeviceExtension_Install]
 AddReg    = OEM_ServiceReg
 
-[DeviceExtension_Install.HW]
-AddReg = FriendlyName_AddReg
-
-[FriendlyName_AddReg]
-HKR,,FriendlyName,, "Samsung 5.7-inch 1440x2560 (WQHD) 518ppi AM-OLED 16.7M Colors Display Panel (AMS567DJ06)"
-
 [OEM_ServiceReg]
 HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", "AD_CalibrationA", 0x10001, 0x12
 HKLM, "SYSTEM\CurrentControlSet\Services\MmoPanel\Parameters\Settings", "AD_CalibrationB", 0x10001, 0x5f

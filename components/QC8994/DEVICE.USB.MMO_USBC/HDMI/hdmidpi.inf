@@ -13,7 +13,7 @@ CatalogFile.NTARM64 = hdmidpi.arm64.cat
 3426=windows cd
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksFiles.ARM]
 hdmidpi.sys = 3426,arm,
@@ -28,13 +28,20 @@ hdmidpi.sys = 3426,arm64,
 %DeviceDescription%=hdmidpi_Inst,ACPI\MSHW1007
 
 [MMO.NTARM64]
-%DeviceDescription%=hdmidpi_Inst,ACPI\MSHW1007
+%DeviceDescription%=hdmidpi_64_Inst,ACPI\MSHW1007
 
 [hdmidpi_Inst.NT]
 CopyFiles=HdmiDpiDriversCopyFiles
 AddReg=HdmiDpiDriver_SecurityAddReg
 
+[hdmidpi_64_Inst.NT]
+CopyFiles=HdmiDpiDriversCopyFiles
+AddReg=HdmiDpiDriver_SecurityAddReg
+
 [hdmidpi_Inst.NT.HW]
+AddReg=HdmiDpiDriver_SecurityAddReg
+
+[hdmidpi_64_Inst.NT.HW]
 AddReg=HdmiDpiDriver_SecurityAddReg
 
 [HdmiDpiDriversCopyFiles]
@@ -46,12 +53,23 @@ HKR,,DeviceCharacteristics,0x10001,0x100
 [hdmidpi_Inst.NT.Services]
 AddService = hdmidpi,%SPSVCINST_ASSOCSERVICE%,hdmidpi_Service_Inst
 
+[hdmidpi_64_Inst.NT.Services]
+AddService = hdmidpi,%SPSVCINST_ASSOCSERVICE%,hdmidpi_64_Service_Inst
+
 [hdmidpi_Service_Inst]
 DisplayName    = %DisplayName%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\hdmidpi.sys
+ServiceBinary  = %13%\arm\hdmidpi.sys
+LoadOrderGroup = Base
+
+[hdmidpi_64_Service_Inst]
+DisplayName    = %DisplayName%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\hdmidpi.sys
 LoadOrderGroup = Base
 
 [Strings]

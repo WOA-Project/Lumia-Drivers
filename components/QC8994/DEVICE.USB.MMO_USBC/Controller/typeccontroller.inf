@@ -13,8 +13,8 @@ CatalogFile.NTARM   = typeccontroller.arm.cat
 CatalogFile.NTARM64 = typeccontroller.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir       = 12
-tycDriverCopy     = 12,UMDF
+Drivers_Dir       = 13
+tycDriverCopy     = 13
 DreamLifter.Files = 10,SysArm32
 
 [SourceDisksNames]
@@ -66,7 +66,7 @@ UmdfKernelModeClientPolicy  = AllowKernelModeClients
 
 [tyc_Install]
 UmdfLibraryVersion       = 2.15.0
-ServiceBinary            = %12%\UMDF\tyc.dll
+ServiceBinary            = %13%\arm\tyc.dll
 UmdfExtensions           = UcmCx0102
 
 [tyc_Inst_SecurityAddReg]
@@ -103,7 +103,7 @@ DisplayName    = %UcmProxyKm.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\UcmProxyKm.sys
+ServiceBinary  = %13%\arm64\UcmProxyKm.sys
 
 [UcmProxyKm_Device.NT.Wdf]
 KmdfService =  UcmProxyKm, UcmProxyKm_wdfsect

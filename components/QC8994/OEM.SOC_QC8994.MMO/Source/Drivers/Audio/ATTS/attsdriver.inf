@@ -18,7 +18,7 @@ attsdriver.sys = 3426
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 ;*****************************************
 ; ATTS  Install Section
@@ -44,7 +44,7 @@ DisplayName    = %SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %12%\attsdriver.sys
+ServiceBinary  = %13%\attsdriver.sys
 LoadOrderGroup = Extended Base
 
 [DriverInstall.NT.HW]

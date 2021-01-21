@@ -504,14 +504,21 @@ HKLM, "SOFTWARE\Microsoft\Windows Media Foundation\Platform\VideoStabilization",
 AddService = QCDX,0x00000002,QCDX_Service,
 
 [QCDX_Inst_ARM64.NT.Services]
-AddService = QCDX,0x00000002,QCDX_Service,
+AddService = QCDX,0x00000002,QCDX_64_Service,
 
 [QCDX_Service]
-DisplayName   = %ServiceName%
-ServiceType   = %SERVICE_KERNEL_DRIVER%
-StartType     = %SERVICE_DEMAND_START%
-ErrorControl  = %SERVICE_ERROR_IGNORE%
-ServiceBinary = %12%\qcdxkm8994.sys
+DisplayName    = %ServiceName%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_IGNORE%
+ServiceBinary  = %13%\arm\qcdxkm8994.sys
+
+[QCDX_64_Service]
+DisplayName    = %ServiceName%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_IGNORE%
+ServiceBinary  = %13%\arm64\qcdxkm8994.sys
 
 [QCDX_Inst.NT.Wdf]
 KmdfService = QCDX, QCDX_wdfsect

@@ -13,7 +13,7 @@ CatalogFile.NTARM   = ice5lp_2k.arm.cat
 CatalogFile.NTARM64 = ice5lp_2k.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
@@ -35,9 +35,12 @@ ice5lp_2k.sys  = 1,arm64,
 %ice5lp_2k.DeviceDesc%=ice5lp_2k_Device, ACPI\MSHW1006
 
 [Standard.NTARM64]
-%ice5lp_2k.DeviceDesc%=ice5lp_2k_Device, ACPI\MSHW1006
+%ice5lp_2k.DeviceDesc%=ice5lp_2k_64_Device, ACPI\MSHW1006
 
 [ice5lp_2k_Device.NT]
+CopyFiles = ice5lp_2k_CopyFiles
+
+[ice5lp_2k_64_Device.NT]
 CopyFiles = ice5lp_2k_CopyFiles
 
 [ice5lp_2k_CopyFiles]
@@ -47,19 +50,33 @@ ice5lp_2k.sys
 [ice5lp_2k_Device.NT.Services]
 AddService = ice5lp_2k, %SPSVCINST_ASSOCSERVICE%, ice5lp_2k_Service_Inst
 
+[ice5lp_2k_64_Device.NT.Services]
+AddService = ice5lp_2k, %SPSVCINST_ASSOCSERVICE%, ice5lp_2k_64_Service_Inst
+
 ; -------------- ice5lp_2k driver install sections
 [ice5lp_2k_Service_Inst]
 DisplayName    = %ice5lp_2k.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\ice5lp_2k.sys
+ServiceBinary  = %13%\arm\ice5lp_2k.sys
+LoadOrderGroup = Extended Base
+
+[ice5lp_2k_64_Service_Inst]
+DisplayName    = %ice5lp_2k.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\ice5lp_2k.sys
 LoadOrderGroup = Extended Base
 
 ;
 ;--- ice5lp_2k_Device Coinstaller installation ------
 ;
 [ice5lp_2k_Device.NT.Wdf]
+KmdfService = ice5lp_2k, ice5lp_2k_wdfsect
+
+[ice5lp_2k_64_Device.NT.Wdf]
 KmdfService = ice5lp_2k, ice5lp_2k_wdfsect
 
 [ice5lp_2k_wdfsect]

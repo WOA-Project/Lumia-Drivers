@@ -10,7 +10,7 @@ CatalogFile.NTARM   = hall_kmd.arm.cat
 CatalogFile.NTARM64 = hall_kmd.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
@@ -28,7 +28,7 @@ hall_kmd.sys  = 1,arm64,
 %hall_kmd.DeviceDesc%=hall_kmd_Device.NT, ACPI\MSHW1015
 
 [Standard.NTARM64]
-%hall_kmd.DeviceDesc%=hall_kmd_Device.NT, ACPI\MSHW1015
+%hall_kmd.DeviceDesc%=hall_kmd_64_Device.NT, ACPI\MSHW1015
 
 
 ;*****************************************
@@ -36,6 +36,10 @@ hall_kmd.sys  = 1,arm64,
 ;*****************************************
 
 [hall_kmd_Device.NT]
+CopyFiles = hall_kmd_Device.NT.CopyFiles
+;AddReg    = hall_kmd_Device.NT.AddReg
+
+[hall_kmd_64_Device.NT]
 CopyFiles = hall_kmd_Device.NT.CopyFiles
 ;AddReg    = hall_kmd_Device.NT.AddReg
 
@@ -53,20 +57,33 @@ HKLM, "SYSTEM\HallSensor", "Disabled", 0x00010001, 0
 [hall_kmd_Device.NT.Services]
 AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_Service_Inst
 
+[hall_kmd_64_Device.NT.Services]
+AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_64_Service_Inst
+
 ; -------------- hall_kmd driver install sections
 [hall_kmd_Service_Inst]
 DisplayName    = %hall_kmd.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\hall_kmd.sys
+ServiceBinary  = %13%\arm\hall_kmd.sys
 LoadOrderGroup = Base
 
+[hall_kmd_64_Service_Inst]
+DisplayName    = %hall_kmd.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\hall_kmd.sys
+LoadOrderGroup = Base
 ;
 ;--- hall_kmd_Device Coinstaller installation ------
 ;
 
 [hall_kmd_Device.NT.Wdf]
+KmdfService =  hall_kmd, hall_kmd_wdfsect
+
+[hall_kmd_64_Device.NT.Wdf]
 KmdfService =  hall_kmd, hall_kmd_wdfsect
 
 [hall_kmd_wdfsect]

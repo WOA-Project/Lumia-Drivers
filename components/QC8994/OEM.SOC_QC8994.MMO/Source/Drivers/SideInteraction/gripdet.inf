@@ -11,7 +11,7 @@ CatalogFile = gripdet.cat
 PnpLockdown = 1
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
@@ -176,7 +176,7 @@ DisplayName    = %TchDriver_Service_Desc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %12%\gripdet.sys
+ServiceBinary  = %13%\gripdet.sys
 LoadOrderGroup = Base
 
 ; ------------- Strings section

@@ -139,7 +139,7 @@ HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38
 AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst
 
 [SUBSYS_64_Device.NT.Services]
-AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst
+AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_64_Service_Inst
 
 ; -------------- Subsystem driver install sections
 [SUBSYS_Service_Inst]
@@ -167,6 +167,8 @@ HKR, Parameters, "WcnRestartEnabled", 0x00010001, 0x0
 HKR, Parameters\DIAG, "FreeReservedMemory", 0x00010001, 0x01
 
 [SUBSYS_Device.NT.Wdf]
+KmdfService = qcsubsys, SUBSYS_wdfsect
+[SUBSYS_64_Device.NT.Wdf]
 KmdfService = qcsubsys, SUBSYS_wdfsect
 [SUBSYS_wdfsect]
 KmdfLibraryVersion = 1.15

@@ -40,7 +40,8 @@ oempanel_etw.dll = 1,arm64,
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 12
+OEMCopyFiles = 13
+Sys32Dir     = 12
 
 ;*****************************************
 ; oem panel client driver Install Section
@@ -53,10 +54,14 @@ DefaultDestDir = 12
 %OEM.DeviceDesc% = OEM_Inst, ACPI\MSHW1004
 
 [QC.NTARM64]
-%OEM.DeviceDesc% = OEM_Inst, ACPI\MSHW1004
+%OEM.DeviceDesc% = OEM_64_Inst, ACPI\MSHW1004
 
 [OEM_Inst.NT]
-Copyfiles = OEMCopyFiles
+Copyfiles = OEMCopyFiles,Sys32Dir
+AddReg    = OEM_Settings,User_Settings
+
+[OEM_64_Inst.NT]
+Copyfiles = OEMCopyFiles,Sys32Dir
 AddReg    = OEM_Settings,User_Settings
 
 [OEM_Settings]
@@ -67,9 +72,9 @@ HKLM, "SOFTWARE\Microsoft\AutoBrightness", "ABSMonitorControl", 0x10001, 0x1
 HKLM, "SOFTWARE\Microsoft\Shell\OEM\Brightness", "HideAutoBrightness", 0x10001, 0x0
 
 HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "Enabled", 0x10001, 0x1
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "ResourceFileName", 0x0, "%%SystemRoot%%\System32\Drivers\oempanel_etw.dll"
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "ResourceFileName", 0x0, "%13%\oempanel_etw.dll"
 HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", , 0x0, "Nokia-OemPanel"
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "MessageFileName", 0x0, "%%SystemRoot%%\System32\Drivers\oempanel_etw.dll"
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "MessageFileName", 0x0, "%13%\oempanel_etw.dll"
 
 HKLM, "SOFTWARE\OEM\Autobrightness", "ABSPercentIntensityMapping", 0x10000, "50","51"
 HKLM, "SOFTWARE\OEM\Autobrightness", "ABSRangeMilliLuxMapping", 0x10000, "1","MAX"
@@ -147,21 +152,37 @@ HKLM, "SOFTWARE\OEM\NOKIA\Display\ColorAndLightProperties", "UserSettingDisplayC
 
 [OEMCopyFiles]
 oempanel.sys
-ColorData.bin
 oempanel_etw.dll
+
+[Sys32Dir]
+ColorData.bin
 
 [OEM_Inst.NT.Services]
 AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst
+
+[OEM_64_Inst.NT.Services]
+AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_64_Service_Inst
 
 [OEM_Service_Inst]
 DisplayName    = %OEM.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %12%\oempanel.sys
+ServiceBinary  = %13%\arm\oempanel.sys
+LoadOrderGroup = Extended Base
+
+[OEM_64_Service_Inst]
+DisplayName    = %OEM.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm64\oempanel.sys
 LoadOrderGroup = Extended Base
 
 [OEM_Inst.NT.Wdf]
+KmdfService = MmoPanel, OEM_wdfsect
+
+[OEM_64_Inst.NT.Wdf]
 KmdfService = MmoPanel, OEM_wdfsect
 
 [OEM_wdfsect]

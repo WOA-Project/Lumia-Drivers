@@ -50,10 +50,10 @@ MSNfcI2C547.1903.dll = 1
 NXPPN547FW.dat  = 1
 
 [DestinationDirs]
-UMDriverCopy1803 = 12,UMDF ; copy to drivers\umdf
-UMDriverCopy1809 = 12,UMDF ; copy to drivers\umdf
-UMDriverCopy1903 = 12,UMDF ; copy to drivers\umdf
-NxpCopyFileList  = 11
+UMDriverCopy1803 = 13 ; copy to drivers\umdf
+UMDriverCopy1809 = 13 ; copy to drivers\umdf
+UMDriverCopy1903 = 13 ; copy to drivers\umdf
+NxpCopyFileList  = 13
 
 ; ================= Device section =====================
 
@@ -99,32 +99,48 @@ ServiceBinary = %12%\WUDFRd.sys
 ; ================= WDF entries ===========================
 
 [NXPPN547_HWID_1803.NT.Wdf]
-UmdfService              = "MSNfcI2C547", msnfci2c547_Install
+UmdfService              = "MSNfcI2C547", msnfci2c547_1803_Install
 UmdfServiceOrder         = MSNfcI2C547
 UmdfDirectHardwareAccess = AllowDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfImpersonationLevel   = Impersonation
 
 [NXPPN547_HWID_1809.NT.Wdf]
-UmdfService              = "MSNfcI2C547", msnfci2c547_Install
+UmdfService              = "MSNfcI2C547", msnfci2c547_1809_Install
 UmdfServiceOrder         = MSNfcI2C547
 UmdfDirectHardwareAccess = AllowDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfImpersonationLevel   = Impersonation
 
 [NXPPN547_HWID_1903.NT.Wdf]
-UmdfService              = "MSNfcI2C547", msnfci2c547_Install
+UmdfService              = "MSNfcI2C547", msnfci2c547_1903_Install
 UmdfServiceOrder         = MSNfcI2C547
 UmdfDirectHardwareAccess = AllowDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfImpersonationLevel   = Impersonation
 
-[msnfci2c547_Install]
+[msnfci2c547_1803_Install]
 UmdfLibraryVersion = 2.15.0
-ServiceBinary      = %12%\UMDF\MSNfcI2C547.dll
+ServiceBinary      = %13%\MSNfcI2C547.1803.dll
 UmdfExtensions     = NfcCx0102
 
-[NXPPN547_HWID.NT.HW]
+[msnfci2c547_1809_Install]
+UmdfLibraryVersion = 2.15.0
+ServiceBinary      = %13%\MSNfcI2C547.1809.dll
+UmdfExtensions     = NfcCx0102
+
+[msnfci2c547_1903_Install]
+UmdfLibraryVersion = 2.15.0
+ServiceBinary      = %13%\MSNfcI2C547.1903.dll
+UmdfExtensions     = NfcCx0102
+
+[NXPPN547_HWID_1803.NT.HW]
+AddReg = NXPPN547_Config_AddReg
+
+[NXPPN547_HWID_1809.NT.HW]
+AddReg = NXPPN547_Config_AddReg
+
+[NXPPN547_HWID_1903.NT.HW]
 AddReg = NXPPN547_Config_AddReg
 
 [NXPPN547_Config_AddReg]
@@ -135,12 +151,18 @@ HKR,              , "NfcIP_Mode"     , 0x00010001, 0x0F
 HKR,              , "Duration"       , 0x00010001, 0x30D40
 HKR,              , "IdleTimeout"    , 0x00010001, 0x2710
 HKR,              , "IdleTimeoutType", 0x00010001, 2
-HKR, "FirmwareMap", "8"              , 0x00020000, "\windows\System32\nxppn547fw.dat"
-HKR, "FirmwareMap", "5"              , 0x00020000, "\windows\System32\nxppn547fw.dat"
+HKR, "FirmwareMap", "8"              , 0x00020000, "%13%\nxppn547fw.dat"
+HKR, "FirmwareMap", "5"              , 0x00020000, "%13%\nxppn547fw.dat"
 
 ; ================= Co-installer section ==================
 
-[msnfci2c547.NT.CoInstallers]
+[NXPPN547_HWID_1803.NT.CoInstallers]
+AddReg = CoInstallers_AddReg
+
+[NXPPN547_HWID_1809.NT.CoInstallers]
+AddReg = CoInstallers_AddReg
+
+[NXPPN547_HWID_1903.NT.CoInstallers]
 AddReg = CoInstallers_AddReg
 
 [CoInstallers_AddReg]
