@@ -85,40 +85,13 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\WppRecorderUM.dll", 0x00000000, "typeccontroller.inf\arm\WppRecorderUM.dll"
 
 ;
-; ngp_drv.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\ngp_drv.dll", 0x00000000, "ngp_drv.inf\arm64\ngp_drv.dll"
-
-;
-; NXPPN547.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\MSNfcI2C547.dll", 0x00000000, "NXPPN547.inf\MSNfcI2C547.1903.dll"
-
-;
-; AlsPrxAlphamon.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\AlsPrxAlphamon.dll", 0x00000000, "AlsPrxAlphamon.inf\arm64\AlsPrxAlphamon.dll"
-
-;
-; LumiaActivityDriver.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\LumiaActivityDriver.dll", 0x00000000, "LumiaActivityDriver.inf\arm64\LumiaActivityDriver.dll"
-
-;
-; LumiaActivityDriver.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\LumiaPedometerDriver.dll", 0x00000000, "LumiaPedometerDriver.inf\arm64\LumiaPedometerDriver.dll"
-
-;
 ; qcSensors8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\qcSensors8994.dll", 0x00000000, "qcSensors8994.inf\arm64\qcSensors8994.dll"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcSensor1UM8994.dll"           , 0x00000000, "qcSensors8994.inf\arm64\qcSensor1UM8994.dll"
 
 ;
 ; SscAlgorithmBridge8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\UMDF\SscAlgorithmBridge8994.dll", 0x00000000, "SscAlgorithmBridge8994.inf\arm64\SscAlgorithmBridge8994.dll"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\LumiaActivityDetectionV2.dll"           , 0x00000000, "SscAlgorithmBridge8994.inf\arm64\LumiaActivityDetectionV2.dll"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\LumiaGestureRecognition.dll"            , 0x00000000, "SscAlgorithmBridge8994.inf\arm64\LumiaGestureRecognition.dll"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\LumiaSensorAlgorithmControl.dll"        , 0x00000000, "SscAlgorithmBridge8994.inf\arm64\LumiaSensorAlgorithmControl.dll"

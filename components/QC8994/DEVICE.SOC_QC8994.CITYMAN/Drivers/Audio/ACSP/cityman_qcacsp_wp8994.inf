@@ -26,7 +26,7 @@ CatalogFile.NTARM   = cityman_qcacsp8994.arm.cat
 CatalogFile.NTARM64 = cityman_qcacsp8994.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir_24 = 13
+Drivers_Dir_24 = 11
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -72,14 +72,14 @@ Headset_cal_8994.acdb
 Speaker_cal_8994.acdb
 
 [ACSPReg]
-HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath1 , %REG_SZ%,  "%13%\Bluetooth_cal_8994.acdb"
-HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath2 , %REG_SZ%,  "%13%\Codec_cal_8994.acdb"
-HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath3 , %REG_SZ%,  "%13%\General_cal_8994.acdb"
-HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath4 , %REG_SZ%,  "%13%\Global_cal_8994.acdb"
-HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath5 , %REG_SZ%,  "%13%\Handset_cal_8994.acdb"
-HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath6 , %REG_SZ%,  "%13%\Hdmi_cal_8994.acdb"
-HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath7 , %REG_SZ%,  "%13%\Headset_cal_8994.acdb"
-HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath8 , %REG_SZ%,  "%13%\Speaker_cal_8994.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath1 , %REG_SZ%,  "\SystemRoot\system32\Bluetooth_cal_8994.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath2 , %REG_SZ%,  "\SystemRoot\system32\Codec_cal_8994.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath3 , %REG_SZ%,  "\SystemRoot\system32\General_cal_8994.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath4 , %REG_SZ%,  "\SystemRoot\system32\Global_cal_8994.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath5 , %REG_SZ%,  "\SystemRoot\system32\Handset_cal_8994.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath6 , %REG_SZ%,  "\SystemRoot\system32\Hdmi_cal_8994.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath7 , %REG_SZ%,  "\SystemRoot\system32\Headset_cal_8994.acdb"
+HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath8 , %REG_SZ%,  "\SystemRoot\system32\Speaker_cal_8994.acdb"
 HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath9 , %REG_SZ%,  ""
 HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath10, %REG_SZ%,  ""
 HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath11, %REG_SZ%,  ""
