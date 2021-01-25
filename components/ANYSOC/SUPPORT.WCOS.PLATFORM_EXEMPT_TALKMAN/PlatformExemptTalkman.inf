@@ -6,7 +6,7 @@ Provider    = %IHV%
 DriverVer   = 01/01/2021,1.0.0.0
 PnpLockDown = 1
 
-CatalogFile.NTARM64 = PlatformExemptCityman.arm64.cat
+CatalogFile.NTARM64 = PlatformExemptTalkman.arm64.cat
 
 [DefaultInstall.NTARM64]
 AddReg = PlatformExempt_AddReg
@@ -23,37 +23,35 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdx11compiler8994.dll"  , 0x00000000, "qcdx_ffu8994.inf\arm64\qcdx11arm64compiler8994.dll"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcdx11compiler8994.dll"  , 0x00000000, "qcdx_ffu8994.inf\arm\qcdx11compiler8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcvss8994.mbn"           , 0x00000000, "cityman_qcdx_ffu8994.inf\qcvss8994.mbn"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcvss8994.mbn"           , 0x00000000, "talkman_qcdx_ffu8994.inf\qcvss8994.mbn"
 
 ;
 ; qcacsp8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Bluetooth_cal_8994.acdb", 0x00000000, "cityman_qcacsp_wp8994.inf\Bluetooth_cal_8994.acdb"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Codec_cal_8994.acdb"    , 0x00000000, "cityman_qcacsp_wp8994.inf\Codec_cal_8994.acdb"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\General_cal_8994.acdb"  , 0x00000000, "cityman_qcacsp_wp8994.inf\General_cal_8994.acdb"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Global_cal_8994.acdb"   , 0x00000000, "cityman_qcacsp_wp8994.inf\Global_cal_8994.acdb"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Handset_cal_8994.acdb"  , 0x00000000, "cityman_qcacsp_wp8994.inf\Handset_cal_8994.acdb"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Hdmi_cal_8994.acdb"     , 0x00000000, "cityman_qcacsp_wp8994.inf\Hdmi_cal_8994.acdb"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Headset_cal_8994.acdb"  , 0x00000000, "cityman_qcacsp_wp8994.inf\Headset_cal_8994.acdb"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Speaker_cal_8994.acdb"  , 0x00000000, "cityman_qcacsp_wp8994.inf\Speaker_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Bluetooth_cal_8994.acdb", 0x00000000, "talkman_qcacsp_wp8994.inf\Bluetooth_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Codec_cal_8994.acdb"    , 0x00000000, "talkman_qcacsp_wp8994.inf\Codec_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\General_cal_8994.acdb"  , 0x00000000, "talkman_qcacsp_wp8994.inf\General_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Global_cal_8994.acdb"   , 0x00000000, "talkman_qcacsp_wp8994.inf\Global_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Handset_cal_8994.acdb"  , 0x00000000, "talkman_qcacsp_wp8994.inf\Handset_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Hdmi_cal_8994.acdb"     , 0x00000000, "talkman_qcacsp_wp8994.inf\Hdmi_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Headset_cal_8994.acdb"  , 0x00000000, "talkman_qcacsp_wp8994.inf\Headset_cal_8994.acdb"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Speaker_cal_8994.acdb"  , 0x00000000, "talkman_qcacsp_wp8994.inf\Speaker_cal_8994.acdb"
 
 ;
 ; qcauddev_wp8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qccpe8994.mbn", 0x00000000, "cityman_qcauddev_wp8994.inf\qccpe8994.mbn"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qccpe8992.mbn", 0x00000000, "talkman_qcauddev_wp8994.inf\qccpe8992.mbn"
 
 ;
 ; qcbtuart8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\nvm_tlv_3.0.bin"     , 0x00000000, "cityman_qcbtuart8994.inf\nvm_tlv_3.0.bin"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\nvm_tlv_3.2.bin"     , 0x00000000, "cityman_qcbtuart8994.inf\nvm_tlv_3.2.bin"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\rampatch_tlv_3.0.tlv", 0x00000000, "cityman_qcbtuart8994.inf\rampatch_tlv_3.0.tlv"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\rampatch_tlv_3.2.tlv", 0x00000000, "cityman_qcbtuart8994.inf\rampatch_tlv_3.2.tlv"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\nvm_tlv_3.2.bin"     , 0x00000000, "talkman_qcbtuart8994.inf\nvm_tlv_3.2.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\rampatch_tlv_3.2.tlv", 0x00000000, "talkman_qcbtuart8994.inf\rampatch_tlv_3.2.tlv"
 
 ;
 ; SynapticsTouch.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\SynaFWVendor1.img", 0x00000000, "cityman_SynapticsTouch.inf\SynaFWVendor1.img"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\SynaFWVendor1.img", 0x00000000, "talkman_SynapticsTouch.inf\SynaFWVendor1.img"
 
 ;
 ; typeccontroller.inf
@@ -178,8 +176,8 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ;
 ; qccamjpege8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\System32\QcWicEncoder8994.dll", 0x00000000, "qccamjpege8994.inf\arm64\QcWicEncoder8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\SysArm32\QcWicEncoder8994.dll", 0x00000000, "qccamjpege8994.inf\arm\QcWicEncoderARM8994.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\System32\QcWicEncoder8992.dll", 0x00000000, "qccamjpege8992.inf\arm64\QcWicEncoder8992.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\SysArm32\QcWicEncoder8992.dll", 0x00000000, "qccamjpege8992.inf\arm\QcWicEncoderARM8992.dll"
 
 ;
 ; camcalibration.inf
@@ -210,7 +208,7 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ;
 ; qcppmsettings8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\Provisioning\Packages\PPMSettings-8994Profiles.ppkg", 0x00000000, "qcppmsettings8994.inf\PPMSettings-8994Profiles.ppkg"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\Provisioning\Packages\PPMSettings-8992Profiles.ppkg", 0x00000000, "qcppmsettings8992.inf\PPMSettings-8992Profiles.ppkg"
 
 ;
 ; qcDiagRouter8994.inf
