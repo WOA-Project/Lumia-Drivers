@@ -12,5 +12,5 @@
       c:
 
       mkdir %DIR%\Image_%dtStamp%
-      imggen "%DIR%\Image_%dtStamp%\Flash.vhd" "%DIR%\OEMInput.xml" "%DIR%" ARM64
+      imggen "%DIR%\Image_%dtStamp%_Cityman\Flash.vhd" "%DIR%\OEMInput.Cityman.xml" "%DIR%" ARM64
       cd %DIR%

@@ -23,7 +23,7 @@
     <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\MobileDeviceSpaceFM.xml</AdditionalFM>
     <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\CitymanDeviceFM.xml</AdditionalFM>
   </AdditionalFMs>
-  <MachineInfoFile>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\machineinfo.xml</MachineInfoFile>
+  <MachineInfoFile>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\machineinfo.cityman.xml</MachineInfoFile>
   <Features>
     <Microsoft>
       <Feature>ALLOW_CONNECTEDSTANDBY</Feature>
