@@ -3,6 +3,7 @@ set MainOS=F:
 set VIRT_EFIESP=G:
 set HACK_EFIESP=H:
 set EFIESP=I:
+set BSP=J:
 
 set Folder=C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad
 
@@ -34,5 +35,7 @@ for /f %%f in ('dir /b /s %Folder%\REG\SYSTEM\*.reg') do reg import %%f
 reg add HKLM\RTS\ControlSet001\Services\bindflt /v Start /t REG_DWORD /d 0 /f
 reg add HKLM\RTS\ControlSet001\Control\Bitlocker /v PreventDeviceEncryption /t REG_DWORD /d 1 /f
 reg unload HKLM\RTS
+
+copy %Folder%\Microsoft-Windows-Client-Desktop-Required-Package~31bf3856ad364e35~arm64~~10.0.19564.1000.cat %BSP%\Windows\System32\Catroot\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}
 
 %Folder%\Tools\WPinternals.exe -Test

@@ -12,13 +12,13 @@ PnpLockdown = 1
 
 [DestinationDirs]
 ; 11 = system32
-PhoneProviders2.Files = 11
+PhoneProviders2.Files = 13
 
 [SourceDisksNames]
 0 = %DiskId1%
 
 [SourceDisksFiles]
-PhoneProviders2.dll = 0,,
+PhoneProviders.dll = 0,,
 
 ;*****************************************
 ; PhoneProviders2  Install Section
@@ -30,16 +30,16 @@ AddReg    = PhoneProviders.Reg
 
 [PhoneProviders.Reg]
 HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}               ,               , 0x00000002, "Cellular LineFactory"
-HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer32,               , 0x00000002, "%%SystemRoot%%\System32\PhoneProviders2.dll"
+HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer32,               , 0x00000002, "%13%\PhoneProviders.dll"
 HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer32, ThreadingModel, 0x00000002, "Both"
 
 HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}               ,               , 0x00000002, "IMS LineFactory"
-HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32,               , 0x00000002, "%%SystemRoot%%\System32\PhoneProviders2.dll"
+HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32,               , 0x00000002, "%13%\PhoneProviders.dll"
 HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32, ThreadingModel, 0x00000002, "Both"
 
 ; System32
 [PhoneProviders2.Files]
-PhoneProviders2.dll
+PhoneProviders.dll
 
 [Strings]
 IHV                    = "LumiaWoA authors"

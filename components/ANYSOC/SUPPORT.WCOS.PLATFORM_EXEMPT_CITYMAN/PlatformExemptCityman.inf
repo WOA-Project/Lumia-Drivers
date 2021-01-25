@@ -6,11 +6,7 @@ Provider    = %IHV%
 DriverVer   = 01/01/2021,1.0.0.0
 PnpLockDown = 1
 
-CatalogFile.NTARM   = PlatformExemptCityman.arm.cat
 CatalogFile.NTARM64 = PlatformExemptCityman.arm64.cat
-
-[DefaultInstall.NTARM]
-AddReg = PlatformExempt_AddReg
 
 [DefaultInstall.NTARM64]
 AddReg = PlatformExempt_AddReg
@@ -26,25 +22,7 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ; qcdx_ffu8994.inf
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdx11compiler8994.dll"  , 0x00000000, "qcdx_ffu8994.inf\arm64\qcdx11arm64compiler8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdx11um8994.dll"        , 0x00000000, "qcdx_ffu8994.inf\arm64\qcdx11arm64um8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qchdcpumd8994.dll"       , 0x00000000, "qcdx_ffu8994.inf\arm64\qchdcpumd8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcviddecmft8994.dll"     , 0x00000000, "qcdx_ffu8994.inf\arm64\qcviddecarm64mft8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcVidEncmftH2638994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm64\QcVidEncarm64mftH2638994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcVidEncmftH2648994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm64\QcVidEncarm64mftH2648994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcVidEncmftHEVC8994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm64\QcVidEncarm64mftHEVC8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QcVidEncMftMPEG48994.dll", 0x00000000, "qcdx_ffu8994.inf\arm64\QcVidEncarm64MftMPEG48994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcvidencum8994.dll"      , 0x00000000, "qcdx_ffu8994.inf\arm64\qcvidencarm64um8994.dll"
-
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcdx11compiler8994.dll"  , 0x00000000, "qcdx_ffu8994.inf\arm\qcdx11compiler8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcdx11um8994.dll"        , 0x00000000, "qcdx_ffu8994.inf\arm\qcdx11um8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qchdcpumd8994.dll"       , 0x00000000, "qcdx_ffu8994.inf\arm\qchdcpumd8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcviddecmft8994.dll"     , 0x00000000, "qcdx_ffu8994.inf\arm\qcviddecmft8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\QcVidEncmftH2638994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm\QcVidEncmftH2638994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\QcVidEncmftH2648994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm\QcVidEncmftH2648994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\QcVidEncmftHEVC8994.dll" , 0x00000000, "qcdx_ffu8994.inf\arm\QcVidEncmftHEVC8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\QcVidEncMftMPEG48994.dll", 0x00000000, "qcdx_ffu8994.inf\arm\QcVidEncMftMPEG48994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcvidencum8994.dll"      , 0x00000000, "qcdx_ffu8994.inf\arm\qcvidencum8994.dll"
-
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcvss8994.mbn"           , 0x00000000, "cityman_qcdx_ffu8994.inf\qcvss8994.mbn"
 
 ;
@@ -348,7 +326,7 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ;
 ; PhoneProviders2.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\PhoneProviders2.dll", 0x00000000, "PhoneProviders2.inf\PhoneProviders2.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\PhoneProviders2.dll", 0x00000000, "PhoneProviders2.inf\PhoneProviders.dll"
 
 [Strings]
 IHV = "LumiaWoA authors"

@@ -69,12 +69,12 @@ Needs        = Generic_NoDebug.Install.NT
 CopyFiles    = QcXhciFilter.CopyFile
 FeatureScore = 80 ; required for XHCI driver from usbxhci.inf
 
-[QcXhciFilter_64.Services]
+[QcXhciFilter_64.NT.Services]
 Include    = usbxhci.inf
 Needs      = Generic_NoDebug.Install.NT.Services
 AddService = QcXhciFilter,, QcXhciFilter_64_Service_Inst
 
-[QcXhciFilter_64.HW]
+[QcXhciFilter_64.NT.HW]
 AddReg = QcXhciFilter_AddReg
 AddReg = QcXhciFilter_SDDLString
 
