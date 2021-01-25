@@ -11,6 +11,6 @@
       cd "C:\Program Files (x86)\Windows Kits\10\tools\bin\i386"
       c:
 
-      mkdir %DIR%\Image_%dtStamp%
+      mkdir %DIR%\Image_%dtStamp%_Talkman
       imggen "%DIR%\Image_%dtStamp%_Talkman\Flash.vhd" "%DIR%\OEMInput.Talkman.xml" "%DIR%" ARM64
       cd %DIR%
