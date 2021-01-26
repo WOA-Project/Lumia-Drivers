@@ -166,7 +166,7 @@ StartType     = 3                             ; demand start
 ErrorControl  = 1                             ; normal
 ServiceBinary = %13%\arm\MSRil.sys
 
-[MSRIL_64.MSRILService]                          ; name comes from [MSRIL.Services} AddService directive
+[MSRIL.MSRILService_64]                          ; name comes from [MSRIL.Services} AddService directive
 DisplayName   = %MSRIL.ServiceDisplayName%
 Description   = %MSRIL.ServiceDescription%
 ServiceType   = 1                             ; kernel driver
