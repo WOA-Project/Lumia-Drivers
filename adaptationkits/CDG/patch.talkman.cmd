@@ -1,9 +1,9 @@
 @echo off
 set MainOS=F:
-set VIRT_EFIESP=G:
-set HACK_EFIESP=H:
-set EFIESP=I:
-set BSP=J:
+set VIRT_EFIESP=M:
+set HACK_EFIESP=J:
+set EFIESP=N:
+set BSP=L:
 
 set Folder=C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad
 

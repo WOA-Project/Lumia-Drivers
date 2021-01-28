@@ -169,6 +169,7 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.BASE\Signature" Name="desktopsignature.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileBridgeSvc.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_BRIDGE\Services\MobileBridgeSS" Name="MobileBridgeSS.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Libraries\ApplicationChambers" Name="ApplicationChambers.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Libraries\General" Name="luvc120.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_COMPONENTS\Source\Libraries\General" Name="msvc140.inf" />

@@ -1,0 +1,68 @@
+;
+; MobileBridgeSS.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 11/22/2020,1.0.0.3
+CatalogFile = MobileBridgeSS.cat
+PnpLockdown = 1
+
+[DestinationDirs]
+MobileBridgeSS.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+MobileBridgeSS.exe = 0,,
+
+[DefaultInstall.NTARM64]
+CopyFiles = MobileBridgeSS.Files,OEMAssets.Files ;,Media.Files
+AddReg    = MobileBridgeSS_Reg
+
+[DefaultInstall.NTARM64.Services]
+AddService = MobileBridgeSS,0x00000000,MobileBridgeSS_Service,
+
+[MobileBridgeSS_Service]
+DisplayName   = "Mobile Bridge Service"
+Description   = "Mobile Bridge Service for the State Separation Windows Platform"
+ServiceType   = 0x10
+StartType     = 2
+ErrorControl  = 1
+ServiceBinary = "%%SystemRoot%%\System32\MobileBridgeSS.exe"
+
+[MobileBridgeSS_Reg]
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS", "Start", 0x10001, 0x2
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS", "Type", 0x10001, 0x10
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS", "ErrorControl", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS", "DisplayName", 0x0, "Mobile Bridge Service"
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS", "Description", 0x0, "Mobile Bridge Service for the State Separation Windows Platform"
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS", "ImagePath", 0x20000, "%%SystemRoot%%\System32\MobileBridgeSS.exe"
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS", "ObjectName", 0x0, "localSystem"
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS", "RequiredPrivileges", 0x10000, \
+	  "SeShutdownPrivilege","SeTcbPrivilege","SeTakeOwnershipPrivilege","SeImpersonatePrivilege","SeLoadDriverPrivilege","SeBackupPrivilege","SeRestore"\
+	  "Privilege","SeDebugPrivilege","SeAssignPrimaryTokenPrivilege","SeLockMemoryPrivilege","SeSecurityPrivilege","SeCreatePagefilePrivilege","SeCreat"\
+	  "ePermanentPrivilege","SeIncreaseQuotaPrivilege","SeManageVolumePrivilege","SeSystemEnvironmentPrivilege","SeCreateSymbolicLinkPrivilege","SeChang"\
+	  "eNotifyPrivilege","SeIncreaseWorkingSetPrivilege","SeCreateGlobalPrivilege"
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS", "ServiceSidType", 0x10001, 0x1
+HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSS\Security", "Security", 0x1, \
+	  01,00,04,80,9c,00,00,00,a8,00,00,00,00,00,00,00,14,00,00,00,02,00,88,00,06,00,00,00,00,00,14,00,fd,01,02,00,01,01,00,00,00,00,00,05,12,00,00,00,00,00,\
+	  18,00,ff,01,0f,00,01,02,00,00,00,00,00,05,20,00,00,00,20,02,00,00,00,00,14,00,8d,01,02,00,01,01,00,00,00,00,00,05,04,00,00,00,00,00,14,00,8d,01,02,00,\
+	  01,01,00,00,00,00,00,05,06,00,00,00,00,00,14,00,95,00,00,00,01,01,00,00,00,00,00,05,13,00,00,00,00,00,18,00,04,00,00,00,01,02,00,00,00,00,00,0f,02,00,\
+	  00,00,01,00,00,00,01,01,00,00,00,00,00,05,12,00,00,00,01,01,00,00,00,00,00,05,12,00,00,00
+
+[MobileBridgeSS.Files]
+MobileBridgeSS.exe
+
+[Strings]
+IHV           = "Lumia WoA authors"
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+
