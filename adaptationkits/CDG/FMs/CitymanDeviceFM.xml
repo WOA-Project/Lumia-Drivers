@@ -161,10 +161,10 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Drivers\Battery\Miniclass" Name="qcbattminiclass8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Drivers\Battery\MipiBif" Name="qcmipibif8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Drivers\Cellular\IPCRouter" Name="qcipcrouter_WP8994.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Drivers\Cellular\MBB" Name="qcmbb.wp8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Drivers\Cellular\Qmux" Name="qcqmux_WP8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Drivers\WLAN" Name="qcwlan8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO\Services\CortanaActivation" Name="QCListenSoundModel8994.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC8994.MMO_WCOS\Source\Drivers\Cellular\MBB" Name="qcmbb.wp8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.BASE\Settings\Version" Name="phonereleaseversion.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.BASE\Signature" Name="desktopsignature.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\SUPPORT.WCOS.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf" />

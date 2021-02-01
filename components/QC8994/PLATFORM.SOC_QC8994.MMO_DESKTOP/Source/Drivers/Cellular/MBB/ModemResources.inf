@@ -1,0 +1,47 @@
+;
+; ModemResources.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 08/08/2019,1.0.0.0
+
+CatalogFile.NTARM   = ModemResources.arm.cat
+CatalogFile.NTARM64 = ModemResources.arm64.cat
+
+[DestinationDirs]
+ModemResources.Files       = 10,OEM\Drivers
+ModemResources.ARM.Files   = 10,OEM\Drivers\arm
+ModemResources.ARM64.Files = 10,OEM\Drivers\arm64
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+qcmbb8994.arm.cat_   = 0,,
+qcmbb8994.arm64.cat_ = 0,,
+qcmbb.wp8994.inf_    = 0,,
+qcmbb8994.arm.sys    = 0,,
+qcmbb8994.arm64.sys  = 0,,
+
+[DefaultInstall.NTARM]
+CopyFiles = ModemResources.Files,ModemResources.ARM.Files,ModemResources.ARM64.Files
+
+[DefaultInstall.NTARM64]
+CopyFiles = ModemResources.Files,ModemResources.ARM.Files,ModemResources.ARM64.Files
+
+[ModemResources.Files]
+qcmbb8994.arm.cat, qcmbb8994.arm.cat_, , 0x00004000,
+qcmbb8994.arm64.cat, qcmbb8994.arm64.cat_, , 0x00004000,
+qcmbb.wp8994.inf, qcmbb.wp8994.inf_, , 0x00004000,
+
+[ModemResources.ARM.Files]
+qcmbb8994.sys, qcmbb8994.arm.sys, , 0x00004000,
+
+[ModemResources.ARM64.Files]
+qcmbb8994.sys, qcmbb8994.arm64.sys, , 0x00004000,
+
+[Strings]
+IHV = "LumiaWoA authors"

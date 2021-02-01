@@ -138,20 +138,6 @@ REG ADD HKLM\SYSTEM\CurrentControlSet\services\fvevol /v BytesDecryptedInDiskReq
 REG ADD HKLM\SYSTEM\CurrentControlSet\services\fvevol /v MaxCryptoRequestsPerIo /t REG_DWORD /d 4 /f
 REG ADD HKLM\SYSTEM\CurrentControlSet\services\fvevol /v MaxDecryptRequests /t REG_DWORD /d 4 /f
 
-\Windows\OEM\devcon.exe status @QCMS\QCOM0EA0\*1 | findstr "43" > nul
-if %errorlevel%==0 (
-    \Windows\OEM\devcon.exe remove @QCMS\QCOM0EA0\*1
-    \Windows\OEM\devcon.exe dp_add \Windows\OEM\Drivers\qcmbbnull.inf
-    \Windows\OEM\devcon.exe rescan
-)
-
-\Windows\OEM\devcon.exe status @QCMS\QCOM0EA0\*0 | findstr "43" > nul
-if %errorlevel%==0 (
-    \Windows\OEM\devcon.exe remove @QCMS\QCOM0EA0\*0
-    \Windows\OEM\devcon.exe dp_add \Windows\OEM\Drivers\qcmbbnull.inf
-    \Windows\OEM\devcon.exe rescan
-)
-
 goto :eof
 
 REM 
