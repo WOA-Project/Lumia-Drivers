@@ -101,9 +101,6 @@ Deprecation notice
 
 - Build 17763 is deprecated and will not boot successfully anymore [<= 18363 is deprecated, see above]
 - Volume / Audio switching is broken on 18363 [Won't fix, <= 18363 is deprecated, see above]
-- Auto rotation is broken on 18363 [Won't fix, <= 18363 is deprecated, see above]
-- Auto brightness is broken on 18363 [Won't fix, <= 18363 is deprecated, see above]
-- Vibration is broken on 18363 [Won't fix, <= 18363 is deprecated, see above]
 - Night light is broken on 18363 [Won't fix, <= 18363 is deprecated, see above]
 
 ____________________________________________________________________________________________________________________________
