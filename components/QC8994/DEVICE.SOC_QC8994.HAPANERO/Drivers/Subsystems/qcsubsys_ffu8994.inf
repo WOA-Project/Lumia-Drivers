@@ -22,7 +22,7 @@ CatalogFile.NTARM   = qcsubsys8994.arm.cat
 CatalogFile.NTARM64 = qcsubsys8994.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir_12 = 12
+Drivers_Dir_12 = 13
 Drivers_Dir_24 = 11
 
 [SourceDisksNames]
@@ -62,17 +62,22 @@ ExcludeFromSelect = *
 %TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
 
 [Standard.NTARM64]
-%WCN.DeviceDesc%            = SUBSYS_Device,            ACPI\QCOM242A
-%ADSP.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242B
-%AMSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242C
-%SERVICEMANAGER.DeviceDesc% = SUBSYS_Device, ACPI\QCOM24B8
-%AMSSCXThermal.DeviceDesc%  = SUBSYS_Device,  ACPI\QCOM24C0
-%SCSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM24C1
-%TEST.DeviceDesc%           = SUBSYS_Device,           ADSP\DEADCODE
-%TEST.DeviceDesc%           = SUBSYS_Device,           QCMS\DEADCODE
-%TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
+%WCN.DeviceDesc%            = SUBSYS_64_Device,            ACPI\QCOM242A
+%ADSP.DeviceDesc%           = SUBSYS_64_Device,           ACPI\QCOM242B
+%AMSS.DeviceDesc%           = SUBSYS_64_Device,           ACPI\QCOM242C
+%SERVICEMANAGER.DeviceDesc% = SUBSYS_64_Device, ACPI\QCOM24B8
+%AMSSCXThermal.DeviceDesc%  = SUBSYS_64_Device,  ACPI\QCOM24C0
+%SCSS.DeviceDesc%           = SUBSYS_64_Device,           ACPI\QCOM24C1
+%TEST.DeviceDesc%           = SUBSYS_64_Device,           ADSP\DEADCODE
+%TEST.DeviceDesc%           = SUBSYS_64_Device,           QCMS\DEADCODE
+%TEST.DeviceDesc%           = SUBSYS_64_Device,           QWCN\DEADCODE
 
 [SUBSYS_Device.NT]
+CopyFiles   = Drivers_Dir_12,Drivers_Dir_24
+AddReg      = SUBSYSReg
+AddProperty = WDTFSOCDeviceCategory
+
+[SUBSYS_64_Device.NT]
 CopyFiles   = Drivers_Dir_12,Drivers_Dir_24
 AddReg      = SUBSYSReg
 AddProperty = WDTFSOCDeviceCategory
@@ -80,6 +85,9 @@ AddProperty = WDTFSOCDeviceCategory
 [WDTFSOCDeviceCategory]
 
 [SUBSYS_Device.NT.HW]
+AddReg = SUBSYSACL
+
+[SUBSYS_64_Device.NT.HW]
 AddReg = SUBSYSACL
 
 [SUBSYSACL]
@@ -130,13 +138,24 @@ HKLM, SYSTEM\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38
 [SUBSYS_Device.NT.Services]
 AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst
 
+[SUBSYS_64_Device.NT.Services]
+AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_64_Service_Inst
+
 ; -------------- Subsystem driver install sections
 [SUBSYS_Service_Inst]
 DisplayName   = %SUBSYS.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcsubsys8994.sys
+ServiceBinary = %13%\arm\qcsubsys8994.sys
+AddReg        = SUBSYS_Service_AddReg
+
+[SUBSYS_64_Service_Inst]
+DisplayName   = %SUBSYS.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcsubsys8994.sys
 AddReg        = SUBSYS_Service_AddReg
 
 [SUBSYS_Service_AddReg]
@@ -148,6 +167,8 @@ HKR, Parameters, "WcnRestartEnabled", 0x00010001, 0x0
 HKR, Parameters\DIAG, "FreeReservedMemory", 0x00010001, 0x01
 
 [SUBSYS_Device.NT.Wdf]
+KmdfService = qcsubsys, SUBSYS_wdfsect
+[SUBSYS_64_Device.NT.Wdf]
 KmdfService = qcsubsys, SUBSYS_wdfsect
 [SUBSYS_wdfsect]
 KmdfLibraryVersion = 1.15
