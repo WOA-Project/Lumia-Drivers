@@ -413,26 +413,26 @@ HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microp
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone0", "wHorizontalAngle", 0x10001, 0x0
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone0", "wVerticalAngle", 0x10001, 0x0
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone0", "wXCoord", 0x10001, 0xffffffff
-HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone0", "wYCoord", 0x10001, 0xa
+HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone0", "wYCoord", 0x10001, 0xfffffff8
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone0", "wZCoord", 0x10001, 0xffffffbf
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone1", "usType", 0x10001, 0x2
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone1", "wHorizontalAngle", 0x10001, 0x7ab8
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone1", "wVerticalAngle", 0x10001, 0x7ab8
-HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone1", "wXCoord", 0x10001, 0xfffffffe
-HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone1", "wYCoord", 0x10001, 0xa
-HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone1", "wZCoord", 0x10001, 0xfffffd44
+HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone1", "wXCoord", 0x10001, 0xfffffffd
+HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone1", "wYCoord", 0x10001, 0xfffffff8
+HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone1", "wZCoord", 0x10001, 0xffffffba
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone2", "usType", 0x10001, 0x2
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone2", "wHorizontalAngle", 0x10001, 0x7ab8
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone2", "wVerticalAngle", 0x10001, 0x7ab8
-HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone2", "wXCoord", 0x10001, 0xfffffffe
-HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone2", "wYCoord", 0x10001, 0xa
-HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone2", "wZCoord", 0x10001, 0x41
+HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone2", "wXCoord", 0x10001, 0xfffffffd
+HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone2", "wYCoord", 0x10001, 0xfffffff8
+HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone2", "wZCoord", 0x10001, 0x46
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "usType", 0x10001, 0x2
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wHorizontalAngle", 0x10001, 0x0
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wVerticalAngle", 0x10001, 0x0
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wXCoord", 0x10001, 0xffffffff
-HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wYCoord", 0x10001, 0xa
-HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wZCoord", 0x10001, 0x41
+HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wYCoord", 0x10001, 0xfffffff8
+HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wZCoord", 0x10001, 0x46
 
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%", "NumberOfDeviceTypes", 0x10001, 0x1
 HKLM, "SYSTEM\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\Device0", ,0x10
