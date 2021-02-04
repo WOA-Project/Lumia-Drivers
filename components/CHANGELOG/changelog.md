@@ -1,5 +1,5 @@
-## Lumia Drivers BSP - Version 2102
-**Released:** 02/02/2021 10:00 PM UTC+1
+## Lumia Drivers BSP - Version 2102.14
+**Released:** 02/04/2021 15:00 PM UTC+1
 
 **Quality:** Preview
 
@@ -17,24 +17,10 @@ ________________________________________________________________________________
 
 Changelog
 
-- Improved reliability of HDMI out connections, fixed issues related to audio sinking, link negotiation
-- Migrated most of the driver base to be DCH(U) compliant
-- Fixed an issue with Microphone configuration on the Lumia 950 XL
-- Display scaling now defaults to 250% for the Lumia 950 and Lumia 950 XL
-- Fixed broken GPS stack
-- Improved power management stack
-- Introduced a new universal USB function mode application
-- Simplified setup process with less hacks
-- Device classes and names got streamlined
-- Adjusted PoFx settings for greater compatibility with PEP
-- Fixed the issue mentioned last year about the incompatibility with MS VC 2013 x64 on insider builds with x64 emulation
-- Fixed a few issues with some services generating errors in windows event viewer due to interactive service type being set
-- Updated the TyC controller driver to the latest version
-- Added support for Windows 10X (10.0.20279.1002)
-- Microsoft Edge no longer shows a blackscreen by default
-- [UEFI] Fixed reboot problem, thanks for your patience
-- [UEFI] Improved CPU core utilization in Windows thanks to ACPI table changes
-- [Servicing] Introduced new offline driver tool that works from mass storage
+- Addresses an issue where the GPU driver would crash when being uninstalled and installed back online
+- Addresses an issue where the setup process would not complete successfully
+- Addresses thermal performance, stability performance, and power performance degradation with QCPEP on 8994 processors
+- Addresses an issue with post upgrade operations not running on the device
 
 ____________________________________________________________________________________________________________________________
 
@@ -46,7 +32,7 @@ How to offline update an existing Windows Desktop installation
 
 - Download [Source Code (zip)] from https://github.com/WOA-Project/Lumia-Drivers/releases/latest
 - Extract said zip file to a folder of your choice, we will assume here we extracted it to C:\UpdatedDrivers
-- Download the DriverUpdater utility
+- Download the DriverUpdater utility from https://github.com/WOA-Project/DriverUpdater/releases/latest
 - Open a command prompt as administrator, where the driver utility got downloaded
 
 - If your device is a Lumia 950, execute the following command:
