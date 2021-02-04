@@ -210,7 +210,7 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ;
 ; qcppmsettings8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\Provisioning\Packages\PPMSettings-8994Profiles.ppkg", 0x00000000, "qcppmsettings8994.inf\PPMSettings-8994Profiles.ppkg"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\Provisioning\Packages\PPMSettings-8994Profiles.ppkg", 0x00000000, "qcppmsettings8994.inf\arm64\PPMSettings-8994Profiles.ppkg"
 
 ;
 ; qcDiagRouter8994.inf
