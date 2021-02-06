@@ -62,7 +62,7 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO\Source\Services\NCSd" Name="NcsdSvc.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO\Source\Services\OEMSvcHost" Name="OEMServiceHost.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO\Source\Settings" Name="emmchighspeed.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_GRAPHICS\Source\Graphics" Name="oempanel.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_GRAPHICS_WCOS\Source\Graphics" Name="oempanel.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\Authentication" Name="CameraAuthDriver_arm.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\Core" Name="qccamcore8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Cityman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8994\Drivers\Camera\Flash\Rear" Name="qccamflash8994.inf" />

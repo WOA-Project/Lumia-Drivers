@@ -62,7 +62,7 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO\Source\Services\NCSd" Name="NcsdSvc.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO\Source\Services\OEMSvcHost" Name="OEMServiceHost.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO\Source\Settings" Name="emmchighspeed.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_GRAPHICS\Source\Graphics" Name="oempanel.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_GRAPHICS_WCOS\Source\Graphics" Name="oempanel.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8992\Drivers\Camera\Authentication" Name="CameraAuthDriver_arm.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8992\Drivers\Camera\Core" Name="qccamcore8992.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC8994.MMO_SOC8992\Drivers\Camera\Flash\Rear" Name="qccamflash8992.inf" />

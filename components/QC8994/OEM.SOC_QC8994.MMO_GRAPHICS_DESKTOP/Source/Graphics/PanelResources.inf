@@ -1,0 +1,54 @@
+;
+; PanelResources.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 08/08/2019,1.0.0.0
+
+CatalogFile.NTARM   = PanelResources.arm.cat
+CatalogFile.NTARM64 = PanelResources.arm64.cat
+
+[DestinationDirs]
+PanelResources.Files    = 10,OEM\Drivers
+PanelResources_32.Files = 10,OEM\Drivers\arm
+PanelResources_64.Files = 10,OEM\Drivers\arm64
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+ColorData.bin          = 0,,
+oempanel.arm.cat_      = 0,,
+oempanel.arm64.cat_    = 0,,
+oempanel.arm.sys       = 0,,
+oempanel.arm64.sys     = 0,,
+oempanel_etw.arm.dll   = 0,,
+oempanel_etw.arm64.dll = 0,,
+oempanel.inf_          = 0,,
+
+[DefaultInstall.NTARM]
+CopyFiles = PanelResources.Files, PanelResources_32.Files, PanelResources_64.Files
+
+[DefaultInstall.NTARM64]
+CopyFiles = PanelResources.Files, PanelResources_32.Files, PanelResources_64.Files
+
+[PanelResources.Files]
+ColorData.bin
+oempanel.arm.cat, oempanel.arm.cat_, , 0x00004000,
+oempanel.arm64.cat, oempanel.arm64.cat_, , 0x00004000,
+oempanel.inf, oempanel.inf_, , 0x00004000,
+
+[PanelResources_32.Files]
+oempanel.sys, oempanel.arm.sys, , 0x00004000,
+oempanel_etw.dll, oempanel_etw.arm.dll, , 0x00004000,
+
+[PanelResources_64.Files]
+oempanel.sys, oempanel.arm64.sys, , 0x00004000,
+oempanel_etw.dll, oempanel_etw.arm64.dll, , 0x00004000,
+
+[Strings]
+IHV = "LumiaWoA authors"
+

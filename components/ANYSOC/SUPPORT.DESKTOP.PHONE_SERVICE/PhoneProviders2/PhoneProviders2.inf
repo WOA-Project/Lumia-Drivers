@@ -26,6 +26,11 @@ PhoneProviders.dll = 0,,
 
 [DefaultInstall.NTARM64]
 CopyFiles = PhoneProviders2.Files
+;AddReg    = PhoneProviders.Reg
+AddReg    = PhoneProviders.Force.Reg
+
+[DefaultInstall.NTARM64.10.0...15063]
+CopyFiles = PhoneProviders2.Files
 AddReg    = PhoneProviders.Reg
 
 [DefaultInstall.NTARM64.10.0...19565]
