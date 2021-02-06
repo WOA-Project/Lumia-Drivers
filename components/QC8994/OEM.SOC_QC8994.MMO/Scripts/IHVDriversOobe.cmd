@@ -1,11 +1,11 @@
 @echo off
 
 REM Hall
-reg add HKLM\SYSTEM\Software\SmartCover /v FrontSensor /t REG_DWORD /d 0
-reg add HKLM\SYSTEM\Software\SmartCover /v BackSensor /t REG_DWORD /d 0
+reg add HKLM\SYSTEM\Software\SmartCover /v FrontSensor /t REG_DWORD /d 0 /f
+reg add HKLM\SYSTEM\Software\SmartCover /v BackSensor /t REG_DWORD /d 0 /f
 
-reg add HKLM\SYSTEM\HallSensor /v Polarity /t REG_DWORD /d 0
-reg add HKLM\SYSTEM\HallSensor /v Disabled /t REG_DWORD /d 0
+reg add HKLM\SYSTEM\HallSensor /v Polarity /t REG_DWORD /d 0 /f
+reg add HKLM\SYSTEM\HallSensor /v Disabled /t REG_DWORD /d 0 /f
 
 REM Drivers
 call :installRootDevice proxy_driver.inf Root\GripProxy ROOT\GripProxy\0000

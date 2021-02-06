@@ -28,6 +28,10 @@ PhoneProviders.dll = 0,,
 CopyFiles = PhoneProviders2.Files
 AddReg    = PhoneProviders.Reg
 
+[DefaultInstall.NTARM64.10.0...19565]
+CopyFiles = PhoneProviders2.Files
+AddReg    = PhoneProviders.Force.Reg
+
 [PhoneProviders.Reg]
 HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}               ,               , 0x00000002, "Cellular LineFactory"
 HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer32,               , 0x00000002, "%13%\PhoneProviders.dll"
@@ -36,6 +40,15 @@ HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer
 HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}               ,               , 0x00000002, "IMS LineFactory"
 HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32,               , 0x00000002, "%13%\PhoneProviders.dll"
 HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32, ThreadingModel, 0x00000002, "Both"
+
+[PhoneProviders.Force.Reg]
+HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}               ,               , 0x00000000, "Cellular LineFactory"
+HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer32,               , 0x00000000, "%13%\PhoneProviders.dll"
+HKLM, SOFTWARE\Classes\CLSID\{ceec07ce-cde4-4b1b-ba82-e36910d1c465}\InProcServer32, ThreadingModel, 0x00000000, "Both"
+
+HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}               ,               , 0x00000000, "IMS LineFactory"
+HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32,               , 0x00000000, "%13%\PhoneProviders.dll"
+HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer32, ThreadingModel, 0x00000000, "Both"
 
 ; System32
 [PhoneProviders2.Files]

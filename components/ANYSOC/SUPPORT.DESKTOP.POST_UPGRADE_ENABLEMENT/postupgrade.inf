@@ -18,19 +18,15 @@ CatalogFile.NTARM64 = postupgrade.arm64.cat
 
 [DefaultInstall.NTARM]
 Addreg    = postupgradeReg
-Delreg    = postupgradeDelReg
 
 [DefaultInstall.NTARM64]
 Addreg    = postupgradeReg
-Delreg    = postupgradeDelReg
 
 [postupgradeReg]
 HKLM,%RunOnce%,"SpecializeCmds",,"cmd.exe /c \Windows\OEM\SilentProvisioner.exe"
 HKLM,%RunOnce%,"OobeCmds"      ,,"cmd.exe /c \Windows\Setup\Scripts\Oobe.cmd"
 HKLM,%RunOnce%,"FirstLogonCmds",,"cmd.exe /c \Windows\OEM\SilentProvisionerL.exe"
-
-[postupgradeDelReg]
-HKLM, "SOFTWARE\OEM", OOBEProvisioningPhaseCompleted
+HKLM,SOFTWARE\OEM,"OOBEProvisioningPhaseCompleted",0x10001,0x0
 
 [Strings]
 RunOnce = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
