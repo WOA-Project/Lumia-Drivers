@@ -21,7 +21,6 @@ Workaround.Files = 10, Media
 0 = %DiskId1%
 
 [SourceDisksFiles]
-QxdmFilter.bin                   = 0,,
 Alert-05.wma                     = 0,,
 Alert_calendar.wma               = 0,,
 Busy.wav                         = 0,,

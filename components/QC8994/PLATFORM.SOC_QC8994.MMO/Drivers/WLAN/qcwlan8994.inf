@@ -95,7 +95,7 @@ HKR, Ndi\Interfaces,                DefLower,   0, "ethernet"
 HKR, Ndi,                           Service,    0, %QcWlan.Service.Name%
 
 HKR,,ignore11dBeacon,0x00010001,1
-HKR,,CountryName,,"2G"
+;HKR,,CountryName,,"2G"
 HKR,,linkQualityChangeThresh,0x00010001,2
 HKR,,gEnableModulatedDTIM,0x00010001,3
 HKR,,gMaxLIModulatedDTIM,0x00010001,5
@@ -183,6 +183,7 @@ HKR,,antDivLowRssiCfg
 HKR,,btCoexDivDefVal
 HKR,,antDivFastDivBias
 HKR,,extAttenMarginCfg
+HKR,,CountryName
 
 ;-----------------------------------------------------------------------------
 ;Source
