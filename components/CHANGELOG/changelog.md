@@ -1,11 +1,11 @@
-## Lumia Drivers BSP - Version 2102.14
-**Released:** 02/04/2021 15:00 PM UTC+1
+## Lumia Drivers BSP - Version 2102.21
+**Released:** 02/06/2021 10:00 PM UTC+1
 
 **Quality:** Preview
 
 ### Important installation notes
 
-![Battery](battery.png)
+![image](battery.png)
 
 Please make sure your battery is fully charged before installing this driver pack. For most batteries the charge must be 100% as the phone may shutdown during setup if the battery is even at 80% charge.
 Make sure battery is charged to 100% before continuing. If this is not the case, reboot your device **now** and charge it in an **Operating System**.
@@ -17,10 +17,12 @@ ________________________________________________________________________________
 
 Changelog
 
-- Addresses an issue where the GPU driver would crash when being uninstalled and installed back online
-- Addresses an issue where the setup process would not complete successfully
-- Addresses thermal performance, stability performance, and power performance degradation with QCPEP on 8994 processors
-- Addresses an issue with post upgrade operations not running on the device
+- Addresses an issue where the GPU driver would be installed too prematurly on certain devices, causing a crash during installation
+- Addresses an issue where the setup process would not complete successfully with an update
+- Addresses an issue where Phone Calls stopped working, along with the calling app counterparts
+- Addresses an issue with WLAN 5Ghz not working
+- Addresses an issue where Cellular drivers would not end up being installed on update
+- Addresses an issue with the Color Profile toggle not working
 
 ____________________________________________________________________________________________________________________________
 
@@ -68,14 +70,16 @@ General software defects
 - Graphical glitches can be observed with acrylic effects on builds lower or equal than 20100
 - Graphical glitches can be observed on shadows
 - MTP may fail to start if the device is plugged a second time, stop the NcsdService to fix the issue via task manager
-- Dual SIM devices are unsupported, do not expect cellular to work properly on these
+- Dual SIM devices are unsupported for Cellular, do not expect cellular to work properly on these
 - DirectX is unavailable for x86 and amd64 applications
 - No VoLTE
 - No VoWiFi
 - No Cellular data sharing
-- 5Ghz WiFi network may not show up properly under certain conditions [NEW known issue, issue is old]
 - Phone Calls require manual provisioning by the user on builds higher than 18363
 - Text messages are unavailable on builds higher then 18363
+- Microphone level under Settings is stuck at 50%
+- Phone may not boot reliably or have random reboots when the battery falls below 50% on certain devices, if all cores are enabled.
+  As a workaround, you can run "bcdedit /set numproc 4" to disable the second core cluster
 
 ____________________________________________________________________________________________________________________________
 
