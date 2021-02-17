@@ -13,16 +13,18 @@ CatalogFile.NTARM   = wmril.arm.cat
 CatalogFile.NTARM64 = wmril.arm64.cat
 
 [DestinationDirs]
-WMRil.Files = 11 ; \system32 directory on Windows 2000 and later versions
+WMRil.Files = 13 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksNames]
 0 = "Disk"
 
 [SourceDisksFiles.ARM]
-WMRil.dll                = 0,arm,
+WMRil.dll = 0,arm,
+phoneinfo.dll = 0,arm,
 
 [SourceDisksFiles.ARM64]
-WMRil.dll                = 0,arm64,
+WMRil.dll = 0,arm64,
+phoneinfo.dll = 0,arm64,
 
 [Manufacturer]
 %QC%=QC,NTARM,NTARM64
@@ -35,11 +37,17 @@ WMRil.dll                = 0,arm64,
 
 [WMRIL.NTARM]
 CopyFiles = WMRil.Files
-AddReg    = WMRil_Reg
+AddReg    = WMRil_Reg, WMRil_32_Reg
 
 [WMRIL.NTARM64]
 CopyFiles = WMRil.Files
-AddReg    = WMRil_Reg
+AddReg    = WMRil_Reg, WMRil_64_Reg
+
+[WMRil_32_Reg]
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, RILPath, %REG_SZ%, "%13%\arm\WMRil.dll"
+
+[WMRil_64_Reg]
+HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, RILPath, %REG_SZ%, "%13%\arm64\WMRil.dll"
 
 [WMRil_Reg]
 HKLM, SOFTWARE\Qualcomm\Ril\Common\Timeout\Indication, InternalIndicationOperatingModeChanged, %REG_DWORD%, 0x0000afc8
@@ -69,23 +77,15 @@ HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Indication, InternalIndicationUIMCar
 
 HKLM, SOFTWARE\Qualcomm\Ril\Driver0\Timeout\Request, QMI_UIM_DEPERSONALIZATION_REQ_V01, %REG_DWORD%, 0xffffffff
 
-HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters, MessageHoldTimeout, %REG_DWORD%, 0x0000001e
-HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters, MSRilInstances, %REG_DWORD%, 0x00000001
-HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters, MuxCreateTimeout, %REG_DWORD%, 0x0001d4c0
-HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters, MuxDeviceName, %REG_SZ%, "\??\ModemMuxDevice"
-HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters, MuxFileName, %REG_SZ%, "\\.\ModemMuxDevice"
-HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters, MuxHardwareId, %REG_SZ%, "MODEM\MUX"
-HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters, WatchdogTimeout, %REG_DWORD%, 0x0000000a
-
 HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, MsrilDeviceId, %REG_SZ%, "MODEM\MSRIL"
 HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, MsrilDeviceName, %REG_SZ%, "\??\MSRil1"
 HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, MsrilInstanceId, %REG_SZ%, "0001"
 HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, QueueNumber, %REG_DWORD%, 0x00000001
 HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, RILInitIndex, %REG_DWORD%, 0x00000000
-HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, RILPath, %REG_SZ%, "WMRil.dll"
 
 [WMRil.Files]
 WMRil.dll
+phoneinfo.dll
 
 [Strings]
 QC               = "Qualcomm"

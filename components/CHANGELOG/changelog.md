@@ -1,7 +1,7 @@
-## Lumia Drivers BSP - Version 2102.21
-**Released:** 02/06/2021 10:00 PM UTC+1
+## Lumia Drivers BSP - Version 2102.60
+**Released:** 02/17/2021 18:00 PM UTC+1
 
-**Quality:** Preview
+**Quality:** Interim
 
 ### Important installation notes
 
@@ -10,6 +10,9 @@
 Please make sure your battery is fully charged before installing this driver pack. For most batteries the charge must be 100% as the phone may shutdown during setup if the battery is even at 80% charge.
 Make sure battery is charged to 100% before continuing. If this is not the case, reboot your device **now** and charge it in an **Operating System**.
 
+Reminder: if you are using WOA Deployer, **please** do not use the "Force Dual Boot" button, otherwise the setup process
+will FAIL.
+
 ### Release notes
 
 ____________________________________________________________________________________________________________________________
@@ -17,13 +20,36 @@ ________________________________________________________________________________
 
 Changelog
 
-- Addresses an issue where the GPU driver would be installed too prematurly on certain devices, causing a crash during installation
-- Addresses an issue where the setup process would not complete successfully with an update
-- Addresses an issue where Phone Calls stopped working, along with the calling app counterparts
-- Addresses an issue with WLAN 5Ghz not working
-- Addresses an issue where Cellular drivers would not end up being installed on update
-- Addresses an issue with the Color Profile toggle not working
+- Addresses an issue impacting GPS functionality
+- Addresses an issue impacting Cellular functionality on build 21317 and higher
+- Addresses an issue impacting Cellular functionality on build 18908 and lower
+- General improvements to Cellular Stack
+- Updated Chat application
+- Preparations for an upcoming update
+- Nothing more. This release contains no new functionality notable, and will not get offered FFU releases, or 10X variants.
 
+NEW issues
+
+- Updating to this release might cause in some cases a BSOD with "CRITICAL_PROCESS_DIED". If this is your case
+  go to mass storage mode, and delete \Windows\System32\RILAdaptationService.exe. Reboot, and installation will proceed.
+  In case it still doesn't, mount \Windows\System32\config\SYSTEM in regedit. Delete \ControlSet001\Services\RILAdaptation
+
+- A very slim percentage of users are experiencing SDBUS_INTERNAL_ERROR issues.
+  If this is your case, go to mass storage mode, mount \Windows\System32\config\SYSTEM in regedit
+  Set the following entries
+
+  [HKEY_LOCAL_MACHINE\RTSYSTEM\ControlSet001\services\SdBus\Parameters]
+  "DisableHS200Support"=dword:00000001
+  "DisableHS400Support"=dword:00000001
+  "DisableUhsSupport"=dword:00000001
+
+  Unmount the registry hive, and reboot
+
+- Some users might end up being unable to send texts on build 18908 and lower. To address this issue, open regedit on
+  the device, go to HKLM\SOFTWARE\Microsoft\Messaging\IMEISpecific (or IMSISpecific), right click, go to security
+  Tap advanced, tap change owner, in the dialog that opens, enter "Everyone" (without the quotes), tap check names
+  press ok, press ok. Tap ALL APPLICATION PACKAGES, select 'full control', do the same for other listed accounts (optionally)
+  Apply, and close regedit.
 ____________________________________________________________________________________________________________________________
 
 

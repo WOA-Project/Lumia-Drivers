@@ -39,7 +39,7 @@ ErrorControl  = 1
 ServiceBinary = "%%SystemRoot%%\System32\MobileBridgeSvc.exe"
 
 [MobileBridgeSvc_Reg]
-HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "DependOnService", 0x10000, "RILAdaptation" ;, "Audiosrv"
+;HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "DependOnService", 0x10000, "Audiosrv"
 HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "Start", 0x10001, 0x2
 HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "Type", 0x10001, 0x10
 HKLM, "SYSTEM\ControlSet001\Services\MobileBridgeSvc", "ErrorControl", 0x10001, 0x1
