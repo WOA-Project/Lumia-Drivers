@@ -1,0 +1,37 @@
+;
+; RilServiceActivation.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
+Provider    = %IHV%
+DriverVer   = 11/10/2019,1.0.0.1
+CatalogFile = RilServiceActivation.cat
+PnpLockdown = 1
+
+[DestinationDirs]
+RilServiceActivation.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+RilServiceActivation.exe = 0,,
+
+[Manufacturer]
+%IHV%=IHV,NTARM
+
+[IHV.NTARM]
+%RILServiceActivation.DeviceDesc%=RILServiceActivation, SWC\VID_QCOM&PID_0EA0&SID_00A2
+
+[RILServiceActivation.NTARM]
+CopyFiles = RilServiceActivation.Files
+
+[RilServiceActivation.Files]
+RilServiceActivation.exe
+
+[Strings]
+IHV                             = "LumiaWoA authors"
+RILServiceActivation.DeviceDesc = "LumiaWoA Radio Interface Layer Service Activation Application"
+

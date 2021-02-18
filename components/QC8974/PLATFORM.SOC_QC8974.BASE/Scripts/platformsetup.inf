@@ -8,8 +8,8 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 08/24/2019,1.0.0.1
-
-CatalogFile.NTARM = platformsetup.cat
+CatalogFile = platformsetup.cat
+PnpLockdown = 1
 
 [DestinationDirs]
 ; 10 = Windows
@@ -33,6 +33,7 @@ CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 [OOBECmd.Files]
 PlatformOobe.cmd
 
+; Windows/OEM
 [SpecializeCmd.Files]
 
 [FirstLogonCmd.Files]

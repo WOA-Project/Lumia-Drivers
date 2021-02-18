@@ -20,27 +20,22 @@ CatalogFile = qcgnsssvc8994.cat
 PnpLockdown = 1
 
 [DestinationDirs]
-QcGnssSvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
+QcGnssSvc.Files = 13
 
 [SourceDisksNames]
 0 = "Disk"
 
 [SourceDisksFiles]
 QcGnssSvc.dll = 0,,
+rilproxy.dll  = 0,,
+cmnet.dll     = 0,,
+CmOemUtil.dll = 0,,
 
 [DefaultInstall.NTARM64]
 CopyFiles = QcGnssSvc.Files
-AddReg    = QcGnssSvc_Reg
 
 [DefaultInstall.NTARM64.Services]
 AddService = QcGnssSvc,0x00000000,QcGnssSvc_Service,
-
-;ServiceType = 0x110
-;A Win32 program that runs in a process by itself (like Type16) and that can interact with users.
-;StartType = 2 SERVICE_AUTO_START
-;A service started automatically by the service control manager during system startup. 
-;ErrorControl = 1 SERVICE_ERROR_NORMAL
-;The startup program logs the error in the event log but continues the startup operation.
 
 [QcGnssSvc_Service]
 DisplayName   = "QCGnssHelperService"
@@ -49,20 +44,26 @@ ServiceType   = 0x110
 StartType     = 2
 ErrorControl  = 0
 ServiceBinary = "%%systemroot%%\system32\svchost.exe -k QCGnssSvcGroup"
+AddReg        = QcGnssSvc_Reg
 
 [QcGnssSvc_Reg]
-HKLM, System\ControlSet001\Services\QcGnssSvc             , DisplayName       , %REG_SZ%       ,  "QCGnssHelperService"
-HKLM, System\ControlSet001\Services\QcGnssSvc             , Description       , %REG_SZ%       ,  "QC GNSS Helper Service"
-HKLM, System\ControlSet001\Services\QcGnssSvc             , PreshutdownTimeout, %REG_DWORD%    ,  0x4E20
-HKLM, System\ControlSet001\Services\QcGnssSvc             , ImagePath         , %REG_EXPAND_SZ%,  "%%systemroot%%\system32\svchost.exe -k QCGnssSvcGroup"
-HKLM, System\ControlSet001\Services\QcGnssSvc             , Type              , %REG_DWORD%    ,  0x0020
-HKLM, System\ControlSet001\Services\QcGnssSvc             , Start             , %REG_DWORD%    ,  0x0002
-HKLM, System\ControlSet001\Services\QcGnssSvc             , ErrorControl      , %REG_DWORD%    ,  0x0000
-HKLM, System\ControlSet001\Services\QcGnssSvc\Parameters  , ServiceDll        , %REG_EXPAND_SZ%,  "%%SystemRoot%%\System32\QcGnssSvc.dll"
-HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, QCGnssSvcGroup    , %REG_MULTI_SZ% ,  "QcGnssSvc"
+HKR,, DisplayName       , %REG_SZ%       ,  "QCGnssHelperService"
+HKR,, Description       , %REG_SZ%       ,  "QC GNSS Helper Service"
+HKR,, PreshutdownTimeout, %REG_DWORD%    ,  0x4E20
+HKR,, ImagePath         , %REG_EXPAND_SZ%,  "%%systemroot%%\system32\svchost.exe -k QCGnssSvcGroup"
+HKR,, Type              , %REG_DWORD%    ,  0x0020
+HKR,, Start             , %REG_DWORD%    ,  0x0002
+HKR,, ErrorControl      , %REG_DWORD%    ,  0x0000
+
+HKR, Parameters, ServiceDll, %REG_EXPAND_SZ%,  "%13%\QcGnssSvc.dll"
+
+HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, QCGnssSvcGroup, %REG_MULTI_SZ%, "QcGnssSvc"
 
 [QcGnssSvc.Files]
 QcGnssSvc.dll
+rilproxy.dll
+cmnet.dll
+CmOemUtil.dll
 
 [Strings]
 QC            = "Qualcomm"

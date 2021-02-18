@@ -3,11 +3,12 @@
 ;
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QCOM%
-DriverVer   = 12/23/2014,10.56.7.0340
+DriverVer   = 07/02/2015,1.0.1057.0000
 CatalogFile = qcssd8974.cat
+PnpLockdown = 1
 
 [DestinationDirs]
 qcssd.Files.NTarm_11 = 11
@@ -22,7 +23,13 @@ BinaryPartitionDecrypt.dll = 0,,
 ; ssd Install Section
 ;*****************************************
 
-[DefaultInstall.NTARM]
+[Manufacturer]
+%QC%=QC,NTARM
+
+[QC.NTARM]
+%SSD.DeviceDesc%=SSD, SWC\VID_QCOM&PID_0EA0&SID_000A
+
+[SSD.NTARM]
 CopyFiles = qcssd.Files.NTarm_11
 
 ; System32
@@ -34,7 +41,6 @@ REG_SZ                 = 0x00000000
 SPSVCINST_ASSOCSERVICE = 0x00000002
 QCOM                   = "Qualcomm"
 QC                     = "Qualcomm Technologies, INC"
-DiskId1                = "qcssd Installation Disk #1"
-QCCCI.DeviceDesc       = "qcssd Library Package"
-
+DiskId1                = "Qualcomm Secure Software Download Installation Disk #1"
+SSD.DeviceDesc         = "Qualcomm Secure Software Download Library"
 
