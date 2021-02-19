@@ -6,7 +6,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 11/17/2020,1.0.0.2
+DriverVer   = 02/19/2021,1.0.0.9
 PnpLockdown = 1
 
 CatalogFile.NTARM   = MobileBridge.arm.cat
@@ -37,11 +37,29 @@ Vivid.icm         = 0,,
 
 [DefaultInstall.NTARM]
 CopyFiles = MobileBridge.Files,Profiles.Files
-AddReg    = MobileBridge_Reg,AutoRotate_Reg,HapticsNotifications_Reg,ProfileAction.Reg
+AddReg    = AutoRotate_Reg,HapticsNotifications_Reg,ProfileAction.Reg
 
 [DefaultInstall.NTARM64]
 CopyFiles = MobileBridge.Files,Profiles.Files
-AddReg    = MobileBridge_Reg,AutoRotate_Reg,HapticsNotifications_Reg,ProfileAction.Reg
+AddReg    = AutoRotate_Reg,HapticsNotifications_Reg,ProfileAction.Reg
+
+[DefaultInstall.NTARM.Services]
+AddService = MobileBridgeUserSvc,0x00000000,MobileBridgeSvc_Service,
+
+[DefaultInstall.NTARM64.Services]
+AddService = MobileBridgeUserSvc,0x00000000,MobileBridgeSvc_Service,
+
+[MobileBridgeSvc_Service]
+DisplayName   = "Mobile Bridge User Service"
+Description   = "Mobile Bridge User Service for the Desktop Windows Platform"
+ServiceType   = 0x10
+StartType     = 2
+ErrorControl  = 1
+ServiceBinary = "%%SystemRoot%%\System32\MobileBridge.exe"
+AddReg        = MobileBridgeSvc.AddReg
+
+[MobileBridgeSvc.AddReg]
+HKR,, "Type", %REG_DWORD%, 0x50
 
 [MobileBridge.Files]
 MobileBridge.exe
@@ -52,9 +70,6 @@ Cool.icm
 Standard.icm
 Vivid.icm
 "Night light.icm"
-
-[MobileBridge_Reg]
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run",          "MobileBridge", %REG_EXPAND_SZ%, "%%windir%%\system32\MobileBridge.exe"
 
 [AutoRotate_Reg]
 HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\AutoRotation", "SensorPresent", %REG_DWORD%, 0x1

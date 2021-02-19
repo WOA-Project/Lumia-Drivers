@@ -6,9 +6,11 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 11/22/2020,1.0.0.3
-CatalogFile = MobileBridgeSvc.cat
+DriverVer   = 02/19/2020,1.0.0.4
 PnpLockdown = 1
+
+CatalogFile.NTARM   = MobileBridgeSvc.arm.cat
+CatalogFile.NTARM64 = MobileBridgeSvc.arm64.cat
 
 [DestinationDirs]
 MobileBridgeSvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
@@ -19,13 +21,25 @@ OEMAssets.Files       = 11, OEM
 0 = "Disk"
 
 [SourceDisksFiles]
-MobileBridgeSvc.exe = 0,,
 ;Alert_charging.wma  = 0,,
 MMO.bmp = 0,,
+
+[SourceDisksFiles.ARM]
+MobileBridgeSvc.exe = 0,arm,
+
+[SourceDisksFiles.ARM64]
+MobileBridgeSvc.exe = 0,arm64,
+
+[DefaultInstall.NTARM]
+CopyFiles = MobileBridgeSvc.Files,OEMAssets.Files ;,Media.Files
+AddReg    = MobileBridgeSvc_Reg
 
 [DefaultInstall.NTARM64]
 CopyFiles = MobileBridgeSvc.Files,OEMAssets.Files ;,Media.Files
 AddReg    = MobileBridgeSvc_Reg
+
+[DefaultInstall.NTARM.Services]
+AddService = MobileBridgeSvc,0x00000000,MobileBridgeSvc_Service,
 
 [DefaultInstall.NTARM64.Services]
 AddService = MobileBridgeSvc,0x00000000,MobileBridgeSvc_Service,
