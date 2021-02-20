@@ -1,0 +1,96 @@
+;
+; MobileBridge.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 02/19/2021,1.0.0.9
+PnpLockdown = 1
+
+CatalogFile.NTARM   = MobileBridge.arm.cat
+CatalogFile.NTARM64 = MobileBridge.arm64.cat
+
+[DestinationDirs]
+MobileBridge.Files = 11                      ; \system32 directory on Windows 2000 and later versions
+Profiles.Files     = 11, spool\drivers\color ; Color profiles must be placed in the spool color driver directory
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles.ARM]
+MobileBridge.exe  = 0,arm,
+Advanced.icm      = 0,,
+Cool.icm          = 0,,
+Standard.icm      = 0,,
+Vivid.icm         = 0,,
+"Night light.icm" = 0,,
+
+[SourceDisksFiles.ARM64]
+MobileBridge.exe  = 0,arm64,
+Advanced.icm      = 0,,
+Cool.icm          = 0,,
+Standard.icm      = 0,,
+Vivid.icm         = 0,,
+"Night light.icm" = 0,,
+
+[DefaultInstall.NTARM]
+CopyFiles = MobileBridge.Files,Profiles.Files
+AddReg    = AutoRotate_Reg,HapticsNotifications_Reg,ProfileAction.Reg
+
+[DefaultInstall.NTARM64]
+CopyFiles = MobileBridge.Files,Profiles.Files
+AddReg    = AutoRotate_Reg,HapticsNotifications_Reg,ProfileAction.Reg
+
+[DefaultInstall.NTARM.Services]
+AddService = MobileBridgeUserSvc,0x00000000,MobileBridgeSvc_Service,
+
+[DefaultInstall.NTARM64.Services]
+AddService = MobileBridgeUserSvc,0x00000000,MobileBridgeSvc_Service,
+
+[MobileBridgeSvc_Service]
+DisplayName   = "Mobile Bridge User Service"
+Description   = "Mobile Bridge User Service for the Desktop Windows Platform"
+ServiceType   = 0x10
+StartType     = 2
+ErrorControl  = 1
+ServiceBinary = "%%SystemRoot%%\System32\MobileBridge.exe"
+AddReg        = MobileBridgeSvc.AddReg
+
+[MobileBridgeSvc.AddReg]
+HKR,, "Type", %REG_DWORD%, 0x50
+
+[MobileBridge.Files]
+MobileBridge.exe
+
+[Profiles.Files]
+Advanced.icm
+Cool.icm
+Standard.icm
+Vivid.icm
+"Night light.icm"
+
+[AutoRotate_Reg]
+HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\AutoRotation", "SensorPresent", %REG_DWORD%, 0x1
+
+[HapticsNotifications_Reg]
+HKLM, "SOFTWARE\OEM\Vibra",                                     "Duration",      %REG_DWORD%, 0x5
+HKLM, "SOFTWARE\OEM\Vibra",                                     "Intensity",     %REG_DWORD%, 0x50
+HKLM, "SOFTWARE\OEM\Vibra",                                     "Enabled",       %REG_DWORD%, 0x1
+
+[Settings_Reg.Security]
+"D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;AU)(A;;GA;;;BG)(A;;GA;;;S-1-15-2-1)(A;;GA;;;WD)"
+
+[ProfileAction.Reg]
+HKLM, "Software\Microsoft\Windows\Shell\OEM\QuickActions", "ColorProfileQuickAction", 0x10001, 0x1 ; Enable the color profile quick action
+
+[Strings]
+IHV           = "LumiaWoA authors"
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+
