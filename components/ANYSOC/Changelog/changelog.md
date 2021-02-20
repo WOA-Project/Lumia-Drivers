@@ -1,5 +1,5 @@
 ## Lumia Drivers BSP - Version 2102.60
-**Released:** 02/17/2021 18:00 PM UTC+1
+**Released:** 02/20/2021 16:00 PM UTC+1
 
 **Quality:** Interim
 
@@ -20,19 +20,10 @@ ________________________________________________________________________________
 
 Changelog
 
-- Addresses an issue impacting GPS functionality
-- Addresses an issue impacting Cellular functionality on build 21317 and higher
-- Addresses an issue impacting Cellular functionality on build 18908 and lower
-- General improvements to Cellular Stack
-- Updated Chat application
+- Improves auto rotation support
 - Preparations for an upcoming update
-- Nothing more. This release contains no new functionality notable, and will not get offered FFU releases, or 10X variants.
 
 NEW issues
-
-- Updating to this release might cause in some cases a BSOD with "CRITICAL_PROCESS_DIED". If this is your case
-  go to mass storage mode, and delete \Windows\System32\RILAdaptationService.exe. Reboot, and installation will proceed.
-  In case it still doesn't, mount \Windows\System32\config\SYSTEM in regedit. Delete \ControlSet001\Services\RILAdaptation
 
 - A very slim percentage of users are experiencing SDBUS_INTERNAL_ERROR issues.
   If this is your case, go to mass storage mode, mount \Windows\System32\config\SYSTEM in regedit
