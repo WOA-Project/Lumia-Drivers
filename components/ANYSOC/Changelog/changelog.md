@@ -1,5 +1,5 @@
-## Lumia Drivers BSP - Version 2102.60
-**Released:** 02/20/2021 16:00 PM UTC+1
+## Lumia Drivers BSP - Version 2102.75
+**Released:** 02/21/2021 09:00 PM UTC+1
 
 **Quality:** Interim
 
@@ -20,8 +20,10 @@ ________________________________________________________________________________
 
 Changelog
 
-- Improves auto rotation support
+- Addresses an issue impacting Cellular functionality
+  (for people having updated to 2102.60 or higher before, we are sorry but you cannot upgrade to this release, you will have to redeploy).
 - Preparations for an upcoming update
+- Seems faster (TM)
 
 NEW issues
 
