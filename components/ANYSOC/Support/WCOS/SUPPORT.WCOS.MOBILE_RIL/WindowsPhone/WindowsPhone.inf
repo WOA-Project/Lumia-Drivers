@@ -9,7 +9,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
-DriverVer   = 01/01/2021,1.0.0.0
+DriverVer   = 02/21/2021,1.0.0.2
 PnpLockdown = 1
 
 CatalogFile.NTARM   = WindowsPhone.arm.cat
@@ -197,47 +197,55 @@ MobileBridgeRIL.exe                                 = 0,arm64,
 
 [RIL_arm.NT]
 CopyFiles = PhonePlatform.Files, PhonePlatformResources.Files, PhonePlatform.English.Files
-AddReg    = MobileProvisioning.AddReg, Ims.AddReg, RcsPresence.AddReg, VideoTelephony.AddReg, CallsSettings.AddReg, MessagingEx.MMS.AddReg, MessagingSettings.AddReg, PhoneService.AddReg, PhoneVoicemail.AddReg, \
-            CallsSettings.ARM.AddReg, MessagingEx.MMS.ARM.AddReg, MobileProvisioning.ARM.AddReg, Ims.ARM.AddReg, RcsPresence.ARM.AddReg, VideoTelephony.ARM.AddReg, MessagingSettings.ARM.AddReg, PhoneVoicemail.ARM.AddReg, 15035_Hotfix.AddReg
+; AddReg    = MobileProvisioning.AddReg, Ims.AddReg, RcsPresence.AddReg, VideoTelephony.AddReg, CallsSettings.AddReg, MessagingEx.MMS.AddReg, MessagingSettings.AddReg, PhoneService.AddReg, PhoneVoicemail.AddReg, \
+;             CallsSettings.ARM.AddReg, MessagingEx.MMS.ARM.AddReg, MobileProvisioning.ARM.AddReg, Ims.ARM.AddReg, RcsPresence.ARM.AddReg, VideoTelephony.ARM.AddReg, MessagingSettings.ARM.AddReg, PhoneVoicemail.ARM.AddReg, 15035_Hotfix.AddReg
+
+AddReg    = PhoneService.AddReg, 15035_Hotfix.AddReg
 
 [RIL_Standard.NT]
 CopyFiles = PhonePlatform.Files, PhonePlatformResources.Files, PhonePlatform.English.Files, PhonePlatform.ARM64.Files
-AddReg    = MobileProvisioning.AddReg, Ims.AddReg, RcsPresence.AddReg, VideoTelephony.AddReg, CallsSettings.AddReg, MessagingEx.MMS.AddReg, MessagingSettings.AddReg, PhoneService.AddReg, PhoneVoicemail.AddReg, \
-            CallsSettings.ARM64.AddReg, MessagingEx.MMS.ARM64.AddReg, MobileProvisioning.ARM64.AddReg, Ims.ARM64.AddReg, RcsPresence.ARM64.AddReg, VideoTelephony.ARM64.AddReg, MessagingSettings.ARM64.AddReg, PhoneVoicemail.ARM64.AddReg
+; AddReg    = MobileProvisioning.AddReg, Ims.AddReg, RcsPresence.AddReg, VideoTelephony.AddReg, CallsSettings.AddReg, MessagingEx.MMS.AddReg, MessagingSettings.AddReg, PhoneService.AddReg, PhoneVoicemail.AddReg, \
+;             CallsSettings.ARM64.AddReg, MessagingEx.MMS.ARM64.AddReg, MobileProvisioning.ARM64.AddReg, Ims.ARM64.AddReg, RcsPresence.ARM64.AddReg, VideoTelephony.ARM64.AddReg, MessagingSettings.ARM64.AddReg, PhoneVoicemail.ARM64.AddReg
+
+AddReg    = PhoneService.AddReg
 
 [RIL_19565.NT]
 CopyFiles = PhonePlatform.Files, PhonePlatformResources.Files, PhonePlatform.English.Files, WCOS.Catalogs.Files, PhonePlatform.ARM64.Files
-AddReg    = PhoneProviders.Manganese.AddReg, MobileProvisioning.AddReg, Ims.AddReg, RcsPresence.AddReg, VideoTelephony.AddReg, CallsSettings.AddReg, MessagingEx.MMS.AddReg, MessagingSettings.AddReg, PhoneService.AddReg, PhoneVoicemail.AddReg, \
-            PhoneProviders.Manganese.ARM64.AddReg, CallsSettings.ARM64.AddReg, MessagingEx.MMS.ARM64.AddReg, MobileProvisioning.ARM64.AddReg, Ims.ARM64.AddReg, RcsPresence.ARM64.AddReg, VideoTelephony.ARM64.AddReg, MessagingSettings.ARM64.AddReg, PhoneVoicemail.ARM64.AddReg
+; AddReg    = PhoneProviders.Manganese.AddReg, MobileProvisioning.AddReg, Ims.AddReg, RcsPresence.AddReg, VideoTelephony.AddReg, CallsSettings.AddReg, MessagingEx.MMS.AddReg, MessagingSettings.AddReg, PhoneService.AddReg, PhoneVoicemail.AddReg, \
+;             PhoneProviders.Manganese.ARM64.AddReg, CallsSettings.ARM64.AddReg, MessagingEx.MMS.ARM64.AddReg, MobileProvisioning.ARM64.AddReg, Ims.ARM64.AddReg, RcsPresence.ARM64.AddReg, VideoTelephony.ARM64.AddReg, MessagingSettings.ARM64.AddReg, PhoneVoicemail.ARM64.AddReg
+
+AddReg    = PhoneProviders.Manganese.AddReg, PhoneProviders.Manganese.ARM64.AddReg, PhoneService.AddReg
 
 [RIL_21313.NT]
 CopyFiles = PhonePlatform.Files, PhonePlatformResources.Files, PhonePlatform.English.Files, WCOS.Catalogs.Files, PhonePlatform.ARM64.Files
-AddReg    = PhoneProviders.Manganese.AddReg, CellularAPI.AddReg, MobileProvisioning.AddReg, Ims.AddReg, RcsPresence.AddReg, VideoTelephony.AddReg, CallsSettings.AddReg, MessagingEx.MMS.AddReg, MessagingSettings.AddReg, PhoneService.AddReg, PhoneVoicemail.AddReg, \
-            PhoneProviders.Manganese.ARM64.AddReg, CallsSettings.ARM64.AddReg, MessagingEx.MMS.ARM64.AddReg, MobileProvisioning.ARM64.AddReg, Ims.ARM64.AddReg, RcsPresence.ARM64.AddReg, VideoTelephony.ARM64.AddReg, MessagingSettings.ARM64.AddReg, PhoneVoicemail.ARM64.AddReg
+; AddReg    = PhoneProviders.Manganese.AddReg, CellularAPI.AddReg, MobileProvisioning.AddReg, Ims.AddReg, RcsPresence.AddReg, VideoTelephony.AddReg, CallsSettings.AddReg, MessagingEx.MMS.AddReg, MessagingSettings.AddReg, PhoneService.AddReg, PhoneVoicemail.AddReg, \
+;             PhoneProviders.Manganese.ARM64.AddReg, CallsSettings.ARM64.AddReg, MessagingEx.MMS.ARM64.AddReg, MobileProvisioning.ARM64.AddReg, Ims.ARM64.AddReg, RcsPresence.ARM64.AddReg, VideoTelephony.ARM64.AddReg, MessagingSettings.ARM64.AddReg, PhoneVoicemail.ARM64.AddReg
+
+AddReg    = CellularAPI.AddReg, PhoneProviders.Manganese.AddReg, PhoneProviders.Manganese.ARM64.AddReg, PhoneService.AddReg
 
 ; ================= Services section ======================
 
 [RIL_arm.NT.Services]
 AddService = RILAdaptation, 0x00000000, RILAdaptation_32_Service
-AddService = UtkService, 0x00000000, UtkService_32_Service
-AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_32_Service
+; AddService = UtkService, 0x00000000, UtkService_32_Service
+; AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_32_Service
 
 [RIL_Standard.NT.Services]
 AddService = RILAdaptation, 0x00000000, RILAdaptation_Service
-AddService = UtkService, 0x00000000, UtkService_Service
-AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_Service
+; AddService = UtkService, 0x00000000, UtkService_Service
+; AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_Service
 AddService = MobileBridgeRIL, 0x00000000, MobileBridgeRIL_Service
 
 [RIL_19565.NT.Services]
 AddService = RILAdaptation, 0x00000000, RILAdaptation_Service
-AddService = UtkService, 0x00000000, UtkService_Service
-AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_Service
+; AddService = UtkService, 0x00000000, UtkService_Service
+; AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_Service
 AddService = MobileBridgeRIL, 0x00000000, MobileBridgeRIL_Service
 
 [RIL_21313.NT.Services]
 AddService = RILAdaptation, 0x00000000, RILAdaptation_Service
-AddService = UtkService, 0x00000000, UtkService_Service
-AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_Service
+; AddService = UtkService, 0x00000000, UtkService_Service
+; AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_Service
 AddService = MobileBridgeRIL, 0x00000000, MobileBridgeRIL_Service
 
 [RILAdaptation_32_Service]
@@ -2321,7 +2329,7 @@ HKLM, "SOFTWARE\Microsoft\SecurityManager\TransientObjects\%5C%5C.%5CPrivate%5CR
 	00,00,00,18,00,ff,ff,1f,11,01,02,00,00,00,00, \ ; ·····ÿÿ········
 	00,05,20,00,00,00,20,02,00,00                   ; ·· ··· ···
 
-HKLM, "SOFTWARE\Microsoft\SecurityManager\TransientObjects\%5C%5C.%5CEvent%5CGlobal%5CSmsTranspoSOFTWAREerviceStarted", "SecurityDescriptor", 0x00000001, \
+HKLM, "SOFTWARE\Microsoft\SecurityManager\TransientObjects\%5C%5C.%5CEvent%5CGlobal%5CSmsTransportServiceStarted", "SecurityDescriptor", 0x00000001, \
 	01,00,04,80,00,00,00,00,00,00,00,00,00,00,00, \ ; ··············
 	00,14,00,00,00,02,00,c8,00,06,00,00,00,00,00, \ ; ·······È·······
 	38,00,00,00,00,20,01,0a,00,00,00,00,00,0f,03, \ ; 8···· ·········
