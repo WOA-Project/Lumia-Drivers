@@ -1,5 +1,5 @@
-## Lumia Drivers BSP - Version 2102.75
-**Released:** 02/21/2021 09:00 PM UTC+1
+## Lumia Drivers BSP - Version 2103.6
+**Released:** 03/02/2021 09:00 PM UTC+1
 
 **Quality:** Interim
 
@@ -20,23 +20,12 @@ ________________________________________________________________________________
 
 Changelog
 
-- Addresses an issue impacting Cellular functionality
-  (for people having updated to 2102.60 or higher before, we are sorry but you cannot upgrade to this release, you will have to redeploy).
-- Preparations for an upcoming update
-- Seems faster (TM)
+- Addresses an issue impacting bootability for 1% of devices suffering from an eMMC quirk
+- Updates to the USB-C PHY Driver.
+- Updates to the Touch Driver.
+- Added Double Tap to wake functionality.
 
 NEW issues
-
-- A very slim percentage of users are experiencing SDBUS_INTERNAL_ERROR issues.
-  If this is your case, go to mass storage mode, mount \Windows\System32\config\SYSTEM in regedit
-  Set the following entries
-
-  [HKEY_LOCAL_MACHINE\RTSYSTEM\ControlSet001\services\SdBus\Parameters]
-  "DisableHS200Support"=dword:00000001
-  "DisableHS400Support"=dword:00000001
-  "DisableUhsSupport"=dword:00000001
-
-  Unmount the registry hive, and reboot
 
 - Some users might end up being unable to send texts on build 18908 and lower. To address this issue, open regedit on
   the device, go to HKLM\SOFTWARE\Microsoft\Messaging\IMEISpecific (or IMSISpecific), right click, go to security
@@ -51,20 +40,53 @@ How to offline update an existing Windows Desktop installation
 - Switch the device into mass storage.
 - Take note of the drive letter the Windows partition is using, here we will assume it got mounted as I:
 
-- Download [Source Code (zip)] from https://github.com/WOA-Project/Lumia-Drivers/releases/latest
+- Download [Lumia-Drivers-Full.zip] from https://github.com/WOA-Project/Lumia-Drivers/releases/latest
 - Extract said zip file to a folder of your choice, we will assume here we extracted it to C:\UpdatedDrivers
 - Download the DriverUpdater utility from https://github.com/WOA-Project/DriverUpdater/releases/latest
 - Open a command prompt as administrator, where the driver utility got downloaded
 
 - If your device is a Lumia 950, execute the following command:
   
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\950.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\Internal\950.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
 
 - If your device is a Lumia 950 XL, execute the following command:
   
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\950xl.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\Internal\950xl.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
 
 - Reboot the device, the device will now begin PnP setup once again, and hopefully you will be back soon enough to your desktop
+
+____________________________________________________________________________________________________________________________
+
+
+How to install Windows Desktop on internal Storage
+
+- Please follow the steps detailed at https://woa-project.github.io/LumiaWOA/guides/
+
+____________________________________________________________________________________________________________________________
+
+
+How to install Windows Desktop on an SD card
+
+- Insert your SD Card
+- Install Windows on the SD card like you would on any external storage media (some tools even exist that can do it for you ie Rufus)
+- Set TestSigning on the {bootloadersettings} object of BCD on the sd card
+- Setup BootShim/Lumia950XlPkg on the phone eMMC like you would on a traditional installation
+- Take note of the drive letter the Windows partition is using on the sd card, here we will assume it got mounted as I:
+
+- Download [Lumia-Drivers-Full.zip] from https://github.com/WOA-Project/Lumia-Drivers/releases/latest
+- Extract said zip file to a folder of your choice, we will assume here we extracted it to C:\UpdatedDrivers
+- Download the DriverUpdater utility from https://github.com/WOA-Project/DriverUpdater/releases/latest
+- Open a command prompt as administrator, where the driver utility got downloaded
+
+- If your device is a Lumia 950, execute the following command:
+  
+  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\SDCard\950.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+
+- If your device is a Lumia 950 XL, execute the following command:
+  
+  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\SDCard\950xl.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+
+- Reboot the device, boot into BootShim, let the UEFI load, and you should be able to boot from SD Card.
 
 ____________________________________________________________________________________________________________________________
 
