@@ -22,20 +22,23 @@ AppDepARM64  = 10,OEM\Applications\Dependencies\arm64
 0 = %DiskId1%
 
 [SourceDisksFiles]
-Microsoft.CommsPhone_8wekyb3d8bbwe.appxbundle             = 0,arm,
 8419TigerWang.Airwaves_hv6sjhp5j6q2j.appxbundle           = 0,,
 1407ADeltaX.MobileShell_nk3791r0483r0.msixbundle          = 0,,
+LumiaWOA.Vibration_btf4vqatnxdpt.appxbundle               = 0,,
+LumiaWOA.USBFunctionMode_btf4vqatnxdpt.appxbundle         = 0,,
+
 LumiaWOA.Chat_btf4vqatnxdpt.appxbundle                    = 0,arm64,
 LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle                  = 0,arm64,
 LumiaWOA.Tips_btf4vqatnxdpt.appxbundle                    = 0,arm64,
-LumiaWOA.VibrationSettings_btf4vqatnxdpt.appxbundle       = 0,arm64,
-LumiaWOA.USBFunctionModeSettings_btf4vqatnxdpt.appxbundle = 0,arm64,
-
-Microsoft.VCLibs.140.00.arm_8wekyb3d8bbwe.appx            = 0,arm,
 Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe.appx     = 0,arm64,
 Microsoft.NET.Native.Runtime.2.2_8wekyb3d8bbwe.appx       = 0,arm64,
 Microsoft.VCLibs.140.00.UWPDesktop_8wekyb3d8bbwe.appx     = 0,arm64,
 Microsoft.VCLibs.140.00_8wekyb3d8bbwe.appx                = 0,arm64,
+
+Microsoft.CommsPhone_8wekyb3d8bbwe.appxbundle             = 0,arm,
+Microsoft.NET.Native.Framework.2.2.arm_8wekyb3d8bbwe.appx = 0,arm,
+Microsoft.NET.Native.Runtime.2.2.arm_8wekyb3d8bbwe.appx   = 0,arm,
+Microsoft.VCLibs.140.00.arm_8wekyb3d8bbwe.appx            = 0,arm,
 
 ;*****************************************
 ; spapps  Install Section
@@ -53,11 +56,13 @@ CopyFiles = PstDrv.Files,AppDepARM,AppDepARM64
 LumiaWOA.Chat_btf4vqatnxdpt.appxbundle
 LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle
 LumiaWOA.Tips_btf4vqatnxdpt.appxbundle
-LumiaWOA.VibrationSettings_btf4vqatnxdpt.appxbundle
-LumiaWOA.USBFunctionModeSettings_btf4vqatnxdpt.appxbundle
+LumiaWOA.Vibration_btf4vqatnxdpt.appxbundle
+LumiaWOA.USBFunctionMode_btf4vqatnxdpt.appxbundle
 Microsoft.CommsPhone_8wekyb3d8bbwe.appxbundle
 
 [AppDepARM]
+Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe.appx, Microsoft.NET.Native.Framework.2.2.arm_8wekyb3d8bbwe.appx, , 0x00004000,
+Microsoft.NET.Native.Runtime.2.2_8wekyb3d8bbwe.appx, Microsoft.NET.Native.Runtime.2.2.arm_8wekyb3d8bbwe.appx, , 0x00004000,
 Microsoft.VCLibs.140.00_8wekyb3d8bbwe.appx, Microsoft.VCLibs.140.00.arm_8wekyb3d8bbwe.appx, , 0x00004000,
 
 [AppDepARM64]

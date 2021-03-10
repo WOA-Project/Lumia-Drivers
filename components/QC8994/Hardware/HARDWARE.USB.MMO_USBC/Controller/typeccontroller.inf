@@ -2,11 +2,11 @@
 ; TypeCController.inf
 ;
 [Version]
-Signature = "$WINDOWS NT$"
-Class     = USB
-ClassGUID = {36FC9E60-C465-11CF-8056-444553540000}
-Provider  = %VendorName%
-DriverVer = 01/01/2021,2.00.00.01
+Signature   = "$WINDOWS NT$"
+Class       = USB
+ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
+Provider    = %VendorName%
+DriverVer   = 03/03/2021,2.00.00.01
 PnpLockdown = 1
 
 CatalogFile.NTARM   = typeccontroller.arm.cat
@@ -23,18 +23,32 @@ DreamLifter.Files = 10,SysArm32
 [Manufacturer]
 %ManufacturerName% = Standard, NTARM, NTARM64
 
-;-------------- ARM Section
-
 [SourceDisksFiles.ARM]
 tyc.dll           = 1,arm,
+WppRecorderUM.dll = 1,arm,
+
+[SourceDisksFiles.ARM64]
+tyc.dll           = 1,arm64,
+WppRecorderUM.dll = 1,arm64,
+
 
 [Standard.NTARM]
 %DevDesc%=tyc_Inst, umdf2\tyc
+%DevDesc%=tyc_Inst, ACPI\LUMI0002
+
+[Standard.NTARM64]
+%DevDesc%=tyc_64_Inst, umdf2\tyc
+%DevDesc%=tyc_64_Inst, ACPI\LUMI0002
 
 ;---------------- copy files
 
 [tyc_Inst.nt]
 CopyFiles = tycDriverCopy
+AddReg    = WdfExt_AddReg
+
+[tyc_64_Inst.nt]
+CopyFiles = tycDriverCopy
+AddReg    = WdfExt_AddReg
 
 [tycDriverCopy]
 tyc.dll
@@ -42,8 +56,14 @@ tyc.dll
 [tyc_Inst.NT.HW]
 AddReg = tyc_Inst_SecurityAddReg
 
+[tyc_64_Inst.NT.HW]
+AddReg = tyc_Inst_SecurityAddReg
+
 ;-------------- Service installation
 [tyc_Inst.NT.Services]
+AddService = WUDFRd, 0x000001fa, WUDFRD_ServiceInstall
+
+[tyc_64_Inst.NT.Services]
 AddService = WUDFRd, 0x000001fa, WUDFRD_ServiceInstall
 
 [WUDFRD_ServiceInstall]
@@ -64,97 +84,38 @@ UmdfHostProcessSharing      = ProcessSharingDisabled
 UmdfImpersonationLevel      = Impersonation
 UmdfKernelModeClientPolicy  = AllowKernelModeClients
 
+[tyc_64_Inst.NT.Wdf]
+UmdfService                 = tyc, tyc_64_Install
+UmdfServiceOrder            = tyc
+UmdfDirectHardwareAccess    = AllowDirectHardwareAccess
+UmdfFileObjectPolicy        = AllowNullAndUnknownFileObjects
+UmdfHostProcessSharing      = ProcessSharingDisabled
+UmdfImpersonationLevel      = Impersonation
+UmdfKernelModeClientPolicy  = AllowKernelModeClients
+
 [tyc_Install]
 UmdfLibraryVersion       = 2.15.0
 ServiceBinary            = %13%\arm\tyc.dll
 UmdfExtensions           = UcmCx0102
 
+[tyc_64_Install]
+UmdfLibraryVersion       = 2.15.0
+ServiceBinary            = %13%\arm64\tyc.dll
+UmdfExtensions           = UcmCx0102
+
+[WdfExt_AddReg]
+HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\tyc\Parameters", "EnableDisplay", 0x10001, 1
+
 [tyc_Inst_SecurityAddReg]
 HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"    ; Allow all UMDF drivers to access this driver
-
-
-;-------------- ARM64 Section
-
-[SourceDisksFiles.ARM64]
-tyc.dll           = 1,arm,
-DreamLifter.exe   = 1,arm,
-WppRecorderUM.dll = 1,arm,
-UcmProxyKm.sys    = 1,arm64,
-
-[Standard.NTARM64]
-%UcmProxyKm.DeviceDesc%=UcmProxyKm_Device, ROOT\TYC2
-%UcmProxyKm.DeviceDesc%=UcmProxyKm_Device, ACPI\LUMI0002
-
-[UcmProxyKm_Device.NT]
-CopyFiles = Drivers_Dir, DreamLifter.Files
-AddReg    = DreamLifter_Reg
-
-[Drivers_Dir]
-UcmProxyKm.sys
-
-;-------------- Service installation
-[UcmProxyKm_Device.NT.Services]
-AddService = UcmProxyKm, %SPSVCINST_ASSOCSERVICE%, UcmProxyKm_Service_Inst
-AddService = DreamLifter, 0x00000000, DreamLifter_Service
-
-; -------------- UcmProxyKm driver install sections
-[UcmProxyKm_Service_Inst]
-DisplayName    = %UcmProxyKm.SVCDESC%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\UcmProxyKm.sys
-
-[UcmProxyKm_Device.NT.Wdf]
-KmdfService =  UcmProxyKm, UcmProxyKm_wdfsect
-
-[UcmProxyKm_wdfsect]
-KmdfLibraryVersion = 1.15
-
-[DreamLifter_Service]
-DisplayName   = "DreamLifter USB Type-C Controller Service"
-Description   = "DreamLifter USB Type-C UMDF Driver Host Process"
-ServiceType   = 0x10
-StartType     = 2
-ErrorControl  = 1
-ServiceBinary = "%%SystemRoot%%\SysArm32\DreamLifter.exe"
-
-[DreamLifter_Reg]
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter", "Start", 0x10001, 0x2
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter", "Type", 0x10001, 0x10
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter", "ErrorControl", 0x10001, 0x1
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter", "DisplayName", 0x0, "DreamLifter USB Type-C Controller Service"
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter", "Description", 0x0, "DreamLifter USB Type-C UMDF Driver Host Process"
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter", "ImagePath", 0x20000, "%%SystemRoot%%\SysArm32\DreamLifter.exe"
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter", "ObjectName", 0x0, "localSystem"
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter", "RequiredPrivileges", 0x10000, \
-	  "SeShutdownPrivilege","SeTcbPrivilege","SeTakeOwnershipPrivilege","SeImpersonatePrivilege","SeLoadDriverPrivilege","SeBackupPrivilege","SeRestore"\
-	  "Privilege","SeDebugPrivilege","SeAssignPrimaryTokenPrivilege","SeLockMemoryPrivilege","SeSecurityPrivilege","SeCreatePagefilePrivilege","SeCreat"\
-	  "ePermanentPrivilege","SeIncreaseQuotaPrivilege","SeManageVolumePrivilege","SeSystemEnvironmentPrivilege","SeCreateSymbolicLinkPrivilege","SeChang"\
-	  "eNotifyPrivilege","SeIncreaseWorkingSetPrivilege","SeCreateGlobalPrivilege"
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter", "ServiceSidType", 0x10001, 0x1
-HKLM, "SYSTEM\ControlSet001\Services\DreamLifter\Security", "Security", 0x1, \
-	  01,00,04,80,9c,00,00,00,a8,00,00,00,00,00,00,00,14,00,00,00,02,00,88,00,06,00,00,00,00,00,14,00,fd,01,02,00,01,01,00,00,00,00,00,05,12,00,00,00,00,00,\
-	  18,00,ff,01,0f,00,01,02,00,00,00,00,00,05,20,00,00,00,20,02,00,00,00,00,14,00,8d,01,02,00,01,01,00,00,00,00,00,05,04,00,00,00,00,00,14,00,8d,01,02,00,\
-	  01,01,00,00,00,00,00,05,06,00,00,00,00,00,14,00,95,00,00,00,01,01,00,00,00,00,00,05,13,00,00,00,00,00,18,00,04,00,00,00,01,02,00,00,00,00,00,0f,02,00,\
-	  00,00,01,00,00,00,01,01,00,00,00,00,00,05,12,00,00,00,01,01,00,00,00,00,00,05,12,00,00,00
-
-[DreamLifter.Files]
-DreamLifter.exe
-WppRecorderUM.dll
-tyc.dll
 
 [Strings]
 SPSVCINST_ASSOCSERVICE   = 0x00000002
 VendorName               = "MMO and LumiaWoA authors"
 ManufacturerName         = "Microsoft Mobile Oy"
 MediaDescription         = "Microsoft Mobile USB-C Power Delivery Controller Installation Disk"
-
 DevDesc                  = "Microsoft Mobile USB-C Power Delivery Controller"
 WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framework Reflector"
-
-UcmProxyKm.DeviceDesc    = "Microsoft Mobile Power Delivery Controller"
-UcmProxyKm.SVCDESC       = "Microsoft Mobile Power Delivery Controller Driver"
 
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3

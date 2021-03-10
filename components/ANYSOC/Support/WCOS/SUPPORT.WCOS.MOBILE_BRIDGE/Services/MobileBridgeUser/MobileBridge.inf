@@ -6,7 +6,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 02/19/2021,1.0.0.9
+DriverVer   = 03/07/2021,1.0.0.10
 PnpLockdown = 1
 
 CatalogFile.NTARM   = MobileBridge.arm.cat
@@ -79,7 +79,7 @@ HKLM, "SOFTWARE\OEM\Vibra",                                     "Duration",     
 HKLM, "SOFTWARE\OEM\Vibra",                                     "Intensity",     %REG_DWORD%, 0x50
 HKLM, "SOFTWARE\OEM\Vibra",                                     "Enabled",       %REG_DWORD%, 0x1
 
-[Settings_Reg.Security]
+[HapticsNotifications_Reg.Security]
 "D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;AU)(A;;GA;;;BG)(A;;GA;;;S-1-15-2-1)(A;;GA;;;WD)"
 
 [ProfileAction.Reg]

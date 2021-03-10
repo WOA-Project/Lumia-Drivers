@@ -35,7 +35,7 @@ HKLM, "SYSTEM\CurrentControlSet\Control\USBFN\Configurations\Default", "MSOSComp
 	00,00,00,00,00,00,00,00,00,00,00,00,00          ; ·············
 
 HKLM, "SYSTEM\CurrentControlSet\Control\USBFN\Configurations\Default", "InterfaceList", 0x00010008, \
-	"MTP", "IpOverUsb", "VidStream"
+	"MTP", "IpOverUsb" ;, "VidStream"
 
 HKLM, "SYSTEM\CurrentControlSet\Control\USBFN\Configurations\VidStream", "MSOSCompatIdDescriptor", 0x00000001, \
 	28,00,00,00,00,01,04,00,01,00,00,00,00,00,00, \ ; (··············

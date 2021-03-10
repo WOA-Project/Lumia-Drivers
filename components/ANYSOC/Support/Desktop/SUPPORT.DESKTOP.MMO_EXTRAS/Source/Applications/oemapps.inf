@@ -20,6 +20,8 @@ PstDrv.Files        = 10,OEM\Applications
 [SourceDisksFiles]
 LumiaWOA.AdvancedInfo_btf4vqatnxdpt.appxbundle = 0,,
 LumiaWOA.ColorProfile_btf4vqatnxdpt.appxbundle = 0,,
+LumiaWOA.GlanceScreen_btf4vqatnxdpt.appxbundle = 0,,
+LumiaWOA.GesturesTouch_btf4vqatnxdpt.appxbundle = 0,,
 
 ;*****************************************
 ; oemapps  Install Section
@@ -31,6 +33,8 @@ CopyFiles = PstDrv.Files
 [PstDrv.Files]
 LumiaWOA.AdvancedInfo_btf4vqatnxdpt.appxbundle
 LumiaWOA.ColorProfile_btf4vqatnxdpt.appxbundle
+LumiaWOA.GlanceScreen_btf4vqatnxdpt.appxbundle
+LumiaWOA.GesturesTouch_btf4vqatnxdpt.appxbundle
 
 [Strings]
 IHV     = "LumiaWoA authors"
