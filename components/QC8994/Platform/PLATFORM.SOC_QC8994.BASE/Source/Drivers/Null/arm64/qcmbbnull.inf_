@@ -11,7 +11,7 @@ CatalogFile = qcmbbnull.cat
 DriverVer   = 10/06/2018,18.13.19.793
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
@@ -39,7 +39,7 @@ DisplayName   = %qcmbbnull.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qcmbbnull.sys
+ServiceBinary = %13%\qcmbbnull.sys
 
 [qcmbbnull_Device.NT.Wdf]
 KmdfService = qcmbbnull, qcmbbnull_wdfsect
@@ -51,7 +51,7 @@ KmdfLibraryVersion = 1.15
 SPSVCINST_ASSOCSERVICE    = 0x00000002
 ManufacturerName          = "LumiaWoA authors"
 DiskName                  = "Qualcomm Null Installation Disk"
-qcmbbnull.DeviceDesc      = "Qualcomm Null Device"
-qcmbbnull.SVCDESC         = "Qualcomm Null Service"
+qcmbbnull.DeviceDesc      = "Qualcomm(R) Snapdragon(TM) X10 LTE Modem Device"
+qcmbbnull.SVCDESC         = "Qualcomm(R) Snapdragon(TM) X10 LTE Modem Device"
 
-QcMbb2Null.DeviceDesc     = "Qualcomm Mobile Broadband Device (Null)"
+QcMbb2Null.DeviceDesc     = "Qualcomm(R) Snapdragon(TM) X10 LTE Modem Device (Null)"

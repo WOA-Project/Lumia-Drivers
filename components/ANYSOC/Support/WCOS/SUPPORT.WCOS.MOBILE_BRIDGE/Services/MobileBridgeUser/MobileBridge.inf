@@ -6,14 +6,14 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 03/07/2021,1.0.0.10
+DriverVer   = 03/14/2021,1.0.0.11
 PnpLockdown = 1
 
 CatalogFile.NTARM   = MobileBridge.arm.cat
 CatalogFile.NTARM64 = MobileBridge.arm64.cat
 
 [DestinationDirs]
-MobileBridge.Files = 11                      ; \system32 directory on Windows 2000 and later versions
+MobileBridge.Files = 13                      ; \system32 directory on Windows 2000 and later versions
 Profiles.Files     = 11, spool\drivers\color ; Color profiles must be placed in the spool color driver directory
 
 [SourceDisksNames]
@@ -44,10 +44,10 @@ CopyFiles = MobileBridge.Files,Profiles.Files
 AddReg    = AutoRotate_Reg,HapticsNotifications_Reg,ProfileAction.Reg
 
 [DefaultInstall.NTARM.Services]
-AddService = MobileBridgeUserSvc,0x00000000,MobileBridgeSvc_Service,
+AddService = MobileBridgeUserSvc, 0x00000000, MobileBridgeSvc_Service,
 
 [DefaultInstall.NTARM64.Services]
-AddService = MobileBridgeUserSvc,0x00000000,MobileBridgeSvc_Service,
+AddService = MobileBridgeUserSvc, 0x00000000, MobileBridgeSvc_64_Service,
 
 [MobileBridgeSvc_Service]
 DisplayName   = "Mobile Bridge User Service"
@@ -55,7 +55,16 @@ Description   = "Mobile Bridge User Service for the Desktop Windows Platform"
 ServiceType   = 0x10
 StartType     = 2
 ErrorControl  = 1
-ServiceBinary = "%%SystemRoot%%\System32\MobileBridge.exe"
+ServiceBinary = "%13%\arm\MobileBridge.exe"
+AddReg        = MobileBridgeSvc.AddReg
+
+[MobileBridgeSvc_64_Service]
+DisplayName   = "Mobile Bridge User Service"
+Description   = "Mobile Bridge User Service for the Desktop Windows Platform"
+ServiceType   = 0x10
+StartType     = 2
+ErrorControl  = 1
+ServiceBinary = "%13%\arm64\MobileBridge.exe"
 AddReg        = MobileBridgeSvc.AddReg
 
 [MobileBridgeSvc.AddReg]
