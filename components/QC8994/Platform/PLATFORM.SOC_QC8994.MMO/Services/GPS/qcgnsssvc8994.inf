@@ -1,6 +1,6 @@
 ; 
-; Copyright (C) 2012 QUALCOMM Incorporated.
-; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+; Copyright (C) 2012 Qualcomm Incorporated.
+; All Rights Reserved. Qualcomm Proprietary and Confidential.
 ;
 ; Module Name:
 ;
@@ -11,8 +11,8 @@
 ;    INF file for installing the Qualcomm qcgnss Service
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 09/09/2015,1.0.1067.0000
@@ -31,10 +31,10 @@ rilproxy.dll  = 0,,
 cmnet.dll     = 0,,
 CmOemUtil.dll = 0,,
 
-[DefaultInstall.NTARM64]
+[DefaultInstall.NTarm64]
 CopyFiles = QcGnssSvc.Files
 
-[DefaultInstall.NTARM64.Services]
+[DefaultInstall.NTarm64.Services]
 AddService = QcGnssSvc,0x00000000,QcGnssSvc_Service,
 
 [QcGnssSvc_Service]
@@ -66,7 +66,7 @@ cmnet.dll
 CmOemUtil.dll
 
 [Strings]
-QC            = "Qualcomm"
+QC            = "Qualcomm Technologies, Inc."
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000

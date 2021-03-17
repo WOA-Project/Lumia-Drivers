@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcgpio.INF
@@ -12,15 +12,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcgpio.arm.cat
-CatalogFile.NTARM64 = qcgpio.arm64.cat
+CatalogFile.NTarm   = qcgpio.arm.cat
+CatalogFile.NTarm64 = qcgpio.arm64.cat
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
@@ -43,19 +43,19 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = QcGpioComp,NTARM,NTARM64
+%COMP% = QcGpioComp,NTarm,NTarm64
 
-[QcGpioComp.NTARM]
+[QcGpioComp.NTarm]
 %GPIO.DeviceDesc% = GPIO_Inst,ACPI\QCOM2405
 
-[QcGpioComp.NTARM64]
-%GPIO.DeviceDesc% = GPIO_64_Inst,ACPI\QCOM2405
+[QcGpioComp.NTarm64]
+%GPIO.DeviceDesc% = GPIO_Inst,ACPI\QCOM2405
 
 [GPIO_Inst.NT]
 Copyfiles   = GPIOCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 
-[GPIO_64_Inst.NT]
+[GPIO_Inst.NTarm64]
 Copyfiles   = GPIOCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 
@@ -68,8 +68,8 @@ qcgpio.sys, , , 0x100,
 [GPIO_Inst.NT.Services]
 AddService = qcgpio,%SPSVCINST_ASSOCSERVICE%,GPIO_Service_Inst
 
-[GPIO_64_Inst.NT.Services]
-AddService = qcgpio,%SPSVCINST_ASSOCSERVICE%,GPIO_64_Service_Inst
+[GPIO_Inst.NTarm64.Services]
+AddService = qcgpio,%SPSVCINST_ASSOCSERVICE%,GPIO_Service_Inst.NTarm64
 
 [GPIO_Service_Inst]
 DisplayName   = %GPIO.SvcDesc%
@@ -78,7 +78,7 @@ StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %13%\arm\qcgpio.sys
 
-[GPIO_64_Service_Inst]
+[GPIO_Service_Inst.NTarm64]
 DisplayName   = %GPIO.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%

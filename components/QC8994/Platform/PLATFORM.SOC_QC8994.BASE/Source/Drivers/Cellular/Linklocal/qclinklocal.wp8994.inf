@@ -23,8 +23,8 @@ Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qclinklocal8994.arm.cat ;todo .cat file generated once driver passes WHQL
-CatalogFile.NTARM64 = qclinklocal8994.arm64.cat ;todo .cat file generated once driver passes WHQL
+CatalogFile.NTarm   = qclinklocal8994.arm.cat ;todo .cat file generated once driver passes WHQL
+CatalogFile.NTarm64 = qclinklocal8994.arm64.cat ;todo .cat file generated once driver passes WHQL
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -39,13 +39,13 @@ qclinklocal8994.sys = 1,arm64,
 wwan.CopyFiles = 13
 
 [Manufacturer]
-%QCOM% = QCOM,NTARM,NTARM64
+%QCOM% = QCOM,NTarm,NTarm64
 
-[QCOM.NTARM]
+[QCOM.NTarm]
 %wwan.DeviceDesc% = wwan.ndi, ACPI\QCOM24A7
 
-[QCOM.NTARM64]
-%wwan.DeviceDesc% = wwan_64.ndi, ACPI\QCOM24A7
+[QCOM.NTarm64]
+%wwan.DeviceDesc% = wwan.ndi, ACPI\QCOM24A7
 
 [wwan.ndi]
 Characteristics    = 0x9                   ; NCF_VIRTUAL | NCF_HIDDEN
@@ -63,7 +63,7 @@ AddService = linklocal, 2, wwan.Service, wwan.EventLog
 KmdfService = linklocal, wwan_wdfsect
 
 
-[wwan_64.ndi]
+[wwan.NTarm64.ndi]
 Characteristics    = 0x9                   ; NCF_VIRTUAL | NCF_HIDDEN
 *IfType            = 142                   ; IF_TYPE_IPFORWARD
 *MediaType         = 19                    ; NdisMediumIP
@@ -72,10 +72,10 @@ EnableDhcp         = 0
 AddReg             = wwan.Reg
 CopyFiles          = wwan.CopyFiles
 
-[wwan_64.ndi.Services]
-AddService = linklocal, 2, wwan_64.Service, wwan.EventLog
+[wwan.NTarm64.ndi.Services]
+AddService = linklocal, 2, wwan.NTarm64.Service, wwan.EventLog
 
-[wwan_64.ndi.Wdf]
+[wwan.NTarm64.ndi.Wdf]
 KmdfService = linklocal, wwan_wdfsect
 
 ;-----------------------------------------------------------------------------
@@ -108,7 +108,7 @@ AddReg         = TextModeFlags.Reg
 AddReg         = osVer.Reg
 AddReg         = MaxAdapters.Reg
 
-[wwan_64.Service]
+[wwan.NTarm64.Service]
 DisplayName    = %wwan.Service.DispName%
 ServiceType    = 1                                 ;%SERVICE_KERNEL_DRIVER%
 StartType      = 3                                 ;%SERVICE_DEMAND_START%

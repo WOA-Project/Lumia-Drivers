@@ -14,7 +14,7 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Extension
 ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %QCOM%
@@ -22,8 +22,8 @@ ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11E4B}
 DriverVer   = 07/02/2015,1.0.1067.0
 PnpLockdown = 1
 
-CatalogFile.NTARM   = talkman_qcacsp8994.arm.cat
-CatalogFile.NTARM64 = talkman_qcacsp8994.arm64.cat
+CatalogFile.NTarm   = talkman_qcacsp8994.arm.cat
+CatalogFile.NTarm64 = talkman_qcacsp8994.arm64.cat
 
 [DestinationDirs]
 Drivers_Dir_24 = 11
@@ -45,16 +45,16 @@ Speaker_cal_8994.acdb   = 1
 ; ACSP  Install Section
 ;*****************************************
 [Manufacturer]
-%StdMfg% = DeviceExtensions,NTARM,NTARM64
+%StdMfg% = DeviceExtensions,NTarm,NTarm64
 
 ; Decorated model section take precedence over undecorated 
 ; ones on XP and later.
-[DeviceExtensions.NTARM]
+[DeviceExtensions.NTarm]
 %ACSP.DeviceDesc% = DeviceExtension_Install, SLM1\QCOM242D
 
 ; Decorated model section take precedence over undecorated 
 ; ones on XP and later.
-[DeviceExtensions.NTARM64]
+[DeviceExtensions.NTarm64]
 %ACSP.DeviceDesc% = DeviceExtension_Install, SLM1\QCOM242D
 
 [DeviceExtension_Install]
@@ -96,7 +96,7 @@ HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath20, %REG_
 [Strings]
 REG_SZ                 = 0x00000000
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QCOM                   = "Qualcomm"
+QCOM                   = "Qualcomm Technologies, Inc."
 StdMfg                 = "Qualcomm Technologies, INC"
 DiskId1                = "ACSP Installation Disk #1"
 ACSP.DeviceDesc        = "Audio Calibration Settings Package"

@@ -2,15 +2,15 @@
 ; qcImsQMIDaemon8994.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1057.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = qcImsQMIDaemon8994.arm.cat
-CatalogFile.NTARM64 = qcImsQMIDaemon8994.arm64.cat
+CatalogFile.NTarm   = qcImsQMIDaemon8994.arm.cat
+CatalogFile.NTarm64 = qcImsQMIDaemon8994.arm64.cat
 
 [DestinationDirs]
 qcImsQMIDaemon8994.Files = 13 ; \system32 directory on Windows 2000 and later versions
@@ -25,26 +25,26 @@ qcImsQMIDaemon8994.dll = 0,arm,
 qcImsQMIDaemon8994.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTARM,NTARM64
+%QC%=QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %IMSQMI.DeviceDesc%=IMSQMI, SWC\VID_QCOM&PID_0EA0&SID_0002
 
-[QC.NTARM64]
+[QC.NTarm64]
 %IMSQMI.DeviceDesc%=IMSQMI, SWC\VID_QCOM&PID_0EA0&SID_0002
 
-[IMSQMI.NTARM]
+[IMSQMI.NTarm]
 CopyFiles = qcImsQMIDaemon8994.Files
 AddReg    = qcImsQMIDaemon8994_Reg, qcImsQMIDaemon8994_path_Reg
 
-[IMSQMI.NTARM64]
+[IMSQMI.NTarm64]
 CopyFiles = qcImsQMIDaemon8994.Files
-AddReg    = qcImsQMIDaemon8994_Reg, qcImsQMIDaemon8994_path_64_Reg
+AddReg    = qcImsQMIDaemon8994_Reg, qcImsQMIDaemon8994_path_Reg.NTarm64
 
-[IMSQMI.NTARM.Services]
+[IMSQMI.NTarm.Services]
 AddService = IMSQMIsvc,0x00000000,qcImsQMIDaemon8994_Service,
 
-[IMSQMI.NTARM64.Services]
+[IMSQMI.NTarm64.Services]
 AddService = IMSQMIsvc,0x00000000,qcImsQMIDaemon8994_Service,
 
 ;ServiceType = 0x110
@@ -63,29 +63,29 @@ ErrorControl  = 0
 ServiceBinary = "%%SystemRoot%%\System32\svchost.exe -k IMSQMIsvcGroup"
 
 [qcImsQMIDaemon8994_Reg]
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc", "PreshutdownTimeout", 0x10001, 0x4E20
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc", "Start", 0x10001, 0x2
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc", "Type", 0x10001, 0x20
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc", "ErrorControl", 0x10001, 0x0
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc", "DisplayName", 0x0, "IMSQMIsvc"
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc", "Description", 0x0, "QC QMI Daemon Service"
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc", "FailureActions", 0x1, 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc", "ImagePath", 0x20000, "%%SystemRoot%%\System32\svchost.exe -k IMSQMIsvcGroup"
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc\Parameters", "ServiceMain", 0x0, "ServiceMain"
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc\Parameters", "ServiceDllUnloadOnStop", 0x10001, 0x1
+HKLM, "System\controlset001\services\IMSQMIsvc", "PreshutdownTimeout", 0x10001, 0x4E20
+HKLM, "System\controlset001\services\IMSQMIsvc", "Start", 0x10001, 0x2
+HKLM, "System\controlset001\services\IMSQMIsvc", "Type", 0x10001, 0x20
+HKLM, "System\controlset001\services\IMSQMIsvc", "ErrorControl", 0x10001, 0x0
+HKLM, "System\controlset001\services\IMSQMIsvc", "DisplayName", 0x0, "IMSQMIsvc"
+HKLM, "System\controlset001\services\IMSQMIsvc", "Description", 0x0, "QC QMI Daemon Service"
+HKLM, "System\controlset001\services\IMSQMIsvc", "FailureActions", 0x1, 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
+HKLM, "System\controlset001\services\IMSQMIsvc", "ImagePath", 0x20000, "%%SystemRoot%%\System32\svchost.exe -k IMSQMIsvcGroup"
+HKLM, "System\controlset001\services\IMSQMIsvc\Parameters", "ServiceMain", 0x0, "ServiceMain"
+HKLM, "System\controlset001\services\IMSQMIsvc\Parameters", "ServiceDllUnloadOnStop", 0x10001, 0x1
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", IMSQMIsvcGroup, %REG_MULTI_SZ%, "IMSQMIsvc"
 
 [qcImsQMIDaemon8994_path_Reg]
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc\Parameters", "ServiceDll", 0x20000, "%13%\arm\qcImsQMIDaemon8994.dll"
+HKLM, "System\controlset001\services\IMSQMIsvc\Parameters", "ServiceDll", 0x20000, "%13%\arm\qcImsQMIDaemon8994.dll"
 
-[qcImsQMIDaemon8994_path_64_Reg]
-HKLM, "SYSTEM\controlset001\services\IMSQMIsvc\Parameters", "ServiceDll", 0x20000, "%13%\arm64\qcImsQMIDaemon8994.dll"
+[qcImsQMIDaemon8994_path_Reg.NTarm64]
+HKLM, "System\controlset001\services\IMSQMIsvc\Parameters", "ServiceDll", 0x20000, "%13%\arm64\qcImsQMIDaemon8994.dll"
 
 [qcImsQMIDaemon8994.Files]
 qcImsQMIDaemon8994.dll
 
 [Strings]
-QC                = "Qualcomm"
+QC                = "Qualcomm Technologies, Inc."
 IMSQMI.DeviceDesc = "Qualcomm IP Multimedia System QMI Deamon"  
 
 REG_SZ        = 0x00000000

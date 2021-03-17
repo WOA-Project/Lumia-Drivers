@@ -2,15 +2,15 @@
 ; qcimsVTWNIsvc8994.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1057.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = qcimsVTWNIsvc8994.arm.cat
-CatalogFile.NTARM64 = qcimsVTWNIsvc8994.arm64.cat
+CatalogFile.NTarm   = qcimsVTWNIsvc8994.arm.cat
+CatalogFile.NTarm64 = qcimsVTWNIsvc8994.arm64.cat
 
 [DestinationDirs]
 qcimsVTWNIsvc8994.Files = 13 ; \system32 directory on Windows 2000 and later versions
@@ -25,26 +25,26 @@ qcimsVTWNIsvc8994.dll = 0,arm,
 qcimsVTWNIsvc8994.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTARM,NTARM64
+%QC%=QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %IMSVTWNI.DeviceDesc%=IMSVTWNI, SWC\VID_QCOM&PID_0EA0&SID_0004
 
-[QC.NTARM64]
+[QC.NTarm64]
 %IMSVTWNI.DeviceDesc%=IMSVTWNI, SWC\VID_QCOM&PID_0EA0&SID_0004
 
-[IMSVTWNI.NTARM]
+[IMSVTWNI.NTarm]
 CopyFiles = qcimsVTWNIsvc8994.Files
 AddReg    = qcimsVTWNIsvc8994_Reg, qcimsVTWNIsvc8994_path_Reg
 
-[IMSVTWNI.NTARM64]
+[IMSVTWNI.NTarm64]
 CopyFiles = qcimsVTWNIsvc8994.Files
-AddReg    = qcimsVTWNIsvc8994_Reg, qcimsVTWNIsvc8994_path_64_Reg
+AddReg    = qcimsVTWNIsvc8994_Reg, qcimsVTWNIsvc8994_path_Reg.NTarm64
 
-[IMSVTWNI.NTARM.Services]
+[IMSVTWNI.NTarm.Services]
 AddService = VTSvc,0x00000000,qcimsVTWNIsvc8994_Service,
 
-[IMSVTWNI.NTARM64.Services]
+[IMSVTWNI.NTarm64.Services]
 AddService = VTSvc,0x00000000,qcimsVTWNIsvc8994_Service,
 
 [qcimsVTWNIsvc8994_Service]
@@ -56,16 +56,16 @@ ErrorControl  = 0
 ServiceBinary = "%%SystemRoot%%\System32\svchost.exe -k VTSvcGroup"
 
 [qcimsVTWNIsvc8994_Reg]
-HKLM, "System\ControlSet001\Services\VTSvc"                 , "DisplayName"           , %REG_SZ%       , "VTSvc"
-HKLM, "System\ControlSet001\Services\VTSvc"                 , "Description"           , %REG_SZ%       , "VT Service"
-HKLM, "System\ControlSet001\Services\VTSvc"                 , "ErrorControl"          , %REG_DWORD%    , 0x0
-HKLM, "System\ControlSet001\Services\VTSvc"                 , "FailureActions"        , %REG_BINARY%   , 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
-HKLM, "System\ControlSet001\Services\VTSvc"                 , "ImagePath"             , %REG_EXPAND_SZ%, "%%SystemRoot%%\System32\svchost.exe -k VTSvcGroup"
-HKLM, "System\ControlSet001\Services\VTSvc"                 , "Start"                 , %REG_DWORD%    , 0x3
-HKLM, "System\ControlSet001\Services\VTSvc"                 , "Type"                  , %REG_DWORD%    , 0x20
-HKLM, "System\ControlSet001\Services\VTSvc"                 , "PreshutdownTimeout"    , %REG_DWORD%    , 0x4E20
-HKLM, "System\ControlSet001\Services\VTSvc\Parameters"      , "ServiceMain"           , %REG_SZ%       , "ServiceMain"
-HKLM, "System\ControlSet001\Services\VTSvc\Parameters"      , "ServiceDllUnloadOnStop", %REG_DWORD%    , 0x1
+HKLM, "System\CurrentControlSet\Services\VTSvc"                 , "DisplayName"           , %REG_SZ%       , "VTSvc"
+HKLM, "System\CurrentControlSet\Services\VTSvc"                 , "Description"           , %REG_SZ%       , "VT Service"
+HKLM, "System\CurrentControlSet\Services\VTSvc"                 , "ErrorControl"          , %REG_DWORD%    , 0x0
+HKLM, "System\CurrentControlSet\Services\VTSvc"                 , "FailureActions"        , %REG_BINARY%   , 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
+HKLM, "System\CurrentControlSet\Services\VTSvc"                 , "ImagePath"             , %REG_EXPAND_SZ%, "%%SystemRoot%%\System32\svchost.exe -k VTSvcGroup"
+HKLM, "System\CurrentControlSet\Services\VTSvc"                 , "Start"                 , %REG_DWORD%    , 0x3
+HKLM, "System\CurrentControlSet\Services\VTSvc"                 , "Type"                  , %REG_DWORD%    , 0x20
+HKLM, "System\CurrentControlSet\Services\VTSvc"                 , "PreshutdownTimeout"    , %REG_DWORD%    , 0x4E20
+HKLM, "System\CurrentControlSet\Services\VTSvc\Parameters"      , "ServiceMain"           , %REG_SZ%       , "ServiceMain"
+HKLM, "System\CurrentControlSet\Services\VTSvc\Parameters"      , "ServiceDllUnloadOnStop", %REG_DWORD%    , 0x1
 
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", "VTSvcGroup"            , %REG_MULTI_SZ% , "VTSvc"
 
@@ -73,16 +73,16 @@ HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", "VTSvcGroup"      
 HKLM, "Software\Classes\AppID\{B523A26D-268E-4FE6-83A9-21DF07EDD543}", "LocalService", %REG_SZ%, "VTSvc"
 
 [qcimsVTWNIsvc8994_path_Reg]
-HKLM, "System\ControlSet001\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\arm\qcimsVTWNIsvc8994.dll"
+HKLM, "System\CurrentControlSet\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\arm\qcimsVTWNIsvc8994.dll"
 
-[qcimsVTWNIsvc8994_path_64_Reg]
-HKLM, "System\ControlSet001\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\arm64\qcimsVTWNIsvc8994.dll"
+[qcimsVTWNIsvc8994_path_Reg.NTarm64]
+HKLM, "System\CurrentControlSet\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\arm64\qcimsVTWNIsvc8994.dll"
 
 [qcimsVTWNIsvc8994.Files]
 qcimsVTWNIsvc8994.dll
 
 [Strings]
-QC                  = "Qualcomm"
+QC                  = "Qualcomm Technologies, Inc."
 IMSVTWNI.DeviceDesc = "Qualcomm IP Multimedia System VTWNI Service"
 
 REG_SZ        = 0x00000000

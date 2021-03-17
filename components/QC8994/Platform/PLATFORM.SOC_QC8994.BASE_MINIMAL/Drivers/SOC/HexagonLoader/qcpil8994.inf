@@ -11,15 +11,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.1.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcpil8994.arm.cat
-CatalogFile.NTARM64 = qcpil8994.arm64.cat
+CatalogFile.NTarm   = qcpil8994.arm.cat
+CatalogFile.NTarm64 = qcpil8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -41,13 +41,13 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QUALCOMM% = QC,NTARM,NTARM64
+%Qualcomm% = QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %PIL.DeviceDesc% = PIL_Device, ACPI\QCOM2429
 
-[QC.NTARM64]
-%PIL.DeviceDesc% = PIL_64_Device, ACPI\QCOM2429
+[QC.NTarm64]
+%PIL.DeviceDesc% = PIL_Device, ACPI\QCOM2429
 
 [PIL_Device.NT]
 CopyFiles   = Drivers_Dir
@@ -55,7 +55,7 @@ AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
 Reboot
 
-[PIL_64_Device.NT]
+[PIL_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
@@ -75,24 +75,24 @@ qcpil8994.sys
 ; To control and view these traces use "!wmitrace.strdump PIL" from KD, or tracelog/traceview tools in the WDK.
 ; As currently configured below, tracing is currently disabled (Start = 0).
 [WppReg]
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL                                       , BufferSize    , %REG_DWORD%, 0x80
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL                                       , LogFileMode   , %REG_DWORD%, 4
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL                                       , Start         , %REG_DWORD%, 0
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL                                       , Status        , %REG_DWORD%, 0
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL                                       , FileName      , %REG_SZ%   , "\\SystemRoot\\system32\\LogFiles\\WMI\\PIL.etl"
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL                                       , Guid          , %REG_SZ%   , "{4b2ae6cb-2afc-4251-8df6-55939744250e}"
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, Enabled       , %REG_DWORD%, 1
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, EnableFlags   , %REG_DWORD%, 0xFFFF
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, EnableLevel   , %REG_DWORD%, 5
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, EnableProperty, %REG_DWORD%, 0
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, Status        , %REG_DWORD%, 0
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL                                       , BufferSize    , %REG_DWORD%, 0x80
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL                                       , LogFileMode   , %REG_DWORD%, 4
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL                                       , Start         , %REG_DWORD%, 0
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL                                       , Status        , %REG_DWORD%, 0
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL                                       , FileName      , %REG_SZ%   , "\\SystemRoot\\system32\\LogFiles\\WMI\\PIL.etl"
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL                                       , Guid          , %REG_SZ%   , "{4b2ae6cb-2afc-4251-8df6-55939744250e}"
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, Enabled       , %REG_DWORD%, 1
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, EnableFlags   , %REG_DWORD%, 0xFFFF
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, EnableLevel   , %REG_DWORD%, 5
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, EnableProperty, %REG_DWORD%, 0
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, Status        , %REG_DWORD%, 0
 
 ;-------------- Service installation
 [PIL_Device.NT.Services]
 AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_Service_Inst
 
-[PIL_64_Device.NT.Services]
-AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_64_Service_Inst
+[PIL_Device.NTarm64.Services]
+AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_Service_Inst.NTarm64
 
 ; -------------- PIL driver install sections
 [PIL_Service_Inst]
@@ -104,7 +104,7 @@ LoadOrderGroup = Base            ; First of all driver groups to load
 Tag            = 17              ; First to load within the "Base" driver group
 ServiceBinary  = %13%\arm\qcpil8994.sys
 
-[PIL_64_Service_Inst]
+[PIL_Service_Inst.NTarm64]
 DisplayName    = %PIL.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START (0)
@@ -115,14 +115,14 @@ ServiceBinary  = %13%\arm64\qcpil8994.sys
 
 [PIL_Device.NT.Wdf]
 KmdfService = qcPILC, PIL_wdfsect
-[PIL_64_Device.NT.Wdf]
+[PIL_Device.NTarm64.Wdf]
 KmdfService = qcPILC, PIL_wdfsect
 [PIL_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM               = "Qualcomm Incorporated"
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Peripheral Image Loader (PIL) Driver Installation Disk #1"
 PIL.DeviceDesc         = "Qualcomm(R) System Manager Device"
 PIL.SVCDESC            = "Qualcomm(R) System Manager Device"

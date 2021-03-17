@@ -13,15 +13,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcadsprpc8994.arm.cat
-CatalogFile.NTARM64 = qcadsprpc8994.arm64.cat
+CatalogFile.NTarm   = qcadsprpc8994.arm.cat
+CatalogFile.NTarm64 = qcadsprpc8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13; driverStore
@@ -36,18 +36,18 @@ qcadsprpc8994.sys = 1,arm
 qcadsprpc8994.sys = 1,arm64
 
 [Manufacturer]
-%QC% = QC,NTARM,NTARM64
+%QC% = QC,NTarm,NTarm64
 
-[QC.NTARM]                           ; NTARM is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+[QC.NTarm]                           ; NTarm is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
 %ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
 
-[QC.NTARM64]                         ; NTARM64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
-%ADSPRPC.DeviceDesc% = ADSPRPC_64_Device, ACPI\QCOM248A
+[QC.NTarm64]                         ; NTarm64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+%ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
 
 [ADSPRPC_Device.NT]
 CopyFiles = Drivers_Dir
 
-[ADSPRPC_64_Device.NT]
+[ADSPRPC_Device.NTarm64]
 CopyFiles = Drivers_Dir
 
 [ControlFlags]
@@ -62,10 +62,10 @@ AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_Service_Inst
 [ADSPRPC_Device.NT.Wdf]
 KmdfService = QCADSPRPC, ADSPRPC_Service_kmdfInst
 
-[ADSPRPC_64_Device.NT.Services]
-AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_64_Service_Inst
+[ADSPRPC_Device.NTarm64.Services]
+AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_Service_Inst.NTarm64
 
-[ADSPRPC_64_Device.NT.Wdf]
+[ADSPRPC_Device.NTarm64.Wdf]
 KmdfService = QCADSPRPC, ADSPRPC_Service_kmdfInst
 
 [ADSPRPC_Service_kmdfInst]
@@ -81,7 +81,7 @@ ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\qcadsprpc8994.sys
 LoadOrderGroup = Extended Base
 
-[ADSPRPC_64_Service_Inst]
+[ADSPRPC_Service_Inst.NTarm64]
 DisplayName    = %ADSPRPC.SVCDESC%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START

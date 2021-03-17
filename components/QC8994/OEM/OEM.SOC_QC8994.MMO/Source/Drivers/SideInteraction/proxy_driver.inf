@@ -2,7 +2,7 @@
 ; proxy_driver.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGUID   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
@@ -20,9 +20,9 @@ DefaultDestDir = 13
 proxy_driver.sys  = 1,,
 
 [Manufacturer]
-%COMP% = Standard,NTARM64
+%COMP% = Standard,NTarm64
 
-[Standard.NTARM64]
+[Standard.NTarm64]
 %GripProxy.DeviceDesc% = GripProxy_Inst.NT, Root\GripProxy
 
 ;*****************************************

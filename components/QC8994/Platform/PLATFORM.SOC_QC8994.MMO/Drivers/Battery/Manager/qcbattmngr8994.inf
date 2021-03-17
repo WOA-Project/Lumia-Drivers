@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2011 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2011 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcbattmngr8994.INF
@@ -10,15 +10,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
 DriverVer   = 07/02/2015,1.0.1078.0053
 PnPLockdown = 1
 
-CatalogFile.NTARM   = qcbattmngr8994.arm.cat
-CatalogFile.NTARM64 = qcbattmngr8994.arm64.cat
+CatalogFile.NTarm   = qcbattmngr8994.arm.cat
+CatalogFile.NTarm64 = qcbattmngr8994.arm64.cat
 
 [SourceDisksNames]
 1 = %DiskId%
@@ -41,13 +41,13 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = Qualcomm,NTARM,NTARM64
+%COMP% = Qualcomm,NTarm,NTarm64
 
-[Qualcomm.NTARM]
+[Qualcomm.NTarm]
 %DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2453
 
-[Qualcomm.NTARM64]
-%DeviceDesc% = BATTMNGR_64_Inst,ACPI\QCOM2453
+[Qualcomm.NTarm64]
+%DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2453
 
 [BATTMNGR_Inst.NT]
 Copyfiles   = BATTMNGRCopyFiles
@@ -61,16 +61,16 @@ Addreg = BMACL
 AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst
 
 
-[BATTMNGR_64_Inst.NT]
+[BATTMNGR_Inst.NTarm64]
 Copyfiles   = BATTMNGRCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[BATTMNGR_64_Inst.NT.HW]
+[BATTMNGR_Inst.NTarm64.HW]
 Addreg = BMACL
 
-[BATTMNGR_64_Inst.NT.Services]
-AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_64_Service_Inst
+[BATTMNGR_Inst.NTarm64.Services]
+AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst.NTarm64
 
 [BMACL]
 HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
@@ -88,7 +88,7 @@ StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %13%\arm\qcbattmngr8994.sys
 
-[BATTMNGR_64_Service_Inst]
+[BATTMNGR_Service_Inst.NTarm64]
 DisplayName   = %BATTMNGR.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
@@ -97,7 +97,7 @@ ServiceBinary = %13%\arm64\qcbattmngr8994.sys
 
 [Strings]
 ;Localizable Strings
-COMP                   = "Qualcomm Incorporated"
+COMP                   = "Qualcomm Technologies, Inc."
 BATTMNGR.SvcDesc       = "Qualcomm Battery Manager Driver"
 DeviceDesc             = "Qualcomm Battery Manager Device"
 DiskId                 = "Qualcomm Battery Manager Installation Disk"

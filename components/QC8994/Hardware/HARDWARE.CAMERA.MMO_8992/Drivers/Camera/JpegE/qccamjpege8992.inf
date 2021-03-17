@@ -11,15 +11,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qccamjpege8992.arm.cat
-CatalogFile.NTARM64 = qccamjpege8992.arm64.cat
+CatalogFile.NTarm   = qccamjpege8992.arm.cat
+CatalogFile.NTarm64 = qccamjpege8992.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 12
@@ -46,14 +46,14 @@ QcWicEncoderARM8992.dll=0,arm,
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC, NTARM, NTARM64
+%QC% = QC, NTarm, NTarm64
 
 ; Decorated model section take precedence over undecorated 
 ; ones on XP and later.
-[QC.NTARM]
+[QC.NTarm]
 %JpegE.DeviceDesc% = CameraJpegE32_Device, ACPI\QCOM2467
 
-[QC.NTARM64]
+[QC.NTarm64]
 %JpegE.DeviceDesc% = CameraJpegE_Device, ACPI\QCOM2467
 
 [CameraJpegE32_Device.NT]
@@ -93,14 +93,14 @@ HKR, , DeviceCharacteristics, 0x10001, 0x100
 [WicRegistration]
 ; system32
 ; QcWicEncoder and Postproc registry settings
-HKLM, SOFTWARE\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                                          ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
-HKLM, SOFTWARE\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,                           ,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\QcWicEncoder8992.dll"
-HKLM, SOFTWARE\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,             ThreadingModel,               ,"Both"
+HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                                          ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
+HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,                           ,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\QcWicEncoder8992.dll"
+HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,             ThreadingModel,               ,"Both"
 
 [WicRegistration64]
-HKLM, SOFTWARE\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                              ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
-HKLM, SOFTWARE\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,               ,%REG_EXPAND_SZ%,"%%SystemRoot%%\SysArm32\QcWicEncoder8992.dll"
-HKLM, SOFTWARE\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32, ThreadingModel,               ,"Both"
+HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                              ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
+HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,               ,%REG_EXPAND_SZ%,"%%SystemRoot%%\SysArm32\QcWicEncoder8992.dll"
+HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32, ThreadingModel,               ,"Both"
 
 ;-------------- Service installation
 [CameraJpegE32_Device.NT.Services]
@@ -119,7 +119,7 @@ ServiceBinary = %12%\qccamjpege8992.sys
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QC                     = "Qualcomm"
+QC                     = "Qualcomm Technologies, Inc."
 JpegE.SVCDESC          = "Qualcomm Camera JPEG Encoder Service"
 ClassName              = "Qualcomm Camera JPEG Encoder Driver"
 JpegE.DeviceDesc       = "Qualcomm Camera JPEG Encoder Driver"

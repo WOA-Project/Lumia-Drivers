@@ -10,18 +10,18 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qccamflashtertiary8994.arm.cat
-CatalogFile.NTARM64 = qccamflashtertiary8994.arm64.cat
+CatalogFile.NTarm   = qccamflashtertiary8994.arm.cat
+CatalogFile.NTarm64 = qccamflashtertiary8994.arm64.cat
 
 [DestinationDirs]
-FLASH.Files_12 = 12
+FLASH.Files_12 = 13
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -40,15 +40,20 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC, NTARM, NTARM64
+%QC% = QC, NTarm, NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %FLASH.DeviceDesc% = CameraFlashTertiary_Device, ACPI\QCOM244C
 
-[QC.NTARM64]
+[QC.NTarm64]
 %FLASH.DeviceDesc% = CameraFlashTertiary_Device, ACPI\QCOM244C
 
 [CameraFlashTertiary_Device.NT]
+CopyFiles   = flash.Files_12
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[CameraFlashTertiary_Device.NTarm64]
 CopyFiles   = flash.Files_12
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -62,6 +67,9 @@ qccamflashtertiary8994.sys
 [CameraFlashTertiary_Device.NT.HW]
 AddReg = CameraFlashTertiary_Device_Security_Reg
  
+[CameraFlashTertiary_Device.NTarm64.HW]
+AddReg = CameraFlashTertiary_Device_Security_Reg
+ 
 [CameraFlashTertiary_Device_Security_Reg]
 HKR, , DeviceCharacteristics, 0x10001, 0x100
 
@@ -69,17 +77,27 @@ HKR, , DeviceCharacteristics, 0x10001, 0x100
 [CameraFlashTertiary_Device.NT.Services]
 AddService = qcFlashTertiary,%SPSVCINST_ASSOCSERVICE%, FLASH_Service_Inst
 
+[CameraFlashTertiary_Device.NTarm64.Services]
+AddService = qcFlashTertiary,%SPSVCINST_ASSOCSERVICE%, FLASH_Service_Inst.NTarm64
+
 ; -------------- FLASH driver install sections
 [FLASH_Service_Inst]
 DFLASHlayName = %FLASH.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qccamflashtertiary8994.sys
+ServiceBinary = %13%\arm\qccamflashtertiary8994.sys
+
+[FLASH_Service_Inst.NTarm64]
+DFLASHlayName = %FLASH.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qccamflashtertiary8994.sys
 
 [Strings]
 ;Localizable Strings
-QC                     = "Qualcomm Inc."
+QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Camera Flash Tertiary Installation Disk"
 FLASH.SVCDESC          = "Qualcomm Camera Flash Tertiary Driver"
 FLASH.DeviceDesc       = "Qualcomm Camera Flash Tertiary Device"

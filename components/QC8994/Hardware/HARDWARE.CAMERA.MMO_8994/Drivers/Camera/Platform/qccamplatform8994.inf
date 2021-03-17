@@ -11,18 +11,18 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qccamplatform8994.arm.cat
-CatalogFile.NTARM64 = qccamplatform8994.arm64.cat
+CatalogFile.NTarm   = qccamplatform8994.arm.cat
+CatalogFile.NTarm64 = qccamplatform8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 0 = %DiskId%
@@ -38,15 +38,20 @@ qccamplatform8994.sys = 0,arm64
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC, NTARM, NTARM64
+%QC% = QC, NTarm, NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %CameraPlatform.DeviceDesc% = CameraPlatform_Device, ACPI\QCOM245E
 
-[QC.NTARM64]
+[QC.NTarm64]
 %CameraPlatform.DeviceDesc% = CameraPlatform_Device, ACPI\QCOM245E
 
 [CameraPlatform_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[CameraPlatform_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -60,6 +65,9 @@ qccamplatform8994.sys
 [CameraPlatform_Device.NT.HW]
 AddReg = CameraPlatform_Device_Security_Reg
  
+[CameraPlatform_Device.NTarm64.HW]
+AddReg = CameraPlatform_Device_Security_Reg
+ 
 [CameraPlatform_Device_Security_Reg]
 HKR, , DeviceCharacteristics, 0x10001, 0x100
 
@@ -67,17 +75,27 @@ HKR, , DeviceCharacteristics, 0x10001, 0x100
 [CameraPlatform_Device.NT.Services]
 AddService = qcCameraPlatform,%SPSVCINST_ASSOCSERVICE%, CameraPlatform_Service_Inst
 
+[CameraPlatform_Device.NTarm64.Services]
+AddService = qcCameraPlatform,%SPSVCINST_ASSOCSERVICE%, CameraPlatform_Service_Inst.NTarm64
+
 ; -------------- CameraPlatform driver install sections
 [CameraPlatform_Service_Inst]
 DisplayName   = %CameraPlatform.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qccamplatform8994.sys
+ServiceBinary = %13%\arm\qccamplatform8994.sys
+
+[CameraPlatform_Service_Inst.NTarm64]
+DisplayName   = %CameraPlatform.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qccamplatform8994.sys
 
 [Strings]
 ;localizable
-QC                        = "Qualcomm Inc."
+QC                        = "Qualcomm Technologies, Inc."
 CameraPlatform.DeviceDesc = "Qualcomm Camera Platform Device"
 CameraPlatform.SVCDESC    = "Qualcomm Camera Platform Service"
 DiskId                    = "Qualcomm Camera Platform Device Installation Disk"

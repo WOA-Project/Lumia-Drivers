@@ -1,6 +1,6 @@
 ; 
-; Copyright (C) 2012 QUALCOMM Incorporated.
-; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+; Copyright (C) 2012 Qualcomm Incorporated.
+; All Rights Reserved. Qualcomm Proprietary and Confidential.
 ;
 ; Module Name:
 ;
@@ -18,8 +18,8 @@ Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = "libadsprpc.arm.cat"
-CatalogFile.NTARM64 = "libadsprpc.arm64.cat"
+CatalogFile.NTarm   = "libadsprpc.arm.cat"
+CatalogFile.NTarm64 = "libadsprpc.arm64.cat"
 
 [DestinationDirs]
 libadsprpc.Files = 13 ; \system32 directory on Windows 2000 and later versions
@@ -34,26 +34,26 @@ libadsprpc.dll = 0,arm,
 libadsprpc.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTARM,NTARM64
+%QC%=QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %LibADSPRPC.DeviceDesc%=LibADSP, SWC\VID_QCOM&PID_248A&SID_0001
 
-[QC.NTARM64]
+[QC.NTarm64]
 %LibADSPRPC.DeviceDesc%=LibADSP, SWC\VID_QCOM&PID_248A&SID_0001
 
-[LibADSP.NTARM]
+[LibADSP.NTarm]
 CopyFiles = libadsprpc.Files
 AddReg    = libadsprpc_Reg, libadsprpc_path_Reg
 
-[LibADSP.NTARM64]
+[LibADSP.NTarm64]
 CopyFiles = libadsprpc.Files
-AddReg    = libadsprpc_Reg, libadsprpc_path_64_Reg
+AddReg    = libadsprpc_Reg, libadsprpc_path_Reg.NTarm64
 
-[LibADSP.NTARM.Services]
+[LibADSP.NTarm.Services]
 AddService = libadsprpc,0x00000000,libadsprpc_Service,
 
-[LibADSP.NTARM64.Services]
+[LibADSP.NTarm64.Services]
 AddService = libadsprpc,0x00000000,libadsprpc_Service,
 
 ;ServiceType = 0x110
@@ -72,20 +72,20 @@ ErrorControl  = 1
 ServiceBinary = "%%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
 
 [libadsprpc_Reg]
-HKLM, System\ControlSet001\Services\libadsprpc            , DisplayName    , %REG_SZ%       ,  "libadsprpc"
-HKLM, System\ControlSet001\Services\libadsprpc            , Description    , %REG_SZ%       ,  "ADSPRPC Library"
-HKLM, System\ControlSet001\Services\libadsprpc            , ObjectName     , %REG_SZ%       ,  "LocalSystem"
-HKLM, System\ControlSet001\Services\libadsprpc            , ImagePath      , %REG_EXPAND_SZ%,  %%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
-HKLM, System\ControlSet001\Services\libadsprpc            , Type           , %REG_DWORD%    ,  0x0110
-HKLM, System\ControlSet001\Services\libadsprpc            , Start          , %REG_DWORD%    ,  0x0003
-HKLM, System\ControlSet001\Services\libadsprpc            , ErrorControl   , %REG_DWORD%    ,  0x0001
+HKLM, System\CurrentControlSet\Services\libadsprpc            , DisplayName    , %REG_SZ%       ,  "libadsprpc"
+HKLM, System\CurrentControlSet\Services\libadsprpc            , Description    , %REG_SZ%       ,  "ADSPRPC Library"
+HKLM, System\CurrentControlSet\Services\libadsprpc            , ObjectName     , %REG_SZ%       ,  "LocalSystem"
+HKLM, System\CurrentControlSet\Services\libadsprpc            , ImagePath      , %REG_EXPAND_SZ%,  %%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
+HKLM, System\CurrentControlSet\Services\libadsprpc            , Type           , %REG_DWORD%    ,  0x0110
+HKLM, System\CurrentControlSet\Services\libadsprpc            , Start          , %REG_DWORD%    ,  0x0003
+HKLM, System\CurrentControlSet\Services\libadsprpc            , ErrorControl   , %REG_DWORD%    ,  0x0001
 HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, libadsprpcGroup, %REG_MULTI_SZ% ,  "libadsprpc"
 
 [libadsprpc_path_Reg]
-HKLM, System\ControlSet001\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm\libadsprpc.dll"
+HKLM, System\CurrentControlSet\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm\libadsprpc.dll"
 
-[libadsprpc_path_64_Reg]
-HKLM, System\ControlSet001\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm64\libadsprpc.dll"
+[libadsprpc_path_Reg.NTarm64]
+HKLM, System\CurrentControlSet\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm64\libadsprpc.dll"
 
 [libadsprpc.Files]
 libadsprpc.dll

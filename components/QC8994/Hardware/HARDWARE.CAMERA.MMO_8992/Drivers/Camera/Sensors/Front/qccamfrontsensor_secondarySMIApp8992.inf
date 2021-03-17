@@ -14,15 +14,15 @@
 ;--*/
 
 [Version]
-Signature="$WINDOWS NT$"
-Class=SYSTEM
+Signature="$Windows NT$"
+Class=System
 ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider=%QC%
 DriverVer=09/29/2011,11.45.15.875
 PnpLockdown = 1
 
-CatalogFile.NTARM   = qccamfrontsensor_secondarySMIApp8992.arm.cat
-CatalogFile.NTARM64 = qccamfrontsensor_secondarySMIApp8992.arm64.cat
+CatalogFile.NTarm   = qccamfrontsensor_secondarySMIApp8992.arm.cat
+CatalogFile.NTarm64 = qccamfrontsensor_secondarySMIApp8992.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 12
@@ -42,7 +42,7 @@ qccamfrontsensor_secondarySMIApp8992.sys=0,arm64,
 ;*****************************************
 
 [Manufacturer]
-%QC%=QC, NTARM, NTARM64
+%QC%=QC, NTarm, NTarm64
 
 ; Following section is meant for Windows 2000 as it 
 ; cannot parse decorated model sections
@@ -51,18 +51,18 @@ qccamfrontsensor_secondarySMIApp8992.sys=0,arm64,
 ;
 ; Decorated model section take precedence over undecorated 
 ; ones on XP and later.
-[QC.NTARM]
+[QC.NTarm]
 %CameraFrontSensor.DeviceDesc%=CameraFrontSensor_Device, ACPI\QCOM2439
 
-[QC.NTARM64]
+[QC.NTarm64]
 %CameraFrontSensor.DeviceDescNull%=CameraFrontSensor_Device, ACPI\QCOM2439
 
-[CameraFrontSensor_Device.NTARM]
+[CameraFrontSensor_Device.NTarm]
 CopyFiles=Drivers_Dir
 SubClass=StillImage
 DeviceType=2
 
-[CameraFrontSensor_Device.NTARM64]
+[CameraFrontSensor_Device.NTarm64]
 CopyFiles=Drivers_Dir
 SubClass=StillImage
 DeviceType=2
@@ -70,20 +70,20 @@ DeviceType=2
 [Drivers_Dir]
 qccamfrontsensor_secondarySMIApp8992.sys
 
-[CameraFrontSensor_Device.NTARM.HW]
+[CameraFrontSensor_Device.NTarm.HW]
 AddReg=CameraFrontSensor_Device_Security_Reg
  
-[CameraFrontSensor_Device.NTARM64.HW]
+[CameraFrontSensor_Device.NTarm64.HW]
 AddReg=CameraFrontSensor_Device_Security_Reg
  
 [CameraFrontSensor_Device_Security_Reg]
 HKR,,DeviceCharacteristics,0x10001,0x100
 
 ;-------------- Service installation
-[CameraFrontSensor_Device.NTARM.Services]
+[CameraFrontSensor_Device.NTarm.Services]
 AddService = CameraFrontSensor,%SPSVCINST_ASSOCSERVICE%, CameraFrontSensor_Service_Inst
 
-[CameraFrontSensor_Device.NTARM64.Services]
+[CameraFrontSensor_Device.NTarm64.Services]
 AddService = CameraFrontSensor,%SPSVCINST_ASSOCSERVICE%, CameraFrontSensor_Service_Inst
 
 ; -------------- CameraFrontSensor driver install sections
@@ -96,7 +96,7 @@ ServiceBinary  = %12%\qccamfrontsensor_secondarySMIApp8992.sys
 
 [Strings]
 SPSVCINST_ASSOCSERVICE= 0x00000002
-QC = "Qualcomm"
+QC = "Qualcomm Technologies, Inc."
 MSFT = "MicroSoft"
 CameraFrontSensor.DeviceDesc = "Qualcomm Camera Front Sensor Driver"
 CameraFrontSensor.DeviceDescNull = "Qualcomm Camera Front Sensor Driver (Null)"

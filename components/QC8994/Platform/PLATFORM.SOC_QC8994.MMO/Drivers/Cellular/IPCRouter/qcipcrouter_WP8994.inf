@@ -11,15 +11,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcipcrouter8994.arm.cat
-CatalogFile.NTARM64 = qcipcrouter8994.arm64.cat
+CatalogFile.NTarm   = qcipcrouter8994.arm.cat
+CatalogFile.NTarm64 = qcipcrouter8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -45,13 +45,13 @@ qcsium8994.dll        = 1,arm64
 ;*****************************************
 
 [Manufacturer]
-%QUALCOMM% = QUALCOMM,NTARM,NTARM64
+%Qualcomm% = Qualcomm,NTarm,NTarm64
 
-[QUALCOMM.NTARM]
+[Qualcomm.NTarm]
 %IPC_ROUTER.DeviceDesc% = IPC_ROUTER_Device, ACPI\QCOM240A
 
-[QUALCOMM.NTARM64]
-%IPC_ROUTER.DeviceDesc% = IPC_ROUTER_64_Device, ACPI\QCOM240A
+[Qualcomm.NTarm64]
+%IPC_ROUTER.DeviceDesc% = IPC_ROUTER_Device, ACPI\QCOM240A
 
 [IPC_ROUTER_Device.NT]
 CopyFiles   = Drivers_Dir, System_Dir
@@ -69,19 +69,19 @@ addreg = IPC_ROUTER
 KmdfService = QCIPC_ROUTER, IPC_ROUTER_wdfsect
 
 
-[IPC_ROUTER_64_Device.NT]
+[IPC_ROUTER_Device.NTarm64]
 CopyFiles   = Drivers_Dir, System_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 ;-------------- Service installation
-[IPC_ROUTER_64_Device.NT.Services]
-AddService = QCIPC_ROUTER,%SPSVCINST_ASSOCSERVICE%, IPC_ROUTER_64_Service_Inst
+[IPC_ROUTER_Device.NTarm64.Services]
+AddService = QCIPC_ROUTER,%SPSVCINST_ASSOCSERVICE%, IPC_ROUTER_Service_Inst.NTarm64
 
-[IPC_ROUTER_64_Device.NT.HW]
+[IPC_ROUTER_Device.NTarm64.HW]
 addreg = IPC_ROUTER
 
-[IPC_ROUTER_64_Device.NT.Wdf]
+[IPC_ROUTER_Device.NTarm64.Wdf]
 KmdfService = QCIPC_ROUTER, IPC_ROUTER_wdfsect
 
 [Drivers_Dir]
@@ -110,7 +110,7 @@ ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcipcrouter8994.sys
 AddReg        = IPC_ROUTER_Reg
 
-[IPC_ROUTER_64_Service_Inst]
+[IPC_ROUTER_Service_Inst.NTarm64]
 DisplayName   = %IPC_ROUTER.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
@@ -147,7 +147,7 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM               = "Qualcomm Technologies, Inc."
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "WDF IPC_ROUTER Installation Disk"
 IPC_ROUTER.DeviceDesc  = "Qualcomm(R) Data Device"
 IPC_ROUTER.SVCDESC     = "Qualcomm(R) Data Device"

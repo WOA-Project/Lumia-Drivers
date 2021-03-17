@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    SMD.INF
@@ -10,15 +10,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcsmd8994.arm.cat
-CatalogFile.NTARM64 = qcsmd8994.arm64.cat
+CatalogFile.NTarm   = qcsmd8994.arm.cat
+CatalogFile.NTarm64 = qcsmd8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -36,20 +36,20 @@ qcsmd8994.sys = 1,arm
 qcsmd8994.sys = 1,arm64
 
 [Manufacturer]
-%Qualcomm% = Standard,NTARM,NTARM64
+%Qualcomm% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]         
+[Standard.NTarm]         
 %SMD.DeviceDesc% = SMD_Device, ACPI\QCOM2407
 
-[Standard.NTARM64]         
-%SMD.DeviceDesc% = SMD_64_Device, ACPI\QCOM2407
+[Standard.NTarm64]         
+%SMD.DeviceDesc% = SMD_Device, ACPI\QCOM2407
 
 [SMD_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[SMD_64_Device.NT]
+[SMD_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -57,7 +57,7 @@ Reboot
 [SMD_Device.NT.HW]
 AddReg = SMDACL
 
-[SMD_64_Device.NT.HW]
+[SMD_Device.NTarm64.HW]
 AddReg = SMDACL
 
 [SMDACL]
@@ -71,8 +71,8 @@ qcsmd8994.sys
 [SMD_Device.NT.Services]
 AddService = qcSMD,%SPSVCINST_ASSOCSERVICE%, SMD_Service_Inst
 
-[SMD_64_Device.NT.Services]
-AddService = qcSMD,%SPSVCINST_ASSOCSERVICE%, SMD_64_Service_Inst
+[SMD_Device.NTarm64.Services]
+AddService = qcSMD,%SPSVCINST_ASSOCSERVICE%, SMD_Service_Inst.NTarm64
 
 ; -------------- SMD driver install sections
 [SMD_Service_Inst]
@@ -82,7 +82,7 @@ StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcsmd8994.sys
 
-[SMD_64_Service_Inst]
+[SMD_Service_Inst.NTarm64]
 DisplayName   = %SMD.SVCDESC%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
@@ -91,14 +91,14 @@ ServiceBinary = %13%\arm64\qcsmd8994.sys
 
 [SMD_Device.NT.Wdf]
 KmdfService = qcSMD, SMD_wdfsect
-[SMD_64_Device.NT.Wdf]
+[SMD_Device.NTarm64.Wdf]
 KmdfService = qcSMD, SMD_wdfsect
 [SMD_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM               = "Qualcomm Inc."
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Shared Memory Port Device Installation Disk"
 SMD.DeviceDesc         = "Qualcomm Shared Memory Port Device"
 SMD.SVCDESC            = "Qualcomm Shared Memory Port Driver"

@@ -1,13 +1,13 @@
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Extension
 ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5D}
 DriverVer   = 11/09/2019,1.0.0.0
 
-CatalogFile.NTARM   = qcdx_ffu8992.arm.cat
-CatalogFile.NTARM64 = qcdx_ffu8992.arm64.cat
+CatalogFile.NTarm   = qcdx_ffu8992.arm.cat
+CatalogFile.NTarm64 = qcdx_ffu8992.arm64.cat
 
 [Manufacturer]
 %QC% = DeviceExtensions,NTarm,NTarm64
@@ -28,5 +28,5 @@ AddReg = FriendlyName_AddReg
 HKR,,FriendlyName,, "Qualcomm(R) Adreno(TM) 418 GPU"
 
 [Strings]
-QC                     = "Qualcomm Incorporated"
+QC                     = "Qualcomm Technologies, Inc."
 QC_Device              = "Qualcomm(R) Adreno(TM) 418 GPU"

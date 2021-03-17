@@ -13,15 +13,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = QCDIAGCSI8994.arm.cat
-CatalogFile.NTARM64 = QCDIAGCSI8994.arm64.cat
+CatalogFile.NTarm   = QCDIAGCSI8994.arm.cat
+CatalogFile.NTarm64 = QCDIAGCSI8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -36,13 +36,13 @@ QCDIAGCSI8994.sys = 1,arm
 QCDIAGCSI8994.sys = 1,arm64
 
 [Manufacturer]
-%QC% = QC,NTARM,NTARM64
+%QC% = QC,NTarm,NTarm64
 
-[QC.NTARM]                           ; NTARM is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+[QC.NTarm]                           ; NTarm is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
 %DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM2412
 
-[QC.NTARM64]                         ; NTARM64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
-%DIAGCSI.DeviceDesc% = DiagCSI_64_Device, ACPI\QCOM2412
+[QC.NTarm64]                         ; NTarm64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+%DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM2412
 
 [DiagCSI_Device.NT]
 CopyFiles = Drivers_Dir
@@ -53,13 +53,13 @@ AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_Service_Inst
 [DiagCSI_Device.NT.Wdf]
 KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
 
-[DiagCSI_64_Device.NT]
+[DiagCSI_Device.NTarm64]
 CopyFiles = Drivers_Dir
 
-[DiagCSI_64_Device.NT.Services]
-AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_64_Service_Inst
+[DiagCSI_Device.NTarm64.Services]
+AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_Service_Inst.NTarm64
 
-[DiagCSI_64_Device.NT.Wdf]
+[DiagCSI_Device.NTarm64.Wdf]
 KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
 
 [ControlFlags]
@@ -81,7 +81,7 @@ ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\QCDIAGCSI8994.sys
 LoadOrderGroup = Extended Base
 
-[DIAGCSI_64_Service_Inst]
+[DIAGCSI_Service_Inst.NTarm64]
 DisplayName    = %DIAGCSI.SVCDESC%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
@@ -91,7 +91,7 @@ LoadOrderGroup = Extended Base
 
 [Strings]
 ;Localizable Strings
-QC                     = "Qualcomm Incorporated"
+QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "DiagCSI Installation Disk"
 DIAGCSI.DeviceDesc     = "Qualcomm(R) System Manager Device"
 DIAGCSI.SVCDESC        = "Qualcomm(R) System Manager Device"

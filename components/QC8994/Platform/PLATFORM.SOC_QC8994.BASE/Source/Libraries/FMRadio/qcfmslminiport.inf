@@ -9,8 +9,8 @@ Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = "qcfmslminiport.arm.cat"
-CatalogFile.NTARM64 = "qcfmslminiport.arm64.cat"
+CatalogFile.NTarm   = "qcfmslminiport.arm.cat"
+CatalogFile.NTarm64 = "qcfmslminiport.arm64.cat"
 
 [DestinationDirs]
 qcfmslminiport.Files = 11 ; \system32 directory on Windows 2000 and later versions
@@ -25,33 +25,33 @@ qcfmslminiport.dll = 0,arm,
 qcfmslminiport.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTARM,NTARM64
+%QC%=QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %FM.DeviceDesc%=FMS, SWC\VID_QCOM&PID_24B1&SID_0001
 
-[QC.NTARM64]
+[QC.NTarm64]
 %FM.DeviceDesc%=FMS, SWC\VID_QCOM&PID_24B1&SID_0001
 
-[FMS.NTARM]
+[FMS.NTarm]
 CopyFiles = qcfmslminiport.Files
 AddReg    = qcfmslminiport_Reg
 
-[FMS.NTARM64]
+[FMS.NTarm64]
 CopyFiles = qcfmslminiport.Files
 AddReg    = qcfmslminiport_Reg
 
 [qcfmslminiport_Reg]
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "MiniportDll", 0x0, "qcfmslminiport.dll"
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "newSearchAlgorithm", 0x10001, 0x0
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "NoOfSiNRSamples", 0x10001, 0xA
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "IntDetTHLow", 0x10001, 0x6D
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "IntDetTHHigh", 0x10001, 0x73
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "SiNRTH", 0x10001, 0x3
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "CFOTH12", 0x10001, 0x3A98
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "RMSSIFirstStage", 0x10001, 0xFFFFFF90
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "SiNRFirstStage", 0x10001, 0x0
-HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "SiNRFinalStage", 0x10001, 0x3
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "MiniportDll", 0x0, "qcfmslminiport.dll"
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "newSearchAlgorithm", 0x10001, 0x0
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "NoOfSiNRSamples", 0x10001, 0xA
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "IntDetTHLow", 0x10001, 0x6D
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "IntDetTHHigh", 0x10001, 0x73
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "SiNRTH", 0x10001, 0x3
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "CFOTH12", 0x10001, 0x3A98
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "RMSSIFirstStage", 0x10001, 0xFFFFFF90
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "SiNRFirstStage", 0x10001, 0x0
+HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "SiNRFinalStage", 0x10001, 0x3
 
 [qcfmslminiport.Files]
 qcfmslminiport.dll

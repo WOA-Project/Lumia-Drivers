@@ -6,15 +6,15 @@
 ;
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = USB
 ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %Company%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = QcXhciFilter8994.arm.cat
-CatalogFile.NTARM64 = QcXhciFilter8994.arm64.cat
+CatalogFile.NTarm   = QcXhciFilter8994.arm.cat
+CatalogFile.NTarm64 = QcXhciFilter8994.arm64.cat
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -39,13 +39,13 @@ QcXhciFilter8994.sys = 1,arm64,
 ;*****************************************
 
 [Manufacturer]
-%Company% = Standard,NTARM,NTARM64
+%Company% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %Standard.DeviceDesc% = QcXhciFilter.NT, URS\QCOM24B6&HOST ;URS mode
 
-[Standard.NTARM64]
-%Standard.DeviceDesc% = QcXhciFilter_64.NT, URS\QCOM24B6&HOST ;URS mode
+[Standard.NTarm64]
+%Standard.DeviceDesc% = QcXhciFilter.NT, URS\QCOM24B6&HOST ;URS mode
 
 [QcXhciFilter.NT]
 Include      = usbxhci.inf
@@ -63,18 +63,18 @@ AddReg = QcXhciFilter_AddReg
 AddReg = QcXhciFilter_SDDLString
 
 
-[QcXhciFilter_64.NT]
+[QcXhciFilter.NTarm64]
 Include      = usbxhci.inf
 Needs        = Generic_NoDebug.Install.NT
 CopyFiles    = QcXhciFilter.CopyFile
 FeatureScore = 80 ; required for XHCI driver from usbxhci.inf
 
-[QcXhciFilter_64.NT.Services]
+[QcXhciFilter.NTarm64.Services]
 Include    = usbxhci.inf
 Needs      = Generic_NoDebug.Install.NT.Services
-AddService = QcXhciFilter,, QcXhciFilter_64_Service_Inst
+AddService = QcXhciFilter,, QcXhciFilter_Service_Inst.NTarm64
 
-[QcXhciFilter_64.NT.HW]
+[QcXhciFilter.NTarm64.HW]
 AddReg = QcXhciFilter_AddReg
 AddReg = QcXhciFilter_SDDLString
 
@@ -100,7 +100,7 @@ ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\QcXhciFilter8994.sys
 AddReg        = QcXhciFilter_Service_AddReg
 
-[QcXhciFilter_64_Service_Inst]
+[QcXhciFilter_Service_Inst.NTarm64]
 DisplayName   = %Filter.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START

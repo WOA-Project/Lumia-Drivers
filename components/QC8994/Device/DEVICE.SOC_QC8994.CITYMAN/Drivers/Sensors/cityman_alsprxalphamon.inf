@@ -18,26 +18,26 @@ ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD22E4B}
 DriverVer   = 06/08/2016,1.0.1078.0053
 PnpLockdown = 1
 
-CatalogFile.NTARM   = cityman_alsprxalphamon.arm.cat
-CatalogFile.NTARM64 = cityman_alsprxalphamon.arm64.cat
+CatalogFile.NTarm   = cityman_alsprxalphamon.arm.cat
+CatalogFile.NTarm64 = cityman_alsprxalphamon.arm64.cat
 
 [Manufacturer]
-%ManufacturerName% = DeviceExtensions, NTARM, NTARM64
+%ManufacturerName% = DeviceExtensions, NTarm, NTarm64
 
-[DeviceExtensions.NTARM]
+[DeviceExtensions.NTarm]
 %DevDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1016
 
-[DeviceExtensions.NTARM64]
+[DeviceExtensions.NTarm64]
 %DevDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1016
 
 [DeviceExtension_Install]
 AddReg = Alphamon_Inst.NT.HW.AddReg
 
 [Alphamon_Inst.NT.HW.AddReg]
-HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffB", %REG_DWORD%, 0x4920
-HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffC", %REG_DWORD%, 0x5c4
-HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffD", %REG_DWORD%, 0x8ab
-HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffGA", %REG_DWORD%, 0x1b583
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffB", %REG_DWORD%, 0x4920
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffC", %REG_DWORD%, 0x5c4
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffD", %REG_DWORD%, 0x8ab
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\AlsPrxAlphamon\Parameters\0\0", "CoeffGA", %REG_DWORD%, 0x1b583
 
 [Strings]
 ;Localizable Strings

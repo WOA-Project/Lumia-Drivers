@@ -2,7 +2,7 @@
 ; atts_driver.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Media
 ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
 Provider    = %ProviderName%
@@ -25,9 +25,9 @@ DefaultDestDir = 13
 ;*****************************************
 
 [Manufacturer]
-%StdMfg% = Standard,NTARM64
+%StdMfg% = Standard,NTarm64
 
-[Standard.NTARM64]
+[Standard.NTarm64]
 %DeviceDesc% = DriverInstall,ACPI\MSHW1018
 
 [DriverInstall.NT]

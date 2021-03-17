@@ -1,13 +1,13 @@
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %MMO%
 DriverVer   = 06/08/2016,1.0.1078.0053
 PnpLockdown = 1
 
-CatalogFile.NTARM   = hall_kmd.arm.cat
-CatalogFile.NTARM64 = hall_kmd.arm64.cat
+CatalogFile.NTarm   = hall_kmd.arm.cat
+CatalogFile.NTarm64 = hall_kmd.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -22,13 +22,13 @@ hall_kmd.sys  = 1,arm,
 hall_kmd.sys  = 1,arm64,
 
 [Manufacturer]
-%Manufacturer_Name%=Standard,NTARM,NTARM64
+%Manufacturer_Name%=Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %hall_kmd.DeviceDesc%=hall_kmd_Device.NT, ACPI\MSHW1015
 
-[Standard.NTARM64]
-%hall_kmd.DeviceDesc%=hall_kmd_64_Device.NT, ACPI\MSHW1015
+[Standard.NTarm64]
+%hall_kmd.DeviceDesc%=hall_kmd_Device.NT, ACPI\MSHW1015
 
 
 ;*****************************************
@@ -39,7 +39,7 @@ hall_kmd.sys  = 1,arm64,
 CopyFiles = hall_kmd_Device.NT.CopyFiles
 ;AddReg    = hall_kmd_Device.NT.AddReg
 
-[hall_kmd_64_Device.NT]
+[hall_kmd_Device.NTarm64]
 CopyFiles = hall_kmd_Device.NT.CopyFiles
 ;AddReg    = hall_kmd_Device.NT.AddReg
 
@@ -47,18 +47,18 @@ CopyFiles = hall_kmd_Device.NT.CopyFiles
 hall_kmd.sys,,,0x100
 
 [hall_kmd_Device.NT.AddReg]
-HKLM, "SYSTEM\Software\SmartCover", "FrontSensor", 0x00010001, 0
-HKLM, "SYSTEM\Software\SmartCover", "BackSensor" , 0x00010001, 0
+HKLM, "System\Software\SmartCover", "FrontSensor", 0x00010001, 0
+HKLM, "System\Software\SmartCover", "BackSensor" , 0x00010001, 0
 
-HKLM, "SYSTEM\HallSensor", "Polarity", 0x00010001, 0
-HKLM, "SYSTEM\HallSensor", "Disabled", 0x00010001, 0
+HKLM, "System\HallSensor", "Polarity", 0x00010001, 0
+HKLM, "System\HallSensor", "Disabled", 0x00010001, 0
 
 ;-------------- Service installation
 [hall_kmd_Device.NT.Services]
 AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_Service_Inst
 
-[hall_kmd_64_Device.NT.Services]
-AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_64_Service_Inst
+[hall_kmd_Device.NTarm64.Services]
+AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_Service_Inst.NTarm64
 
 ; -------------- hall_kmd driver install sections
 [hall_kmd_Service_Inst]
@@ -69,7 +69,7 @@ ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\hall_kmd.sys
 LoadOrderGroup = Base
 
-[hall_kmd_64_Service_Inst]
+[hall_kmd_Service_Inst.NTarm64]
 DisplayName    = %hall_kmd.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
@@ -83,7 +83,7 @@ LoadOrderGroup = Base
 [hall_kmd_Device.NT.Wdf]
 KmdfService =  hall_kmd, hall_kmd_wdfsect
 
-[hall_kmd_64_Device.NT.Wdf]
+[hall_kmd_Device.NTarm64.Wdf]
 KmdfService =  hall_kmd, hall_kmd_wdfsect
 
 [hall_kmd_wdfsect]

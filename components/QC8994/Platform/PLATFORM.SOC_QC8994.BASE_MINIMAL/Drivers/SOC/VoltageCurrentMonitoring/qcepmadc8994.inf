@@ -12,15 +12,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcepmadc8994.arm.cat
-CatalogFile.NTARM64 = qcepmadc8994.arm64.cat
+CatalogFile.NTarm   = qcepmadc8994.arm.cat
+CatalogFile.NTarm64 = qcepmadc8994.arm64.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -38,18 +38,18 @@ DefaultDestDir = 13
 ExcludeFromSelect = *
 
 [Manufacturer]
-%QUALCOMM% = QC, NTARM, NTARM64
+%Qualcomm% = QC, NTarm, NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %EPMADC.DeviceDesc% = EPMADC_Device, ACPI\QCOM2411
 
-[QC.NTARM64]
-%EPMADC.DeviceDesc% = EPMADC_64_Device, ACPI\QCOM2411
+[QC.NTarm64]
+%EPMADC.DeviceDesc% = EPMADC_Device, ACPI\QCOM2411
 
 [EPMADC_Device.NT]
 CopyFiles = Drivers_Dir
 
-[EPMADC_64_Device.NT]
+[EPMADC_Device.NTarm64]
 CopyFiles = Drivers_Dir
 
 [Drivers_Dir]
@@ -58,13 +58,13 @@ qcepmadc8994.sys
 [EPMADC_Device.NT.Services]
 AddService = EPMADC,%SPSVCINST_ASSOCSERVICE%, EPMADC_Service_Inst
 
-[EPMADC_64_Device.NT.Services]
-AddService = EPMADC,%SPSVCINST_ASSOCSERVICE%, EPMADC_64_Service_Inst
+[EPMADC_Device.NTarm64.Services]
+AddService = EPMADC,%SPSVCINST_ASSOCSERVICE%, EPMADC_Service_Inst.NTarm64
 
 [EPMADC_Device.NT.HW]
 addreg = EPMADCSD
 
-[EPMADC_64_Device.NT.HW]
+[EPMADC_Device.NTarm64.HW]
 addreg = EPMADCSD
 
 [EPMADCSD]
@@ -77,7 +77,7 @@ StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %13%\arm\qcepmadc8994.sys
 
-[EPMADC_64_Service_Inst]
+[EPMADC_Service_Inst.NTarm64]
 DisplayName   = %EPMADC.SVCDESC%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
@@ -86,14 +86,14 @@ ServiceBinary = %13%\arm64\qcepmadc8994.sys
 
 [EPMADC_Device.NT.Wdf]
 KmdfService = EPMADC, EPMADC_wdfsect
-[EPMADC_64_Device.NT.Wdf]
+[EPMADC_Device.NTarm64.Wdf]
 KmdfService = EPMADC, EPMADC_wdfsect
 [EPMADC_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM               = "Qualcomm Inc."
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm EPM ADC Installation Disk"
 EPMADC.DeviceDesc      = "Qualcomm EPM ADC Device"
 EPMADC.SVCDESC         = "Qualcomm EPM ADC Driver"

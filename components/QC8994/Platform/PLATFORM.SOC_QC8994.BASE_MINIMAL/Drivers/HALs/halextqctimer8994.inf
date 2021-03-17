@@ -1,5 +1,5 @@
 ; Copyright (C) 2012 Qualcomm Technologies, Inc.
-; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+; All Rights Reserved. Qualcomm Proprietary and Confidential.
 ;
 ; Module Name:
 ;
@@ -11,15 +11,15 @@
 ;
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Computer
 ClassGuid   = {4d36e966-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0
 PnPLockdown = 1
 
-CatalogFile.NTARM   = "HalExtQCTimer.arm.cat"
-CatalogFile.NTARM64 = "HalExtQCTimer.arm64.cat"
+CatalogFile.NTarm   = "HalExtQCTimer.arm.cat"
+CatalogFile.NTarm64 = "HalExtQCTimer.arm64.cat"
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -37,26 +37,26 @@ HalExtQCTimer.dll = 1,arm
 HalExtQCTimer.dll = 1,arm64
 
 [Manufacturer]
-%MFGNAME% = DeviceList, NTARM, NTARM64
+%MFGNAME% = DeviceList, NTarm, NTarm64
 
-[DeviceList.NTARM]
+[DeviceList.NTarm]
 %QC_TIMERS% = QC_TIMERS,  ACPI\QCOM100A
 
-[DeviceList.NTARM64]
-%QC_TIMERS% = QC_TIMERS_64,  ACPI\QCOM100A
+[DeviceList.NTarm64]
+%QC_TIMERS% = QC_TIMERS,  ACPI\QCOM100A
 
 [QC_TIMERS]
 AddReg    = QC_TIMERS_AddReg
 CopyFiles = QC_TIMERS_CopyFiles
 
-[QC_TIMERS_64]
-AddReg    = QC_TIMERS_64_AddReg
+[QC_TIMERS.NTarm64]
+AddReg    = QC_TIMERS_AddReg.NTarm64
 CopyFiles = QC_TIMERS_CopyFiles
 
 [QC_TIMERS_AddReg]
 HKLM, "%OSEDB%\VEN_QCOM&DEV_100A", "HALExtension", , "%13%\arm\HalExtQCTimer.dll"
 
-[QC_TIMERS_64_AddReg]
+[QC_TIMERS_AddReg.NTarm64]
 HKLM, "%OSEDB%\VEN_QCOM&DEV_100A", "HALExtension", , "%13%\arm64\HalExtQCTimer.dll"
 
 [QC_TIMERS_CopyFiles]
@@ -65,14 +65,14 @@ HalExtQCTimer.dll, , , 0x00001000,
 [QC_TIMERS.Services]
 AddService = , %SPSVCINST_ASSOCSERVICE%
 
-[QC_TIMERS_64.Services]
+[QC_TIMERS.NTarm64.Services]
 AddService = , %SPSVCINST_ASSOCSERVICE%
 
 [Strings]
 
 ;Non-localizable
 SPSVCINST_ASSOCSERVICE = 0x00000002
-OSEDB                  = "SYSTEM\CurrentControlSet\Control\OSExtensionDatabase"
+OSEDB                  = "System\CurrentControlSet\Control\OSExtensionDatabase"
 
 ;Localizable
 QC                     = "Qualcomm Technologies, Inc."

@@ -13,15 +13,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = QCDIAGROUTER8994.arm.cat
-CatalogFile.NTARM64 = QCDIAGROUTER8994.arm64.cat
+CatalogFile.NTarm   = QCDIAGROUTER8994.arm.cat
+CatalogFile.NTarm64 = QCDIAGROUTER8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -39,13 +39,13 @@ QCDIAGROUTER8994.sys  = 1,arm64
 qcdiaglogging8994.dll = 1,arm64
 
 [Manufacturer]
-%QC% = QC,NTARM,NTARM64
+%QC% = QC,NTarm,NTarm64
 
-[QC.NTARM]                                   ; NTARM is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+[QC.NTarm]                                   ; NTarm is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
 %DIAGROUTER.DeviceDesc% = DiagRouter_Device, ACPI\QCOM2413
 
-[QC.NTARM64]                                 ; NTARM64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
-%DIAGROUTER.DeviceDesc% = DiagRouter_64_Device, ACPI\QCOM2413
+[QC.NTarm64]                                 ; NTarm64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+%DIAGROUTER.DeviceDesc% = DiagRouter_Device, ACPI\QCOM2413
 
 [DiagRouter_Device.NT]
 CopyFiles   = Drivers_Dir, System_Dir
@@ -61,18 +61,18 @@ addreg = DiagRouter
 [DiagRouter_Device.NT.Wdf]
 KmdfService = QCDiagRouter, DiagRouter_Service_kmdfInst
 
-[DiagRouter_64_Device.NT]
+[DiagRouter_Device.NTarm64]
 CopyFiles   = Drivers_Dir, System_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[DiagRouter_64_Device.NT.Services]
-AddService = QCDIAGROUTER,%SPSVCINST_ASSOCSERVICE%, DiagRouter_64_Service_Inst
+[DiagRouter_Device.NTarm64.Services]
+AddService = QCDIAGROUTER,%SPSVCINST_ASSOCSERVICE%, DiagRouter_Service_Inst.NTarm64
 
-[DiagRouter_64_Device.NT.HW]
+[DiagRouter_Device.NTarm64.HW]
 addreg = DiagRouter
 
-[DiagRouter_64_Device.NT.Wdf]
+[DiagRouter_Device.NTarm64.Wdf]
 KmdfService = QCDiagRouter, DiagRouter_Service_kmdfInst
 
 [Drivers_Dir]
@@ -102,7 +102,7 @@ ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\QCDIAGROUTER8994.sys
 AddReg        = DiagRouterReg
 
-[DIAGROUTER_64_Service_Inst]
+[DIAGROUTER_Service_Inst.NTarm64]
 DisplayName   = %DIAGROUTER.SVCDESC%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
@@ -118,7 +118,7 @@ HKR, , TransportType, 0x00010001, "1"
 
 [Strings]
 ;Localizable Strings
-QC                     = "Qualcomm Incorporated"
+QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "DiagRouter Installation Disk"
 DIAGROUTER.DeviceDesc  = "Qualcomm(R) System Manager Device"
 DIAGROUTER.SVCDESC     = "Qualcomm(R) System Manager Device"

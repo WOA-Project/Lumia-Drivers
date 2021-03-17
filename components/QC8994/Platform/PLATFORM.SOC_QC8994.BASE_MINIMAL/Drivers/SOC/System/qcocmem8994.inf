@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2013 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2013 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    QCOCMEM*.inf
@@ -14,15 +14,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcocmem8994.arm.cat
-CatalogFile.NTARM64 = qcocmem8994.arm64.cat
+CatalogFile.NTarm   = qcocmem8994.arm.cat
+CatalogFile.NTarm64 = qcocmem8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -40,13 +40,13 @@ qcocmem8994.sys = 1,arm64
 ExcludeFromSelect = *
 
 [Manufacturer]
-%QC% = QC, NTARM, NTARM64
+%QC% = QC, NTarm, NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %OCMEM.DeviceDesc% = OCMEM_Device, ACPI\QCOM2403
 
-[QC.NTARM64]
-%OCMEM.DeviceDesc% = OCMEM_64_Device, ACPI\QCOM2403
+[QC.NTarm64]
+%OCMEM.DeviceDesc% = OCMEM_Device, ACPI\QCOM2403
 
 [OCMEM_Device.NT]
 CopyFiles   = Drivers_Dir
@@ -54,7 +54,7 @@ AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
 Reboot
 
-[OCMEM_64_Device.NT]
+[OCMEM_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
@@ -73,13 +73,13 @@ qcocmem8994.sys
 ; To control and view these traces use "!wmitrace.strdump OCMEM" from KD, or tracelog/traceview tools in the WDK.
 ; As currently configured below, tracing is currently disabled (Start = 0) (Enabled = 0).
 [WppReg]
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , FileName   , %REG_SZ%   , ""
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , Guid       , %REG_SZ%   , "{e09f3fb2-7e00-46e2-97ce-444491b97f68}"
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , LogFileMode, %REG_DWORD%, 0x10080100
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , Start      , %REG_DWORD%, 0x00000000
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, Enabled    , %REG_DWORD%, 0
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, EnableFlags, %REG_DWORD%, 0xFFFF
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, EnableLevel, %REG_DWORD%, 5
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , FileName   , %REG_SZ%   , ""
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , Guid       , %REG_SZ%   , "{e09f3fb2-7e00-46e2-97ce-444491b97f68}"
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , LogFileMode, %REG_DWORD%, 0x10080100
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\OCMEM                                       , Start      , %REG_DWORD%, 0x00000000
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, Enabled    , %REG_DWORD%, 0
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, EnableFlags, %REG_DWORD%, 0xFFFF
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, EnableLevel, %REG_DWORD%, 5
 
 [OCMEM_SoftwareDeviceSettings]
 HKR, , PowerManaged    , %REG_DWORD%,  1
@@ -90,8 +90,8 @@ HKR, , EnableGuardPages, %REG_DWORD%,  1
 [OCMEM_Device.NT.Services]
 AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_Service_Inst
 
-[OCMEM_64_Device.NT.Services]
-AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_64_Service_Inst
+[OCMEM_Device.NTarm64.Services]
+AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_Service_Inst.NTarm64
 
 ; -------------- OCMEM driver install sections
 [OCMEM_Service_Inst]
@@ -102,7 +102,7 @@ ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcocmem8994.sys
 AddReg        = OCMEM_SoftwareDeviceSettings
 
-[OCMEM_64_Service_Inst]
+[OCMEM_Service_Inst.NTarm64]
 DisplayName   = %OCMEM.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
@@ -113,7 +113,7 @@ AddReg        = OCMEM_SoftwareDeviceSettings
 [OCMEM_Device.NT.Wdf]
 KmdfService = qcocmem, OCMEM_wdfsect
 
-[OCMEM_64_Device.NT.Wdf]
+[OCMEM_Device.NTarm64.Wdf]
 KmdfService = qcocmem, OCMEM_wdfsect
 
 [OCMEM_wdfsect]
@@ -121,7 +121,7 @@ KmdfLibraryVersion = 1.13
 
 [Strings]
 ;Localizable Strings
-QC                     = "Qualcomm Technologies Inc. 2013"
+QC                     = "Qualcomm Technologies, Inc."
 OCMEM.DeviceDesc       = "Qualcomm OCMEM Device"
 OCMEM.SVCDESC          = "Qualcomm OCMEM Driver"
 DiskId                 = "Qualcomm OCMEM Driver Installation Disk"

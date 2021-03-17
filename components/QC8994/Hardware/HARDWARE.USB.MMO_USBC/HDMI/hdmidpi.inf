@@ -1,13 +1,13 @@
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = USB
 ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %ProviderName%
 DriverVer   = 01/01/2021,0.6.0000.0
 PnpLockdown = 1
 
-CatalogFile.NTARM   = hdmidpi.arm.cat
-CatalogFile.NTARM64 = hdmidpi.arm64.cat
+CatalogFile.NTarm   = hdmidpi.arm.cat
+CatalogFile.NTarm64 = hdmidpi.arm64.cat
 
 [SourceDisksNames]
 3426=windows cd
@@ -22,26 +22,26 @@ hdmidpi.sys = 3426,arm,
 hdmidpi.sys = 3426,arm64,
 
 [Manufacturer]
-%ManufacturerName%=MMO,NTARM,NTARM64
+%ManufacturerName%=MMO,NTarm,NTarm64
 
-[MMO.NTARM]
+[MMO.NTarm]
 %DeviceDescription%=hdmidpi_Inst,ACPI\MSHW1007
 
-[MMO.NTARM64]
-%DeviceDescription%=hdmidpi_64_Inst,ACPI\MSHW1007
+[MMO.NTarm64]
+%DeviceDescription%=hdmidpi_Inst,ACPI\MSHW1007
 
 [hdmidpi_Inst.NT]
 CopyFiles=HdmiDpiDriversCopyFiles
 AddReg=HdmiDpiDriver_SecurityAddReg
 
-[hdmidpi_64_Inst.NT]
+[hdmidpi_Inst.NTarm64]
 CopyFiles=HdmiDpiDriversCopyFiles
 AddReg=HdmiDpiDriver_SecurityAddReg
 
 [hdmidpi_Inst.NT.HW]
 AddReg=HdmiDpiDriver_SecurityAddReg
 
-[hdmidpi_64_Inst.NT.HW]
+[hdmidpi_Inst.NTarm64.HW]
 AddReg=HdmiDpiDriver_SecurityAddReg
 
 [HdmiDpiDriversCopyFiles]
@@ -53,8 +53,8 @@ HKR,,DeviceCharacteristics,0x10001,0x100
 [hdmidpi_Inst.NT.Services]
 AddService = hdmidpi,%SPSVCINST_ASSOCSERVICE%,hdmidpi_Service_Inst
 
-[hdmidpi_64_Inst.NT.Services]
-AddService = hdmidpi,%SPSVCINST_ASSOCSERVICE%,hdmidpi_64_Service_Inst
+[hdmidpi_Inst.NTarm64.Services]
+AddService = hdmidpi,%SPSVCINST_ASSOCSERVICE%,hdmidpi_Service_Inst.NTarm64
 
 [hdmidpi_Service_Inst]
 DisplayName    = %DisplayName%
@@ -64,7 +64,7 @@ ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\hdmidpi.sys
 LoadOrderGroup = Base
 
-[hdmidpi_64_Service_Inst]
+[hdmidpi_Service_Inst.NTarm64]
 DisplayName    = %DisplayName%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START

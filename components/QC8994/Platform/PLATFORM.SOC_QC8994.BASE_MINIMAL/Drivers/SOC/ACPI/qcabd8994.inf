@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    ABD.inx
@@ -12,15 +12,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0
 PnPLockdown = 1
 
-CatalogFile.NTARM   = qcabd8994.arm.cat
-CatalogFile.NTARM64 = qcabd8994.arm64.cat
+CatalogFile.NTarm   = qcabd8994.arm.cat
+CatalogFile.NTarm64 = qcabd8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -37,13 +37,13 @@ qcabd8994.sys = 1,arm
 qcabd8994.sys = 1,arm64
 
 [Manufacturer]
-%QC% = QC, NTARM, NTARM64
+%QC% = QC, NTarm, NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %ABD.DeviceDesc% = ABD_Device, ACPI\QCOM2431
 
-[QC.NTARM64]
-%ABD.DeviceDesc% = ABD_64_Device, ACPI\QCOM2431
+[QC.NTarm64]
+%ABD.DeviceDesc% = ABD_Device, ACPI\QCOM2431
 
 [ABD_Device.NT]
 CopyFiles   = Drivers_Dir
@@ -51,7 +51,7 @@ AddReg      = AbdReg
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[ABD_64_Device.NT]
+[ABD_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddReg      = AbdReg
 AddProperty = WDTFSOCDeviceCategory
@@ -63,7 +63,7 @@ HKLM, System\CurrentControlSet\Control\ACPIEX, ComplianceFlags, %REG_DWORD%,  0x
 [ABD_Device.NT.HW]
 Addreg = AbdACL
 
-[ABD_64_Device.NT.HW]
+[ABD_Device.NTarm64.HW]
 Addreg = AbdACL
 
 [AbdACL]
@@ -82,8 +82,8 @@ ExcludeFromSelect = *
 [ABD_Device.NT.Services]
 AddService = qcABD,%SPSVCINST_ASSOCSERVICE%, ABD_Service_Inst
 
-[ABD_64_Device.NT.Services]
-AddService = qcABD,%SPSVCINST_ASSOCSERVICE%, ABD_64_Service_Inst
+[ABD_Device.NTarm64.Services]
+AddService = qcABD,%SPSVCINST_ASSOCSERVICE%, ABD_Service_Inst.NTarm64
 
 ; -------------- ABD driver install sections
 [ABD_Service_Inst]
@@ -93,7 +93,7 @@ StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcabd8994.sys
 
-[ABD_64_Service_Inst]
+[ABD_Service_Inst.NTarm64]
 DisplayName   = %ABD.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
@@ -103,14 +103,14 @@ ServiceBinary = %13%\arm64\qcabd8994.sys
 ; Checks for compatibility with KMDF version
 [ABD_Device.NT.Wdf]
 KmdfService = qcABD, ABD_wdfsect
-[ABD_64_Device.NT.Wdf]
+[ABD_Device.NTarm64.Wdf]
 KmdfService = qcABD, ABD_wdfsect
 [ABD_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QC                     = "Qualcomm Technologies Inc."
+QC                     = "Qualcomm Technologies, Inc."
 ABD.DeviceDesc         = "Qualcomm(R) ACPI Bridge Device"
 ABD.SVCDESC            = "Qualcomm(R) ACPI Bridge Device"
 REG_DWORD              = 0x00010001

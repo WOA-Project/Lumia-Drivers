@@ -10,8 +10,8 @@ Provider    = %Manufacturer_Name%
 DriverVer   = 07/02/2015,1.0.1067.0
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcuart8994.arm.cat
-CatalogFile.NTARM64 = qcuart8994.arm64.cat
+CatalogFile.NTarm   = qcuart8994.arm.cat
+CatalogFile.NTarm64 = qcuart8994.arm64.cat
 
 [SourceDisksNames]
 1 = %Disk_Description%
@@ -29,25 +29,25 @@ DefaultDestDir = 13 ; Windows\System32\Drivers
 ExcludeFromSelect = *
 
 [Manufacturer]
-%Manufacturer_Name% = Qualcomm_Models, NTARM, NTARM64
+%Manufacturer_Name% = Qualcomm_Models, NTarm, NTarm64
 
-[Qualcomm_Models.NTARM]
+[Qualcomm_Models.NTarm]
 %Device_Description% = UART_Install, ACPI\QCOM2424
 
-[Qualcomm_Models.NTARM64]
-%Device_Description% = UART_64_Install, ACPI\QCOM2424
+[Qualcomm_Models.NTarm64]
+%Device_Description% = UART_Install, ACPI\QCOM2424
 
 [UART_Install]
 CopyFiles = @qcuart8994.sys
 
-[UART_64_Install]
+[UART_Install.NTarm64]
 CopyFiles = @qcuart8994.sys
 
 [UART_Install.Services]
 AddService = qcuart, 0x00000002, UART_Service_Install
 
-[UART_64_Install.Services]
-AddService = qcuart, 0x00000002, UART_64_Service_Install
+[UART_Install.NTarm64.Services]
+AddService = qcuart, 0x00000002, UART_Service_Install.NTarm64
 
 [UART_Service_Install]
 DisplayName   = %Service_Name%
@@ -56,7 +56,7 @@ StartType     = 3 ; SERVICE_DEMAND_START
 ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcuart8994.sys
 
-[UART_64_Service_Install]
+[UART_Service_Install.NTarm64]
 DisplayName   = %Service_Name%
 ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
 StartType     = 3 ; SERVICE_DEMAND_START
@@ -66,7 +66,7 @@ ServiceBinary = %13%\arm64\qcuart8994.sys
 [UART_Install.Wdf]
 KmdfService = qcuart, UART_wdfsect
 
-[UART_64_Install.Wdf]
+[UART_Install.NTarm64.Wdf]
 KmdfService = qcuart, UART_wdfsect
 
 [UART_wdfsect]

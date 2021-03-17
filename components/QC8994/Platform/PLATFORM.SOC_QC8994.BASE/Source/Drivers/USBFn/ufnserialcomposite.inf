@@ -16,15 +16,15 @@
 ;==============================================================================*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = QCComposite.arm.cat
-CatalogFile.NTARM64 = QCComposite.arm64.cat
+CatalogFile.NTarm   = QCComposite.arm.cat
+CatalogFile.NTarm64 = QCComposite.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -34,10 +34,10 @@ DefaultDestDir = 13
 ;*****************************************
 
 [Manufacturer]
-%StdMfg% = Standard, NTARM, NTARM64
+%StdMfg% = Standard, NTarm, NTarm64
 
 ; For ARM platforms
-[Standard.NTARM]
+[Standard.NTarm]
 ; DisplayName                   Section           DeviceId
 ; -----------                   -------           --------
 %QCCompositeDevice.DeviceDesc3_SER% = UfnBus_Child_03_SER, USBFN\TRACE
@@ -50,17 +50,17 @@ DefaultDestDir = 13
 %QCCompositeDevice.DeviceDesc3_DPL% = UfnBus_Child_03_DPL, USBFN\DPL
 
 ; For ARM64 platforms
-[Standard.NTARM64]
+[Standard.NTarm64]
 ; DisplayName                   Section           DeviceId
 ; -----------                   -------           --------
-%QCCompositeDevice.DeviceDesc3_SER% = UfnBus_64_Child_03_SER, USBFN\TRACE
+%QCCompositeDevice.DeviceDesc3_SER% = UfnBus_Child_03_SER, USBFN\TRACE
 
-%QCCompositeDevice.DeviceDesc1_NET% = UfnBus_64_Child_01_NET, USBFN\NMEA
+%QCCompositeDevice.DeviceDesc1_NET% = UfnBus_Child_01_NET, USBFN\NMEA
 
-%QCCompositeDevice.DeviceDesc0_DPL% = UfnBus_64_Child_00_DPL, USBFN\DIAG
-%QCCompositeDevice.DeviceDesc1_DPL% = UfnBus_64_Child_01_DPL, USBFN\MODEM
-%QCCompositeDevice.DeviceDesc2_DPL% = UfnBus_64_Child_02_DPL, USBFN\RMNET
-%QCCompositeDevice.DeviceDesc3_DPL% = UfnBus_64_Child_03_DPL, USBFN\DPL
+%QCCompositeDevice.DeviceDesc0_DPL% = UfnBus_Child_00_DPL, USBFN\DIAG
+%QCCompositeDevice.DeviceDesc1_DPL% = UfnBus_Child_01_DPL, USBFN\MODEM
+%QCCompositeDevice.DeviceDesc2_DPL% = UfnBus_Child_02_DPL, USBFN\RMNET
+%QCCompositeDevice.DeviceDesc3_DPL% = UfnBus_Child_03_DPL, USBFN\DPL
 
 ;[UfnBus_Child_00_SER]
 ;CopyFiles = UfnBus_Child.Copy
@@ -146,86 +146,86 @@ AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 
 ; ARM64
 
-;[UfnBus_64_Child_00_SER]
+;[UfnBus_Child_00_SER.NTarm64]
 ;CopyFiles = UfnBus_Child.Copy
-;[UfnBus_64_Child_01_SER]
+;[UfnBus_Child_01_SER.NTarm64]
 ;CopyFiles = UfnBus_Child.Copy
-;[UfnBus_64_Child_02_SER]
+;[UfnBus_Child_02_SER.NTarm64]
 ;CopyFiles = UfnBus_Child.Copy
-[UfnBus_64_Child_03_SER]
+[UfnBus_Child_03_SER.NTarm64]
 CopyFiles = UfnBus_Child.Copy
 
-;[UfnBus_64_Child_00_NET]
+;[UfnBus_Child_00_NET.NTarm64]
 ;CopyFiles = UfnBus_Child.Copy
-[UfnBus_64_Child_01_NET]
+[UfnBus_Child_01_NET.NTarm64]
 CopyFiles = UfnBus_Child.Copy
-;[UfnBus_64_Child_02_NET]
+;[UfnBus_Child_02_NET.NTarm64]
 ;CopyFiles = UfnBus_Child.Copy
-;[UfnBus_64_Child_03_NET]
+;[UfnBus_Child_03_NET.NTarm64]
 ;CopyFiles = UfnBus_Child.Copy
 
-[UfnBus_64_Child_00_DPL]
+[UfnBus_Child_00_DPL.NTarm64]
 CopyFiles = UfnBus_Child.Copy
-[UfnBus_64_Child_01_DPL]
+[UfnBus_Child_01_DPL.NTarm64]
 CopyFiles = UfnBus_Child.Copy
-[UfnBus_64_Child_02_DPL]
+[UfnBus_Child_02_DPL.NTarm64]
 CopyFiles = UfnBus_Child.Copy
-[UfnBus_64_Child_03_DPL]
+[UfnBus_Child_03_DPL.NTarm64]
 CopyFiles = UfnBus_Child.Copy
 
 ;-------------- Interface specific information
-;[UfnBus_64_Child_00_SER.HW]
+;[UfnBus_Child_00_SER.NTarm64.HW]
 ;AddReg = UfnBus_DIAG_AddReg, DeviceConfigurationReg
-;[UfnBus_64_Child_01_SER.HW]
+;[UfnBus_Child_01_SER.NTarm64.HW]
 ;AddReg = UfnBus_MODEM_AddReg, DeviceConfigurationReg
-;[UfnBus_64_Child_02_SER.HW]
+;[UfnBus_Child_02_SER.NTarm64.HW]
 ;AddReg = UfnBus_NMEA_AddReg, DeviceConfigurationReg
-[UfnBus_64_Child_03_SER.HW]
+[UfnBus_Child_03_SER.NTarm64.HW]
 AddReg = UfnBus_TRACE_AddReg, DeviceConfigurationReg
 
-;[UfnBus_64_Child_00_NET.HW]
+;[UfnBus_Child_00_NET.NTarm64.HW]
 ;AddReg = UfnBus_DIAG_AddReg, DeviceConfigurationReg
-[UfnBus_64_Child_01_NET.HW]
+[UfnBus_Child_01_NET.NTarm64.HW]
 AddReg = UfnBus_NMEA_AddReg, DeviceConfigurationReg
-;[UfnBus_64_Child_02_NET.HW]
+;[UfnBus_Child_02_NET.NTarm64.HW]
 ;AddReg = UfnBus_MODEM_AddReg, DeviceConfigurationReg
-;[UfnBus_64_Child_03_NET.HW]
+;[UfnBus_Child_03_NET.NTarm64.HW]
 ;AddReg = UfnBus_RMNET_AddReg, DeviceConfigurationReg
 
-[UfnBus_64_Child_00_DPL.HW]
+[UfnBus_Child_00_DPL.NTarm64.HW]
 AddReg = UfnBus_DIAG_AddReg, DeviceConfigurationReg
-[UfnBus_64_Child_01_DPL.HW]
+[UfnBus_Child_01_DPL.NTarm64.HW]
 AddReg = UfnBus_MODEM_AddReg, DeviceConfigurationReg
-[UfnBus_64_Child_02_DPL.HW]
+[UfnBus_Child_02_DPL.NTarm64.HW]
 AddReg = UfnBus_RMNET_AddReg, DeviceConfigurationReg
-[UfnBus_64_Child_03_DPL.HW]
+[UfnBus_Child_03_DPL.NTarm64.HW]
 AddReg = UfnBus_DPL_AddReg, DeviceConfigurationReg
 
 ;-------------- Service installation
-;[UfnBus_64_Child_00_SER.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-;[UfnBus_64_Child_01_SER.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-;[UfnBus_64_Child_02_SER.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-[UfnBus_64_Child_03_SER.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-;[UfnBus_64_Child_00_NET.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-[UfnBus_64_Child_01_NET.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-;[UfnBus_64_Child_02_NET.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-;[UfnBus_64_Child_03_NET.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-[UfnBus_64_Child_00_DPL.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-[UfnBus_64_Child_01_DPL.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-[UfnBus_64_Child_02_DPL.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
-[UfnBus_64_Child_03_DPL.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_64_Service_Inst
+;[UfnBus_Child_00_SER.NTarm64.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;[UfnBus_Child_01_SER.NTarm64.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;[UfnBus_Child_02_SER.NTarm64.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+[UfnBus_Child_03_SER.NTarm64.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;[UfnBus_Child_00_NET.NTarm64.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+[UfnBus_Child_01_NET.NTarm64.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;[UfnBus_Child_02_NET.NTarm64.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;[UfnBus_Child_03_NET.NTarm64.Services]
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+[UfnBus_Child_00_DPL.NTarm64.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+[UfnBus_Child_01_DPL.NTarm64.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+[UfnBus_Child_02_DPL.NTarm64.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+[UfnBus_Child_03_DPL.NTarm64.Services]
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
 
 
 [ufnserialclass_Service_Inst]
@@ -238,14 +238,14 @@ ServiceBinary = %13%\arm\ufnserialclass.sys
 ;AddReg         = ufnserialclass_Service_Inst.AddReg
 AddReg        = DeviceReg
 
-[ufnserialclass_64_Service_Inst]
+[ufnserialclass_Service_Inst.NTarm64]
 DisplayName   = %QCCompositeDevice.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 0               ; SERVICE_BOOT_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
 ServiceBinary = %13%\arm64\ufnserialclass.sys
-;AddReg         = ufnserialclass_64_Service_Inst.AddReg
+;AddReg         = ufnserialclass_Service_Inst.NTarm64.AddReg
 AddReg        = DeviceReg
 
 ; COMMON ARM-ARM64
@@ -319,7 +319,7 @@ hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn          
 hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , bDeviceClass                  , 0x00010001, 0x00000000
 hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , idVendor                      , 0x00010001, 0x000005C6
 hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , bDeviceSubClass               , 0x00010001, 0x00000000
-hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , ManufacturerString            , 0x00000000, "QUALCOMM"
+hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , ManufacturerString            , 0x00000000, "Qualcomm"
 hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , iProduct                      , 0x00010001, 0x00000002
 hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn                                           , bDeviceProtocol               , 0x00010001, 0x00000000
 hklm, system\currentcontrolset\control\manufacturingmode\factory\usbfn\configurations\default                    , MSOSCompatIdDescriptor        , 0x00000001, 28,00,00,00,00,01,04,00,01,00,00,00,00,00,00,00,00,01,4D,54,50,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
@@ -361,7 +361,7 @@ hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn    
 hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , bDeviceClass                  , 0x00010001, 0x00000000
 hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , idVendor                      , 0x00010001, 0x000005C6
 hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , bDeviceSubClass               , 0x00010001, 0x00000000
-hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , ManufacturerString            , 0x00000000, "QUALCOMM"
+hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , ManufacturerString            , 0x00000000, "Qualcomm"
 hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , iProduct                      , 0x00010001, 0x00000002
 hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn                                     , bDeviceProtocol               , 0x00010001, 0x00000000
 hklm, system\currentcontrolset\control\manufacturingmode\factoryfullos\usbfn\configurations\default              , MSOSCompatIdDescriptor        , 0x00000001, 58,00,00,00,00,01,04,00,03,00,00,00,00,00,00,00,00,01,4D,54,50,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,01,57,49,4E,55,53,42,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,02,01,57,49,4E,55,53,42,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
@@ -482,7 +482,7 @@ ufnserialclass.sys = 1,arm64,
 
 [Strings]
 SPSVCINST_ASSOCSERVICE            = 0x00000002
-QCOM                              = "Qualcomm"
+QCOM                              = "Qualcomm Technologies, Inc."
 StdMfg                            = "(Standard system devices)"
 ClassName                         = "USB Serial Class"
 DiskId1                           = "SerialClass Device Installation Disk #1"

@@ -12,8 +12,8 @@ Provider       = %QCA%
 DriverVer      = 07/02/2015,2.3.0.6
 PnpLockDown    = 1
 
-CatalogFile.NTARM   = qcbtuart8994.arm.cat
-CatalogFile.NTARM64 = qcbtuart8994.arm64.cat
+CatalogFile.NTarm   = qcbtuart8994.arm.cat
+CatalogFile.NTarm64 = qcbtuart8994.arm64.cat
 
 [DestinationDirs]
 BTUART.Files = 13
@@ -31,13 +31,13 @@ qcbtuart8994.sys     = 1,arm64,
 ExcludeFromSelect = *
 
 [Manufacturer]
-%QCA% = QCABT,NTARM,NTARM64
+%QCA% = QCABT,NTarm,NTarm64
 
-[QCABT.NTARM]
+[QCABT.NTarm]
 %UartBtAPQ8994% = QCABTUART, ACPI\QCOM24B2
 
-[QCABT.NTARM64]
-%UartBtAPQ8994% = QCABTUART_64, ACPI\QCOM24B2
+[QCABT.NTarm64]
+%UartBtAPQ8994% = QCABTUART, ACPI\QCOM24B2
 
 [QCABTUART.NT]
 CopyFiles = BTUART.Files
@@ -48,14 +48,14 @@ AddReg = BTUART.HW.AddReg
 [QCABTUART.NT.Services]
 AddService = QcBluetooth,0x00000002,BTUART_Service
 
-[QCABTUART_64.NT]
+[QCABTUART.NTarm64]
 CopyFiles = BTUART.Files
 
-[QCABTUART_64.NT.HW]
+[QCABTUART.NTarm64.HW]
 AddReg = BTUART.HW.AddReg
 
-[QCABTUART_64.NT.Services]
-AddService = QcBluetooth,0x00000002,BTUART_64_Service
+[QCABTUART.NTarm64.Services]
+AddService = QcBluetooth,0x00000002,BTUART_Service.NTarm64
 
 [BTUART.Files]
 qcbtuart8994.sys
@@ -73,7 +73,7 @@ ServiceBinary = %13%\arm\qcbtuart8994.sys
 AddReg        = BTUART_Service.AddReg, WPPReg
 AddProperty   = WDTFSOCDeviceCategory
 
-[BTUART_64_Service]
+[BTUART_Service.NTarm64]
 DisplayName   = %SvcDispName%
 ServiceType   = 1  ; SERVICE_KERNEL_DRIVER
 StartType     = 3  ; SERVICE_DEMAND_START
@@ -127,15 +127,15 @@ HKR, Parameters, DynamicSwitch                    , 0x10001, 0
 
 
 [WPPReg]
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTUart                                       , Start      , %REG_DWORD%, 0x0
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTUart                                       , Guid       , %REG_SZ%   , "{625DA9FD-B3B2-41F5-A731-36A59AF561DC}"
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, Enabled    , %REG_DWORD%, 0x1
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, EnableFlags, %REG_DWORD%, 0xFFFF
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, EnableLevel, %REG_DWORD%, 0x5
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart                                       , Start      , %REG_DWORD%, 0x0
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart                                       , Guid       , %REG_SZ%   , "{625DA9FD-B3B2-41F5-A731-36A59AF561DC}"
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, Enabled    , %REG_DWORD%, 0x1
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, EnableFlags, %REG_DWORD%, 0xFFFF
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, EnableLevel, %REG_DWORD%, 0x5
 
 
 [Strings]
-QCA           = "Qualcomm Atheros Communications Inc."
+QCA           = "Qualcomm Technologies, Inc."
 SourceDisk    = "Qualcomm Atheros Bluetooth Extensibility Transport Driver Installation Disk"
 SvcDispName   = "Qualcomm(R) Bluetooth Device"
 UartBTAPQ8994 = "Qualcomm(R) Bluetooth Device"

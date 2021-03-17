@@ -1,6 +1,6 @@
 ;/*++
 ;
-;   Copyright (c) 2008-2014 QUALCOMM Technologies Incorporated.
+;   Copyright (c) 2008-2014 Qualcomm Technologies Incorporated.
 ;               All Rights Reserved.
 ;               Qualcomm Confidential and Proprietary
 ;
@@ -12,15 +12,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcqdss8994.arm.cat
-CatalogFile.NTARM64 = qcqdss8994.arm64.cat
+CatalogFile.NTarm   = qcqdss8994.arm.cat
+CatalogFile.NTarm64 = qcqdss8994.arm64.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -41,20 +41,20 @@ ExcludeFromSelect = *
 ; QDSS Install Section
 ;*****************************************
 [Manufacturer]
-%QUALCOMM% = Standard,NTarm, NTarm64
+%Qualcomm% = Standard,NTarm, NTarm64
 
 [Standard.NTarm]
 %QDSS.DeviceDesc% = QDSS_Device, ACPI\QCOM247D
 
 [Standard.NTarm64]
-%QDSS.DeviceDesc% = QDSS_64_Device, ACPI\QCOM247D
+%QDSS.DeviceDesc% = QDSS_Device, ACPI\QCOM247D
 
 [QDSS_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[QDSS_64_Device.NT]
+[QDSS_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -69,14 +69,14 @@ qcqdss8994.sys
 [QDSS_Device.NT.Services]
 AddService = qcQDSS,%SPSVCINST_ASSOCSERVICE%, QDSS_Service_Inst
 
-[QDSS_64_Device.NT.Services]
-AddService = qcQDSS,%SPSVCINST_ASSOCSERVICE%, QDSS_64_Service_Inst
+[QDSS_Device.NTarm64.Services]
+AddService = qcQDSS,%SPSVCINST_ASSOCSERVICE%, QDSS_Service_Inst.NTarm64
 
 ;-------------- HW installation
 [QDSS_Device.NT.HW]
 addreg = QDSSSD
 
-[QDSS_64_Device.NT.HW]
+[QDSS_Device.NTarm64.HW]
 addreg = QDSSSD
 
 [QDSSSD]
@@ -92,7 +92,7 @@ LoadOrderGroup = Base
 ServiceBinary  = %13%\arm\qcqdss8994.sys
 addreg         = QDSSCONFIG
 
-[QDSS_64_Service_Inst]
+[QDSS_Service_Inst.NTarm64]
 DisplayName    = %QDSS.SVCDESC%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_BOOT_START%
@@ -225,14 +225,14 @@ HKR, Parameters\Dump\QDSS\TimeStamp       , dumpInterval           , 0x00010001,
 ; Checks for compatibility with KMDF version
 [QDSS_Device.NT.Wdf]
 KmdfService = qcQDSS, QDSS_wdfsect
-[QDSS_64_Device.NT.Wdf]
+[QDSS_Device.NTarm64.Wdf]
 KmdfService = qcQDSS, QDSS_wdfsect
 [QDSS_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QUALCOMM               = "Qualcomm Inc."
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "QDSS Installation Disk"
 QDSS.DeviceDesc        = "Qualcomm QDSS Device"
 QDSS.SVCDESC           = "Qualcomm QDSS Driver"

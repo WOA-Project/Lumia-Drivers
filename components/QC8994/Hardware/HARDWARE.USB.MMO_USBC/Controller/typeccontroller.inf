@@ -2,15 +2,15 @@
 ; TypeCController.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = USB
 ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %VendorName%
 DriverVer   = 03/03/2021,2.00.00.01
 PnpLockdown = 1
 
-CatalogFile.NTARM   = typeccontroller.arm.cat
-CatalogFile.NTARM64 = typeccontroller.arm64.cat
+CatalogFile.NTarm   = typeccontroller.arm.cat
+CatalogFile.NTarm64 = typeccontroller.arm64.cat
 
 [DestinationDirs]
 Drivers_Dir       = 13
@@ -21,7 +21,7 @@ DreamLifter.Files = 10,SysArm32
 1 = %MediaDescription%,,,""
 
 [Manufacturer]
-%ManufacturerName% = Standard, NTARM, NTARM64
+%ManufacturerName% = Standard, NTarm, NTarm64
 
 [SourceDisksFiles.ARM]
 tyc.dll           = 1,arm,
@@ -32,13 +32,13 @@ tyc.dll           = 1,arm64,
 WppRecorderUM.dll = 1,arm64,
 
 
-[Standard.NTARM]
+[Standard.NTarm]
 %DevDesc%=tyc_Inst, umdf2\tyc
 %DevDesc%=tyc_Inst, ACPI\LUMI0002
 
-[Standard.NTARM64]
-%DevDesc%=tyc_64_Inst, umdf2\tyc
-%DevDesc%=tyc_64_Inst, ACPI\LUMI0002
+[Standard.NTarm64]
+%DevDesc%=tyc_Inst, umdf2\tyc
+%DevDesc%=tyc_Inst, ACPI\LUMI0002
 
 ;---------------- copy files
 
@@ -46,7 +46,7 @@ WppRecorderUM.dll = 1,arm64,
 CopyFiles = tycDriverCopy
 AddReg    = WdfExt_AddReg
 
-[tyc_64_Inst.nt]
+[tyc_Inst.NTarm64.nt]
 CopyFiles = tycDriverCopy
 AddReg    = WdfExt_AddReg
 
@@ -56,14 +56,14 @@ tyc.dll
 [tyc_Inst.NT.HW]
 AddReg = tyc_Inst_SecurityAddReg
 
-[tyc_64_Inst.NT.HW]
+[tyc_Inst.NTarm64.HW]
 AddReg = tyc_Inst_SecurityAddReg
 
 ;-------------- Service installation
 [tyc_Inst.NT.Services]
 AddService = WUDFRd, 0x000001fa, WUDFRD_ServiceInstall
 
-[tyc_64_Inst.NT.Services]
+[tyc_Inst.NTarm64.Services]
 AddService = WUDFRd, 0x000001fa, WUDFRD_ServiceInstall
 
 [WUDFRD_ServiceInstall]
@@ -84,8 +84,8 @@ UmdfHostProcessSharing      = ProcessSharingDisabled
 UmdfImpersonationLevel      = Impersonation
 UmdfKernelModeClientPolicy  = AllowKernelModeClients
 
-[tyc_64_Inst.NT.Wdf]
-UmdfService                 = tyc, tyc_64_Install
+[tyc_Inst.NTarm64.Wdf]
+UmdfService                 = tyc, tyc_Install.NTarm64
 UmdfServiceOrder            = tyc
 UmdfDirectHardwareAccess    = AllowDirectHardwareAccess
 UmdfFileObjectPolicy        = AllowNullAndUnknownFileObjects
@@ -98,13 +98,13 @@ UmdfLibraryVersion       = 2.15.0
 ServiceBinary            = %13%\arm\tyc.dll
 UmdfExtensions           = UcmCx0102
 
-[tyc_64_Install]
+[tyc_Install.NTarm64]
 UmdfLibraryVersion       = 2.15.0
 ServiceBinary            = %13%\arm64\tyc.dll
 UmdfExtensions           = UcmCx0102
 
 [WdfExt_AddReg]
-HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\WUDF\Services\tyc\Parameters", "EnableDisplay", 0x10001, 1
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\tyc\Parameters", "EnableDisplay", 0x10001, 1
 
 [tyc_Inst_SecurityAddReg]
 HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"    ; Allow all UMDF drivers to access this driver

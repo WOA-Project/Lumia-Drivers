@@ -1,6 +1,6 @@
 ; 
-; Copyright (C) 2012 QUALCOMM Incorporated.
-; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+; Copyright (C) 2012 Qualcomm Incorporated.
+; All Rights Reserved. Qualcomm Proprietary and Confidential.
 ;
 ; Module Name:
 ;
@@ -11,15 +11,15 @@
 ;    Inf file for Qualcomm Shutdown Service
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 09/09/2015,1.0.1067.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = qcshutdownsvc8994.arm.cat
-CatalogFile.NTARM64 = qcshutdownsvc8994.arm64.cat
+CatalogFile.NTarm   = qcshutdownsvc8994.arm.cat
+CatalogFile.NTarm64 = qcshutdownsvc8994.arm64.cat
 
 [DestinationDirs]
 ShutdownSvc.Files = 13 ; \system32 directory on Windows 2000 and later versions
@@ -34,26 +34,26 @@ QcShutdownSvc8994.dll = 0,arm,
 QcShutdownSvc8994.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTARM,NTARM64
+%QC%=QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %ShutdownSvc.DeviceDesc%=ShutdownSvc, SWC\VID_QCOM&PID_2425&SID_0002
 
-[QC.NTARM64]
+[QC.NTarm64]
 %ShutdownSvc.DeviceDesc%=ShutdownSvc, SWC\VID_QCOM&PID_2425&SID_0002
 
-[ShutdownSvc.NTARM]
+[ShutdownSvc.NTarm]
 CopyFiles = ShutdownSvc.Files
 AddReg    = ShutdownSvc_Reg, ShutdownSvc_path_Reg
 
-[ShutdownSvc.NTARM64]
+[ShutdownSvc.NTarm64]
 CopyFiles = ShutdownSvc.Files
-AddReg    = ShutdownSvc_Reg, ShutdownSvc_path_64_Reg
+AddReg    = ShutdownSvc_Reg, ShutdownSvc_path_Reg.NTarm64
 
-[ShutdownSvc.NTARM.Services]
+[ShutdownSvc.NTarm.Services]
 AddService = QcShutdownSvc,0x00000000,ShutdownSvc_Service,
 
-[ShutdownSvc.NTARM64.Services]
+[ShutdownSvc.NTarm64.Services]
 AddService = QcShutdownSvc,0x00000000,ShutdownSvc_Service,
 
 ;ServiceType = 0x110
@@ -72,44 +72,44 @@ ErrorControl  = 0
 ServiceBinary = "%%systemroot%%\system32\svchost.exe -k QcShutdownSvcGroup"
 
 [ShutdownSvc_Reg]
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ObjectName", 0x00000000, "LocalSystem"
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ErrorControl", 0x00010001, 0x00000000
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ServiceSidType", 0x00010001, 0x00000001
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "FailureActions", 0x00000001, \
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "ObjectName", 0x00000000, "LocalSystem"
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "ErrorControl", 0x00010001, 0x00000000
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "ServiceSidType", 0x00010001, 0x00000001
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "FailureActions", 0x00000001, \
 	80,51,01,00,00,00,00,00,00,00,00,00,04,00,00, \ ; Q·············
 	00,14,00,00,00,01,00,00,00,E8,03,00,00,01,00, \ ; ·········è·····
 	00,00,E8,03,00,00,01,00,00,00,E8,03,00,00,00, \ ; ··è·······è····
 	00,00,00,00,00,00,00                            ; ·······
 
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Type", 0x00010001, 0x00000020
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "RequiredPrivileges", 0x00010008, \
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "Type", 0x00010001, 0x00000020
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "RequiredPrivileges", 0x00010008, \
 	"SeShutdownPrivilege", "SeChangeNotifyPrivilege", "SeIncreaseWorkingSetPrivilege", "SeCreateGlobalPrivilege"
 
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "PreshutdownTimeout", 0x00010001, 0x00004E20
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "DisplayName", 0x00000000, "QcShutdownSvc"
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "Description", 0x00000000, "QC SOC Shutdown Service"
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc", "ImagePath", 0x00020000, "%%SystemRoot%%\System32\oemsvchost.exe -k QcShutdownSvcGroup"
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "PreshutdownTimeout", 0x00010001, 0x00004E20
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "DisplayName", 0x00000000, "QcShutdownSvc"
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "Description", 0x00000000, "QC SOC Shutdown Service"
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc", "ImagePath", 0x00020000, "%%SystemRoot%%\System32\oemsvchost.exe -k QcShutdownSvcGroup"
 
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceMain", 0x00000000, "ServiceMain"
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDllUnloadOnStop", 0x00010001, 0x00000001
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc\Parameters", "ServiceMain", 0x00000000, "ServiceMain"
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc\Parameters", "ServiceDllUnloadOnStop", 0x00010001, 0x00000001
 
-HKLM, "SYSTEM\CurrentControlSet\Control\ManufacturingMode\Default\Services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
-HKLM, "SYSTEM\CurrentControlSet\Control\ManufacturingMode\factory\Services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
+HKLM, "System\CurrentControlSet\Control\ManufacturingMode\Default\Services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
+HKLM, "System\CurrentControlSet\Control\ManufacturingMode\factory\Services\QcShutdownSvc", "Start", 0x00010001, 0x00000002
 
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", QcShutdownSvcGroup, %REG_MULTI_SZ% , "QcShutdownSvc"
 
 [ShutdownSvc_path_Reg]
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%13%\arm\QcShutdownSvc8994.dll"
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%13%\arm\QcShutdownSvc8994.dll"
 
-[ShutdownSvc_path_64_Reg]
-HKLM, "SYSTEM\ControlSet001\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%13%\arm64\QcShutdownSvc8994.dll"
+[ShutdownSvc_path_Reg.NTarm64]
+HKLM, "System\CurrentControlSet\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%13%\arm64\QcShutdownSvc8994.dll"
 
 [ShutdownSvc.Files]
 QcShutdownSvc8994.dll
 
 [Strings]
-QC                     = "Qualcomm"
+QC                     = "Qualcomm Technologies, Inc."
 ShutdownSvc.DeviceDesc = "Qualcomm SOC Shutdown Service"
 
 REG_SZ        = 0x00000000

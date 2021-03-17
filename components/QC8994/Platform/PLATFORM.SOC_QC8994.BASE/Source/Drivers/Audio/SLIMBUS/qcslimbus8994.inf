@@ -14,15 +14,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %ManufacturerName%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcslimbus8994.arm.cat
-CatalogFile.NTARM64 = qcslimbus8994.arm64.cat
+CatalogFile.NTarm   = qcslimbus8994.arm.cat
+CatalogFile.NTarm64 = qcslimbus8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -44,20 +44,20 @@ qcslimbus8994.sys = 1,arm64
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTARM,NTARM64
+%ManufacturerName% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %qcslimbus.DeviceDesc% = qcslimbus_Device,ADSP\QCOM240D
 
-[Standard.NTARM64]
-%qcslimbus.DeviceDesc% = qcslimbus_64_Device,ADSP\QCOM240D
+[Standard.NTarm64]
+%qcslimbus.DeviceDesc% = qcslimbus_Device,ADSP\QCOM240D
 
 [qcslimbus_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[qcslimbus_64_Device.NT]
+[qcslimbus_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -76,10 +76,10 @@ AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_Service_Inst
 [qcslimbus_Device.NT.HW]
 addreg = qcslimbus
 
-[qcslimbus_64_Device.NT.Services]
-AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_64_Service_Inst
+[qcslimbus_Device.NTarm64.Services]
+AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_Service_Inst.NTarm64
 
-[qcslimbus_64_Device.NT.HW]
+[qcslimbus_Device.NTarm64.HW]
 addreg = qcslimbus
 
 [qcslimbus]
@@ -93,7 +93,7 @@ StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcslimbus8994.sys
 
-[qcslimbus_64_Service_Inst]
+[qcslimbus_Service_Inst.NTarm64]
 DisplayName   = %qcslimbus.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
@@ -104,7 +104,7 @@ ServiceBinary = %13%\arm64\qcslimbus8994.sys
 [qcslimbus_Device.NT.Wdf]
 KmdfService = qcslimbus, qcslimbus_wdfsect
 
-[qcslimbus_64_Device.NT.Wdf]
+[qcslimbus_Device.NTarm64.Wdf]
 KmdfService = qcslimbus, qcslimbus_wdfsect
 
 [qcslimbus_wdfsect]
@@ -112,7 +112,7 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-ManufacturerName       = "Qualcomm Inc."
+ManufacturerName       = "Qualcomm Technologies, Inc."
 DiskName               = "Qualcomm Slimbus Device Installation Disk"
 qcslimbus.DeviceDesc   = "Qualcomm(R) Bus Device"
 qcslimbus.SVCDESC      = "Qualcomm(R) Bus Device"

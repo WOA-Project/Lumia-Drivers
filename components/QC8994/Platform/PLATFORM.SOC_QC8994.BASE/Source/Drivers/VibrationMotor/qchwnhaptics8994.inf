@@ -14,15 +14,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qchwnhaptics8994.arm.cat
-CatalogFile.NTARM64 = qchwnhaptics8994.arm64.cat
+CatalogFile.NTarm   = qchwnhaptics8994.arm.cat
+CatalogFile.NTarm64 = qchwnhaptics8994.arm64.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -45,13 +45,13 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = Qualcomm,NTARM,NTARM64
+%QC% = Qualcomm,NTarm,NTarm64
 
-[Qualcomm.NTARM]
+[Qualcomm.NTarm]
 %hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
 
-[Qualcomm.NTARM64]
-%hwnhaptics.DeviceDesc% = hwnhaptics_64_Device, ACPI\QCOM24A4
+[Qualcomm.NTarm64]
+%hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
 
 [hwnhaptics_Device.NT]
 Copyfiles = hwnhapticsCopyFiles
@@ -64,15 +64,15 @@ AddReg = Configuration.NT.HW.AddReg
 AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst
 
 
-[hwnhaptics_64_Device.NT]
+[hwnhaptics_Device.NTarm64]
 Copyfiles = hwnhapticsCopyFiles
 
-[hwnhaptics_64_Device.NT.HW]
+[hwnhaptics_Device.NTarm64.HW]
 AddReg = DriverInst.NT.HW.AddReg
 AddReg = Configuration.NT.HW.AddReg
 
-[hwnhaptics_64_Device.NT.Services]
-AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_64_Service_Inst
+[hwnhaptics_Device.NTarm64.Services]
+AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst.NTarm64
 
 
 [hwnhaptics_Service_Inst]
@@ -83,7 +83,7 @@ ErrorControl   = %SERVICE_ERROR_NORMAL%
 ServiceBinary  = %13%\arm\qchwnhaptics8994.sys
 LoadOrderGroup = Extended Base
 
-[hwnhaptics_64_Service_Inst]
+[hwnhaptics_Service_Inst.NTarm64]
 DisplayName    = %hwnhaptics.SVCDESC%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
@@ -120,7 +120,7 @@ HKR, %Configuration%, "HapticsTrigger"                , %REG_DWORD%,  0
 HKR, %Configuration%, "PlayRateCode"                  , %REG_DWORD%,  0x3CF
 
 [Strings]
-QC                     = "Qualcomm Technologies Inc"
+QC                     = "Qualcomm Technologies, Inc."
 Configuration          = "Config"
 hwnhaptics.DeviceDesc  = "Qualcomm(R) System Manager Device"
 hwnhaptics.SVCDESC     = "Qualcomm(R) System Manager Device"

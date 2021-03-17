@@ -2,7 +2,7 @@
 ; gripdet.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGUID   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
@@ -20,9 +20,9 @@ DefaultDestDir = 13
 gripdet.sys  = 1,,
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTARM64
+%ManufacturerName% = Standard,NTarm64
 
-[Standard.NTARM64]
+[Standard.NTarm64]
 %TchDriver_Device_Desc% = TchDriver_Device.NT, ACPI\MSHW100F
 
 ;*****************************************
@@ -98,73 +98,73 @@ HKR,,"s07_x", 0x10001, 0x4
 HKR,,"s07_y", 0x10001, 0x51E
 HKR,,"s07_z", 0x10001, 0x57
 
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "BufferSize", 0x10001, 0x1
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "ClockType", 0x10001, 0x1
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "FileMax", 0x10001, 0x4
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "FlushTimer", 0x10001, 0x5
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "GUID", 0x0, "{9208BAEF-D481-460F-B9D9-104BEE07E0CA}"
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "LogFileMode", 0x10001, 0x1
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "MaxFileSize", 0x10001, 0x1
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "MaximumBuffers", 0x10001, 0x2A
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "MinimumBuffers", 0x10001, 0x4
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "Start", 0x10001, 0x1
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet", "Status", 0x10001, 0x0
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "Enabled", 0x10001, 0x1
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "EnableLevel", 0x10001, 0x5
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "MatchAnyKeyword", 0x10001, 0x0
-HKLM, "SYSTEM\ControlSet001\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "Status", 0x10001, 0x0
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "BufferSize", 0x10001, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "ClockType", 0x10001, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "FileMax", 0x10001, 0x4
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "FlushTimer", 0x10001, 0x5
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "GUID", 0x0, "{9208BAEF-D481-460F-B9D9-104BEE07E0CA}"
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "LogFileMode", 0x10001, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "MaxFileSize", 0x10001, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "MaximumBuffers", 0x10001, 0x2A
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "MinimumBuffers", 0x10001, 0x4
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "Start", 0x10001, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "Status", 0x10001, 0x0
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "Enabled", 0x10001, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "EnableLevel", 0x10001, 0x5
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "MatchAnyKeyword", 0x10001, 0x0
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "Status", 0x10001, 0x0
 
-HKLM, "SYSTEM\SIDEINTERACTION", "AUTO", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION", "DIFF", 0x10001, 0x2
-HKLM, "SYSTEM\SIDEINTERACTION", "FULL", 0x10001, 0x0
-HKLM, "SYSTEM\SIDEINTERACTION", "GAIN", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION", "MAX", 0x10001, 0x8000
-HKLM, "SYSTEM\SIDEINTERACTION", "OFFSET", 0x10001, 0x0
-HKLM, "SYSTEM\SIDEINTERACTION", "SENSORS", 0x10001, 0x8
+HKLM, "System\SIDEINTERACTION", "AUTO", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION", "DIFF", 0x10001, 0x2
+HKLM, "System\SIDEINTERACTION", "FULL", 0x10001, 0x0
+HKLM, "System\SIDEINTERACTION", "GAIN", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION", "MAX", 0x10001, 0x8000
+HKLM, "System\SIDEINTERACTION", "OFFSET", 0x10001, 0x0
+HKLM, "System\SIDEINTERACTION", "SENSORS", 0x10001, 0x8
 
-HKLM, "SYSTEM\SIDEINTERACTION\BIST", "DIFF", 0x10001, 0x282
-HKLM, "SYSTEM\SIDEINTERACTION\BIST", "LOWER", 0x10001, 0x1388
-HKLM, "SYSTEM\SIDEINTERACTION\BIST", "SHORT", 0x10001, 0x64
-HKLM, "SYSTEM\SIDEINTERACTION\BIST", "UPPER", 0x10001, 0x4268
+HKLM, "System\SIDEINTERACTION\BIST", "DIFF", 0x10001, 0x282
+HKLM, "System\SIDEINTERACTION\BIST", "LOWER", 0x10001, 0x1388
+HKLM, "System\SIDEINTERACTION\BIST", "SHORT", 0x10001, 0x64
+HKLM, "System\SIDEINTERACTION\BIST", "UPPER", 0x10001, 0x4268
 
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "0", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "1", 0x10001, 0x2
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "10", 0x10001, 0xFFFFFFFF
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "11", 0x10001, 0xFFFFFFFF
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "2", 0x10001, 0x7
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "3", 0x10001, 0x8
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "4", 0x10001, 0x4
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "5", 0x10001, 0x3
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "6", 0x10001, 0xA
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "7", 0x10001, 0x9
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "8", 0x10001, 0xB
-HKLM, "SYSTEM\SIDEINTERACTION\CIN", "9", 0x10001, 0x6
+HKLM, "System\SIDEINTERACTION\CIN", "0", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\CIN", "1", 0x10001, 0x2
+HKLM, "System\SIDEINTERACTION\CIN", "10", 0x10001, 0xFFFFFFFF
+HKLM, "System\SIDEINTERACTION\CIN", "11", 0x10001, 0xFFFFFFFF
+HKLM, "System\SIDEINTERACTION\CIN", "2", 0x10001, 0x7
+HKLM, "System\SIDEINTERACTION\CIN", "3", 0x10001, 0x8
+HKLM, "System\SIDEINTERACTION\CIN", "4", 0x10001, 0x4
+HKLM, "System\SIDEINTERACTION\CIN", "5", 0x10001, 0x3
+HKLM, "System\SIDEINTERACTION\CIN", "6", 0x10001, 0xA
+HKLM, "System\SIDEINTERACTION\CIN", "7", 0x10001, 0x9
+HKLM, "System\SIDEINTERACTION\CIN", "8", 0x10001, 0xB
+HKLM, "System\SIDEINTERACTION\CIN", "9", 0x10001, 0x6
 
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "0", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "1", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "10", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "11", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "2", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "3", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "4", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "5", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "6", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "7", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "8", 0x10001, 0x1
-HKLM, "SYSTEM\SIDEINTERACTION\Gain", "9", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "0", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "1", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "10", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "11", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "2", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "3", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "4", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "5", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "6", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "7", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "8", 0x10001, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "9", 0x10001, 0x1
 
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "0", 0x10001, 0x1797
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "1", 0x10001, 0x1999
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "10", 0x10001, 0x0
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "11", 0x10001, 0x0
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "2", 0x10001, 0x1D9D
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "3", 0x10001, 0x1F9F
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "4", 0x10001, 0x1697
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "5", 0x10001, 0x1899
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "6", 0x10001, 0x1D9E
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "7", 0x10001, 0x28A7
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "8", 0x10001, 0x1D9D
-HKLM, "SYSTEM\SIDEINTERACTION\Offset", "9", 0x10001, 0x1D9D
+HKLM, "System\SIDEINTERACTION\Offset", "0", 0x10001, 0x1797
+HKLM, "System\SIDEINTERACTION\Offset", "1", 0x10001, 0x1999
+HKLM, "System\SIDEINTERACTION\Offset", "10", 0x10001, 0x0
+HKLM, "System\SIDEINTERACTION\Offset", "11", 0x10001, 0x0
+HKLM, "System\SIDEINTERACTION\Offset", "2", 0x10001, 0x1D9D
+HKLM, "System\SIDEINTERACTION\Offset", "3", 0x10001, 0x1F9F
+HKLM, "System\SIDEINTERACTION\Offset", "4", 0x10001, 0x1697
+HKLM, "System\SIDEINTERACTION\Offset", "5", 0x10001, 0x1899
+HKLM, "System\SIDEINTERACTION\Offset", "6", 0x10001, 0x1D9E
+HKLM, "System\SIDEINTERACTION\Offset", "7", 0x10001, 0x28A7
+HKLM, "System\SIDEINTERACTION\Offset", "8", 0x10001, 0x1D9D
+HKLM, "System\SIDEINTERACTION\Offset", "9", 0x10001, 0x1D9D
 
 ;-------------- Service installation
 [TchDriver_Device.NT.Services]

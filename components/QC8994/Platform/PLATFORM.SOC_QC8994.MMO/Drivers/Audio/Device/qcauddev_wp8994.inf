@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2015 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2015 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcauddev_wp.inf
@@ -14,15 +14,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Media
 ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcauddev8994.arm.cat
-CatalogFile.NTARM64 = qcauddev8994.arm64.cat
+CatalogFile.NTarm   = qcauddev8994.arm.cat
+CatalogFile.NTarm64 = qcauddev8994.arm64.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -41,15 +41,15 @@ Drivers_Dir = 13
 ;*****************************************
 
 [Manufacturer]
-%StdMfg% = Standard,NTARM,NTARM64
+%StdMfg% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %AUDD.DeviceDesc% = AUDIODEVICE,ADCM\QCOM242E
 %MBHC.DeviceDesc% = MBHC       ,AUDD\QCOM2468
 
-[Standard.NTARM64]
-%AUDD.DeviceDesc% = AUDIODEVICE_64,ADCM\QCOM242E
-%MBHC.DeviceDesc% = MBHC_64       ,AUDD\QCOM2468
+[Standard.NTarm64]
+%AUDD.DeviceDesc% = AUDIODEVICE,ADCM\QCOM242E
+%MBHC.DeviceDesc% = MBHC       ,AUDD\QCOM2468
 
 [AUDIODEVICE.NT]
 CopyFiles = Drivers_Dir
@@ -66,19 +66,19 @@ AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
 AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
 
 
-[AUDIODEVICE_64.NT]
+[AUDIODEVICE.NTarm64]
 CopyFiles = Drivers_Dir
 
-[AUDIODEVICE_64.NT.HW]
+[AUDIODEVICE.NTarm64.HW]
 AddReg = AUDDSpkrProtReg,CPEPathReg
 
-[AUDIODEVICE_64.NT.Services]
-AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_64_Service_Inst
+[AUDIODEVICE.NTarm64.Services]
+AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst.NTarm64
 
-[MBHC_64.NT]
+[MBHC.NTarm64]
 
-[MBHC_64.NT.Services]
-AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_64_Service_Inst
+[MBHC.NTarm64.Services]
+AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst.NTarm64
 
 [Drivers_Dir]
 qcauddev8994.sys
@@ -92,7 +92,7 @@ ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\qcauddev8994.sys
 LoadOrderGroup = Extended Base
 
-[AUDD_64_Service_Inst]
+[AUDD_Service_Inst.NTarm64]
 DisplayName    = %AUDD.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
@@ -131,7 +131,7 @@ HKR, Parameters, "EnableCPERestart"   , %REG_DWORD%, 0x0
 REG_SZ                 = 0x00000000
 REG_DWORD              = 0x00010001
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QCOM                   = "Qualcomm"
+QCOM                   = "Qualcomm Technologies, Inc."
 StdMfg                 = "(Standard system devices)"
 AUDD.DeviceDesc        = "Qualcomm(R) Aqstic(TM)"
 MBHC.DeviceDesc        = "Qualcomm(R) System Manager Device"

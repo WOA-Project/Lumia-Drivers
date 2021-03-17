@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    RPEN.INF
@@ -11,15 +11,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcrpen8994.arm.cat
-CatalogFile.NTARM64 = qcrpen8994.arm64.cat
+CatalogFile.NTarm   = qcrpen8994.arm.cat
+CatalogFile.NTarm64 = qcrpen8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -34,13 +34,13 @@ qcrpen8994.sys = 1,arm
 qcrpen8994.sys = 1,arm64
 
 [Manufacturer]
-%QUALCOMM% = Standard,NTARM,NTARM64
+%Qualcomm% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]                                    
+[Standard.NTarm]                                    
 %RPEN.DeviceDesc% = RPEN_Device, ACPI\QCOM245C
 
-[Standard.NTARM64]                                    
-%RPEN.DeviceDesc% = RPEN_64_Device, ACPI\QCOM245C
+[Standard.NTarm64]                                    
+%RPEN.DeviceDesc% = RPEN_Device, ACPI\QCOM245C
 
 [RPEN_Device.NT]
 CopyFiles   = Drivers_Dir
@@ -48,7 +48,7 @@ AddProperty = WDTFSOCDeviceCategory
 AddReg      = RPENReg
 Reboot
 
-[RPEN_64_Device.NT]
+[RPEN_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = RPENReg
@@ -57,7 +57,7 @@ Reboot
 [RPEN_Device.NT.HW]
 AddReg = RPENACL
 
-[RPEN_64_Device.NT.HW]
+[RPEN_Device.NTarm64.HW]
 AddReg = RPENACL
 
 [RPENACL]
@@ -68,11 +68,11 @@ HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 ; Autologger registry keys follow
 ; Autologger will record trace messages to a buffer in the kernel where they can be easily used for postmortem debugging
 ; Arbitrary GUID to identify logger
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog                                       , Start      , %REG_DWORD%, 0
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog                                       , Guid       , %REG_SZ%   , "{7311d40c-ce4f-496f-a563-f72d7bc9d92e}"
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496f-a563-f72d7bc9d92f}, Enabled    , %REG_DWORD%, 1
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496f-a563-f72d7bc9d92f}, EnableFlags, %REG_DWORD%, 0xFFFF
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496f-a563-f72d7bc9d92f}, EnableLevel, %REG_DWORD%, 5
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\RPENlog                                       , Start      , %REG_DWORD%, 0
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\RPENlog                                       , Guid       , %REG_SZ%   , "{7311d40c-ce4f-496f-a563-f72d7bc9d92e}"
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496f-a563-f72d7bc9d92f}, Enabled    , %REG_DWORD%, 1
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496f-a563-f72d7bc9d92f}, EnableFlags, %REG_DWORD%, 0xFFFF
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496f-a563-f72d7bc9d92f}, EnableLevel, %REG_DWORD%, 5
 ; To control and view these traces use !wmitrace from KD/WinDbg, or tracelog/traceview tools in the WDK
 
 [Drivers_Dir]
@@ -83,8 +83,8 @@ qcrpen8994.sys
 [RPEN_Device.NT.Services]
 AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst
 
-[RPEN_64_Device.NT.Services]
-AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_64_Service_Inst
+[RPEN_Device.NTarm64.Services]
+AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst.NTarm64
 
                                                
 
@@ -96,7 +96,7 @@ StartType     = 3                              ; SERVICE_DEMAND_START
 ErrorControl  = 1                              ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcrpen8994.sys
 
-[RPEN_64_Service_Inst]
+[RPEN_Service_Inst.NTarm64]
 DisplayName   = %RPEN.SVCDESC%
 ServiceType   = 1                              ; SERVICE_KERNEL_DRIVER
 StartType     = 3                              ; SERVICE_DEMAND_START
@@ -105,14 +105,14 @@ ServiceBinary = %13%\arm64\qcrpen8994.sys
 
 [RPEN_Device.NT.Wdf]
 KmdfService = QCRPEN, RPEN_wdfsect
-[RPEN_64_Device.NT.Wdf]
+[RPEN_Device.NTarm64.Wdf]
 KmdfService = QCRPEN, RPEN_wdfsect
 [RPEN_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM               = "Qualcomm Incorporated"
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Reset Power Error Notifier Device Installation Disk"
 RPEN.DeviceDesc        = "Qualcomm(R) System Manager Device"
 RPEN.SVCDESC           = "Qualcomm(R) System Manager Device"

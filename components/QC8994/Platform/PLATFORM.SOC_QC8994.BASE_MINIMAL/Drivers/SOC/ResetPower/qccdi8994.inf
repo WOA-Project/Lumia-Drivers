@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 
 ;Module Name:
@@ -12,15 +12,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qccdi8994.arm.cat
-CatalogFile.NTARM64 = qccdi8994.arm64.cat
+CatalogFile.NTarm   = qccdi8994.arm.cat
+CatalogFile.NTarm64 = qccdi8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -39,20 +39,20 @@ qccdi8994.sys = 1,arm64,
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTARM,NTARM64
+%ManufacturerName% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM245B
 
-[Standard.NTARM64]
-%QCCDI.DeviceDesc% = QCCDI_64_Device, ACPI\QCOM245B
+[Standard.NTarm64]
+%QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM245B
 
 [QCCDI_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[QCCDI_64_Device.NT]
+[QCCDI_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -62,7 +62,7 @@ Reboot
 [QCCDI_Device.NT.HW]
 AddReg = CDIACL
 
-[QCCDI_64_Device.NT.HW]
+[QCCDI_Device.NTarm64.HW]
 AddReg = CDIACL
 
 [CDIACL]
@@ -84,8 +84,8 @@ qccdi8994.sys
 [QCCDI_Device.NT.Services]
 AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_Service_Inst
 
-[QCCDI_64_Device.NT.Services]
-AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_64_Service_Inst
+[QCCDI_Device.NTarm64.Services]
+AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_Service_Inst.NTarm64
 
 ; -------------- QCCDI driver install sections
 [QCCDI_Service_Inst]
@@ -96,7 +96,7 @@ ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qccdi8994.sys
 AddReg        = QCCDIReg
 
-[QCCDI_64_Service_Inst]
+[QCCDI_Service_Inst.NTarm64]
 DisplayName   = %QCCDI.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
@@ -107,7 +107,7 @@ AddReg        = QCCDIReg
 [QCCDI_Device.NT.Wdf]
 KmdfService = QCCDI, QCCDI_wdfsect
 
-[QCCDI_64_Device.NT.Wdf]
+[QCCDI_Device.NTarm64.Wdf]
 KmdfService = QCCDI, QCCDI_wdfsect
 
 [QCCDI_wdfsect]
@@ -115,10 +115,10 @@ KmdfLibraryVersion = 1.11
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-ManufacturerName       = "Qualcomm Incorporated"
+ManufacturerName       = "Qualcomm Technologies, Inc."
 DiskName               = "Qualcomm Crash Dump Injector Installation Disk"
 QCCDI.DeviceDesc       = "Qualcomm(R) System Manager Device"
 QCCDI.SVCDESC          = "Qualcomm(R) System Manager Device"
-QUALCOMM               = "Qualcomm Incorporated"
+Qualcomm               = "Qualcomm Technologies, Inc."
 REG_SZ                 = 0x00000000
 

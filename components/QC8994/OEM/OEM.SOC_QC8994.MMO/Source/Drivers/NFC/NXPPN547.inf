@@ -32,7 +32,7 @@
 ; ==================== Class section =========================
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Proximity
 ClassGuid   = {5630831C-06C9-4856-B327-F5D32586E060}
 Provider    = %NXP%

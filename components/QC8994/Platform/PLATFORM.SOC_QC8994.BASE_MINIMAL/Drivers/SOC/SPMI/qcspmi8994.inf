@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcspmi.inf
@@ -10,15 +10,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcspmi8994.arm.cat
-CatalogFile.NTARM64 = qcspmi8994.arm64.cat
+CatalogFile.NTarm   = qcspmi8994.arm.cat
+CatalogFile.NTarm64 = qcspmi8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -40,20 +40,20 @@ qcspmi8994.sys = 1,arm64,
 ;*****************************************
 
 [Manufacturer]
-%QUALCOMM% = Standard,NTARM,NTARM64
+%Qualcomm% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %qcspmi.DeviceDesc% = qcspmi_Device, ACPI\QCOM2404
 
-[Standard.NTARM64]
-%qcspmi.DeviceDesc% = qcspmi_64_Device, ACPI\QCOM2404
+[Standard.NTarm64]
+%qcspmi.DeviceDesc% = qcspmi_Device, ACPI\QCOM2404
 
 [qcspmi_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[qcspmi_64_Device.NT]
+[qcspmi_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -68,8 +68,8 @@ qcspmi8994.sys
 [qcspmi_Device.NT.Services]
 AddService = qcspmi,%SPSVCINST_ASSOCSERVICE%, qcspmi_Service_Inst
 
-[qcspmi_64_Device.NT.Services]
-AddService = qcspmi,%SPSVCINST_ASSOCSERVICE%, qcspmi_64_Service_Inst
+[qcspmi_Device.NTarm64.Services]
+AddService = qcspmi,%SPSVCINST_ASSOCSERVICE%, qcspmi_Service_Inst.NTarm64
 
 ; -------------- qcspmi driver install sections
 [qcspmi_Service_Inst]
@@ -80,7 +80,7 @@ ErrorControl   = %SERVICE_ERROR_NORMAL%
 ServiceBinary  = %13%\arm\qcspmi8994.sys
 LoadOrderGroup = Filter
 
-[qcspmi_64_Service_Inst]
+[qcspmi_Service_Inst.NTarm64]
 DisplayName    = %qcspmi.SVCDESC%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_BOOT_START%
@@ -91,7 +91,7 @@ LoadOrderGroup = Filter
 [qcspmi_Device.NT.Wdf]
 KmdfService = qcspmi, qcspmi_wdfsect
 
-[qcspmi_64_Device.NT.Wdf]
+[qcspmi_Device.NTarm64.Wdf]
 KmdfService = qcspmi, qcspmi_wdfsect
 
 [qcspmi_wdfsect]
@@ -99,7 +99,7 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM               = "Qualcomm Inc."
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskName               = "Qualcomm SPMI Device Installation Disk"
 qcspmi.DeviceDesc      = "Qualcomm(R) Bus Device"
 qcspmi.SVCDESC         = "Qualcomm(R) Bus Device"

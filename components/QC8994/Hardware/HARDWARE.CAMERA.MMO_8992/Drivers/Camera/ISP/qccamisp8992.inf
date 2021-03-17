@@ -10,15 +10,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qccamisp8992.arm.cat
-CatalogFile.NTARM64 = qccamisp8992.arm64.cat
+CatalogFile.NTarm   = qccamisp8992.arm.cat
+CatalogFile.NTarm64 = qccamisp8992.arm64.cat
 
 [DestinationDirs]
 isp.Files_12 = 12
@@ -40,12 +40,12 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC, NTARM, NTARM64
+%QC% = QC, NTarm, NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %ISP.DeviceDesc% = CameraISP_Device, ACPI\QCOM2432
 
-[QC.NTARM64]
+[QC.NTarm64]
 %ISP.DeviceDesc% = CameraISP_Device, ACPI\QCOM2432
 
 [CameraISP_Device.NT]
@@ -79,7 +79,7 @@ ServiceBinary = %12%\qccamisp8992.sys
 
 [Strings]
 ;Localizable Strings
-QC                     = "Qualcomm Inc."
+QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Camera ISP Installation Disk"
 ISP.SVCDESC            = "Qualcomm Camera ISP Driver"
 ISP.DeviceDesc         = "Qualcomm Camera ISP Device"

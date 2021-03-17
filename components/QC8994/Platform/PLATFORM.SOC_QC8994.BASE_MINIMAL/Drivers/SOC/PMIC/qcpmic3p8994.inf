@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2011 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2011 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcpmic3p8994.INF
@@ -11,15 +11,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnPLockdown = 1
 
-CatalogFile.NTARM   = qcpmic3p8994.arm.cat
-CatalogFile.NTARM64 = qcpmic3p8994.arm64.cat
+CatalogFile.NTarm   = qcpmic3p8994.arm.cat
+CatalogFile.NTarm64 = qcpmic3p8994.arm64.cat
 
 [SourceDisksNames]
 1 = %DiskId%
@@ -42,20 +42,20 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = Qualcomm,NTARM,NTARM64
+%COMP% = Qualcomm,NTarm,NTarm64
 
-[Qualcomm.NTARM]
+[Qualcomm.NTarm]
 %DeviceDesc% = qcpmic3p_Inst,ACPI\QCOM2456
 
-[Qualcomm.NTARM64]
-%DeviceDesc% = qcpmic3p_64_Inst,ACPI\QCOM2456
+[Qualcomm.NTarm64]
+%DeviceDesc% = qcpmic3p_Inst,ACPI\QCOM2456
 
 [qcpmic3p_Inst.NT]
 Copyfiles   = qcpmic3pCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[qcpmic3p_64_Inst.NT]
+[qcpmic3p_Inst.NTarm64]
 Copyfiles   = qcpmic3pCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -63,7 +63,7 @@ Reboot
 [qcpmic3p_Inst.NT.HW]
 Addreg = PMICPACL
 
-[qcpmic3p_64_Inst.NT.HW]
+[qcpmic3p_Inst.NTarm64.HW]
 Addreg = PMICPACL
 
 [PMICPACL]
@@ -78,8 +78,8 @@ qcpmic3p8994.sys
 [qcpmic3p_Inst.NT.Services]
 AddService = qcpmic3p,%SPSVCINST_ASSOCSERVICE%,qcpmic3p_Service_Inst
 
-[qcpmic3p_64_Inst.NT.Services]
-AddService = qcpmic3p,%SPSVCINST_ASSOCSERVICE%,qcpmic3p_64_Service_Inst
+[qcpmic3p_Inst.NTarm64.Services]
+AddService = qcpmic3p,%SPSVCINST_ASSOCSERVICE%,qcpmic3p_Service_Inst.NTarm64
 
 [qcpmic3p_Service_Inst]
 DisplayName   = %qcpmic3p.SvcDesc%
@@ -88,7 +88,7 @@ StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %13%\arm\qcpmic3p8994.sys
 
-[qcpmic3p_64_Service_Inst]
+[qcpmic3p_Service_Inst.NTarm64]
 DisplayName   = %qcpmic3p.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
@@ -97,7 +97,7 @@ ServiceBinary = %13%\arm64\qcpmic3p8994.sys
 
 [Strings]
 ;Localizable Strings
-COMP                   = "Qualcomm Incorporated"
+COMP                   = "Qualcomm Technologies, Inc."
 qcpmic3p.SvcDesc       = "Qualcomm(R) Power Management"
 DeviceDesc             = "Qualcomm(R) Power Management"
 DiskId                 = "Qualcomm PMIC 3rd Party Installation Disk"

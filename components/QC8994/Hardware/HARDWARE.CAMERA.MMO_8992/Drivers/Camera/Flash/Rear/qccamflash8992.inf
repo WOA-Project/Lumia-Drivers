@@ -10,15 +10,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qccamflash8992.arm.cat
-CatalogFile.NTARM64 = qccamflash8992.arm64.cat
+CatalogFile.NTarm   = qccamflash8992.arm.cat
+CatalogFile.NTarm64 = qccamflash8992.arm64.cat
 
 [DestinationDirs]
 FLASH.Files_12 = 12
@@ -40,12 +40,12 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC, NTARM, NTARM64
+%QC% = QC, NTarm, NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %FLASH.DeviceDesc% = CameraFlash_Device, ACPI\QCOM244B
 
-[QC.NTARM64]
+[QC.NTarm64]
 %FLASH.DeviceDesc% = CameraFlash_Device, ACPI\QCOM244B
 
 [CameraFlash_Device.NT]
@@ -79,7 +79,7 @@ ServiceBinary = %12%\qccamflash8992.sys
 
 [Strings]
 ;Localizable Strings
-QC                     = "Qualcomm Inc."
+QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Camera Flash Installation Disk"
 FLASH.SVCDESC          = "Qualcomm Camera Flash Driver"
 FLASH.DeviceDesc       = "Qualcomm Camera Flash Device"

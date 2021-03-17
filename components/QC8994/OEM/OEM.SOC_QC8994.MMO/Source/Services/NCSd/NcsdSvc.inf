@@ -2,15 +2,15 @@
 ; NcsdSvc.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 09/09/2015,1.0.1067.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = ncsdsvc.arm.cat
-CatalogFile.NTARM64 = ncsdsvc.arm64.cat
+CatalogFile.NTarm   = ncsdsvc.arm.cat
+CatalogFile.NTarm64 = ncsdsvc.arm64.cat
 
 [DestinationDirs]
 NcsdSvc.Files = 13
@@ -19,30 +19,32 @@ NcsdSvc.Files = 13
 0 = "Disk"
 
 [SourceDisksFiles.ARM]
-NcsdRes.dll       = 0,arm,
-Ncsd.dll          = 0,arm,
-NcsdPluginSvc.dll = 0,arm,
-phoneinfo.dll     = 0,arm,
-wpcoreutil.dll    = 0,arm,
+NcsdRes.dll        = 0,arm,
+Ncsd.dll           = 0,arm,
+NcsdPluginSvc.dll  = 0,arm,
+phoneinfo.dll      = 0,arm,
+wpcoreutil.dll     = 0,arm,
+OEMServiceHost.exe = 0,arm,
 
 [SourceDisksFiles.ARM64]
-NcsdRes.dll       = 0,arm64,
-Ncsd.dll          = 0,arm64,
-NcsdPluginSvc.dll = 0,arm64,
-phoneinfo.dll     = 0,arm64,
-wpcoreutil.dll    = 0,arm64,
+NcsdRes.dll        = 0,arm64,
+Ncsd.dll           = 0,arm64,
+NcsdPluginSvc.dll  = 0,arm64,
+phoneinfo.dll      = 0,arm64,
+wpcoreutil.dll     = 0,arm64,
+OEMServiceHost.exe = 0,arm64,
 
-[DefaultInstall.NTARM]
+[DefaultInstall.NTarm]
 CopyFiles = NcsdSvc.Files
 
-[DefaultInstall.NTARM64]
+[DefaultInstall.NTarm64]
 CopyFiles = NcsdSvc.Files
 
-[DefaultInstall.NTARM.Services]
+[DefaultInstall.NTarm.Services]
 AddService = NcsdPluginSvc,0x00000000,NcsdSvc_Service,
 
-[DefaultInstall.NTARM64.Services]
-AddService = NcsdPluginSvc,0x00000000,NcsdSvc_64_Service,
+[DefaultInstall.NTarm64.Services]
+AddService = NcsdPluginSvc,0x00000000,NcsdSvc_Service.NTarm64,
 
 [NcsdSvc_Service]
 DisplayName   = "NcsdPluginSvc"
@@ -50,35 +52,35 @@ Description   = "Native Care Service"
 ServiceType   = 0x20
 StartType     = 2
 ErrorControl  = 0
-ServiceBinary = "%%systemroot%%\system32\OEMServiceHost.exe -k NsgExtUti"
+ServiceBinary = "%13%\arm\OEMServiceHost.exe -k NsgExtUti"
 AddReg        = NcsdSvc_Reg, NcsdSvc_32_Reg
 
-[NcsdSvc_64_Service]
+[NcsdSvc_Service.NTarm64]
 DisplayName   = "NcsdPluginSvc"
 Description   = "Native Care Service"
 ServiceType   = 0x20
 StartType     = 2
 ErrorControl  = 0
-ServiceBinary = "%%systemroot%%\system32\OEMServiceHost.exe -k NsgExtUti"
-AddReg        = NcsdSvc_Reg, NcsdSvc_64_Reg
+ServiceBinary = "%13%\arm64\OEMServiceHost.exe -k NsgExtUti"
+AddReg        = NcsdSvc_Reg, NcsdSvc_Reg.NTarm64
 
 [NcsdSvc_32_Reg]
 HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\arm\NcsdPluginSvc.dll"
-HKLM, "SOFTWARE\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\arm\NcsdPluginSvc.dll"
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\arm\NcsdRes.dll"
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\arm\NcsdRes.dll"
+HKLM, "Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\arm\NcsdPluginSvc.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\arm\NcsdRes.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\arm\NcsdRes.dll"
 
-[NcsdSvc_64_Reg]
+[NcsdSvc_Reg.NTarm64]
 HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\arm64\NcsdPluginSvc.dll"
-HKLM, "SOFTWARE\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\arm64\NcsdPluginSvc.dll"
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\arm64\NcsdRes.dll"
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\arm64\NcsdRes.dll"
+HKLM, "Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\arm64\NcsdPluginSvc.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\arm64\NcsdRes.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\arm64\NcsdRes.dll"
 
 [NcsdSvc_Reg]
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", , ,"NcsdEtw"
-HKLM, "SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "Enabled", 0x10001, 0x1
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", , ,"NcsdEtw"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "Enabled", 0x10001, 0x1
 
-HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\SvcHost", "NsgExtUti", 0x00010008, \
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\SvcHost", "NsgExtUti", 0x00010008, \
 	"NcsdPluginSvc"
 
 HKR,, "DisplayName", 0x00000000, "NcsdPluginSvc"
@@ -87,7 +89,7 @@ HKR,, "RequiredPrivileges", 0x00010008, \
 	"SeShutdownPrivilege", "SeChangeNotifyPrivilege", "SeIncreaseWorkingSetPrivilege", "SeCreateGlobalPrivilege"
 
 HKR,, "Start", 0x00010001, 0x00000003
-HKR,, "ImagePath", 0x00020000, "%%SystemRoot%%\System32\OEMServiceHost.exe -k NsgExtUti"
+HKR,, "ImagePath", 0x00020000, "%13%\arm64\OEMServiceHost.exe -k NsgExtUti"
 HKR,, "FailureActions", 0x00000001, \
 	80,51,01,00,00,00,00,00,00,00,00,00,04,00,00, \ ; Q·············
 	00,14,00,00,00,01,00,00,00,E8,03,00,00,01,00, \ ; ·········è·····
@@ -129,9 +131,10 @@ Ncsd.dll
 NcsdPluginSvc.dll
 phoneinfo.dll
 wpcoreutil.dll
+OEMServiceHost.exe
 
 [Strings]
-QC            = "Qualcomm"
+QC            = "Qualcomm Technologies, Inc."
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000

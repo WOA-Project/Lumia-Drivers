@@ -17,23 +17,23 @@
 ;                       D D I n s t a l l
 ;---------------------------------------------------------------
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = CAMERA
 ClassGUID   = %CAMERA_DEVICES_CLSID%
 Provider    = %QC%
 DriverVer   = 06/07/2011,1.0.0.0
 PnpLockdown = 1
 
-Catalogfile.NTARM   = qccamavs8994.arm.cat
-Catalogfile.NTARM64 = qccamavs8994.arm64.cat
+Catalogfile.NTarm   = qccamavs8994.arm.cat
+Catalogfile.NTarm64 = qccamavs8994.arm64.cat
 
 [Manufacturer]
-%QC% = Qualcomm,NTARM,NTARM64
+%QC% = Qualcomm,NTarm,NTarm64
 
-[Qualcomm.NTARM]
+[Qualcomm.NTarm]
 %qccamavs.DeviceDesc% = QCCamAvs,VIDEO\QCOM_AVStream_8994
 
-[Qualcomm.NTARM64]
+[Qualcomm.NTarm64]
 %qccamavs.DeviceDesc% = QCCamAvs,VIDEO\QCOM_AVStream_8994
 
 [DestinationDirs]
@@ -328,7 +328,7 @@ SERVICE_ERROR_NORMAL                 = 1
 SYS32_FOLDER                         = 12
 
 ;localizable
-QC                                   = "Qualcomm"
+QC                                   = "Qualcomm Technologies, Inc."
 qccamavs.DeviceDesc                  = "Qualcomm Camera AVStream Mini Driver"
 qccamavs.DiskName                    = "Qualcomm Camera Driver"
 BackSensor.FriendlyName              = "QC Back Camera"
@@ -398,7 +398,7 @@ RES_PAD_VGA                          = "768,  576"
 RES_PAD_QVGA                         = "384,  288"
 RES_SQR_9MP                          = "3104, 3104"
 RES_SQR_2MP                          = "1504, 1504"
-RES_SQR_640                          = "640,  640"
+RES_SQR0.NTarm64                          = "640,  640"
 RES_SQR_480                          = "480,  480"
 
 

@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2011 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2011 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcbattminiclass8994.INF
@@ -10,15 +10,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Battery
 ClassGuid   = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
 Provider    = %COMP%
 DriverVer   = 07/02/2015,1.0.1078.0053
 PnPLockdown = 1
 
-CatalogFile.NTARM   = qcbattminiclass8994.arm.cat
-CatalogFile.NTARM64 = qcbattminiclass8994.arm64.cat
+CatalogFile.NTarm   = qcbattminiclass8994.arm.cat
+CatalogFile.NTarm64 = qcbattminiclass8994.arm64.cat
 
 [SourceDisksNames]
 1 = %DiskId%
@@ -41,15 +41,15 @@ ExcludeFromSelect = *
 ;************************************************
 
 [Manufacturer]
-%COMP% = Qualcomm,NTARM,NTARM64
+%COMP% = Qualcomm,NTarm,NTarm64
 
-[Qualcomm.NTARM]
+[Qualcomm.NTarm]
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM2452
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM24C3
 
-[Qualcomm.NTARM64]
-%DeviceDesc% = PMIC_64_Inst,ACPI\QCOM2452
-%DeviceDesc% = PMIC_64_Inst,ACPI\QCOM24C3
+[Qualcomm.NTarm64]
+%DeviceDesc% = PMIC_Inst,ACPI\QCOM2452
+%DeviceDesc% = PMIC_Inst,ACPI\QCOM24C3
 
 [PMIC_Inst.NT]
 Copyfiles   = PMICCopyFiles
@@ -63,16 +63,16 @@ Addreg = BMINIACL
 AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
 
 
-[PMIC_64_Inst.NT]
+[PMIC_Inst.NTarm64]
 Copyfiles   = PMICCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[PMIC_64_Inst.NT.HW]
+[PMIC_Inst.NTarm64.HW]
 Addreg = BMINIACL
 
-[PMIC_64_Inst.NT.Services]
-AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_64_Service_Inst
+[PMIC_Inst.NTarm64.Services]
+AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst.NTarm64
 
 [BMINIACL]
 HKR, , DeviceCharacteristics, 0x10001, 0x100
@@ -90,7 +90,7 @@ StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %13%\arm\qcbattminiclass8994.sys
 
-[PMIC_64_Service_Inst]
+[PMIC_Service_Inst.NTarm64]
 DisplayName   = %PMICBatteryMiniclass.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
@@ -99,7 +99,7 @@ ServiceBinary = %13%\arm64\qcbattminiclass8994.sys
 
 [Strings]
 ;Localizable Strings
-COMP                         = "Qualcomm Incorporated"
+COMP                         = "Qualcomm Technologies, Inc."
 PMICBatteryMiniclass.SvcDesc = "Qualcomm PMIC Battery Miniclass Driver"
 DiskId                       = "Qualcomm PMIC Battery Miniclass Device Installation Disk"
 DeviceDesc                   = "Qualcomm PMIC Battery Miniclass Device"

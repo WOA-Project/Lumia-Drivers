@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2014 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2014 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcipa.INF 
@@ -12,15 +12,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcipa8994.arm.cat
-CatalogFile.NTARM64 = qcipa8994.arm64.cat
+CatalogFile.NTarm   = qcipa8994.arm.cat
+CatalogFile.NTarm64 = qcipa8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13                                           ; This is a directory id (dirid)
@@ -35,20 +35,20 @@ qcipa8994.sys = 1,arm                                         ; The source files
 qcipa8994.sys = 1,arm64                                       ; The source files that are used during installation and the installation
 
 [Manufacturer]
-%QUALCOMM% = Standard,NTARM,NTARM64                           ; QCOM drivers may need to follow same process here?
+%Qualcomm% = Standard,NTarm,NTarm64                           ; QCOM drivers may need to follow same process here?
 
-[Standard.NTARM]                                            ; Decorated model section take precedence over undecorated
+[Standard.NTarm]                                            ; Decorated model section take precedence over undecorated
 %ipa.DeviceDesc% = ipa_Device, ACPI\QCOM24B0
 
-[Standard.NTARM64]                                          ; Decorated model section take precedence over undecorated
-%ipa.DeviceDesc% = ipa_64_Device, ACPI\QCOM24B0
+[Standard.NTarm64]                                          ; Decorated model section take precedence over undecorated
+%ipa.DeviceDesc% = ipa_Device, ACPI\QCOM24B0
 
 [ipa_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[ipa_64_Device.NT]
+[ipa_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -62,14 +62,14 @@ qcipa8994.sys                                                 ; Copied from the 
 [ipa_Device.NT.Services]
 AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
-[ipa_64_Device.NT.Services]
-AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_64_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+[ipa_Device.NTarm64.Services]
+AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_Service_Inst.NTarm64 ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
 ;-------------- HW installation
 [ipa_Device.NT.HW]
 addreg = ipa
 
-[ipa_64_Device.NT.HW]
+[ipa_Device.NTarm64.HW]
 addreg = ipa
 
 [ipa]
@@ -84,7 +84,7 @@ ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcipa8994.sys
 AddReg        = IPA_Reg
 
-[ipa_64_Service_Inst]
+[ipa_Service_Inst.NTarm64]
 DisplayName   = %ipa.SVCDESC%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
@@ -99,14 +99,14 @@ HKR, "Parameters", "A2PCEnabled" , %REG_DWORD%, 0x1
 
 [ipa_Device.NT.Wdf]
 KmdfService = qcipa, ipa_wdfsect
-[ipa_64_Device.NT.Wdf]
+[ipa_Device.NTarm64.Wdf]
 KmdfService = qcipa, ipa_wdfsect
 [ipa_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM               = "Qualcomm Inc."
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "IP Accelerator Installation Disk"
 ipa.DeviceDesc         = "Qualcomm(R) Bus Device"
 ipa.SVCDESC            = "Qualcomm(R) Bus Device"

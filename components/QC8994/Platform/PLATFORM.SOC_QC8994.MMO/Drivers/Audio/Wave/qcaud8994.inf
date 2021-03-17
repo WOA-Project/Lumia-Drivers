@@ -15,8 +15,8 @@ provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0
 PnpLockdown = 1
 
-CatalogFile.NTARM   = qcaud8994.arm.cat
-CatalogFile.NTARM64 = qcaud8994.arm64.cat
+CatalogFile.NTarm   = qcaud8994.arm.cat
+CatalogFile.NTarm64 = qcaud8994.arm64.cat
 
 [SourceDisksNames]
 222 = %DiskId%
@@ -40,17 +40,17 @@ DRMLevel = 1300
 PETrust = true
 
 [Manufacturer]
-%MfgName% = QUALCOMM,NTARM,NTARM64
+%MfgName% = Qualcomm,NTarm,NTarm64
 
-[QUALCOMM.NTARM]
+[Qualcomm.NTarm]
 %QCAUD_A.DeviceDesc% = QCAUD_A, AUDD\QCOM2451
 
-[QUALCOMM.NTARM64]
-%QCAUD_A.DeviceDesc% = QCAUD_A_64, AUDD\QCOM2451
+[Qualcomm.NTarm64]
+%QCAUD_A.DeviceDesc% = QCAUD_A, AUDD\QCOM2451
 
 [DestinationDirs]
 QCAUD_A.CopyList                  = 13 ; windows\system32\drivers
-ProxyAPO.CopyList                 = 11; windows\system32
+ProxyAPO.CopyList                 = 13; windows\system32
 
 ;======================================================
 ;QCAUD_A 
@@ -91,10 +91,23 @@ HKR, , DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
 [QCAUD_A.CopyList]
 qcaud8994.sys
 
+[ProxyAPO.arm.AddReg]
+; Mode effect APO COM registration
+HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  ,                       ,           , %13%\arm\ProxyAPO.dll
+
+; Endpoint effect APO COM registration
+HKCR, CLSID\%FX_ENDPOINT_CLSID%\InProcServer32              ,                       ,           , %13%\arm\ProxyAPO.dll
+
+[ProxyAPO.arm64.AddReg]
+; Mode effect APO COM registration
+HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  ,                       ,           , %13%\arm64\ProxyAPO.dll
+
+; Endpoint effect APO COM registration
+HKCR, CLSID\%FX_ENDPOINT_CLSID%\InProcServer32              ,                       ,           , %13%\arm64\ProxyAPO.dll
+
 [ProxyAPO.AddReg]
 ; Mode effect APO COM registration
 HKCR, CLSID\%FX_MODE_CLSID%                                 ,                       ,           , %MFX_FriendlyName%
-HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  ,                       ,           , %%SystemRoot%%\system32\ProxyAPO.dll
 HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  , ThreadingModel        ,           , "Both"
 
 ; Mode effect APO registration
@@ -114,7 +127,6 @@ HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "APOInterface0"   
 
 ; Endpoint effect APO COM registration
 HKCR, CLSID\%FX_ENDPOINT_CLSID%                             ,                       ,           , %EFX_FriendlyName%
-HKCR, CLSID\%FX_ENDPOINT_CLSID%\InProcServer32              ,                       ,           , %%SystemRoot%%\system32\ProxyAPO.dll
 HKCR, CLSID\%FX_ENDPOINT_CLSID%\InProcServer32              , ThreadingModel        ,           , "Both"
 
 ; Endpoint effect APO registration
@@ -458,7 +470,7 @@ HKR, "FX\0", %PKEY_FX_EndpointEffectClsid%, , %FX_ENDPOINT_CLSID%
 Include     = ks.inf,wdmaudio.inf
 Needs       = KS.Registration, WDMAUDIO.Registration, MsApoFxProxy.Registration
 CopyFiles   = QCAUD_A.CopyList,ProxyAPO.CopyList
-AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg
+AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg,ProxyAPO.arm.AddReg
 AddProperty = QCAUD_A.AddProperty
 
 [QCAUD_A.NT.HW]
@@ -601,24 +613,24 @@ AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyHandsetMic%, QCAUD.I.Topol
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
 
 
-[QCAUD_A_64.NT]
+[QCAUD_A.NTarm64]
 Include     = ks.inf,wdmaudio.inf
 Needs       = KS.Registration, WDMAUDIO.Registration, MsApoFxProxy.Registration
 CopyFiles   = QCAUD_A.CopyList,ProxyAPO.CopyList
-AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg
+AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg,ProxyAPO.arm64.AddReg
 AddProperty = QCAUD_A.AddProperty
 
-[QCAUD_A_64.NT.HW]
+[QCAUD_A.NTarm64.HW]
 AddReg = AUDIOHW.AddReg
 AddReg = QCAUD_A.SecurityAddReg
 
-[QCAUD_A_64.NT.Wdf]
+[QCAUD_A.NTarm64.Wdf]
 KmdfService = QCAUD, QCAUD_A_WdfSect
 
-[QCAUD_A_64.NT.Services]
-AddService = QCAUD,0x00000002,QCAUD_64_Service_Inst
+[QCAUD_A.NTarm64.Services]
+AddService = QCAUD,0x00000002,QCAUD_Service_Inst.NTarm64
 
-[QCAUD_A_64.NT.Interfaces]
+[QCAUD_A.NTarm64.Interfaces]
 ;
 ; Interfaces for speaker (internal) render endpoint.
 ;
@@ -756,7 +768,7 @@ ErrorControl  = 1
 ServiceBinary = %13%\arm\qcaud8994.sys
 AddReg        = QCAUD.AddReg.service
 
-[QCAUD_64_Service_Inst]
+[QCAUD_Service_Inst.NTarm64]
 DisplayName   = %QCAUD.SvcDesc%
 ServiceType   = 1
 StartType     = 3
@@ -848,7 +860,7 @@ KSCATEGORY_CAPTURE                               = "{65E8773D-8F56-11D0-A3B9-00A
 KSCATEGORY_REALTIME                              = "{EB115FFC-10C8-4964-831D-6DCB02E6F23F}"
 KSCATEGORY_TOPOLOGY                              = "{DDA54A40-1E4C-11D1-A050-405705C10000}"
 
-MediaCategories                                  = "SYSTEM\CurrentControlSet\Control\MediaCategories"
+MediaCategories                                  = "System\CurrentControlSet\Control\MediaCategories"
 KSNODETYPE_ANY                                   = "{00000000-0000-0000-0000-000000000000}"
 GUID_NULL                                        = "{00000000-0000-0000-0000-000000000000}"
 
@@ -881,7 +893,7 @@ FX_ENDPOINT_CLSID                                = "{697DA8EE-64F9-4096-BEBC-7C1
 FX_UI_CLSID                                      = "{19166F23-5F08-47F9-BB57-9F57A977D88E}"
 FX_DISCOVER_EFFECTS_APO_CLSID                    = "{889C03C8-ABAD-4004-BF0A-BC7BB825E166}"
 
-MEDIA_CATEGORIES                                 = "SYSTEM\CurrentControlSet\Control\MediaCategories"
+MEDIA_CATEGORIES                                 = "System\CurrentControlSet\Control\MediaCategories"
 MicArray1CustomNameGUID                          = {6ae81ff4-203e-4fe1-88aa-f2d57775cd4a}
 MicInCustomNameGUID                              = {d48deb08-fd1c-4d1e-b821-9064d49ae96e}
 HandsetMicrophoneCustomNameGUID                  = {F962FB6F-658D-49DF-A7F8-9BBFB6911F97}
@@ -901,7 +913,7 @@ KSNODETYPE_MICROPHONE_ARRAY                      = "{DFF21BE5-F70F-11D0-B917-00A
 ;Localizable
 
 QCOM                                             = "Qualcomm"
-MfgName                                          = "QUALCOMM"
+MfgName                                          = "Qualcomm"
 QcCopyRight                                      = "Copyright (c) 2011 Qualcomm Inc All rights Reserved"
 
 QCAUD_A.DeviceDesc                               = "Qualcomm(R) Aqstic(TM)"

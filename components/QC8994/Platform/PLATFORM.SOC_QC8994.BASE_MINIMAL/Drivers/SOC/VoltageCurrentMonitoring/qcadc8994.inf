@@ -12,15 +12,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcadc8994.arm.cat
-CatalogFile.NTARM64 = qcadc8994.arm64.cat
+CatalogFile.NTarm   = qcadc8994.arm.cat
+CatalogFile.NTarm64 = qcadc8994.arm64.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -41,20 +41,20 @@ ExcludeFromSelect = *
 ; ADC Install Section
 ;*****************************************
 [Manufacturer]
-%QUALCOMM% = Standard,NTARM,NTARM64
+%Qualcomm% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %ADC.DeviceDesc% = ADC_Device, ACPI\QCOM240F
 
-[Standard.NTARM64]
-%ADC.DeviceDesc% = ADC_64_Device, ACPI\QCOM240F
+[Standard.NTarm64]
+%ADC.DeviceDesc% = ADC_Device, ACPI\QCOM240F
 
 [ADC_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[ADC_64_Device.NT]
+[ADC_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -69,14 +69,14 @@ qcadc8994.sys
 [ADC_Device.NT.Services]
 AddService = qcADC,%SPSVCINST_ASSOCSERVICE%, ADC_Service_Inst
 
-[ADC_64_Device.NT.Services]
-AddService = qcADC,%SPSVCINST_ASSOCSERVICE%, ADC_64_Service_Inst
+[ADC_Device.NTarm64.Services]
+AddService = qcADC,%SPSVCINST_ASSOCSERVICE%, ADC_Service_Inst.NTarm64
 
 ;-------------- HW installation
 [ADC_Device.NT.HW]
 addreg = ADCSD
 
-[ADC_64_Device.NT.HW]
+[ADC_Device.NTarm64.HW]
 addreg = ADCSD
 
 [ADCSD]
@@ -90,7 +90,7 @@ StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %13%\arm\qcadc8994.sys
 
-[ADC_64_Service_Inst]
+[ADC_Service_Inst.NTarm64]
 DisplayName   = %ADC.SVCDESC%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
@@ -100,14 +100,14 @@ ServiceBinary = %13%\arm64\qcadc8994.sys
 ; Checks for compatibility with KMDF version
 [ADC_Device.NT.Wdf]
 KmdfService = qcADC, ADC_wdfsect
-[ADC_64_Device.NT.Wdf]
+[ADC_Device.NTarm64.Wdf]
 KmdfService = qcADC, ADC_wdfsect
 [ADC_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QUALCOMM               = "Qualcomm Technologies, Inc."
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "ADC Installation Disk"
 ADC.DeviceDesc         = "Qualcomm(R) Hexagon(TM) V56 DSP"
 ADC.SVCDESC            = "Qualcomm(R) Hexagon(TM) V56 DSP"

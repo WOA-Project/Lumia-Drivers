@@ -3,7 +3,7 @@
 ; Copyright (c) 2018,2019 Bingxing Wang
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Extension
 ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %MSFT%
@@ -11,8 +11,8 @@ ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5C}
 DriverVer   = 11/09/2019,1.0.0.0
 PnpLockdown = 1
 
-CatalogFile.NTARM   = hapanero_SynapticsTouch.arm.cat
-CatalogFile.NTARM64 = hapanero_SynapticsTouch.arm64.cat
+CatalogFile.NTarm   = hapanero_SynapticsTouch.arm.cat
+CatalogFile.NTarm64 = hapanero_SynapticsTouch.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 12
@@ -55,13 +55,13 @@ CopyFiles = TchDriver_Device.NT.CopyFiles
 HKR, , "LegacyTouchScaling", 0x00010001,  0x0
 
 [CapButtons.NT.HW.AddReg]
-HKLM, "SYSTEM\TOUCH\BUTTONS"  , "Count", %REG_DWORD%        ,  0x3
-HKLM, "SYSTEM\TOUCH\BUTTONS\0", "Name" , %REG_SZ%     "Back",
-HKLM, "SYSTEM\TOUCH\BUTTONS\0", "VKey" , %REG_DWORD%        ,  0x1B
-HKLM, "SYSTEM\TOUCH\BUTTONS\1", "Name" , %REG_SZ%           ,     "Start"
-HKLM, "SYSTEM\TOUCH\BUTTONS\1", "VKey" , %REG_DWORD%        ,  0x71
-HKLM, "SYSTEM\TOUCH\BUTTONS\2", "Name" , %REG_SZ%           ,     "Search"
-HKLM, "SYSTEM\TOUCH\BUTTONS\2", "VKey" , %REG_DWORD%        ,  0x72
+HKLM, "System\TOUCH\BUTTONS"  , "Count", %REG_DWORD%        ,  0x3
+HKLM, "System\TOUCH\BUTTONS\0", "Name" , %REG_SZ%     "Back",
+HKLM, "System\TOUCH\BUTTONS\0", "VKey" , %REG_DWORD%        ,  0x1B
+HKLM, "System\TOUCH\BUTTONS\1", "Name" , %REG_SZ%           ,     "Start"
+HKLM, "System\TOUCH\BUTTONS\1", "VKey" , %REG_DWORD%        ,  0x71
+HKLM, "System\TOUCH\BUTTONS\2", "Name" , %REG_SZ%           ,     "Search"
+HKLM, "System\TOUCH\BUTTONS\2", "VKey" , %REG_DWORD%        ,  0x72
 
 [PowerConfig.NT.HW.AddReg]
 HKR, , "EnhancedPowerManagementEnabled"   , %REG_DWORD%,  0
@@ -151,15 +151,15 @@ HKLM, %DisplaySize%, "DisplayHeight10um", %REG_DWORD%,  0x33F4
 HKLM, %DisplaySize%, "DisplayWidth10um" , %REG_DWORD%,  0x1D1A
 
 [ButtonBacklights.NT.HW.AddReg]
-HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "LedCount"          , %REG_DWORD%   ,     0x3
-HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "LedIndexList"      , %REG_MULTI_SZ%,  "0","1","2"
-HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "InactivityTimeout" , %REG_DWORD%   ,     0 ; No timeout (msec)
+HKLM, "System\TOUCH\BUTTONS\BACKLIGHT", "LedCount"          , %REG_DWORD%   ,     0x3
+HKLM, "System\TOUCH\BUTTONS\BACKLIGHT", "LedIndexList"      , %REG_MULTI_SZ%,  "0","1","2"
+HKLM, "System\TOUCH\BUTTONS\BACKLIGHT", "InactivityTimeout" , %REG_DWORD%   ,     0 ; No timeout (msec)
 
-HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings0", %REG_MULTI_SZ%,  "12","0"
-HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings1", %REG_MULTI_SZ%,  "12","0"
-HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings2", %REG_MULTI_SZ%,  "12","0"
+HKLM, "System\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings0", %REG_MULTI_SZ%,  "12","0"
+HKLM, "System\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings1", %REG_MULTI_SZ%,  "12","0"
+HKLM, "System\TOUCH\BUTTONS\BACKLIGHT", "IntensityMappings2", %REG_MULTI_SZ%,  "12","0"
 
-HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "MilliLuxRanges"    , %REG_MULTI_SZ%,  "100000","4294967295"
+HKLM, "System\TOUCH\BUTTONS\BACKLIGHT", "MilliLuxRanges"    , %REG_MULTI_SZ%,  "100000","4294967295"
 
 ; ------------- Strings section
 [Strings]
@@ -172,10 +172,10 @@ TchDriver_Service_Desc = "Synaptics RMI4 F12 Hapanero Digitizer Driver Service"
 HIDKMDF_Service        = "mshidkmdf"
 
 ; ------------- non-localizable strings
-Configuration          = "SYSTEM\TOUCH\SETTINGS"
-FFConfiguration        = "SYSTEM\TOUCH\SETTINGS\FF"
-ScreenProps            = "SYSTEM\TOUCH\SCREENPROPERTIES"
-DisplaySize            = "SYSTEM\TOUCH\DISPLAYPROPERTIES"
+Configuration          = "System\TOUCH\SETTINGS"
+FFConfiguration        = "System\TOUCH\SETTINGS\FF"
+ScreenProps            = "System\TOUCH\SCREENPROPERTIES"
+DisplaySize            = "System\TOUCH\DISPLAYPROPERTIES"
 SPSVCINST_ASSOCSERVICE = 0x00000002
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_BOOT_START     = 0

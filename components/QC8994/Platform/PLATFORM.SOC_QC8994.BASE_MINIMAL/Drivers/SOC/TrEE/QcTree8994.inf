@@ -12,15 +12,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = QcTrEE8994.arm.cat
-CatalogFile.NTARM64 = QcTrEE8994.arm64.cat
+CatalogFile.NTarm   = QcTrEE8994.arm.cat
+CatalogFile.NTarm64 = QcTrEE8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -30,25 +30,25 @@ DefaultDestDir = 13
 ;*****************************************
 
 [Manufacturer]
-%QUALCOMM% = Standard,NTARM,NTARM64
+%Qualcomm% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 ; DisplayName       		Section           DeviceId
 ; -----------       		-------           --------
 %QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24BA
 %QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24B9
 
-[Standard.NTARM64]
+[Standard.NTarm64]
 ; DisplayName       		Section           DeviceId
 ; -----------       		-------           --------
-%QcTrEE.DeviceDesc% = QcTrEE_64, ACPI\QCOM24BA
-%QcTrEE.DeviceDesc% = QcTrEE_64, ACPI\QCOM24B9
+%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24BA
+%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24B9
 
 [QcTrEE.NT]
 CopyFiles   = QcTrEE.NT.Copy
 AddProperty = WDTFSOCDeviceCategory
 
-[QcTrEE_64.NT]
+[QcTrEE.NTarm64]
 CopyFiles   = QcTrEE.NT.Copy
 AddProperty = WDTFSOCDeviceCategory
 
@@ -63,8 +63,8 @@ QcTrEE8994.sys
 [QcTrEE.NT.Services]
 AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst
 
-[QcTrEE_64.NT.Services]
-AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_64_Service_Inst
+[QcTrEE.NTarm64.Services]
+AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst.NTarm64
 
 [QcTrEE_Service_Inst]
 DisplayName    = %QcTrEE.SVCDESC%
@@ -76,7 +76,7 @@ Dependencies   = WindowsTrustedRT,WindowsTrustedRTProxy,fastfat
 LoadOrderGroup = Extended Base
 AddReg         = QcTrEE_SecureService_AddReg
 
-[QcTrEE_64_Service_Inst]
+[QcTrEE_Service_Inst.NTarm64]
 DisplayName    = %QcTrEE.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
@@ -149,7 +149,7 @@ QcTrEE8994.sys = 1,arm64,
 
 [Strings]
 SPSVCINST_ASSOCSERVICE    = 0x00000002
-QUALCOMM                  = "Qualcomm Inc."
+Qualcomm                  = "Qualcomm Technologies, Inc."
 StdMfg                    = "(Standard system devices)"
 ClassName                 = "QcTrEE"
 DiskId1                   = "QcTrEE Installation Disk #1"

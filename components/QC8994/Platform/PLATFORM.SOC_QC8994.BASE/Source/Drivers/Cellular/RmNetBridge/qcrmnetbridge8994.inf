@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (C) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (C) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcrmnetbridge.inx
@@ -11,15 +11,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcrmnetbridge8994.arm.cat
-CatalogFile.NTARM64 = qcrmnetbridge8994.arm64.cat
+CatalogFile.NTarm   = qcrmnetbridge8994.arm.cat
+CatalogFile.NTarm64 = qcrmnetbridge8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -34,13 +34,13 @@ qcrmnetbridge8994.sys = 1,arm,
 qcrmnetbridge8994.sys = 1,arm64,
 
 [Manufacturer]
-%QCOM% = QCOM, NTARM, NTARM64
+%QCOM% = QCOM, NTarm, NTarm64
 
-[QCOM.NTARM]
+[QCOM.NTarm]
 %RMNBRG.DeviceDesc% = RMNBRG_Device, ACPI\QCOM2148
 
-[QCOM.NTARM64]
-%RMNBRG.DeviceDesc% = RMNBRG_64_Device, ACPI\QCOM2148
+[QCOM.NTarm64]
+%RMNBRG.DeviceDesc% = RMNBRG_Device, ACPI\QCOM2148
 
 [RMNBRG_Device.NT]
 CopyFiles = Drivers_Dir
@@ -53,14 +53,14 @@ AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst
 KmdfService = RMNBRG, RMNBRG_wdfsect
 
 
-[RMNBRG_64_Device.NT]
+[RMNBRG_Device.NTarm64]
 CopyFiles = Drivers_Dir
 
 ;-------------- Service installation
-[RMNBRG_64_Device.NT.Services]
-AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_64_Service_Inst
+[RMNBRG_Device.NTarm64.Services]
+AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst.NTarm64
 
-[RMNBRG_64_Device.NT.Wdf]
+[RMNBRG_Device.NTarm64.Wdf]
 KmdfService = RMNBRG, RMNBRG_wdfsect
 
 [Drivers_Dir]
@@ -75,7 +75,7 @@ ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\qcrmnetbridge8994.sys
 LoadOrderGroup = Extended Base
 
-[RMNBRG_64_Service_Inst]
+[RMNBRG_Service_Inst.NTarm64]
 DisplayName    = %RMNBRG.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
@@ -88,7 +88,7 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QCOM                   = "Qualcomm Incorporated"
+QCOM                   = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm rmnetbridge Driver Disk"
 RMNBRG.DeviceDesc      = "Qualcomm(R) Data Device"
 RMNBRG.SVCDESC         = "Qualcomm(R) Data Device"

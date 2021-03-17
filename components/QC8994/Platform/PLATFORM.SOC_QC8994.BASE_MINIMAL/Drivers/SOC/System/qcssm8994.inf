@@ -13,15 +13,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = QCSSM8994.arm.cat                                ; This file is given when a driver passes WHQL testing
-CatalogFile.NTARM64 = QCSSM8994.arm64.cat                              ; This file is given when a driver passes WHQL testing
+CatalogFile.NTarm   = QCSSM8994.arm.cat                                ; This file is given when a driver passes WHQL testing
+CatalogFile.NTarm64 = QCSSM8994.arm64.cat                              ; This file is given when a driver passes WHQL testing
 
 [DestinationDirs]
 DefaultDestDir = 13                                        ; This is a directory id (dirid)
@@ -37,18 +37,18 @@ QCSSM8994.sys = 1,arm,
 QCSSM8994.sys = 1,arm64,
 
 [Manufacturer]
-%StdMfg% = Standard,NTARM64                                ; QCOM drivers may need to follow same process here?
+%StdMfg% = Standard,NTarm64                                ; QCOM drivers may need to follow same process here?
 
-[Standard.NTARM]                                         ; Decorated model section take precedence over undecorated
+[Standard.NTarm]                                         ; Decorated model section take precedence over undecorated
 %SSM.DeviceDesc% = Ssm_Device, ACPI\QCOM2414
 
-[Standard.NTARM64]                                         ; Decorated model section take precedence over undecorated
-%SSM.DeviceDesc% = Ssm_64_Device, ACPI\QCOM2414
+[Standard.NTarm64]                                         ; Decorated model section take precedence over undecorated
+%SSM.DeviceDesc% = Ssm_Device, ACPI\QCOM2414
 
 [Ssm_Device.NT]
 CopyFiles = Drivers_Dir
 
-[Ssm_64_Device.NT]
+[Ssm_Device.NTarm64]
 CopyFiles = Drivers_Dir
 
 
@@ -60,13 +60,13 @@ QCSSM8994.sys                                              ; Copied from the sou
 [Ssm_Device.NT.Services]
 AddService = SSM,%SPSVCINST_ASSOCSERVICE%, Ssm_Service_Inst; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
-[Ssm_64_Device.NT.Services]
-AddService = SSM,%SPSVCINST_ASSOCSERVICE%, Ssm_64_Service_Inst; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+[Ssm_Device.NTarm64.Services]
+AddService = SSM,%SPSVCINST_ASSOCSERVICE%, Ssm_Service_Inst.NTarm64; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
 [Ssm_Device.NT.Wdf]
 KmdfService = Ssm, Ssm_Service_kmdfInst
 
-[Ssm_64_Device.NT.Wdf]
+[Ssm_Device.NTarm64.Wdf]
 KmdfService = Ssm, Ssm_Service_kmdfInst
 
 [Ssm_Service_kmdfInst]
@@ -83,7 +83,7 @@ ServiceBinary  = %13%\arm\QCSSM8994.sys
 LoadOrderGroup = Extended Base
 AddReg         = SsmReg
 
-[SSM_64_Service_Inst]
+[SSM_Service_Inst.NTarm64]
 DisplayName    = %SSM.SVCDESC%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
@@ -97,7 +97,7 @@ HKR, , TzappName, 0x00000000, "SsmApp"
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QUALCOMM               = "Qualcomm, Inc."
+Qualcomm               = "Qualcomm Technologies, Inc."
 StdMfg                 = "(Standard system devices)"
 DiskId1                = "Ssm Installation Disk #1"
 SSM.DeviceDesc         = "Qualcomm(R) System Manager Device"

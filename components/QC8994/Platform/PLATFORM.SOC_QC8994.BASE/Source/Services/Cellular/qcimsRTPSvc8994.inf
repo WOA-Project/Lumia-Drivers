@@ -2,15 +2,15 @@
 ; qcimsRTPSvc8994.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1057.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = qcimsRTPSvc8994.arm.cat
-CatalogFile.NTARM64 = qcimsRTPSvc8994.arm64.cat
+CatalogFile.NTarm   = qcimsRTPSvc8994.arm.cat
+CatalogFile.NTarm64 = qcimsRTPSvc8994.arm64.cat
 
 [DestinationDirs]
 qcimsRTPSvc8994.Files = 13 ; \system32 directory on Windows 2000 and later versions
@@ -25,26 +25,26 @@ qcimsRTPSvc8994.dll = 0,arm,
 qcimsRTPSvc8994.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTARM,NTARM64
+%QC%=QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %IMSRTP.DeviceDesc%=IMSRTP, SWC\VID_QCOM&PID_0EA0&SID_0003
 
-[QC.NTARM64]
+[QC.NTarm64]
 %IMSRTP.DeviceDesc%=IMSRTP, SWC\VID_QCOM&PID_0EA0&SID_0003
 
-[IMSRTP.NTARM]
+[IMSRTP.NTarm]
 CopyFiles = qcimsRTPSvc8994.Files
 AddReg    = qcimsRTPSvc8994_Reg, qcimsRTPSvc8994_path_Reg
 
-[IMSRTP.NTARM64]
+[IMSRTP.NTarm64]
 CopyFiles = qcimsRTPSvc8994.Files
-AddReg    = qcimsRTPSvc8994_Reg, qcimsRTPSvc8994_path_64_Reg
+AddReg    = qcimsRTPSvc8994_Reg, qcimsRTPSvc8994_path_Reg.NTarm64
 
-[IMSRTP.NTARM.Services]
+[IMSRTP.NTarm.Services]
 AddService = RTPSvc,0x00000000,qcimsRTPSvc8994_Service,
 
-[IMSRTP.NTARM64.Services]
+[IMSRTP.NTarm64.Services]
 AddService = RTPSvc,0x00000000,qcimsRTPSvc8994_Service,
 
 ;ServiceType = 0x110
@@ -63,30 +63,30 @@ ErrorControl  = 0
 ServiceBinary = "%%SystemRoot%%\System32\svchost.exe -k RTPSvcGroup"
 
 [qcimsRTPSvc8994_Reg]
-HKLM, "SYSTEM\controlset001\services\RTPSvc", "PreshutdownTimeout", 0x10001, 0x4E20
-HKLM, "SYSTEM\controlset001\services\RTPSvc", "Start", 0x10001, 0x2
-HKLM, "SYSTEM\controlset001\services\RTPSvc", "Type", 0x10001, 0x20
-HKLM, "SYSTEM\controlset001\services\RTPSvc", "ErrorControl", 0x10001, 0x0
-HKLM, "SYSTEM\controlset001\services\RTPSvc", "DisplayName", 0x0, "RTPSvc"
-HKLM, "SYSTEM\controlset001\services\RTPSvc", "Description", 0x0, "RTP Service"
-HKLM, "SYSTEM\controlset001\services\RTPSvc", "DependOnService", 0x10000, "IMSDATAsvc"
-HKLM, "SYSTEM\controlset001\services\RTPSvc", "FailureActions", 0x1, 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
-HKLM, "SYSTEM\controlset001\services\RTPSvc", "ImagePath", 0x20000, "%%SystemRoot%%\System32\svchost.exe -k RTPSvcGroup"
-HKLM, "SYSTEM\controlset001\services\RTPSvc\Parameters", "ServiceMain", 0x0, "ServiceMain"
-HKLM, "SYSTEM\controlset001\services\RTPSvc\Parameters", "ServiceDllUnloadOnStop", 0x10001, 0x1
+HKLM, "System\controlset001\services\RTPSvc", "PreshutdownTimeout", 0x10001, 0x4E20
+HKLM, "System\controlset001\services\RTPSvc", "Start", 0x10001, 0x2
+HKLM, "System\controlset001\services\RTPSvc", "Type", 0x10001, 0x20
+HKLM, "System\controlset001\services\RTPSvc", "ErrorControl", 0x10001, 0x0
+HKLM, "System\controlset001\services\RTPSvc", "DisplayName", 0x0, "RTPSvc"
+HKLM, "System\controlset001\services\RTPSvc", "Description", 0x0, "RTP Service"
+HKLM, "System\controlset001\services\RTPSvc", "DependOnService", 0x10000, "IMSDATAsvc"
+HKLM, "System\controlset001\services\RTPSvc", "FailureActions", 0x1, 80,51,01,00,00,00,00,00,00,00,00,00,04,00,00,00,14,00,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,01,00,00,00,10,27,00,00,00,00,00,00,10,27,00,00
+HKLM, "System\controlset001\services\RTPSvc", "ImagePath", 0x20000, "%%SystemRoot%%\System32\svchost.exe -k RTPSvcGroup"
+HKLM, "System\controlset001\services\RTPSvc\Parameters", "ServiceMain", 0x0, "ServiceMain"
+HKLM, "System\controlset001\services\RTPSvc\Parameters", "ServiceDllUnloadOnStop", 0x10001, 0x1
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", RTPSvcGroup, %REG_MULTI_SZ%, "RTPSvc"
 
 [qcimsRTPSvc8994_path_Reg]
-HKLM, "SYSTEM\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%13%\arm\qcimsRTPSvc8994.dll"
+HKLM, "System\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%13%\arm\qcimsRTPSvc8994.dll"
 
-[qcimsRTPSvc8994_path_64_Reg]
-HKLM, "SYSTEM\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%13%\arm64\qcimsRTPSvc8994.dll"
+[qcimsRTPSvc8994_path_Reg.NTarm64]
+HKLM, "System\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%13%\arm64\qcimsRTPSvc8994.dll"
 
 [qcimsRTPSvc8994.Files]
 qcimsRTPSvc8994.dll
 
 [Strings]
-QC                = "Qualcomm"
+QC                = "Qualcomm Technologies, Inc."
 IMSRTP.DeviceDesc = "Qualcomm IP Multimedia System RTP Service" 
 
 REG_SZ        = 0x00000000

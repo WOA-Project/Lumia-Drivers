@@ -9,8 +9,8 @@ Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1057.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = "qcims8994.arm.cat"
-CatalogFile.NTARM64 = "qcims8994.arm64.cat"
+CatalogFile.NTarm   = "qcims8994.arm.cat"
+CatalogFile.NTarm64 = "qcims8994.arm64.cat"
 
 [DestinationDirs]
 qcims8994.Files  = 13 ; \system32 directory on Windows 2000 and later versions
@@ -33,21 +33,21 @@ qcimsvtmf8994.dll = 0,arm64,
 vcel8994.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTARM,NTARM64
+%QC%=QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %IMS.DeviceDesc%=IMS, SWC\VID_QCOM&PID_0EA0&SID_0008
 
-[QC.NTARM64]
+[QC.NTarm64]
 %IMS.DeviceDesc%=IMS, SWC\VID_QCOM&PID_0EA0&SID_0008
 
-[IMS.NTARM]
+[IMS.NTarm]
 CopyFiles = qcims8994.Files
 AddReg    = qcims8994_Reg
 
-[IMS.NTARM64]
+[IMS.NTarm64]
 CopyFiles = qcims8994.Files2
-AddReg    = qcims8994_64_Reg
+AddReg    = qcims8994_Reg.NTarm64
 
 [qcims8994_Reg]
 ;HKLM, "Software\Microsoft\WindowsRuntime\CLSID\{64D3109A-9F12-42A8-8D70-1F97696E4082}", "ActivatableClassId", 0x0, "qcimssinkcommunication.QcImsMediaSink"
@@ -69,7 +69,7 @@ HKLM, "Software\Classes\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}", , ,"QcIms
 HKLM, "Software\Classes\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}\InProcServer32", ,0x20000, "%13%\arm\qcimssrc8994.dll"
 HKLM, "Software\Classes\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}\InProcServer32", "ThreadingModel", 0x0, "Both"
 
-[qcims8994_64_Reg]
+[qcims8994_Reg.NTarm64]
 ;HKLM, "Software\Microsoft\WindowsRuntime\CLSID\{64D3109A-9F12-42A8-8D70-1F97696E4082}", "ActivatableClassId", 0x0, "qcimssinkcommunication.QcImsMediaSink"
 ;HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\qcimssinkcommunication.QcImsMediaSink", "ActivationType", 0x10001, 0x0
 ;HKLM, "Software\Microsoft\WindowsRuntime\ActivatableClassId\qcimssinkcommunication.QcImsMediaSink", "CLSID", 0x0, "{64D3109A-9F12-42A8-8D70-1F97696E4082}"

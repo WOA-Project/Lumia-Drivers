@@ -1,5 +1,5 @@
 ;-------------------------------------------------------------------------
-;   Copyright (c) 2012 QUALCOMM Incorporated. All Rights Reserved.
+;   Copyright (c) 2012 Qualcomm Incorporated. All Rights Reserved.
 ;
 ;   Module Name:
 ;       QCDiagBridge8994.inf
@@ -16,8 +16,8 @@ Provider    = %ManufacturerName%
 PnpLockDown = 1
 DriverVer   = 07/02/2015,1.0.1070.0000
 
-CatalogFile.NTARM   = QCDiagBridge8994.arm.cat
-CatalogFile.NTARM64 = QCDiagBridge8994.arm64.cat
+CatalogFile.NTarm   = QCDiagBridge8994.arm.cat
+CatalogFile.NTarm64 = QCDiagBridge8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -35,13 +35,13 @@ QCDiagBridge8994.sys = 1,arm64
 ExcludeFromSelect = *
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTARM,NTARM64
+%ManufacturerName% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %QCDiagBridge.DeviceDesc% = QCDiagBridge_Device, ACPI\QCOM248B
 
-[Standard.NTARM64]
-%QCDiagBridge.DeviceDesc% = QCDiagBridge_64_Device, ACPI\QCOM248B
+[Standard.NTarm64]
+%QCDiagBridge.DeviceDesc% = QCDiagBridge_Device, ACPI\QCOM248B
 
 [QCDiagBridge_Device.NT]
 CopyFiles   = Drivers_Dir
@@ -57,18 +57,18 @@ AddService = QCDiagBridge,%SPSVCINST_ASSOCSERVICE%, QCDiagBridge_Service_Inst
 [QCDiagBridge_Device.NT.Wdf]
 KmdfService = QCDiagBridge, QCDiagBridge_wdfsect
 
-[QCDiagBridge_64_Device.NT]
+[QCDiagBridge_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[QCDiagBridge_64_Device.NT.HW]
+[QCDiagBridge_Device.NTarm64.HW]
 AddReg = QCDiagBridge_HW_AddReg
 
-[QCDiagBridge_64_Device.NT.Services]
-AddService = QCDiagBridge,%SPSVCINST_ASSOCSERVICE%, QCDiagBridge_64_Service_Inst
+[QCDiagBridge_Device.NTarm64.Services]
+AddService = QCDiagBridge,%SPSVCINST_ASSOCSERVICE%, QCDiagBridge_Service_Inst.NTarm64
 
-[QCDiagBridge_64_Device.NT.Wdf]
+[QCDiagBridge_Device.NTarm64.Wdf]
 KmdfService = QCDiagBridge, QCDiagBridge_wdfsect
 
 [Drivers_Dir]
@@ -89,7 +89,7 @@ ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\QCDiagBridge8994.sys
 AddReg        = QCDiagBridge_Service_AddReg
 
-[QCDiagBridge_64_Service_Inst]
+[QCDiagBridge_Service_Inst.NTarm64]
 DisplayName   = %QCDiagBridge.SVCDESC%
 ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
 StartType     = 3 ; SERVICE_DEMAND_START
@@ -108,7 +108,7 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-ManufacturerName        = "Qualcomm Incorporated"
+ManufacturerName        = "Qualcomm Technologies, Inc."
 DiskName                = "Qualcomm Diagnostic Bridge Installation Disk"
 QCDiagBridge.DeviceDesc = "Qualcomm(R) Data Device"
 QCDiagBridge.SVCDESC    = "Qualcomm(R) Data Device"

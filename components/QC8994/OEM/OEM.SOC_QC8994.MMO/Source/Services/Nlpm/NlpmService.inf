@@ -2,14 +2,14 @@
 ; NlpmService.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
 DriverVer   = 03/07/2021,1.0.0.4
 PnpLockdown = 1
 
-CatalogFile.NTARM64 = NlpmService.arm64.cat
+CatalogFile.NTarm64 = NlpmService.arm64.cat
 
 [DestinationDirs]
 NlpmService.Files = 13,arm64
@@ -35,19 +35,19 @@ lpmFont_WXGA.bin               = 0,arm64,
 ShellChromeAssets1440x2560.dll = 0,arm64,
 
 [Manufacturer]
-%MMO%=MMO,NTARM64
+%MMO%=MMO,NTarm64
 
-[MMO.NTARM]
+[MMO.NTarm]
 %NlpmService.DeviceDesc%=NlpmService, SWC\VID_MSHW&PID_1004&SID_0001
 
-[MMO.NTARM64]
+[MMO.NTarm64]
 %NlpmService.DeviceDesc%=NlpmService, SWC\VID_MSHW&PID_1004&SID_0001
 
-[NlpmService.NTARM64]
+[NlpmService.NTarm64]
 CopyFiles = NlpmService.Files
 AddReg    = NlpmSettings
 
-[NlpmService.NTARM64.Services]
+[NlpmService.NTarm64.Services]
 AddService = NlpmService, 0x00000000, NlpmService_Service,
 
 [NlpmService_Service]
@@ -96,26 +96,26 @@ HKR, "TriggerInfo\0", "Type", 0x00010001, 0x00000007
 HKR, "TriggerInfo\0", "Data1", 0x00000001, \
 	00,00,00,00,01,00,00,00                         ; ········
 
-HKLM, "SOFTWARE\Microsoft\Shell\Wallpaper", "CurrentWallpaperProvider", 0x00000000, "{75CF42B3-6A70-425C-9B42-636CA1F63B90}"
-HKLM, "SOFTWARE\Microsoft\Shell\Wallpaper", "CurrentWallpaper", 0x00000000, "%10%\OEM\Wallpaper.png"
-HKLM, "SOFTWARE\Microsoft\Shell\Wallpaper", "CurrentWallpaperOwner", 0x00000000, "{75CF42B3-6A70-425C-9B42-636CA1F63B90}"
+HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaperProvider", 0x00000000, "{75CF42B3-6A70-425C-9B42-636CA1F63B90}"
+HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaper", 0x00000000, "%10%\OEM\Wallpaper.png"
+HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaperOwner", 0x00000000, "{75CF42B3-6A70-425C-9B42-636CA1F63B90}"
 
-HKLM, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\SvcHost", "NsgGlance", 0x00010008, \
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\SvcHost", "NsgGlance", 0x00010008, \
 	"NlpmService"
 
-HKLM, "SOFTWARE\WowAA32Node\Microsoft\EventSounds\Sounds", "RingerVibrateState", 0x00010001, 0x00000002
+HKLM, "Software\WowAA32Node\Microsoft\EventSounds\Sounds", "RingerVibrateState", 0x00010001, 0x00000002
 
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "PluginPath", 0x00000000, "%13%\arm64\NlpmService.dll"
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "UseBeta", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Enabled", 0x00010001, 0x00000001
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "PluginVersion", 0x00000000, "4.1.12.4"
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Version", 0x00000000, "4.1.12.4"
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Path", 0x00000000, "%13%\arm64\NlpmServiceStub.dll"
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "UsingBeta", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "PluginPath", 0x00000000, "%13%\arm64\NlpmService.dll"
+HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "UseBeta", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Enabled", 0x00010001, 0x00000001
+HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "PluginVersion", 0x00000000, "4.1.12.4"
+HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Version", 0x00000000, "4.1.12.4"
+HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Path", 0x00000000, "%13%\arm64\NlpmServiceStub.dll"
+HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "UsingBeta", 0x00010001, 0x00000000
 
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\Touch\WakeupGesture", "SingleTapEnabled", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\Touch\WakeupGesture", "SingleTapEnabled", 0x00010001, 0x00000000
 
-HKLM, "SOFTWARE\WowAA32Node\Microsoft\SecurityManager\TransientObjects\%5C%5C.%5CRpc%5CInteropRPC%5CInterface", "SecurityDescriptor", 0x00000001, \
+HKLM, "Software\WowAA32Node\Microsoft\SecurityManager\TransientObjects\%5C%5C.%5CRpc%5CInteropRPC%5CInterface", "SecurityDescriptor", 0x00000001, \
 	01,00,04,80,00,00,00,00,00,00,00,00,00,00,00, \ ; ··············
 	00,14,00,00,00,02,00,48,01,09,00,00,00,00,00, \ ; ·······H·······
 	38,00,00,00,00,10,01,0a,00,00,00,00,00,0f,03, \ ; 8··············
@@ -142,32 +142,32 @@ HKLM, "SOFTWARE\WowAA32Node\Microsoft\SecurityManager\TransientObjects\%5C%5C.%5
 	02,00,00                                        ; ···
 
 [NlpmSettings]
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "SwitchOffTimeout", 0x00010001, 0x0000000f
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "DarkMode", 0x00010001, 0x00000001
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "SyncedBgConversionOptions", 0x00010001, 0x00000009
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "ShowSystemNotifications", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "GripWakeup", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "DarkModeOverrideColor", 0x00010001, 0x00ff0000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "Mode", 0x00010001, 0x00000002
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "FontFile", 0x00000000, "%13%\arm64\lpmFont_WQHD.bin"
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "SingleTapWakeup", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "AppGraphicGestures", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "ShowDetailedAppStatus", 0x00010001, 0x00000001
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "DarkModeEnd", 0x00010001, 0x000001a4
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "AlwaysOnInCharger", 0x00010001, 0x00000001
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "ClockAndIndicatorsCustomColor", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "MoveClock", 0x00010001, 0x00000001
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "BackgroundSyncDisabled", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "Enabled", 0x00010001, 0x00000001
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "BSSwitchOffTimeout", 0x00010001, 0x0000001e
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "DarkModeThreshold", 0x00010001, 0x00004e20
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "AppGraphicTimeout", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "NormalModeElements", 0x00010001, 0x0000007f
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "MinimizeIcon", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "SupportedTouchEvents", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "DarkModeElements", 0x00010001, 0x0000004f
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "EnablePublicSDK", 0x00010001, 0x00000000
-HKLM, "SOFTWARE\WowAA32Node\OEM\Nokia\lpm", "DarkModeStart", 0x00010001, 0x00000528
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "SwitchOffTimeout", 0x00010001, 0x0000000f
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkMode", 0x00010001, 0x00000001
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "SyncedBgConversionOptions", 0x00010001, 0x00000009
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "ShowSystemNotifications", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "GripWakeup", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkModeOverrideColor", 0x00010001, 0x00ff0000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "Mode", 0x00010001, 0x00000002
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "FontFile", 0x00000000, "%13%\arm64\lpmFont_WQHD.bin"
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "SingleTapWakeup", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "AppGraphicGestures", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "ShowDetailedAppStatus", 0x00010001, 0x00000001
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkModeEnd", 0x00010001, 0x000001a4
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "AlwaysOnInCharger", 0x00010001, 0x00000001
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "ClockAndIndicatorsCustomColor", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "MoveClock", 0x00010001, 0x00000001
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "BackgroundSyncDisabled", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "Enabled", 0x00010001, 0x00000001
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "BSSwitchOffTimeout", 0x00010001, 0x0000001e
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkModeThreshold", 0x00010001, 0x00004e20
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "AppGraphicTimeout", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "NormalModeElements", 0x00010001, 0x0000007f
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "MinimizeIcon", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "SupportedTouchEvents", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkModeElements", 0x00010001, 0x0000004f
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "EnablePublicSDK", 0x00010001, 0x00000000
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkModeStart", 0x00010001, 0x00000528
 
 [NlpmSettings.Security]
 "D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;AU)(A;;GA;;;BG)(A;;GA;;;S-1-15-2-1)(A;;GA;;;WD)"

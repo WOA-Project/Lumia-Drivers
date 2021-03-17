@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcpmic8994.INF
@@ -10,15 +10,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnPLockdown = 1
 
-CatalogFile.NTARM   = qcpmic8994.arm.cat
-CatalogFile.NTARM64 = qcpmic8994.arm64.cat
+CatalogFile.NTarm   = qcpmic8994.arm.cat
+CatalogFile.NTarm64 = qcpmic8994.arm64.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -41,20 +41,20 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = Qualcomm,NTARM,NTARM64
+%QC% = Qualcomm,NTarm,NTarm64
 
-[Qualcomm.NTARM]
+[Qualcomm.NTarm]
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM2455
 
-[Qualcomm.NTARM64]
-%DeviceDesc% = PMIC_64_Inst,ACPI\QCOM2455
+[Qualcomm.NTarm64]
+%DeviceDesc% = PMIC_Inst,ACPI\QCOM2455
 
 [PMIC_Inst.NT]
 Copyfiles   = PMICCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[PMIC_64_Inst.NT]
+[PMIC_Inst.NTarm64]
 Copyfiles   = PMICCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -62,7 +62,7 @@ Reboot
 [PMIC_Inst.NT.HW]
 Addreg = PMICACL
 
-[PMIC_64_Inst.NT.HW]
+[PMIC_Inst.NTarm64.HW]
 Addreg = PMICACL
 
 [PMICACL]
@@ -77,8 +77,8 @@ qcpmic8994.sys
 [PMIC_Inst.NT.Services]
 AddService = qcpmic,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
 
-[PMIC_64_Inst.NT.Services]
-AddService = qcpmic,%SPSVCINST_ASSOCSERVICE%,PMIC_64_Service_Inst
+[PMIC_Inst.NTarm64.Services]
+AddService = qcpmic,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst.NTarm64
 
 [PMIC_Service_Inst]
 DisplayName    = %PMIC.SvcDesc%
@@ -88,7 +88,7 @@ ErrorControl   = %SERVICE_ERROR_NORMAL%
 ServiceBinary  = %13%\arm\qcpmic8994.sys
 LoadOrderGroup = Filter
 
-[PMIC_64_Service_Inst]
+[PMIC_Service_Inst.NTarm64]
 DisplayName    = %PMIC.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_BOOT_START%
@@ -99,7 +99,7 @@ LoadOrderGroup = Filter
 [PMIC_Inst.NT.Wdf]
 KmdfService = qcpmic, PMIC_wdfsect
 
-[PMIC_64_Inst.NT.Wdf]
+[PMIC_Inst.NTarm64.Wdf]
 KmdfService = qcpmic, PMIC_wdfsect
 
 [PMIC_wdfsect]
@@ -107,7 +107,7 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QC                     = "Qualcomm Inc."
+QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm PMIC WDF Driver Installation Disk"
 PMIC.SvcDesc           = "Qualcomm(R) Power Management"
 DeviceDesc             = "Qualcomm(R) Power Management"

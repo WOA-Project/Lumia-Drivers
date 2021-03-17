@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    SMMU.inf
@@ -14,15 +14,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcsmmu8994.arm.cat
-CatalogFile.NTARM64 = qcsmmu8994.arm64.cat
+CatalogFile.NTarm   = qcsmmu8994.arm.cat
+CatalogFile.NTarm64 = qcsmmu8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -40,13 +40,13 @@ qcsmmu8994.sys = 1,arm64
 ExcludeFromSelect = *
 
 [Manufacturer]
-%QC% = QC, NTARM, NTARM64
+%QC% = QC, NTarm, NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %SMMU.DeviceDesc% = SMMU_Device, ACPI\QCOM2400
 
-[QC.NTARM64]
-%SMMU.DeviceDesc% = SMMU_64_Device, ACPI\QCOM2400
+[QC.NTarm64]
+%SMMU.DeviceDesc% = SMMU_Device, ACPI\QCOM2400
 
 [SMMU_Device.NT]
 CopyFiles   = Drivers_Dir
@@ -54,7 +54,7 @@ AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
 Reboot
 
-[SMMU_64_Device.NT]
+[SMMU_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
@@ -73,13 +73,13 @@ qcsmmu8994.sys
 ; To control and view these traces use "!wmitrace.strdump SMMU" from KD, or tracelog/traceview tools in the WDK.
 ; As currently configured below, tracing is currently disabled (Start = 0) (Enabled = 0).
 [WppReg]
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SMMU                                       , FileName   , %REG_SZ%   , ""
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SMMU                                       , Guid       , %REG_SZ%   , "{cf6bfd48-e161-4949-96d5-8647cfc488c7}"
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SMMU                                       , LogFileMode, %REG_DWORD%, 0x10080100
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SMMU                                       , Start      , %REG_DWORD%, 0x00000000
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SMMU\{cf6bfd48-e161-4949-96d5-8647cfc488c8}, Enabled    , %REG_DWORD%, 0
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SMMU\{cf6bfd48-e161-4949-96d5-8647cfc488c8}, EnableFlags, %REG_DWORD%, 0xFFFF
-HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\SMMU\{cf6bfd48-e161-4949-96d5-8647cfc488c8}, EnableLevel, %REG_DWORD%, 2
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\SMMU                                       , FileName   , %REG_SZ%   , ""
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\SMMU                                       , Guid       , %REG_SZ%   , "{cf6bfd48-e161-4949-96d5-8647cfc488c7}"
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\SMMU                                       , LogFileMode, %REG_DWORD%, 0x10080100
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\SMMU                                       , Start      , %REG_DWORD%, 0x00000000
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\SMMU\{cf6bfd48-e161-4949-96d5-8647cfc488c8}, Enabled    , %REG_DWORD%, 0
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\SMMU\{cf6bfd48-e161-4949-96d5-8647cfc488c8}, EnableFlags, %REG_DWORD%, 0xFFFF
+HKLM, System\CurrentControlSet\Control\WMI\Autologger\SMMU\{cf6bfd48-e161-4949-96d5-8647cfc488c8}, EnableLevel, %REG_DWORD%, 2
 
 [SMMU_SoftwareDeviceSettings]
 HKR, , PowerManaged       , %REG_DWORD%,  1
@@ -91,8 +91,8 @@ HKR, , EnableTestInterface, %REG_DWORD%,  1
 [SMMU_Device.NT.Services]
 AddService = qcsmmuv2,%SPSVCINST_ASSOCSERVICE%, SMMU_Service_Inst
 
-[SMMU_64_Device.NT.Services]
-AddService = qcsmmuv2,%SPSVCINST_ASSOCSERVICE%, SMMU_64_Service_Inst
+[SMMU_Device.NTarm64.Services]
+AddService = qcsmmuv2,%SPSVCINST_ASSOCSERVICE%, SMMU_Service_Inst.NTarm64
 
 ; -------------- skeletoni2c driver install sections
 [SMMU_Service_Inst]
@@ -103,7 +103,7 @@ ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcsmmu8994.sys
 AddReg        = SMMU_SoftwareDeviceSettings
 
-[SMMU_64_Service_Inst]
+[SMMU_Service_Inst.NTarm64]
 DisplayName   = %SMMU.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
@@ -113,14 +113,14 @@ AddReg        = SMMU_SoftwareDeviceSettings
 
 [SMMU_Device.NT.Wdf]
 KmdfService = qcsmmuv2, SMMU_wdfsect
-[SMMU_64_Device.NT.Wdf]
+[SMMU_Device.NTarm64.Wdf]
 KmdfService = qcsmmuv2, SMMU_wdfsect
 [SMMU_wdfsect]
 KmdfLibraryVersion = 1.13
 
 [Strings]
 ;Localizable Strings
-QC                     = "Qualcomm Inc."
+QC                     = "Qualcomm Technologies, Inc."
 SMMU.DeviceDesc        = "Qualcomm(R) Memory and File System Device"
 SMMU.SVCDESC           = "Qualcomm(R) Memory and File System Device"
 DiskId                 = "Qualcomm System MMU v2 Driver Installation Disk"

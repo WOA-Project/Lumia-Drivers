@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qci2c.inf
@@ -10,15 +10,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qci2c8994.arm.cat
-CatalogFile.NTARM64 = qci2c8994.arm64.cat
+CatalogFile.NTarm   = qci2c8994.arm.cat
+CatalogFile.NTarm64 = qci2c8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -40,20 +40,20 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC,NTARM,NTARM64
+%QC% = QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %qci2c.DeviceDesc% = qci2c_Device, ACPI\QCOM240E
 
-[QC.NTARM64]
-%qci2c.DeviceDesc% = qci2c_64_Device, ACPI\QCOM240E
+[QC.NTarm64]
+%qci2c.DeviceDesc% = qci2c_Device, ACPI\QCOM240E
 
 [qci2c_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[qci2c_64_Device.NT]
+[qci2c_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -68,8 +68,8 @@ qci2c8994.sys
 [qci2c_Device.NT.Services]
 AddService = "qci2c",%SPSVCINST_ASSOCSERVICE%, qci2c_Service_Inst
 
-[qci2c_64_Device.NT.Services]
-AddService = "qci2c",%SPSVCINST_ASSOCSERVICE%, qci2c_64_Service_Inst
+[qci2c_Device.NTarm64.Services]
+AddService = "qci2c",%SPSVCINST_ASSOCSERVICE%, qci2c_Service_Inst.NTarm64
 
 ; ------------- qci2c driver install sections
 [qci2c_Service_Inst]
@@ -80,7 +80,7 @@ ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qci2c8994.sys
 Dependencies  = SpbCx
 
-[qci2c_64_Service_Inst]
+[qci2c_Service_Inst.NTarm64]
 DisplayName   = %qci2c.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
@@ -92,7 +92,7 @@ Dependencies  = SpbCx
 [qci2c_Device.NT.Wdf]
 KmdfService = "qci2c", qci2c_wdfsect
 
-[qci2c_64_Device.NT.Wdf]
+[qci2c_Device.NTarm64.Wdf]
 KmdfService = "qci2c", qci2c_wdfsect
 
 [qci2c_wdfsect]
@@ -100,7 +100,7 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QC                     = "Qualcomm Inc."
+QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm I2C Controller Installation Disk"
 qci2c.DeviceDesc       = "Qualcomm(R) Bus Device"
 qci2c.SVCDESC          = "Qualcomm(R) Bus Device"

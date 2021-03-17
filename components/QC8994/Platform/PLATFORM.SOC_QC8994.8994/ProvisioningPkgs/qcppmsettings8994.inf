@@ -2,15 +2,15 @@
 ; qcppmsettings.inf
 ;
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockdown = 1
 
-CatalogFile.NTARM   = qcppmsettings8994.arm.cat
-CatalogFile.NTARM64 = qcppmsettings8994.arm64.cat
+CatalogFile.NTarm   = qcppmsettings8994.arm.cat
+CatalogFile.NTarm64 = qcppmsettings8994.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
@@ -30,18 +30,18 @@ PPMSettings-8994Profiles.ppkg = 0,arm64,
 ;*****************************************
 
 [Manufacturer]
-%QC%=QC,NTARM,NTARM64
+%QC%=QC,NTarm,NTarm64
 
-[QC.NTARM]
+[QC.NTarm]
 %PPM.DeviceDesc%=PPM, SWC\VID_QCOM&PID_2425&SID_0001
 
-[QC.NTARM64]
+[QC.NTarm64]
 %PPM.DeviceDesc%=PPM, SWC\VID_QCOM&PID_2425&SID_0001
 
-[PPM.NTARM]
+[PPM.NTarm]
 CopyFiles = qcppmsettings.Files.NTarm
 
-[PPM.NTARM64]
+[PPM.NTarm64]
 CopyFiles = qcppmsettings.Files.NTarm
 
 ; System32
@@ -51,7 +51,7 @@ PPMSettings-8994Profiles.ppkg
 [Strings]
 REG_SZ                 = 0x00000000
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QCOM                   = "Qualcomm"
+QCOM                   = "Qualcomm Technologies, Inc."
 QC                     = "Qualcomm Technologies, INC"
 DiskId1                = "Qualcomm Power Profile Management Settings Installation Disk #1"
 PPM.DeviceDesc         = "Qualcomm Power Profile Management Settings Package"

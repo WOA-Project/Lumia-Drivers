@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2013 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2013 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
 ;    qcadcm_wp.inf
@@ -11,15 +11,15 @@
 ;--*/
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcadcm8994.arm.cat
-CatalogFile.NTARM64 = qcadcm8994.arm64.cat
+CatalogFile.NTarm   = qcadcm8994.arm.cat
+CatalogFile.NTarm64 = qcadcm8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -39,13 +39,13 @@ qcadcm8994.sys = 1,arm64
 ;*****************************************
 
 [Manufacturer]
-%QCOM% = Standard,NTARM,NTARM64
+%QCOM% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %ADCM.DeviceDesc% = ADCM_Device, SLM1\QCOM242D
 
-[Standard.NTARM64]
-%ADCM.DeviceDesc% = ADCM_64_Device, SLM1\QCOM242D
+[Standard.NTarm64]
+%ADCM.DeviceDesc% = ADCM_Device, SLM1\QCOM242D
 
 [ADCM_Device.NT]
 CopyFiles   = Drivers_Dir
@@ -55,13 +55,13 @@ AddProperty = WDTFSOCDeviceCategory
 [ADCM_Device.NT.Services]
 AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst
 
-[ADCM_64_Device.NT]
+[ADCM_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 
 ;-------------- Service installation
-[ADCM_64_Device.NT.Services]
-AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_64_Service_Inst
+[ADCM_Device.NTarm64.Services]
+AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst.NTarm64
 
 [Drivers_Dir]
 qcadcm8994.sys
@@ -81,7 +81,7 @@ ServiceBinary = %13%\arm\qcadcm8994.sys
 ;LoadOrderGroup = Extended Base
 Addreg        = ADCMReg_Service
 
-[ADCM_64_Service_Inst]
+[ADCM_Service_Inst.NTarm64]
 DisplayName   = %ADCM.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START

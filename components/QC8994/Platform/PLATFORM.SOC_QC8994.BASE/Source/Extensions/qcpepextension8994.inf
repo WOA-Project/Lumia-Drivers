@@ -1,5 +1,5 @@
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = Extension
 ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %QC%
@@ -7,8 +7,8 @@ ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F59}
 DriverVer   = 04/08/2020,1.0.0.0
 PnpLockdown = 1
 
-CatalogFile.NTARM   = qcpepextension8994.arm.cat
-CatalogFile.NTARM64 = qcpepextension8994.arm64.cat
+CatalogFile.NTarm   = qcpepextension8994.arm.cat
+CatalogFile.NTarm64 = qcpepextension8994.arm64.cat
 
 [Manufacturer]
 %QC% = DeviceExtensions,NTarm,NTarm64

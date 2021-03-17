@@ -3,15 +3,15 @@
 ;
 
 [Version]
-Signature   = "$WINDOWS NT$"
+Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %ManufacturerName%
 DriverVer   = 10/06/2018,18.13.19.793
 PnpLockdown = 1
 
-CatalogFile.NTARM   = qcnull.arm.cat
-CatalogFile.NTARM64 = qcnull.arm64.cat
+CatalogFile.NTarm   = qcnull.arm.cat
+CatalogFile.NTarm64 = qcnull.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir                      = 13
@@ -35,15 +35,15 @@ qcnull.sys = 1,arm64,
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTARM,NTARM64
+%ManufacturerName% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
 %25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
 
-[Standard.NTARM64]
-%QcGPUNull.DeviceDesc%      = qcnull_64_Device, ACPI\QCOM_GPU
-%25A0Null.DeviceDesc%       = qcnull_64_Device, ACPI\QCOM25A0
+[Standard.NTarm64]
+%QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
+%25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
 
 [qcnull_Device.NT]
 CopyFiles = Drivers_Dir
@@ -60,19 +60,19 @@ CopyFiles = qcnull_Device_CoInstaller_CopyFiles
 AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst
 
 
-[qcnull_64_Device.NT]
+[qcnull_Device.NTarm64]
 CopyFiles = Drivers_Dir
 
-[qcnull_64_Device.NT.Wdf]
+[qcnull_Device.NTarm64.Wdf]
 KmdfService = qcnull, qcnull_wdfsect
 
-[qcnull_64_Device.NT.CoInstallers]
+[qcnull_Device.NTarm64.CoInstallers]
 AddReg    = qcnull_Device_CoInstaller_AddReg
 CopyFiles = qcnull_Device_CoInstaller_CopyFiles
 
 ;-------------- Service installation
-[qcnull_64_Device.NT.Services]
-AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_64_Service_Inst
+[qcnull_Device.NTarm64.Services]
+AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst.NTarm64
 
 [Drivers_Dir]
 qcnull.sys
@@ -85,7 +85,7 @@ StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcnull.sys
 
-[qcnull_64_Service_Inst]
+[qcnull_Service_Inst.NTarm64]
 DisplayName   = %qcnull.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START

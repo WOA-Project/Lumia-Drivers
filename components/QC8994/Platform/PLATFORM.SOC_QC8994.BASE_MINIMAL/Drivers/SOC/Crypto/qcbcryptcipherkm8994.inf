@@ -1,19 +1,19 @@
 ;
 ; qcBCryptCipherKM8994.inf
 ;
-;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;Copyright (c) 2012 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = qcBCryptCipherKM8994.arm.cat
-CatalogFile.NTARM64 = qcBCryptCipherKM8994.arm64.cat
+CatalogFile.NTarm   = qcBCryptCipherKM8994.arm.cat
+CatalogFile.NTarm64 = qcBCryptCipherKM8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
@@ -35,20 +35,20 @@ qcBCryptCipherKM8994.sys = 1,arm64
 ;*****************************************
 
 [Manufacturer]
-%QUALCOMM% = Standard,NTARM,NTARM64
+%Qualcomm% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_Device, ACPI\QCOM241D
 
-[Standard.NTARM64]
-%BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_64_Device, ACPI\QCOM241D
+[Standard.NTarm64]
+%BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_Device, ACPI\QCOM241D
 
 [BCryptCipher_KM_Device.NT]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[BCryptCipher_KM_64_Device.NT]
+[BCryptCipher_KM_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -64,14 +64,14 @@ qcBCryptCipherKM8994.sys
 [BCryptCipher_KM_Device.NT.Services]
 AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_Service_Inst
 
-[BCryptCipher_KM_64_Device.NT.Services]
-AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_64_Service_Inst
+[BCryptCipher_KM_Device.NTarm64.Services]
+AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_Service_Inst.NTarm64
 
 ;-------------- HW installation
 [BCryptCipher_KM_Device.NT.HW]
 addreg = BCryptCipher_KM
 
-[BCryptCipher_KM_64_Device.NT.HW]
+[BCryptCipher_KM_Device.NTarm64.HW]
 addreg = BCryptCipher_KM
 
 [BCryptCipher_KM]
@@ -85,7 +85,7 @@ StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcBCryptCipherKM8994.sys
 
-[BCryptCipher_KM_64_Service_Inst]
+[BCryptCipher_KM_Service_Inst.NTarm64]
 DisplayName   = %BCryptCipher_KM.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
@@ -95,14 +95,14 @@ ServiceBinary = %13%\arm64\qcBCryptCipherKM8994.sys
 
 [BCryptCipher_KM_Device.NT.Wdf]
 KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect
-[BCryptCipher_KM_64_Device.NT.Wdf]
+[BCryptCipher_KM_Device.NTarm64.Wdf]
 KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect
 [BCryptCipher_KM_wdfsect]
 KmdfLibraryVersion = 1.15
 
 [Strings]
 ;Localizable Strings
-QUALCOMM                   = "Qualcomm Inc."
+Qualcomm                   = "Qualcomm Technologies, Inc."
 DiskName                   = "Qualcomm BcryptCipher Device Installation Disk"
 BCryptCipher_KM.DeviceDesc = "Qualcomm BcryptCipher Device"
 BCryptCipher_KM.SVCDESC    = "Qualcomm BcryptCipher Driver"

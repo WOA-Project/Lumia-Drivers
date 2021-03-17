@@ -5,15 +5,15 @@
 */
 
 [Version]
-Signature   = "$WINDOWS NT$"
-Class       = SYSTEM
+Signature   = "$Windows NT$"
+Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider    = %QUALCOMM%
+Provider    = %Qualcomm%
 DriverVer   = 07/26/2019,1.0.0700.0000
 PnpLockDown = 1
 
-CatalogFile.NTARM   = QcLteCoexMgr8994.arm.cat
-CatalogFile.NTARM64 = QcLteCoexMgr8994.arm64.cat
+CatalogFile.NTarm   = QcLteCoexMgr8994.arm.cat
+CatalogFile.NTarm64 = QcLteCoexMgr8994.arm64.cat
 
 [DestinationDirs]
 Drivers_Dir_12 = 13
@@ -34,13 +34,13 @@ QcLteCoexMgr8994.sys = 1,arm64
 ;*****************************************
 
 [Manufacturer]
-%QUALCOMM% = Standard,NTARM,NTARM64
+%Qualcomm% = Standard,NTarm,NTarm64
 
-[Standard.NTARM]
+[Standard.NTarm]
 %COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
 
-[Standard.NTARM64]
-%COEX.DeviceDesc% = COEX_64_Device, ACPI\QCOM2487
+[Standard.NTarm64]
+%COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
 
 [COEX_Device.NT]
 CopyFiles = Drivers_Dir_12
@@ -52,13 +52,13 @@ AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst
 KmdfService = COEX, COEX_wdfsect
 
 
-[COEX_64_Device.NT]
+[COEX_Device.NTarm64]
 CopyFiles = Drivers_Dir_12
 
-[COEX_64_Device.NT.Services]
-AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_64_Service_Inst
+[COEX_Device.NTarm64.Services]
+AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst.NTarm64
 
-[COEX_64_Device.NT.Wdf]
+[COEX_Device.NTarm64.Wdf]
 KmdfService = COEX, COEX_wdfsect
 
 [Drivers_Dir_12]
@@ -72,7 +72,7 @@ StartType     = 1               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START 
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\QcLteCoexMgr8994.sys
 
-[COEX_64_Service_Inst]
+[COEX_Service_Inst.NTarm64]
 DisplayName   = %COEX.SVCDESC%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 1               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
@@ -84,7 +84,7 @@ KmdfLibraryVersion = 1.15
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QUALCOMM               = "Qualcomm, Inc."
+Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm WWAN Coexistence Manager Installation Disk"
 COEX.DeviceDesc        = "Qualcomm(R) Data Device"
 COEX.SVCDESC           = "Qualcomm(R) Data Device"
