@@ -29,4 +29,3 @@ HKLM, "Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "UseOLEDTas
 [Strings]
 IHV     = "LumiaWoA authors"
 DiskId1 = "OLED Installation Disk #1"
-

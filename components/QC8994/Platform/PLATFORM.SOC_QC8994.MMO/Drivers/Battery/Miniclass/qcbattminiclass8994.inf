@@ -14,7 +14,7 @@ Signature   = "$Windows NT$"
 Class       = Battery
 ClassGuid   = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
 Provider    = %COMP%
-DriverVer   = 07/02/2015,1.0.1078.0053
+DriverVer   = 09/19/2016,1.0.1078.0056
 PnPLockdown = 1
 
 CatalogFile.NTarm   = qcbattminiclass8994.arm.cat
@@ -75,13 +75,13 @@ Addreg = BMINIACL
 AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst.NTarm64
 
 [BMINIACL]
-HKR, , DeviceCharacteristics, 0x10001, 0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 [PMICCopyFiles]
 qcbattminiclass8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0
 
 [PMIC_Service_Inst]
 DisplayName   = %PMICBatteryMiniclass.SvcDesc%
@@ -109,8 +109,3 @@ SPSVCINST_ASSOCSERVICE       = 0x00000002
 SERVICE_KERNEL_DRIVER        = 1
 SERVICE_DEMAND_START         = 3
 SERVICE_ERROR_NORMAL         = 1
-
-
-
-
-

@@ -36,10 +36,10 @@ ExcludeFromSelect=*
 ;*****************************************
 
 [Manufacturer]
-%COMP%=Qualcomm,NTarm
+%COMP% = Qualcomm,NTarm
 
 [Qualcomm.NTarm]
-%DeviceDesc%=PMIC_Inst,ACPI\QCOM24C4
+%DeviceDesc% = PMIC_Inst,ACPI\QCOM24C4
 
 [PMIC_Inst.NT]
 Copyfiles = PMICCopyFiles
@@ -111,4 +111,4 @@ SERVICE_ERROR_NORMAL   = 1
 
 
 
-
+

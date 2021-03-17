@@ -66,14 +66,14 @@ QcLteCoexMgr8994.sys
 
 ; -------------- COEX driver install sections
 [COEX_Service_Inst]
-DisplayName   = %COEX.SVCDESC%
+DisplayName   = %COEX.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 1               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\QcLteCoexMgr8994.sys
 
 [COEX_Service_Inst.NTarm64]
-DisplayName   = %COEX.SVCDESC%
+DisplayName   = %COEX.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 1               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -87,5 +87,4 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm WWAN Coexistence Manager Installation Disk"
 COEX.DeviceDesc        = "Qualcomm(R) Data Device"
-COEX.SVCDESC           = "Qualcomm(R) Data Device"
-
+COEX.SvcDesc           = "Qualcomm(R) Data Device"

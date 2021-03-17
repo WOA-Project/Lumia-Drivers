@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  QualComm Inc
+;Copyright (c) 2010-2012  Qualcomm Inc
 ;
 ;Module Name:
 ;    qccamisp8994.inf
@@ -62,7 +62,7 @@ Reboot
 qccamisp8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0
 
 [CameraISP_Device.NT.HW]
 AddReg = CameraISP_Device_Security_Reg
@@ -71,7 +71,7 @@ AddReg = CameraISP_Device_Security_Reg
 AddReg = CameraISP_Device_Security_Reg
  
 [CameraISP_Device_Security_Reg]
-HKR, , DeviceCharacteristics, 0x10001, 0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
 [CameraISP_Device.NT.Services]
@@ -82,14 +82,14 @@ AddService = qcISP,%SPSVCINST_ASSOCSERVICE%, ISP_Service_Inst.NTarm64
 
 ; -------------- ISP driver install sections
 [ISP_Service_Inst]
-DisplayName   = %ISP.SVCDESC%
+DisplayName   = %ISP.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qccamisp8994.sys
 
 [ISP_Service_Inst.NTarm64]
-DisplayName   = %ISP.SVCDESC%
+DisplayName   = %ISP.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -99,9 +99,8 @@ ServiceBinary = %13%\arm64\qccamisp8994.sys
 ;Localizable Strings
 QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Camera ISP Installation Disk"
-ISP.SVCDESC            = "Qualcomm Camera ISP Driver"
+ISP.SvcDesc            = "Qualcomm Camera ISP Driver"
 ISP.DeviceDesc         = "Qualcomm Camera ISP Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-

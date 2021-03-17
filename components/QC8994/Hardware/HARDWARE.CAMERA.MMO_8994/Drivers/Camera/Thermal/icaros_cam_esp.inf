@@ -27,7 +27,7 @@ icaros_cam_esp.sys=0,arm64,
 ;*****************************************
 
 [Manufacturer]
-%MMO%=MMO, NTarm, NTarm64
+%MMO% = MMO, NTarm, NTarm64
 
 ; Following section is meant for Windows 2000 as it 
 ; cannot parse decorated model sections
@@ -37,22 +37,22 @@ icaros_cam_esp.sys=0,arm64,
 ; Decorated model section take precedence over undecorated 
 ; ones on XP and later.
 [MMO.NTarm]
-%CameraESP.DeviceDesc%=CameraESP_Device, ACPI\MSHW1010
+%CameraESP.DeviceDesc% = CameraESP_Device, ACPI\MSHW1010
 
 [MMO.NTarm64]
-%CameraESP.DeviceDescNull%=CameraESP_Device, ACPI\MSHW1010
+%CameraESP.DeviceDescNull% = CameraESP_Device, ACPI\MSHW1010
 
 [CameraESP_Device.NT]
-CopyFiles=Drivers_Dir
+CopyFiles = Drivers_Dir
 AddPowerSetting=Temperature_Power_Setting
-SubClass=StillImage
-AddReg=CameraESP_Device_Security_Reg
+SubClass = StillImage
+AddReg = CameraESP_Device_Security_Reg
 
 [Drivers_Dir]
 icaros_cam_esp.sys
 
 [CameraESP_Device.NT.HW]
-AddReg=CameraESP_Device_Security_Reg
+AddReg = CameraESP_Device_Security_Reg
  
 [CameraESP_Device_Security_Reg]
 HKR,,DeviceCharacteristics,0x10001,0x100
@@ -63,7 +63,7 @@ AddService = CameraESP,%SPSVCINST_ASSOCSERVICE%, CameraESP_Service_Inst
 
 ; -------------- CameraESP driver install sections
 [CameraESP_Service_Inst]
-DisplayName    = %CameraESP.SVCDESC%
+DisplayName    = %CameraESP.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 1               ; SERVICE_DEMAND_START 
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -92,5 +92,5 @@ SPSVCINST_ASSOCSERVICE= 0x00000002
 MMO = "MMO"
 CameraESP.DeviceDesc = "Icaros Extra Sensory Perception Driver"
 CameraESP.DeviceDescNull = "Icaros Extra Sensory Perception Driver (Null)"
-CameraESP.SVCDESC = "Icaros Extra Sensory Perception Service"
-Desc_x860= "Data"
+CameraESP.SvcDesc = "Icaros Extra Sensory Perception Service"
+Desc_x860= "Data"

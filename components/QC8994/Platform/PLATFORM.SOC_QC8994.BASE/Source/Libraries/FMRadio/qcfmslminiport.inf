@@ -25,13 +25,13 @@ qcfmslminiport.dll = 0,arm,
 qcfmslminiport.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTarm,NTarm64
+%QC% = QC,NTarm,NTarm64
 
 [QC.NTarm]
-%FM.DeviceDesc%=FMS, SWC\VID_QCOM&PID_24B1&SID_0001
+%FM.DeviceDesc% = FMS, SWC\VID_QCOM&PID_24B1&SID_0001
 
 [QC.NTarm64]
-%FM.DeviceDesc%=FMS, SWC\VID_QCOM&PID_24B1&SID_0001
+%FM.DeviceDesc% = FMS, SWC\VID_QCOM&PID_24B1&SID_0001
 
 [FMS.NTarm]
 CopyFiles = qcfmslminiport.Files
@@ -65,4 +65,3 @@ REG_MULTI_SZ  = 0x00010000
 REG_EXPAND_SZ = 0x00020000
 REG_DWORD     = 0x00010001
 REG_BINARY    = 0x00000001
-

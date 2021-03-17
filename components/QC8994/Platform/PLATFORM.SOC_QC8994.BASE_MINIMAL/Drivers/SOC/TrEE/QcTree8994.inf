@@ -56,7 +56,7 @@ AddProperty = WDTFSOCDeviceCategory
 QcTrEE8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;-------------- Service installation
 
@@ -67,7 +67,7 @@ AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst
 AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst.NTarm64
 
 [QcTrEE_Service_Inst]
-DisplayName    = %QcTrEE.SVCDESC%
+DisplayName    = %QcTrEE.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -77,7 +77,7 @@ LoadOrderGroup = Extended Base
 AddReg         = QcTrEE_SecureService_AddReg
 
 [QcTrEE_Service_Inst.NTarm64]
-DisplayName    = %QcTrEE.SVCDESC%
+DisplayName    = %QcTrEE.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -154,7 +154,7 @@ StdMfg                    = "(Standard system devices)"
 ClassName                 = "QcTrEE"
 DiskId1                   = "QcTrEE Installation Disk #1"
 QcTrEE.DeviceDesc         = "Qualcomm(R) System Manager Device"
-QcTrEE.SVCDESC            = "Qualcomm(R) System Manager Device"
+QcTrEE.SvcDesc            = "Qualcomm(R) System Manager Device"
 PassThroughService.RegKey = "Parameters\SecureServices\{AE865C08-4A07-404D-BE51-D9A0465E23E5}"
 TPMService.RegKey         = "Parameters\SecureServices\{36DEAA79-C5DD-447C-95E6-B3859589291A}"
 EFIVarService.RegKey      = "Parameters\SecureServices\{699AA2F1-A42E-40DF-BABE-3AAAD2BB6A47}"
@@ -169,4 +169,3 @@ IsswRelatedService        = "{05272F96-AD1A-4497-97C2-16B965B197B3}"
 REG_DWORD                 = 0x00010001
 REG_MULTI_SZ              = 0x00010008
 REG_KEY_ONLY              = 0x00000010
-

@@ -166,7 +166,7 @@ AddReg = CoInstallers_AddReg
 AddReg = CoInstallers_AddReg
 
 [CoInstallers_AddReg]
-HKR, , CoInstallers32, 0x00010000, "WUDFCoinstaller.dll"
+HKR,, CoInstallers32, 0x00010000, "WUDFCoinstaller.dll"
 
 ; ================= Copy files ============================
 
@@ -174,13 +174,13 @@ HKR, , CoInstallers32, 0x00010000, "WUDFCoinstaller.dll"
 NXPPN547FW.dat
 
 [UMDriverCopy1803]
-MSNfcI2C547.dll, MSNfcI2C547.1803.dll, , 0x4100,
+MSNfcI2C547.dll, MSNfcI2C547.1803.dll,, 0x4100,
 
 [UMDriverCopy1809]
-MSNfcI2C547.dll, MSNfcI2C547.1809.dll, , 0x4100,
+MSNfcI2C547.dll, MSNfcI2C547.1809.dll,, 0x4100,
 
 [UMDriverCopy1903]
-MSNfcI2C547.dll, MSNfcI2C547.1903.dll, , 0x4100,
+MSNfcI2C547.dll, MSNfcI2C547.1903.dll,, 0x4100,
 
 ;================= Strings section =====================
 
@@ -192,4 +192,3 @@ NXP                      = "NXP Semiconductors"
 NXPPN547_HWID.DeviceDesc = "NXP Near Field Communication (NFC) Controller (PN547)"
 MediaDescription         = "NXP Near Field Communication (NFC) Controller (PN547) Installation Media"
 WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framework Reflector"
-

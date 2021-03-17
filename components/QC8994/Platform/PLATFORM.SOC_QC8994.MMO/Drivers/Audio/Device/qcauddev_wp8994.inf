@@ -138,5 +138,3 @@ MBHC.DeviceDesc        = "Qualcomm(R) System Manager Device"
 AUDD.SvcDesc           = "Qualcomm(R) Aqstic(TM)"
 MBHC.SvcDesc           = "Qualcomm(R) System Manager Device"
 DiskId1                = "Qualcomm Audio Device Installation Disk"
-
-

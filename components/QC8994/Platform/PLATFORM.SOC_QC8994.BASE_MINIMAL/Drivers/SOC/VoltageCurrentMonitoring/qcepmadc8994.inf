@@ -68,17 +68,17 @@ addreg = EPMADCSD
 addreg = EPMADCSD
 
 [EPMADCSD]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 [EPMADC_Service_Inst]
-DisplayName   = %EPMADC.SVCDESC%
+DisplayName   = %EPMADC.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %13%\arm\qcepmadc8994.sys
 
 [EPMADC_Service_Inst.NTarm64]
-DisplayName   = %EPMADC.SVCDESC%
+DisplayName   = %EPMADC.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
@@ -96,7 +96,7 @@ KmdfLibraryVersion = 1.15
 Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm EPM ADC Installation Disk"
 EPMADC.DeviceDesc      = "Qualcomm EPM ADC Device"
-EPMADC.SVCDESC         = "Qualcomm EPM ADC Driver"
+EPMADC.SvcDesc         = "Qualcomm EPM ADC Driver"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
@@ -104,4 +104,3 @@ SERVICE_KERNEL_DRIVER  = 1
 SERVICE_DEMAND_START   = 3
 SERVICE_ERROR_IGNORE   = 0
 SERVICE_ERROR_NORMAL   = 1
-

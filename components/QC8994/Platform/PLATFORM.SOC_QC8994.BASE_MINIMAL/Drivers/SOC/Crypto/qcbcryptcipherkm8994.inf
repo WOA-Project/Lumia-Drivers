@@ -57,7 +57,7 @@ Reboot
 qcBCryptCipherKM8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 
 ;-------------- Service installation
@@ -75,18 +75,18 @@ addreg = BCryptCipher_KM
 addreg = BCryptCipher_KM
 
 [BCryptCipher_KM]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 ; -------------- BCryptCipher_KM driver install sections
 [BCryptCipher_KM_Service_Inst]
-DisplayName   = %BCryptCipher_KM.SVCDESC%
+DisplayName   = %BCryptCipher_KM.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcBCryptCipherKM8994.sys
 
 [BCryptCipher_KM_Service_Inst.NTarm64]
-DisplayName   = %BCryptCipher_KM.SVCDESC%
+DisplayName   = %BCryptCipher_KM.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -105,9 +105,7 @@ KmdfLibraryVersion = 1.15
 Qualcomm                   = "Qualcomm Technologies, Inc."
 DiskName                   = "Qualcomm BcryptCipher Device Installation Disk"
 BCryptCipher_KM.DeviceDesc = "Qualcomm BcryptCipher Device"
-BCryptCipher_KM.SVCDESC    = "Qualcomm BcryptCipher Driver"
+BCryptCipher_KM.SvcDesc    = "Qualcomm BcryptCipher Driver"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE     = 0x00000002
-
-

@@ -35,13 +35,13 @@ lpmFont_WXGA.bin               = 0,arm64,
 ShellChromeAssets1440x2560.dll = 0,arm64,
 
 [Manufacturer]
-%MMO%=MMO,NTarm64
+%MMO% = MMO,NTarm64
 
 [MMO.NTarm]
-%NlpmService.DeviceDesc%=NlpmService, SWC\VID_MSHW&PID_1004&SID_0001
+%NlpmService.DeviceDesc% = NlpmService, SWC\VID_MSHW&PID_1004&SID_0001
 
 [MMO.NTarm64]
-%NlpmService.DeviceDesc%=NlpmService, SWC\VID_MSHW&PID_1004&SID_0001
+%NlpmService.DeviceDesc% = NlpmService, SWC\VID_MSHW&PID_1004&SID_0001
 
 [NlpmService.NTarm64]
 CopyFiles = NlpmService.Files
@@ -199,4 +199,4 @@ REG_MULTI_SZ  = 0x00010000
 REG_EXPAND_SZ = 0x00020000
 REG_DWORD     = 0x00010001
 REG_BINARY    = 0x00000001
-
+

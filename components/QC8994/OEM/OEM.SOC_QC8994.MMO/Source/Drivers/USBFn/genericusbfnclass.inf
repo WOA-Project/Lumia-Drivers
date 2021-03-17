@@ -29,7 +29,7 @@ genericusbfnclass.sys = 0,arm,
 genericusbfnclass.sys = 0,arm64,
 
 [Manufacturer]
-%StdMfg%=Standard, NTarm, NTarm64
+%StdMfg% = Standard, NTarm, NTarm64
 
 ; For ARM platforms
 [Standard.NTarm]
@@ -61,7 +61,7 @@ AddService = genericusbfnclass, 0x00000002, genericusbfnclass_Service_Inst
 AddService = genericusbfnclass, 0x00000002, genericusbfnclass_Service_Inst.NTarm64
 
 [genericusbfnclass_Service_Inst]
-DisplayName    = %WDFSIMPLE.SVCDESC%
+DisplayName    = %WDFSIMPLE.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNND_STARTEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -71,7 +71,7 @@ ServiceBinary  = %13%\arm\genericusbfnclass.sys
 AddReg         = genericusbfnclass_Service_Inst.AddReg
 
 [genericusbfnclass_Service_Inst.NTarm64]
-DisplayName    = %WDFSIMPLE.SVCDESC%
+DisplayName    = %WDFSIMPLE.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNND_STARTEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -125,7 +125,7 @@ StdMfg                      = "(Standard system devices)"
 WdfSimpleDevice.DeviceDesc  = "NCSd"
 WdfSimpleDevice.DeviceDesc2 = "OddtControl"
 
-WDFSIMPLE.SVCDESC           = "Microsoft Windows Phone USB Device Driver"
+WDFSIMPLE.SvcDesc           = "Microsoft Windows Phone USB Device Driver"
 
 REG_SZ         = 0x00000000
 REG_BINARY     = 0x00000001

@@ -67,13 +67,13 @@ Addreg = PMICPACL
 Addreg = PMICPACL
 
 [PMICPACL]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
 
 [qcpmic3pCopyFiles]
 qcpmic3p8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 [qcpmic3p_Inst.NT.Services]
 AddService = qcpmic3p,%SPSVCINST_ASSOCSERVICE%,qcpmic3p_Service_Inst
@@ -107,8 +107,3 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_DEMAND_START   = 3
 SERVICE_ERROR_NORMAL   = 1
-
-
-
-
-

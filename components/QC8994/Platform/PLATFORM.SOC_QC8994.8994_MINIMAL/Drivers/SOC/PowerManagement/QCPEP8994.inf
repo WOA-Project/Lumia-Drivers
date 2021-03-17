@@ -110,7 +110,7 @@ Addreg = PEPACL
 Addreg = PEPACL
 
 [PEPACL]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 [PEP_SoftwareDeviceSettings]
 HKR , Parameters        , BCLMode                     , 0x00010001,  0x00000001
@@ -220,7 +220,7 @@ AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_Service_Inst.NTarm
 AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_Service_Inst.NTarm64
 
 [pep_Service_Inst.NTarm]
-DisplayName    = %pep.SVCDESC%
+DisplayName    = %pep.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -229,7 +229,7 @@ LoadOrderGroup = Base
 AddReg         = PEP_SoftwareDeviceSettings, PEP_SoftwareDeviceSettings.NTarm
 
 [pep_Service_Inst.NTarm64]
-DisplayName    = %pep.SVCDESC%
+DisplayName    = %pep.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -251,11 +251,10 @@ qcpep8994.sys = 1,arm64
 QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Power Management Controller Disk"
 PepDevice.DeviceDesc   = "Qualcomm(R) System Manager Device"
-pep.SVCDESC            = "Qualcomm(R) System Manager Device"
+pep.SvcDesc            = "Qualcomm(R) System Manager Device"
 TSENS.DeviceDesc       = "Qualcomm(R) System Manager Device"
 ADC.DeviceDesc         = "Qualcomm(R) Hexagon(TM) V56 DSP"
 BCL.DeviceDesc         = "Qualcomm(R) Power Management"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-

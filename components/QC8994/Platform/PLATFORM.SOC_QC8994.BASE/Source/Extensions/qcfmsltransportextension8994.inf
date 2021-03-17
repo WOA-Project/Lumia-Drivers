@@ -33,5 +33,3 @@ ComponentIds = VID_QCOM&PID_24B1&SID_0001
 ;Localizable Strings
 QC              = "Qualcomm Technologies, Inc."
 FMS.DeviceDesc  = "Qualcomm FM Transport Extension" 
-
-

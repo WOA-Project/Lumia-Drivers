@@ -66,7 +66,7 @@ Reboot
 qcslimbus8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
 ;-------------- Service installation
 [qcslimbus_Device.NT.Services]
@@ -83,18 +83,18 @@ AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_Service_Inst.NTarm64
 addreg = qcslimbus
 
 [qcslimbus]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 ; -------------- qcslimbus driver install sections
 [qcslimbus_Service_Inst]
-DisplayName   = %qcslimbus.SVCDESC%
+DisplayName   = %qcslimbus.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcslimbus8994.sys
 
 [qcslimbus_Service_Inst.NTarm64]
-DisplayName   = %qcslimbus.SVCDESC%
+DisplayName   = %qcslimbus.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -115,7 +115,7 @@ KmdfLibraryVersion = 1.15
 ManufacturerName       = "Qualcomm Technologies, Inc."
 DiskName               = "Qualcomm Slimbus Device Installation Disk"
 qcslimbus.DeviceDesc   = "Qualcomm(R) Bus Device"
-qcslimbus.SVCDESC      = "Qualcomm(R) Bus Device"
+qcslimbus.SvcDesc      = "Qualcomm(R) Bus Device"
 REG_SZ                 = 0x00000000
 REG_BINARY             = 0x00000001
 REG_EXPAND_SZ          = 0x00020000
@@ -125,6 +125,3 @@ REG_DWORD              = 0x00010001
 REG_QWORD              = 0x000B0001
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-
-
-

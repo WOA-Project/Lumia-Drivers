@@ -32,19 +32,19 @@ Origa2Auth.sys  = 3426,arm64
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName%=Standard,NTarm,NTarm64
+%ManufacturerName% = Standard,NTarm,NTarm64
 
 [Standard.NTarm]
-%Origa2Auth.DeviceDesc%=Origa2Auth_Device, ACPI\MSHW1002
+%Origa2Auth.DeviceDesc% = Origa2Auth_Device, ACPI\MSHW1002
 
 [Standard.NTarm64]
-%Origa2Auth.DeviceDesc%=Origa2Auth_Device, ACPI\MSHW1002
+%Origa2Auth.DeviceDesc% = Origa2Auth_Device, ACPI\MSHW1002
 
 [Origa2Auth_Device.NT]
-CopyFiles=Drivers_Dir
+CopyFiles = Drivers_Dir
 
 [Origa2Auth_Device.NTarm64]
-CopyFiles=Drivers_Dir
+CopyFiles = Drivers_Dir
 
 [Drivers_Dir]
 Origa2Auth.sys
@@ -58,7 +58,7 @@ AddService = Origa2Auth,%SPSVCINST_ASSOCSERVICE%, Origa2Auth_Service_Inst.NTarm6
 
 ; -------------- Origa2Auth driver install sections
 [Origa2Auth_Service_Inst]
-DisplayName    = %Origa2Auth.SVCDESC%
+DisplayName    = %Origa2Auth.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
@@ -66,7 +66,7 @@ ServiceBinary  = %13%\arm\Origa2Auth.sys
 LoadOrderGroup = Extended Base
 
 [Origa2Auth_Service_Inst.NTarm64]
-DisplayName    = %Origa2Auth.SVCDESC%
+DisplayName    = %Origa2Auth.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
@@ -83,7 +83,7 @@ ProviderName           = "MMO"
 ManufacturerName       = "Infineon Technologies"
 DiskName               = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200) Installation Disk"
 Origa2Auth.DeviceDesc  = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200)"
-Origa2Auth.SVCDESC     = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200) Driver"
+Origa2Auth.SvcDesc     = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200) Driver"
 
 
 SERVICE_KERNEL_DRIVER  = 1

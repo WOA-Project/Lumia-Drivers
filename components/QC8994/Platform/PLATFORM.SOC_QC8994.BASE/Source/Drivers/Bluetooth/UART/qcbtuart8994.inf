@@ -61,8 +61,8 @@ AddService = QcBluetooth,0x00000002,BTUART_Service.NTarm64
 qcbtuart8994.sys
 
 [BTUART.HW.AddReg]
-HKR, , DeviceCharacteristics, 0x10001, 0x0100                  ; Use same security checks on relative opens
-HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;LS)"   ; Allow generic-all access to Built-in administrators and Local system
+HKR,, DeviceCharacteristics, 0x10001, 0x0100                  ; Use same security checks on relative opens
+HKR,, Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;LS)"   ; Allow generic-all access to Built-in administrators and Local system
 
 [BTUART_Service]
 DisplayName   = %SvcDispName%
@@ -84,8 +84,8 @@ AddProperty   = WDTFSOCDeviceCategory
 
 
 [WDTFSOCDeviceCategory]
-{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 19, 13, , 1
-{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 1D, 7 , , 0
+{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 19, 13,, 1
+{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 1D, 7 ,, 0
 
 
 [BTUART_Service.AddReg]
@@ -141,4 +141,3 @@ SvcDispName   = "Qualcomm(R) Bluetooth Device"
 UartBTAPQ8994 = "Qualcomm(R) Bluetooth Device"
 REG_DWORD     = 0x00010001
 REG_SZ        = 0x00000000
-

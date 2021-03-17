@@ -66,7 +66,7 @@ qcmbrg8994.sys
 
 ; -------------- MBRG driver install sections
 [MBRG_Service_Inst]
-DisplayName    = %MBRG.SVCDESC%
+DisplayName    = %MBRG.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -74,7 +74,7 @@ ServiceBinary  = %13%\arm\qcmbrg8994.sys
 LoadOrderGroup = Extended Base
 
 [MBRG_Service_Inst.NTarm64]
-DisplayName    = %MBRG.SVCDESC%
+DisplayName    = %MBRG.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -89,5 +89,4 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 QCOM                   = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Modembridge Driver Disk"
 MBRG.DeviceDesc        = "Qualcomm(R) Data Device"
-MBRG.SVCDESC           = "Qualcomm(R) Data Device"
-
+MBRG.SvcDesc           = "Qualcomm(R) Data Device"

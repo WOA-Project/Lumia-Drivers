@@ -16,7 +16,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
-DriverVer   = 07/02/2015,1.0.1078.0053
+DriverVer   = 09/19/2016,1.0.1078.0056
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcmipibif8994.arm.cat
@@ -65,7 +65,7 @@ Copyfiles = MipiBifCopyFiles
 AddService = qcmipibif,%SPSVCINST_ASSOCSERVICE%,MipiBif_Service_Inst.NTarm64
 
 [MipiBifCopyFiles]
-qcmipibif8994.sys, , , 0x100,
+qcmipibif8994.sys,,, 0x100,
 
 [MipiBif_Service_Inst]
 DisplayName    = %%MipiBif.SvcDesc%%
@@ -102,8 +102,3 @@ SERVICE_ERROR_CRITICAL = 3
 REG_EXPAND_SZ          = 0x00020000
 REG_DWORD              = 0x00010001
 REG_SZ                 = 0x00000000
-
-
-
-
-

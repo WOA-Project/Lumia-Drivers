@@ -229,7 +229,7 @@ AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
 
 
 [ufnserialclass_Service_Inst]
-DisplayName   = %QCCompositeDevice.SVCDESC%
+DisplayName   = %QCCompositeDevice.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 0               ; SERVICE_BOOT_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -239,7 +239,7 @@ ServiceBinary = %13%\arm\ufnserialclass.sys
 AddReg        = DeviceReg
 
 [ufnserialclass_Service_Inst.NTarm64]
-DisplayName   = %QCCompositeDevice.SVCDESC%
+DisplayName   = %QCCompositeDevice.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 0               ; SERVICE_BOOT_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -257,43 +257,43 @@ ufnserialclass.sys
 ; The GUID associated with the DIAG interface
 ; Even MultSz is used, currently the driver supports only One GUID and One Device
 ; associated with the interface
-HKR, , DeviceInterfaceGUIDs, 0x10000, "{39AB5403-6551-4DFE-A22C-6CC6F4ED2FD0}"
-HKR, , DeviceNames         , 0x10000, "\Device\USB_DIAG"
+HKR,, DeviceInterfaceGUIDs, 0x10000, "{39AB5403-6551-4DFE-A22C-6CC6F4ED2FD0}"
+HKR,, DeviceNames         , 0x10000, "\Device\USB_DIAG"
 
 [UfnBus_MODEM_AddReg]
 ; The GUID associated with the MODEM interface
 ; Even MultSz is used, currently the driver supports only One GUID and One Device
 ; associated with the interface
-HKR, , DeviceInterfaceGUIDs, 0x10000, "{FE132432-112D-49EC-9178-A9512BB79217}"
-HKR, , DeviceNames         , 0x10000, "\Device\USB_MODEM_BRIDGE"
+HKR,, DeviceInterfaceGUIDs, 0x10000, "{FE132432-112D-49EC-9178-A9512BB79217}"
+HKR,, DeviceNames         , 0x10000, "\Device\USB_MODEM_BRIDGE"
 
 [UfnBus_NMEA_AddReg]
 ; The GUID associated with the interface NMEA
 ; Even MultSz is used, currently the driver supports only One GUID and One Device
 ; associated with the interface
-HKR, , DeviceInterfaceGUIDs, 0x10000, "{04FDA264-3CF0-498F-8A1B-481775C51943}"
-HKR, , DeviceNames         , 0x10000, "\Device\USB_NMEA"
+HKR,, DeviceInterfaceGUIDs, 0x10000, "{04FDA264-3CF0-498F-8A1B-481775C51943}"
+HKR,, DeviceNames         , 0x10000, "\Device\USB_NMEA"
 
 [UfnBus_TRACE_AddReg]
 ; The GUID associated with the interface TRACE
 ; Even MultSz is used, currently the driver supports only One GUID and One Device
 ; associated with the interface
-HKR, , DeviceInterfaceGUIDs, 0x10000, "{BC740523-BFD9-452B-A9D3-CBF7DF3CC791}"
-HKR, , DeviceNames         , 0x10000, "\Device\USB_TRACE"
+HKR,, DeviceInterfaceGUIDs, 0x10000, "{BC740523-BFD9-452B-A9D3-CBF7DF3CC791}"
+HKR,, DeviceNames         , 0x10000, "\Device\USB_TRACE"
 
 [UfnBus_RMNET_AddReg]
 ; The GUID associated with the interface RMNET
 ; Even MultSz is used, currently the driver supports only One GUID and One Device
 ; associated with the interface
-HKR, , DeviceInterfaceGUIDs, 0x10000, "{96F30BBF-0C5E-40F6-8A12-FFDCF265FF73}"
-HKR, , DeviceNames         , 0x10000, "\Device\USB_RMNET"
+HKR,, DeviceInterfaceGUIDs, 0x10000, "{96F30BBF-0C5E-40F6-8A12-FFDCF265FF73}"
+HKR,, DeviceNames         , 0x10000, "\Device\USB_RMNET"
 
 [UfnBus_DPL_AddReg]
 ; The GUID associated with the interface DPL
 ; Even MultSz is used, currently the driver supports only One GUID and One Device
 ; associated with the interface
-HKR, , DeviceInterfaceGUIDs, 0x10000, "{695A0AAD-CFC9-41FC-8AFC-85508D936945}"
-HKR, , DeviceNames         , 0x10000, "\Device\USB_DPL"
+HKR,, DeviceInterfaceGUIDs, 0x10000, "{695A0AAD-CFC9-41FC-8AFC-85508D936945}"
+HKR,, DeviceNames         , 0x10000, "\Device\USB_DPL"
 
 [DeviceConfigurationReg]
 hklm, system\currentcontrolset\control\usbfn\configurations\dplcompositeconfig                                   , InterfaceList                 , 0x00010000, "DIAG","MODEM","RMNET","DPL"
@@ -501,10 +501,9 @@ QCCompositeDevice.DeviceDesc1_DPL = "USB Function SerialClass (MODEM)"
 QCCompositeDevice.DeviceDesc2_DPL = "USB Function SerialClass (RmNet)"
 QCCompositeDevice.DeviceDesc3_DPL = "USB Function SerialClass (DPL)"
 
-QCCompositeDevice.SVCDESC         = "Qualcomm(R) Bus Device"
+QCCompositeDevice.SvcDesc         = "Qualcomm(R) Bus Device"
 
 REG_SZ                            = 0x00000000
 REG_BINARY                        = 0x00000001
 REG_DWORD                         = 0x00010001
 REG_MULTI_SZ                      = 0x00010000
-

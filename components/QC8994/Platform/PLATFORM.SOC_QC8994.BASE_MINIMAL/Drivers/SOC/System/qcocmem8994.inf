@@ -64,7 +64,7 @@ Reboot
 qcocmem8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;--------------  WPP Autologger registry keys
 ; Autologger will record trace messages to a buffer in the kernel where they can be easily used for postmortem debugging
@@ -82,9 +82,9 @@ HKLM, System\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-
 HKLM, System\CurrentControlSet\Control\WMI\Autologger\OCMEM\{e09f3fb2-7e00-46e2-97ce-444491b97f69}, EnableLevel, %REG_DWORD%, 5
 
 [OCMEM_SoftwareDeviceSettings]
-HKR, , PowerManaged    , %REG_DWORD%,  1
-HKR, , EnablePtCaching , %REG_DWORD%,  0
-HKR, , EnableGuardPages, %REG_DWORD%,  1
+HKR,, PowerManaged    , %REG_DWORD%,  1
+HKR,, EnablePtCaching , %REG_DWORD%,  0
+HKR,, EnableGuardPages, %REG_DWORD%,  1
 
 ;-------------- Service installation
 [OCMEM_Device.NT.Services]
@@ -95,7 +95,7 @@ AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_Service_Inst.NTarm64
 
 ; -------------- OCMEM driver install sections
 [OCMEM_Service_Inst]
-DisplayName   = %OCMEM.SVCDESC%
+DisplayName   = %OCMEM.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
@@ -103,7 +103,7 @@ ServiceBinary = %13%\arm\qcocmem8994.sys
 AddReg        = OCMEM_SoftwareDeviceSettings
 
 [OCMEM_Service_Inst.NTarm64]
-DisplayName   = %OCMEM.SVCDESC%
+DisplayName   = %OCMEM.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
@@ -123,11 +123,10 @@ KmdfLibraryVersion = 1.13
 ;Localizable Strings
 QC                     = "Qualcomm Technologies, Inc."
 OCMEM.DeviceDesc       = "Qualcomm OCMEM Device"
-OCMEM.SVCDESC          = "Qualcomm OCMEM Driver"
+OCMEM.SvcDesc          = "Qualcomm OCMEM Driver"
 DiskId                 = "Qualcomm OCMEM Driver Installation Disk"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
 REG_SZ                 = 0x00000000
 REG_DWORD              = 0x00010001
-

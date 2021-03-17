@@ -19,7 +19,7 @@ Class       = Extension
 ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %QCOM%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11E4B}
-DriverVer   = 07/02/2015,1.0.1067.0
+DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = talkman_qcacsp8994.arm.cat
@@ -97,7 +97,6 @@ HKLM, System\CurrentControlSet\Control\AudioCalibSettings, AcbdFilePath20, %REG_
 REG_SZ                 = 0x00000000
 SPSVCINST_ASSOCSERVICE = 0x00000002
 QCOM                   = "Qualcomm Technologies, Inc."
-StdMfg                 = "Qualcomm Technologies, INC"
+StdMfg                 = "Qualcomm Technologies, Inc."
 DiskId1                = "ACSP Installation Disk #1"
 ACSP.DeviceDesc        = "Audio Calibration Settings Package"
-

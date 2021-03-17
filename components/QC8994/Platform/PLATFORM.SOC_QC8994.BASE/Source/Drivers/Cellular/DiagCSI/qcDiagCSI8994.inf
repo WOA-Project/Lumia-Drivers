@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  QualComm Inc
+;Copyright (c) 2010-2012  Qualcomm Inc
 ;
 ;Module Name:
 ;    QCDIAGCSI8994.INF
@@ -74,7 +74,7 @@ KmdfLibraryVersion = 1.15
 
 ; -------------- DIAGCSI driver install sections
 [DIAGCSI_Service_Inst]
-DisplayName    = %DIAGCSI.SVCDESC%
+DisplayName    = %DIAGCSI.SvcDesc%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
@@ -82,7 +82,7 @@ ServiceBinary  = %13%\arm\QCDIAGCSI8994.sys
 LoadOrderGroup = Extended Base
 
 [DIAGCSI_Service_Inst.NTarm64]
-DisplayName    = %DIAGCSI.SVCDESC%
+DisplayName    = %DIAGCSI.SvcDesc%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
@@ -94,9 +94,7 @@ LoadOrderGroup = Extended Base
 QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "DiagCSI Installation Disk"
 DIAGCSI.DeviceDesc     = "Qualcomm(R) System Manager Device"
-DIAGCSI.SVCDESC        = "Qualcomm(R) System Manager Device"
+DIAGCSI.SvcDesc        = "Qualcomm(R) System Manager Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-
-

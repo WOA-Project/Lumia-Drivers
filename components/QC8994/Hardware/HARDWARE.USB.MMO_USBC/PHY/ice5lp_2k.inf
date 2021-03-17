@@ -29,13 +29,13 @@ ice5lp_2k.sys  = 1,arm64,
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName%=Standard, NTarm, NTarm64
+%ManufacturerName% = Standard, NTarm, NTarm64
 
 [Standard.NTarm]
-%ice5lp_2k.DeviceDesc%=ice5lp_2k_Device, ACPI\MSHW1006
+%ice5lp_2k.DeviceDesc% = ice5lp_2k_Device, ACPI\MSHW1006
 
 [Standard.NTarm64]
-%ice5lp_2k.DeviceDesc%=ice5lp_2k_Device, ACPI\MSHW1006
+%ice5lp_2k.DeviceDesc% = ice5lp_2k_Device, ACPI\MSHW1006
 
 [ice5lp_2k_Device.NT]
 CopyFiles = ice5lp_2k_CopyFiles
@@ -55,7 +55,7 @@ AddService = ice5lp_2k, %SPSVCINST_ASSOCSERVICE%, ice5lp_2k_Service_Inst.NTarm64
 
 ; -------------- ice5lp_2k driver install sections
 [ice5lp_2k_Service_Inst]
-DisplayName    = %ice5lp_2k.SVCDESC%
+DisplayName    = %ice5lp_2k.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -63,7 +63,7 @@ ServiceBinary  = %13%\arm\ice5lp_2k.sys
 LoadOrderGroup = Extended Base
 
 [ice5lp_2k_Service_Inst.NTarm64]
-DisplayName    = %ice5lp_2k.SVCDESC%
+DisplayName    = %ice5lp_2k.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -88,4 +88,4 @@ ProviderName           = "MMO and LumiaWoA authors"
 ManufacturerName       = "Lattice Semiconductor"
 DiskName               = "Lattice USB-C Power Delivery Physical Layer (UC120) Installation Disk"
 ice5lp_2k.DeviceDesc   = "Lattice USB-C Power Delivery Physical Layer (UC120)"
-ice5lp_2k.SVCDESC      = "Lattice USB-C Power Delivery Physical Layer (UC120) Driver"
+ice5lp_2k.SvcDesc      = "Lattice USB-C Power Delivery Physical Layer (UC120) Driver"

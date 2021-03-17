@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  QualComm Inc
+;Copyright (c) 2010-2012  Qualcomm Inc
 ;
 ;Module Name:
 ;    QCDIAGROUTER8994.INF
@@ -85,9 +85,9 @@ qcdiaglogging8994.dll
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD},2,7,,2
 
 [DiagRouter]
-HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
+HKR,, Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
 ; FILE_DEVICE_SECURE_OPEN
-HKR, , DeviceCharacteristics, 0x10001, 0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 [DiagRouter_Service_kmdfInst]
 KmdfLibraryVersion = 1.15
@@ -95,7 +95,7 @@ KmdfLibraryVersion = 1.15
 
 ; -------------- DIAGROUTER driver install sections
 [DIAGROUTER_Service_Inst]
-DisplayName   = %DIAGROUTER.SVCDESC%
+DisplayName   = %DIAGROUTER.SvcDesc%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
@@ -103,7 +103,7 @@ ServiceBinary = %13%\arm\QCDIAGROUTER8994.sys
 AddReg        = DiagRouterReg
 
 [DIAGROUTER_Service_Inst.NTarm64]
-DisplayName   = %DIAGROUTER.SVCDESC%
+DisplayName   = %DIAGROUTER.SvcDesc%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
@@ -111,19 +111,17 @@ ServiceBinary = %13%\arm64\QCDIAGROUTER8994.sys
 AddReg        = DiagRouterReg
 
 [DiagRouterReg]
-HKR, , TCPPort      , 0x00000000,  "2500"
-HKR, , HostAsName   , 0x00010001, "0"
-HKR, , ServerName   , 0x00000000, "server ip address"
-HKR, , TransportType, 0x00010001, "1"
+HKR,, TCPPort      , 0x00000000,  "2500"
+HKR,, HostAsName   , 0x00010001, "0"
+HKR,, ServerName   , 0x00000000, "server ip address"
+HKR,, TransportType, 0x00010001, "1"
 
 [Strings]
 ;Localizable Strings
 QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "DiagRouter Installation Disk"
 DIAGROUTER.DeviceDesc  = "Qualcomm(R) System Manager Device"
-DIAGROUTER.SVCDESC     = "Qualcomm(R) System Manager Device"
+DIAGROUTER.SvcDesc     = "Qualcomm(R) System Manager Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-
-

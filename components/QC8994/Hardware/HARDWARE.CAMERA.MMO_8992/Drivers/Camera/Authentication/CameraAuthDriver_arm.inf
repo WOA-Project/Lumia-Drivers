@@ -10,7 +10,7 @@ CatalogFile.NTarm   = CameraAuth.arm.cat
 CatalogFile.NTarm64 = CameraAuth.arm64.cat
 
 [Manufacturer]
-%ManufacturerName%=CameraAuthentication_Device,NTarm,NTarm64
+%ManufacturerName% = CameraAuthentication_Device,NTarm,NTarm64
 
 [DestinationDirs]
 DefaultDestDir=12,UMDF ; copy to drivers\umdf
@@ -28,12 +28,12 @@ CameraAuthentication.dll = 1,arm64,
 [CameraAuthentication_Device.NTarm]
 ; DisplayName    Section    DeviceId
 ; -----------    -------    --------
-%DeviceName%=CameraAuthentication_Install, umdf2\CameraAuthentication
+%DeviceName% = CameraAuthentication_Install, umdf2\CameraAuthentication
 
 [CameraAuthentication_Device.NTarm64]
 ; DisplayName    Section    DeviceId
 ; -----------    -------    --------
-%DeviceNameNull%=CameraAuthentication_Install, umdf2\CameraAuthentication
+%DeviceNameNull% = CameraAuthentication_Install, umdf2\CameraAuthentication
 
 ; =================== UMDF Device ==================================
 
@@ -45,7 +45,7 @@ CopyFiles = CameraAuthenticationDriverCopy
 CameraAuthentication.dll
 
 [CameraAuthentication_Install.NT.hw]
-AddReg=CameraAuthentication_Install_SecurityAddReg
+AddReg = CameraAuthentication_Install_SecurityAddReg
 
 [CameraAuthentication_Install_SecurityAddReg]
 HKR,,DeviceCharacteristics,0x10001,0x00000100                               ; FILE_DEVICE_SECURE_OPEN
@@ -53,7 +53,7 @@ HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)"                                ; SD
 
 ;-------------- Service installation -------------
 [CameraAuthentication_Install.NT.Services]
-AddService=WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [WUDFRD_ServiceInstall]
 DisplayName = %WudfRdDisplayName%
@@ -83,4 +83,4 @@ ManufacturerName    ="MMO"
 WudfRdDisplayName   ="Windows Driver Foundation - User-mode Driver Framework Reflector"
 DeviceName          ="CameraAuthentication Device"
 DeviceNameNull      ="CameraAuthentication Device (Null)"
-MediaDescription    ="CameraAuthentication Driver"
+MediaDescription    ="CameraAuthentication Driver"

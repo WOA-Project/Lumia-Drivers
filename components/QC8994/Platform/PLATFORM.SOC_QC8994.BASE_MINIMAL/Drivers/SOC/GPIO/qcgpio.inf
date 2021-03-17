@@ -60,10 +60,10 @@ Copyfiles   = GPIOCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 
 [GPIOCopyFiles]
-qcgpio.sys, , , 0x100,
+qcgpio.sys,,, 0x100,
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 [GPIO_Inst.NT.Services]
 AddService = qcgpio,%SPSVCINST_ASSOCSERVICE%,GPIO_Service_Inst
@@ -105,4 +105,3 @@ SERVICE_ERROR_CRITICAL = 3
 REG_EXPAND_SZ          = 0x00020000
 REG_DWORD              = 0x00010001
 REG_SZ                 = 0x00000000
-

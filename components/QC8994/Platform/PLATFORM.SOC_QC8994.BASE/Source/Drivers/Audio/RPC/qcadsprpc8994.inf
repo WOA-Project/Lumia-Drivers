@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  QualComm Inc
+;Copyright (c) 2010-2012  Qualcomm Inc
 ;
 ;Module Name:
 ;    qcadsprpc8994.inf
@@ -74,7 +74,7 @@ KmdfLibraryVersion = 1.15
 
 ; -------------- ADSPRPC driver install sections
 [ADSPRPC_Service_Inst]
-DisplayName    = %ADSPRPC.SVCDESC%
+DisplayName    = %ADSPRPC.SvcDesc%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
@@ -82,7 +82,7 @@ ServiceBinary  = %13%\arm\qcadsprpc8994.sys
 LoadOrderGroup = Extended Base
 
 [ADSPRPC_Service_Inst.NTarm64]
-DisplayName    = %ADSPRPC.SVCDESC%
+DisplayName    = %ADSPRPC.SvcDesc%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
@@ -94,9 +94,7 @@ LoadOrderGroup = Extended Base
 QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "ADSPRPC Installation Disk"
 ADSPRPC.DeviceDesc     = "Qualcomm(R) Hexagon(TM) V56 DSP"
-ADSPRPC.SVCDESC        = "Qualcomm(R) Hexagon(TM) V56 DSP"
+ADSPRPC.SvcDesc        = "Qualcomm(R) Hexagon(TM) V56 DSP"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-
-

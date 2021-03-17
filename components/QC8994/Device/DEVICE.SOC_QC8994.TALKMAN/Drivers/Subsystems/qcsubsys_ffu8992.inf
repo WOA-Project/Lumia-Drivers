@@ -91,7 +91,7 @@ AddReg = SUBSYSACL
 AddReg = SUBSYSACL
 
 [SUBSYSACL]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
 
 [Drivers_Dir_12]
 qcsubsys8992.sys
@@ -143,7 +143,7 @@ AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst.NTarm64
 
 ; -------------- Subsystem driver install sections
 [SUBSYS_Service_Inst]
-DisplayName   = %SUBSYS.SVCDESC%
+DisplayName   = %SUBSYS.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -151,7 +151,7 @@ ServiceBinary = %13%\arm\qcsubsys8992.sys
 AddReg        = SUBSYS_Service_AddReg
 
 [SUBSYS_Service_Inst.NTarm64]
-DisplayName   = %SUBSYS.SVCDESC%
+DisplayName   = %SUBSYS.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -189,5 +189,4 @@ WCN.DeviceDesc            = "Qualcomm Wireless Connectivity Subsystem Device"
 TEST.DeviceDesc           = "Qualcomm Combined Subsystem Driver Test Device"
 SERVICEMANAGER.DeviceDesc = "Qualcomm Service Manager Device"
 SCSS.DeviceDesc           = "Qualcomm Sensors Subsystem Bus Device"
-SUBSYS.SVCDESC            = "Qualcomm(R) Data Device"
-
+SUBSYS.SvcDesc            = "Qualcomm(R) Data Device"

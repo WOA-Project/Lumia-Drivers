@@ -37,18 +37,17 @@ CopyFiles = PanelResources.Files, PanelResources_32.Files, PanelResources.NTarm6
 
 [PanelResources.Files]
 ColorData.bin
-oempanel.arm.cat, oempanel.arm.cat_, , 0x00004000,
-oempanel.arm64.cat, oempanel.arm64.cat_, , 0x00004000,
-oempanel.inf, oempanel.inf_, , 0x00004000,
+oempanel.arm.cat, oempanel.arm.cat_,, 0x00004000,
+oempanel.arm64.cat, oempanel.arm64.cat_,, 0x00004000,
+oempanel.inf, oempanel.inf_,, 0x00004000,
 
 [PanelResources_32.Files]
-oempanel.sys, oempanel.arm.sys, , 0x00004000,
-oempanel_etw.dll, oempanel_etw.arm.dll, , 0x00004000,
+oempanel.sys, oempanel.arm.sys,, 0x00004000,
+oempanel_etw.dll, oempanel_etw.arm.dll,, 0x00004000,
 
 [PanelResources.NTarm64.Files]
-oempanel.sys, oempanel.arm64.sys, , 0x00004000,
-oempanel_etw.dll, oempanel_etw.arm64.dll, , 0x00004000,
+oempanel.sys, oempanel.arm64.sys,, 0x00004000,
+oempanel_etw.dll, oempanel_etw.arm64.dll,, 0x00004000,
 
 [Strings]
 IHV = "LumiaWoA authors"
-

@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2013-2014  QualComm Inc
+;Copyright (c) 2013-2014  Qualcomm Inc
 ;
 ;Module Name:
 ;    QCCAMCORE8992.INF
@@ -40,25 +40,25 @@ ExcludeFromSelect=*
 ;*****************************************
 
 [Manufacturer]
-%QC%=QC, NTarm, NTarm64
+%QC% = QC, NTarm, NTarm64
 
 [QC.NTarm]
-%CORE.DeviceDesc%=CORE_Device, ROOT\CORE
+%CORE.DeviceDesc% = CORE_Device, ROOT\CORE
 
 [CORE_Device.NTarm]
-CopyFiles=Drivers_Dir
+CopyFiles = Drivers_Dir
 
 [QC.NTarm64]
-%CORE.DeviceDescNull%=CORE_Device, ROOT\CORE
+%CORE.DeviceDescNull% = CORE_Device, ROOT\CORE
 
 [CORE_Device.NTarm64]
-CopyFiles=Drivers_Dir
+CopyFiles = Drivers_Dir
 
 [Drivers_Dir]
 qccamcore8992.sys
 
 [CORE_Device.NTarm.HW]
-AddReg=CORE_Device_Security_Reg
+AddReg = CORE_Device_Security_Reg
  
 [CORE_Device_Security_Reg]
 HKR,,DeviceCharacteristics,0x10001,0x100
@@ -69,7 +69,7 @@ AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst
 
 ; -------------- CORE driver install sections
 [CORE_Service_Inst]
-DisplayName    = %CORE.SVCDESC%
+DisplayName    = %CORE.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 ;StartType      = 2               ; SERVICE_AUTO_START 
 StartType      = 3               ; SERVICE_DEMAND_START
@@ -83,4 +83,4 @@ QC = "Qualcomm Technologies, Inc."
 DiskId1 = "Qualcomm Camera CORE Installation Disk"
 CORE.DeviceDesc = "Qualcomm Camera CORE Driver"
 CORE.DeviceDescNull = "Qualcomm Camera CORE Driver (Null)"
-CORE.SVCDESC = "Qualcomm Camera CORE Service"
+CORE.SvcDesc = "Qualcomm Camera CORE Service"

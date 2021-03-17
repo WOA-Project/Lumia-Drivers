@@ -3,7 +3,7 @@ Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
-DriverVer   = 01/01/2021,1.0.1078.0053
+DriverVer   = 09/19/2016,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = SscAlgorithmBridge.arm.cat
@@ -17,19 +17,19 @@ UserModeCopyFiles = 11
 ExcludeFromSelect=*
 
 [Manufacturer]
-%ManufacturerName%=MMO,NTarm,NTarm64
+%ManufacturerName% = MMO,NTarm,NTarm64
 
 [MMO.NTarm]
-%ACT.DeviceDesc%=Activity_Inst,ACPI\MSHW101C
-%STEP.DeviceDesc%=Step_Inst,ACPI\MSHW101D
-%GES.DeviceDesc%=Gesture_Inst,ACPI\MSHW101E
-%SAC.DeviceDesc%=Control_Inst,ACPI\MSHW101F
+%ACT.DeviceDesc% = Activity_Inst,ACPI\MSHW101C
+%STEP.DeviceDesc% = Step_Inst,ACPI\MSHW101D
+%GES.DeviceDesc% = Gesture_Inst,ACPI\MSHW101E
+%SAC.DeviceDesc% = Control_Inst,ACPI\MSHW101F
 
 [MMO.NTarm64]
-%ACT.DeviceDesc%=Activity_Inst,ACPI\MSHW101C
-%STEP.DeviceDesc%=Step_Inst,ACPI\MSHW101D
-%GES.DeviceDesc%=Gesture_Inst,ACPI\MSHW101E
-%SAC.DeviceDesc%=Control_Inst,ACPI\MSHW101F
+%ACT.DeviceDesc% = Activity_Inst,ACPI\MSHW101C
+%STEP.DeviceDesc% = Step_Inst,ACPI\MSHW101D
+%GES.DeviceDesc% = Gesture_Inst,ACPI\MSHW101E
+%SAC.DeviceDesc% = Control_Inst,ACPI\MSHW101F
 
 
 ;---------------------------------------------------------------------------
@@ -40,49 +40,49 @@ ExcludeFromSelect=*
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
 [Activity_Inst.NT.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 [Step_Inst.NT]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
 [Step_Inst.NT.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 [Gesture_Inst.NT]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
 [Gesture_Inst.NT.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 [Control_Inst.NT]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
 [Control_Inst.NT.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 [Activity_Inst.NTarm64]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
 [Activity_Inst.NTarm64.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 [Step_Inst.NTarm64]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
 [Step_Inst.NTarm64.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 [Gesture_Inst.NTarm64]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
 [Gesture_Inst.NTarm64.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 [Control_Inst.NTarm64]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
 [Control_Inst.NTarm64.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 
 [Sensor_Inst_SecurityAddReg]
@@ -232,4 +232,4 @@ Installation_Disk        = "Microsoft Mobile Sensor Collection Algorithm Bridge 
 
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
-SERVICE_ERROR_NORMAL     = 1
+SERVICE_ERROR_NORMAL     = 1

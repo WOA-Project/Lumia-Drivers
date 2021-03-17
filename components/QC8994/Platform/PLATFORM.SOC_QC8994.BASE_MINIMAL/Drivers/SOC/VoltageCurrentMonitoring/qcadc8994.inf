@@ -60,7 +60,7 @@ AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 [Drivers_Dir]
 qcadc8994.sys
@@ -80,18 +80,18 @@ addreg = ADCSD
 addreg = ADCSD
 
 [ADCSD]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 ; -------------- ADC driver install sections
 [ADC_Service_Inst]
-DisplayName   = %ADC.SVCDESC%
+DisplayName   = %ADC.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %13%\arm\qcadc8994.sys
 
 [ADC_Service_Inst.NTarm64]
-DisplayName   = %ADC.SVCDESC%
+DisplayName   = %ADC.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
@@ -110,8 +110,7 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "ADC Installation Disk"
 ADC.DeviceDesc         = "Qualcomm(R) Hexagon(TM) V56 DSP"
-ADC.SVCDESC            = "Qualcomm(R) Hexagon(TM) V56 DSP"
+ADC.SvcDesc            = "Qualcomm(R) Hexagon(TM) V56 DSP"
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_DEMAND_START   = 3
 SERVICE_ERROR_NORMAL   = 1
-

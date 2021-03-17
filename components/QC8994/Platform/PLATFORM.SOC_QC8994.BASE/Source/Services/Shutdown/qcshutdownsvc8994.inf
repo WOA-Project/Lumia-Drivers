@@ -15,7 +15,7 @@ Signature   = "$Windows NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
-DriverVer   = 09/09/2015,1.0.1067.0000
+DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = qcshutdownsvc8994.arm.cat
@@ -34,13 +34,13 @@ QcShutdownSvc8994.dll = 0,arm,
 QcShutdownSvc8994.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTarm,NTarm64
+%QC% = QC,NTarm,NTarm64
 
 [QC.NTarm]
-%ShutdownSvc.DeviceDesc%=ShutdownSvc, SWC\VID_QCOM&PID_2425&SID_0002
+%ShutdownSvc.DeviceDesc% = ShutdownSvc, SWC\VID_QCOM&PID_2425&SID_0002
 
 [QC.NTarm64]
-%ShutdownSvc.DeviceDesc%=ShutdownSvc, SWC\VID_QCOM&PID_2425&SID_0002
+%ShutdownSvc.DeviceDesc% = ShutdownSvc, SWC\VID_QCOM&PID_2425&SID_0002
 
 [ShutdownSvc.NTarm]
 CopyFiles = ShutdownSvc.Files
@@ -117,4 +117,3 @@ REG_MULTI_SZ  = 0x00010000
 REG_EXPAND_SZ = 0x00020000
 REG_DWORD     = 0x00010001
 REG_BINARY    = 0x00000001
-

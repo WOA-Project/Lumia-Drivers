@@ -67,13 +67,13 @@ Addreg = PMICGPIOACL
 Addreg = PMICGPIOACL
 
 [PMICGPIOACL]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)" ;built in admin and local sys access
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)" ;built in admin and local sys access
 
 [PMIOCopyFiles]
 qcpmicgpio8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 [PMIO_Inst.NT.Services]
 AddService = qcpmgpio,%SPSVCINST_ASSOCSERVICE%,PMIO_Service_Inst
@@ -107,8 +107,3 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_DEMAND_START   = 3
 SERVICE_ERROR_NORMAL   = 1
-
-
-
-
-

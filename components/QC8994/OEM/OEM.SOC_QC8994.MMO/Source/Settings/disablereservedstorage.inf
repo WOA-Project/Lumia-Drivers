@@ -28,4 +28,3 @@ HKLM, "Software\Microsoft\Windows\CurrentVersion\ReserveManager", "ShippedWithRe
 
 [Strings]
 IHV = "LumiaWoA authors"
-

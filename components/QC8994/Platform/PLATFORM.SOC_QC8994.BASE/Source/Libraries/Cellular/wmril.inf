@@ -27,13 +27,13 @@ WMRil.dll = 0,arm64,
 phoneinfo.dll = 0,arm64,
 
 [Manufacturer]
-%QC%=QC,NTarm,NTarm64
+%QC% = QC,NTarm,NTarm64
 
 [QC.NTarm]
-%WMRIL.DeviceDesc%=WMRIL, SWC\VID_QCOM&PID_0EA0&SID_000B
+%WMRIL.DeviceDesc% = WMRIL, SWC\VID_QCOM&PID_0EA0&SID_000B
 
 [QC.NTarm64]
-%WMRIL.DeviceDesc%=WMRIL, SWC\VID_QCOM&PID_0EA0&SID_000B
+%WMRIL.DeviceDesc% = WMRIL, SWC\VID_QCOM&PID_0EA0&SID_000B
 
 [WMRIL.NTarm]
 CopyFiles = WMRil.Files
@@ -96,4 +96,3 @@ REG_MULTI_SZ  = 0x00010000
 REG_EXPAND_SZ = 0x00020000
 REG_DWORD     = 0x00010001
 REG_BINARY    = 0x00000001
-

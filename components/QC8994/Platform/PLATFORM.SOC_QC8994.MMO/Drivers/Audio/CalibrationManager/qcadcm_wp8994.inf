@@ -67,12 +67,12 @@ AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst.NTarm64
 qcadcm8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
 
 ; -------------- ADCM driver install sections
 [ADCM_Service_Inst]
-DisplayName   = %ADCM.SVCDESC%
+DisplayName   = %ADCM.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -82,7 +82,7 @@ ServiceBinary = %13%\arm\qcadcm8994.sys
 Addreg        = ADCMReg_Service
 
 [ADCM_Service_Inst.NTarm64]
-DisplayName   = %ADCM.SVCDESC%
+DisplayName   = %ADCM.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -92,9 +92,9 @@ ServiceBinary = %13%\arm64\qcadcm8994.sys
 Addreg        = ADCMReg_Service
 
 [ADCMReg_Service]
-HKR, , SOSLog             , , "FALSE"
-HKR, , EnableTxDataLogging, , "FALSE"
-HKR, , EnableRxDataLogging, , "FALSE"
+HKR,, SOSLog             ,, "FALSE"
+HKR,, EnableTxDataLogging,, "FALSE"
+HKR,, EnableRxDataLogging,, "FALSE"
 
 ;[ADCM_Device.NT.Wdf]
 ;KmdfService =  ADCM, ADCM_wdfsect
@@ -107,8 +107,7 @@ QCOM                   = "Qualcomm Technologies, Inc."
 StdMfg                 = "(Standard system devices)"
 DiskId1                = "ADCM Installation Disk"
 ADCM.DeviceDesc        = "Qualcomm(R) Aqstic(TM)"
-ADCM.SVCDESC           = "Qualcomm(R) Aqstic(TM)"
+ADCM.SvcDesc           = "Qualcomm(R) Aqstic(TM)"
 
 ;Non-Localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-

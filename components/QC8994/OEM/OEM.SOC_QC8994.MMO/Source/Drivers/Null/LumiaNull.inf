@@ -86,14 +86,14 @@ AddService = LumiaNull,%SPSVCINST_ASSOCSERVICE%, LumiaNull_Service_Inst
 AddService = LumiaNull,%SPSVCINST_ASSOCSERVICE%, LumiaNull_Service_Inst.NTarm64
 
 [LumiaNull_Service_Inst]
-DisplayName   = %LumiaNull.SVCDESC%
+DisplayName   = %LumiaNull.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\LumiaNull.sys
 
 [LumiaNull_Service_Inst.NTarm64]
-DisplayName   = %LumiaNull.SVCDESC%
+DisplayName   = %LumiaNull.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -113,7 +113,7 @@ SPSVCINST_ASSOCSERVICE   = 0x00000002
 ManufacturerName         = "LumiaWoA authors"
 DiskName                 = "LumiaWoA Null Driver Installation Disk"
 LumiaNull.DeviceDesc     = "LumiaWoA Null Device"
-LumiaNull.SVCDESC        = "LumiaWoA Null Service"
+LumiaNull.SvcDesc        = "LumiaWoA Null Service"
 
 ;
 ; Touch test interfaces

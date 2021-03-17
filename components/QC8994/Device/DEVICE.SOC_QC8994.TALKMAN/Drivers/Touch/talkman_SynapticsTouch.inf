@@ -28,7 +28,7 @@ SynaFWVendor1.img  = 1,,
 ;*****************************************
 
 [TchDriver_Device.NT.CopyFiles]
-SynaFWVendor1.img, , , 0x100,
+SynaFWVendor1.img,,, 0x100,
 
 [Manufacturer]
 %MSFT% = DeviceExtensions,NTarm,NTarm64
@@ -50,7 +50,7 @@ AddReg    = LegacyTouchScaling.NT.HW.AddReg
 CopyFiles = TchDriver_Device.NT.CopyFiles
 
 [LegacyTouchScaling.NT.HW.AddReg]
-HKR, , "LegacyTouchScaling", 0x00010001,  0x0
+HKR,, "LegacyTouchScaling", 0x00010001,  0x0
 
 [CapButtons.NT.HW.AddReg]
 HKLM, "System\Touch\Buttons", "Count", 0x10001, 0x3
@@ -65,8 +65,8 @@ HKLM, "System\Touch\Buttons\2", "Name", 0x0, "Search"
 HKLM, "System\Touch\Buttons\2", "VKey", 0x10001, 0x72
 
 [PowerConfig.NT.HW.AddReg]
-HKR, , "EnhancedPowerManagementEnabled"   , %REG_DWORD%,  0
-HKR, , "EnhancedPowerManagementUseMonitor", %REG_DWORD%,  0
+HKR,, "EnhancedPowerManagementEnabled"   , %REG_DWORD%,  0
+HKR,, "EnhancedPowerManagementUseMonitor", %REG_DWORD%,  0
 
 [Configuration.NT.HW.AddReg]
 HKLM, %Configuration%  ,  "ActivePenSupported", 0x10001, 0x0
@@ -211,4 +211,3 @@ REG_EXPAND_SZ          = 0x00020000
 REG_MULTI_SZ           = 0x00010000
 REG_DWORD              = 0x00010001
 REG_SZ                 = 0x00000000
-

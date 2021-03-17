@@ -81,10 +81,10 @@ AddReg = Remotefs_HW_Reg
 qcremotefs8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 [REMOTEFS_Service_Inst]
-DisplayName   = %REMOTEFS.SVCDESC%
+DisplayName   = %REMOTEFS.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -92,7 +92,7 @@ ServiceBinary = %13%\arm\qcremotefs8994.sys
 AddReg        = Remotefs_Reg
 
 [REMOTEFS_Service_Inst.NTarm64]
-DisplayName   = %REMOTEFS.SVCDESC%
+DisplayName   = %REMOTEFS.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -100,11 +100,11 @@ ServiceBinary = %13%\arm64\qcremotefs8994.sys
 AddReg        = Remotefs_Reg
 
 [Remotefs_Reg]
-HKR, , FileBased   , 0x00010001, "0"
-HKR, , PartitionNum, 0x00010001, "0"
+HKR,, FileBased   , 0x00010001, "0"
+HKR,, PartitionNum, 0x00010001, "0"
 
 [Remotefs_HW_Reg]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 [REMOTEFS_wdfsect]
 KmdfLibraryVersion = 1.15
@@ -114,11 +114,7 @@ KmdfLibraryVersion = 1.15
 COMP                   = "Qualcomm Technologies, Inc."
 DiskId                 = "Qualcomm Remote FileSystem Device Installation Disk"
 REMOTEFS.DeviceDesc    = "Qualcomm(R) Memory and File System Device"
-REMOTEFS.SVCDESC       = "Qualcomm(R) Memory and File System Device"
+REMOTEFS.SvcDesc       = "Qualcomm(R) Memory and File System Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-
-
-
-

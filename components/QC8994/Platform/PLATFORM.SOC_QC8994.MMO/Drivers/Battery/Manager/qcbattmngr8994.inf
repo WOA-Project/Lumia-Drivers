@@ -14,7 +14,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
-DriverVer   = 07/02/2015,1.0.1078.0053
+DriverVer   = 09/19/2016,1.0.1078.0056
 PnPLockdown = 1
 
 CatalogFile.NTarm   = qcbattmngr8994.arm.cat
@@ -73,7 +73,7 @@ Addreg = BMACL
 AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst.NTarm64
 
 [BMACL]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
 
 [BATTMNGRCopyFiles]
 qcbattmngr8994.sys
@@ -107,8 +107,3 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_DEMAND_START   = 3
 SERVICE_ERROR_NORMAL   = 1
-
-
-
-
-

@@ -33,5 +33,3 @@ ComponentIds = VID_168C&PID_003E&SID_0001
 ;Localizable Strings
 QC              = "Qualcomm Technologies, Inc."
 WLAN.DeviceDesc  = "Qualcomm WLAN Extension" 
-
-

@@ -59,5 +59,3 @@ ComponentIds = VID_QCOM&PID_0EA0&SID_000B
 ;Localizable Strings
 QC             = "Qualcomm Technologies, Inc."
 MBB.DeviceDesc = "Qualcomm Advanced Modem Subsystem Extension" 
-
-

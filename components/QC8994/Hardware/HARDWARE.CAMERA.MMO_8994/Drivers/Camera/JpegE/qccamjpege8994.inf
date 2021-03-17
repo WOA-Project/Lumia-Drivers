@@ -1,6 +1,6 @@
 ;;/*++
 ;
-;Copyright (c) 2010-2012  QualComm Corporation
+;Copyright (c) 2010-2012  Qualcomm Corporation
 ;
 ;Module Name:
 ;    qccamjpege8994.INF
@@ -73,13 +73,13 @@ qccamjpege8994.sys
 QcWicEncoder8994.dll
 
 [QCWic32.Files]
-QcWicEncoder8994.dll, QcWicEncoderARM8994.dll, , 0x00004000,
+QcWicEncoder8994.dll, QcWicEncoderARM8994.dll,, 0x00004000,
 
 [QCWicArm.Files]
-QcWicEncoder8994.dll, QcWicEncoderARM8994.dll, , 0x00004000,
+QcWicEncoder8994.dll, QcWicEncoderARM8994.dll,, 0x00004000,
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0
 
 [CameraJpegE32_Device.NT.HW]
 AddReg = CameraJpegE_Device_Security_Reg,WicRegistration
@@ -88,7 +88,7 @@ AddReg = CameraJpegE_Device_Security_Reg,WicRegistration
 AddReg = CameraJpegE_Device_Security_Reg,WicRegistration64
  
 [CameraJpegE_Device_Security_Reg]
-HKR, , DeviceCharacteristics, 0x10001, 0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 [WicRegistration]
 ; system32
@@ -117,14 +117,14 @@ AddService = JpegE,%SPSVCINST_ASSOCSERVICE%, JpegE_Service_Inst.NTarm64
 
 ; -------------- Jpeg Encoder driver install sections
 [JpegE_Service_Inst]
-DisplayName   = %JpegE.SVCDESC%
+DisplayName   = %JpegE.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qccamjpege8994.sys
 
 [JpegE_Service_Inst.NTarm64]
-DisplayName   = %JpegE.SVCDESC%
+DisplayName   = %JpegE.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -133,12 +133,10 @@ ServiceBinary = %13%\arm64\qccamjpege8994.sys
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
 QC                     = "Qualcomm Technologies, Inc."
-JpegE.SVCDESC          = "Qualcomm Camera JPEG Encoder Service"
+JpegE.SvcDesc          = "Qualcomm Camera JPEG Encoder Service"
 ClassName              = "Qualcomm Camera JPEG Encoder Driver"
 JpegE.DeviceDesc       = "Qualcomm Camera JPEG Encoder Driver"
 Desc_x860              = "Data"
 
 REG_SZ        = 0x00000000
 REG_EXPAND_SZ = 0x00020000
-
-

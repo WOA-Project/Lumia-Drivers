@@ -3,7 +3,7 @@ Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %MMO%
-DriverVer   = 06/08/2016,1.0.1078.0053
+DriverVer   = 09/19/2016,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = hall_kmd.arm.cat
@@ -22,13 +22,13 @@ hall_kmd.sys  = 1,arm,
 hall_kmd.sys  = 1,arm64,
 
 [Manufacturer]
-%Manufacturer_Name%=Standard,NTarm,NTarm64
+%Manufacturer_Name% = Standard,NTarm,NTarm64
 
 [Standard.NTarm]
-%hall_kmd.DeviceDesc%=hall_kmd_Device.NT, ACPI\MSHW1015
+%hall_kmd.DeviceDesc% = hall_kmd_Device.NT, ACPI\MSHW1015
 
 [Standard.NTarm64]
-%hall_kmd.DeviceDesc%=hall_kmd_Device.NT, ACPI\MSHW1015
+%hall_kmd.DeviceDesc% = hall_kmd_Device.NT, ACPI\MSHW1015
 
 
 ;*****************************************
@@ -62,7 +62,7 @@ AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_Service_Inst.
 
 ; -------------- hall_kmd driver install sections
 [hall_kmd_Service_Inst]
-DisplayName    = %hall_kmd.SVCDESC%
+DisplayName    = %hall_kmd.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -70,7 +70,7 @@ ServiceBinary  = %13%\arm\hall_kmd.sys
 LoadOrderGroup = Base
 
 [hall_kmd_Service_Inst.NTarm64]
-DisplayName    = %hall_kmd.SVCDESC%
+DisplayName    = %hall_kmd.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -97,5 +97,5 @@ Manufacturer_Name      = "Microsoft Mobile Oy"
 ClassName              = "HallSensor"
 DiskName               = "Hall Sensor Installation Disk"
 hall_kmd.DeviceDesc    = "Microsoft Mobile Hall Front/Back Sensor"
-hall_kmd.SVCDESC       = "Microsoft Mobile Hall Front/Back Sensor Driver"
-hall_kmd_service       = "hall_kmd"
+hall_kmd.SvcDesc       = "Microsoft Mobile Hall Front/Back Sensor Driver"
+hall_kmd_service       = "hall_kmd"

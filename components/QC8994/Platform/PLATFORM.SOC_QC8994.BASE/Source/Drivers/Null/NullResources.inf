@@ -35,10 +35,9 @@ CopyFiles = NullResources.Files
 CopyFiles = NullResources.Files
 
 [NullResources.Files]
-qcmbbnull.cat, qcmbbnull.cat_, , 0x00004000,
-qcmbbnull.inf, qcmbbnull.inf_, , 0x00004000,
+qcmbbnull.cat, qcmbbnull.cat_,, 0x00004000,
+qcmbbnull.inf, qcmbbnull.inf_,, 0x00004000,
 qcmbbnull.sys
 
 [Strings]
 IHV = "LumiaWoA authors"
-

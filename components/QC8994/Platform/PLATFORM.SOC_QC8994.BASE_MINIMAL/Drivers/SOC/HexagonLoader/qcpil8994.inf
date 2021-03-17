@@ -66,7 +66,7 @@ qcpil8994.sys
 
 ; guid, property-pid, type, [flags], value (value = 2 for a "Critical" driver, value = 1 for a "Core" driver)
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;--------------  WPP Autologger registry keys
 ; Autologger will record trace messages to a buffer in the kernel where they can be easily used for postmortem debugging
@@ -96,7 +96,7 @@ AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_Service_Inst.NTarm64
 
 ; -------------- PIL driver install sections
 [PIL_Service_Inst]
-DisplayName    = %PIL.SVCDESC%
+DisplayName    = %PIL.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START (0)
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -105,7 +105,7 @@ Tag            = 17              ; First to load within the "Base" driver group
 ServiceBinary  = %13%\arm\qcpil8994.sys
 
 [PIL_Service_Inst.NTarm64]
-DisplayName    = %PIL.SVCDESC%
+DisplayName    = %PIL.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START (0)
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -125,10 +125,9 @@ KmdfLibraryVersion = 1.15
 Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Peripheral Image Loader (PIL) Driver Installation Disk #1"
 PIL.DeviceDesc         = "Qualcomm(R) System Manager Device"
-PIL.SVCDESC            = "Qualcomm(R) System Manager Device"
+PIL.SvcDesc            = "Qualcomm(R) System Manager Device"
 
 ;Non-localizable Strings
 REG_SZ                 = 0x00000000
 REG_DWORD              = 0x00010001
 SPSVCINST_ASSOCSERVICE = 0x00000002
-

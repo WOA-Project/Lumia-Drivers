@@ -83,13 +83,13 @@ AddReg = QcXhciFilter_SDDLString
 QcXhciFilter8994.sys
 
 [QcXhciFilter_AddReg]
-HKR, , "LowerFilters", 0x00010000, QcXhciFilter
+HKR,, "LowerFilters", 0x00010000, QcXhciFilter
 
 [QcXhciFilter_SDDLString]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ; Allow Generic Access to Builtin Admins and System
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ; Allow Generic Access to Builtin Admins and System
 
 [QcXhciFilter_Service_AddReg]
-HKR, , BootFlags, 0x00010003, 4  ; CM_SERVICE_USB_DISK_BOOT_LOAD
+HKR,, BootFlags, 0x00010003, 4  ; CM_SERVICE_USB_DISK_BOOT_LOAD
 
 ; -------------- QcXhciFilter driver install sections
 [QcXhciFilter_Service_Inst]
@@ -121,4 +121,3 @@ REG_BINARY          = 0x00000001
 REG_M_SZ            = 0x00010000
 REG_DWORD           = 0x00010001
 REG_QWORD           = 0x000B0001
-

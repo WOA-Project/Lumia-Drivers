@@ -55,11 +55,10 @@ include = bth.inf
 needs   = BthMini.NT.Services
 
 [radio.HW.AddReg]
-HKR, , "VsMsftOpCode", 0x00010001, 0xFD70
+HKR,, "VsMsftOpCode", 0x00010001, 0xFD70
 
 [Strings]
 QC         = "Qualcomm Technologies, Inc."
 BthRadio1  = "Qualcomm(R) Bluetooth Radio Driver"
 BthRadio2  = "Qualcomm(R) Bluetooth Radio Driver "
 SourceDisk = "Qualcomm Bluetooth Driver Installation Disk"
-

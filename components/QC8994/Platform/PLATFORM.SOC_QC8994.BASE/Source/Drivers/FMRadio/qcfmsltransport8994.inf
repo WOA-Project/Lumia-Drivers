@@ -80,12 +80,12 @@ qcfmsltransport8994.sys
 
 [Bus_Vendor_NT.AddReg]
 ; Reference: http://msdn.microsoft.com/en-us/library/ff546320.aspx
-HKR, , DeviceCharacteristics, 0x10001, 0x0100      ; Use same security checks on relative opens
-HKR, , Exclusive            , 0x10001, 0x1      ; exlusive device, only one handle can be opened
+HKR,, DeviceCharacteristics, 0x10001, 0x0100      ; Use same security checks on relative opens
+HKR,, Exclusive            , 0x10001, 0x1      ; exlusive device, only one handle can be opened
 
 ; -------------- statbus driver install sections
 [Bus_Service_Inst]
-DisplayName   = %Bus.SVCDESC%
+DisplayName   = %Bus.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -93,7 +93,7 @@ ServiceBinary = %13%\arm\qcfmsltransport8994.sys
 AddReg        = WPPReg
 
 [Bus_Service_Inst.NTarm64]
-DisplayName   = %Bus.SVCDESC%
+DisplayName   = %Bus.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -121,7 +121,6 @@ QC                     = "Qualcomm Technologies, Inc."
 StdMfg                 = "(Standard system devices)"
 DiskId1                = "Qualcomm FM Transport Driver Disk #1"
 Bus.DeviceDesc         = "Qualcomm FM Transport Driver "
-Bus.SVCDESC            = "Qualcomm FM Transport Driver"
+Bus.SvcDesc            = "Qualcomm FM Transport Driver"
 REG_DWORD              = 0x00010001
 REG_SZ                 = 0x00000000
-

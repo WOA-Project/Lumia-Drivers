@@ -15,7 +15,7 @@ Signature   = "$Windows NT$"
 Class       = Computer
 ClassGuid   = {4d36e966-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 07/02/2015,1.0.1067.0
+DriverVer   = 07/02/2015,1.0.1067.0000
 PnPLockdown = 1
 
 CatalogFile.NTarm   = "HalExtQCWdogTimer.arm.cat"
@@ -63,13 +63,13 @@ AddReg    = QC_TIMERS_AddReg
 CopyFiles = QC_TIMERS_CopyFiles
 
 [QC_TIMERS_AddReg]
-HKLM, "%OSEDB%\VEN_QCOM&DEV_100B", "HALExtension", , "%13%\arm\HalExtQCWdogTimer.dll"
+HKLM, "%OSEDB%\VEN_QCOM&DEV_100B", "HALExtension",, "%13%\arm\HalExtQCWdogTimer.dll"
 
 [QC_TIMERS_AddReg.NTarm64]
-HKLM, "%OSEDB%\VEN_QCOM&DEV_100B", "HALExtension", , "%13%\arm64\HalExtQCWdogTimer.dll"
+HKLM, "%OSEDB%\VEN_QCOM&DEV_100B", "HALExtension",, "%13%\arm64\HalExtQCWdogTimer.dll"
 
 [QC_TIMERS_CopyFiles]
-HalExtQCWdogTimer.dll, , , 0x00001000,
+HalExtQCWdogTimer.dll,,, 0x00001000,
 
 [QC_TIMERS.Services]
 AddService = , %SPSVCINST_ASSOCSERVICE%
@@ -88,4 +88,3 @@ QC                     = "Qualcomm Technologies, Inc."
 MFGNAME                = "Qualcomm Incorporated"
 QC_TIMERS              = "Qualcomm System Manager Device"
 DISK_ID                = "Qualcomm QTIMER HAL Extension Installation Disk"
-

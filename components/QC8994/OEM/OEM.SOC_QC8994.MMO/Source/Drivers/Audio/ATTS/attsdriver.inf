@@ -51,8 +51,8 @@ LoadOrderGroup = Extended Base
 AddReg = DriverInstall.SecurityAddReg
 
 [DriverInstall.SecurityAddReg]
-HKR, , DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
-HKR, , Security             ,        , "D:P(A;;GA;;;SY)(A;;GA;;;BA)"
+HKR,, DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
+HKR,, Security             ,        , "D:P(A;;GA;;;SY)(A;;GA;;;BA)"
 
 [Strings]
 ;Localizable Strings
@@ -65,9 +65,3 @@ DeviceDesc            = "Microsoft Mobile Audio TTS"
 SERVICE_KERNEL_DRIVER = 1
 SERVICE_DEMAND_START  = 3
 SERVICE_ERROR_NORMAL  = 1
-
-
-
-
-
-

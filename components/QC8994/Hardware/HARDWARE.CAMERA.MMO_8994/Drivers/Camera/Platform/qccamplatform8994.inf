@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  QualComm Corporation
+;Copyright (c) 2010-2012  Qualcomm Corporation
 ;
 ;Module Name:
 ;    qccamplatform8994.INF
@@ -60,7 +60,7 @@ Reboot
 qccamplatform8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
 [CameraPlatform_Device.NT.HW]
 AddReg = CameraPlatform_Device_Security_Reg
@@ -69,7 +69,7 @@ AddReg = CameraPlatform_Device_Security_Reg
 AddReg = CameraPlatform_Device_Security_Reg
  
 [CameraPlatform_Device_Security_Reg]
-HKR, , DeviceCharacteristics, 0x10001, 0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
 [CameraPlatform_Device.NT.Services]
@@ -80,14 +80,14 @@ AddService = qcCameraPlatform,%SPSVCINST_ASSOCSERVICE%, CameraPlatform_Service_I
 
 ; -------------- CameraPlatform driver install sections
 [CameraPlatform_Service_Inst]
-DisplayName   = %CameraPlatform.SVCDESC%
+DisplayName   = %CameraPlatform.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qccamplatform8994.sys
 
 [CameraPlatform_Service_Inst.NTarm64]
-DisplayName   = %CameraPlatform.SVCDESC%
+DisplayName   = %CameraPlatform.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -97,9 +97,8 @@ ServiceBinary = %13%\arm64\qccamplatform8994.sys
 ;localizable
 QC                        = "Qualcomm Technologies, Inc."
 CameraPlatform.DeviceDesc = "Qualcomm Camera Platform Device"
-CameraPlatform.SVCDESC    = "Qualcomm Camera Platform Service"
+CameraPlatform.SvcDesc    = "Qualcomm Camera Platform Service"
 DiskId                    = "Qualcomm Camera Platform Device Installation Disk"
 
 ;non-localizable
 SPSVCINST_ASSOCSERVICE    = 0x00000002
-

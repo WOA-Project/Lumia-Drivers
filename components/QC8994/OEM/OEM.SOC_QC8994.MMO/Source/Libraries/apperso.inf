@@ -25,13 +25,13 @@ apperso.dll              = 0,arm,
 apperso.dll              = 0,arm64,
 
 [Manufacturer]
-%IHV%=IHV,NTarm,NTarm64
+%IHV% = IHV,NTarm,NTarm64
 
 [IHV.NTarm]
-%APPerso.DeviceDesc%=APPerso, SWC\VID_QCOM&PID_0EA0&SID_00A1
+%APPerso.DeviceDesc% = APPerso, SWC\VID_QCOM&PID_0EA0&SID_00A1
 
 [IHV.NTarm64]
-%APPerso.DeviceDesc%=APPerso, SWC\VID_QCOM&PID_0EA0&SID_00A1
+%APPerso.DeviceDesc% = APPerso, SWC\VID_QCOM&PID_0EA0&SID_00A1
 
 [APPerso.NTarm]
 CopyFiles = APPerso.Files

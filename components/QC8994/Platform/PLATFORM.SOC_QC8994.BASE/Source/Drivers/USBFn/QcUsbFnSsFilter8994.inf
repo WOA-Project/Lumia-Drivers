@@ -39,13 +39,13 @@ QcUsbFnSsFilter8994.sys = 1,arm64,
 ;*****************************************
 
 [Manufacturer]
-%Company%=Standard,NTarm,NTarm64
+%Company% = Standard,NTarm,NTarm64
 
 [Standard.NTarm]
-%Standard.DeviceDesc%=QcUsbFnSSFilter   ; upper driver ufsynopsys.inf matches on hardware IDs
+%Standard.DeviceDesc% = QcUsbFnSSFilter   ; upper driver ufsynopsys.inf matches on hardware IDs
 
 [Standard.NTarm64]
-%Standard.DeviceDesc%=QcUsbFnSSFilter; upper driver ufsynopsys.inf matches on hardware IDs
+%Standard.DeviceDesc% = QcUsbFnSSFilter; upper driver ufsynopsys.inf matches on hardware IDs
 
 [QcUsbFnSSFilter.NT]
 Include    = qcusbfn8994.inf
@@ -113,4 +113,4 @@ REG_SZ              = 0x00000000
 REG_BINARY          = 0x00000001
 REG_M_SZ            = 0x00010000
 REG_DWORD           = 0x00010001
-REG_QWORD           = 0x000B0001
+REG_QWORD           = 0x000B0001

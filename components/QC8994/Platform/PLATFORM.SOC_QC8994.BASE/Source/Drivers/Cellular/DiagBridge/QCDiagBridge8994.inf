@@ -75,14 +75,14 @@ KmdfService = QCDiagBridge, QCDiagBridge_wdfsect
 QCDiagBridge8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0
 
 [QCDiagBridge_HW_AddReg]
-HKR, , DeviceCharacteristics, 0x00010001, 0x00000100    ; FILE_DEVICE_SECURE_OPEN
-HKR, , Security             ,           , "D:P(A;;GA;;;SY)(A;;GA;;;BA)"        ; Allow generic-all access to Local System and Built-in Administrators
+HKR,, DeviceCharacteristics, 0x00010001, 0x00000100    ; FILE_DEVICE_SECURE_OPEN
+HKR,, Security             ,           , "D:P(A;;GA;;;SY)(A;;GA;;;BA)"        ; Allow generic-all access to Local System and Built-in Administrators
 
 [QCDiagBridge_Service_Inst]
-DisplayName   = %QCDiagBridge.SVCDESC%
+DisplayName   = %QCDiagBridge.SvcDesc%
 ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
 StartType     = 3 ; SERVICE_DEMAND_START
 ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
@@ -90,7 +90,7 @@ ServiceBinary = %13%\arm\QCDiagBridge8994.sys
 AddReg        = QCDiagBridge_Service_AddReg
 
 [QCDiagBridge_Service_Inst.NTarm64]
-DisplayName   = %QCDiagBridge.SVCDESC%
+DisplayName   = %QCDiagBridge.SvcDesc%
 ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
 StartType     = 3 ; SERVICE_DEMAND_START
 ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
@@ -98,10 +98,10 @@ ServiceBinary = %13%\arm64\QCDiagBridge8994.sys
 AddReg        = QCDiagBridge_Service_AddReg
 
 [QCDiagBridge_Service_AddReg]
-HKR, , LocalPort    , 0x00010001, 0x9C4
-HKR, , EventIDs     , 0x00000000, ""
-HKR, , LogCodes     , 0x00000000, ""
-HKR, , MessageLevels, 0x00000000, ""
+HKR,, LocalPort    , 0x00010001, 0x9C4
+HKR,, EventIDs     , 0x00000000, ""
+HKR,, LogCodes     , 0x00000000, ""
+HKR,, MessageLevels, 0x00000000, ""
 
 [QCDiagBridge_wdfsect]
 KmdfLibraryVersion = 1.15
@@ -111,8 +111,7 @@ KmdfLibraryVersion = 1.15
 ManufacturerName        = "Qualcomm Technologies, Inc."
 DiskName                = "Qualcomm Diagnostic Bridge Installation Disk"
 QCDiagBridge.DeviceDesc = "Qualcomm(R) Data Device"
-QCDiagBridge.SVCDESC    = "Qualcomm(R) Data Device"
+QCDiagBridge.SvcDesc    = "Qualcomm(R) Data Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE  = 0x00000002
-

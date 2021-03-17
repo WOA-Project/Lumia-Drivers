@@ -76,7 +76,7 @@ AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst.NTarm64
 
 
 [hwnhaptics_Service_Inst]
-DisplayName    = %hwnhaptics.SVCDESC%
+DisplayName    = %hwnhaptics.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
@@ -84,7 +84,7 @@ ServiceBinary  = %13%\arm\qchwnhaptics8994.sys
 LoadOrderGroup = Extended Base
 
 [hwnhaptics_Service_Inst.NTarm64]
-DisplayName    = %hwnhaptics.SVCDESC%
+DisplayName    = %hwnhaptics.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
@@ -92,7 +92,7 @@ ServiceBinary  = %13%\arm64\qchwnhaptics8994.sys
 LoadOrderGroup = Extended Base
 
 [hwnhapticsCopyFiles]
-qchwnhaptics8994.sys, , , 0x100,
+qchwnhaptics8994.sys,,, 0x100,
 
 [DriverInst.NT.HW.AddReg]
 HKR, Mode, "AutoResCalibMode", %REG_SZ%, "2"
@@ -123,7 +123,7 @@ HKR, %Configuration%, "PlayRateCode"                  , %REG_DWORD%,  0x3CF
 QC                     = "Qualcomm Technologies, Inc."
 Configuration          = "Config"
 hwnhaptics.DeviceDesc  = "Qualcomm(R) System Manager Device"
-hwnhaptics.SVCDESC     = "Qualcomm(R) System Manager Device"
+hwnhaptics.SvcDesc     = "Qualcomm(R) System Manager Device"
 DiskId1                = "Qualcomm haptics Driver Installation Disk"
 
 ; ------------- non-localizable strings
@@ -139,4 +139,3 @@ REG_EXPAND_SZ          = 0x00020000
 REG_MULTI_SZ           = 0x00010000
 REG_DWORD              = 0x00010001
 REG_SZ                 = 0x00000000
-

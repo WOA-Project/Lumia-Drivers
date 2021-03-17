@@ -95,7 +95,7 @@ HKR, Ndi\Interfaces, LowerRange, 0,  "ppip"
 ; Driver and Service Section
 ;-----------------------------------------------------------------------------
 [wwan.CopyFiles]
-qclinklocal8994.sys, , , 2,
+qclinklocal8994.sys,,, 2,
 
 [wwan.Service]
 DisplayName    = %wwan.Service.DispName%
@@ -123,17 +123,17 @@ AddReg         = MaxAdapters.Reg
 AddReg = wwan.AddEventLog.Reg
 
 [wwan.AddEventLog.Reg]
-HKR, , EventMessageFile, 0x00020000,  "%%SystemRoot%%\System32\netevent.dll"
-HKR, , TypesSupported  , 0x00010001,  7
+HKR,, EventMessageFile, 0x00020000,  "%%SystemRoot%%\System32\netevent.dll"
+HKR,, TypesSupported  , 0x00010001,  7
 
 [TextModeFlags.Reg]
-HKR, , TextModeFlags, 0x00010001,  0x0001
+HKR,, TextModeFlags, 0x00010001,  0x0001
 
 [osVer.Reg]
-HKR, , OSVer, 0x00010001 , 0x01 ;  0x01 = Apollo, 0x00
+HKR,, OSVer, 0x00010001 , 0x01 ;  0x01 = Apollo, 0x00
 
 [MaxAdapters.Reg]
-HKR, , MaxNumAdapters, 0x00010001,  0x00000009
+HKR,, MaxNumAdapters, 0x00010001,  0x00000009
 
 
 [wwan_wdfsect]
@@ -142,10 +142,9 @@ KmdfLibraryVersion = 1.15
 [Strings]
 ;Localizable Strings
 QcomSrcDisk           = "Qualcomm LinkLocal Driver Disk"
-QCOM                  = "Qualcomm Inc."
+QCOM                  = "Qualcomm Technologies, Inc."
 wwan.DeviceDesc       = "Qualcomm(R) Memory and File System Device"
 wwan.Service.DispName = "Qualcomm(R) Memory and File System Device"
 DiskId1               = "Qualcomm LinkLocal Device Installation Disk #1"
 
 ;Non-localizable Strings
-

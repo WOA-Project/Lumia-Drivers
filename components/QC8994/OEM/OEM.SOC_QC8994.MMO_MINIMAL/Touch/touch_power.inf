@@ -22,23 +22,23 @@ touch_power.sys  = 1,arm,
 touch_power.sys  = 1,arm64,
 
 [Manufacturer]
-%Manufacturer_Name%=Standard,NTarm,NTarm64
+%Manufacturer_Name% = Standard,NTarm,NTarm64
 
 [Standard.NTarm]
-%touch_power.DeviceDesc%=touch_power_Device.NT, ACPI\MSHW1024
+%touch_power.DeviceDesc% = touch_power_Device.NT, ACPI\MSHW1024
 
 [Standard.NTarm64]
-%touch_power.DeviceDesc%=touch_power_Device.NT, ACPI\MSHW1024
+%touch_power.DeviceDesc% = touch_power_Device.NT, ACPI\MSHW1024
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [touch_power_Device.NT]
-CopyFiles=touch_power_Device.NT.CopyFiles
+CopyFiles = touch_power_Device.NT.CopyFiles
 
 [touch_power_Device.NTarm64]
-CopyFiles=touch_power_Device.NT.CopyFiles
+CopyFiles = touch_power_Device.NT.CopyFiles
 
 [touch_power_Device.NT.CopyFiles]
 touch_power.sys,,,0x100
@@ -52,7 +52,7 @@ AddService = %touch_power_service%,%SPSVCINST_ASSOCSERVICE%, touch_power_Service
 
 ; -------------- touch_power driver install sections
 [touch_power_Service_Inst]
-DisplayName    = %touch_power.SVCDESC%
+DisplayName    = %touch_power.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -60,7 +60,7 @@ ServiceBinary  = %13%\arm\touch_power.sys
 LoadOrderGroup = Base
 
 [touch_power_Service_Inst.NTarm64]
-DisplayName    = %touch_power.SVCDESC%
+DisplayName    = %touch_power.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -86,5 +86,5 @@ Installation_Disk      = "Microsoft Mobile Digitizer Power Gater Installation Di
 Manufacturer_Name      = "Microsoft Mobile Oy"
 DiskName               = "Microsoft Mobile Digitizer Power Gater Installation Disk"
 touch_power.DeviceDesc = "Microsoft Mobile Digitizer Power Gater"
-touch_power.SVCDESC    = "Microsoft Mobile Digitizer Power Gater Driver"
-touch_power_service    = "touch_power"
+touch_power.SvcDesc    = "Microsoft Mobile Digitizer Power Gater Driver"
+touch_power_service    = "touch_power"

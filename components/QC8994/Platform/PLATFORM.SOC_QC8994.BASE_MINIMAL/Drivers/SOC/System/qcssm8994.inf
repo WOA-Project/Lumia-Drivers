@@ -75,7 +75,7 @@ KmdfLibraryVersion = 1.15
 
 ; -------------- SSM driver install sections
 [SSM_Service_Inst]
-DisplayName    = %SSM.SVCDESC%
+DisplayName    = %SSM.SvcDesc%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
@@ -84,7 +84,7 @@ LoadOrderGroup = Extended Base
 AddReg         = SsmReg
 
 [SSM_Service_Inst.NTarm64]
-DisplayName    = %SSM.SVCDESC%
+DisplayName    = %SSM.SvcDesc%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
@@ -93,7 +93,7 @@ LoadOrderGroup = Extended Base
 AddReg         = SsmReg
 
 [SsmReg]
-HKR, , TzappName, 0x00000000, "SsmApp"
+HKR,, TzappName, 0x00000000, "SsmApp"
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
@@ -101,6 +101,5 @@ Qualcomm               = "Qualcomm Technologies, Inc."
 StdMfg                 = "(Standard system devices)"
 DiskId1                = "Ssm Installation Disk #1"
 SSM.DeviceDesc         = "Qualcomm(R) System Manager Device"
-SSM.SVCDESC            = "Qualcomm(R) System Manager Device"
+SSM.SvcDesc            = "Qualcomm(R) System Manager Device"
 ClassName              = "System"
-

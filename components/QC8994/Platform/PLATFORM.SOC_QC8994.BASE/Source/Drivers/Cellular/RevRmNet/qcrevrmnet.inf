@@ -87,27 +87,26 @@ HKR, Ndi, HelpText,  ,  %revrmnet_HelpText%
 
 
 [QCrevrmnet_Service_Inst]
-DisplayName    = %revrmnet.SVCDESC%
+DisplayName    = %revrmnet.SvcDesc%
 ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
 StartType      = 3 ;AUTO
 ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\qcrevrmnet.sys
 LoadOrderGroup = NDIS
-Description    = %revrmnet.SVCDESC%
+Description    = %revrmnet.SvcDesc%
 
 [QCrevrmnet_Service_Inst.NTarm64]
-DisplayName    = %revrmnet.SVCDESC%
+DisplayName    = %revrmnet.SvcDesc%
 ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
 StartType      = 3 ;AUTO
 ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm64\qcrevrmnet.sys
 LoadOrderGroup = NDIS
-Description    = %revrmnet.SVCDESC%
+Description    = %revrmnet.SvcDesc%
 
 [Strings]
-QCOM                  = "Qualcomm Inc."
-revrmnet.SVCDESC      = "Qualcomm(R) Data Device"
+QCOM                  = "Qualcomm Technologies, Inc."
+revrmnet.SvcDesc      = "Qualcomm(R) Data Device"
 QCrevrmnet.DeviceDesc = "Qualcomm(R) Data Device"
 DiskId1               = "Qualcomm qcrevrmnet Driver Disk"
 revrmnet_HelpText     = "Driver for WFP callout driver"
-

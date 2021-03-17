@@ -46,4 +46,3 @@ IHVDriversOobe.cmd
 [Strings]
 IHV     = "LumiaWoA authors"
 DiskId1 = "Drivers Setup Installation Disk #1"
-

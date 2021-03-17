@@ -29,8 +29,8 @@ SynaFWVendor2.img  = 1,,
 ;*****************************************
 
 [TchDriver_Device.NT.CopyFiles]
-SynaFWVendor1.img, , , 0x100,
-SynaFWVendor2.img, , , 0x100,
+SynaFWVendor1.img,,, 0x100,
+SynaFWVendor2.img,,, 0x100,
 
 [Manufacturer]
 %MSFT% = DeviceExtensions,NTarm,NTarm64
@@ -52,7 +52,7 @@ AddReg    = LegacyTouchScaling.NT.HW.AddReg
 CopyFiles = TchDriver_Device.NT.CopyFiles
 
 [LegacyTouchScaling.NT.HW.AddReg]
-HKR, , "LegacyTouchScaling", 0x00010001,  0x0
+HKR,, "LegacyTouchScaling", 0x00010001,  0x0
 
 [CapButtons.NT.HW.AddReg]
 HKLM, "System\TOUCH\BUTTONS"  , "Count", %REG_DWORD%        ,  0x3
@@ -64,8 +64,8 @@ HKLM, "System\TOUCH\BUTTONS\2", "Name" , %REG_SZ%           ,     "Search"
 HKLM, "System\TOUCH\BUTTONS\2", "VKey" , %REG_DWORD%        ,  0x72
 
 [PowerConfig.NT.HW.AddReg]
-HKR, , "EnhancedPowerManagementEnabled"   , %REG_DWORD%,  0
-HKR, , "EnhancedPowerManagementUseMonitor", %REG_DWORD%,  0
+HKR,, "EnhancedPowerManagementEnabled"   , %REG_DWORD%,  0
+HKR,, "EnhancedPowerManagementUseMonitor", %REG_DWORD%,  0
 
 [Configuration.NT.HW.AddReg]
 HKLM, %Configuration%  , "ControllerType"                     , %REG_DWORD%,  0x00000D4A
@@ -188,4 +188,3 @@ REG_EXPAND_SZ          = 0x00020000
 REG_MULTI_SZ           = 0x00010000
 REG_DWORD              = 0x00010001
 REG_SZ                 = 0x00000000
-

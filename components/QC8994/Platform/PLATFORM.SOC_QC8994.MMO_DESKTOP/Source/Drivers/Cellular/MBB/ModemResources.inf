@@ -33,15 +33,15 @@ CopyFiles = ModemResources.Files,ModemResources.ARM.Files,ModemResources.ARM64.F
 CopyFiles = ModemResources.Files,ModemResources.ARM.Files,ModemResources.ARM64.Files
 
 [ModemResources.Files]
-qcmbb8994.arm.cat, qcmbb8994.arm.cat_, , 0x00004000,
-qcmbb8994.arm64.cat, qcmbb8994.arm64.cat_, , 0x00004000,
-qcmbb.wp8994.inf, qcmbb.wp8994.inf_, , 0x00004000,
+qcmbb8994.arm.cat, qcmbb8994.arm.cat_,, 0x00004000,
+qcmbb8994.arm64.cat, qcmbb8994.arm64.cat_,, 0x00004000,
+qcmbb.wp8994.inf, qcmbb.wp8994.inf_,, 0x00004000,
 
 [ModemResources.ARM.Files]
-qcmbb8994.sys, qcmbb8994.arm.sys, , 0x00004000,
+qcmbb8994.sys, qcmbb8994.arm.sys,, 0x00004000,
 
 [ModemResources.ARM64.Files]
-qcmbb8994.sys, qcmbb8994.arm64.sys, , 0x00004000,
+qcmbb8994.sys, qcmbb8994.arm64.sys,, 0x00004000,
 
 [Strings]
 IHV = "LumiaWoA authors"

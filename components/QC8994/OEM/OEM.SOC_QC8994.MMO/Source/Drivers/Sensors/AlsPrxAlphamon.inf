@@ -14,7 +14,7 @@ Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
-DriverVer   = 06/08/2016,1.0.1078.0053
+DriverVer   = 09/19/2016,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = AlsPrxAlphamon.arm.cat
@@ -33,20 +33,20 @@ AlsPrxAlphamon.dll = 1,arm64,
 %ManufacturerName% = Sensor_Device, NTarm, NTarm64
 
 [Sensor_Device.NTarm]
-%DevDesc%=Alphamon_Inst, ACPI\MSHW1016
+%DevDesc% = Alphamon_Inst, ACPI\MSHW1016
 
 [Sensor_Device.NTarm64]
-%DevDesc%=Alphamon_Inst, ACPI\MSHW1016
+%DevDesc% = Alphamon_Inst, ACPI\MSHW1016
 
 ;---------------- copy files
 
 [Alphamon_Inst.NT]
-CopyFiles=SensorDriverCopy
-AddReg=WdfExt_AddReg
+CopyFiles = SensorDriverCopy
+AddReg = WdfExt_AddReg
 
 [Alphamon_Inst.NTarm64]
-CopyFiles=SensorDriverCopy
-AddReg=WdfExt_AddReg
+CopyFiles = SensorDriverCopy
+AddReg = WdfExt_AddReg
 
 [SensorDriverCopy]
 AlsPrxAlphamon.dll
@@ -176,4 +176,4 @@ WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framewo
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
 SERVICE_ERROR_NORMAL     = 1
-REG_DWORD                = 0x00010001
+REG_DWORD                = 0x00010001

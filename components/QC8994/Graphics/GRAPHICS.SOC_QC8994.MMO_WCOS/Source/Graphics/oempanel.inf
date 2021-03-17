@@ -73,7 +73,7 @@ HKLM, "Software\Microsoft\Shell\OEM\Brightness", "HideAutoBrightness", 0x10001, 
 
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "Enabled", 0x10001, 0x1
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "ResourceFileName", 0x0, "%13%\oempanel_etw.dll"
-HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", , 0x0, "Nokia-OemPanel"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}",, 0x0, "Nokia-OemPanel"
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{F0048AD1-2A42-48C0-9797-AAFB768A6ECC}", "MessageFileName", 0x0, "%13%\oempanel_etw.dll"
 
 HKLM, "Software\OEM\Autobrightness", "ABSPercentIntensityMapping", 0x10000, "50","51"
@@ -201,4 +201,3 @@ SERVICE_KERNEL_DRIVER  = 1
 SERVICE_DEMAND_START   = 3
 SERVICE_ERROR_IGNORE   = 0
 SERVICE_ERROR_NORMAL   = 1
-

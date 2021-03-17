@@ -57,7 +57,7 @@ Reboot
 qcipa8994.sys                                                 ; Copied from the source media to the default destination directory (see [DestinationDirs])
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
 [ipa_Device.NT.Services]
 AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
@@ -73,11 +73,11 @@ addreg = ipa
 addreg = ipa
 
 [ipa]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 ; -------------- ipa driver install sections
 [ipa_Service_Inst]
-DisplayName   = %ipa.SVCDESC%
+DisplayName   = %ipa.SvcDesc%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
@@ -85,7 +85,7 @@ ServiceBinary = %13%\arm\qcipa8994.sys
 AddReg        = IPA_Reg
 
 [ipa_Service_Inst.NTarm64]
-DisplayName   = %ipa.SVCDESC%
+DisplayName   = %ipa.SvcDesc%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
@@ -109,11 +109,10 @@ KmdfLibraryVersion = 1.15
 Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "IP Accelerator Installation Disk"
 ipa.DeviceDesc         = "Qualcomm(R) Bus Device"
-ipa.SVCDESC            = "Qualcomm(R) Bus Device"
+ipa.SvcDesc            = "Qualcomm(R) Bus Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
 
 REG_SZ                 = 0x00000000
 REG_DWORD              = 0x00010001
-

@@ -66,7 +66,7 @@ AddReg = CDIACL
 AddReg = CDIACL
 
 [CDIACL]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 [QCCDIReg]
 HKR, Parameters, "PreserveOld"  , 0x00010001, 00
@@ -89,7 +89,7 @@ AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_Service_Inst.NTarm64
 
 ; -------------- QCCDI driver install sections
 [QCCDI_Service_Inst]
-DisplayName   = %QCCDI.SVCDESC%
+DisplayName   = %QCCDI.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -97,7 +97,7 @@ ServiceBinary = %13%\arm\qccdi8994.sys
 AddReg        = QCCDIReg
 
 [QCCDI_Service_Inst.NTarm64]
-DisplayName   = %QCCDI.SVCDESC%
+DisplayName   = %QCCDI.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -118,7 +118,6 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 ManufacturerName       = "Qualcomm Technologies, Inc."
 DiskName               = "Qualcomm Crash Dump Injector Installation Disk"
 QCCDI.DeviceDesc       = "Qualcomm(R) System Manager Device"
-QCCDI.SVCDESC          = "Qualcomm(R) System Manager Device"
+QCCDI.SvcDesc          = "Qualcomm(R) System Manager Device"
 Qualcomm               = "Qualcomm Technologies, Inc."
 REG_SZ                 = 0x00000000
-

@@ -6,7 +6,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 09/09/2015,1.0.1067.0000
+DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = ncsdsvc.arm.cat
@@ -77,7 +77,7 @@ HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE8
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\arm64\NcsdRes.dll"
 
 [NcsdSvc_Reg]
-HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", , ,"NcsdEtw"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}",,,"NcsdEtw"
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "Enabled", 0x10001, 0x1
 
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\SvcHost", "NsgExtUti", 0x00010008, \
@@ -141,4 +141,4 @@ REG_MULTI_SZ  = 0x00010000
 REG_EXPAND_SZ = 0x00020000
 REG_DWORD     = 0x00010001
 REG_BINARY    = 0x00000001
-
+

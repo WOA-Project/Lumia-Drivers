@@ -48,7 +48,7 @@ AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 [SPI_Install.Services]
 AddService = qcspi, 0x00000002, SPI_Service_Install
@@ -86,4 +86,3 @@ Manufacturer_Name  = "Qualcomm Technologies, Inc."
 Disk_Description   = "Qualcomm SPI Device Installation Disk"
 Device_Description = "Qualcomm(R) Bus Device"
 Service_Name       = "Qualcomm(R) Bus Device"
-

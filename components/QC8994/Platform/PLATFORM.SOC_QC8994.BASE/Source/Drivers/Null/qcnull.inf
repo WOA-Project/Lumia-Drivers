@@ -79,14 +79,14 @@ qcnull.sys
 
 ; -------------- qcnull driver install sections
 [qcnull_Service_Inst]
-DisplayName   = %qcnull.SVCDESC%
+DisplayName   = %qcnull.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcnull.sys
 
 [qcnull_Service_Inst.NTarm64]
-DisplayName   = %qcnull.SVCDESC%
+DisplayName   = %qcnull.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -111,7 +111,7 @@ SPSVCINST_ASSOCSERVICE    = 0x00000002
 ManufacturerName          = "LumiaWoA authors"
 DiskName                  = "Qualcomm Null Installation Disk"
 qcnull.DeviceDesc         = "Qualcomm Null Device"
-qcnull.SVCDESC            = "Qualcomm Null Service"
+qcnull.SvcDesc            = "Qualcomm Null Service"
 
 QcGPUNull.DeviceDesc      = "Qualcomm GPU Device (Null)"
 25A0Null.DeviceDesc       = "Qualcomm App Profiler Device (Null)" 

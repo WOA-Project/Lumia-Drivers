@@ -62,10 +62,10 @@ Addreg = BAMACL
 Addreg = BAMACL
 
 [BAMACL]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 [Drivers_Dir]
 qckmbam8994.sys                                               ; Copied from the source media to the default destination directory (see [DestinationDirs])
@@ -78,14 +78,14 @@ AddService = qcbam,%SPSVCINST_ASSOCSERVICE%, BAM_Service_Inst.NTarm64 ; SPSVCINS
 
 ; -------------- SMD driver install sections
 [BAM_Service_Inst]
-DisplayName   = %BAM.SVCDESC%
+DisplayName   = %BAM.SvcDesc%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qckmbam8994.sys
 
 [BAM_Service_Inst.NTarm64]
-DisplayName   = %BAM.SVCDESC%
+DisplayName   = %BAM.SvcDesc%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
@@ -106,9 +106,7 @@ Qualcomm               = "Qualcomm Technologies, Inc."
 StdMfg                 = "Qualcomm Technologies, Inc."
 DiskId1                = "BAM Installation Disk #1"
 BAM.DeviceDesc         = "Qualcomm(R) Bus Device"
-BAM.SVCDESC            = "Qualcomm(R) Bus Device"
+BAM.SvcDesc            = "Qualcomm(R) Bus Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-
-

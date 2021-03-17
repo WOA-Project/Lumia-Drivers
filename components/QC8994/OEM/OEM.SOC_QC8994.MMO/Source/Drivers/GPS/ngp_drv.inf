@@ -18,34 +18,34 @@ DefaultDestDir = 13
 ngp_drv.dll=1,,
 
 [Manufacturer]
-%ManufacturerName%=ngp_drv_Device,NTarm ;,NTarm64
+%ManufacturerName% = ngp_drv_Device,NTarm ;,NTarm64
 
 ;*******************************
 ; ngp_drv Install Section
 ;*******************************
 
 [ngp_drv_Device.NTarm]
-%DevDesc%=ngp_drv_Inst, ACPI\QCOM24B4
+%DevDesc% = ngp_drv_Inst, ACPI\QCOM24B4
 
 ;---------------- copy files
 
 [ngp_drv_Inst.NT]
-CopyFiles=ngp_drvCopy
-AddReg=ngp_drvReg
+CopyFiles = ngp_drvCopy
+AddReg = ngp_drvReg
 
 [ngp_drvCopy]
 ngp_drv.dll
 
 [ngp_drv_Inst.NT.HW]
-AddReg=ngp_drv_SecurityAddReg
+AddReg = ngp_drv_SecurityAddReg
 
 ;-------------- Service installation
 [ngp_drv_Inst.NT.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [ngp_drv_Inst.NT.CoInstallers]
-CopyFiles=ngp_drvCopy
-AddReg=CoInstallers_AddReg
+CopyFiles = ngp_drvCopy
+AddReg = CoInstallers_AddReg
 
 
 [WUDFRD_ServiceInstall]
@@ -85,4 +85,4 @@ WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framewo
 
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
-SERVICE_ERROR_NORMAL     = 1
+SERVICE_ERROR_NORMAL     = 1

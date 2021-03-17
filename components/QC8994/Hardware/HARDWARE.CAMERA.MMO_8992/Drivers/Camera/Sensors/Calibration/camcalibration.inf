@@ -81,4 +81,3 @@ CopyFiles = CamCal.Files.NTarm_11
 [Strings]
 IHV                    = "LumiaWoA authors"
 DiskId1                = "Camera Calibration Installation Disk #1"
-

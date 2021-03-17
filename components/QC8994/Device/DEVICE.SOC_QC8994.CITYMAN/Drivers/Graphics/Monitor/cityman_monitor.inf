@@ -38,4 +38,4 @@ REG_SZ      = 0x00000
 ;
 IHV       = "LumiaWoA authors"
 SAMSUNG   = "Samsung"
-CMO0011   = "Samsung 5.7-inch 1440x2560 (WQHD) 518ppi AM-OLED 16.7M Colors Display Panel (AMS567DJ06)"
+CMO0011   = "Samsung 5.7-inch 1440x2560 (WQHD) 518ppi AM-OLED 16.7M Colors Display Panel (AMS567DJ06)"

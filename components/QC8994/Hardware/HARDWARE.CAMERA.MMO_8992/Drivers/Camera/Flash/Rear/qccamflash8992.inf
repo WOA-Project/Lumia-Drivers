@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  QualComm Inc
+;Copyright (c) 2010-2012  Qualcomm Inc
 ;
 ;Module Name:
 ;    qccamflash8992.inf
@@ -57,13 +57,13 @@ Reboot
 qccamflash8992.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0
 
 [CameraFlash_Device.NT.HW]
 AddReg = CameraFlash_Device_Security_Reg
  
 [CameraFlash_Device_Security_Reg]
-HKR, , DeviceCharacteristics, 0x10001, 0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
 [CameraFlash_Device.NT.Services]
@@ -71,7 +71,7 @@ AddService = qcFlash,%SPSVCINST_ASSOCSERVICE%, FLASH_Service_Inst
 
 ; -------------- FLASH driver install sections
 [FLASH_Service_Inst]
-DFLASHlayName = %FLASH.SVCDESC%
+DFLASHlayName = %FLASH.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -81,9 +81,9 @@ ServiceBinary = %12%\qccamflash8992.sys
 ;Localizable Strings
 QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Camera Flash Installation Disk"
-FLASH.SVCDESC          = "Qualcomm Camera Flash Driver"
+FLASH.SvcDesc          = "Qualcomm Camera Flash Driver"
 FLASH.DeviceDesc       = "Qualcomm Camera Flash Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-
+

@@ -62,7 +62,7 @@ AddReg = RPENACL
 
 [RPENACL]
 ; Built-in Admins (BA), Local System (SY)
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 [RPENReg]
 ; Autologger registry keys follow
@@ -78,7 +78,7 @@ HKLM, System\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496
 [Drivers_Dir]
 qcrpen8994.sys                                        
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
 [RPEN_Device.NT.Services]
 AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst
@@ -90,14 +90,14 @@ AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst.NTarm64
 
 ; -------------- RPEN driver install sections
 [RPEN_Service_Inst]
-DisplayName   = %RPEN.SVCDESC%
+DisplayName   = %RPEN.SvcDesc%
 ServiceType   = 1                              ; SERVICE_KERNEL_DRIVER
 StartType     = 3                              ; SERVICE_DEMAND_START
 ErrorControl  = 1                              ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcrpen8994.sys
 
 [RPEN_Service_Inst.NTarm64]
-DisplayName   = %RPEN.SVCDESC%
+DisplayName   = %RPEN.SvcDesc%
 ServiceType   = 1                              ; SERVICE_KERNEL_DRIVER
 StartType     = 3                              ; SERVICE_DEMAND_START
 ErrorControl  = 1                              ; SERVICE_ERROR_NORMAL
@@ -115,11 +115,9 @@ KmdfLibraryVersion = 1.15
 Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Reset Power Error Notifier Device Installation Disk"
 RPEN.DeviceDesc        = "Qualcomm(R) System Manager Device"
-RPEN.SVCDESC           = "Qualcomm(R) System Manager Device"
+RPEN.SvcDesc           = "Qualcomm(R) System Manager Device"
 
 ;Non-localizable Strings
 REG_SZ                 = 0x00000000
 REG_DWORD              = 0x00010001
 SPSVCINST_ASSOCSERVICE = 0x00000002
-
-

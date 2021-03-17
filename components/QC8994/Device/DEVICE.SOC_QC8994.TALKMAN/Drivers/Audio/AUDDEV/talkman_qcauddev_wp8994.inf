@@ -19,7 +19,7 @@ Class       = Extension
 ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 provider    = %QCOM%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11E4E}
-DriverVer   = 07/02/2015,1.0.1067.0
+DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = talkman_qcauddev8994.arm.cat
@@ -53,7 +53,7 @@ CopyFiles = Drivers_Dir_24
 REG_SZ                 = 0x00000000
 REG_DWORD              = 0x00010001
 SPSVCINST_ASSOCSERVICE = 0x00000002
-QCOM                   = "Qualcomm"
+QCOM                   = "Qualcomm Technologies, Inc."
 StdMfg                 = "(Standard system devices)"
 AUDD.DeviceDesc        = "Qualcomm Audio Talkman Device"
 MBHC.DeviceDesc        = "Qualcomm Multi Button Headset Controller"

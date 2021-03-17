@@ -60,7 +60,7 @@ Copyfiles = hwnledCopyFiles
 Copyfiles = hwnledCopyFiles
 
 [hwnledCopyFiles]
-qchwnled8994.sys, , , 0x100,
+qchwnled8994.sys,,, 0x100,
 
 [hwnled_Device.NT.Services]
 AddService = hwnled,%SPSVCINST_ASSOCSERVICE%,hwnled_Service_Inst
@@ -69,7 +69,7 @@ AddService = hwnled,%SPSVCINST_ASSOCSERVICE%,hwnled_Service_Inst
 AddService = hwnled,%SPSVCINST_ASSOCSERVICE%,hwnled_Service_Inst.NTarm64
 
 [hwnled_Service_Inst]
-DisplayName    = %hwnled.SVCDESC%
+DisplayName    = %hwnled.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -77,7 +77,7 @@ ServiceBinary  = %13%\arm\qchwnled8994.sys
 LoadOrderGroup = Extended Base
 
 [hwnled_Service_Inst.NTarm64]
-DisplayName    = %hwnled.SVCDESC%
+DisplayName    = %hwnled.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -88,9 +88,5 @@ LoadOrderGroup = Extended Base
 SPSVCINST_ASSOCSERVICE = 0x00000002
 QC                     = "Qualcomm Technologies, Inc."
 hwnled.DeviceDesc      = "Qualcomm(R) System Manager Device"
-hwnled.SVCDESC         = "Qualcomm(R) System Manager Device"
+hwnled.SvcDesc         = "Qualcomm(R) System Manager Device"
 DiskId1                = "Qualcomm HwnLed Driver Installation Disk"
-
-
-
-

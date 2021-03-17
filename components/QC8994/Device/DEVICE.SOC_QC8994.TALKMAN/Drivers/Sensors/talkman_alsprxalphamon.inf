@@ -15,7 +15,7 @@ Class       = Extension
 ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %ManufacturerName%
 ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD22E4B}
-DriverVer   = 06/08/2016,1.0.1078.0053
+DriverVer   = 09/19/2016,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = talkman_alsprxalphamon.arm.cat
@@ -46,4 +46,4 @@ DevDesc          = "QPDS-T900/QPDS-T930 Proximity and Ambient Light Sensor Drive
 
 ;Non-Localizable Strings
 REG_DWORD        = 0x00010001
-
+

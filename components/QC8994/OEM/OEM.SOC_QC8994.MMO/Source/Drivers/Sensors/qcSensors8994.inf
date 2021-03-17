@@ -14,7 +14,7 @@ Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %ManufacturerName%
-DriverVer   = 06/08/2016,1.0.1078.0053
+DriverVer   = 09/19/2016,1.0.1078.0056
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcSensors8994.arm.cat
@@ -32,27 +32,27 @@ qcSensors8994.dll=1,arm64,
 qcSensor1UM8994.dll=1,arm64,
 
 [Manufacturer]
-%ManufacturerName%=Sensor_Device,NTarm,NTarm64
+%ManufacturerName% = Sensor_Device,NTarm,NTarm64
 
 ;*******************************
 ; qcSensors Install Section
 ;*******************************
 
 [Sensor_Device.NTarm]
-%DevDesc%=Sensor_Inst, ACPI\QCOM2495
+%DevDesc% = Sensor_Inst, ACPI\QCOM2495
 
 [Sensor_Device.NTarm64]
-%DevDesc%=Sensor_Inst, ACPI\QCOM2495
+%DevDesc% = Sensor_Inst, ACPI\QCOM2495
 
 ;---------------- copy files
 
 [Sensor_Inst.NT]
-CopyFiles=SensorDriverCopy,UMDriverCopy
-AddReg=WdfExt_AddReg,DisableHpf_AddReg
+CopyFiles = SensorDriverCopy,UMDriverCopy
+AddReg = WdfExt_AddReg,DisableHpf_AddReg
 
 [Sensor_Inst.NTarm64]
-CopyFiles=SensorDriverCopy,UMDriverCopy
-AddReg=WdfExt_AddReg,DisableHpf_AddReg
+CopyFiles = SensorDriverCopy,UMDriverCopy
+AddReg = WdfExt_AddReg,DisableHpf_AddReg
 
 [SensorDriverCopy]
 qcSensors8994.dll
@@ -65,10 +65,10 @@ SensorDriverCopy = 13
 UMDriverCopy     = 11
 
 [Sensor_Inst.NT.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 [Sensor_Inst.NTarm64.HW]
-AddReg=Sensor_Inst_SecurityAddReg
+AddReg = Sensor_Inst_SecurityAddReg
 
 ;-------------- Service installation
 [Sensor_Inst.NT.Services]
@@ -149,9 +149,9 @@ HKLM, "Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Para
 HKR,qcSensors\HPF,DisableMsftDCOffsetFilter,0x10001,0x00000001              ; Disable HPF in SensorCx 
 
 [Sensor_Inst_SecurityAddReg]
-HKR, , DeviceCharacteristics, 0x10001, 0x00000100                               ; FILE_DEVICE_SECURE_OPEN
-HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;UD)(A;;GA;;;WD)"    ; Allow everyone to access this driver
-;HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"    ; Allow all UMDF drivers to access this driver
+HKR,, DeviceCharacteristics, 0x10001, 0x00000100                               ; FILE_DEVICE_SECURE_OPEN
+HKR,, Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;UD)(A;;GA;;;WD)"    ; Allow everyone to access this driver
+;HKR,, Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"    ; Allow all UMDF drivers to access this driver
 
 [Strings]
 MediaDescription         = "Qualcomm Sensor Collection Installation Media"
@@ -161,4 +161,4 @@ WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framewo
 
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
-SERVICE_ERROR_NORMAL     = 1
+SERVICE_ERROR_NORMAL     = 1

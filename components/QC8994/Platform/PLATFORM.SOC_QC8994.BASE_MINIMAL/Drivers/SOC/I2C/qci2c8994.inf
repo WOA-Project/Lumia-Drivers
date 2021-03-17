@@ -59,7 +59,7 @@ AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 [Drivers_Dir]
 qci2c8994.sys
@@ -73,7 +73,7 @@ AddService = "qci2c",%SPSVCINST_ASSOCSERVICE%, qci2c_Service_Inst.NTarm64
 
 ; ------------- qci2c driver install sections
 [qci2c_Service_Inst]
-DisplayName   = %qci2c.SVCDESC%
+DisplayName   = %qci2c.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -81,7 +81,7 @@ ServiceBinary = %13%\arm\qci2c8994.sys
 Dependencies  = SpbCx
 
 [qci2c_Service_Inst.NTarm64]
-DisplayName   = %qci2c.SVCDESC%
+DisplayName   = %qci2c.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -103,8 +103,7 @@ KmdfLibraryVersion = 1.15
 QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm I2C Controller Installation Disk"
 qci2c.DeviceDesc       = "Qualcomm(R) Bus Device"
-qci2c.SVCDESC          = "Qualcomm(R) Bus Device"
+qci2c.SvcDesc          = "Qualcomm(R) Bus Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-

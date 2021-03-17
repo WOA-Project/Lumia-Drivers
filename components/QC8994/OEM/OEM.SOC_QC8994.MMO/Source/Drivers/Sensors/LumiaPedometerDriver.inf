@@ -3,7 +3,7 @@ Signature = "$Windows NT$"
 Class     = Sensor
 ClassGuid = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider  = %VendorName%
-DriverVer = 01/01/2021,1.0.1078.0053
+DriverVer = 09/19/2016,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = LumiaPedometerDriver.arm.cat
@@ -19,21 +19,21 @@ LumiaPedometerDriver.dll=1,arm,
 LumiaPedometerDriver.dll=1,arm64,
 
 [Manufacturer]
-%ManufacturerName%=Sensor_Device,NTarm,NTarm64
+%ManufacturerName% = Sensor_Device,NTarm,NTarm64
 
 [Sensor_Device.NTarm]
-%DevDesc%=PedometerDriver_Inst, ACPI\MSHW1021
+%DevDesc% = PedometerDriver_Inst, ACPI\MSHW1021
 
 [Sensor_Device.NTarm64]
-%DevDesc%=PedometerDriver_Inst, ACPI\MSHW1021
+%DevDesc% = PedometerDriver_Inst, ACPI\MSHW1021
 
 ;---------------- copy files
 
 [PedometerDriver_Inst.NT]
-CopyFiles=SensorDriverCopy
+CopyFiles = SensorDriverCopy
 
 [PedometerDriver_Inst.NTarm64]
-CopyFiles=SensorDriverCopy
+CopyFiles = SensorDriverCopy
 
 [SensorDriverCopy]
 LumiaPedometerDriver.dll
@@ -42,10 +42,10 @@ LumiaPedometerDriver.dll
 SensorDriverCopy = 13
 
 [PedometerDriver_Inst.NT.HW]
-AddReg=PedometerDriver_SecurityAddReg
+AddReg = PedometerDriver_SecurityAddReg
 
 [PedometerDriver_Inst.NTarm64.HW]
-AddReg=PedometerDriver_SecurityAddReg
+AddReg = PedometerDriver_SecurityAddReg
 
 ;-------------- Service installation
 [PedometerDriver_Inst.NT.Services]
@@ -100,4 +100,4 @@ WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framewo
 
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
-SERVICE_ERROR_NORMAL     = 1
+SERVICE_ERROR_NORMAL     = 1

@@ -63,7 +63,7 @@ Reboot
 qcqdss8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;-------------- Service installation
 [QDSS_Device.NT.Services]
@@ -80,11 +80,11 @@ addreg = QDSSSD
 addreg = QDSSSD
 
 [QDSSSD]
-HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 ; -------------- QDSS driver install sections
 [QDSS_Service_Inst]
-DisplayName    = %QDSS.SVCDESC%
+DisplayName    = %QDSS.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_BOOT_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
@@ -93,7 +93,7 @@ ServiceBinary  = %13%\arm\qcqdss8994.sys
 addreg         = QDSSCONFIG
 
 [QDSS_Service_Inst.NTarm64]
-DisplayName    = %QDSS.SVCDESC%
+DisplayName    = %QDSS.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_BOOT_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
@@ -235,9 +235,8 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "QDSS Installation Disk"
 QDSS.DeviceDesc        = "Qualcomm QDSS Device"
-QDSS.SVCDESC           = "Qualcomm QDSS Driver"
+QDSS.SvcDesc           = "Qualcomm QDSS Driver"
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_BOOT_START     = 0
 SERVICE_DEMAND_START   = 3
 SERVICE_ERROR_NORMAL   = 1
-

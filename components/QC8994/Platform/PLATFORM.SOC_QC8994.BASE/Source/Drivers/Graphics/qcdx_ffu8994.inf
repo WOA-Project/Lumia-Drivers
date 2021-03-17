@@ -498,7 +498,7 @@ HKLM, "Software\Microsoft\Windows Media Foundation\HardwareMFT", "EnableDecoders
 HKLM, "Software\Microsoft\Windows Media Foundation\Platform\VideoStabilization", "MaxPixelsPerSecond", 0x00010001, 0x00000000
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 [QCDX_Inst.NT.Services]
 AddService = QCDX,0x00000002,QCDX_Service,
@@ -530,17 +530,17 @@ KmdfService = QCDX, QCDX_wdfsect
 KmdfLibraryVersion = 1.15
 
 [QCDX_SoftwareDeviceSettings]
-HKR, , InstalledDisplayDrivers    , %REG_MULTI_SZ%,  qcdx11um8994,                 qcdx11um8994,                     qcdx11um8994
-HKR, , VgaCompatible              , %REG_DWORD%   ,  0
-HKR, , UserModeDriverName         , %REG_MULTI_SZ%,  <>,                           %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll, %13%\arm\qcdx11um8994.dll
-HKR, , ContentProtectionDriverName, %REG_SZ%      ,  %13%\arm\qchdcpumd8994.dll
+HKR,, InstalledDisplayDrivers    , %REG_MULTI_SZ%,  qcdx11um8994,                 qcdx11um8994,                     qcdx11um8994
+HKR,, VgaCompatible              , %REG_DWORD%   ,  0
+HKR,, UserModeDriverName         , %REG_MULTI_SZ%,  <>,                           %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll, %13%\arm\qcdx11um8994.dll
+HKR,, ContentProtectionDriverName, %REG_SZ%      ,  %13%\arm\qchdcpumd8994.dll
 
 [QCDX_SoftwareDeviceSettings.NTarm64]
-HKR, , InstalledDisplayDrivers    , %REG_MULTI_SZ%,  qcdx11arm64um8994,            qcdx11arm64um8994,                qcdx11arm64um8994
-HKR, , VgaCompatible              , %REG_DWORD%   ,  0
-HKR, , UserModeDriverName         , %REG_MULTI_SZ%,  <>,                           %13%\arm64\qcdx11arm64um8994.dll, %13%\arm64\qcdx11arm64um8994.dll, %13%\arm64\qcdx11arm64um8994.dll
-HKR, , UserModeDriverNameWow2     , %REG_MULTI_SZ%,  <>,                           %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll
-HKR, , ContentProtectionDriverName, %REG_SZ%      ,  %13%\arm64\qchdcpumd8994.dll
+HKR,, InstalledDisplayDrivers    , %REG_MULTI_SZ%,  qcdx11arm64um8994,            qcdx11arm64um8994,                qcdx11arm64um8994
+HKR,, VgaCompatible              , %REG_DWORD%   ,  0
+HKR,, UserModeDriverName         , %REG_MULTI_SZ%,  <>,                           %13%\arm64\qcdx11arm64um8994.dll, %13%\arm64\qcdx11arm64um8994.dll, %13%\arm64\qcdx11arm64um8994.dll
+HKR,, UserModeDriverNameWow2     , %REG_MULTI_SZ%,  <>,                           %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll
+HKR,, ContentProtectionDriverName, %REG_SZ%      ,  %13%\arm64\qchdcpumd8994.dll
 
 [QCDX.Files.NTarm_13]
 qcdxkm8994.sys
@@ -616,4 +616,3 @@ REG_MULTI_SZ           = 0x00010000
 REG_EXPAND_SZ          = 0x00020000
 REG_DWORD              = 0x00010001
 REG_BINARY             = 0x00000001
-

@@ -78,26 +78,26 @@ KmdfService = QCQMUX, QMUX_wdfsect
 AddService = QCQMUX,%SPSVCINST_ASSOCSERVICE%, QMUX_Service_Inst.NTarm64
 
 [QMUXACL]
-HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
+HKR,, Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
 ; FILE_DEVICE_SECURE_OPEN
-HKR, , DeviceCharacteristics, 0x10001, 0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 [Drivers_Dir]
 qcqmux8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
 ; -------------- QMUX driver install sections
 [QMUX_Service_Inst]
-DisplayName   = %QMUX.SVCDESC%
+DisplayName   = %QMUX.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcqmux8994.sys
 
 [QMUX_Service_Inst.NTarm64]
-DisplayName   = %QMUX.SVCDESC%
+DisplayName   = %QMUX.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -111,8 +111,7 @@ KmdfLibraryVersion = 1.15
 Qualcomm               = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm QMUX Driver Installation Disk"
 QMUX.DeviceDesc        = "Qualcomm QMUX Device"
-QMUX.SVCDESC           = "Qualcomm QMUX Driver"
+QMUX.SvcDesc           = "Qualcomm QMUX Driver"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-

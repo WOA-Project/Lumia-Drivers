@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  QualComm Inc
+;Copyright (c) 2010-2012  Qualcomm Inc
 ;
 ;Module Name:
 ;    qccamflashtertiary8994.inf
@@ -62,7 +62,7 @@ Reboot
 qccamflashtertiary8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0
 
 [CameraFlashTertiary_Device.NT.HW]
 AddReg = CameraFlashTertiary_Device_Security_Reg
@@ -71,7 +71,7 @@ AddReg = CameraFlashTertiary_Device_Security_Reg
 AddReg = CameraFlashTertiary_Device_Security_Reg
  
 [CameraFlashTertiary_Device_Security_Reg]
-HKR, , DeviceCharacteristics, 0x10001, 0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
 [CameraFlashTertiary_Device.NT.Services]
@@ -82,14 +82,14 @@ AddService = qcFlashTertiary,%SPSVCINST_ASSOCSERVICE%, FLASH_Service_Inst.NTarm6
 
 ; -------------- FLASH driver install sections
 [FLASH_Service_Inst]
-DFLASHlayName = %FLASH.SVCDESC%
+DFLASHlayName = %FLASH.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qccamflashtertiary8994.sys
 
 [FLASH_Service_Inst.NTarm64]
-DFLASHlayName = %FLASH.SVCDESC%
+DFLASHlayName = %FLASH.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
@@ -99,9 +99,8 @@ ServiceBinary = %13%\arm64\qccamflashtertiary8994.sys
 ;Localizable Strings
 QC                     = "Qualcomm Technologies, Inc."
 DiskId1                = "Qualcomm Camera Flash Tertiary Installation Disk"
-FLASH.SVCDESC          = "Qualcomm Camera Flash Tertiary Driver"
+FLASH.SvcDesc          = "Qualcomm Camera Flash Tertiary Driver"
 FLASH.DeviceDesc       = "Qualcomm Camera Flash Tertiary Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-

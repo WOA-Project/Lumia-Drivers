@@ -64,7 +64,7 @@ Reboot
 qcsmmu8994.sys
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;--------------  WPP Autologger registry keys
 ; Autologger will record trace messages to a buffer in the kernel where they can be easily used for postmortem debugging
@@ -82,10 +82,10 @@ HKLM, System\CurrentControlSet\Control\WMI\Autologger\SMMU\{cf6bfd48-e161-4949-9
 HKLM, System\CurrentControlSet\Control\WMI\Autologger\SMMU\{cf6bfd48-e161-4949-96d5-8647cfc488c8}, EnableLevel, %REG_DWORD%, 2
 
 [SMMU_SoftwareDeviceSettings]
-HKR, , PowerManaged       , %REG_DWORD%,  1
-HKR, , EnablePtCaching    , %REG_DWORD%,  0
-HKR, , EnableGuardPages   , %REG_DWORD%,  1
-HKR, , EnableTestInterface, %REG_DWORD%,  1
+HKR,, PowerManaged       , %REG_DWORD%,  1
+HKR,, EnablePtCaching    , %REG_DWORD%,  0
+HKR,, EnableGuardPages   , %REG_DWORD%,  1
+HKR,, EnableTestInterface, %REG_DWORD%,  1
 
 ;-------------- Service installation
 [SMMU_Device.NT.Services]
@@ -96,7 +96,7 @@ AddService = qcsmmuv2,%SPSVCINST_ASSOCSERVICE%, SMMU_Service_Inst.NTarm64
 
 ; -------------- skeletoni2c driver install sections
 [SMMU_Service_Inst]
-DisplayName   = %SMMU.SVCDESC%
+DisplayName   = %SMMU.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
@@ -104,7 +104,7 @@ ServiceBinary = %13%\arm\qcsmmu8994.sys
 AddReg        = SMMU_SoftwareDeviceSettings
 
 [SMMU_Service_Inst.NTarm64]
-DisplayName   = %SMMU.SVCDESC%
+DisplayName   = %SMMU.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
@@ -122,11 +122,10 @@ KmdfLibraryVersion = 1.13
 ;Localizable Strings
 QC                     = "Qualcomm Technologies, Inc."
 SMMU.DeviceDesc        = "Qualcomm(R) Memory and File System Device"
-SMMU.SVCDESC           = "Qualcomm(R) Memory and File System Device"
+SMMU.SvcDesc           = "Qualcomm(R) Memory and File System Device"
 DiskId                 = "Qualcomm System MMU v2 Driver Installation Disk"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
 REG_DWORD              = 0x00010001
 REG_SZ                 = 0x00000000
-

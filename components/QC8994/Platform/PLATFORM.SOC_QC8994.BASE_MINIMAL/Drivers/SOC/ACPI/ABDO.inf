@@ -39,25 +39,25 @@ ABDO.sys = 1,arm
 ABDO.sys = 1,arm64
 
 [Manufacturer]
-%QC%=QC, NTarm, NTarm64
+%QC% = QC, NTarm, NTarm64
 
 ; Decorated model section take precedence over undecorated 
 ; ones on XP and later.
 [QC.NTarm]
-%ABDO.DeviceDesc%=ABDO_Device, ACPI\QCOM2501
+%ABDO.DeviceDesc% = ABDO_Device, ACPI\QCOM2501
 
 ; Decorated model section take precedence over undecorated 
 ; ones on XP and later.
 [QC.NTarm64]
-%ABDO.DeviceDesc%=ABDO_Device, ACPI\QCOM2501
+%ABDO.DeviceDesc% = ABDO_Device, ACPI\QCOM2501
 
 [ABDO_Device.NT]
-CopyFiles=Drivers_Dir
-;AddReg=AbdoReg
+CopyFiles = Drivers_Dir
+;AddReg = AbdoReg
 
 [ABDO_Device.NTarm64]
-CopyFiles=Drivers_Dir
-;AddReg=AbdoReg
+CopyFiles = Drivers_Dir
+;AddReg = AbdoReg
 
 [Drivers_Dir]
 ABDO.sys
@@ -71,14 +71,14 @@ AddService = ABDO,%SPSVCINST_ASSOCSERVICE%, ABDO_Service_Inst.NTarm64
 
 ; -------------- skeletoni2c driver install sections
 [ABDO_Service_Inst]
-DisplayName    = %ABDO.SVCDESC%
+DisplayName    = %ABDO.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START 
 ErrorControl   = 0               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\ABDO.sys
 
 [ABDO_Service_Inst.NTarm64]
-DisplayName    = %ABDO.SVCDESC%
+DisplayName    = %ABDO.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START 
 ErrorControl   = 0               ; SERVICE_ERROR_NORMAL
@@ -88,5 +88,5 @@ ServiceBinary  = %13%\arm64\ABDO.sys
 SPSVCINST_ASSOCSERVICE= 0x00000002
 QC="Qualcomm Technologies, Inc."
 ABDO.DeviceDesc="ABDO Driver"
-ABDO.SVCDESC="ABDO device"
-ClassName="ABDO device"
+ABDO.SvcDesc="ABDO device"
+ClassName="ABDO device"

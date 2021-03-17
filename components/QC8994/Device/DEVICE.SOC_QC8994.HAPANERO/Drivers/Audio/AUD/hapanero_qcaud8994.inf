@@ -13,7 +13,7 @@ Class       = Extension
 ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 provider    = %QCOM%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F4E}
-DriverVer   = 07/02/2015,1.0.1067.0
+DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = hapanero_qcaud8994.arm.cat
@@ -35,17 +35,17 @@ CatalogFile.NTarm64 = hapanero_qcaud8994.arm64.cat
 Addreg    = QCAUD.AddReg.Service
 
 [QCAUD.AddReg.Service]
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO",,0x10
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Comm", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Comm",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Comm\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Comm\HostRender", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Comm\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Comm\HostRender\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adc5-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Comm\HostRender\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Default", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Default",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Default\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Default\HostRender", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Default\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
@@ -56,7 +56,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Default
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Default\Offload\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Default\Offload\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adc5-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Default\Offload\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Movie", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Movie",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Movie\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Movie\HostRender", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Movie\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
@@ -67,7 +67,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Movie\O
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Movie\Offload\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Movie\Offload\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adc5-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Movie\Offload\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Music", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Music",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Music\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Music\HostRender", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Music\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
@@ -78,35 +78,35 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Music\O
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Music\Offload\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Music\Offload\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adc5-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Music\Offload\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Raw", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Raw",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_10\MFX\Mode_Raw\HostRender", "IsSoftwareApo", 0x10001, 0x0
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Comm", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Comm",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Comm\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Comm\Record", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Default", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Default",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Default\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Default\Record", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Raw", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Raw",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Raw\Record", "IsSoftwareApo", 0x10001, 0x0
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Speech", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Speech",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Speech\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Speech\Record", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_11\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX\Mode_Comm", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX\Mode_Comm",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX\Mode_Comm\Offload", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX\Mode_Comm\Offload", "NumOfEffectsGuid", 0x10001, 0x5
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX\Mode_Comm\Offload\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
@@ -115,67 +115,67 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX\Mode_Comm\Of
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX\Mode_Comm\Offload\EffectsGuid", "EffectsGuid3", 0x0, "{6f64adbe-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_19\MFX\Mode_Comm\Offload\EffectsGuid", "EffectsGuid4", 0x0, "{6f64adc0-8211-11e2-8c70-2c27d7f001fa}"
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Comm", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Comm",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Comm\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Comm\Record", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Default", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Default",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Default\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Default\Record", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Raw", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Raw",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Raw\Record", "IsSoftwareApo", 0x10001, 0x0
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Speech", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Speech",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Speech\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Speech\Record", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_4\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Default", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Default",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Default\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Default\Record", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Raw", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Raw",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_63\MFX\Mode_Raw\Record", "IsSoftwareApo", 0x10001, 0x0
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Comm", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Comm",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Comm\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Comm\HostRender", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Comm\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Comm\HostRender\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adc5-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Comm\HostRender\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Default", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Default",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Default\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Default\HostRender", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Default\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Default\HostRender\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adc5-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Default\HostRender\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Raw", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Raw",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Raw\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Raw\HostRender", "NumOfEffectsGuid", 0x10001, 0x0
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Raw\HostRender\EffectsGuid", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_7\MFX\Mode_Raw\HostRender\EffectsGuid",,0x10
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Comm", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Comm",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Comm\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Comm\HostRender", "NumOfEffectsGuid", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Comm\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Comm\HostRender\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Default", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Default",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Default\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Default\HostRender", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Default\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
@@ -186,7 +186,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Default
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Default\Offload\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Default\Offload\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adc5-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Default\Offload\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Movie", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Movie",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Movie\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Movie\HostRender", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Movie\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
@@ -197,7 +197,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Movie\O
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Movie\Offload\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Movie\Offload\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adc5-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Movie\Offload\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Music", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Music",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Music\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Music\HostRender", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Music\HostRender\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
@@ -208,32 +208,32 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Music\O
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Music\Offload\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adcd-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Music\Offload\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adc5-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Music\Offload\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Raw", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Raw",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Raw\HostRender", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Raw\HostRender", "NumOfEffectsGuid", 0x10001, 0x0
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Raw\HostRender\EffectsGuid", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_70\MFX\Mode_Raw\HostRender\EffectsGuid",,0x10
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Comm", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Comm",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Comm\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Comm\Record", "NumOfEffectsGuid", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adbe-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Default", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Default",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Default\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Default\Record", "NumOfEffectsGuid", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adbe-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Speech", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Speech",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Speech\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Speech\Record", "NumOfEffectsGuid", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adbe-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_77\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Comm", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Comm",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Comm\Offload", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Comm\Offload", "NumOfEffectsGuid", 0x10001, 0x5
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Comm\Offload\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
@@ -246,23 +246,23 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Comm\Rec
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Comm\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Default", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Default",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Default\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Default\Record", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Default\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Raw", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Raw",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Raw\Record", "IsSoftwareApo", 0x10001, 0x0
-HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Speech", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Speech",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Speech\Record", "IsSoftwareApo", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Speech\Record", "NumOfEffectsGuid", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid0", 0x0, "{6f64adc2-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid1", 0x0, "{6f64adbf-8211-11e2-8c70-2c27d7f001fa}"
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO\Device_ID_8\MFX\Mode_Speech\Record\EffectsGuid", "EffectsGuid2", 0x0, "{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\EDM", ,0x10
-HKLM, "System\CurrentControlSet\Services\QCAUD\EDM\BufferSizeConfigInMs", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\EDM",,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\EDM\BufferSizeConfigInMs",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\EDM\BufferSizeConfigInMs\PullModeRender", "CommonModeMinBufferSizeInMs", 0x10001, 0x14
 HKLM, "System\CurrentControlSet\Services\QCAUD\EDM\BufferSizeConfigInMs\PullModeRender", "CommunicationsModeMinBufferSizeInMs", 0x10001, 0x14
 HKLM, "System\CurrentControlSet\Services\QCAUD\EDM\BufferSizeConfigInMs\PullModeRender", "DefaultModeMinBufferSizeInMs", 0x10001, 0x14
@@ -276,7 +276,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\EDM\BufferSizeConfigInMs\PushMode
 HKLM, "System\CurrentControlSet\Services\QCAUD\EDM\BufferSizeConfigInMs\PushModeCapture", "RawModeMinBufferSizeInMs", 0x10001, 0xa
 HKLM, "System\CurrentControlSet\Services\QCAUD\EDM\BufferSizeConfigInMs\PushModeCapture", "SpeechModeMinBufferSizeInMs", 0x10001, 0x28
 
-HKLM, "System\CurrentControlSet\Services\QCAUD\StreamLatency", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\StreamLatency",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\StreamLatency\CapturePipelineLatencyInMs", "CaptureCommonPipeLineLatencyInMs", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\StreamLatency\CapturePipelineLatencyInMs", "CaptureCommunicationsPipeLineLatencyInMs", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\StreamLatency\CapturePipelineLatencyInMs", "CaptureDefaultPipeLineLatencyInMs", 0x10001, 0x3
@@ -297,80 +297,80 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\StreamLatency\HardwareLatencyInMs
 HKLM, "System\CurrentControlSet\Services\QCAUD\StreamLatency\HardwareLatencyInMs", "RenderRawLatencyInMs", 0x10001, 0x0
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\TopologyBthHfpMic", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMic%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMic%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMic%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMic%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x4d
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMic%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMic%\Device0\DeviceConfig", "SampleRate", 0x10001, 0x1f40
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMicWB%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMicWB%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMicWB%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMicWB%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMicWB%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x4d
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMicWB%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpMicWB%\Device0\DeviceConfig", "SampleRate", 0x10001, 0x3e80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeaker%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeaker%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeaker%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeaker%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeaker%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x4e
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeaker%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeaker%\Device0\DeviceConfig", "SampleRate", 0x10001, 0x1f40
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeakerWB%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeakerWB%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeakerWB%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeakerWB%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeakerWB%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x4e
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeakerWB%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyBthHfpSpeakerWB%\Device0\DeviceConfig", "SampleRate", 0x10001, 0x3e80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%", "NumberOfDeviceTypes", 0x10001, 0x2
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x3
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device0\DeviceConfig", "SampleRate", 0x10001, 0xbb80
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device1", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device1",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device1\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device1\DeviceConfig", "DeviceID", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device1\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyCellular%\Device1\DeviceConfig", "SampleRate", 0x10001, 0xbb80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyFmRx%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyFmRx%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyFmRx%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyFmRx%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyFmRx%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x42
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyFmRx%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyFmRx%\Device0\DeviceConfig", "SampleRate", 0x10001, 0xbb80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetMic%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetMic%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetMic%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetMic%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x4
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetMic%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x13
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetMic%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x18
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetMic%\Device0\DeviceConfig", "SampleRate", 0x10001, 0xbb80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x7
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Device0\DeviceConfig", "SampleRate", 0x10001, 0xbb80
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Telecoil", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Telecoil",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Telecoil\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Telecoil\DeviceConfig", "DeviceID", 0x10001, 0x66
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Telecoil\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHandsetSpeaker%\Telecoil\DeviceConfig", "SampleRate", 0x10001, 0xbb80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHdmi%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHdmi%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHdmi%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHdmi%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHdmi%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x12
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHdmi%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyHdmi%\Device0\DeviceConfig", "SampleRate", 0x10001, 0xbb80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x4
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x13
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x18
@@ -410,43 +410,43 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microp
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wZCoord", 0x10001, 0x0@
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x8
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\Device0\DeviceConfig", "SampleRate", 0x10001, 0xbb80
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\TTY", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\TTY",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\TTY\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\TTY\DeviceConfig", "DeviceID", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\TTY\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\TTY\DeviceConfig", "SampleRate", 0x10001, 0xbb80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicIn%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicIn%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicIn%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicIn%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x4
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicIn%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x13
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicIn%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x18
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicIn%\Device0\DeviceConfig", "SampleRate", 0x10001, 0xbb80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeaker%", "NumberOfDeviceTypes", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeaker%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeaker%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeaker%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeaker%\Device0\DeviceConfig", "DeviceID", 0x10001, 0x46
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeaker%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeaker%\Device0\DeviceConfig", "SampleRate", 0x10001, 0xbb80
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%", "NumberOfDeviceTypes", 0x10001, 0x2
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device0\DeviceConfig", "DeviceID", 0x10001, 0xa
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device0\DeviceConfig", "SampleRate", 0x10001, 0xbb80
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device1", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device1",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device1\DeviceConfig", "ChannelAllocation", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device1\DeviceConfig", "DeviceID", 0x10001, 0x9
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device1\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\Device1\DeviceConfig", "SampleRate", 0x10001, 0xbb80
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\TTY", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\TTY",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\TTY\DeviceConfig", "ChannelAllocation", 0x10001, 0x2
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\TTY\DeviceConfig", "DeviceID", 0x10001, 0x11
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologySpeakerHeadset%\TTY\DeviceConfig", "SampleBitLength", 0x10001, 0x10
@@ -1242,7 +1242,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\FormatsAn
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\FormatsAndModes1\WaveFormat0", "nSamplesPerSec", 0x10001, 0x3e80
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\FormatsAndModes1\WaveFormat0", "nValidBitsPerSample", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen", "NumberOfDeviceTypes", 0x10001, 0x3
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device0\DeviceConfig", "DeviceID", 0x10001, 0x53
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device0\DeviceConfig", "EnableLAB", 0x10001, 0x1
@@ -1250,7 +1250,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\De
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device0\DeviceConfig", "PowerType", 0x0, "UltraLowPower"
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device0\DeviceConfig", "SampleRate", 0x10001, 0x3e80
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device1", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device1",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device1\DeviceConfig", "ChannelAllocation", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device1\DeviceConfig", "DeviceID", 0x10001, 0x56
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device1\DeviceConfig", "EnableLAB", 0x10001, 0x1
@@ -1258,7 +1258,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\De
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device1\DeviceConfig", "PowerType", 0x0, "LowPower"
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device1\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device1\DeviceConfig", "SampleRate", 0x10001, 0x3e80
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device2", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device2",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device2\DeviceConfig", "ChannelAllocation", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device2\DeviceConfig", "DeviceID", 0x10001, 0x57
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicHeadset%\Listen\Device2\DeviceConfig", "EnableLAB", 0x10001, 0x1
@@ -1385,7 +1385,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\FormatsAndMode
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\FormatsAndModes1\WaveFormat0", "nSamplesPerSec", 0x10001, 0x3e80
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\FormatsAndModes1\WaveFormat0", "nValidBitsPerSample", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen", "NumberOfDeviceTypes", 0x10001, 0x3
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device0", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device0",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device0\DeviceConfig", "ChannelAllocation", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device0\DeviceConfig", "DeviceID", 0x10001, 0x55
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device0\DeviceConfig", "EnableLAB", 0x10001, 0x1
@@ -1393,7 +1393,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device0
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device0\DeviceConfig", "PowerType", 0x0, "LowPower"
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device0\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device0\DeviceConfig", "SampleRate", 0x10001, 0x3e80
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device1", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device1",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device1\DeviceConfig", "ChannelAllocation", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device1\DeviceConfig", "DeviceID", 0x10001, 0x52
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device1\DeviceConfig", "EnableLAB", 0x10001, 0x1
@@ -1401,7 +1401,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device1\DeviceConfig", "PowerType", 0x0, "HighPower"
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device1\DeviceConfig", "SampleBitLength", 0x10001, 0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device1\DeviceConfig", "SampleRate", 0x10001, 0x3e80
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device2", ,0x10
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device2",,0x10
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device2\DeviceConfig", "ChannelAllocation", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device2\DeviceConfig", "DeviceID", 0x10001, 0x54
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_WaveMicIn%\Listen\Device2\DeviceConfig", "EnableLAB", 0x10001, 0x1
@@ -2061,8 +2061,8 @@ KSNODETYPE_HANDSET                               = "{DFF21DE1-F70F-11D0-B917-00A
 KSNODETYPE_MICROPHONE_ARRAY                      = "{DFF21BE5-F70F-11D0-B917-00A0C9223196}"
 ;Localizable
 
-QCOM                                             = "Qualcomm"
-MfgName                                          = "Qualcomm"
+QCOM                                             = "Qualcomm Technologies, Inc."
+MfgName                                          = "Qualcomm Technologies, Inc."
 QcCopyRight                                      = "Copyright (c) 2011 Qualcomm Inc All rights Reserved"
 
 QCAUD_A.DeviceDesc                               = "QCAUD Real Time (WaveRT) Hapanero Driver for Qualcomm SoC"
@@ -2124,4 +2124,3 @@ HandsetSpeakerName                               = "Internal Handset Speaker"
 CellularBD1CustomName                            = "Cellular Receive BiDirectional SIM 1"
 CellularBD2CustomName                            = "Cellular Receive BiDirectional SIM 2"
 FmRxCustomName                                   = "FM Receive"
-

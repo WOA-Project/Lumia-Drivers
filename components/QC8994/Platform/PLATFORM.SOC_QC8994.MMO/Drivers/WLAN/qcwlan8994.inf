@@ -386,7 +386,7 @@ HKR,,WpBugCheckOnTargetFailure,0x00010001,0
 ; Localizable Strings
 ;-----------------------------------------------------------------------------
 [Strings]
-Qualcomm                     = "Qualcomm Inc"
+Qualcomm                     = "Qualcomm Technologies, Inc."
 WLAN.DeviceDesc              = "Qualcomm(R) Wi-Fi B/G/N/AC (2x2)"
 QcWlan.Service.DispName      = "Qualcomm(R) Wi-Fi B/G/N/AC (2x2)"
 QcWlan.Service.Name          = "qcwlan"

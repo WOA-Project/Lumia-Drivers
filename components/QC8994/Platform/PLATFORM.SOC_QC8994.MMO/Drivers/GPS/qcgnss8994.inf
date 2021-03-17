@@ -226,7 +226,7 @@ HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfi
 ; 0 - Use non-emergency PDN for Emergency SUPL
 HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",UseEmergencyPdnForEmergencySupl,0x0000000,"1"
 [CoInstallers_AddReg]
-HKR, , CoInstallers32, 0x00010000, "WUDFCoinstaller.dll"
+HKR,, CoInstallers32, 0x00010000, "WUDFCoinstaller.dll"
 
 ;-------------- WDF specific section
 
@@ -242,7 +242,7 @@ UmdfLibraryVersion = 2.0.0
 ServiceBinary      = %13%\qcgnss.dll
 
 [qcgnss_Inst_SecurityAddReg]
-HKR, , DeviceCharacteristics, 0x10001, 0x00000100       ; FILE_DEVICE_SECURE_OPEN
+HKR,, DeviceCharacteristics, 0x10001, 0x00000100       ; FILE_DEVICE_SECURE_OPEN
 
 [Strings]
 MediaDescription      = "Qualcomm qcgnss Collection Installation Media"
@@ -253,4 +253,3 @@ WudfRdDisplayName     = "Qualcomm(R) Location"
 SERVICE_KERNEL_DRIVER = 1
 SERVICE_DEMAND_START  = 3
 SERVICE_ERROR_NORMAL  = 1
-

@@ -29,13 +29,13 @@ TypeCMux.sys  = 1,arm64,
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName%=Standard, NTarm, NTarm64
+%ManufacturerName% = Standard, NTarm, NTarm64
 
 [Standard.NTarm]
-%TypeCMux.DeviceDesc%=TypeCMux_Device, ACPI\MSHW1009
+%TypeCMux.DeviceDesc% = TypeCMux_Device, ACPI\MSHW1009
 
 [Standard.NTarm64]
-%TypeCMux.DeviceDesc%=TypeCMux_Device, ACPI\MSHW1009
+%TypeCMux.DeviceDesc% = TypeCMux_Device, ACPI\MSHW1009
 
 [TypeCMux_Device.NT]
 CopyFiles = TypeCMux_CopyFiles
@@ -60,7 +60,7 @@ AddService = TypeCMux, %SPSVCINST_ASSOCSERVICE%, TypeCMux_Service_Inst.NTarm64
 
 ; -------------- TypeCMux driver install sections
 [TypeCMux_Service_Inst]
-DisplayName    = %TypeCMux.SVCDESC%
+DisplayName    = %TypeCMux.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -68,7 +68,7 @@ ServiceBinary  = %13%\arm\TypeCMux.sys
 LoadOrderGroup = Base
 
 [TypeCMux_Service_Inst.NTarm64]
-DisplayName    = %TypeCMux.SVCDESC%
+DisplayName    = %TypeCMux.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
@@ -90,4 +90,4 @@ ProviderName           = "MMO and LumiaWoA authors"
 ManufacturerName       = "Texas Instruments"
 DiskName               = "TI USB-C Alternate Mode Multiplexer (HD3SS460) Installation Disk"
 TypeCMux.DeviceDesc    = "TI USB-C Alternate Mode Multiplexer (HD3SS460)"
-TypeCMux.SVCDESC       = "TI USB-C Alternate Mode Multiplexer (HD3SS460) Driver"
+TypeCMux.SvcDesc       = "TI USB-C Alternate Mode Multiplexer (HD3SS460) Driver"

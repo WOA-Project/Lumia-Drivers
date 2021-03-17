@@ -22,27 +22,27 @@ hdmidpi.sys = 3426,arm,
 hdmidpi.sys = 3426,arm64,
 
 [Manufacturer]
-%ManufacturerName%=MMO,NTarm,NTarm64
+%ManufacturerName% = MMO,NTarm,NTarm64
 
 [MMO.NTarm]
-%DeviceDescription%=hdmidpi_Inst,ACPI\MSHW1007
+%DeviceDescription% = hdmidpi_Inst,ACPI\MSHW1007
 
 [MMO.NTarm64]
-%DeviceDescription%=hdmidpi_Inst,ACPI\MSHW1007
+%DeviceDescription% = hdmidpi_Inst,ACPI\MSHW1007
 
 [hdmidpi_Inst.NT]
-CopyFiles=HdmiDpiDriversCopyFiles
-AddReg=HdmiDpiDriver_SecurityAddReg
+CopyFiles = HdmiDpiDriversCopyFiles
+AddReg = HdmiDpiDriver_SecurityAddReg
 
 [hdmidpi_Inst.NTarm64]
-CopyFiles=HdmiDpiDriversCopyFiles
-AddReg=HdmiDpiDriver_SecurityAddReg
+CopyFiles = HdmiDpiDriversCopyFiles
+AddReg = HdmiDpiDriver_SecurityAddReg
 
 [hdmidpi_Inst.NT.HW]
-AddReg=HdmiDpiDriver_SecurityAddReg
+AddReg = HdmiDpiDriver_SecurityAddReg
 
 [hdmidpi_Inst.NTarm64.HW]
-AddReg=HdmiDpiDriver_SecurityAddReg
+AddReg = HdmiDpiDriver_SecurityAddReg
 
 [HdmiDpiDriversCopyFiles]
 hdmidpi.sys,,,0x100
@@ -80,4 +80,4 @@ DeviceDescription        = "Analogix 4096x2160p30 (Ultra-HD) SlimPort(R) transmi
 SPSVCINST_ASSOCSERVICE   = 0x00000002
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
-SERVICE_ERROR_NORMAL     = 1
+SERVICE_ERROR_NORMAL     = 1

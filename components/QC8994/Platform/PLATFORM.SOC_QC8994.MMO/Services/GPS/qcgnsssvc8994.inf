@@ -15,7 +15,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 09/09/2015,1.0.1067.0000
+DriverVer   = 07/02/2015,1.0.1067.0000
 CatalogFile = qcgnsssvc8994.cat
 PnpLockdown = 1
 
@@ -73,4 +73,3 @@ REG_MULTI_SZ  = 0x00010000
 REG_EXPAND_SZ = 0x00020000
 REG_DWORD     = 0x00010001
 REG_BINARY    = 0x00000001
-

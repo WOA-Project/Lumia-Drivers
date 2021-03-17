@@ -34,5 +34,3 @@ ComponentIds = VID_MSHW&PID_1004&SID_0001
 IHV                 = "LumiaWoA authors"
 MMO                 = "Microsoft Mobile Oy"
 OEMPANEL.DeviceDesc = "Microsoft Mobile Panel Interface Extension" 
-
-
