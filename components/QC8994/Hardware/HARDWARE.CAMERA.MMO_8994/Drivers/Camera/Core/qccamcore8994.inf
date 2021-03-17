@@ -59,10 +59,10 @@ qccamcore8994.sys
 
 [CORE_Device.NTarm.HW]
 AddReg = CORE_Device_Security_Reg
- 
+
 [CORE_Devicearm64.NTarm64.HW]
 AddReg = CORE_Device_Security_Reg
- 
+
 [CORE_Device_Security_Reg]
 HKR,,DeviceCharacteristics,0x10001,0x100
 
@@ -77,7 +77,7 @@ AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst
 [CORE_Service_Inst]
 DisplayName    = %CORE.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-;StartType      = 2               ; SERVICE_AUTO_START 
+;StartType      = 2               ; SERVICE_AUTO_START
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\qccamcore8994.sys
@@ -86,7 +86,7 @@ LoadOrderGroup = Extended Base
 [CORE_Service_Inst.NTarm64]
 DisplayName    = %CORE.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-;StartType      = 2               ; SERVICE_AUTO_START 
+;StartType      = 2               ; SERVICE_AUTO_START
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm64\qccamcore8994.sys
@@ -98,4 +98,4 @@ QC = "Qualcomm Technologies, Inc."
 DiskId1 = "Qualcomm Camera CORE Installation Disk"
 CORE.DeviceDesc = "Qualcomm Camera CORE Driver"
 CORE.DeviceDescNull = "Qualcomm Camera CORE Driver (Null)"
-CORE.SvcDesc = "Qualcomm Camera CORE Service"
+CORE.SvcDesc = "Qualcomm Camera CORE Service"

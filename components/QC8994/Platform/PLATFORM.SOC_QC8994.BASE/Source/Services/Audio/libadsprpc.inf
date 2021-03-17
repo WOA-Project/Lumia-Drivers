@@ -1,4 +1,4 @@
-; 
+;
 ; Copyright (C) 2012 Qualcomm Incorporated.
 ; All Rights Reserved. Qualcomm Proprietary and Confidential.
 ;
@@ -59,7 +59,7 @@ AddService = libadsprpc,0x00000000,libadsprpc_Service,
 ;ServiceType = 0x110
 ;A Win32 program that runs in a process by itself (like Type16) and that can interact with users.
 ;StartType = 2 SERVICE_AUTO_START
-;A service started automatically by the service control manager during system startup. 
+;A service started automatically by the service control manager during system startup.
 ;ErrorControl = 1 SERVICE_ERROR_NORMAL
 ;The startup program logs the error in the event log but continues the startup operation.
 
@@ -75,7 +75,7 @@ ServiceBinary = "%%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
 HKLM, System\CurrentControlSet\Services\libadsprpc            , DisplayName    , %REG_SZ%       ,  "libadsprpc"
 HKLM, System\CurrentControlSet\Services\libadsprpc            , Description    , %REG_SZ%       ,  "ADSPRPC Library"
 HKLM, System\CurrentControlSet\Services\libadsprpc            , ObjectName     , %REG_SZ%       ,  "LocalSystem"
-HKLM, System\CurrentControlSet\Services\libadsprpc            , ImagePath      , %REG_EXPAND_SZ%,  %%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
+HKLM, System\CurrentControlSet\Services\libadsprpc            , ImagePath      , %REG_EXPAND_SZ%,  "%%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
 HKLM, System\CurrentControlSet\Services\libadsprpc            , Type           , %REG_DWORD%    ,  0x0110
 HKLM, System\CurrentControlSet\Services\libadsprpc            , Start          , %REG_DWORD%    ,  0x0003
 HKLM, System\CurrentControlSet\Services\libadsprpc            , ErrorControl   , %REG_DWORD%    ,  0x0001

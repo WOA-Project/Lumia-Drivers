@@ -119,4 +119,4 @@ WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framewo
 
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
-SERVICE_ERROR_NORMAL     = 1
+SERVICE_ERROR_NORMAL     = 1

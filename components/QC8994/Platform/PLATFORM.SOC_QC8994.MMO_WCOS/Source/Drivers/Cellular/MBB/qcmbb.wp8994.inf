@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the MBB driver (Qualcomm Wireless Network Device)
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon:
 ;      8660: Type "devcon update QCMBB8660.inf ACPI\QCOM0EA0" to install
 ;      8960: Type "devcon update QCMBB8960.inf ACPI\QCOM2072" to install
@@ -80,8 +80,6 @@ Needs   = NetVChannel.Interfaces
 Include    = netvchannel.inf
 Needs      = NetVChannel.Services
 AddService = mbb, 2, wwan.Service, wwan.EventLog
-
-
 
 [wwan.NTarm64.ndi]
 Include            = netvchannel.inf

@@ -131,7 +131,6 @@ HKR, Parameters                           , ETWProviderGUID        , 0x00000000,
 ; Global Flag Controlling NHLOS Tracing
 HKR, Parameters                           , NHLOSSubSysTraceControl, 0x00010001,  0x00000000
 
-
 ; We assume there are at most 4 subsystems which provides swevt trace,
 ; the names are hardcoded as ADSP, PRM, MPSS, WCNSS. We also limit the
 ; maximum number of images per subsystem as 4. Such assumptions are

@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the Driver Frameworks OCMEM Driver
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon: Type "devcon update OCMEM.inf ACPI\QCOM2403" to install
 ;
 ;--*/

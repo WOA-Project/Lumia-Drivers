@@ -3,7 +3,7 @@
 ;Copyright © 2013-2015 Microsoft Mobile. All Rights Reserved.
 ;
 ;Module Name:
-;    AlsPrxAlphamon.inf 
+;    AlsPrxAlphamon.inf
 ;
 ;Abstract:
 ;    INF file for installing QPDS-T900/QPDS-T930 Proximity and Ambient Light Sensor Driver
@@ -46,4 +46,3 @@ DevDesc          = "QPDS-T900/QPDS-T930 Proximity and Ambient Light Sensor Drive
 
 ;Non-Localizable Strings
 REG_DWORD        = 0x00010001
-

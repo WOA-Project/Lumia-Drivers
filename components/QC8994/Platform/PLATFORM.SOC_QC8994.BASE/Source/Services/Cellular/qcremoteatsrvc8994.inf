@@ -1,4 +1,4 @@
-; 
+;
 ; Copyright (C) 2012 Qualcomm Incorporated.
 ; All Rights Reserved. Qualcomm Proprietary and Confidential.
 ;
@@ -57,7 +57,7 @@ AddService = RemoteAtSrvc,0x00000000,RemoteAtSrvc_Service,
 AddService = RemoteAtSrvc,0x00000000,RemoteAtSrvc_Service,
 
 [RemoteAtSrvc_Service]
-DisplayName    = "RemoteAtSrvc"  
+DisplayName    = "RemoteAtSrvc"
 Description    = "Qualcomm Remote AT Command Processor Service"
 ServiceType    = 0x20
 StartType      = 2
@@ -65,7 +65,7 @@ ErrorControl   = 1
 ServiceBinary  = "%%systemroot%%\system32\svchost.exe -k RemoteAtSrvc"
 
 [RemoteAtSrvc_Reg]
-HKLM, System\CurrentControlSet\Services\RemoteAtSrvc           , DisplayName , %REG_SZ%       , "RemoteAtSrvc"  
+HKLM, System\CurrentControlSet\Services\RemoteAtSrvc           , DisplayName , %REG_SZ%       , "RemoteAtSrvc"
 HKLM, System\CurrentControlSet\Services\RemoteAtSrvc           , Description , %REG_SZ%       , "Qualcomm Remote AT Command Processor Service"
 HKLM, System\CurrentControlSet\Services\RemoteAtSrvc           , ImagePath   , %REG_EXPAND_SZ%, "%%systemroot%%\system32\svchost.exe -k RemoteAtSrvc"
 HKLM, System\CurrentControlSet\Services\RemoteAtSrvc           , Type        , %REG_DWORD%    , 0x20
@@ -90,4 +90,4 @@ REG_SZ          = 0x00000000
 REG_MULTI_SZ    = 0x00010000
 REG_EXPAND_SZ   = 0x00020000
 REG_DWORD       = 0x00010001
-REG_BINARY      = 0x00000001
+REG_BINARY      = 0x00000001

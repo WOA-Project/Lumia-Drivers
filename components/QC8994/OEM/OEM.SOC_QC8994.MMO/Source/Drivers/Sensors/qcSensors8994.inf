@@ -3,7 +3,7 @@
 ;Copyright (c) 2013 by Qualcomm Technologies, Inc. All Rights Reserved.
 ;
 ;Module Name:
-;    qcSensors8994.inf 
+;    qcSensors8994.inf
 ;
 ;Abstract:
 ;    INF file for installing the Qualcomm Sensor Collection Driver
@@ -146,7 +146,7 @@ HKLM, "Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Para
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcSensors\Parameters\Mag\0\1", "E33", 0x10001, 0x2d9b
 
 [DisableHpf_AddReg]
-HKR,qcSensors\HPF,DisableMsftDCOffsetFilter,0x10001,0x00000001              ; Disable HPF in SensorCx 
+HKR,qcSensors\HPF,DisableMsftDCOffsetFilter,0x10001,0x00000001              ; Disable HPF in SensorCx
 
 [Sensor_Inst_SecurityAddReg]
 HKR,, DeviceCharacteristics, 0x10001, 0x00000100                               ; FILE_DEVICE_SECURE_OPEN
@@ -161,4 +161,4 @@ WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framewo
 
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
-SERVICE_ERROR_NORMAL     = 1
+SERVICE_ERROR_NORMAL     = 1

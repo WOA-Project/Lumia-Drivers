@@ -23,7 +23,7 @@ CatalogFile.NTarm64 = qcrpen8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
-                                               
+
 [SourceDisksNames]
 1 = %DiskId1%
 
@@ -36,10 +36,10 @@ qcrpen8994.sys = 1,arm64
 [Manufacturer]
 %Qualcomm% = Standard,NTarm,NTarm64
 
-[Standard.NTarm]                                    
+[Standard.NTarm]
 %RPEN.DeviceDesc% = RPEN_Device, ACPI\QCOM245C
 
-[Standard.NTarm64]                                    
+[Standard.NTarm64]
 %RPEN.DeviceDesc% = RPEN_Device, ACPI\QCOM245C
 
 [RPEN_Device.NT]
@@ -76,7 +76,7 @@ HKLM, System\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496
 ; To control and view these traces use !wmitrace from KD/WinDbg, or tracelog/traceview tools in the WDK
 
 [Drivers_Dir]
-qcrpen8994.sys                                        
+qcrpen8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
@@ -86,7 +86,7 @@ AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst
 [RPEN_Device.NTarm64.Services]
 AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst.NTarm64
 
-                                               
+
 
 ; -------------- RPEN driver install sections
 [RPEN_Service_Inst]

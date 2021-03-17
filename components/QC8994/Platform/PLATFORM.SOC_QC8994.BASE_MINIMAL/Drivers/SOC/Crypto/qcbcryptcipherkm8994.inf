@@ -59,7 +59,6 @@ qcBCryptCipherKM8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
-
 ;-------------- Service installation
 [BCryptCipher_KM_Device.NT.Services]
 AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_Service_Inst
@@ -91,7 +90,6 @@ ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qcBCryptCipherKM8994.sys
-
 
 [BCryptCipher_KM_Device.NT.Wdf]
 KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect

@@ -61,7 +61,7 @@ qccamflash8992.sys
 
 [CameraFlash_Device.NT.HW]
 AddReg = CameraFlash_Device_Security_Reg
- 
+
 [CameraFlash_Device_Security_Reg]
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
@@ -86,4 +86,3 @@ FLASH.DeviceDesc       = "Qualcomm Camera Flash Device"
 
 ;Non-localizable Strings
 SPSVCINST_ASSOCSERVICE = 0x00000002
-

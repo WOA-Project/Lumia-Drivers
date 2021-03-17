@@ -22,7 +22,7 @@ CatalogFile.NTarm64 = qcspmi8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
-                                    
+
 [ControlFlags]
 ExcludeFromSelect = *
 

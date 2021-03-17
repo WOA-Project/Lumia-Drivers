@@ -53,7 +53,7 @@ QCAUD_A.CopyList                  = 13 ; windows\system32\drivers
 ProxyAPO.CopyList                 = 13; windows\system32
 
 ;======================================================
-;QCAUD_A 
+;QCAUD_A
 ;======================================================
 
 [ProxyAPO.CopyList]
@@ -123,7 +123,6 @@ HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MaxOutputConnecti
 HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MaxInstances"        , 0x00010001,  0xffffffff
 HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "NumAPOInterfaces"    , 0x00010001,  1
 HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "APOInterface0"       ,           , "{FD7F2B29-24D0-4B5C-B177-592C39F9CA10}"
-
 
 ; Endpoint effect APO COM registration
 HKCR, CLSID\%FX_ENDPOINT_CLSID%                             ,                       ,           , %EFX_FriendlyName%
@@ -512,7 +511,7 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyCellular%, QCAUD.I.TopologyCe
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyCellular%, QCAUD.I.TopologyCellular
 
 ;
-; Interfaces for FM RX (Internal) capture endpoint 
+; Interfaces for FM RX (Internal) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
@@ -521,7 +520,7 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyFmRx%, QCAUD.I.TopologyFmRx
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyFmRx%, QCAUD.I.TopologyFmRx
 
 ;
-; Interfaces for microphone (external: Headset) capture endpoint 
+; Interfaces for microphone (external: Headset) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
@@ -530,7 +529,7 @@ AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyMicHeadset%, QCAUD.I.Topol
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyMicHeadset%, QCAUD.I.TopologyMicHeadset
 
 ;
-; Interfaces for microphone (internal) capture endpoint 
+; Interfaces for microphone (internal) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
@@ -556,7 +555,6 @@ AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHdmi%, QCAUD.I.WaveHdmi
 AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyHdmi%, QCAUD.I.TopologyHdmi
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHdmi%, QCAUD.I.TopologyHdmi
 
-
 ;
 ; Interfaces for Bluetooth HFP speaker (external) render endpoint.
 ;
@@ -567,7 +565,7 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyBthHfpSpeaker%, QCAUD.I.Topol
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpSpeaker%, QCAUD.I.TopologyBthHfpSpeaker
 
 ;
-; Interfaces for Bluetooth HFP mic (external) capture endpoint 
+; Interfaces for Bluetooth HFP mic (external) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
@@ -585,14 +583,13 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyBthHfpSpeakerWB%, QCAUD.I.Top
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpSpeakerWB%, QCAUD.I.TopologyBthHfpSpeakerWB
 
 ;
-; Interfaces for Bluetooth HFP mic (external) Wideband capture endpoint 
+; Interfaces for Bluetooth HFP mic (external) Wideband capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
 AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyBthHfpMicWB%, QCAUD.I.TopologyBthHfpMicWB
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpMicWB%, QCAUD.I.TopologyBthHfpMicWB
-
 
 ;
 ; Interfaces for Handset Speaker (internal) render endpoint.
@@ -604,14 +601,13 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyHandsetSpeaker%, QCAUD.I.Topo
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetSpeaker%, QCAUD.I.TopologyHandsetSpeaker
 
 ;
-; Interfaces for Handset mic (Internal) capture endpoint 
+; Interfaces for Handset mic (Internal) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
 AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
-
 
 [QCAUD_A.NTarm64]
 Include     = ks.inf,wdmaudio.inf
@@ -659,7 +655,7 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyCellular%, QCAUD.I.TopologyCe
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyCellular%, QCAUD.I.TopologyCellular
 
 ;
-; Interfaces for FM RX (Internal) capture endpoint 
+; Interfaces for FM RX (Internal) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveFmRx%, QCAUD.I.WaveFmRx
@@ -668,7 +664,7 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyFmRx%, QCAUD.I.TopologyFmRx
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyFmRx%, QCAUD.I.TopologyFmRx
 
 ;
-; Interfaces for microphone (external: Headset) capture endpoint 
+; Interfaces for microphone (external: Headset) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicHeadset%, QCAUD.I.WaveMicHeadset
@@ -677,7 +673,7 @@ AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyMicHeadset%, QCAUD.I.Topol
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyMicHeadset%, QCAUD.I.TopologyMicHeadset
 
 ;
-; Interfaces for microphone (internal) capture endpoint 
+; Interfaces for microphone (internal) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveMicIn%, QCAUD.I.WaveMicIn
@@ -703,7 +699,6 @@ AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHdmi%, QCAUD.I.WaveHdmi
 AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyHdmi%, QCAUD.I.TopologyHdmi
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHdmi%, QCAUD.I.TopologyHdmi
 
-
 ;
 ; Interfaces for Bluetooth HFP speaker (external) render endpoint.
 ;
@@ -714,7 +709,7 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyBthHfpSpeaker%, QCAUD.I.Topol
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpSpeaker%, QCAUD.I.TopologyBthHfpSpeaker
 
 ;
-; Interfaces for Bluetooth HFP mic (external) capture endpoint 
+; Interfaces for Bluetooth HFP mic (external) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpMic%, QCAUD.I.WaveBthHfpMic
@@ -732,14 +727,13 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyBthHfpSpeakerWB%, QCAUD.I.Top
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpSpeakerWB%, QCAUD.I.TopologyBthHfpSpeakerWB
 
 ;
-; Interfaces for Bluetooth HFP mic (external) Wideband capture endpoint 
+; Interfaces for Bluetooth HFP mic (external) Wideband capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
 AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveBthHfpMicWB%, QCAUD.I.WaveBthHfpMicWB
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyBthHfpMicWB%, QCAUD.I.TopologyBthHfpMicWB
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyBthHfpMicWB%, QCAUD.I.TopologyBthHfpMicWB
-
 
 ;
 ; Interfaces for Handset Speaker (internal) render endpoint.
@@ -751,14 +745,13 @@ AddInterface = %KSCATEGORY_AUDIO%, %KSNAME_TopologyHandsetSpeaker%, QCAUD.I.Topo
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetSpeaker%, QCAUD.I.TopologyHandsetSpeaker
 
 ;
-; Interfaces for Handset mic (Internal) capture endpoint 
+; Interfaces for Handset mic (Internal) capture endpoint
 ;
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
 AddInterface = %KSCATEGORY_REALTIME%, %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
 AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHandsetMic
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
-
 
 [QCAUD_Service_Inst]
 DisplayName   = %QCAUD.SvcDesc%

@@ -31,7 +31,6 @@ ExcludeFromSelect = *
 [Manufacturer]
 %QC% = XYZBth,NTarm,NTarm64
 
-
 [XYZBth.NTarm]
 %BthRadio1% = Bt1, QCA_SHB\UART_H4
 %BthRadio2% = Bt1, SystemBusQc\SMD_BT
@@ -39,7 +38,6 @@ ExcludeFromSelect = *
 [XYZBth.NTarm64]
 %BthRadio1% = Bt1, QCA_SHB\UART_H4
 %BthRadio2% = Bt1, SystemBusQc\SMD_BT
-
 
 [Bt1.NT]
 include = bth.inf

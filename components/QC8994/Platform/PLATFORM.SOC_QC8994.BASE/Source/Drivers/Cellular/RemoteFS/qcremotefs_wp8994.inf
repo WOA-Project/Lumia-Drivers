@@ -62,7 +62,6 @@ KmdfService = QCREMOTEFS, REMOTEFS_wdfsect
 [REMOTEFS_Device.NT.HW]
 AddReg = Remotefs_HW_Reg
 
-
 [REMOTEFS_Device.NTarm64]
 CopyFiles   = RemotefsCopyFiles
 AddProperty = WDTFSOCDeviceCategory

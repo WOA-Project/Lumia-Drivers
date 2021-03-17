@@ -48,7 +48,7 @@ QcWicEncoderARM8992.dll=0,arm,
 [Manufacturer]
 %QC% = QC, NTarm, NTarm64
 
-; Decorated model section take precedence over undecorated 
+; Decorated model section take precedence over undecorated
 ; ones on XP and later.
 [QC.NTarm]
 %JpegE.DeviceDesc% = CameraJpegE32_Device, ACPI\QCOM2467
@@ -83,10 +83,10 @@ QcWicEncoder8992.dll, QcWicEncoderARM8992.dll,, 0x00004000,
 
 [CameraJpegE32_Device.NT.HW]
 AddReg = CameraJpegE_Device_Security_Reg,WicRegistration
- 
+
 [CameraJpegE_Device.NT.HW]
 AddReg = CameraJpegE_Device_Security_Reg,WicRegistration,WicRegistration64
- 
+
 [CameraJpegE_Device_Security_Reg]
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
@@ -127,5 +127,3 @@ Desc_x860              = "Data"
 
 REG_SZ        = 0x00000000
 REG_EXPAND_SZ = 0x00020000
-
-

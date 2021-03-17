@@ -3,7 +3,7 @@
 ;Copyright (c) 2013 by Qualcomm Technologies, Inc. All Rights Reserved.
 ;
 ;Module Name:
-;    qcgnss.inf 
+;    qcgnss.inf
 ;
 ;Abstract:
 ;    INF file for installing the Qualcomm qcgnss Driver
@@ -41,7 +41,6 @@ qcgnss.dll = 1,,
 [qcgnss_Device.NTarm64]
 %DevDesc% = qcgnss_Inst, ACPI\QCOM24B4
 
-
 ;---------------- copy files
 
 [qcgnss_Inst.NT]
@@ -61,7 +60,6 @@ AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 [qcgnss_Inst.NT.CoInstallers]
 CopyFiles = qcgnssCopy
 AddReg    = CoInstallers_AddReg
-
 
 [WUDFRD_ServiceInstall]
 DisplayName   = %WudfRdDisplayName%
@@ -118,12 +116,12 @@ HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Paramete
 HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",IsXtraAutoDownloadEnabled,0x0000000,"1"
 
 ;#XtraVerCheck
-; DISABLE = 0                                                                                                                                    
-; AUTO    = 1                                                                                                                                    
-; XTRA2   = 2                                                                                                                                    
-; XTRA3   = 3                                                                                                                                    
+; DISABLE = 0
+; AUTO    = 1
+; XTRA2   = 2
+; XTRA3   = 3
 HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",XtraVerCheck,0x0000000,"0"
-;Delayed stop fix timer 
+;Delayed stop fix timer
 HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\Parameters",DelayedStopFixReqTimer,0x0000000,"1"
 
 ; NI CP/UP lock
@@ -199,11 +197,11 @@ HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfi
 ; 0 - Enabled
 ; 1 - Disabled
 HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorUsage,0x0000000,"0"
-;#SensorControlMode 
+;#SensorControlMode
 ; 0 - Auto
 ; 1 - Forced
 HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorControlMode,0x0000000,"1"
-;#SensorAlgorithmConfigMask 
+;#SensorAlgorithmConfigMask
 ; 0 - INS
 ; 1 - HF
 HKLM,"Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\qcgnss\SAPConfig",SensorAlgorithmConfigMask,0x0000000,"0"

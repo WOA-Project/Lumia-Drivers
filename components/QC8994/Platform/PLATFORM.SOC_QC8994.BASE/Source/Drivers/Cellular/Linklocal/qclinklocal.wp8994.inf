@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the linklocal driver (Qualcomm Wireless Network Device)
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon:
 ;      8660: Type "devcon update QClinklocal8660.inf ACPI\QCOM0EA0" to install
 ;      8960: Type "devcon update QClinklocal8960.inf ACPI\QCOM2072" to install
@@ -61,7 +61,6 @@ AddService = linklocal, 2, wwan.Service, wwan.EventLog
 
 [wwan.ndi.Wdf]
 KmdfService = linklocal, wwan_wdfsect
-
 
 [wwan.NTarm64.ndi]
 Characteristics    = 0x9                   ; NCF_VIRTUAL | NCF_HIDDEN
@@ -134,7 +133,6 @@ HKR,, OSVer, 0x00010001 , 0x01 ;  0x01 = Apollo, 0x00
 
 [MaxAdapters.Reg]
 HKR,, MaxNumAdapters, 0x00010001,  0x00000009
-
 
 [wwan_wdfsect]
 KmdfLibraryVersion = 1.15

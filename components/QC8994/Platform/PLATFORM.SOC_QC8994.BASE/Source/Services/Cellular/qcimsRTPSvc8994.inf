@@ -50,7 +50,7 @@ AddService = RTPSvc,0x00000000,qcimsRTPSvc8994_Service,
 ;ServiceType = 0x110
 ;A Win32 program that runs in a process by itself (like Type16) and that can interact with users.
 ;StartType = 2 SERVICE_AUTO_START
-;A service started automatically by the service control manager during system startup. 
+;A service started automatically by the service control manager during system startup.
 ;ErrorControl = 1 SERVICE_ERROR_NORMAL
 ;The startup program logs the error in the event log but continues the startup operation.
 
@@ -87,7 +87,7 @@ qcimsRTPSvc8994.dll
 
 [Strings]
 QC                = "Qualcomm Technologies, Inc."
-IMSRTP.DeviceDesc = "Qualcomm IP Multimedia System RTP Service" 
+IMSRTP.DeviceDesc = "Qualcomm IP Multimedia System RTP Service"
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000

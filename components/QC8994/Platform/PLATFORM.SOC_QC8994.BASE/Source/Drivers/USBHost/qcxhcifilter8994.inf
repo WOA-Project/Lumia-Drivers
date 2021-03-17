@@ -62,7 +62,6 @@ AddService = QcXhciFilter,, QcXhciFilter_Service_Inst
 AddReg = QcXhciFilter_AddReg
 AddReg = QcXhciFilter_SDDLString
 
-
 [QcXhciFilter.NTarm64]
 Include      = usbxhci.inf
 Needs        = Generic_NoDebug.Install.NT
@@ -77,7 +76,6 @@ AddService = QcXhciFilter,, QcXhciFilter_Service_Inst.NTarm64
 [QcXhciFilter.NTarm64.HW]
 AddReg = QcXhciFilter_AddReg
 AddReg = QcXhciFilter_SDDLString
-
 
 [QcXhciFilter.CopyFile]
 QcXhciFilter8994.sys

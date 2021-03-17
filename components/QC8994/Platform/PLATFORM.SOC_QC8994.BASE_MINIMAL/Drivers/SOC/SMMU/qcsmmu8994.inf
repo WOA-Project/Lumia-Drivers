@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the Driver Frameworks SMMU Driver
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon: Type "devcon update SMMU.inf ACPI\QCOM0200" to install
 ;
 ;--*/

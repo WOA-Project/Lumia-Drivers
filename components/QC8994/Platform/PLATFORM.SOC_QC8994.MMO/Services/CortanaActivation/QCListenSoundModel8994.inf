@@ -1,4 +1,4 @@
-; 
+;
 ; Copyright (C) 2015 Qualcomm Technologies Inc.
 ; All Rights Reserved. Qualcomm Proprietary and Confidential.
 ;
@@ -161,7 +161,6 @@ config, zhCNconfig,
 
 [VoiceActivationzhCNBin.Files]
 VoiceActivationModel.bin, zhCNVoiceActivationModel.bin,
-
 
 [VoiceActivationdeDEConfig.Files]
 config, deDEconfig,

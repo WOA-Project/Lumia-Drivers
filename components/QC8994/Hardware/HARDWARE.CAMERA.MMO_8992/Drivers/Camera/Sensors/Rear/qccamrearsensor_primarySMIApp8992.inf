@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the Driver Frameworks Camera Sensor Driver
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon: Type "devcon install qccamrearsensor_primarySMIApp ACPI\QCOM2434" to install
 ;
 ;--*/
@@ -44,18 +44,18 @@ qccamrearsensor_primarySMIApp8992.sys=0,arm64,
 [Manufacturer]
 %QC% = QC, NTarm, NTarm64
 
-; Following section is meant for Windows 2000 as it 
+; Following section is meant for Windows 2000 as it
 ; cannot parse decorated model sections
 ;
 ; Hw Id is ACPI\QCOM2434
 ;
-; Decorated model section take precedence over undecorated 
+; Decorated model section take precedence over undecorated
 ; ones on XP and later.
 [QC.NTarm]
-%CameraRearSensor.DeviceDesc% = CameraRearSensor_Device, ACPI\QCOM2434 
+%CameraRearSensor.DeviceDesc% = CameraRearSensor_Device, ACPI\QCOM2434
 
 [QC.NTarm64]
-%CameraRearSensor.DeviceDescNull% = CameraRearSensor_Device, ACPI\QCOM2434 
+%CameraRearSensor.DeviceDescNull% = CameraRearSensor_Device, ACPI\QCOM2434
 
 [CameraRearSensor_Device.NTarm]
 CopyFiles = Drivers_Dir
@@ -72,10 +72,10 @@ qccamrearsensor_primarySMIApp8992.sys
 
 [CameraRearSensor_Device.NTarm.HW]
 AddReg = CameraRearSensor_Device_Security_Reg
- 
+
 [CameraRearSensor_Device.NTarm64.HW]
 AddReg = CameraRearSensor_Device_Security_Reg
- 
+
 [CameraRearSensor_Device_Security_Reg]
 HKR,,DeviceCharacteristics,0x10001,0x100
 
@@ -85,12 +85,12 @@ AddService = CameraRearSensor,%SPSVCINST_ASSOCSERVICE%, CameraRearSensor_Service
 
 [CameraRearSensor_Device.NTarm64.Services]
 AddService = CameraRearSensor,%SPSVCINST_ASSOCSERVICE%, CameraRearSensor_Service_Inst
- 
+
 ; -------------- CameraRearSensor driver install sections
 [CameraRearSensor_Service_Inst]
 DisplayName    = %CameraRearSensor.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START 
+StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\qccamrearsensor_primarySMIApp8992.sys
 

@@ -470,4 +470,3 @@ RES_SQR_480                          = "480,  480"
 ;          KSCAMERAPROFILE_FLAGS_FACEDETECTION         0x0000000000000008
 ;          KSCAMERAPROFILE_FLAGS_VARIABLEPHOTOSEQUENCE 0x0000000000000010
 ; -----------------------------------------------------------------------
-

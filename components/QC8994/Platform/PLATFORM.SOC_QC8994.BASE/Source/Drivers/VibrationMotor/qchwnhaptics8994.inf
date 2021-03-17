@@ -63,7 +63,6 @@ AddReg = Configuration.NT.HW.AddReg
 [hwnhaptics_Device.NT.Services]
 AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst
 
-
 [hwnhaptics_Device.NTarm64]
 Copyfiles = hwnhapticsCopyFiles
 
@@ -73,7 +72,6 @@ AddReg = Configuration.NT.HW.AddReg
 
 [hwnhaptics_Device.NTarm64.Services]
 AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst.NTarm64
-
 
 [hwnhaptics_Service_Inst]
 DisplayName    = %hwnhaptics.SvcDesc%

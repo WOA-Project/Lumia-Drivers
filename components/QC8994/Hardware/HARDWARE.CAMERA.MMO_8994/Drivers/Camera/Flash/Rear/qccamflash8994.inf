@@ -66,10 +66,10 @@ qccamflash8994.sys
 
 [CameraFlash_Device.NT.HW]
 AddReg = CameraFlash_Device_Security_Reg
- 
+
 [CameraFlash_Device.NTarm64.HW]
 AddReg = CameraFlash_Device_Security_Reg
- 
+
 [CameraFlash_Device_Security_Reg]
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 

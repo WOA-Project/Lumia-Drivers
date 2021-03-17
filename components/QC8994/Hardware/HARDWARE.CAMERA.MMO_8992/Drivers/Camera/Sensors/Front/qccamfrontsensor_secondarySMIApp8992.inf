@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the Driver Frameworks Camera Sensor Driver
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon: Type "devcon install qccamfrontsensor_SMIApp.inf ACPI\QCOM2439" to install
 ;
 ;--*/
@@ -44,12 +44,12 @@ qccamfrontsensor_secondarySMIApp8992.sys=0,arm64,
 [Manufacturer]
 %QC% = QC, NTarm, NTarm64
 
-; Following section is meant for Windows 2000 as it 
+; Following section is meant for Windows 2000 as it
 ; cannot parse decorated model sections
 ;
 ; Hw Id is ACPI\QCOM2439
 ;
-; Decorated model section take precedence over undecorated 
+; Decorated model section take precedence over undecorated
 ; ones on XP and later.
 [QC.NTarm]
 %CameraFrontSensor.DeviceDesc% = CameraFrontSensor_Device, ACPI\QCOM2439
@@ -72,10 +72,10 @@ qccamfrontsensor_secondarySMIApp8992.sys
 
 [CameraFrontSensor_Device.NTarm.HW]
 AddReg = CameraFrontSensor_Device_Security_Reg
- 
+
 [CameraFrontSensor_Device.NTarm64.HW]
 AddReg = CameraFrontSensor_Device_Security_Reg
- 
+
 [CameraFrontSensor_Device_Security_Reg]
 HKR,,DeviceCharacteristics,0x10001,0x100
 
@@ -90,7 +90,7 @@ AddService = CameraFrontSensor,%SPSVCINST_ASSOCSERVICE%, CameraFrontSensor_Servi
 [CameraFrontSensor_Service_Inst]
 DisplayName    = %CameraFrontSensor.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START 
+StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\qccamfrontsensor_secondarySMIApp8992.sys
 
@@ -102,4 +102,4 @@ CameraFrontSensor.DeviceDesc = "Qualcomm Camera Front Sensor Driver"
 CameraFrontSensor.DeviceDescNull = "Qualcomm Camera Front Sensor Driver (Null)"
 CameraFrontSensor.SvcDesc = "Qualcomm Camera Front Sensor Service"
 ClassName       = "Qualcomm Camera Front Sensor Device"
-Desc_x860= "Data"
+Desc_x860= "Data"

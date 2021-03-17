@@ -59,7 +59,6 @@ CopyFiles = qcnull_Device_CoInstaller_CopyFiles
 [qcnull_Device.NT.Services]
 AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst
 
-
 [qcnull_Device.NTarm64]
 CopyFiles = Drivers_Dir
 
@@ -99,7 +98,6 @@ ServiceBinary = %13%\arm64\qcnull.sys
 [qcnull_Device_CoInstaller_AddReg]
 ;
 
-
 [qcnull_Device_CoInstaller_CopyFiles]
 ;
 
@@ -114,4 +112,4 @@ qcnull.DeviceDesc         = "Qualcomm Null Device"
 qcnull.SvcDesc            = "Qualcomm Null Service"
 
 QcGPUNull.DeviceDesc      = "Qualcomm GPU Device (Null)"
-25A0Null.DeviceDesc       = "Qualcomm App Profiler Device (Null)" 
+25A0Null.DeviceDesc       = "Qualcomm App Profiler Device (Null)"

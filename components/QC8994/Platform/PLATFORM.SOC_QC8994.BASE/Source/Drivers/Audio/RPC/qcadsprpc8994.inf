@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing Qualcomm ADSP RPC Subsystem Driver (ADSPRPC)
 ;
-;Installation Notes: 
+;Installation Notes:
 ;Install using DISM
 ;--*/
 
@@ -25,7 +25,7 @@ CatalogFile.NTarm64 = qcadsprpc8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13; driverStore
-                                    
+
 [SourceDisksNames]
 1 = %DiskId1%
 
@@ -54,7 +54,7 @@ CopyFiles = Drivers_Dir
 ExcludeFromSelect = *
 
 [Drivers_Dir]
-qcadsprpc8994.sys                       
+qcadsprpc8994.sys
 
 [ADSPRPC_Device.NT.Services]
 AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_Service_Inst
@@ -70,7 +70,6 @@ KmdfService = QCADSPRPC, ADSPRPC_Service_kmdfInst
 
 [ADSPRPC_Service_kmdfInst]
 KmdfLibraryVersion = 1.15
-
 
 ; -------------- ADSPRPC driver install sections
 [ADSPRPC_Service_Inst]

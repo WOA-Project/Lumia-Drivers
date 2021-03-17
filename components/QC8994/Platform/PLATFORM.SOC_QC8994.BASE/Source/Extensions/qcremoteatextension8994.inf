@@ -32,4 +32,4 @@ ComponentIds = VID_QCOM&PID_0EA0&SID_0005
 [Strings]
 ;Localizable Strings
 QC                  = "Qualcomm Technologies, Inc."
-RemoteAT.DeviceDesc = "Qualcomm Remote AT Extension" 
+RemoteAT.DeviceDesc = "Qualcomm Remote AT Extension"

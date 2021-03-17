@@ -3,7 +3,7 @@
 ;Copyright (c) 2014 by Qualcomm, Incorporated.  All Rights Reserved.
 ;
 ;Module Name:
-;    qcipa.INF 
+;    qcipa.INF
 ;
 ;Abstract:
 ;    INF file for installing the qcipa driver
@@ -95,7 +95,6 @@ AddReg        = IPA_Reg
 [IPA_Reg]
 HKR, "Parameters", "NumOfBuffers", 0x00010001 , 0x100
 HKR, "Parameters", "A2PCEnabled" , %REG_DWORD%, 0x1
-
 
 [ipa_Device.NT.Wdf]
 KmdfService = qcipa, ipa_wdfsect

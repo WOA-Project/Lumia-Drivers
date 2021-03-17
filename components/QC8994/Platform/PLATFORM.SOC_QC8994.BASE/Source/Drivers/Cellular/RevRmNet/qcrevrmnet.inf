@@ -57,7 +57,6 @@ Characteristics = 0x0
 [QCrevrmnet_Device.Services]
 AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst
 
-
 ;-------------------------------------------------------------------------
 ; Installation Section
 ;-------------------------------------------------------------------------
@@ -72,8 +71,6 @@ Characteristics = 0x0
 [QCrevrmnet_Device.NTarm64.Services]
 AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst.NTarm64
 
-
-
 [Drivers_Dir]
 qcrevrmnet.sys
 
@@ -84,7 +81,6 @@ qcrevrmnet.sys
 HKR, Ndi, ClsID   , 0,  {21e7e731-f286-4116-b3c2-d43ccba29f07}
 HKR, Ndi, Service ,  ,  "QCrevrmnet"
 HKR, Ndi, HelpText,  ,  %revrmnet_HelpText%
-
 
 [QCrevrmnet_Service_Inst]
 DisplayName    = %revrmnet.SvcDesc%

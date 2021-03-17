@@ -32,4 +32,4 @@ ComponentIds = VID_MSHW&PID_0001&SID_0001
 [Strings]
 ;Localizable Strings
 QC                = "Qualcomm Technologies, Inc."
-WMRil.DeviceDesc  = "Qualcomm WMRil Extension" 
+WMRil.DeviceDesc  = "Qualcomm WMRil Extension"

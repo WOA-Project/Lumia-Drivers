@@ -51,11 +51,8 @@ CopyFiles = Drivers_Dir
 [Ssm_Device.NTarm64]
 CopyFiles = Drivers_Dir
 
-
 [Drivers_Dir]
 QCSSM8994.sys                                              ; Copied from the source media to the default destination directory (see [DestinationDirs])
-
-
 
 [Ssm_Device.NT.Services]
 AddService = SSM,%SPSVCINST_ASSOCSERVICE%, Ssm_Service_Inst; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
@@ -71,7 +68,6 @@ KmdfService = Ssm, Ssm_Service_kmdfInst
 
 [Ssm_Service_kmdfInst]
 KmdfLibraryVersion = 1.15
-
 
 ; -------------- SSM driver install sections
 [SSM_Service_Inst]

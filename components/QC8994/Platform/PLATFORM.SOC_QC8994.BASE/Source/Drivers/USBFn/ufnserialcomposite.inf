@@ -143,7 +143,6 @@ AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 [UfnBus_Child_03_DPL.Services]
 AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 
-
 ; ARM64
 
 ;[UfnBus_Child_00_SER.NTarm64]
@@ -226,7 +225,6 @@ AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
 AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
 [UfnBus_Child_03_DPL.NTarm64.Services]
 AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
-
 
 [ufnserialclass_Service_Inst]
 DisplayName   = %QCCompositeDevice.SvcDesc%
@@ -454,8 +452,6 @@ hklm, system\currentcontrolset\control\wmi\autologger\ufnserial\{d5393b53-8aae-4
 ;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\DPL"                                           , InterfaceDescriptor, %REG_BINARY%  , 09,04,02,00,01,FF,FF,FF,00,07,05,85,02,00,02,00
 ;HKLM, "System\CurrentControlSet\Control\USBFN\Interfaces\DPL"                                           , InterfaceGUID      , %REG_SZ%      , {873852F2-0D2A-4442-80A9-2DD869F41A5C}
 
-
-
 ; Adding WPP Debug
 ;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial"                                       , BufferSize         , %REG_DWORD%   ,  0x00000003
 ;HKLM, "System\CurrentControlSet\Control\WMI\Autologger\UfnSerial"                                       , LogFileMode        , %REG_DWORD%   ,  0x00080100
@@ -478,7 +474,6 @@ ufnserialclass.sys = 1,arm,
 
 [SourceDisksFiles.ARM64]
 ufnserialclass.sys = 1,arm64,
-
 
 [Strings]
 SPSVCINST_ASSOCSERVICE            = 0x00000002

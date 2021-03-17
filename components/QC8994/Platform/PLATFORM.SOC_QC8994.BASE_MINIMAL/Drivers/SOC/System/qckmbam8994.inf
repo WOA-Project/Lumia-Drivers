@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the BAM Driver
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon: Type "devcon install BAM.inf ACPI\QCOM2401" to install
 ;    Or find the BAM HW in device manager ("other devices") and install from there
 ;--*/

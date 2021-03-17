@@ -232,4 +232,4 @@ Installation_Disk        = "Microsoft Mobile Sensor Collection Algorithm Bridge 
 
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
-SERVICE_ERROR_NORMAL     = 1
+SERVICE_ERROR_NORMAL     = 1

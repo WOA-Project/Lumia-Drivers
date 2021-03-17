@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing DiagRouter Driver for Apollo
 ;
-;Installation Notes: 
+;Installation Notes:
 ;Install using DISM
 ;--*/
 
@@ -26,7 +26,7 @@ CatalogFile.NTarm64 = QCDIAGROUTER8994.arm64.cat
 [DestinationDirs]
 DefaultDestDir = 13
 System_Dir     = 11
-                                    
+
 [SourceDisksNames]
 1 = %DiskId1%
 
@@ -91,7 +91,6 @@ HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 [DiagRouter_Service_kmdfInst]
 KmdfLibraryVersion = 1.15
-
 
 ; -------------- DIAGROUTER driver install sections
 [DIAGROUTER_Service_Inst]

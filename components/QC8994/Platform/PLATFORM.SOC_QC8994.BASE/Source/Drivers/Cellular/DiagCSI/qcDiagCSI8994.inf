@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing Qualcomm Diagnostic Consumer Interface Driver (DiagCSI)
 ;
-;Installation Notes: 
+;Installation Notes:
 ;Install using DISM
 ;--*/
 
@@ -25,7 +25,7 @@ CatalogFile.NTarm64 = QCDIAGCSI8994.arm64.cat
 
 [DestinationDirs]
 DefaultDestDir = 13
-                                    
+
 [SourceDisksNames]
 1 = %DiskId1%
 
@@ -66,11 +66,10 @@ KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
 ExcludeFromSelect = *
 
 [Drivers_Dir]
-QCDIAGCSI8994.sys                        
+QCDIAGCSI8994.sys
 
 [DiagCSI_Service_kmdfInst]
 KmdfLibraryVersion = 1.15
-
 
 ; -------------- DIAGCSI driver install sections
 [DIAGCSI_Service_Inst]

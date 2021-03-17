@@ -11,7 +11,7 @@
 ;--*/
 
 ;----- Version section
-[Version] 
+[Version]
 Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
@@ -35,7 +35,7 @@ qcusbfnss8994.sys  = 1,arm,
 qcusbfnss8994.sys  = 1,arm64,
 
 ;----- Manufacturer section
-[Manufacturer] 
+[Manufacturer]
 %Company% = QCOM, NTarm, NTarm64
 
 ;----- Models section
@@ -63,26 +63,26 @@ AddReg = QcUsbFnSSFilter_AddReg
 qcusbfnss8994.sys
 
 ;-----  DDInstall.Services section
-[QCUSBFN_Device.NT.Services] 
+[QCUSBFN_Device.NT.Services]
 AddService = %ServiceName%, %SPSVCINST_ASSOCSERVICE%, QCUSBFN_Service_Inst
 
-[QCUSBFN_Device.NTarm64.Services] 
+[QCUSBFN_Device.NTarm64.Services]
 AddService = %ServiceName%, %SPSVCINST_ASSOCSERVICE%, QCUSBFN_Service_Inst.NTarm64
 
 ;----- DDInstall.Service install section
-[QCUSBFN_Service_Inst] 
+[QCUSBFN_Service_Inst]
 DisplayName    = %ServiceDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START 
+StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm\qcusbfnss8994.sys
 LoadOrderGroup = Extended Base
 AddReg         = QCUSBFN_SERVICE_ADDREG
 
-[QCUSBFN_Service_Inst.NTarm64] 
+[QCUSBFN_Service_Inst.NTarm64]
 DisplayName    = %ServiceDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START 
+StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm64\qcusbfnss8994.sys
 LoadOrderGroup = Extended Base
@@ -95,7 +95,7 @@ HKR, Parameters, "bMaxBurst" , %REG_DWORD%, 0
 
 ;----- Registry Updates
 [QcUsbFnSSFilter_AddReg]
-HKR,, "LowerFilters", %REG_M_SZ%, QcUsbFnSSFilter 
+HKR,, "LowerFilters", %REG_M_SZ%, QcUsbFnSSFilter
 
 [QCUSBFN_Device_AddReg]
 ;Root, SubPath,                Name,                   Type,        Values (little-endian)
@@ -104,7 +104,7 @@ HKR,, "LowerFilters", %REG_M_SZ%, QcUsbFnSSFilter
 ;HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn", LogFileMode, %REG_DWORD%, 0x10080100         ; RealTime, KDFilter, SingleBuffer
 HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn", LogFileMode, %REG_DWORD%, 0x10000022          ; Preallocated, Circular LogFile, SingleBuffer
 HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn", BufferSize, %REG_DWORD%, 0x00000100
-HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn", MaximumFileSize, %REG_DWORD%, 0x00000001      ; 1MB 
+HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn", MaximumFileSize, %REG_DWORD%, 0x00000001      ; 1MB
 HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn", FileMax, %REG_DWORD%, 0x00000003
 HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn", FileName, %REG_SZ%, "C:\Data\SystemData\ETW\USBFn\QcUsbFnSs.etl"
 HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn", FlushTimer, %REG_DWORD%, 0x00000001
@@ -134,7 +134,7 @@ HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn\{D5393B53-8AAE-4
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
 
-Company                = "Qualcomm Technologies, Inc." 
+Company                = "Qualcomm Technologies, Inc."
 SerialNum              = "Unassigned"
 DiskId1                = "Qualcomm USBFn Driver Disk"
 DeviceDesc             = "Qualcomm(R) Bus Device"
@@ -145,4 +145,4 @@ REG_SZ         = 0x00000000
 REG_BINARY     = 0x00000001
 REG_M_SZ       = 0x00010000
 REG_DWORD      = 0x00010001
-REG_DWORD_NOC  = 0x00010003
+REG_DWORD_NOC  = 0x00010003

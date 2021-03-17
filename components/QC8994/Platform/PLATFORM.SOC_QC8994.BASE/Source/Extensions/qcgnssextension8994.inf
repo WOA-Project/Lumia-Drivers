@@ -27,4 +27,4 @@ CatalogFile.NTarm64 = qcgnssextension8994.arm64.cat
 [Strings]
 ;Localizable Strings
 QC              = "Qualcomm Technologies, Inc."
-GNSS.DeviceDesc = "Qualcomm GNSS Collection Extension" 
+GNSS.DeviceDesc = "Qualcomm GNSS Collection Extension"

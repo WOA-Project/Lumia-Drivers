@@ -51,7 +51,6 @@ KmdfService = RemoteAt, RemoteAt_wdfsect
 [RemoteAt_Device.NT.Services]
 AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst
 
-
 [RemoteAt_Device.NTarm64]
 CopyFiles = Drivers_Dir
 
@@ -63,7 +62,6 @@ AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst.NTarm64
 
 [Drivers_Dir]
 qcremoteat8994.sys
-
 
 ; -------------- RemoteAt driver install sections
 [RemoteAt_Service_Inst]

@@ -62,7 +62,6 @@ KmdfService = QCQMUX, QMUX_wdfsect
 [QMUX_Device.NT.Services]
 AddService = QCQMUX,%SPSVCINST_ASSOCSERVICE%, QMUX_Service_Inst
 
-
 [QMUX_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory

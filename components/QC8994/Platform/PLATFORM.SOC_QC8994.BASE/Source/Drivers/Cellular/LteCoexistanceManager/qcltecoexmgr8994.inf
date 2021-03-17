@@ -51,7 +51,6 @@ AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst
 [COEX_Device.NT.Wdf]
 KmdfService = COEX, COEX_wdfsect
 
-
 [COEX_Device.NTarm64]
 CopyFiles = Drivers_Dir_12
 

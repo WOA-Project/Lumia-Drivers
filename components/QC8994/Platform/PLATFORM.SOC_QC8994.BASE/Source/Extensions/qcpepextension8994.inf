@@ -38,4 +38,4 @@ ComponentIds = VID_QCOM&PID_2425&SID_0002
 [Strings]
 ;Localizable Strings
 QC              = "Qualcomm Technologies, Inc."
-PEP.DeviceDesc  = "Qualcomm Power Engine Plugin Extension" 
+PEP.DeviceDesc  = "Qualcomm Power Engine Plugin Extension"

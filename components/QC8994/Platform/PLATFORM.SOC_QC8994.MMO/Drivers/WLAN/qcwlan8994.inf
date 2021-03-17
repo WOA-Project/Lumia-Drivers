@@ -5,7 +5,6 @@
 ;
 ; Copyright (c) Qualcomm Inc.  All rights reserved.
 
-
 [version]
 Signature   = "$Windows NT$"
 Class       = Net
@@ -194,7 +193,6 @@ HKR,,CountryName
 ;
 1 = %DiskId1%,,
 
-
 [SourceDisksFiles.ARM]
 qcwlan8994.sys = 1,arm,
 qwlan30.bin = 1,,
@@ -309,7 +307,6 @@ HKR, Ndi\params\scanTimeValid,      step,       0,  "5"
 HKR, Ndi\params\scanTimeValid,      base,       0,  "10"
 HKR, Ndi\params\scanTimeValid,      type,       0,  "int"
 
-
 [D0PC.reg]
 HKR, NDI\params\D0PCEnable,ParamDesc,,          %D0PCDesc%
 HKR, NDI\params\D0PCEnable,type,,               "enum"
@@ -400,7 +397,7 @@ PreferredSapBand             = "Preferred SAP Band"
 5GAp                         = "2. 5GHz SAP"
 RoamAggressive               = "Roaming aggressiveness"
 RssiLowest                   = "1.Lowest"
-RssiMedium-low               = "2.Medium-low"   
+RssiMedium-low               = "2.Medium-low"
 RssiMedium                   = "3.Medium"
 RssiMedium-high              = "4.Medium-high"
 RssiHighest                  = "5.Highest"

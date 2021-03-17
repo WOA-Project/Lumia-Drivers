@@ -60,7 +60,6 @@ Addreg = BMACL
 [BATTMNGR_Inst.NT.Services]
 AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst
 
-
 [BATTMNGR_Inst.NTarm64]
 Copyfiles   = BATTMNGRCopyFiles
 AddProperty = WDTFSOCDeviceCategory

@@ -51,7 +51,6 @@ KmdfService = MBRG, MBRG_wdfsect
 [MBRG_Device.NT.Services]
 AddService = MBRG,%SPSVCINST_ASSOCSERVICE%, MBRG_Service_Inst
 
-
 [MBRG_Device.NTarm64]
 CopyFiles = Drivers_Dir
 

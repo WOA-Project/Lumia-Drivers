@@ -9,7 +9,7 @@
 ;Abstract:
 ;    INF file for installing the OEM Class Extension Driver
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon: Type "devcon update oempanel.inf ACPI\MSHW1004" to install
 ;
 ;--*/

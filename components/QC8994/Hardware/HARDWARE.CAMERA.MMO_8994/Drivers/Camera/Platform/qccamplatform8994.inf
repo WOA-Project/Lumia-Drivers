@@ -64,10 +64,10 @@ qccamplatform8994.sys
 
 [CameraPlatform_Device.NT.HW]
 AddReg = CameraPlatform_Device_Security_Reg
- 
+
 [CameraPlatform_Device.NTarm64.HW]
 AddReg = CameraPlatform_Device_Security_Reg
- 
+
 [CameraPlatform_Device_Security_Reg]
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 

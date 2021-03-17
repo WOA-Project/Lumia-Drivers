@@ -8,8 +8,8 @@
 ;Abstract:
 ;    INF file for installing the Audio Calibration Settings Package for ACDB.
 ;
-;Installation Notes: 
-;    
+;Installation Notes:
+;
 ;
 ;--*/
 
@@ -47,12 +47,12 @@ Speaker_cal_8994.acdb   = 1
 [Manufacturer]
 %StdMfg% = DeviceExtensions,NTarm,NTarm64
 
-; Decorated model section take precedence over undecorated 
+; Decorated model section take precedence over undecorated
 ; ones on XP and later.
 [DeviceExtensions.NTarm]
 %ACSP.DeviceDesc% = DeviceExtension_Install, SLM1\QCOM242D
 
-; Decorated model section take precedence over undecorated 
+; Decorated model section take precedence over undecorated
 ; ones on XP and later.
 [DeviceExtensions.NTarm64]
 %ACSP.DeviceDesc% = DeviceExtension_Install, SLM1\QCOM242D

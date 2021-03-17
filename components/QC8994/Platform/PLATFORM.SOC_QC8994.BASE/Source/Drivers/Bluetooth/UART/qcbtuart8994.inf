@@ -1,7 +1,7 @@
-;/* 
+;/*
 ;Copyright (c) 2013 Qualcomm Atheros, Inc.
-;All Rights Reserved. 
-;Qualcomm Atheros Confidential and Proprietary. 
+;All Rights Reserved.
+;Qualcomm Atheros Confidential and Proprietary.
 ;*/
 
 [Version]
@@ -82,11 +82,9 @@ ServiceBinary = %13%\arm64\qcbtuart8994.sys
 AddReg        = BTUART_Service.AddReg, WPPReg
 AddProperty   = WDTFSOCDeviceCategory
 
-
 [WDTFSOCDeviceCategory]
 {A45C254E-DF1C-4EFD-8020-67D146A850E0}, 19, 13,, 1
 {A45C254E-DF1C-4EFD-8020-67D146A850E0}, 1D, 7 ,, 0
-
 
 [BTUART_Service.AddReg]
 HKR, Parameters, DebugFlags                       , 0x10001, 0xC000C000
@@ -125,14 +123,12 @@ HKR, Parameters, AFHEnabled                       , 0x10001, 1
 HKR, Parameters, FWLogEnabled                     , 0x10001, 0
 HKR, Parameters, DynamicSwitch                    , 0x10001, 0
 
-
 [WPPReg]
 HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart                                       , Start      , %REG_DWORD%, 0x0
 HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart                                       , Guid       , %REG_SZ%   , "{625DA9FD-B3B2-41F5-A731-36A59AF561DC}"
 HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, Enabled    , %REG_DWORD%, 0x1
 HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, EnableFlags, %REG_DWORD%, 0xFFFF
 HKLM, System\CurrentControlSet\Control\WMI\Autologger\BTUart\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, EnableLevel, %REG_DWORD%, 0x5
-
 
 [Strings]
 QCA           = "Qualcomm Technologies, Inc."

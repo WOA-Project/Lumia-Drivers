@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the Driver Frameworks Camera Sensor Driver
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon: Type "devcon install qccamsensor_tertiarySMIApp.inf ACPI\QCOM2436" to install
 ;
 ;--*/
@@ -44,12 +44,12 @@ qccamsensor_tertiarySMIApp8994.sys=0,arm64,
 [Manufacturer]
 %QC% = QC, NTarm, NTarm64
 
-; Following section is meant for Windows 2000 as it 
+; Following section is meant for Windows 2000 as it
 ; cannot parse decorated model sections
 ;
 ; Hw Id is ACPI\QCOM2436
 ;
-; Decorated model section take precedence over undecorated 
+; Decorated model section take precedence over undecorated
 ; ones on XP and later.
 [QC.NTarm]
 %CameraTertiarySensor.DeviceDesc% = CameraTertiarySensor_Device, ACPI\QCOM2436
@@ -72,10 +72,10 @@ qccamsensor_tertiarySMIApp8994.sys
 
 [CameraTertiarySensor_Device.NTarm.HW]
 AddReg = CameraTertiarySensor_Device_Security_Reg
- 
+
 [CameraTertiarySensor_Device.NTarm64.HW]
 AddReg = CameraTertiarySensor_Device_Security_Reg
- 
+
 [CameraTertiarySensor_Device_Security_Reg]
 HKR,,DeviceCharacteristics,0x10001,0x100
 
@@ -90,7 +90,7 @@ AddService = CameraTertiarySensor,%SPSVCINST_ASSOCSERVICE%, CameraTertiarySensor
 [CameraTertiarySensor_Service_Inst]
 DisplayName    = %CameraTertiarySensor.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START 
+StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\qccamsensor_tertiarySMIApp8994.sys
 
@@ -102,4 +102,4 @@ CameraTertiarySensor.DeviceDesc = "Qualcomm Camera Tertiary Sensor Driver"
 CameraTertiarySensor.DeviceDescNull = "Qualcomm Camera Tertiary Sensor Driver (Null)"
 CameraTertiarySensor.SvcDesc = "Qualcomm Camera Tertiary Sensor Service"
 ClassName       = "Qualcomm Camera Tertiary Sensor Device"
-Desc_x860= "Data"
+Desc_x860= "Data"

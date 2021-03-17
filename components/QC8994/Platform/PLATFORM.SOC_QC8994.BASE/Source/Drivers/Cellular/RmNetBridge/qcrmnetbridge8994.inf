@@ -52,7 +52,6 @@ AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst
 [RMNBRG_Device.NT.Wdf]
 KmdfService = RMNBRG, RMNBRG_wdfsect
 
-
 [RMNBRG_Device.NTarm64]
 CopyFiles = Drivers_Dir
 

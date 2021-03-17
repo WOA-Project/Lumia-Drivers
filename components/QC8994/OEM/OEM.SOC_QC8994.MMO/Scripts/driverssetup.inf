@@ -25,7 +25,6 @@ FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 [SourceDisksFiles]
 IHVDriversOobe.cmd                 = 0,,
 
-
 ;*****************************************
 ; oemcustomizations  Install Section
 ;*****************************************

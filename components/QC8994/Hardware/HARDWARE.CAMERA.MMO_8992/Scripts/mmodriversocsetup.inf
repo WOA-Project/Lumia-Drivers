@@ -25,7 +25,6 @@ FirstLogonCmd.Files  = 10,OEM\Setup\FirstLogon
 [SourceDisksFiles]
 MMOSoCDriversOobe.cmd                 = 0,,
 
-
 ;*****************************************
 ; oemcustomizations  Install Section
 ;*****************************************

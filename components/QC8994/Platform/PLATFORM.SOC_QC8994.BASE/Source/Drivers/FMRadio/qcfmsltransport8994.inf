@@ -23,7 +23,6 @@ CatalogFile.NTarm64 = qcfmsltransport8994.arm64.cat
 [DestinationDirs]
 DefaultDestDir = 13
 
-
 [SourceDisksNames]
 1 = %DiskId1%,,,""
 
@@ -32,7 +31,6 @@ qcfmsltransport8994.sys = 1,arm,
 
 [SourceDisksFiles.ARM64]
 qcfmsltransport8994.sys = 1,arm64,
-
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -60,7 +58,6 @@ AddReg = Bus_Vendor_NT.AddReg
 ;-------------- Service installation
 [Bus_Vendor.NT.Services]
 AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
-
 
 [Bus_Vendor.NTarm64]
 CopyFiles   = Bus.CopyFiles

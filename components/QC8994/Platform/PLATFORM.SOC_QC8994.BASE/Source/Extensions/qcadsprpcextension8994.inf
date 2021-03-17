@@ -31,4 +31,4 @@ ComponentIds = VID_QCOM&PID_248A&SID_0001
 [Strings]
 ;Localizable Strings
 QC                 = "Qualcomm Technologies, Inc."
-ADSPRPC.DeviceDesc = "Qualcomm ADSP RPC Subsystem Extension" 
+ADSPRPC.DeviceDesc = "Qualcomm ADSP RPC Subsystem Extension"

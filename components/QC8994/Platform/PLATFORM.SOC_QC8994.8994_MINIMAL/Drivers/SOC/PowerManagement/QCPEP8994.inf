@@ -133,7 +133,6 @@ HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000001
 HKR , Parameters        , ErrataFlags                 , 0x00010001,  0x80000001
 HKR , Parameters        , WPPEnabled                  , 0x00010001,  0x00000000
 
-
 HKR , Parameters\SDC1   , PerfStateCount              , 0x00010001,  0x00000004
 HKR , Parameters\SDC1   , SamplingInterval            , 0x00010001,  0x002DC6C0
 HKR , Parameters\SDC1\P0, Frequency                   , 0x00010001,  0x00061A80
@@ -152,7 +151,6 @@ HKR , Parameters\SDC1\P3, Frequency                   , 0x00010001,  0x0000C350
 HKR , Parameters\SDC1\P3, MaxUtilizationThreshold     , 0x00010001,  0x00000050
 HKR , Parameters\SDC1\P3, MinUtilizationThreshold     , 0x00010001,  0x00000000
 HKR , Parameters\SDC1\P3, Performance                 , 0x00010001,  0x00000003
-
 
 HKR , Parameters\SDC2   , PerfStateCount              , 0x00010001,  0x00000003
 HKR , Parameters\SDC2   , SamplingInterval            , 0x00010001,  0x002DC6C0

@@ -119,7 +119,6 @@ HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_VIDEO_PREVIEW"       , "
 HKR, "KSCAMERAPROFILE_HighQualityPhoto      , 1\PINNAME_VIDEO_PREVIEW"       , "Media5"    , 0,"%RES_800x448%,30,1,0x0000000000000000,0,0,0,0",              ; 800x448      30fps
 ; [RFC] High Quality Photo[1], CapturePin is not supported; avoid listing its media types
 
-
 ; [RFC] Photo Sequence[0], ImagePin, Defaults 4:3
 HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_IMAGE"               , "MediaCount", 0x00010001,4,
 HKR, "KSCAMERAPROFILE_PhotoSequence         , 0\PINNAME_IMAGE"               , "Media0"    , 0,"%RES_8MP%,75,10,0x0000000000000010,0,0,0,0",                             ; 8MP         7.5fps
@@ -202,7 +201,6 @@ HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_CAPTURE"       , "
 ; [RFC][Custom] High Frame Rate HD, CapturePin,120fps
 HKR, "%OEMCAMERAPROFILE_HighFrameRate120FPS%, 0\PINNAME_VIDEO_CAPTURE"       , "Media4"    , 0,"%RES_QVGA%,120,1,0x0000000000000000,0,0,0,0",         ; QVGA       120fps
 
-
 ;---------------------------------------------------------------
 ;             F r o n t   S e n s o r   A d d R e g
 ;---------------------------------------------------------------
@@ -268,7 +266,6 @@ HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "Media5
 HKR, "KSCAMERAPROFILE_PhotoSequence   , 1\PINNAME_VIDEO_PREVIEW"       , "Media6"    , 0,"%RES_800x448%,30,1,0x0000000000000000,0,0,0,0",                ; 800x448        30fps
 ; [FFC] Photo Sequence[1], CapturePin is not supported; avoid listing its media types
 
-
 ; [FFC] Video Recording[0], ImagePin is not supported; avoid listing its media types
 ; [FFC] Video Recording[0], PreviewPin, Defaults 4:3
 HKR, "KSCAMERAPROFILE_VideoRecording  , 0\PINNAME_VIDEO_PREVIEW"       , "MediaCount", 0x00010001,3,
@@ -295,7 +292,6 @@ HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media0
 HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media1"    , 0,"%RES_864x480%,30,1,0x0000000000000000,0,0,0,0",              ; 864x480           30fps
 HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media2"    , 0,"%RES_854x480%,30,1,0x0000000000000000,0,0,0,0",              ; 854x480           30fps
 HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media3"    , 0,"%RES_848x480%,30,1,0x0000000000000000,0,0,0,0",              ; 848x480           30fps
-
 
 ;---------------------------------------------------------------
 ;                S e r v i c e s
@@ -400,7 +396,6 @@ RES_SQR_9MP                          = "3104, 3104"
 RES_SQR_2MP                          = "1504, 1504"
 RES_SQR0.NTarm64                          = "640,  640"
 RES_SQR_480                          = "480,  480"
-
 
 ;---------------------------------------------------------------
 ;       C a m e r a   P r o f i l e s   R e f e r e n c e

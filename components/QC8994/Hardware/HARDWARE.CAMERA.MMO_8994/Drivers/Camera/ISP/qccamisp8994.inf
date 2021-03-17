@@ -66,10 +66,10 @@ qccamisp8994.sys
 
 [CameraISP_Device.NT.HW]
 AddReg = CameraISP_Device_Security_Reg
- 
+
 [CameraISP_Device.NTarm64.HW]
 AddReg = CameraISP_Device_Security_Reg
- 
+
 [CameraISP_Device_Security_Reg]
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 

@@ -3,7 +3,7 @@
 ;Copyright © 2013-2015 Microsoft Mobile. All Rights Reserved.
 ;
 ;Module Name:
-;    AlsPrxAlphamon.inf 
+;    AlsPrxAlphamon.inf
 ;
 ;Abstract:
 ;    INF file for installing QPDS-T900/QPDS-T930 Proximity and Ambient Light Sensor Driver
@@ -176,4 +176,4 @@ WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framewo
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3
 SERVICE_ERROR_NORMAL     = 1
-REG_DWORD                = 0x00010001
+REG_DWORD                = 0x00010001

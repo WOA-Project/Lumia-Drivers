@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the Driver Framework QC SLIMbus Master Component
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon: Type "devcon update qcslimbus.inf ADSP\QCOM240D" to install
 ;
 ;--*/
@@ -99,7 +99,6 @@ ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qcslimbus8994.sys
-
 
 [qcslimbus_Device.NT.Wdf]
 KmdfService = qcslimbus, qcslimbus_wdfsect

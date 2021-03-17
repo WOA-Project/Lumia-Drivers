@@ -38,10 +38,10 @@ qcsmd8994.sys = 1,arm64
 [Manufacturer]
 %Qualcomm% = Standard,NTarm,NTarm64
 
-[Standard.NTarm]         
+[Standard.NTarm]
 %SMD.DeviceDesc% = SMD_Device, ACPI\QCOM2407
 
-[Standard.NTarm64]         
+[Standard.NTarm64]
 %SMD.DeviceDesc% = SMD_Device, ACPI\QCOM2407
 
 [SMD_Device.NT]

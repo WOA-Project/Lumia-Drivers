@@ -113,4 +113,4 @@ REG_SZ              = 0x00000000
 REG_BINARY          = 0x00000001
 REG_M_SZ            = 0x00010000
 REG_DWORD           = 0x00010001
-REG_QWORD           = 0x000B0001
+REG_QWORD           = 0x000B0001

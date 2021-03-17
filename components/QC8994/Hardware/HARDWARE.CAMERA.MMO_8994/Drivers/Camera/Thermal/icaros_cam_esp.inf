@@ -29,12 +29,12 @@ icaros_cam_esp.sys=0,arm64,
 [Manufacturer]
 %MMO% = MMO, NTarm, NTarm64
 
-; Following section is meant for Windows 2000 as it 
+; Following section is meant for Windows 2000 as it
 ; cannot parse decorated model sections
 ;
 ; Hw Id is ACPI\MSHW1010
 ;
-; Decorated model section take precedence over undecorated 
+; Decorated model section take precedence over undecorated
 ; ones on XP and later.
 [MMO.NTarm]
 %CameraESP.DeviceDesc% = CameraESP_Device, ACPI\MSHW1010
@@ -53,7 +53,7 @@ icaros_cam_esp.sys
 
 [CameraESP_Device.NT.HW]
 AddReg = CameraESP_Device_Security_Reg
- 
+
 [CameraESP_Device_Security_Reg]
 HKR,,DeviceCharacteristics,0x10001,0x100
 
@@ -65,7 +65,7 @@ AddService = CameraESP,%SPSVCINST_ASSOCSERVICE%, CameraESP_Service_Inst
 [CameraESP_Service_Inst]
 DisplayName    = %CameraESP.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 1               ; SERVICE_DEMAND_START 
+StartType      = 1               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\icaros_cam_esp.sys
 
@@ -79,7 +79,7 @@ Default = {A1841308-3541-4FAB-BC81-F71556F20B4A}, 0, 1
 ; Max Power savings, DC
 Default = {A1841308-3541-4FAB-BC81-F71556F20B4A}, 1, 1
 ; No power savings, AC
-Default = {8C5E7FDA-E8BF-4A96-9A85-A6E23A8C635C}, 0, 1 
+Default = {8C5E7FDA-E8BF-4A96-9A85-A6E23A8C635C}, 0, 1
 ; No power savings, DC
 Default = {8C5E7FDA-E8BF-4A96-9A85-A6E23A8C635C}, 1, 1
 ; Balanced Laptop performance, AC
@@ -93,4 +93,4 @@ MMO = "MMO"
 CameraESP.DeviceDesc = "Icaros Extra Sensory Perception Driver"
 CameraESP.DeviceDescNull = "Icaros Extra Sensory Perception Driver (Null)"
 CameraESP.SvcDesc = "Icaros Extra Sensory Perception Service"
-Desc_x860= "Data"
+Desc_x860= "Data"
