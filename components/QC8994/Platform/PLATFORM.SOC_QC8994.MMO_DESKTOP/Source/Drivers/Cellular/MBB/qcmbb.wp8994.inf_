@@ -61,27 +61,27 @@ EnableDhcp         = 0
 AddReg             = wwan.Reg
 CopyFiles          = wwan.CopyFiles
 
-[wwan.ndi.Wdf]
+[wwan.ndi.NTarm.Wdf]
 KmdfService = mbb, wwan_wdfsect
 
-[wwan.ndi.HW]
+[wwan.ndi.NTarm.HW]
 Include = netvchannel.inf
 Needs   = NetVChannel.HW
 
-[wwan.ndi.CoInstallers]
+[wwan.ndi.NTarm.CoInstallers]
 Include = netvchannel.inf
 Needs   = NetVChannel.CoInstallers
 
-[wwan.ndi.Interfaces]
+[wwan.ndi.NTarm.Interfaces]
 Include = netvchannel.inf
 Needs   = NetVChannel.Interfaces
 
-[wwan.ndi.Services]
+[wwan.ndi.NTarm.Services]
 Include    = netvchannel.inf
 Needs      = NetVChannel.Services
-AddService = mbb, 2, wwan.Service, wwan.EventLog
+AddService = mbb, 2, wwan.NTarm.Service, wwan.EventLog
 
-[wwan.NTarm64.ndi]
+[wwan.ndi.NTarm64]
 Include            = netvchannel.inf
 Needs              = NetVChannel
 Characteristics    = 0x4                      ; NCF_PHYSICAL
@@ -92,22 +92,22 @@ EnableDhcp         = 0
 AddReg             = wwan.Reg
 CopyFiles          = wwan.CopyFiles
 
-[wwan.NTarm64.ndi.Wdf]
+[wwan.ndi.NTarm64.Wdf]
 KmdfService = mbb, wwan_wdfsect
 
-[wwan.NTarm64.ndi.HW]
+[wwan.ndi.NTarm64.HW]
 Include = netvchannel.inf
 Needs   = NetVChannel.HW
 
-[wwan.NTarm64.ndi.CoInstallers]
+[wwan.ndi.NTarm64.CoInstallers]
 Include = netvchannel.inf
 Needs   = NetVChannel.CoInstallers
 
-[wwan.NTarm64.ndi.Interfaces]
+[wwan.ndi.NTarm64.Interfaces]
 Include = netvchannel.inf
 Needs   = NetVChannel.Interfaces
 
-[wwan.NTarm64.ndi.Services]
+[wwan.ndi.NTarm64.Services]
 Include    = netvchannel.inf
 Needs      = NetVChannel.Services
 AddService = mbb, 2, wwan.NTarm64.Service, wwan.EventLog
@@ -131,7 +131,7 @@ HKR, Ndi\Interfaces, LowerRange, 0,  "ppip, vchannel"
 [wwan.CopyFiles]
 qcmbb8994.sys
 
-[wwan.Service]
+[wwan.NTarm.Service]
 DisplayName    = %wwan.Service.DispName%
 ServiceType    = 1                                 ;%SERVICE_KERNEL_DRIVER%
 StartType      = 3                                 ;%SERVICE_DEMAND_START%
