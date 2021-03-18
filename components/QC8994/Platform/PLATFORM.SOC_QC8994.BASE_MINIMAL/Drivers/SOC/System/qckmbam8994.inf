@@ -45,7 +45,7 @@ qckmbam8994.sys = 1,arm64                                      ; The source file
 [Standard.NTarm64]                                          ; Decorated model section take precedence over undecorated
 %BAM.DeviceDesc% = BAM_Device, ACPI\QCOM2401                    ; ACPI root, find the BAM HW in device manager to install driver
 
-[BAM_Device.NT]
+[BAM_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -55,7 +55,7 @@ CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[BAM_Device.NT.HW]
+[BAM_Device.NTarm.HW]
 Addreg = BAMACL
 
 [BAM_Device.NTarm64.HW]
@@ -70,7 +70,7 @@ HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 [Drivers_Dir]
 qckmbam8994.sys                                               ; Copied from the source media to the default destination directory (see [DestinationDirs])
 
-[BAM_Device.NT.Services]
+[BAM_Device.NTarm.Services]
 AddService = qcbam,%SPSVCINST_ASSOCSERVICE%, BAM_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
 [BAM_Device.NTarm64.Services]
@@ -91,7 +91,7 @@ StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qckmbam8994.sys
 
-[BAM_Device.NT.Wdf]
+[BAM_Device.NTarm.Wdf]
 KmdfService = qcbam, BAM_wdfsect
 
 [BAM_Device.NTarm64.Wdf]

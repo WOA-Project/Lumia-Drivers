@@ -40,7 +40,7 @@ Origa2Auth.sys  = 3426,arm64
 [Standard.NTarm64]
 %Origa2Auth.DeviceDesc% = Origa2Auth_Device, ACPI\MSHW1002
 
-[Origa2Auth_Device.NT]
+[Origa2Auth_Device.NTarm]
 CopyFiles = Drivers_Dir
 
 [Origa2Auth_Device.NTarm64]
@@ -50,7 +50,7 @@ CopyFiles = Drivers_Dir
 Origa2Auth.sys
 
 ;-------------- Service installation
-[Origa2Auth_Device.NT.Services]
+[Origa2Auth_Device.NTarm.Services]
 AddService = Origa2Auth,%SPSVCINST_ASSOCSERVICE%, Origa2Auth_Service_Inst
 
 [Origa2Auth_Device.NTarm64.Services]

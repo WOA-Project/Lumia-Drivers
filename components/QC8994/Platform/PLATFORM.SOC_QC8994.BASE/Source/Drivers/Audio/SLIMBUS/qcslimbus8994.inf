@@ -52,7 +52,7 @@ qcslimbus8994.sys = 1,arm64
 [Standard.NTarm64]
 %qcslimbus.DeviceDesc% = qcslimbus_Device,ADSP\QCOM240D
 
-[qcslimbus_Device.NT]
+[qcslimbus_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -69,11 +69,11 @@ qcslimbus8994.sys
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
 ;-------------- Service installation
-[qcslimbus_Device.NT.Services]
+[qcslimbus_Device.NTarm.Services]
 AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_Service_Inst
 
 ;-------------- HW installation
-[qcslimbus_Device.NT.HW]
+[qcslimbus_Device.NTarm.HW]
 addreg = qcslimbus
 
 [qcslimbus_Device.NTarm64.Services]
@@ -100,7 +100,7 @@ StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qcslimbus8994.sys
 
-[qcslimbus_Device.NT.Wdf]
+[qcslimbus_Device.NTarm.Wdf]
 KmdfService = qcslimbus, qcslimbus_wdfsect
 
 [qcslimbus_Device.NTarm64.Wdf]

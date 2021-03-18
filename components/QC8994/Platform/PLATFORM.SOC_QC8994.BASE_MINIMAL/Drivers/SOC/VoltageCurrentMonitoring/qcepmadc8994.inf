@@ -46,7 +46,7 @@ ExcludeFromSelect = *
 [QC.NTarm64]
 %EPMADC.DeviceDesc% = EPMADC_Device, ACPI\QCOM2411
 
-[EPMADC_Device.NT]
+[EPMADC_Device.NTarm]
 CopyFiles = Drivers_Dir
 
 [EPMADC_Device.NTarm64]
@@ -55,13 +55,13 @@ CopyFiles = Drivers_Dir
 [Drivers_Dir]
 qcepmadc8994.sys
 
-[EPMADC_Device.NT.Services]
+[EPMADC_Device.NTarm.Services]
 AddService = EPMADC,%SPSVCINST_ASSOCSERVICE%, EPMADC_Service_Inst
 
 [EPMADC_Device.NTarm64.Services]
 AddService = EPMADC,%SPSVCINST_ASSOCSERVICE%, EPMADC_Service_Inst.NTarm64
 
-[EPMADC_Device.NT.HW]
+[EPMADC_Device.NTarm.HW]
 addreg = EPMADCSD
 
 [EPMADC_Device.NTarm64.HW]
@@ -84,7 +84,7 @@ StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %13%\arm64\qcepmadc8994.sys
 
-[EPMADC_Device.NT.Wdf]
+[EPMADC_Device.NTarm.Wdf]
 KmdfService = EPMADC, EPMADC_wdfsect
 [EPMADC_Device.NTarm64.Wdf]
 KmdfService = EPMADC, EPMADC_wdfsect

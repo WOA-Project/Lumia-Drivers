@@ -46,12 +46,12 @@ qcadcm8994.sys = 1,arm64
 [Standard.NTarm64]
 %ADCM.DeviceDesc% = ADCM_Device, SLM1\QCOM242D
 
-[ADCM_Device.NT]
+[ADCM_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 
 ;-------------- Service installation
-[ADCM_Device.NT.Services]
+[ADCM_Device.NTarm.Services]
 AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst
 
 [ADCM_Device.NTarm64]

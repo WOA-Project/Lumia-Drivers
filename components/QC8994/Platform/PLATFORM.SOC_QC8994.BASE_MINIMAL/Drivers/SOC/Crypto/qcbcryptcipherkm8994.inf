@@ -43,7 +43,7 @@ qcBCryptCipherKM8994.sys = 1,arm64
 [Standard.NTarm64]
 %BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_Device, ACPI\QCOM241D
 
-[BCryptCipher_KM_Device.NT]
+[BCryptCipher_KM_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -60,14 +60,14 @@ qcBCryptCipherKM8994.sys
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;-------------- Service installation
-[BCryptCipher_KM_Device.NT.Services]
+[BCryptCipher_KM_Device.NTarm.Services]
 AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_Service_Inst
 
 [BCryptCipher_KM_Device.NTarm64.Services]
 AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_Service_Inst.NTarm64
 
 ;-------------- HW installation
-[BCryptCipher_KM_Device.NT.HW]
+[BCryptCipher_KM_Device.NTarm.HW]
 addreg = BCryptCipher_KM
 
 [BCryptCipher_KM_Device.NTarm64.HW]
@@ -91,7 +91,7 @@ StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qcBCryptCipherKM8994.sys
 
-[BCryptCipher_KM_Device.NT.Wdf]
+[BCryptCipher_KM_Device.NTarm.Wdf]
 KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect
 [BCryptCipher_KM_Device.NTarm64.Wdf]
 KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect

@@ -45,7 +45,7 @@ QCSSM8994.sys = 1,arm64,
 [Standard.NTarm64]                                         ; Decorated model section take precedence over undecorated
 %SSM.DeviceDesc% = Ssm_Device, ACPI\QCOM2414
 
-[Ssm_Device.NT]
+[Ssm_Device.NTarm]
 CopyFiles = Drivers_Dir
 
 [Ssm_Device.NTarm64]
@@ -54,13 +54,13 @@ CopyFiles = Drivers_Dir
 [Drivers_Dir]
 QCSSM8994.sys                                              ; Copied from the source media to the default destination directory (see [DestinationDirs])
 
-[Ssm_Device.NT.Services]
+[Ssm_Device.NTarm.Services]
 AddService = SSM,%SPSVCINST_ASSOCSERVICE%, Ssm_Service_Inst; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
 [Ssm_Device.NTarm64.Services]
 AddService = SSM,%SPSVCINST_ASSOCSERVICE%, Ssm_Service_Inst.NTarm64; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
-[Ssm_Device.NT.Wdf]
+[Ssm_Device.NTarm.Wdf]
 KmdfService = Ssm, Ssm_Service_kmdfInst
 
 [Ssm_Device.NTarm64.Wdf]

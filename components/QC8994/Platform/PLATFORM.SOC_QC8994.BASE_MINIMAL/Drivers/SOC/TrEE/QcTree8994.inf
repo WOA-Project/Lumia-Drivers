@@ -44,15 +44,15 @@ DefaultDestDir = 13
 %QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24BA
 %QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24B9
 
-[QcTrEE.NT]
-CopyFiles   = QcTrEE.NT.Copy
+[QcTrEE.NTarm]
+CopyFiles   = QcTrEE.Copy
 AddProperty = WDTFSOCDeviceCategory
 
 [QcTrEE.NTarm64]
-CopyFiles   = QcTrEE.NT.Copy
+CopyFiles   = QcTrEE.Copy
 AddProperty = WDTFSOCDeviceCategory
 
-[QcTrEE.NT.Copy]
+[QcTrEE.Copy]
 QcTrEE8994.sys
 
 [WDTFSOCDeviceCategory]
@@ -60,7 +60,7 @@ QcTrEE8994.sys
 
 ;-------------- Service installation
 
-[QcTrEE.NT.Services]
+[QcTrEE.NTarm.Services]
 AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst
 
 [QcTrEE.NTarm64.Services]

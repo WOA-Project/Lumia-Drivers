@@ -86,23 +86,23 @@ PETrust = true
 %QC_Device% = QCDX_Inst, ACPI\QCOM246F
 
 [QC.NTarm64]
-%QC_Device% = QCDX_Inst_ARM64, ACPI\QCOM246F
+%QC_Device% = QCDX_Inst, ACPI\QCOM246F
 
-[QCDX_Inst.NT]
+[QCDX_Inst.NTarm]
 FeatureScore = D1
 CopyFiles    = QCDX.Files.NTarm_13,QCDX.Files.NTarm_11
-AddReg       = QCDX_SoftwareDeviceSettings, QCDX_MftRegistration
+AddReg       = QCDX_SoftwareDeviceSettings.NTarm, QCDX_MftRegistration.NTarm
 AddProperty  = WDTFSOCDeviceCategory
 Reboot
 
-[QCDX_Inst_ARM64.NT]
+[QCDX_Inst.NTarm64]
 FeatureScore = D1
 CopyFiles    = QCDX.Files.NTarm64_13,QCDX.Files.NTarm64_11,QCDX.Files.NTarm64_10
 AddReg       = QCDX_SoftwareDeviceSettings.NTarm64, QCDX_MftRegistration.NTarm64
 AddProperty  = WDTFSOCDeviceCategory
 Reboot
 
-[QCDX_MftRegistration]
+[QCDX_MftRegistration.NTarm]
 ; system32
 ; qcvidencmfth2648994.dll
 HKLM, Software\Classes\CLSID\{7790EE16-08E3-426d-AADA-F96774308EA1}                                                                                       ,                       ,                , %QC_ENCODE_H264%
@@ -500,13 +500,13 @@ HKLM, "Software\Microsoft\Windows Media Foundation\Platform\VideoStabilization",
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
-[QCDX_Inst.NT.Services]
-AddService = QCDX,0x00000002,QCDX_Service,
+[QCDX_Inst.NTarm.Services]
+AddService = QCDX,0x00000002,QCDX_Service.NTarm,
 
-[QCDX_Inst_ARM64.NT.Services]
+[QCDX_Inst.NTarm64.Services]
 AddService = QCDX,0x00000002,QCDX_Service.NTarm64,
 
-[QCDX_Service]
+[QCDX_Service.NTarm]
 DisplayName    = %ServiceName%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
@@ -520,16 +520,16 @@ StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_IGNORE%
 ServiceBinary  = %13%\arm64\qcdxkm8994.sys
 
-[QCDX_Inst.NT.Wdf]
+[QCDX_Inst.NTarm.Wdf]
 KmdfService = QCDX, QCDX_wdfsect
 
-[QCDX_Inst_ARM64.NT.Wdf]
+[QCDX_Inst.NTarm64.Wdf]
 KmdfService = QCDX, QCDX_wdfsect
 
 [QCDX_wdfsect]
 KmdfLibraryVersion = 1.15
 
-[QCDX_SoftwareDeviceSettings]
+[QCDX_SoftwareDeviceSettings.NTarm]
 HKR,, InstalledDisplayDrivers    , %REG_MULTI_SZ%,  qcdx11um8994,                 qcdx11um8994,                     qcdx11um8994
 HKR,, VgaCompatible              , %REG_DWORD%   ,  0
 HKR,, UserModeDriverName         , %REG_MULTI_SZ%,  <>,                           %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll, %13%\arm\qcdx11um8994.dll

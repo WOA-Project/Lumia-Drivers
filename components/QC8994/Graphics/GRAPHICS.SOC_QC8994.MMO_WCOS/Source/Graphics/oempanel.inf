@@ -56,7 +56,7 @@ Sys32Dir     = 12
 [QC.NTarm64]
 %OEM.DeviceDesc% = OEM_Inst, ACPI\MSHW1004
 
-[OEM_Inst.NT]
+[OEM_Inst.NTarm]
 Copyfiles = OEMCopyFiles,Sys32Dir
 AddReg    = OEM_Settings,User_Settings
 
@@ -157,7 +157,7 @@ oempanel_etw.dll
 [Sys32Dir]
 ColorData.bin
 
-[OEM_Inst.NT.Services]
+[OEM_Inst.NTarm.Services]
 AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst
 
 [OEM_Inst.NTarm64.Services]
@@ -179,7 +179,7 @@ ErrorControl   = %SERVICE_ERROR_NORMAL%
 ServiceBinary  = %13%\arm64\oempanel.sys
 LoadOrderGroup = Extended Base
 
-[OEM_Inst.NT.Wdf]
+[OEM_Inst.NTarm.Wdf]
 KmdfService = MmoPanel, OEM_wdfsect
 
 [OEM_Inst.NTarm64.Wdf]

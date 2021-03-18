@@ -44,13 +44,13 @@ QCDIAGCSI8994.sys = 1,arm64
 [QC.NTarm64]                         ; NTarm64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
 %DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM2412
 
-[DiagCSI_Device.NT]
+[DiagCSI_Device.NTarm]
 CopyFiles = Drivers_Dir
 
-[DiagCSI_Device.NT.Services]
+[DiagCSI_Device.NTarm.Services]
 AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_Service_Inst
 
-[DiagCSI_Device.NT.Wdf]
+[DiagCSI_Device.NTarm.Wdf]
 KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
 
 [DiagCSI_Device.NTarm64]

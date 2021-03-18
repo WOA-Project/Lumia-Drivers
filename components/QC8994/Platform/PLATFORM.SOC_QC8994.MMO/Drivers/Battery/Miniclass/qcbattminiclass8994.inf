@@ -51,15 +51,15 @@ ExcludeFromSelect = *
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM2452
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM24C3
 
-[PMIC_Inst.NT]
+[PMIC_Inst.NTarm]
 Copyfiles   = PMICCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[PMIC_Inst.NT.HW]
+[PMIC_Inst.NTarm.HW]
 Addreg = BMINIACL
 
-[PMIC_Inst.NT.Services]
+[PMIC_Inst.NTarm.Services]
 AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
 
 [PMIC_Inst.NTarm64]

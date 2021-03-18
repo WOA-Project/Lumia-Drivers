@@ -42,23 +42,23 @@ QcXhciFilter8994.sys = 1,arm64,
 %Company% = Standard,NTarm,NTarm64
 
 [Standard.NTarm]
-%Standard.DeviceDesc% = QcXhciFilter.NT, URS\QCOM24B6&HOST ;URS mode
+%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B6&HOST ;URS mode
 
 [Standard.NTarm64]
-%Standard.DeviceDesc% = QcXhciFilter.NT, URS\QCOM24B6&HOST ;URS mode
+%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B6&HOST ;URS mode
 
-[QcXhciFilter.NT]
+[QcXhciFilter.NTarm]
 Include      = usbxhci.inf
 Needs        = Generic_NoDebug.Install.NT
 CopyFiles    = QcXhciFilter.CopyFile
 FeatureScore = 80 ; required for XHCI driver from usbxhci.inf
 
-[QcXhciFilter.NT.Services]
+[QcXhciFilter.NTarm.Services]
 Include    = usbxhci.inf
 Needs      = Generic_NoDebug.Install.NT.Services
 AddService = QcXhciFilter,, QcXhciFilter_Service_Inst
 
-[QcXhciFilter.NT.HW]
+[QcXhciFilter.NTarm.HW]
 AddReg = QcXhciFilter_AddReg
 AddReg = QcXhciFilter_SDDLString
 

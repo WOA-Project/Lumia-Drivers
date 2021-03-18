@@ -47,18 +47,18 @@ qcdiaglogging8994.dll = 1,arm64
 [QC.NTarm64]                                 ; NTarm64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
 %DIAGROUTER.DeviceDesc% = DiagRouter_Device, ACPI\QCOM2413
 
-[DiagRouter_Device.NT]
+[DiagRouter_Device.NTarm]
 CopyFiles   = Drivers_Dir, System_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[DiagRouter_Device.NT.Services]
+[DiagRouter_Device.NTarm.Services]
 AddService = QCDIAGROUTER,%SPSVCINST_ASSOCSERVICE%, DiagRouter_Service_Inst
 
-[DiagRouter_Device.NT.HW]
+[DiagRouter_Device.NTarm.HW]
 addreg = DiagRouter
 
-[DiagRouter_Device.NT.Wdf]
+[DiagRouter_Device.NTarm.Wdf]
 KmdfService = QCDiagRouter, DiagRouter_Service_kmdfInst
 
 [DiagRouter_Device.NTarm64]

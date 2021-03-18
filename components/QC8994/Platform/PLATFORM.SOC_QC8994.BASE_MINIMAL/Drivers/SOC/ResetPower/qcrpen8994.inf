@@ -42,7 +42,7 @@ qcrpen8994.sys = 1,arm64
 [Standard.NTarm64]
 %RPEN.DeviceDesc% = RPEN_Device, ACPI\QCOM245C
 
-[RPEN_Device.NT]
+[RPEN_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = RPENReg
@@ -54,7 +54,7 @@ AddProperty = WDTFSOCDeviceCategory
 AddReg      = RPENReg
 Reboot
 
-[RPEN_Device.NT.HW]
+[RPEN_Device.NTarm.HW]
 AddReg = RPENACL
 
 [RPEN_Device.NTarm64.HW]
@@ -80,7 +80,7 @@ qcrpen8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
-[RPEN_Device.NT.Services]
+[RPEN_Device.NTarm.Services]
 AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst
 
 [RPEN_Device.NTarm64.Services]
@@ -103,7 +103,7 @@ StartType     = 3                              ; SERVICE_DEMAND_START
 ErrorControl  = 1                              ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qcrpen8994.sys
 
-[RPEN_Device.NT.Wdf]
+[RPEN_Device.NTarm.Wdf]
 KmdfService = QCRPEN, RPEN_wdfsect
 [RPEN_Device.NTarm64.Wdf]
 KmdfService = QCRPEN, RPEN_wdfsect

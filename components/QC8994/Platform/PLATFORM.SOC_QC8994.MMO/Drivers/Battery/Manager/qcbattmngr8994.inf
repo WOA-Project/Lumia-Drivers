@@ -49,15 +49,15 @@ ExcludeFromSelect = *
 [Qualcomm.NTarm64]
 %DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2453
 
-[BATTMNGR_Inst.NT]
+[BATTMNGR_Inst.NTarm]
 Copyfiles   = BATTMNGRCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[BATTMNGR_Inst.NT.HW]
+[BATTMNGR_Inst.NTarm.HW]
 Addreg = BMACL
 
-[BATTMNGR_Inst.NT.Services]
+[BATTMNGR_Inst.NTarm.Services]
 AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst
 
 [BATTMNGR_Inst.NTarm64]

@@ -38,7 +38,7 @@ CameraAuthentication.dll = 1,arm64,
 ; =================== UMDF Device ==================================
 
 ;---------------- Copy files ---------------------
-[CameraAuthentication_Install.NT]
+[CameraAuthentication_Install.NTarm]
 CopyFiles = CameraAuthenticationDriverCopy
 
 [CameraAuthentication_Install.NTarm64]
@@ -47,7 +47,7 @@ CopyFiles = CameraAuthenticationDriverCopy
 [CameraAuthenticationDriverCopy]
 CameraAuthentication.dll
 
-[CameraAuthentication_Install.NT.hw]
+[CameraAuthentication_Install.NTarm.hw]
 AddReg = CameraAuthentication_Install_SecurityAddReg
 
 [CameraAuthentication_Install.NTarm64.hw]
@@ -58,7 +58,7 @@ HKR,,DeviceCharacteristics,0x10001,0x00000100                               ; FI
 HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)"                                ; SDDL_DEVOBJ_SYS_ALL_ADM_ALL
 
 ;-------------- Service installation -------------
-[CameraAuthentication_Install.NT.Services]
+[CameraAuthentication_Install.NTarm.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [CameraAuthentication_Install.NTarm64.Services]
@@ -73,7 +73,7 @@ ServiceBinary = %12%\WUDFRd.sys
 ;LoadOrderGroup = Base
 
 ;-------------- WDF specific section -------------
-[CameraAuthentication_Install.NT.Wdf]
+[CameraAuthentication_Install.NTarm.Wdf]
 UmdfService=CameraAuthentication,CameraAuthentication_Install
 UmdfServiceOrder=CameraAuthentication
 UmdfHostProcessSharing=ProcessSharingDisabled

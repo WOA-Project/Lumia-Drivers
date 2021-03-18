@@ -48,15 +48,15 @@ ExcludeFromSelect = *
 [VendorModels.NTarm64]
 %Bus.DeviceDesc% = Bus_Vendor, ACPI\QCOM24B1
 
-[Bus_Vendor.NT]
+[Bus_Vendor.NTarm]
 CopyFiles   = Bus.CopyFiles
 AddProperty = WDTFSOCDeviceCategory
 
-[Bus_Vendor.NT.HW]
+[Bus_Vendor.NTarm.HW]
 AddReg = Bus_Vendor_NT.AddReg
 
 ;-------------- Service installation
-[Bus_Vendor.NT.Services]
+[Bus_Vendor.NTarm.Services]
 AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
 
 [Bus_Vendor.NTarm64]

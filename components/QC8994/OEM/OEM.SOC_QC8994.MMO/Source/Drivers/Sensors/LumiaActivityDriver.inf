@@ -29,7 +29,7 @@ LumiaActivityDriver.dll=1,arm64,
 
 ;---------------- copy files
 
-[ActivityDriver_Inst.NT]
+[ActivityDriver_Inst.NTarm]
 CopyFiles = SensorDriverCopy
 
 [ActivityDriver_Inst.NTarm64]
@@ -41,14 +41,14 @@ LumiaActivityDriver.dll
 [DestinationDirs]
 SensorDriverCopy = 13
 
-[ActivityDriver_Inst.NT.HW]
+[ActivityDriver_Inst.NTarm.HW]
 AddReg = ActivityDriver_SecurityAddReg
 
 [ActivityDriver_Inst.NTarm64.HW]
 AddReg = ActivityDriver_SecurityAddReg
 
 ;-------------- Service installation
-[ActivityDriver_Inst.NT.Services]
+[ActivityDriver_Inst.NTarm.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [ActivityDriver_Inst.NTarm64.Services]
@@ -64,7 +64,7 @@ ServiceBinary = %12%\WUDFRd.sys
 
 ;-------------- WDF specific section
 
-[ActivityDriver_Inst.NT.Wdf]
+[ActivityDriver_Inst.NTarm.Wdf]
 UmdfService              = ActivityDriver, ActivityDriver_Install
 UmdfServiceOrder         = ActivityDriver
 UmdfDirectHardwareAccess = AllowDirectHardwareAccess

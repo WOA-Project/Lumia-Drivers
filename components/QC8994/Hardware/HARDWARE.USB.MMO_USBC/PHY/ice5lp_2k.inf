@@ -37,7 +37,7 @@ ice5lp_2k.sys  = 1,arm64,
 [Standard.NTarm64]
 %ice5lp_2k.DeviceDesc% = ice5lp_2k_Device, ACPI\MSHW1006
 
-[ice5lp_2k_Device.NT]
+[ice5lp_2k_Device.NTarm]
 CopyFiles = ice5lp_2k_CopyFiles
 
 [ice5lp_2k_Device.NTarm64]
@@ -47,7 +47,7 @@ CopyFiles = ice5lp_2k_CopyFiles
 ice5lp_2k.sys
 
 ;-------------- Service installation
-[ice5lp_2k_Device.NT.Services]
+[ice5lp_2k_Device.NTarm.Services]
 AddService = ice5lp_2k, %SPSVCINST_ASSOCSERVICE%, ice5lp_2k_Service_Inst
 
 [ice5lp_2k_Device.NTarm64.Services]
@@ -73,7 +73,7 @@ LoadOrderGroup = Extended Base
 ;
 ;--- ice5lp_2k_Device Coinstaller installation ------
 ;
-[ice5lp_2k_Device.NT.Wdf]
+[ice5lp_2k_Device.NTarm.Wdf]
 KmdfService = ice5lp_2k, ice5lp_2k_wdfsect
 
 [ice5lp_2k_Device.NTarm64.Wdf]

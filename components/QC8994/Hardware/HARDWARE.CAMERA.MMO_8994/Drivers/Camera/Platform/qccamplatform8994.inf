@@ -46,7 +46,7 @@ qccamplatform8994.sys = 0,arm64
 [QC.NTarm64]
 %CameraPlatform.DeviceDesc% = CameraPlatform_Device, ACPI\QCOM245E
 
-[CameraPlatform_Device.NT]
+[CameraPlatform_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -62,7 +62,7 @@ qccamplatform8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
-[CameraPlatform_Device.NT.HW]
+[CameraPlatform_Device.NTarm.HW]
 AddReg = CameraPlatform_Device_Security_Reg
 
 [CameraPlatform_Device.NTarm64.HW]
@@ -72,7 +72,7 @@ AddReg = CameraPlatform_Device_Security_Reg
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
-[CameraPlatform_Device.NT.Services]
+[CameraPlatform_Device.NTarm.Services]
 AddService = qcCameraPlatform,%SPSVCINST_ASSOCSERVICE%, CameraPlatform_Service_Inst
 
 [CameraPlatform_Device.NTarm64.Services]

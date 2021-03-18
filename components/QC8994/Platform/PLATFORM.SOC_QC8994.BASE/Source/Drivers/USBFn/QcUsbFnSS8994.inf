@@ -45,7 +45,7 @@ qcusbfnss8994.sys  = 1,arm64,
 [QCOM.NTarm64]
 %DeviceDesc% = QCUSBFN_Device, ACPI\QCOM2484
 
-[QCUSBFN_Device.NT] ; DDInstall section
+[QCUSBFN_Device.NTarm] ; DDInstall section
 CopyFiles = Drivers_Dir
 AddReg    = QCUSBFN_Device_AddReg
 
@@ -53,7 +53,7 @@ AddReg    = QCUSBFN_Device_AddReg
 CopyFiles = Drivers_Dir
 AddReg    = QCUSBFN_Device_AddReg
 
-[QCUSBFN_Device.NT.HW] ; DDInstall.HW section
+[QCUSBFN_Device.NTarm.HW] ; DDInstall.HW section
 AddReg = QcUsbFnSSFilter_AddReg
 
 [QCUSBFN_Device.NTarm64.HW] ; DDInstall.HW section
@@ -63,7 +63,7 @@ AddReg = QcUsbFnSSFilter_AddReg
 qcusbfnss8994.sys
 
 ;-----  DDInstall.Services section
-[QCUSBFN_Device.NT.Services]
+[QCUSBFN_Device.NTarm.Services]
 AddService = %ServiceName%, %SPSVCINST_ASSOCSERVICE%, QCUSBFN_Service_Inst
 
 [QCUSBFN_Device.NTarm64.Services]

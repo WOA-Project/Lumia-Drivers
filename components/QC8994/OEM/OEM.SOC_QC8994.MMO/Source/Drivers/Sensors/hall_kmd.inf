@@ -25,28 +25,28 @@ hall_kmd.sys  = 1,arm64,
 %Manufacturer_Name% = Standard,NTarm,NTarm64
 
 [Standard.NTarm]
-%hall_kmd.DeviceDesc% = hall_kmd_Device.NT, ACPI\MSHW1015
+%hall_kmd.DeviceDesc% = hall_kmd_Device, ACPI\MSHW1015
 
 [Standard.NTarm64]
-%hall_kmd.DeviceDesc% = hall_kmd_Device.NT, ACPI\MSHW1015
+%hall_kmd.DeviceDesc% = hall_kmd_Device, ACPI\MSHW1015
 
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
-[hall_kmd_Device.NT]
-CopyFiles = hall_kmd_Device.NT.CopyFiles
-;AddReg    = hall_kmd_Device.NT.AddReg
+[hall_kmd_Device.NTarm]
+CopyFiles = hall_kmd_Device.CopyFiles
+;AddReg    = hall_kmd_Device.AddReg
 
 [hall_kmd_Device.NTarm64]
-CopyFiles = hall_kmd_Device.NT.CopyFiles
-;AddReg    = hall_kmd_Device.NT.AddReg
+CopyFiles = hall_kmd_Device.CopyFiles
+;AddReg    = hall_kmd_Device.AddReg
 
-[hall_kmd_Device.NT.CopyFiles]
+[hall_kmd_Device.CopyFiles]
 hall_kmd.sys,,,0x100
 
-[hall_kmd_Device.NT.AddReg]
+[hall_kmd_Device.AddReg]
 HKLM, "System\Software\SmartCover", "FrontSensor", 0x00010001, 0
 HKLM, "System\Software\SmartCover", "BackSensor" , 0x00010001, 0
 
@@ -54,7 +54,7 @@ HKLM, "System\HallSensor", "Polarity", 0x00010001, 0
 HKLM, "System\HallSensor", "Disabled", 0x00010001, 0
 
 ;-------------- Service installation
-[hall_kmd_Device.NT.Services]
+[hall_kmd_Device.NTarm.Services]
 AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_Service_Inst
 
 [hall_kmd_Device.NTarm64.Services]
@@ -80,7 +80,7 @@ LoadOrderGroup = Base
 ;--- hall_kmd_Device Coinstaller installation ------
 ;
 
-[hall_kmd_Device.NT.Wdf]
+[hall_kmd_Device.NTarm.Wdf]
 KmdfService =  hall_kmd, hall_kmd_wdfsect
 
 [hall_kmd_Device.NTarm64.Wdf]

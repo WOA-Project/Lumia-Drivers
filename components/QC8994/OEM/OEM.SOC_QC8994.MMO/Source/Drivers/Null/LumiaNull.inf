@@ -70,7 +70,7 @@ LumiaNull.sys = 1,arm64,
 %1014Null.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW1014
 %1019Null.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW1019
 
-[LumiaNull_Device.NT]
+[LumiaNull_Device.NTarm]
 CopyFiles = Drivers_Dir
 
 [LumiaNull_Device.NTarm64]
@@ -79,7 +79,7 @@ CopyFiles = Drivers_Dir
 [Drivers_Dir]
 LumiaNull.sys
 
-[LumiaNull_Device.NT.Services]
+[LumiaNull_Device.NTarm.Services]
 AddService = LumiaNull,%SPSVCINST_ASSOCSERVICE%, LumiaNull_Service_Inst
 
 [LumiaNull_Device.NTarm64.Services]
@@ -99,7 +99,7 @@ StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\LumiaNull.sys
 
-[LumiaNull_Device.NT.Wdf]
+[LumiaNull_Device.NTarm.Wdf]
 KmdfService = LumiaNull, LumiaNull_wdfsect
 
 [LumiaNull_Device.NTarm64.Wdf]

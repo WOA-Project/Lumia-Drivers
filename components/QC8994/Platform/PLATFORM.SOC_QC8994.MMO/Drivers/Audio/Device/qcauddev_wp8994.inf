@@ -51,18 +51,18 @@ Drivers_Dir = 13
 %AUDD.DeviceDesc% = AUDIODEVICE,ADCM\QCOM242E
 %MBHC.DeviceDesc% = MBHC       ,AUDD\QCOM2468
 
-[AUDIODEVICE.NT]
+[AUDIODEVICE.NTarm]
 CopyFiles = Drivers_Dir
 
-[AUDIODEVICE.NT.HW]
+[AUDIODEVICE.NTarm.HW]
 AddReg = AUDDSpkrProtReg,CPEPathReg
 
-[AUDIODEVICE.NT.Services]
+[AUDIODEVICE.NTarm.Services]
 AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
 
-[MBHC.NT]
+[MBHC.NTarm]
 
-[MBHC.NT.Services]
+[MBHC.NTarm.Services]
 AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
 
 [AUDIODEVICE.NTarm64]

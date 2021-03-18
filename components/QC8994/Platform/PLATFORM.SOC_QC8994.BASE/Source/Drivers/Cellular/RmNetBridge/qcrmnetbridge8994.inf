@@ -42,14 +42,14 @@ qcrmnetbridge8994.sys = 1,arm64,
 [QCOM.NTarm64]
 %RMNBRG.DeviceDesc% = RMNBRG_Device, ACPI\QCOM2148
 
-[RMNBRG_Device.NT]
+[RMNBRG_Device.NTarm]
 CopyFiles = Drivers_Dir
 
 ;-------------- Service installation
-[RMNBRG_Device.NT.Services]
+[RMNBRG_Device.NTarm.Services]
 AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst
 
-[RMNBRG_Device.NT.Wdf]
+[RMNBRG_Device.NTarm.Wdf]
 KmdfService = RMNBRG, RMNBRG_wdfsect
 
 [RMNBRG_Device.NTarm64]

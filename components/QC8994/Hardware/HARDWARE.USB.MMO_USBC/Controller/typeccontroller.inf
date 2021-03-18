@@ -42,25 +42,25 @@ WppRecorderUM.dll = 1,arm64,
 
 ;---------------- copy files
 
-[tyc_Inst.nt]
+[tyc_Inst.NTarm]
 CopyFiles = tycDriverCopy
 AddReg    = WdfExt_AddReg
 
-[tyc_Inst.NTarm64.nt]
+[tyc_Inst.NTarm64]
 CopyFiles = tycDriverCopy
 AddReg    = WdfExt_AddReg
 
 [tycDriverCopy]
 tyc.dll
 
-[tyc_Inst.NT.HW]
+[tyc_Inst.NTarm.HW]
 AddReg = tyc_Inst_SecurityAddReg
 
 [tyc_Inst.NTarm64.HW]
 AddReg = tyc_Inst_SecurityAddReg
 
 ;-------------- Service installation
-[tyc_Inst.NT.Services]
+[tyc_Inst.NTarm.Services]
 AddService = WUDFRd, 0x000001fa, WUDFRD_ServiceInstall
 
 [tyc_Inst.NTarm64.Services]
@@ -75,8 +75,8 @@ ServiceBinary = %12%\WUDFRd.sys
 
 ;-------------- WDF specific section
 
-[tyc_Inst.NT.Wdf]
-UmdfService                 = tyc, tyc_Install
+[tyc_Inst.NTarm.Wdf]
+UmdfService                 = tyc, tyc_Install.NTarm
 UmdfServiceOrder            = tyc
 UmdfDirectHardwareAccess    = AllowDirectHardwareAccess
 UmdfFileObjectPolicy        = AllowNullAndUnknownFileObjects
@@ -93,7 +93,7 @@ UmdfHostProcessSharing      = ProcessSharingDisabled
 UmdfImpersonationLevel      = Impersonation
 UmdfKernelModeClientPolicy  = AllowKernelModeClients
 
-[tyc_Install]
+[tyc_Install.NTarm]
 UmdfLibraryVersion       = 2.15.0
 ServiceBinary            = %13%\arm\tyc.dll
 UmdfExtensions           = UcmCx0102

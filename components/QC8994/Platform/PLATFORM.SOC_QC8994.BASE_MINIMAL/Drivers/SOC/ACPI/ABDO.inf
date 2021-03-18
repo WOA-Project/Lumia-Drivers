@@ -51,7 +51,7 @@ ABDO.sys = 1,arm64
 [QC.NTarm64]
 %ABDO.DeviceDesc% = ABDO_Device, ACPI\QCOM2501
 
-[ABDO_Device.NT]
+[ABDO_Device.NTarm]
 CopyFiles = Drivers_Dir
 ;AddReg = AbdoReg
 
@@ -63,7 +63,7 @@ CopyFiles = Drivers_Dir
 ABDO.sys
 
 ;-------------- Service installation
-[ABDO_Device.NT.Services]
+[ABDO_Device.NTarm.Services]
 AddService = ABDO,%SPSVCINST_ASSOCSERVICE%, ABDO_Service_Inst
 
 [ABDO_Device.NTarm64.Services]

@@ -43,7 +43,7 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = %COMP%,NTarm,NTarm64
+%COMP% = Qualcomm,NTarm,NTarm64
 
 [Qualcomm.NTarm]
 %DeviceDesc% = MipiBif_Inst,ACPI\QCOM2459
@@ -51,10 +51,10 @@ ExcludeFromSelect = *
 [Qualcomm.NTarm64]
 %DeviceDesc% = MipiBif_Inst,ACPI\QCOM2459
 
-[MipiBif_Inst.NT]
+[MipiBif_Inst.NTarm]
 Copyfiles = MipiBifCopyFiles
 
-[MipiBif_Inst.NT.Services]
+[MipiBif_Inst.NTarm.Services]
 AddService = qcmipibif,%SPSVCINST_ASSOCSERVICE%,MipiBif_Service_Inst
 
 [MipiBif_Inst.NTarm64]

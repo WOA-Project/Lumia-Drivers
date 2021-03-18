@@ -48,7 +48,7 @@ ExcludeFromSelect = *
 [QC.NTarm64]
 %qci2c.DeviceDesc% = qci2c_Device, ACPI\QCOM240E
 
-[qci2c_Device.NT]
+[qci2c_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -65,7 +65,7 @@ Reboot
 qci2c8994.sys
 
 ;-------------- Service installation
-[qci2c_Device.NT.Services]
+[qci2c_Device.NTarm.Services]
 AddService = "qci2c",%SPSVCINST_ASSOCSERVICE%, qci2c_Service_Inst
 
 [qci2c_Device.NTarm64.Services]
@@ -89,7 +89,7 @@ ServiceBinary = %13%\arm64\qci2c8994.sys
 Dependencies  = SpbCx
 
 ; Checks for compatibility with KMDF version
-[qci2c_Device.NT.Wdf]
+[qci2c_Device.NTarm.Wdf]
 KmdfService = "qci2c", qci2c_wdfsect
 
 [qci2c_Device.NTarm64.Wdf]

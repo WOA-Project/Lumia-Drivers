@@ -53,14 +53,14 @@ ExcludeFromSelect = *
 [Qualcomm.NTarm64]
 %hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
 
-[hwnhaptics_Device.NT]
+[hwnhaptics_Device.NTarm]
 Copyfiles = hwnhapticsCopyFiles
 
-[hwnhaptics_Device.NT.HW]
+[hwnhaptics_Device.NTarm.HW]
 AddReg = DriverInst.NT.HW.AddReg
 AddReg = Configuration.NT.HW.AddReg
 
-[hwnhaptics_Device.NT.Services]
+[hwnhaptics_Device.NTarm.Services]
 AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst
 
 [hwnhaptics_Device.NTarm64]

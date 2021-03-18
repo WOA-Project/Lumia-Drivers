@@ -48,7 +48,7 @@ ExcludeFromSelect = *
 [QC.NTarm64]
 %ISP.DeviceDesc% = CameraISP_Device, ACPI\QCOM2432
 
-[CameraISP_Device.NT]
+[CameraISP_Device.NTarm]
 CopyFiles   = isp.Files_12
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -64,7 +64,7 @@ qccamisp8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0
 
-[CameraISP_Device.NT.HW]
+[CameraISP_Device.NTarm.HW]
 AddReg = CameraISP_Device_Security_Reg
 
 [CameraISP_Device.NTarm64.HW]
@@ -74,7 +74,7 @@ AddReg = CameraISP_Device_Security_Reg
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
-[CameraISP_Device.NT.Services]
+[CameraISP_Device.NTarm.Services]
 AddService = qcISP,%SPSVCINST_ASSOCSERVICE%, ISP_Service_Inst
 
 [CameraISP_Device.NTarm64.Services]

@@ -45,18 +45,18 @@ qcnull.sys = 1,arm64,
 %QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
 %25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
 
-[qcnull_Device.NT]
+[qcnull_Device.NTarm]
 CopyFiles = Drivers_Dir
 
-[qcnull_Device.NT.Wdf]
+[qcnull_Device.NTarm.Wdf]
 KmdfService = qcnull, qcnull_wdfsect
 
-[qcnull_Device.NT.CoInstallers]
+[qcnull_Device.NTarm.CoInstallers]
 AddReg    = qcnull_Device_CoInstaller_AddReg
 CopyFiles = qcnull_Device_CoInstaller_CopyFiles
 
 ;-------------- Service installation
-[qcnull_Device.NT.Services]
+[qcnull_Device.NTarm.Services]
 AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst
 
 [qcnull_Device.NTarm64]

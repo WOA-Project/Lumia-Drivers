@@ -62,7 +62,7 @@ AddService = linklocal, 2, wwan.Service, wwan.EventLog
 [wwan.ndi.Wdf]
 KmdfService = linklocal, wwan_wdfsect
 
-[wwan.NTarm64.ndi]
+[wwan.ndi.NTarm64]
 Characteristics    = 0x9                   ; NCF_VIRTUAL | NCF_HIDDEN
 *IfType            = 142                   ; IF_TYPE_IPFORWARD
 *MediaType         = 19                    ; NdisMediumIP
@@ -71,10 +71,10 @@ EnableDhcp         = 0
 AddReg             = wwan.Reg
 CopyFiles          = wwan.CopyFiles
 
-[wwan.NTarm64.ndi.Services]
+[wwan.ndi.NTarm64.Services]
 AddService = linklocal, 2, wwan.NTarm64.Service, wwan.EventLog
 
-[wwan.NTarm64.ndi.Wdf]
+[wwan.ndi.NTarm64.Wdf]
 KmdfService = linklocal, wwan_wdfsect
 
 ;-----------------------------------------------------------------------------

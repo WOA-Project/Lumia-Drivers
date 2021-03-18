@@ -43,7 +43,7 @@ qcipa8994.sys = 1,arm64                                       ; The source files
 [Standard.NTarm64]                                          ; Decorated model section take precedence over undecorated
 %ipa.DeviceDesc% = ipa_Device, ACPI\QCOM24B0
 
-[ipa_Device.NT]
+[ipa_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -59,14 +59,14 @@ qcipa8994.sys                                                 ; Copied from the 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
-[ipa_Device.NT.Services]
+[ipa_Device.NTarm.Services]
 AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
 [ipa_Device.NTarm64.Services]
 AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_Service_Inst.NTarm64 ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
 ;-------------- HW installation
-[ipa_Device.NT.HW]
+[ipa_Device.NTarm.HW]
 addreg = ipa
 
 [ipa_Device.NTarm64.HW]
@@ -96,7 +96,7 @@ AddReg        = IPA_Reg
 HKR, "Parameters", "NumOfBuffers", 0x00010001 , 0x100
 HKR, "Parameters", "A2PCEnabled" , %REG_DWORD%, 0x1
 
-[ipa_Device.NT.Wdf]
+[ipa_Device.NTarm.Wdf]
 KmdfService = qcipa, ipa_wdfsect
 [ipa_Device.NTarm64.Wdf]
 KmdfService = qcipa, ipa_wdfsect

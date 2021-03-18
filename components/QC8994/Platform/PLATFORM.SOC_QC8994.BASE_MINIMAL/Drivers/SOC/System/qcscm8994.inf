@@ -46,7 +46,7 @@ qcscm8994.sys = 1,arm64
 [Standard.NTarm64]
 %SCM.DeviceDesc% = SCM_Device, ACPI\QCOM2402
 
-[SCM_Device.NT]
+[SCM_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -68,13 +68,13 @@ qcscm8994.sys
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;-------------- Service installation
-[SCM_Device.NT.Services]
+[SCM_Device.NTarm.Services]
 AddService = qcscm, %SPSVCINST_ASSOCSERVICE%, SCM_Service_Inst
 
 [SCM_Device.NTarm64.Services]
 AddService = qcscm, %SPSVCINST_ASSOCSERVICE%, SCM_Service_Inst.NTarm64
 
-[SCM_Device.NT.HW]
+[SCM_Device.NTarm.HW]
 addreg = SCMSD
 
 [SCM_Device.NTarm64.HW]
@@ -101,7 +101,7 @@ ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\arm64\qcscm8994.sys
 LoadOrderGroup = Extended Base
 
-[SCM_Device.NT.Wdf]
+[SCM_Device.NTarm.Wdf]
 KmdfService = qcSCM, SCM_wdfsect
 [SCM_Device.NTarm64.Wdf]
 KmdfService = qcSCM, SCM_wdfsect

@@ -42,13 +42,13 @@ qcmbrg8994.sys = 1,arm64,
 [QCOM.NTarm64]
 %MBRG.DeviceDesc% = MBRG_Device, ACPI\QCOM2145
 
-[MBRG_Device.NT]
+[MBRG_Device.NTarm]
 CopyFiles = Drivers_Dir
 
-[MBRG_Device.NT.Wdf]
+[MBRG_Device.NTarm.Wdf]
 KmdfService = MBRG, MBRG_wdfsect
 
-[MBRG_Device.NT.Services]
+[MBRG_Device.NTarm.Services]
 AddService = MBRG,%SPSVCINST_ASSOCSERVICE%, MBRG_Service_Inst
 
 [MBRG_Device.NTarm64]

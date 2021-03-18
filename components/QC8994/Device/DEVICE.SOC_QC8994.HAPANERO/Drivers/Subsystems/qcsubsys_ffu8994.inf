@@ -72,7 +72,7 @@ ExcludeFromSelect = *
 %TEST.DeviceDesc%           = SUBSYS_Device,           QCMS\DEADCODE
 %TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
 
-[SUBSYS_Device.NT]
+[SUBSYS_Device.NTarm]
 CopyFiles   = Drivers_Dir_12,Drivers_Dir_24
 AddReg      = SUBSYSReg
 AddProperty = WDTFSOCDeviceCategory
@@ -84,7 +84,7 @@ AddProperty = WDTFSOCDeviceCategory
 
 [WDTFSOCDeviceCategory]
 
-[SUBSYS_Device.NT.HW]
+[SUBSYS_Device.NTarm.HW]
 AddReg = SUBSYSACL
 
 [SUBSYS_Device.NTarm64.HW]
@@ -135,7 +135,7 @@ HKLM, System\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38
 HKLM, System\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38-BB33030C58B2}, MemoryAlignment         , %REG_DWORD%, 0x00100000
 
 ;-------------- Service installation
-[SUBSYS_Device.NT.Services]
+[SUBSYS_Device.NTarm.Services]
 AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst
 
 [SUBSYS_Device.NTarm64.Services]
@@ -166,7 +166,7 @@ HKR, Parameters, "RestartTimer", 0x00010001, 0x1e0
 HKR, Parameters, "WcnRestartEnabled", 0x00010001, 0x0
 HKR, Parameters\DIAG, "FreeReservedMemory", 0x00010001, 0x01
 
-[SUBSYS_Device.NT.Wdf]
+[SUBSYS_Device.NTarm.Wdf]
 KmdfService = qcsubsys, SUBSYS_wdfsect
 [SUBSYS_Device.NTarm64.Wdf]
 KmdfService = qcsubsys, SUBSYS_wdfsect

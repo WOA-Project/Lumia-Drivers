@@ -48,7 +48,7 @@ ExcludeFromSelect = *
 [QC.NTarm64]
 %OCMEM.DeviceDesc% = OCMEM_Device, ACPI\QCOM2403
 
-[OCMEM_Device.NT]
+[OCMEM_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
@@ -87,7 +87,7 @@ HKR,, EnablePtCaching , %REG_DWORD%,  0
 HKR,, EnableGuardPages, %REG_DWORD%,  1
 
 ;-------------- Service installation
-[OCMEM_Device.NT.Services]
+[OCMEM_Device.NTarm.Services]
 AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_Service_Inst
 
 [OCMEM_Device.NTarm64.Services]
@@ -110,7 +110,7 @@ ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qcocmem8994.sys
 AddReg        = OCMEM_SoftwareDeviceSettings
 
-[OCMEM_Device.NT.Wdf]
+[OCMEM_Device.NTarm.Wdf]
 KmdfService = qcocmem, OCMEM_wdfsect
 
 [OCMEM_Device.NTarm64.Wdf]

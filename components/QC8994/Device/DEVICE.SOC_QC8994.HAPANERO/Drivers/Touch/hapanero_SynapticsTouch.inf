@@ -28,7 +28,7 @@ SynaFWVendor2.img  = 1,,
 ; TchDriver client driver Install Section
 ;*****************************************
 
-[TchDriver_Device.NT.CopyFiles]
+[TchDriver_Device.CopyFiles]
 SynaFWVendor1.img,,, 0x100,
 SynaFWVendor2.img,,, 0x100,
 
@@ -49,7 +49,7 @@ AddReg    = Resolutions.NT.HW.AddReg
 AddReg    = DisplaySize.NT.HW.AddReg
 AddReg    = ButtonBacklights.NT.HW.AddReg
 AddReg    = LegacyTouchScaling.NT.HW.AddReg
-CopyFiles = TchDriver_Device.NT.CopyFiles
+CopyFiles = TchDriver_Device.CopyFiles
 
 [LegacyTouchScaling.NT.HW.AddReg]
 HKR,, "LegacyTouchScaling", 0x00010001,  0x0

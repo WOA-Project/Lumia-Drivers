@@ -91,14 +91,14 @@ HKR,, DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
 [QCAUD_A.CopyList]
 qcaud8994.sys
 
-[ProxyAPO.arm.AddReg]
+[ProxyAPO.NTarm.AddReg]
 ; Mode effect APO COM registration
 HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  ,                       ,           , %13%\arm\ProxyAPO.dll
 
 ; Endpoint effect APO COM registration
 HKCR, CLSID\%FX_ENDPOINT_CLSID%\InProcServer32              ,                       ,           , %13%\arm\ProxyAPO.dll
 
-[ProxyAPO.arm64.AddReg]
+[ProxyAPO.NTarm64.AddReg]
 ; Mode effect APO COM registration
 HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  ,                       ,           , %13%\arm64\ProxyAPO.dll
 
@@ -465,24 +465,24 @@ HKR, "FX\0", %PKEY_FX_EndpointEffectClsid%,, %FX_ENDPOINT_CLSID%
 ;======================================================
 ; QCAUD_A
 ;======================================================
-[QCAUD_A.NT]
+[QCAUD_A.NTarm]
 Include     = ks.inf,wdmaudio.inf
 Needs       = KS.Registration, WDMAUDIO.Registration, MsApoFxProxy.Registration
 CopyFiles   = QCAUD_A.CopyList,ProxyAPO.CopyList
-AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg,ProxyAPO.arm.AddReg
+AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg,ProxyAPO.NTarm.AddReg
 AddProperty = QCAUD_A.AddProperty
 
-[QCAUD_A.NT.HW]
+[QCAUD_A.NTarm.HW]
 AddReg = AUDIOHW.AddReg
 AddReg = QCAUD_A.SecurityAddReg
 
-[QCAUD_A.NT.Wdf]
+[QCAUD_A.NTarm.Wdf]
 KmdfService = QCAUD, QCAUD_A_WdfSect
 
-[QCAUD_A.NT.Services]
-AddService = QCAUD,0x00000002,QCAUD_Service_Inst
+[QCAUD_A.NTarm.Services]
+AddService = QCAUD,0x00000002,QCAUD_Service_Inst.NTarm
 
-[QCAUD_A.NT.Interfaces]
+[QCAUD_A.NTarm.Interfaces]
 ;
 ; Interfaces for speaker (internal) render endpoint.
 ;
@@ -613,7 +613,7 @@ AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetMic%, QCAUD.I.Topol
 Include     = ks.inf,wdmaudio.inf
 Needs       = KS.Registration, WDMAUDIO.Registration, MsApoFxProxy.Registration
 CopyFiles   = QCAUD_A.CopyList,ProxyAPO.CopyList
-AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg,ProxyAPO.arm64.AddReg
+AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg,ProxyAPO.NTarm64.AddReg
 AddProperty = QCAUD_A.AddProperty
 
 [QCAUD_A.NTarm64.HW]
@@ -753,7 +753,7 @@ AddInterface = %KSCATEGORY_CAPTURE%,  %KSNAME_WaveHandsetMic%, QCAUD.I.WaveHands
 AddInterface = %KSCATEGORY_AUDIO%,    %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
 AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetMic%, QCAUD.I.TopologyHandsetMic
 
-[QCAUD_Service_Inst]
+[QCAUD_Service_Inst.NTarm]
 DisplayName   = %QCAUD.SvcDesc%
 ServiceType   = 1
 StartType     = 3

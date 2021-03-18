@@ -42,13 +42,13 @@ QcLteCoexMgr8994.sys = 1,arm64
 [Standard.NTarm64]
 %COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
 
-[COEX_Device.NT]
+[COEX_Device.NTarm]
 CopyFiles = Drivers_Dir_12
 
-[COEX_Device.NT.Services]
+[COEX_Device.NTarm.Services]
 AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst
 
-[COEX_Device.NT.Wdf]
+[COEX_Device.NTarm.Wdf]
 KmdfService = COEX, COEX_wdfsect
 
 [COEX_Device.NTarm64]

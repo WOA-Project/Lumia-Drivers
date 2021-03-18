@@ -25,26 +25,26 @@ touch_power.sys  = 1,arm64,
 %Manufacturer_Name% = Standard,NTarm,NTarm64
 
 [Standard.NTarm]
-%touch_power.DeviceDesc% = touch_power_Device.NT, ACPI\MSHW1024
+%touch_power.DeviceDesc% = touch_power_Device, ACPI\MSHW1024
 
 [Standard.NTarm64]
-%touch_power.DeviceDesc% = touch_power_Device.NT, ACPI\MSHW1024
+%touch_power.DeviceDesc% = touch_power_Device, ACPI\MSHW1024
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
-[touch_power_Device.NT]
-CopyFiles = touch_power_Device.NT.CopyFiles
+[touch_power_Device.NTarm]
+CopyFiles = touch_power_Device.CopyFiles
 
 [touch_power_Device.NTarm64]
-CopyFiles = touch_power_Device.NT.CopyFiles
+CopyFiles = touch_power_Device.CopyFiles
 
-[touch_power_Device.NT.CopyFiles]
+[touch_power_Device.CopyFiles]
 touch_power.sys,,,0x100
 
 ;-------------- Service installation
-[touch_power_Device.NT.Services]
+[touch_power_Device.NTarm.Services]
 AddService = %touch_power_service%,%SPSVCINST_ASSOCSERVICE%, touch_power_Service_Inst
 
 [touch_power_Device.NTarm64.Services]
@@ -70,7 +70,7 @@ LoadOrderGroup = Base
 ;
 ;--- touch_power_Device Coinstaller installation ------
 ;
-[touch_power_Device.NT.Wdf]
+[touch_power_Device.NTarm.Wdf]
 KmdfService =  touch_power, touch_power_wdfsect
 
 [touch_power_Device.NTarm64.Wdf]

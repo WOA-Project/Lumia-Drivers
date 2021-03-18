@@ -49,7 +49,7 @@ ExcludeFromSelect = *
 [Standard.NTarm64]
 %QDSS.DeviceDesc% = QDSS_Device, ACPI\QCOM247D
 
-[QDSS_Device.NT]
+[QDSS_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -66,14 +66,14 @@ qcqdss8994.sys
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;-------------- Service installation
-[QDSS_Device.NT.Services]
+[QDSS_Device.NTarm.Services]
 AddService = qcQDSS,%SPSVCINST_ASSOCSERVICE%, QDSS_Service_Inst
 
 [QDSS_Device.NTarm64.Services]
 AddService = qcQDSS,%SPSVCINST_ASSOCSERVICE%, QDSS_Service_Inst.NTarm64
 
 ;-------------- HW installation
-[QDSS_Device.NT.HW]
+[QDSS_Device.NTarm.HW]
 addreg = QDSSSD
 
 [QDSS_Device.NTarm64.HW]
@@ -222,7 +222,7 @@ HKR, Parameters\Dump\QDSS\TimeStamp       , Interrupt              , 0x00010001,
 HKR, Parameters\Dump\QDSS\TimeStamp       , dumpInterval           , 0x00010001, 0
 
 ; Checks for compatibility with KMDF version
-[QDSS_Device.NT.Wdf]
+[QDSS_Device.NTarm.Wdf]
 KmdfService = qcQDSS, QDSS_wdfsect
 [QDSS_Device.NTarm64.Wdf]
 KmdfService = qcQDSS, QDSS_wdfsect

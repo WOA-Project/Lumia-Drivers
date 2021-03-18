@@ -44,7 +44,7 @@ qcadsprpc8994.sys = 1,arm64
 [QC.NTarm64]                         ; NTarm64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
 %ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
 
-[ADSPRPC_Device.NT]
+[ADSPRPC_Device.NTarm]
 CopyFiles = Drivers_Dir
 
 [ADSPRPC_Device.NTarm64]
@@ -56,10 +56,10 @@ ExcludeFromSelect = *
 [Drivers_Dir]
 qcadsprpc8994.sys
 
-[ADSPRPC_Device.NT.Services]
+[ADSPRPC_Device.NTarm.Services]
 AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_Service_Inst
 
-[ADSPRPC_Device.NT.Wdf]
+[ADSPRPC_Device.NTarm.Wdf]
 KmdfService = QCADSPRPC, ADSPRPC_Service_kmdfInst
 
 [ADSPRPC_Device.NTarm64.Services]

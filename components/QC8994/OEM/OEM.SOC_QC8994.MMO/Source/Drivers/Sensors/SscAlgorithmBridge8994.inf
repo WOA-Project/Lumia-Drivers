@@ -36,28 +36,28 @@ ExcludeFromSelect=*
 ; File copy
 ;---------------------------------------------------------------------------
 
-[Activity_Inst.NT]
+[Activity_Inst.NTarm]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
-[Activity_Inst.NT.HW]
+[Activity_Inst.NTarm.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
-[Step_Inst.NT]
+[Step_Inst.NTarm]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
-[Step_Inst.NT.HW]
+[Step_Inst.NTarm.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
-[Gesture_Inst.NT]
+[Gesture_Inst.NTarm]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
-[Gesture_Inst.NT.HW]
+[Gesture_Inst.NTarm.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
-[Control_Inst.NT]
+[Control_Inst.NTarm]
 Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
-[Control_Inst.NT.HW]
+[Control_Inst.NTarm.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Activity_Inst.NTarm64]
@@ -120,16 +120,16 @@ LumiaStepCounterV2.dll = 1,arm64,
 ; Service installation
 ;---------------------------------------------------------------------------
 
-[Activity_Inst.NT.Services]
+[Activity_Inst.NTarm.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
-[Step_Inst.NT.Services]
+[Step_Inst.NTarm.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
-[Gesture_Inst.NT.Services]
+[Gesture_Inst.NTarm.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
-[Control_Inst.NT.Services]
+[Control_Inst.NTarm.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [Activity_Inst.NTarm64.Services]
@@ -156,28 +156,28 @@ ServiceBinary = %12%\WUDFRd.sys
 ; WDF
 ;---------------------------------------------------------------------------
 
-[Activity_Inst.NT.Wdf]
+[Activity_Inst.NTarm.Wdf]
 UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install
 UmdfServiceOrder         = MmoSscBridgeService
 UmdfDirectHardwareAccess = RejectDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfFsContextUsePolicy   = CannotUseFsContexts
 
-[Step_Inst.NT.Wdf]
+[Step_Inst.NTarm.Wdf]
 UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install
 UmdfServiceOrder         = MmoSscBridgeService
 UmdfDirectHardwareAccess = RejectDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfFsContextUsePolicy   = CannotUseFsContexts
 
-[Gesture_Inst.NT.Wdf]
+[Gesture_Inst.NTarm.Wdf]
 UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install
 UmdfServiceOrder         = MmoSscBridgeService
 UmdfDirectHardwareAccess = RejectDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfFsContextUsePolicy   = CannotUseFsContexts
 
-[Control_Inst.NT.Wdf]
+[Control_Inst.NTarm.Wdf]
 UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install
 UmdfServiceOrder         = MmoSscBridgeService
 UmdfDirectHardwareAccess = RejectDirectHardwareAccess

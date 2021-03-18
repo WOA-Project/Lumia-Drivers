@@ -29,7 +29,7 @@ LumiaPedometerDriver.dll=1,arm64,
 
 ;---------------- copy files
 
-[PedometerDriver_Inst.NT]
+[PedometerDriver_Inst.NTarm]
 CopyFiles = SensorDriverCopy
 
 [PedometerDriver_Inst.NTarm64]
@@ -41,14 +41,14 @@ LumiaPedometerDriver.dll
 [DestinationDirs]
 SensorDriverCopy = 13
 
-[PedometerDriver_Inst.NT.HW]
+[PedometerDriver_Inst.NTarm.HW]
 AddReg = PedometerDriver_SecurityAddReg
 
 [PedometerDriver_Inst.NTarm64.HW]
 AddReg = PedometerDriver_SecurityAddReg
 
 ;-------------- Service installation
-[PedometerDriver_Inst.NT.Services]
+[PedometerDriver_Inst.NTarm.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [PedometerDriver_Inst.NTarm64.Services]
@@ -64,7 +64,7 @@ ServiceBinary = %12%\WUDFRd.sys
 
 ;-------------- WDF specific section
 
-[PedometerDriver_Inst.NT.Wdf]
+[PedometerDriver_Inst.NTarm.Wdf]
 UmdfService              = PedometerDriver, PedometerDriver_Install
 UmdfServiceOrder         = PedometerDriver
 UmdfDirectHardwareAccess = AllowDirectHardwareAccess

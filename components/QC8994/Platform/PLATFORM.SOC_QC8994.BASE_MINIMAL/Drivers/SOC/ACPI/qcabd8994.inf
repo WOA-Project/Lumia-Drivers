@@ -45,7 +45,7 @@ qcabd8994.sys = 1,arm64
 [QC.NTarm64]
 %ABD.DeviceDesc% = ABD_Device, ACPI\QCOM2431
 
-[ABD_Device.NT]
+[ABD_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddReg      = AbdReg
 AddProperty = WDTFSOCDeviceCategory
@@ -60,7 +60,7 @@ Reboot
 [AbdReg]
 HKLM, System\CurrentControlSet\Control\ACPIEX, ComplianceFlags, %REG_DWORD%,  0x7
 
-[ABD_Device.NT.HW]
+[ABD_Device.NTarm.HW]
 Addreg = AbdACL
 
 [ABD_Device.NTarm64.HW]
@@ -79,7 +79,7 @@ qcabd8994.sys
 ExcludeFromSelect = *
 
 ;-------------- Service installation
-[ABD_Device.NT.Services]
+[ABD_Device.NTarm.Services]
 AddService = qcABD,%SPSVCINST_ASSOCSERVICE%, ABD_Service_Inst
 
 [ABD_Device.NTarm64.Services]
@@ -101,7 +101,7 @@ ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qcabd8994.sys
 
 ; Checks for compatibility with KMDF version
-[ABD_Device.NT.Wdf]
+[ABD_Device.NTarm.Wdf]
 KmdfService = qcABD, ABD_wdfsect
 [ABD_Device.NTarm64.Wdf]
 KmdfService = qcABD, ABD_wdfsect

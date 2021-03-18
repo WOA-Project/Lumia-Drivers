@@ -30,7 +30,7 @@ hdmidpi.sys = 3426,arm64,
 [MMO.NTarm64]
 %DeviceDescription% = hdmidpi_Inst,ACPI\MSHW1007
 
-[hdmidpi_Inst.NT]
+[hdmidpi_Inst.NTarm]
 CopyFiles = HdmiDpiDriversCopyFiles
 AddReg = HdmiDpiDriver_SecurityAddReg
 
@@ -38,7 +38,7 @@ AddReg = HdmiDpiDriver_SecurityAddReg
 CopyFiles = HdmiDpiDriversCopyFiles
 AddReg = HdmiDpiDriver_SecurityAddReg
 
-[hdmidpi_Inst.NT.HW]
+[hdmidpi_Inst.NTarm.HW]
 AddReg = HdmiDpiDriver_SecurityAddReg
 
 [hdmidpi_Inst.NTarm64.HW]
@@ -50,7 +50,7 @@ hdmidpi.sys,,,0x100
 [HdmiDpiDriver_SecurityAddReg]
 HKR,,DeviceCharacteristics,0x10001,0x100
 
-[hdmidpi_Inst.NT.Services]
+[hdmidpi_Inst.NTarm.Services]
 AddService = hdmidpi,%SPSVCINST_ASSOCSERVICE%,hdmidpi_Service_Inst
 
 [hdmidpi_Inst.NTarm64.Services]

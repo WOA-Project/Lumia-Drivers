@@ -48,7 +48,7 @@ ExcludeFromSelect = *
 [QC.NTarm64]
 %FLASH.DeviceDesc% = CameraFlash_Device, ACPI\QCOM244B
 
-[CameraFlash_Device.NT]
+[CameraFlash_Device.NTarm]
 CopyFiles   = flash.Files_12
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -64,7 +64,7 @@ qccamflash8994.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0
 
-[CameraFlash_Device.NT.HW]
+[CameraFlash_Device.NTarm.HW]
 AddReg = CameraFlash_Device_Security_Reg
 
 [CameraFlash_Device.NTarm64.HW]
@@ -74,7 +74,7 @@ AddReg = CameraFlash_Device_Security_Reg
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
-[CameraFlash_Device.NT.Services]
+[CameraFlash_Device.NTarm.Services]
 AddService = qcFlash,%SPSVCINST_ASSOCSERVICE%, FLASH_Service_Inst
 
 [CameraFlash_Device.NTarm64.Services]

@@ -24,18 +24,18 @@ DefaultDestDir = 13
 %MmoSec_Device_Desc% = MmoSec_Device, ACPI\MSHW1001
 
 [Standard.NTarm64]
-%MmoSec_Null_Device_Desc% = MmoSec_Device.NTarm64, ACPI\MSHW1001
+%MmoSec_Null_Device_Desc% = MmoSec_Device, ACPI\MSHW1001
 
-[MmoSec_Device.NT]
-CopyFiles = MmoSec_Device.NT.Copy
+[MmoSec_Device.NTarm]
+CopyFiles = MmoSec_Device.NTarm.Copy
 
 [MmoSec_Device.NTarm64]
-CopyFiles = MmoSec_Device.NT.Copy
+CopyFiles = MmoSec_Device.NTarm.Copy
 
-[MmoSec_Device.NT.Copy]
+[MmoSec_Device.NTarm.Copy]
 mmo_sec_driver.sys
 
-[MmoSec_Device.NT.HW]
+[MmoSec_Device.NTarm.HW]
 AddReg = MmoSec_SecurityAddReg
 
 [MmoSec_Device.NTarm64.HW]
@@ -44,7 +44,7 @@ AddReg = MmoSec_SecurityAddReg
 [MmoSec_SecurityAddReg]
 HKR,, DeviceCharacteristics, %REG_DWORD%, %FILE_DEVICE_SECURE_OPEN%;
 
-[MmoSec_Device.NT.Services]
+[MmoSec_Device.NTarm.Services]
 AddService = %MmoSec_Service%, %SPSVCINST_ASSOCSERVICE%, MmoSec_Service_Inst
 
 [MmoSec_Device.NTarm64.Services]

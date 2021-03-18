@@ -49,15 +49,15 @@ ExcludeFromSelect=*
 [Qualcomm.NTarm64]
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM24C2
 
-[PMIC_Inst.NT]
+[PMIC_Inst.NTarm]
 Copyfiles = PMICCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[PMIC_Inst.NT.HW]
+[PMIC_Inst.NTarm.HW]
 Addreg=PMICBIFACL
 
-[PMIC_Inst.NT.Services]
+[PMIC_Inst.NTarm.Services]
 AddService = qcbifbattdrv,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
 
 
@@ -115,6 +115,3 @@ SPSVCINST_ASSOCSERVICE = 0x00000002
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_DEMAND_START   = 3
 SERVICE_ERROR_NORMAL   = 1
-
-
-

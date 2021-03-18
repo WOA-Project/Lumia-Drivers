@@ -39,13 +39,13 @@ ExcludeFromSelect = *
 [QCABT.NTarm64]
 %UartBtAPQ8994% = QCABTUART, ACPI\QCOM24B2
 
-[QCABTUART.NT]
+[QCABTUART.NTarm]
 CopyFiles = BTUART.Files
 
-[QCABTUART.NT.HW]
+[QCABTUART.NTarm.HW]
 AddReg = BTUART.HW.AddReg
 
-[QCABTUART.NT.Services]
+[QCABTUART.NTarm.Services]
 AddService = QcBluetooth,0x00000002,BTUART_Service
 
 [QCABTUART.NTarm64]

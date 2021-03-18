@@ -48,18 +48,18 @@ DefaultDestDir = 13
 [Qualcomm.NTarm64]
 %REMOTEFS.DeviceDesc% = REMOTEFS_Device,ACPI\QCOM2423
 
-[REMOTEFS_Device.NT]
+[REMOTEFS_Device.NTarm]
 CopyFiles   = RemotefsCopyFiles
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[REMOTEFS_Device.NT.Services]
+[REMOTEFS_Device.NTarm.Services]
 AddService = QCREMOTEFS,%SPSVCINST_ASSOCSERVICE%,REMOTEFS_Service_Inst
 
-[REMOTEFS_Device.NT.Wdf]
+[REMOTEFS_Device.NTarm.Wdf]
 KmdfService = QCREMOTEFS, REMOTEFS_wdfsect
 
-[REMOTEFS_Device.NT.HW]
+[REMOTEFS_Device.NTarm.HW]
 AddReg = Remotefs_HW_Reg
 
 [REMOTEFS_Device.NTarm64]

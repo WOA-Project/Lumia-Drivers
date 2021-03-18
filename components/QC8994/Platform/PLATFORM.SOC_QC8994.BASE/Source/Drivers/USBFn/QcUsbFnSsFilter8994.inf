@@ -47,17 +47,17 @@ QcUsbFnSsFilter8994.sys = 1,arm64,
 [Standard.NTarm64]
 %Standard.DeviceDesc% = QcUsbFnSSFilter; upper driver ufsynopsys.inf matches on hardware IDs
 
-[QcUsbFnSSFilter.NT]
+[QcUsbFnSSFilter.NTarm]
 Include    = qcusbfn8994.inf
 Needs      = QCUSBFN_Device.NT
 CopyFiles  = QcUsbFnSSFilter.CopyFile
 
-[QcUsbFnSSFilter.NT.Services]
+[QcUsbFnSSFilter.NTarm.Services]
 Include    = qcusbfn8994.inf
-Needs      = QCUSBFN_Device.NT.Services
+Needs      = QCUSBFN_Device.NTarm.Services
 AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
 
-[QcUsbFnSSFilter.NT.HW]
+[QcUsbFnSSFilter.NTarm.HW]
 AddReg = QcUsbFnSSFilter_AddReg
 
 

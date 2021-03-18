@@ -48,7 +48,7 @@ qcspmi8994.sys = 1,arm64,
 [Standard.NTarm64]
 %qcspmi.DeviceDesc% = qcspmi_Device, ACPI\QCOM2404
 
-[qcspmi_Device.NT]
+[qcspmi_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -65,7 +65,7 @@ Reboot
 qcspmi8994.sys
 
 ;-------------- Service installation
-[qcspmi_Device.NT.Services]
+[qcspmi_Device.NTarm.Services]
 AddService = qcspmi,%SPSVCINST_ASSOCSERVICE%, qcspmi_Service_Inst
 
 [qcspmi_Device.NTarm64.Services]
@@ -88,7 +88,7 @@ ErrorControl   = %SERVICE_ERROR_NORMAL%
 ServiceBinary  = %13%\arm64\qcspmi8994.sys
 LoadOrderGroup = Filter
 
-[qcspmi_Device.NT.Wdf]
+[qcspmi_Device.NTarm.Wdf]
 KmdfService = qcspmi, qcspmi_wdfsect
 
 [qcspmi_Device.NTarm64.Wdf]

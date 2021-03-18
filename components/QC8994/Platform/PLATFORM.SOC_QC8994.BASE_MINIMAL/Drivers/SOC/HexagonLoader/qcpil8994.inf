@@ -49,7 +49,7 @@ ExcludeFromSelect = *
 [QC.NTarm64]
 %PIL.DeviceDesc% = PIL_Device, ACPI\QCOM2429
 
-[PIL_Device.NT]
+[PIL_Device.NTarm]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
@@ -88,7 +88,7 @@ HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8d
 HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, Status        , %REG_DWORD%, 0
 
 ;-------------- Service installation
-[PIL_Device.NT.Services]
+[PIL_Device.NTarm.Services]
 AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_Service_Inst
 
 [PIL_Device.NTarm64.Services]
@@ -113,7 +113,7 @@ LoadOrderGroup = Base            ; First of all driver groups to load
 Tag            = 17              ; First to load within the "Base" driver group
 ServiceBinary  = %13%\arm64\qcpil8994.sys
 
-[PIL_Device.NT.Wdf]
+[PIL_Device.NTarm.Wdf]
 KmdfService = qcPILC, PIL_wdfsect
 [PIL_Device.NTarm64.Wdf]
 KmdfService = qcPILC, PIL_wdfsect
