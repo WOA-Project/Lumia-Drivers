@@ -19,7 +19,7 @@ Class       = Extension
 ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %QCOM%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11E4B}
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = cityman_qcacsp8994.arm.cat

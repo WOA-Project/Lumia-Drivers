@@ -9,7 +9,7 @@ Signature      = "$Windows NT$"
 Class          = Bluetooth
 ClassGuid      = {e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
 Provider       = %QCA%
-DriverVer      = 07/02/2015,2.3.0.6
+DriverVer      = 03/18/2021,2.3.0.6
 PnpLockDown    = 1
 
 CatalogFile.NTarm   = qcbtuart8994.arm.cat

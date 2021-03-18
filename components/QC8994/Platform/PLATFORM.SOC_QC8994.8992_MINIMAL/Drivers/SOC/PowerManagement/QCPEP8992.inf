@@ -10,7 +10,7 @@ Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 RefVersion  = 09/16/2011,1.0.1067.0000
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcpep8992.arm.cat
@@ -167,22 +167,6 @@ HKLM, System\CurrentControlSet\Control\Session Manager\Power, HiberbootEnabled  
 HKLM, "System\CurrentControlSet\Control\ACPIEX", "ComplianceFlags", 0x00010001, 0x00000007
 
 HKLM, "System\CurrentControlSet\Control\Power", "DripsWatchdogAction", 0x00010001, 0x00000000
-
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "Description", 0x00020000, "Specify the simulated temperature of the system."
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueUnits", 0x00020000, "Tenths of degrees Kelvin"
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "FriendlyName", 0x00020000, "Simulated Machine Temperature"
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueIncrement", 0x00010001, 0x00000001
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueMin", 0x00010001, 0x00000001
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f", "ValueMax", 0x00010001, 0x00002710
-
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "ACSettingIndex", 0x00010001, 0x00000001
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DCSettingIndex", 0x00010001, 0x00000001
-
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c", "ACSettingIndex", 0x00010001, 0x00000001
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c", "DCSettingIndex", 0x00010001, 0x00000001
-
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\a1841308-3541-4fab-bc81-f71556f20b4a", "ACSettingIndex", 0x00010001, 0x00000001
-HKLM, "System\CurrentControlSet\Control\Power\PowerSettings\7d54ae13-7a01-469d-8af3-6ff4662c5371\e5fde9d7-7a0e-4048-81bb-a77caf7b349f\DefaultPowerSchemeValues\a1841308-3541-4fab-bc81-f71556f20b4a", "DCSettingIndex", 0x00010001, 0x00000001
 
 [PEP_SoftwareDeviceSettings.NTarm]
 HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000000

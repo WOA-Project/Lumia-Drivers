@@ -21,7 +21,7 @@ Signature   = "$Windows NT$"
 Class       = CAMERA
 ClassGUID   = %CAMERA_DEVICES_CLSID%
 Provider    = %QC%
-DriverVer   = 06/07/2011,1.0.0.0
+DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
 
 Catalogfile.NTarm   = qccamavs8994.arm.cat

@@ -3,7 +3,7 @@ Signature="$Windows NT$"
 Class=System
 ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider=%ManufacturerName%
-DriverVer= 05/15/2013,0.1.0.0
+DriverVer= 03/18/2021,0.1.0.0
 PnpLockdown = 1
 
 CatalogFile.NTarm   = icaros_cam_esp_thermal.arm.cat

@@ -15,14 +15,15 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcsubsys8994.arm.cat
 CatalogFile.NTarm64 = qcsubsys8994.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir_12 = 13
+Driver_Dir_arm = 13,arm
+Driver_Dir_a64 = 13,arm64
 Drivers_Dir_24 = 11
 
 [SourceDisksNames]
@@ -73,12 +74,12 @@ ExcludeFromSelect = *
 %TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
 
 [SUBSYS_Device.NTarm]
-CopyFiles   = Drivers_Dir_12,Drivers_Dir_24
+CopyFiles   = Driver_Dir_arm,Drivers_Dir_24
 AddReg      = SUBSYSReg
 AddProperty = WDTFSOCDeviceCategory
 
 [SUBSYS_Device.NTarm64]
-CopyFiles   = Drivers_Dir_12,Drivers_Dir_24
+CopyFiles   = Driver_Dir_a64,Drivers_Dir_24
 AddReg      = SUBSYSReg
 AddProperty = WDTFSOCDeviceCategory
 
@@ -93,7 +94,10 @@ AddReg = SUBSYSACL
 [SUBSYSACL]
 HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
 
-[Drivers_Dir_12]
+[Driver_Dir_arm]
+qcsubsys8994.sys
+
+[Driver_Dir_a64]
 qcsubsys8994.sys
 
 [Drivers_Dir_24]
@@ -136,13 +140,13 @@ HKLM, System\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38
 
 ;-------------- Service installation
 [SUBSYS_Device.NTarm.Services]
-AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst
+AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst.NTarm
 
 [SUBSYS_Device.NTarm64.Services]
 AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst.NTarm64
 
 ; -------------- Subsystem driver install sections
-[SUBSYS_Service_Inst]
+[SUBSYS_Service_Inst.NTarm]
 DisplayName   = %SUBSYS.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)

@@ -10,7 +10,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %Company%
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = QcUsbFnSsFilter8994.arm.cat
@@ -59,7 +59,6 @@ AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
 
 [QcUsbFnSSFilter.NTarm.HW]
 AddReg = QcUsbFnSSFilter_AddReg
-
 
 [QcUsbFnSSFilter.NTarm64]
 Include    = qcusbfn8994.inf

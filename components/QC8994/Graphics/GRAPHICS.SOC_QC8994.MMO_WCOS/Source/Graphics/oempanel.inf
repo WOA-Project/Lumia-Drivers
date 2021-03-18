@@ -19,7 +19,7 @@ Signature   = "$Windows NT$"
 Class       = Monitor
 ClassGuid   = {4d36e96e-e325-11ce-bfc1-08002be10318}
 Provider    = %VendorName%
-DriverVer   = 01/01/2021, 07.14.2.8061
+DriverVer   = 03/18/2021, 07.14.2.8061
 PnpLockdown = 1
 
 CatalogFile.NTarm   = oempanel.arm.cat
@@ -40,8 +40,9 @@ oempanel_etw.dll = 1,arm64,
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-OEMCopyFiles = 13
-Sys32Dir     = 12
+OEMCopyFilesA64 = 13,arm64
+OEMCopyFilesARM = 13,arm
+Sys32Dir        = 12
 
 ;*****************************************
 ; oem panel client driver Install Section
@@ -57,11 +58,11 @@ Sys32Dir     = 12
 %OEM.DeviceDesc% = OEM_Inst, ACPI\MSHW1004
 
 [OEM_Inst.NTarm]
-Copyfiles = OEMCopyFiles,Sys32Dir
+Copyfiles = OEMCopyFilesARM,Sys32Dir
 AddReg    = OEM_Settings,User_Settings
 
 [OEM_Inst.NTarm64]
-Copyfiles = OEMCopyFiles,Sys32Dir
+Copyfiles = OEMCopyFilesA64,Sys32Dir
 AddReg    = OEM_Settings,User_Settings
 
 [OEM_Settings]
@@ -150,7 +151,11 @@ HKLM, "Software\OEM\NOKIA\Display\ColorAndLightProperties", "UserSettingDisplayC
 [User_Settings.Security]
 "D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;AU)(A;;GA;;;BG)(A;;GA;;;S-1-15-2-1)(A;;GA;;;WD)"
 
-[OEMCopyFiles]
+[OEMCopyFilesARM]
+oempanel.sys
+oempanel_etw.dll
+
+[OEMCopyFilesA64]
 oempanel.sys
 oempanel_etw.dll
 
@@ -158,12 +163,12 @@ oempanel_etw.dll
 ColorData.bin
 
 [OEM_Inst.NTarm.Services]
-AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst
+AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst.NTarm
 
 [OEM_Inst.NTarm64.Services]
 AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst.NTarm64
 
-[OEM_Service_Inst]
+[OEM_Service_Inst.NTarm]
 DisplayName    = %OEM.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%

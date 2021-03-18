@@ -4,7 +4,7 @@ Class       = Extension
 ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %IHV%
 ExtensionId = {21E3E289-3E58-469D-B9CF-78549CD14F52}
-DriverVer   = 04/08/2020,1.0.0.0
+DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
 
 CatalogFile.NTarm   = oempanelextension.arm.cat

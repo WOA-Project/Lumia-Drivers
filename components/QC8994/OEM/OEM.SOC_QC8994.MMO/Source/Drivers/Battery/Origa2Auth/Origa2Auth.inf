@@ -7,7 +7,7 @@ Signature    = "$Windows NT$"
 Class        = Battery
 ClassGuid    = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
 Provider     = %ProviderName%
-DriverVer    = 01/01/2021,8.0.0.0002
+DriverVer    = 03/18/2021,8.0.0.0002
 PnpLockdown  = 1
 
 CatalogFile.NTarm   = Origa2Auth.arm.cat
@@ -84,7 +84,6 @@ ManufacturerName       = "Infineon Technologies"
 DiskName               = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200) Installation Disk"
 Origa2Auth.DeviceDesc  = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200)"
 Origa2Auth.SvcDesc     = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200) Driver"
-
 
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_BOOT_START     = 0

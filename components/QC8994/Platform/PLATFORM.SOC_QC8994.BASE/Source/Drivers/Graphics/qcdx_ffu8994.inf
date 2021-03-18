@@ -15,8 +15,8 @@ Signature   = "$Windows NT$"
 Class       = Display
 ClassGUID   = {4d36e968-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 07/02/2015,11.18.1067.0000
-;DriverVer.NTarm   = 07/02/2015,11.18.1078.0053
+DriverVer   = 03/18/2021,11.18.1067.0000
+;DriverVer.NTarm   = 03/18/2021,11.18.1078.0053
 PnpLockdown = 1
 
 CatalogFile.NTarm   = qcdx_ffu8994.arm.cat

@@ -6,7 +6,7 @@ Signature   = "$Windows NT$"
 Class       = USB
 ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %VendorName%
-DriverVer   = 03/03/2021,2.00.00.01
+DriverVer   = 03/18/2021,2.00.00.01
 PnpLockdown = 1
 
 CatalogFile.NTarm   = typeccontroller.arm.cat
@@ -15,7 +15,6 @@ CatalogFile.NTarm64 = typeccontroller.arm64.cat
 [DestinationDirs]
 Drivers_Dir       = 13
 tycDriverCopy     = 13
-DreamLifter.Files = 10,SysArm32
 
 [SourceDisksNames]
 1 = %MediaDescription%,,,""
@@ -30,7 +29,6 @@ WppRecorderUM.dll = 1,arm,
 [SourceDisksFiles.ARM64]
 tyc.dll           = 1,arm64,
 WppRecorderUM.dll = 1,arm64,
-
 
 [Standard.NTarm]
 %DevDesc% = tyc_Inst, umdf2\tyc

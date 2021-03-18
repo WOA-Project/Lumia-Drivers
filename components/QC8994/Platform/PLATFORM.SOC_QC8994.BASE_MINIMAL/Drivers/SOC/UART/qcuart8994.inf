@@ -7,7 +7,7 @@ Signature   = "$Windows NT$"
 Class       = Ports
 ClassGuid   = {4D36E978-E325-11CE-BFC1-08002BE10318}
 Provider    = %Manufacturer_Name%
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcuart8994.arm.cat

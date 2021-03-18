@@ -14,7 +14,7 @@ Signature   = "$Windows NT$"
 Class       = Battery
 ClassGuid   = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
 Provider    = %COMP%
-DriverVer   = 09/19/2016,1.0.1078.0056
+DriverVer   = 03/18/2021,1.0.1078.0056
 PnPLockdown = 1
 
 CatalogFile.NTarm   = qcbattminiclass8994.arm.cat

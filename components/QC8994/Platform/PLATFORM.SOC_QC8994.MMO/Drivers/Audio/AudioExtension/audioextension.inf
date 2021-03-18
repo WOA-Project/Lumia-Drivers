@@ -6,7 +6,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 09/09/2016,12.0.30519.0
+DriverVer   = 03/18/2021,12.0.30519.0
 CatalogFile = audioextension.cat
 PnpLockdown = 1
 

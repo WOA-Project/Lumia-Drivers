@@ -283,7 +283,6 @@ StartType     = 2
 ErrorControl  = 1
 ServiceBinary = "%13%\arm64\RILAdaptationService.exe"
 AddReg        = RILAdaptation.AddReg
-DelReg        = RILAdaptation.DelReg
 
 [UtkService_Service]
 DisplayName   = "UtkService"
@@ -351,7 +350,8 @@ HKLM, SOFTWARE\Classes\CLSID\{04E9894C-C756-4FCE-B11C-F38888D01279}\InProcServer
 
 [RILAdaptation.AddReg]
 HKR,, ObjectName         , %REG_SZ%       ,  "LocalSystem"
-HKR,, FailureActions     , %REG_BINARY%   ,  80,51,01,00,00,00,00,00,00,00,00,00,01,00,00,00,14,00,00,00,02,00,00,00,00,00,00,00
+;HKR,, FailureActions     , %REG_BINARY%   ,  80,51,01,00,00,00,00,00,00,00,00,00,01,00,00,00,14,00,00,00,02,00,00,00,00,00,00,00
+HKR,, FailureActions     , %REG_BINARY%   ,  80,51,01,00,00,00,00,00,00,00,00,00,01,00,00,00,14,00,00,00,00,00,00,00,00,00,00,00
 HKR,, PreshutdownTimeout , %REG_DWORD%    ,  0x00004e20
 HKR,, ServiceSidType     , %REG_DWORD%    ,  0x00000001
 
@@ -421,9 +421,6 @@ HKLM, "SYSTEM\CurrentControlSet\Control\WMI\Security", "5AC6D0BC-C2D8-4FE8-9D66-
 	06,00,00,00,00,00,05,50,00,00,00,26,F6,84,91, \ ; ·······P···&ö
 	7A,AD,CF,B3,04,C8,2E,16,09,A7,53,9E,3F,A9,0B, \ ; z­Ï³·È.··§S?©·
 	DC                                              ; Ü
-
-[RILAdaptation.DelReg]
-HKLM, System\CurrentControlSet\Services\RILAdaptation\Parameters\0000,,0x2000
 
 [CellularAPI.AddReg]
 HKLM, "SOFTWARE\Classes\CLSID\{3F9A55B0-8355-4CE4-B6D6-A65CAC63DB67}\InProcServer32", "", 0x00020000, "%13%\arm64\CellularAPI.dll"

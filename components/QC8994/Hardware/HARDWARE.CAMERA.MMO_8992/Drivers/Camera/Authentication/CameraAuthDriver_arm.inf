@@ -3,7 +3,7 @@ Signature="$Windows NT$"
 Class=Sensor
 ClassGuid={5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider=%ManufacturerName%
-DriverVer=12/02/2014,1.2.0.0
+DriverVer=03/18/2021,1.2.0.0
 PnpLockdown = 1
 
 CatalogFile.NTarm   = CameraAuth.arm.cat

@@ -8,7 +8,7 @@
 ;Abstract:
 ;    INF file for installing the MBB driver (Qualcomm Wireless Network Device)
 ;
-;Installation Notes: 
+;Installation Notes:
 ;    Using Devcon:
 ;      8660: Type "devcon update QCMBB8660.inf ACPI\QCOM0EA0" to install
 ;      8960: Type "devcon update QCMBB8960.inf ACPI\QCOM2072" to install
@@ -23,8 +23,8 @@ Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0
 PnpLockdown = 1
 
-Catalogfile.NTARM   = qcmbb8994.arm.cat ;todo .cat file generated once driver passes WHQL
-Catalogfile.NTARM64 = qcmbb8994.arm64.cat ;todo .cat file generated once driver passes WHQL
+Catalogfile.NTarm   = qcmbb8994.arm.cat ;todo .cat file generated once driver passes WHQL
+Catalogfile.NTarm64 = qcmbb8994.arm64.cat ;todo .cat file generated once driver passes WHQL
 
 [ControlFlags]
 ExcludeFromSelect = *       ; Do we need this? This prevents the driver from being displayed in manual installation UI
@@ -42,13 +42,13 @@ qcmbb8994.sys = 1,arm64,
 wwan.CopyFiles = 13
 
 [Manufacturer]
-%QCOM% = QCOM, NTARM, NTARM64
+%QCOM% = QCOM, NTarm, NTarm64
 
-[QCOM.NTARM]
+[QCOM.NTarm]
 %wwan.DeviceDesc% = wwan.ndi, QCMS\QCOM0EA0
 
-[QCOM.NTARM64]
-%wwan.DeviceDesc% = wwan_64.ndi, QCMS\QCOM0EA0
+[QCOM.NTarm64]
+%wwan.DeviceDesc% = wwan.ndi, QCMS\QCOM0EA0
 
 [wwan.ndi]
 Include            = netvchannel.inf
@@ -81,9 +81,7 @@ Include    = netvchannel.inf
 Needs      = NetVChannel.Services
 AddService = mbb, 2, wwan.Service, wwan.EventLog
 
-
-
-[wwan_64.ndi]
+[wwan.NTarm64.ndi]
 Include            = netvchannel.inf
 Needs              = NetVChannel
 Characteristics    = 0x4                      ; NCF_PHYSICAL
@@ -94,25 +92,25 @@ EnableDhcp         = 0
 AddReg             = wwan.Reg
 CopyFiles          = wwan.CopyFiles
 
-[wwan_64.ndi.Wdf]
+[wwan.NTarm64.ndi.Wdf]
 KmdfService = mbb, wwan_wdfsect
 
-[wwan_64.ndi.HW]
+[wwan.NTarm64.ndi.HW]
 Include = netvchannel.inf
 Needs   = NetVChannel.HW
 
-[wwan_64.ndi.CoInstallers]
+[wwan.NTarm64.ndi.CoInstallers]
 Include = netvchannel.inf
 Needs   = NetVChannel.CoInstallers
 
-[wwan_64.ndi.Interfaces]
+[wwan.NTarm64.ndi.Interfaces]
 Include = netvchannel.inf
 Needs   = NetVChannel.Interfaces
 
-[wwan_64.ndi.Services]
+[wwan.NTarm64.ndi.Services]
 Include    = netvchannel.inf
 Needs      = NetVChannel.Services
-AddService = mbb, 2, wwan_64.Service, wwan.EventLog
+AddService = mbb, 2, wwan.NTarm64.Service, wwan.EventLog
 
 ;-----------------------------------------------------------------------------
 ; Virtual Miniport Common
@@ -143,7 +141,7 @@ LoadOrderGroup = NDIS
 AddReg         = TextModeFlags.Reg
 AddReg         = osVer.Reg
 
-[wwan_64.Service]
+[wwan.NTarm64.Service]
 DisplayName    = %wwan.Service.DispName%
 ServiceType    = 1                                 ;%SERVICE_KERNEL_DRIVER%
 StartType      = 3                                 ;%SERVICE_DEMAND_START%
@@ -157,22 +155,22 @@ AddReg         = osVer.Reg
 AddReg = wwan.AddEventLog.Reg
 
 [wwan.AddEventLog.Reg]
-HKR, , EventMessageFile, 0x00020000,  "%%SystemRoot%%\System32\netevent.dll"
-HKR, , TypesSupported  , 0x00010001,  7
+HKR,, EventMessageFile, 0x00020000,  "%%SystemRoot%%\System32\netevent.dll"
+HKR,, TypesSupported  , 0x00010001,  7
 
 [TextModeFlags.Reg]
-HKR, , TextModeFlags, 0x00010001,  0x0001
+HKR,, TextModeFlags, 0x00010001,  0x0001
 
 [osVer.Reg]
-HKR, , OSVer, 0x00010001 , 0x01 ;  0x01 = Apollo, 0x00
+HKR,, OSVer, 0x00010001 , 0x01 ;  0x01 = Apollo, 0x00
 
 ; IPV6
-HKR, , IPV6EHRPDMEDIANOTIFY, 0x00010001 , 0x01
-HKR, , MTUDATASIZE, 0x00010001 , 0x00000578
-HKR, , SuppressNwPSDetach, 0x00010001 , 0x01
+HKR,, IPV6EHRPDMEDIANOTIFY, 0x00010001 , 0x01
+HKR,, MTUDATASIZE, 0x00010001 , 0x00000578
+HKR,, SuppressNwPSDetach, 0x00010001 , 0x01
 
 ; Wake on pattern match (standardized keyword)
-HKR, ,                                          *WakeOnPattern,           0, "1"
+HKR,,                                          *WakeOnPattern,           0, "1"
 HKR, Ndi\params\*WakeOnPattern,                 ParamDesc,                0, %WakeOnPattern%
 HKR, Ndi\params\*WakeOnPattern,                 default,                  0, "1"
 HKR, Ndi\params\*WakeOnPattern,                 type,                     0, "enum"
@@ -185,7 +183,7 @@ KmdfLibraryVersion = 1.15
 [Strings]
 ;Localizable Strings
 QcomSrcDisk           = "Qualcomm WWAN Driver Disk"
-QCOM                  = "Qualcomm Inc."
+QCOM                  = "Qualcomm Technologies, Inc."
 wwan.DeviceDesc       = "Qualcomm(R) Snapdragon(TM) X10 LTE Modem Device"
 wwan.Service.DispName = "Qualcomm(R) Snapdragon(TM) X10 LTE Modem Device"
 DiskId1               = "Qualcomm NDIS Miniport Device Installation Disk #1"
@@ -194,4 +192,3 @@ Enabled               = "Enabled"
 WakeOnPattern         = "Wake on pattern match"
 
 ;Non-localizable Strings
-

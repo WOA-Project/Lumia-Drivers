@@ -6,7 +6,7 @@ Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGUID   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
-DriverVer   = 01/01/2021,6.25.57.445
+DriverVer   = 03/18/2021,6.25.57.445
 CatalogFile = proxy_driver.cat
 PnpLockdown = 1
 

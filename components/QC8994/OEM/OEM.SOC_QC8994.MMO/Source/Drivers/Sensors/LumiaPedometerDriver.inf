@@ -3,7 +3,7 @@ Signature = "$Windows NT$"
 Class     = Sensor
 ClassGuid = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider  = %VendorName%
-DriverVer = 09/19/2016,1.0.1078.0056
+DriverVer = 03/18/2021,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = LumiaPedometerDriver.arm.cat
@@ -53,7 +53,6 @@ AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [PedometerDriver_Inst.NTarm64.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
-
 
 [WUDFRD_ServiceInstall]
 DisplayName   = %WudfRdDisplayName%

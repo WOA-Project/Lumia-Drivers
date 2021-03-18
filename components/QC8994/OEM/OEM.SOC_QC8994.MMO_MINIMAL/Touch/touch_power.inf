@@ -3,7 +3,7 @@ Signature = "$Windows NT$"
 Class     = HIDClass
 ClassGuid = {745A17A0-74D3-11D0-B6FE-00A0C90F57DA}
 Provider  = %MMO%
-DriverVer = 01/01/2021,1.2.0.0
+DriverVer = 03/18/2021,1.2.0.0
 PnpLockdown = 1
 
 CatalogFile.NTarm   = touch_power.arm.cat

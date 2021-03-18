@@ -15,7 +15,7 @@ Class       = Extension
 ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %ManufacturerName%
 ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD22E4B}
-DriverVer   = 09/19/2016,1.0.1078.0056
+DriverVer   = 03/18/2021,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = cityman_alsprxalphamon.arm.cat

@@ -3,7 +3,7 @@ Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %MMO%
-DriverVer   = 09/19/2016,1.0.1078.0056
+DriverVer   = 03/18/2021,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = hall_kmd.arm.cat
@@ -29,7 +29,6 @@ hall_kmd.sys  = 1,arm64,
 
 [Standard.NTarm64]
 %hall_kmd.DeviceDesc% = hall_kmd_Device, ACPI\MSHW1015
-
 
 ;*****************************************
 ; Install Section

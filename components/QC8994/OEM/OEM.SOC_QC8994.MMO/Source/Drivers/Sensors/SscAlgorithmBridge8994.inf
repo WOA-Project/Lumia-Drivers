@@ -3,7 +3,7 @@ Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
-DriverVer   = 09/19/2016,1.0.1078.0056
+DriverVer   = 03/18/2021,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = SscAlgorithmBridge.arm.cat
@@ -30,7 +30,6 @@ ExcludeFromSelect=*
 %STEP.DeviceDesc% = Step_Inst,ACPI\MSHW101D
 %GES.DeviceDesc% = Gesture_Inst,ACPI\MSHW101E
 %SAC.DeviceDesc% = Control_Inst,ACPI\MSHW101F
-
 
 ;---------------------------------------------------------------------------
 ; File copy
@@ -83,7 +82,6 @@ Copyfiles=DriverCopyFiles,UserModeCopyFiles
 
 [Control_Inst.NTarm64.HW]
 AddReg = Sensor_Inst_SecurityAddReg
-
 
 [Sensor_Inst_SecurityAddReg]
 HKR,,DeviceCharacteristics,0x10001,0x00000100       ; FILE_DEVICE_SECURE_OPEN
@@ -150,7 +148,6 @@ ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
 ServiceBinary = %12%\WUDFRd.sys
-
 
 ;---------------------------------------------------------------------------
 ; WDF

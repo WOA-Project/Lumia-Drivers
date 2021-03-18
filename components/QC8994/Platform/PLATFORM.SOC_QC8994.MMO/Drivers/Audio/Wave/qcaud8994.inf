@@ -12,7 +12,7 @@ Signature   = "$CHICAGO$"
 Class       = MEDIA
 ClassGUID   = {4d36e96c-e325-11ce-bfc1-08002be10318}
 provider    = %QCOM%
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = qcaud8994.arm.cat

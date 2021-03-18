@@ -3,7 +3,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %ManufacturerName%
-DriverVer   = 01/04/2015,0.0.6.0000
+DriverVer   = 03/18/2021,0.0.6.0000
 CatalogFile = ngp_svc.cat
 PnpLockdown = 1
 

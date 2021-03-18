@@ -18,7 +18,7 @@ Signature="$Windows NT$"
 Class=System
 ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider=%QC%
-DriverVer=09/19/2016,1.0.1078.0056
+DriverVer=03/18/2021,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = ABDA.arm.cat
@@ -61,7 +61,6 @@ CopyFiles = Drivers_Dir
 
 [Drivers_Dir]
 ABDA.sys
-
 
 ;-------------- Service installation
 [ABDA_Device.NTarm.Services]

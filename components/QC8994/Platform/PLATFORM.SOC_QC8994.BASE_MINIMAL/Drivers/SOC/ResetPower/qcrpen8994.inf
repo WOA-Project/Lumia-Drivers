@@ -15,7 +15,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcrpen8994.arm.cat
@@ -85,8 +85,6 @@ AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst
 
 [RPEN_Device.NTarm64.Services]
 AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst.NTarm64
-
-
 
 ; -------------- RPEN driver install sections
 [RPEN_Service_Inst]

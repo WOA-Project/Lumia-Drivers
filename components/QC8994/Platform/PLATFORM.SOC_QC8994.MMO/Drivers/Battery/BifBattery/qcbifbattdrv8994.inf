@@ -14,7 +14,7 @@ Signature="$Windows NT$"
 Class=System
 ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider=%COMP%
-DriverVer=11/20/2010,8.0.0.0002
+DriverVer=03/18/2021,8.0.0.0002
 PnPLockdown=1
 
 CatalogFile.NTarm   = qcbifbattdrv8994.arm.cat
@@ -59,7 +59,6 @@ Addreg=PMICBIFACL
 
 [PMIC_Inst.NTarm.Services]
 AddService = qcbifbattdrv,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
-
 
 [PMIC_Inst.NTarm64]
 Copyfiles = PMICCopyFiles

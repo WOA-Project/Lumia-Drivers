@@ -18,7 +18,7 @@ Signature="$Windows NT$"
 Class=System
 ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider=%QC%
-DriverVer=09/29/2011,11.45.15.875
+DriverVer=03/18/2021,11.45.15.875
 PnpLockdown = 1
 
 CatalogFile.NTarm   = qccamsensor_tertiarySMIApp8994.arm.cat

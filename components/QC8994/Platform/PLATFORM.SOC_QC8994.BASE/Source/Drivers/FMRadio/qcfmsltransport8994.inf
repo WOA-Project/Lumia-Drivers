@@ -14,7 +14,7 @@ Signature   = "$Windows NT$"
 Class       = System                                     ; FM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}  ;{13891054-2FF4-4E78-8F2F-0A8C53B9B550} ;
 Provider    = %QC%
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
 
 CatalogFile.NTarm = qcfmsltransport8994.arm.cat

@@ -3,7 +3,7 @@ Signature = "$Windows NT$"
 Class     = System
 ClassGuid = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider  = %Vendor_Name%
-DriverVer = 01/01/2021,6.2.8175.0
+DriverVer = 03/18/2021,6.2.8175.0
 PnpLockdown = 1
 
 CatalogFile.NTarm   = mmo_sec_driver.arm.cat

@@ -10,7 +10,7 @@ Signature   = "$Windows NT$"
 Class       = USB
 ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %Company%
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = QcXhciFilter8994.arm.cat

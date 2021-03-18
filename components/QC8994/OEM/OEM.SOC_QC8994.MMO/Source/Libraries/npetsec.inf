@@ -6,7 +6,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 09/09/2015,1.0.1047.0000
+DriverVer   = 03/18/2021,1.0.1047.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = npetsec.arm.cat

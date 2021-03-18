@@ -16,7 +16,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %Company%
-DriverVer   = 01/01/1997,16.8.6.884
+DriverVer   = 03/18/2021,16.8.6.884
 PnpLockdown = 1
 
 CatalogFile.NTarm   = qcusbfnss8994.arm.cat
@@ -128,7 +128,6 @@ HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn\{D5393B53-8AAE-4
 ;HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn\{7980CAA5-0DAA-4954-A39C-93B2B4707DD4}", EnableFlags, %REG_DWORD%, 0xFFFFFFFF
 ;HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn\{7980CAA5-0DAA-4954-A39C-93B2B4707DD4}", MatchAnyKeyword, %REG_DWORD%, 0xFFFFFFFF
 ;HKLM,"System\CurrentControlSet\Control\WMI\Autologger\SnpsUsbFn\{7980CAA5-0DAA-4954-A39C-93B2B4707DD4}", EnableLevel, %REG_DWORD%, 0x00000003
-
 
  ;----- String translations
 [Strings]

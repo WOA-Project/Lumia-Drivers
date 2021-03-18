@@ -3,7 +3,7 @@ Signature="$Windows NT$"
 Class=System
 ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider=%MMO%
-DriverVer=07/10/2013,12.55.5.110
+DriverVer=03/18/2021,12.55.5.110
 PnpLockdown = 1
 
 CatalogFile.NTarm   = icaros_cam_esp.arm.cat
