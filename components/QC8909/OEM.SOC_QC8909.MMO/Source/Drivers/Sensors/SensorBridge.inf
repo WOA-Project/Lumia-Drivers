@@ -1,10 +1,10 @@
 [Version]
-Signature = "$Windows NT$"
-Class=Sensor
-ClassGuid={5175D334-C371-4806-B3BA-71FD53C9258D}
-Provider=MMO
-DriverVer= 08/30/2016,20.28.32.0825
-CatalogFile   = SensorBridge.cat
+Signature   = "$Windows NT$"
+Class       = Sensor
+ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
+Provider    = %VendorName%
+DriverVer   = 08/30/2016,20.28.32.0825
+CatalogFile = SensorBridge.cat
 
 [DestinationDirs]
 DefaultDestDir=12,UMDF
@@ -13,7 +13,7 @@ DefaultDestDir=12,UMDF
 ExcludeFromSelect=*
 
 [Manufacturer]
-MMO=MMO,NTARM
+%ManufacturerName% = MMO,NTARM
 
 [MMO.NTARM]
 %ACT.DeviceDesc%=Activity_Inst,ACPI\MSHW101C
@@ -138,18 +138,18 @@ UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfFsContextUsePolicy   = CannotUseFsContexts
 
 [MmoSensorBridgeService_Install]
-UmdfLibraryVersion       = 2.0
+UmdfLibraryVersion       = 2.15.0
 ServiceBinary            = %12%\UMDF\SensorBridge.dll
 
 [Strings]
-ACT.DeviceDesc="MMO Activity Detection driver"
-STEP.DeviceDesc="MMO Step Counter driver"
-GES.DeviceDesc="MMO Gesture Recognition driver"
-SAC.DeviceDesc="Sensor Algorithm Control driver"
-SPX.DeviceDesc="Sensor Proxy driver"
+ACT.DeviceDesc           = "Microsoft Mobile Activity Detection Service"
+STEP.DeviceDesc          = "Microsoft Mobile Step Counter Service"
+GES.DeviceDesc           = "Microsoft Mobile Gesture Recognition Service"
+SAC.DeviceDesc           = "Microsoft Mobile Sensor Algorithm Control Service"
+SPX.DeviceDesc           = "Microsoft Mobile Sensor Proxy Service"
 
 WudfRdDisplayName      = "Windows Driver Foundation - User-mode Driver Framework Reflector"
-Installation_Disk = "Sensor Bridge Installation Disk"
+Installation_Disk      = "Microsoft Mobile Sensor Bridge Installation Disk"
 
 SERVICE_KERNEL_DRIVER    = 1
 SERVICE_DEMAND_START     = 3

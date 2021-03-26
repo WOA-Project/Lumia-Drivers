@@ -1,0 +1,30 @@
+;
+; npetsec.inf
+;
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 03/18/2021,1.0.1047.0000
+CatalogFile = npetsec.cat
+PnpLockdown = 1
+
+[DestinationDirs]
+npetsec.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+npetsec.dll = 0,,
+
+[DefaultInstall.NTarm]
+CopyFiles = npetsec.Files
+
+[npetsec.Files]
+npetsec.dll
+
+[Strings]
+IHV                = "LumiaWoA authors"
+npetsec.DeviceDesc = "Nokia Security Library"

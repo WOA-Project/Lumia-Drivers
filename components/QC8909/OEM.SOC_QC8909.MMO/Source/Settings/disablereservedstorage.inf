@@ -1,0 +1,25 @@
+;
+; DisableReservedStorage.inf
+;
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 03/18/2021,1.0.0.0
+CatalogFile = DisableReservedStorage.cat
+PnpLockdown = 1
+
+;*****************************************
+; DisableReservedStorage  Install Section
+;*****************************************
+
+[DefaultInstall.NTarm]
+Addreg    = DisableReservedStorageReg
+
+[DisableReservedStorageReg]
+HKLM, "Software\Microsoft\Windows\CurrentVersion\ReserveManager", "ShippedWithReserves", 0x10001, 0x0
+
+[Strings]
+IHV = "LumiaWoA authors"

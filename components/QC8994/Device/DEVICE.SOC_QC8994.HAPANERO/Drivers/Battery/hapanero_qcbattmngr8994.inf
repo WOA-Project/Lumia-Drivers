@@ -38,75 +38,73 @@ ExcludeFromSelect = *
 %DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2453
 
 [DeviceExtension_Install]
-
-[DeviceExtension_Install.HW]
-Addreg        = BMREG
+Addreg = BMREG
 
 [BMREG]
-HKR, "BatteryChargingTable1", "BatteryCategory"             , 0x10001,  0x1
-HKR, "BatteryChargingTable1", "CurrentZone1"                , 0x10001,  0x3b6
-HKR, "BatteryChargingTable1", "CurrentZone3"                , 0x10001,  0x3b6
-HKR, "BatteryChargingTable1", "MaxBatteryCurrent"           , 0x10001,  0x898
-HKR, "BatteryChargingTable1", "MaxBatteryVoltage"           , 0x10001,  0x10fe
-HKR, "BatteryChargingTable1", "MaxOpTemp"                   , 0x10001,  0x4b
-HKR, "BatteryChargingTable1", "MinOpTemp"                   , 0x10001,  0xffffffec
-HKR, "BatteryChargingTable1", "SafeMaxTemp"                 , 0x10001,  0x3c
-HKR, "BatteryChargingTable1", "SafeMinTemp"                 , 0x10001,  0x0
-HKR, "BatteryChargingTable1", "StandardZone"                , 0x10001,  0x2
-HKR, "BatteryChargingTable1", "SWJeita"                     , 0x10001,  0x1
-HKR, "BatteryChargingTable1", "TempHyst"                    , 0x10001,  0x2
-HKR, "BatteryChargingTable1", "TempZone1"                   , 0x10001,  0x10
-HKR, "BatteryChargingTable1", "TempZone3"                   , 0x10001,  0x32
-HKR, "BatteryChargingTable1", "TotalZones"                  , 0x10001,  0x3
-HKR, "BatteryChargingTable1", "VoltageZone1"                , 0x10001,  0x109a
-HKR, "BatteryChargingTable1", "VoltageZone3"                , 0x10001,  0x109a
-HKR, "BatteryInfo"          , "DefaultAlert1"               , 0x10001,  0x14e
-HKR, "BatteryInfo"          , "DefaultAlert2"               , 0x10001,  0x2f0
-HKR, "BatteryInfo"          , "DesignCapacity"              , 0x10001,  0x20a8
-HKR, "BatteryInfo"          , "DeviceName"                  , 0x0    ,  "BV-L4A"
-HKR, "BatteryInfo"          , "FullChargeCapacity"          , 0x10001,  0x20a8
-HKR, "BatteryInfo"          , "ManufactureName"             , 0x0    ,  "Microsoft"
-HKR, "CoinCharger"          , "CoinChargerRSet"             , 0x10001,  0x3
-HKR, "CoinCharger"          , "CoinChargerVSet"             , 0x10001,  0x1
-HKR, "Jeita"                , "CurrentJeitaZone1"           , 0x10001,  0x1f4
-HKR, "Jeita"                , "CurrentJeitaZone3"           , 0x10001,  0x1f4
-HKR, "Jeita"                , "MaxBatteryCurrent"           , 0x10001,  0x384
-HKR, "Jeita"                , "MaxBatteryVoltage"           , 0x10001,  0x1068
-HKR, "Jeita"                , "StandardTempZone"            , 0x10001,  0x2
-HKR, "Jeita"                , "TemperatureJeitaZone1"       , 0x10001,  0x10
-HKR, "Jeita"                , "TemperatureJeitaZone3"       , 0x10001,  0x30
-HKR, "Jeita"                , "TotalTempZone"               , 0x10001,  0x3
-HKR, "Jeita"                , "VoltageJeitaZone1"           , 0x10001,  0x1004
-HKR, "Jeita"                , "VoltageJeitaZone3"           , 0x10001,  0x1004
-HKR, "Platform"             , "AFPTriggerMaxBattTemp"       , 0x10001,  0x4b
-HKR, "Platform"             , "AFPTriggerMinBattTemp"       , 0x10001,  0xffffffec
-HKR, "Platform"             , "BCLLowBattPerc"              , 0x10001,  0xf
-HKR, "Platform"             , "BCLMinIMax"                  , 0x10001,  0x9c4
-HKR, "Platform"             , "BCLNormalBattPerc"           , 0x10001,  0x11
-HKR, "Platform"             , "BCLVBattLow"                 , 0x10001,  0xbea
-HKR, "Platform"             , "DCInputCurrent"              , 0x10001,  0x2bc
-HKR, "Platform"             , "IBattHighIRQInhibit"         , 0x10001,  0x1f4
-HKR, "Platform"             , "iTerm"                       , 0x10001,  0x96
-HKR, "Platform"             , "LowBatteryVoltage"           , 0x10001,  0xdac
-HKR, "Platform"             , "NoIbatCalib"                 , 0x10001,  0x1
-HKR, "Platform"             , "NominalBatteryVoltage"       , 0x10001,  0xf0a
-HKR, "Platform"             , "OCPCurrent"                  , 0x10001,  0x1388
-HKR, "Platform"             , "RPARA"                       , 0x10001,  0x32
-HKR, "Platform"             , "RSLOW"                       , 0x10001,  0x1e
-HKR, "Platform"             , "VBattLowToNormal"            , 0x10001,  0x12c
-HKR, "Platform"             , "VCutOff"                     , 0x10001,  0xc80
-HKR, "RechargeMode"         , "DeltaVRechargeReduct"        , 0x10001,  0x0
-HKR, "RechargeMode"         , "DeltaVRechargeThreshold"     , 0x10001,  0x96
-HKR, "Thermal"              , "IwlcMax"                     , 0x10001,  0x2bc
-HKR, "ThermalCorrect"       , "BifCurrentCompensationFactor", 0x0    ,  "0.45"
-HKR, "ThermalCorrect"       , "BifMarginHigh"               , 0x10001,  0x2
-HKR, "ThermalCorrect"       , "BifMarginLow"                , 0x10001,  0xfffffffa
-HKR, "ThermalCorrect"       , "BifRate"                     , 0x0    ,  "2.0"
-HKR, "ThermalCorrect"       , "BifTail"                     , 0x10001,  0x7
-HKR, "ThermalCorrect"       , "NtcMarginHigh"               , 0x10001,  0x1
-HKR, "ThermalCorrect"       , "NtcMarginLow"                , 0x10001,  0xfffffff5
-HKR, "ThermalCorrect"       , "NtcRate"                     , 0x0    ,  "1.5"
-HKR, "ThermalCorrect"       , "NtcTail"                     , 0x10001,  0x7
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "BatteryCategory"             , 0x10001,  0x1
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "CurrentZone1"                , 0x10001,  0x3b6
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "CurrentZone3"                , 0x10001,  0x3b6
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "MaxBatteryCurrent"           , 0x10001,  0x898
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "MaxBatteryVoltage"           , 0x10001,  0x10fe
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "MaxOpTemp"                   , 0x10001,  0x4b
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "MinOpTemp"                   , 0x10001,  0xffffffec
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "SafeMaxTemp"                 , 0x10001,  0x3c
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "SafeMinTemp"                 , 0x10001,  0x0
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "StandardZone"                , 0x10001,  0x2
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "SWJeita"                     , 0x10001,  0x1
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "TempHyst"                    , 0x10001,  0x2
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "TempZone1"                   , 0x10001,  0x10
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "TempZone3"                   , 0x10001,  0x32
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "TotalZones"                  , 0x10001,  0x3
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "VoltageZone1"                , 0x10001,  0x109a
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryChargingTable1", "VoltageZone3"                , 0x10001,  0x109a
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "DefaultAlert1"               , 0x10001,  0x14e
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "DefaultAlert2"               , 0x10001,  0x2f0
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "DesignCapacity"              , 0x10001,  0x20a8
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "DeviceName"                  , 0x0    ,  "BV-L4A"
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "FullChargeCapacity"          , 0x10001,  0x20a8
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\BatteryInfo"          , "ManufactureName"             , 0x0    ,  "Microsoft"
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\CoinCharger"          , "CoinChargerRSet"             , 0x10001,  0x3
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\CoinCharger"          , "CoinChargerVSet"             , 0x10001,  0x1
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "CurrentJeitaZone1"           , 0x10001,  0x1f4
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "CurrentJeitaZone3"           , 0x10001,  0x1f4
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "MaxBatteryCurrent"           , 0x10001,  0x384
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "MaxBatteryVoltage"           , 0x10001,  0x1068
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "StandardTempZone"            , 0x10001,  0x2
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "TemperatureJeitaZone1"       , 0x10001,  0x10
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "TemperatureJeitaZone3"       , 0x10001,  0x30
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "TotalTempZone"               , 0x10001,  0x3
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "VoltageJeitaZone1"           , 0x10001,  0x1004
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Jeita"                , "VoltageJeitaZone3"           , 0x10001,  0x1004
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "AFPTriggerMaxBattTemp"       , 0x10001,  0x4b
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "AFPTriggerMinBattTemp"       , 0x10001,  0xffffffec
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "BCLLowBattPerc"              , 0x10001,  0xf
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "BCLMinIMax"                  , 0x10001,  0x9c4
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "BCLNormalBattPerc"           , 0x10001,  0x11
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "BCLVBattLow"                 , 0x10001,  0xbea
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "DCInputCurrent"              , 0x10001,  0x2bc
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "IBattHighIRQInhibit"         , 0x10001,  0x1f4
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "iTerm"                       , 0x10001,  0x96
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "LowBatteryVoltage"           , 0x10001,  0xdac
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "NoIbatCalib"                 , 0x10001,  0x1
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "NominalBatteryVoltage"       , 0x10001,  0xf0a
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "OCPCurrent"                  , 0x10001,  0x1388
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "RPARA"                       , 0x10001,  0x32
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "RSLOW"                       , 0x10001,  0x1e
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "VBattLowToNormal"            , 0x10001,  0x12c
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Platform"             , "VCutOff"                     , 0x10001,  0xc80
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\RechargeMode"         , "DeltaVRechargeReduct"        , 0x10001,  0x0
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\RechargeMode"         , "DeltaVRechargeThreshold"     , 0x10001,  0x96
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\Thermal"              , "IwlcMax"                     , 0x10001,  0x2bc
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifCurrentCompensationFactor", 0x0    ,  "0.45"
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifMarginHigh"               , 0x10001,  0x2
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifMarginLow"                , 0x10001,  0xfffffffa
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifRate"                     , 0x0    ,  "2.0"
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "BifTail"                     , 0x10001,  0x7
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "NtcMarginHigh"               , 0x10001,  0x1
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "NtcMarginLow"                , 0x10001,  0xfffffff5
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "NtcRate"                     , 0x0    ,  "1.5"
+HKLM, "System\CurrentControlSet\Services\qcbattmngr\ThermalCorrect"       , "NtcTail"                     , 0x10001,  0x7
 
 [Strings]
 ;Localizable Strings

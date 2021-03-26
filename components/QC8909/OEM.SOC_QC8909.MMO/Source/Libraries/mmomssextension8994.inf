@@ -1,0 +1,34 @@
+[Version]
+Signature   = "$Windows NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QC%
+ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F71}
+DriverVer   = 03/18/2021,1.0.0.1
+CatalogFile = mmoamssextension8909.cat
+PnpLockdown = 1
+
+[Manufacturer]
+%QC% = DeviceExtensions,NTarm
+
+[DeviceExtensions.NTarm]
+%MBB.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_242C
+
+[DeviceExtension_Install.NT]
+; No changes
+
+[DeviceExtension_Install.NT.Components]
+; Libraries
+AddComponent = APPerso_SoftwareComponent             ,, APPerso_Install
+AddComponent = RILServiceActivation_SoftwareComponent,, RILServiceActivation_Install
+
+[APPerso_Install]
+ComponentIds = VID_QCOM&PID_0EA0&SID_00A1
+
+[RILServiceActivation_Install]
+ComponentIds = VID_QCOM&PID_0EA0&SID_00A2
+
+[Strings]
+;Localizable Strings
+QC             = "MMO"
+MBB.DeviceDesc = "Qualcomm Advanced Modem Subsystem Extension"

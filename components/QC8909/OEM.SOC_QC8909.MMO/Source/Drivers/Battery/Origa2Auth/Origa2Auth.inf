@@ -6,7 +6,7 @@
 Signature    = "$WINDOWS NT$"
 Class        = Battery
 ClassGuid    = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
-Provider     = %ManufacturerName%
+Provider     = %ProviderName%
 CatalogFile  = Origa2Auth.cat
 DriverVer    = 08/30/2016,20.27.54.0644
 BootCritical = 1
@@ -57,11 +57,11 @@ LoadOrderGroup = Extended Base
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-ManufacturerName       = "MMO"
-DiskName               = "Origa2Auth Installation Disk"
-Origa2Auth.DeviceDesc  = "Origa2Auth Device"
-Origa2Auth.SVCDESC     = "Origa2Auth Service"
-
+ProviderName           = "MMO"
+ManufacturerName       = "Infineon Technologies"
+DiskName               = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200) Installation Disk"
+Origa2Auth.DeviceDesc  = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200)"
+Origa2Auth.SvcDesc     = "Infineon ORIGA(TM)2 Battery Authentication IC (SLE95200) Driver"
 
 SERVICE_KERNEL_DRIVER  = 1
 SERVICE_BOOT_START     = 0

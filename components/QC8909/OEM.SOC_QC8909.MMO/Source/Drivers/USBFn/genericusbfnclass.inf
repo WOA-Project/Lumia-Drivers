@@ -1,0 +1,105 @@
+;
+; genericusbfnclass.inf
+;
+[Version]
+Signature = "$Windows NT$"
+Class     = System
+ClassGuid = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider  = %IHV%
+DriverVer = 03/18/2021,14.27.55.0047
+PnpLockdown = 1
+CatalogFile = genericusbfnclass.cat
+
+;*****************************************
+; Generic USB Fn Class Install Section
+;*****************************************
+
+[DestinationDirs]
+genericusbfnclass_Files = 13
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+genericusbfnclass.sys = 0,,
+
+[Manufacturer]
+%StdMfg% = Standard, NTarm
+
+; For ARM platforms
+[Standard.NTarm]
+; DisplayName                   Section           DeviceId
+; -----------                   -------           --------
+%WdfSimpleDevice.DeviceDesc%  = UfnBus_Child_00, USBFN\NCSd
+%WdfSimpleDevice.DeviceDesc2% = UfnBus_Child_00, USBFN\OddtControl
+
+;-------------- Service installation
+
+[UfnBus_Child_00]
+CopyFiles = genericusbfnclass_Files
+AddReg    = genericusbfnclass_device_descriptor
+
+[UfnBus_Child_00.Services]
+AddService = genericusbfnclass, 0x00000002, genericusbfnclass_Service_Inst
+
+[genericusbfnclass_Service_Inst]
+DisplayName    = %WDFSIMPLE.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNND_STARTEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+Tag            = 0x0F
+LoadOrderGroup = "Extended Base"
+ServiceBinary  = %13%\genericusbfnclass.sys
+AddReg         = genericusbfnclass_Service_Inst.AddReg
+
+[genericusbfnclass_Files]
+genericusbfnclass.sys
+
+[genericusbfnclass_device_descriptor]
+; Device Descriptor
+HKLM,"System\CurrentControlSet\Control\USBFN",idVendor,%REG_DWORD%,0x045E
+HKLM,"System\CurrentControlSet\Control\USBFN",idProduct,%REG_DWORD%,0x0A00
+HKLM,"System\CurrentControlSet\Control\USBFN",ManufacturerString,%REG_SZ%,Microsoft
+HKLM,"System\CurrentControlSet\Control\USBFN",iProduct,%REG_DWORD%,2
+HKLM,"System\CurrentControlSet\Control\USBFN",iManufacturer,%REG_DWORD%,1
+
+HKLM,"System\CurrentControlSet\Control\USBFN",IncludeDefaultCfg,%REG_DWORD%,1
+HKLM,"System\CurrentControlSet\Control\USBFN",CurrentConfiguration,%REG_SZ%,RetailConfig
+
+HKLM,"System\CurrentControlSet\Control\USBFN\Configurations",,,""
+
+; RetailConfig
+; HKLM,"System\CurrentControlSet\Control\USBFN\Configurations\RetailConfig",bmAttributes,%REG_DWORD%, 0xC0
+; HKLM,"System\CurrentControlSet\Control\USBFN\Configurations\RetailConfig",bMaxPower,%REG_DWORD%,0xFA
+HKLM,"System\CurrentControlSet\Control\USBFN\Configurations\RetailConfig",InterfaceList,%REG_MULTI_SZ%,"NCSd","OddtControl"
+HKLM,"System\CurrentControlSet\Control\USBFN\Configurations\RetailConfig",MSOSCompatIdDescriptor,%REG_BINARY%,40,00,00,00,00,01,04,00,02,00,00,00,00,00,00,00,00,01,57,49,4E,55,53,42,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,01,57,49,4E,55,53,42,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+;HKLM,"System\CurrentControlSet\Control\USBFN\Configurations\RetailConfig",InterfaceList,%REG_MULTI_SZ%,"OddtControl"
+;HKLM,"System\CurrentControlSet\Control\USBFN\Configurations\RetailConfig",MSOSCompatIdDescriptor,%REG_BINARY%,28,00,00,00,00,01,04,00,01,00,00,00,00,00,00,00,00,01,57,49,4E,55,53,42,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+
+[genericusbfnclass_Service_Inst.AddReg]
+; Interface NCSd
+HKLM,"System\CurrentControlSet\Control\USBFN\Interfaces\NCSd",InterfaceDescriptor,%REG_BINARY%,09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
+HKLM,"System\CurrentControlSet\Control\USBFN\Interfaces\NCSd",InterfaceGUID,%REG_SZ%,{7eaff726-34cc-4204-b09d-f95471b873cf}
+HKLM,"System\CurrentControlSet\Control\USBFN\Interfaces\NCSd",MSOSExtendedPropertyDescriptor,%REG_BINARY%,8E,00,00,00,00,01,05,00,01,00,84,00,00,00,01,00,00,00,28,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,6E,00,74,00,65,00,72,00,66,00,61,00,63,00,65,00,47,00,55,00,49,00,44,00,00,00,4E,00,00,00,7B,00,30,00,38,00,33,00,32,00,34,00,66,00,39,00,63,00,2D,00,62,00,36,00,32,00,31,00,2D,00,34,00,33,00,35,00,63,00,2D,00,38,00,35,00,39,00,62,00,2D,00,61,00,65,00,34,00,36,00,35,00,32,00,34,00,38,00,31,00,62,00,37,00,63,00,7D,00,00,00
+
+; Interface OddtControl
+HKLM,"System\CurrentControlSet\Control\USBFN\Interfaces\OddtControl",InterfaceDescriptor,%REG_BINARY%,09,04,00,00,02,FF,FF,FF,00,07,05,81,02,00,02,00,07,05,02,02,00,02,00
+HKLM,"System\CurrentControlSet\Control\USBFN\Interfaces\OddtControl",InterfaceGUID,%REG_SZ%,{DCC28266-C479-4E07-BA78-C31B75DB8275}
+HKLM,"System\CurrentControlSet\Control\USBFN\Interfaces\OddtControl",MSOSExtendedPropertyDescriptor,%REG_BINARY%,8E,00,00,00,00,01,05,00,01,00,84,00,00,00,01,00,00,00,28,00,44,00,65,00,76,00,69,00,63,00,65,00,49,00,6E,00,74,00,65,00,72,00,66,00,61,00,63,00,65,00,47,00,55,00,49,00,44,00,00,00,4E,00,00,00,7B,00,44,00,43,00,43,00,32,00,38,00,32,00,36,00,36,00,2D,00,43,00,34,00,37,00,39,00,2D,00,34,00,45,00,30,00,37,00,2D,00,42,00,41,00,37,00,38,00,2D,00,43,00,33,00,31,00,42,00,37,00,35,00,44,00,42,00,38,00,32,00,37,00,35,00,7D,00,00,00
+
+[genericusbfnclass_device_descriptor.Security]
+"D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;AU)(A;;GA;;;BG)(A;;GA;;;S-1-15-2-1)(A;;GA;;;WD)"
+
+[Strings]
+SPSVCINST_ASSOCSERVICE      = 0x00000002
+IHV                         = "LumiaWoA authors"
+StdMfg                      = "(Standard system devices)"
+WdfSimpleDevice.DeviceDesc  = "NCSd"
+WdfSimpleDevice.DeviceDesc2 = "OddtControl"
+
+WDFSIMPLE.SvcDesc           = "Microsoft Windows Phone USB Device Driver"
+
+REG_SZ         = 0x00000000
+REG_BINARY     = 0x00000001
+REG_DWORD      = 0x00010001
+REG_MULTI_SZ   = 0x00010000

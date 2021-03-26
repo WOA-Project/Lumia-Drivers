@@ -1,6 +1,6 @@
 ;;/*++
 ;
-;Copyright (c) 2010-2012  Qualcomm Corporation
+;Copyright (c) 2010-2012  Qualcomm Incorporated
 ;
 ;Module Name:
 ;    qccamjpege8992.INF
@@ -22,10 +22,10 @@ CatalogFile.NTarm   = qccamjpege8992.arm.cat
 CatalogFile.NTarm64 = qccamjpege8992.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
-QCWic.Files    = 11
-QCWic32.Files  = 11
-QCWicArm.Files = 10, SysArm32
+DefaultDestDir = 13
+QCWic.Files    = 13
+QCWic32.Files  = 13
+QCWicArm.Files = 13, SysArm32
 
 ; ================= Class section =====================
 [SourceDisksNames]
@@ -85,7 +85,7 @@ QcWicEncoder8992.dll, QcWicEncoderARM8992.dll,, 0x00004000,
 AddReg = CameraJpegE_Device_Security_Reg,WicRegistration
 
 [CameraJpegE_Device.NT.HW]
-AddReg = CameraJpegE_Device_Security_Reg,WicRegistration,WicRegistration64
+AddReg = CameraJpegE_Device_Security_Reg,WicRegistration64
 
 [CameraJpegE_Device_Security_Reg]
 HKR,, DeviceCharacteristics, 0x10001, 0x100
@@ -94,12 +94,18 @@ HKR,, DeviceCharacteristics, 0x10001, 0x100
 ; system32
 ; QcWicEncoder and Postproc registry settings
 HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                                          ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
-HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,                           ,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\QcWicEncoder8992.dll"
+HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,                           ,%REG_EXPAND_SZ%,"%13%\arm\QcWicEncoderARM8992.dll"
 HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,             ThreadingModel,               ,"Both"
 
 [WicRegistration64]
+; system32
+; QcWicEncoder and Postproc registry settings
+HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                                          ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
+HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,                           ,%REG_EXPAND_SZ%,"%13%\arm64\QcWicEncoder8992.dll"
+HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,             ThreadingModel,               ,"Both"
+
 HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                              ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
-HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,               ,%REG_EXPAND_SZ%,"%%SystemRoot%%\SysArm32\QcWicEncoder8992.dll"
+HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,               ,%REG_EXPAND_SZ%,"%13%\arm\QcWicEncoderARM8992.dll"
 HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32, ThreadingModel,               ,"Both"
 
 ;-------------- Service installation
@@ -107,7 +113,7 @@ HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\
 AddService = JpegE,%SPSVCINST_ASSOCSERVICE%, JpegE_Service_Inst
 
 [CameraJpegE_Device.NT.Services]
-AddService = JpegE,%SPSVCINST_ASSOCSERVICE%, JpegE_Service_Inst
+AddService = JpegE,%SPSVCINST_ASSOCSERVICE%, JpegE_Service_Inst.NTarm64
 
 ; -------------- Jpeg Encoder driver install sections
 [JpegE_Service_Inst]
@@ -115,7 +121,14 @@ DisplayName   = %JpegE.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qccamjpege8992.sys
+ServiceBinary = %13%\arm\qccamjpege8992.sys
+
+[JpegE_Service_Inst.NTarm64]
+DisplayName   = %JpegE.SvcDesc%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qccamjpege8992.sys
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002

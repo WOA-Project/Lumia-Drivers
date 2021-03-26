@@ -37,7 +37,7 @@ Catalogfile.NTarm64 = qccamavs8994.arm64.cat
 %qccamavs.DeviceDesc% = QCCamAvs,VIDEO\QCOM_AVStream_8994
 
 [DestinationDirs]
-QCCamAvs.Files = %SYS32_FOLDER%
+QCCamAvs.Files = %DRIVERSTORE_FOLDER%
 
 [SourceDisksNames]
 0 = %qccamavs.DiskName%
@@ -51,10 +51,16 @@ qccamavs8994.sys = 0,arm64,
 [QCCamAvs.Files]
 qccamavs8994.sys
 
-[QCCamAvs.NT]
+[QCCamAvs.NTarm]
 CopyFiles = QCCamAvs.Files
 
-[QCCamAvs.NT.HW]
+[QCCamAvs.NTarm64]
+CopyFiles = QCCamAvs.Files
+
+[QCCamAvs.NTarm.HW]
+AddReg = QCCamAvs.Reg.Security
+
+[QCCamAvs.NTarm64.HW]
 AddReg = QCCamAvs.Reg.Security
 
 [QCCamAvs.Reg.Security]
@@ -296,15 +302,25 @@ HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media3
 ;---------------------------------------------------------------
 ;                S e r v i c e s
 ;---------------------------------------------------------------
-[QCCamAvs.NT.Services]
-AddService = QCCamAvs, 0x00000002, QCCamAvs.AddService
+[QCCamAvs.NTarm.Services]
+AddService = QCCamAvs, 0x00000002, QCCamAvs.AddService.NTarm
 
-[QCCamAvs.AddService]
+[QCCamAvs.NTarm64.Services]
+AddService = QCCamAvs, 0x00000002, QCCamAvs.AddService.NTarm64
+
+[QCCamAvs.AddService.NTarm]
 DisplayName   = %qccamavs.DeviceDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %12%\qccamavs8994.sys
+ServiceBinary = %13%\arm\qccamavs8994.sys
+
+[QCCamAvs.AddService.NTarm64]
+DisplayName   = %qccamavs.DeviceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm64\qccamavs8994.sys
 
 ;---------------------------------------------------------------
 ;                S t r i n g s
@@ -322,6 +338,7 @@ SERVICE_KERNEL_DRIVER                = 1
 SERVICE_DEMAND_START                 = 3
 SERVICE_ERROR_NORMAL                 = 1
 SYS32_FOLDER                         = 12
+DRIVERSTORE_FOLDER                   = 13
 
 ;localizable
 QC                                   = "Qualcomm Technologies, Inc."
@@ -394,7 +411,7 @@ RES_PAD_VGA                          = "768,  576"
 RES_PAD_QVGA                         = "384,  288"
 RES_SQR_9MP                          = "3104, 3104"
 RES_SQR_2MP                          = "1504, 1504"
-RES_SQR0.NTarm64                          = "640,  640"
+RES_SQR_640                          = "640,  640"
 RES_SQR_480                          = "480,  480"
 
 ;---------------------------------------------------------------

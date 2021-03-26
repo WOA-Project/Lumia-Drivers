@@ -1,0 +1,84 @@
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+DriverVer   = 03/18/2021,0.0.6.0000
+CatalogFile = ngp_svc.cat
+PnpLockdown = 1
+
+[DestinationDirs]
+;11 == Windows\System32
+;10 == Windows
+ServiceDestDir = 11
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,""
+
+[SourceDisksFiles]
+ngp_core.dll=1,,
+ngp_main.dll=1,,
+ngp_svc.exe=1,,
+ngp_tp.dll=1,,
+SecurityRuntime.dll=1,,
+cmnet.dll=1,,
+CmOemUtil.dll=1,,
+
+;*******************************
+; ngp_svc Install Section
+;*******************************
+
+[DefaultInstall.NTarm]
+CopyFiles = ServiceDestDir
+AddReg    = ngp_svcReg
+
+[ServiceDestDir]
+ngp_core.dll
+ngp_main.dll
+ngp_svc.exe
+ngp_tp.dll
+SecurityRuntime.dll
+cmnet.dll
+CmOemUtil.dll
+
+;-------------- Service installation
+[DefaultInstall.NTarm.Services]
+AddService = nGpSvc,0x00000000,NgpSvc_ServiceInstall
+
+[NgpSvc_ServiceInstall]
+DisplayName   = "nGpSvc"
+Description   = "NGP"
+ServiceType   = 0x10
+StartType     = 2
+ErrorControl  = 0
+ServiceBinary = "%%SystemRoot%%\System32\ngp_svc.exe"
+
+[ngp_svcReg]
+HKLM, "System\CurrentControlSet\services\nGpSvc", "Description", 0x00000000, "NGP"
+HKLM, "System\CurrentControlSet\services\nGpSvc", "Start", 0x00010001, 0x00000002
+HKLM, "System\CurrentControlSet\services\nGpSvc", "ImagePath", 0x00020000, "%%SystemRoot%%\System32\ngp_svc.exe"
+HKLM, "System\CurrentControlSet\services\nGpSvc", "DisplayName", 0x00000000, "nGpSvc"
+HKLM, "System\CurrentControlSet\services\nGpSvc", "FailureActions", 0x00000001, \
+	80,51,01,00,00,00,00,00,00,00,00,00,04,00,00, \ ; Q·············
+	00,14,00,00,00,01,00,00,00,E8,03,00,00,01,00, \ ; ·········è·····
+	00,00,E8,03,00,00,01,00,00,00,E8,03,00,00,00, \ ; ··è·······è····
+	00,00,00,00,00,00,00                            ; ·······
+
+HKLM, "System\CurrentControlSet\services\nGpSvc", "PreshutdownTimeout", 0x00010001, 0x00004E20
+HKLM, "System\CurrentControlSet\services\nGpSvc", "ErrorControl", 0x00010001, 0x00000000
+HKLM, "System\CurrentControlSet\services\nGpSvc", "Type", 0x00010001, 0x00000010
+
+HKLM, "System\CurrentControlSet\services\nGpSvc", "ObjectName", 0x00000000, "LocalSystem"
+HKLM, "System\CurrentControlSet\services\nGpSvc", "ServiceSidType", 0x00010001, 0x00000001
+
+HKLM, "Software\OEM\NGP", "LicensePositioningTP", 0x00010001, 0x00000001
+HKLM, "Software\OEM\NGP", "featureSensors", 0x00010001, 0x00000001
+HKLM, "Software\OEM\NGP", "featureSensorEnhancedGNSS", 0x00010001, 0x00000001
+
+HKLM, "Software\OEM\NGP", "featureTracksActive", 0x00010001, 0x00000001
+HKLM, "Software\OEM\NGP", "featureBarometricAltimeter", 0x00010001, 0x00000001
+HKLM, "Software\OEM\NGP", "featureBarometricAssistance", 0x00010001, 0x00000001
+
+[Strings]
+MediaDescription         = "MMO ngp_svc Collection Installation Media"
+ManufacturerName         = "MMO"

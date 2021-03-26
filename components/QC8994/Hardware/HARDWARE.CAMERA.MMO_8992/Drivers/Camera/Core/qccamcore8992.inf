@@ -21,7 +21,7 @@ CatalogFile.NTarm   = qccamcore8992.arm.cat
 CatalogFile.NTarm64 = qccamcore8992.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -49,15 +49,18 @@ ExcludeFromSelect=*
 CopyFiles = Drivers_Dir
 
 [QC.NTarm64]
-%CORE.DeviceDescNull% = CORE_Device, ROOT\CORE
+%CORE.DeviceDescNull% = CORE_Devicearm64, ROOT\CORE
 
-[CORE_Device.NTarm64]
+[CORE_Devicearm64.NTarm64]
 CopyFiles = Drivers_Dir
 
 [Drivers_Dir]
 qccamcore8992.sys
 
 [CORE_Device.NTarm.HW]
+AddReg = CORE_Device_Security_Reg
+
+[CORE_Devicearm64.NTarm64.HW]
 AddReg = CORE_Device_Security_Reg
 
 [CORE_Device_Security_Reg]
@@ -67,6 +70,9 @@ HKR,,DeviceCharacteristics,0x10001,0x100
 [CORE_Device.NTarm.Services]
 AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst
 
+[CORE_Devicearm64.NTarm64.Services]
+AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst
+
 ; -------------- CORE driver install sections
 [CORE_Service_Inst]
 DisplayName    = %CORE.SvcDesc%
@@ -74,7 +80,16 @@ ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 ;StartType      = 2               ; SERVICE_AUTO_START
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qccamcore8992.sys
+ServiceBinary  = %13%\arm\qccamcore8992.sys
+LoadOrderGroup = Extended Base
+
+[CORE_Service_Inst.NTarm64]
+DisplayName    = %CORE.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+;StartType      = 2               ; SERVICE_AUTO_START
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qccamcore8992.sys
 LoadOrderGroup = Extended Base
 
 [Strings]

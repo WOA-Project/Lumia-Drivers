@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  Qualcomm Corporation
+;Copyright (c) 2010-2012  Qualcomm Incorporated
 ;
 ;Module Name:
 ;    qccamplatform8992.INF
@@ -22,7 +22,7 @@ CatalogFile.NTarm   = qccamplatform8992.arm.cat
 CatalogFile.NTarm64 = qccamplatform8992.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 [SourceDisksNames]
 0 = %DiskId%
@@ -46,7 +46,12 @@ qccamplatform8992.sys = 0,arm64
 [QC.NTarm64]
 %CameraPlatform.DeviceDesc% = CameraPlatform_Device, ACPI\QCOM245E
 
-[CameraPlatform_Device.NT]
+[CameraPlatform_Device.NTarm]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[CameraPlatform_Device.NTarm64]
 CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
@@ -57,15 +62,21 @@ qccamplatform8992.sys
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
-[CameraPlatform_Device.NT.HW]
+[CameraPlatform_Device.NTarm.HW]
+AddReg = CameraPlatform_Device_Security_Reg
+
+[CameraPlatform_Device.NTarm64.HW]
 AddReg = CameraPlatform_Device_Security_Reg
 
 [CameraPlatform_Device_Security_Reg]
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
-[CameraPlatform_Device.NT.Services]
+[CameraPlatform_Device.NTarm.Services]
 AddService = qcCameraPlatform,%SPSVCINST_ASSOCSERVICE%, CameraPlatform_Service_Inst
+
+[CameraPlatform_Device.NTarm64.Services]
+AddService = qcCameraPlatform,%SPSVCINST_ASSOCSERVICE%, CameraPlatform_Service_Inst.NTarm64
 
 ; -------------- CameraPlatform driver install sections
 [CameraPlatform_Service_Inst]
@@ -73,7 +84,14 @@ DisplayName   = %CameraPlatform.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\qccamplatform8992.sys
+ServiceBinary = %13%\arm\qccamplatform8992.sys
+
+[CameraPlatform_Service_Inst.NTarm64]
+DisplayName   = %CameraPlatform.SvcDesc%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qccamplatform8992.sys
 
 [Strings]
 ;localizable

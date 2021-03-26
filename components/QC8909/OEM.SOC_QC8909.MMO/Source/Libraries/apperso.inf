@@ -1,0 +1,36 @@
+;
+; APPerso.inf
+;
+[Version]
+Signature   = "$Windows NT$"
+Class       = SoftwareComponent
+ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
+Provider    = %IHV%
+DriverVer   = 03/18/2021,1.0.1047.0000
+CatalogFile = APPerso.cat
+PnpLockdown = 1
+
+[DestinationDirs]
+APPerso.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+apperso.dll = 0,,
+
+[Manufacturer]
+%IHV% = IHV,NTarm
+
+[IHV.NTarm]
+%APPerso.DeviceDesc% = APPerso, SWC\VID_QCOM&PID_0EA0&SID_00A1
+
+[APPerso.NTarm]
+CopyFiles = APPerso.Files
+
+[APPerso.Files]
+apperso.dll
+
+[Strings]
+IHV                = "LumiaWoA authors"
+APPerso.DeviceDesc = "Microsoft Mobile Application Processor Personalisation Library"

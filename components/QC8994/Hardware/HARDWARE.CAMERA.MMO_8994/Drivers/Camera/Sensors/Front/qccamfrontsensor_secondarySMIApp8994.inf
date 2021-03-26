@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  Qualcomm Corporation
+;Copyright (c) 2010-2012  Qualcomm Incorporated
 ;
 ;Module Name:
 ;    qccamfrontsensor.INF
@@ -14,28 +14,28 @@
 ;--*/
 
 [Version]
-Signature="$Windows NT$"
-Class=System
-ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
-Provider=%QC%
-DriverVer=03/18/2021,11.45.15.875
+Signature   = "$Windows NT$"
+Class       = System
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 03/18/2021,11.45.15.875
 PnpLockdown = 1
 
 CatalogFile.NTarm   = qccamfrontsensor_secondarySMIApp8994.arm.cat
 CatalogFile.NTarm64 = qccamfrontsensor_secondarySMIApp8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 ; ================= Class section =====================
 [SourceDisksNames]
 0=%Desc_x860%
 
 [SourceDisksFiles.ARM]
-qccamfrontsensor_secondarySMIApp8994.sys=0,arm,
+qccamfrontsensor_secondarySMIApp8994.sys = 0,arm,
 
 [SourceDisksFiles.ARM64]
-qccamfrontsensor_secondarySMIApp8994.sys=0,arm64,
+qccamfrontsensor_secondarySMIApp8994.sys = 0,arm64,
 
 ;*****************************************
 ; Camera Sensor  Install Section
@@ -58,13 +58,13 @@ qccamfrontsensor_secondarySMIApp8994.sys=0,arm64,
 %CameraFrontSensor.DeviceDescNull% = CameraFrontSensor_Device, ACPI\QCOM2439
 
 [CameraFrontSensor_Device.NTarm]
-CopyFiles = Drivers_Dir
-SubClass = StillImage
+CopyFiles  = Drivers_Dir
+SubClass   = StillImage
 DeviceType = 2
 
 [CameraFrontSensor_Device.NTarm64]
-CopyFiles = Drivers_Dir
-SubClass = StillImage
+CopyFiles  = Drivers_Dir
+SubClass   = StillImage
 DeviceType = 2
 
 [Drivers_Dir]
@@ -77,29 +77,36 @@ AddReg = CameraFrontSensor_Device_Security_Reg
 AddReg = CameraFrontSensor_Device_Security_Reg
 
 [CameraFrontSensor_Device_Security_Reg]
-HKR,,DeviceCharacteristics,0x10001,0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
 [CameraFrontSensor_Device.NTarm.Services]
-AddService = CameraFrontSensor,%SPSVCINST_ASSOCSERVICE%, CameraFrontSensor_Service_Inst
+AddService = CameraFrontSensor, %SPSVCINST_ASSOCSERVICE%, CameraFrontSensor_Service_Inst.NTarm
 
 [CameraFrontSensor_Device.NTarm64.Services]
-AddService = CameraFrontSensor,%SPSVCINST_ASSOCSERVICE%, CameraFrontSensor_Service_Inst
+AddService = CameraFrontSensor, %SPSVCINST_ASSOCSERVICE%, CameraFrontSensor_Service_Inst.NTarm64
 
 ; -------------- CameraFrontSensor driver install sections
-[CameraFrontSensor_Service_Inst]
+[CameraFrontSensor_Service_Inst.NTarm]
 DisplayName    = %CameraFrontSensor.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qccamfrontsensor_secondarySMIApp8994.sys
+ServiceBinary  = %13%\arm\qccamfrontsensor_secondarySMIApp8994.sys
+
+[CameraFrontSensor_Service_Inst.NTarm64]
+DisplayName    = %CameraFrontSensor.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qccamfrontsensor_secondarySMIApp8994.sys
 
 [Strings]
-SPSVCINST_ASSOCSERVICE= 0x00000002
-QC = "Qualcomm Technologies, Inc."
-MSFT = "MicroSoft"
-CameraFrontSensor.DeviceDesc = "Qualcomm Camera Front Sensor Driver"
+SPSVCINST_ASSOCSERVICE           = 0x00000002
+QC                               = "Qualcomm Technologies, Inc."
+MSFT                             = "Microsoft"
+CameraFrontSensor.DeviceDesc     = "Qualcomm Camera Front Sensor Driver"
 CameraFrontSensor.DeviceDescNull = "Qualcomm Camera Front Sensor Driver (Null)"
-CameraFrontSensor.SvcDesc = "Qualcomm Camera Front Sensor Service"
-ClassName       = "Qualcomm Camera Front Sensor Device"
-Desc_x860= "Data"
+CameraFrontSensor.SvcDesc        = "Qualcomm Camera Front Sensor Service"
+ClassName                        = "Qualcomm Camera Front Sensor Device"
+Desc_x860                        = "Data"

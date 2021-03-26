@@ -1,6 +1,6 @@
 ;;/*++
 ;
-;Copyright (c) 2010-2012  Qualcomm Corporation
+;Copyright (c) 2010-2012  Qualcomm Incorporated
 ;
 ;Module Name:
 ;    qccamjpege8994.INF
@@ -94,7 +94,7 @@ HKR,, DeviceCharacteristics, 0x10001, 0x100
 ; system32
 ; QcWicEncoder and Postproc registry settings
 HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                                          ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
-HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,                           ,%REG_EXPAND_SZ%,"%13%\arm\QcWicEncoder8994.dll"
+HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,                           ,%REG_EXPAND_SZ%,"%13%\arm\QcWicEncoderARM8994.dll"
 HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,             ThreadingModel,               ,"Both"
 
 [WicRegistration64]
@@ -105,7 +105,7 @@ HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer
 HKLM, Software\Classes\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,             ThreadingModel,               ,"Both"
 
 HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C},                              ,%REG_SZ%       ,"Qualcomm WIC JPEG Encoder"
-HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,               ,%REG_EXPAND_SZ%,"%13%\arm\QcWicEncoder8994.dll"
+HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32,               ,%REG_EXPAND_SZ%,"%13%\arm\QcWicEncoderARM8994.dll"
 HKLM, Software\Classes\WowAA32Node\CLSID\{68ED5C62-F534-4979-B2B3-686A12B2B34C}\InprocServer32, ThreadingModel,               ,"Both"
 
 ;-------------- Service installation

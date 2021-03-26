@@ -1,16 +1,16 @@
 [Version]
-Signature="$Windows NT$"
-Class=System
-ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
-Provider=%ManufacturerName%
-DriverVer= 03/18/2021,0.1.0.0
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+DriverVer   = 03/18/2021,0.1.0.0
 PnpLockdown = 1
 
 CatalogFile.NTarm   = icaros_cam_esp_thermal.arm.cat
 CatalogFile.NTarm64 = icaros_cam_esp_thermal.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 ; ================= Class section =====================
 
@@ -18,17 +18,17 @@ DefaultDestDir = 12
 1 = %DiskName%,,,""
 
 [SourceDisksFiles.ARM]
-icaros_cam_esp_thermal.sys  = 1,arm,
+icaros_cam_esp_thermal.sys = 1,arm,
 
 [SourceDisksFiles.ARM64]
-icaros_cam_esp_thermal.sys  = 1,arm64,
+icaros_cam_esp_thermal.sys = 1,arm64,
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTarm,NTarm64
+%ManufacturerName% = Standard, NTarm, NTarm64
 
 [Standard.NTarm]
 %Icaros_KMD_ESP_Thermal.DeviceDesc% = Icaros_KMD_ESP_Thermal_Device, ACPI\MSHW1011
@@ -36,30 +36,48 @@ icaros_cam_esp_thermal.sys  = 1,arm64,
 [Standard.NTarm64]
 %Icaros_KMD_ESP_Thermal.DeviceDescNull% = Icaros_KMD_ESP_Thermal_Device, ACPI\MSHW1011
 
-[Icaros_KMD_ESP_Thermal_Device.NT]
+[Icaros_KMD_ESP_Thermal_Device.NTarm]
 CopyFiles = Drivers_Dir
+AddReg    = Icaros_KMD_ESP_Thermal_SecurityAddReg
+
+[Icaros_KMD_ESP_Thermal_Device.NTarm64]
+CopyFiles = Drivers_Dir
+AddReg    = Icaros_KMD_ESP_Thermal_SecurityAddReg
+
+[Icaros_KMD_ESP_Thermal_Device.NTarm.HW]
 AddReg = Icaros_KMD_ESP_Thermal_SecurityAddReg
 
-[Icaros_KMD_ESP_Thermal_Device.NT.HW]
+[Icaros_KMD_ESP_Thermal_Device.NTarm64.HW]
 AddReg = Icaros_KMD_ESP_Thermal_SecurityAddReg
 
 [Icaros_KMD_ESP_Thermal_SecurityAddReg]
-HKR,,DeviceCharacteristics,0x10001,0x100 ; FILE_DEVICE_SECURE_OPEN
+HKR,, DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
 
 [Drivers_Dir]
 icaros_cam_esp_thermal.sys
 
 ;-------------- Service installation
-[Icaros_KMD_ESP_Thermal_Device.NT.Services]
-AddService = Icaros_KMD_ESP_Thermal,%SPSVCINST_ASSOCSERVICE%, Icaros_KMD_ESP_Thermal_Service_Inst
+[Icaros_KMD_ESP_Thermal_Device.NTarm.Services]
+AddService = Icaros_KMD_ESP_Thermal, %SPSVCINST_ASSOCSERVICE%, Icaros_KMD_ESP_Thermal_Service_Inst.NTarm
+
+[Icaros_KMD_ESP_Thermal_Device.NTarm64.Services]
+AddService = Icaros_KMD_ESP_Thermal, %SPSVCINST_ASSOCSERVICE%, Icaros_KMD_ESP_Thermal_Service_Inst.NTarm64
 
 ; -------------- Icaros_KMD_ESP_Thermal driver install sections
-[Icaros_KMD_ESP_Thermal_Service_Inst]
+[Icaros_KMD_ESP_Thermal_Service_Inst.NTarm]
 DisplayName    = %Icaros_KMD_ESP_Thermal.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 1               ; SERVICE_SYSTEM_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\icaros_cam_esp_thermal.sys
+ServiceBinary  = %13%\arm\icaros_cam_esp_thermal.sys
+LoadOrderGroup = Extended Base
+
+[Icaros_KMD_ESP_Thermal_Service_Inst.NTarm64]
+DisplayName    = %Icaros_KMD_ESP_Thermal.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 1               ; SERVICE_SYSTEM_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\icaros_cam_esp_thermal.sys
 LoadOrderGroup = Extended Base
 
 ;
@@ -67,9 +85,9 @@ LoadOrderGroup = Extended Base
 ;
 
 [Strings]
-SPSVCINST_ASSOCSERVICE= 0x00000002
-ManufacturerName="MMO"
-DiskName = "Icaros_KMD_ESP_Thermal Installation Disk"
-Icaros_KMD_ESP_Thermal.DeviceDesc = "Icaros_KMD_ESP_Thermal Device"
+SPSVCINST_ASSOCSERVICE                = 0x00000002
+ManufacturerName                      = "MMO"
+DiskName                              = "Icaros_KMD_ESP_Thermal Installation Disk"
+Icaros_KMD_ESP_Thermal.DeviceDesc     = "Icaros_KMD_ESP_Thermal Device"
 Icaros_KMD_ESP_Thermal.DeviceDescNull = "Icaros_KMD_ESP_Thermal Device (Null)"
-Icaros_KMD_ESP_Thermal.SvcDesc = "Icaros_KMD_ESP_Thermal Service"
+Icaros_KMD_ESP_Thermal.SvcDesc        = "Icaros_KMD_ESP_Thermal Service"

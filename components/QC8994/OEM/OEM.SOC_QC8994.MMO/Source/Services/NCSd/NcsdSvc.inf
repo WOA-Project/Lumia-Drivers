@@ -69,12 +69,14 @@ HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\arm\NcsdPluginSvc.dll"
 HKLM, "Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\arm\NcsdPluginSvc.dll"
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\arm\NcsdRes.dll"
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\arm\NcsdRes.dll"
+HKR,, "ImagePath", 0x00020000, "%13%\arm\OEMServiceHost.exe -k NsgExtUti"
 
 [NcsdSvc_Reg.NTarm64]
 HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\arm64\NcsdPluginSvc.dll"
 HKLM, "Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\arm64\NcsdPluginSvc.dll"
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\arm64\NcsdRes.dll"
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\arm64\NcsdRes.dll"
+HKR,, "ImagePath", 0x00020000, "%13%\arm64\OEMServiceHost.exe -k NsgExtUti"
 
 [NcsdSvc_Reg]
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}",,,"NcsdEtw"
@@ -89,7 +91,6 @@ HKR,, "RequiredPrivileges", 0x00010008, \
 	"SeShutdownPrivilege", "SeChangeNotifyPrivilege", "SeIncreaseWorkingSetPrivilege", "SeCreateGlobalPrivilege"
 
 HKR,, "Start", 0x00010001, 0x00000003
-HKR,, "ImagePath", 0x00020000, "%13%\arm64\OEMServiceHost.exe -k NsgExtUti"
 HKR,, "FailureActions", 0x00000001, \
 	80,51,01,00,00,00,00,00,00,00,00,00,04,00,00, \ ; Q·············
 	00,14,00,00,00,01,00,00,00,E8,03,00,00,01,00, \ ; ·········è·····

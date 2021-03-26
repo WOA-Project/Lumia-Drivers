@@ -1,26 +1,26 @@
 [Version]
-Signature="$Windows NT$"
-Class=System
-ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
-Provider=%MMO%
-DriverVer=03/18/2021,12.55.5.110
+Signature   = "$Windows NT$"
+Class       = System
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %MMO%
+DriverVer   = 03/18/2021,12.55.5.110
 PnpLockdown = 1
 
 CatalogFile.NTarm   = icaros_cam_esp.arm.cat
 CatalogFile.NTarm64 = icaros_cam_esp.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+DefaultDestDir = 13
 
 ; ================= Class section =====================
 [SourceDisksNames]
-0=%Desc_x860%
+0 = %Desc_x860%
 
 [SourceDisksFiles.ARM]
-icaros_cam_esp.sys=0,arm,
+icaros_cam_esp.sys = 0,arm,
 
 [SourceDisksFiles.ARM64]
-icaros_cam_esp.sys=0,arm64,
+icaros_cam_esp.sys = 0,arm64,
 
 ;*****************************************
 ; Camera Sensor  Install Section
@@ -42,36 +42,55 @@ icaros_cam_esp.sys=0,arm64,
 [MMO.NTarm64]
 %CameraESP.DeviceDescNull% = CameraESP_Device, ACPI\MSHW1010
 
-[CameraESP_Device.NT]
-CopyFiles = Drivers_Dir
-AddPowerSetting=Temperature_Power_Setting
-SubClass = StillImage
-AddReg = CameraESP_Device_Security_Reg
+[CameraESP_Device.NTarm]
+CopyFiles       = Drivers_Dir
+AddPowerSetting = Temperature_Power_Setting
+SubClass        = StillImage
+AddReg          = CameraESP_Device_Security_Reg
+
+[CameraESP_Device.NTarm64]
+CopyFiles       = Drivers_Dir
+AddPowerSetting = Temperature_Power_Setting
+SubClass        = StillImage
+AddReg          = CameraESP_Device_Security_Reg
 
 [Drivers_Dir]
 icaros_cam_esp.sys
 
-[CameraESP_Device.NT.HW]
+[CameraESP_Device.NTarm.HW]
+AddReg = CameraESP_Device_Security_Reg
+
+[CameraESP_Device.NTarm64.HW]
 AddReg = CameraESP_Device_Security_Reg
 
 [CameraESP_Device_Security_Reg]
-HKR,,DeviceCharacteristics,0x10001,0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
-[CameraESP_Device.NT.Services]
-AddService = CameraESP,%SPSVCINST_ASSOCSERVICE%, CameraESP_Service_Inst
+[CameraESP_Device.NTarm.Services]
+AddService = CameraESP, %SPSVCINST_ASSOCSERVICE%, CameraESP_Service_Inst.NTarm
+
+[CameraESP_Device.NTarm64.Services]
+AddService = CameraESP, %SPSVCINST_ASSOCSERVICE%, CameraESP_Service_Inst.NTarm64
 
 ; -------------- CameraESP driver install sections
-[CameraESP_Service_Inst]
+[CameraESP_Service_Inst.NTarm]
 DisplayName    = %CameraESP.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 1               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\icaros_cam_esp.sys
+ServiceBinary  = %13%\arm\icaros_cam_esp.sys
+
+[CameraESP_Service_Inst.NTarm64]
+DisplayName    = %CameraESP.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 1               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\icaros_cam_esp.sys
 
 [Temperature_Power_Setting]
-SubGroup = {7D54AE13-7A01-469d-8AF3-6FF4662C5371}
-Setting = {E5FDE9D7-7A0E-4048-81BB-A77CAF7B349F}, "Simulated Machine Temperature", "Specify the simulated temperature of the system."
+SubGroup   = {7D54AE13-7A01-469d-8AF3-6FF4662C5371}
+Setting    = {E5FDE9D7-7A0E-4048-81BB-A77CAF7B349F}, "Simulated Machine Temperature", "Specify the simulated temperature of the system."
 ValueRange = 1, 10000, 1, "Tenths of degrees Kelvin"
 
 ; Max Power savings, AC
@@ -88,9 +107,9 @@ Default = {381B4222-F694-41F0-9685-FF5BB260DF2E}, 0, 1
 Default = {381B4222-F694-41F0-9685-FF5BB260DF2E}, 1, 1
 
 [Strings]
-SPSVCINST_ASSOCSERVICE= 0x00000002
-MMO = "MMO"
-CameraESP.DeviceDesc = "Icaros Extra Sensory Perception Driver"
+SPSVCINST_ASSOCSERVICE   = 0x00000002
+MMO                      = "MMO"
+CameraESP.DeviceDesc     = "Icaros Extra Sensory Perception Driver"
 CameraESP.DeviceDescNull = "Icaros Extra Sensory Perception Driver (Null)"
-CameraESP.SvcDesc = "Icaros Extra Sensory Perception Service"
-Desc_x860= "Data"
+CameraESP.SvcDesc        = "Icaros Extra Sensory Perception Service"
+Desc_x860                = "Data"

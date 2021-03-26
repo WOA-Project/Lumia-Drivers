@@ -1,6 +1,6 @@
 ;/*++
 ;
-;Copyright (c) 2010-2012  Qualcomm Corporation
+;Copyright (c) 2010-2012  Qualcomm Incorporated
 ;
 ;Module Name:
 ;    qccamfrontsensor.INF
@@ -14,11 +14,11 @@
 ;--*/
 
 [Version]
-Signature="$Windows NT$"
-Class=System
-ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
-Provider=%QC%
-DriverVer=03/18/2021,12.55.5.110
+Signature   = "$Windows NT$"
+Class       = System
+ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 03/18/2021,12.55.5.110
 PnpLockdown = 1
 
 CatalogFile.NTarm   = qccamrearsensor_primarySMIApp8992.arm.cat
@@ -29,13 +29,13 @@ DefaultDestDir = 12
 
 ; ================= Class section =====================
 [SourceDisksNames]
-0=%Desc_x860%
+0 = %Desc_x860%
 
 [SourceDisksFiles.ARM]
-qccamrearsensor_primarySMIApp8992.sys=0,arm,
+qccamrearsensor_primarySMIApp8992.sys = 0,arm,
 
 [SourceDisksFiles.ARM64]
-qccamrearsensor_primarySMIApp8992.sys=0,arm64,
+qccamrearsensor_primarySMIApp8992.sys = 0,arm64,
 
 ;*****************************************
 ; Camera Sensor  Install Section
@@ -58,13 +58,13 @@ qccamrearsensor_primarySMIApp8992.sys=0,arm64,
 %CameraRearSensor.DeviceDescNull% = CameraRearSensor_Device, ACPI\QCOM2434
 
 [CameraRearSensor_Device.NTarm]
-CopyFiles = Drivers_Dir
-SubClass = StillImage
+CopyFiles  = Drivers_Dir
+SubClass   = StillImage
 DeviceType = 2
 
 [CameraRearSensor_Device.NTarm64]
-CopyFiles = Drivers_Dir
-SubClass = StillImage
+CopyFiles  = Drivers_Dir
+SubClass   = StillImage
 DeviceType = 2
 
 [Drivers_Dir]
@@ -77,29 +77,36 @@ AddReg = CameraRearSensor_Device_Security_Reg
 AddReg = CameraRearSensor_Device_Security_Reg
 
 [CameraRearSensor_Device_Security_Reg]
-HKR,,DeviceCharacteristics,0x10001,0x100
+HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
 [CameraRearSensor_Device.NTarm.Services]
-AddService = CameraRearSensor,%SPSVCINST_ASSOCSERVICE%, CameraRearSensor_Service_Inst
+AddService = CameraRearSensor, %SPSVCINST_ASSOCSERVICE%, CameraRearSensor_Service_Inst.NTarm
 
 [CameraRearSensor_Device.NTarm64.Services]
-AddService = CameraRearSensor,%SPSVCINST_ASSOCSERVICE%, CameraRearSensor_Service_Inst
+AddService = CameraRearSensor, %SPSVCINST_ASSOCSERVICE%, CameraRearSensor_Service_Inst.NTarm64
 
 ; -------------- CameraRearSensor driver install sections
-[CameraRearSensor_Service_Inst]
+[CameraRearSensor_Service_Inst.NTarm]
 DisplayName    = %CameraRearSensor.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %12%\qccamrearsensor_primarySMIApp8992.sys
+ServiceBinary  = %13%\arm\qccamrearsensor_primarySMIApp8992.sys
+
+[CameraRearSensor_Service_Inst.NTarm64]
+DisplayName    = %CameraRearSensor.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qccamrearsensor_primarySMIApp8992.sys
 
 [Strings]
-SPSVCINST_ASSOCSERVICE= 0x00000002
-QC = "Qualcomm Technologies, Inc."
-MSFT = "MicroSoft"
-CameraRearSensor.DeviceDesc = "Qualcomm Camera Rear Sensor Driver"
+SPSVCINST_ASSOCSERVICE          = 0x00000002
+QC                              = "Qualcomm Technologies, Inc."
+MSFT                            = "Microsoft"
+CameraRearSensor.DeviceDesc     = "Qualcomm Camera Rear Sensor Driver"
 CameraRearSensor.DeviceDescNull = "Qualcomm Camera Rear Sensor Driver (Null)"
-CameraRearSensor.SvcDesc = "Qualcomm Camera Rear Sensor Service"
-ClassName       = "Qualcomm Camera Rear Sensor Device"
-Desc_x860= "Data"
+CameraRearSensor.SvcDesc        = "Qualcomm Camera Rear Sensor Service"
+ClassName                       = "Qualcomm Camera Rear Sensor Device"
+Desc_x860                       = "Data"
