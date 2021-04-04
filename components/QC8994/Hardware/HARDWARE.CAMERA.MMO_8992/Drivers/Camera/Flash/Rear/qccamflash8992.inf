@@ -21,7 +21,8 @@ CatalogFile.NTarm   = qccamflash8992.arm.cat
 CatalogFile.NTarm64 = qccamflash8992.arm64.cat
 
 [DestinationDirs]
-FLASH.Files_12 = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -49,16 +50,19 @@ ExcludeFromSelect = *
 %FLASH.DeviceDesc% = CameraFlash_Device, ACPI\QCOM244B
 
 [CameraFlash_Device.NTarm]
-CopyFiles   = flash.Files_12
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [CameraFlash_Device.NTarm64]
-CopyFiles   = flash.Files_12
+CopyFiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[flash.Files_12]
+[Drivers_Dir_A32]
+qccamflash8992.sys
+
+[Drivers_Dir_A64]
 qccamflash8992.sys
 
 [WDTFSOCDeviceCategory]

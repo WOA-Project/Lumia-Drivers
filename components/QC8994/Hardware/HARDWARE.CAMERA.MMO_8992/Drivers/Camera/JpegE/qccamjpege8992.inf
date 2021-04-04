@@ -22,10 +22,9 @@ CatalogFile.NTarm   = qccamjpege8992.arm.cat
 CatalogFile.NTarm64 = qccamjpege8992.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
-QCWic.Files    = 13
-QCWic32.Files  = 13
-QCWicArm.Files = 13, SysArm32
+Drivers_Dir_A32   = 13,arm
+Drivers_Dir_A64   = 13,arm64
+Drivers_Dir_A6432 = 13,arm
 
 ; ================= Class section =====================
 [SourceDisksNames]
@@ -57,26 +56,25 @@ QcWicEncoderARM8992.dll=0,arm,
 %JpegE.DeviceDesc% = CameraJpegE_Device, ACPI\QCOM2467
 
 [CameraJpegE32_Device.NT]
-CopyFiles   = Drivers_Dir,QCWic32.Files
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [CameraJpegE_Device.NT]
-CopyFiles   = Drivers_Dir,QCWic.Files,QCWicArm.Files
+CopyFiles   = Drivers_Dir_A64,Drivers_Dir_A6432
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
 qccamjpege8992.sys
+QcWicEncoderARM8992.dll
 
-[QCWic.Files]
+[Drivers_Dir_A64]
+qccamjpege8992.sys
 QcWicEncoder8992.dll
 
-[QCWic32.Files]
-QcWicEncoder8992.dll, QcWicEncoderARM8992.dll,, 0x00004000,
-
-[QCWicArm.Files]
-QcWicEncoder8992.dll, QcWicEncoderARM8992.dll,, 0x00004000,
+[Drivers_Dir_A6432]
+QcWicEncoderARM8992.dll
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0

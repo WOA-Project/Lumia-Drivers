@@ -13,7 +13,8 @@ CatalogFile.NTarm   = ice5lp_2k.arm.cat
 CatalogFile.NTarm64 = ice5lp_2k.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
@@ -38,12 +39,15 @@ ice5lp_2k.sys  = 1,arm64,
 %ice5lp_2k.DeviceDesc% = ice5lp_2k_Device, ACPI\MSHW1006
 
 [ice5lp_2k_Device.NTarm]
-CopyFiles = ice5lp_2k_CopyFiles
+CopyFiles = Drivers_Dir_A32
 
 [ice5lp_2k_Device.NTarm64]
-CopyFiles = ice5lp_2k_CopyFiles
+CopyFiles = Drivers_Dir_A64
 
-[ice5lp_2k_CopyFiles]
+[Drivers_Dir_A32]
+ice5lp_2k.sys
+
+[Drivers_Dir_A64]
 ice5lp_2k.sys
 
 ;-------------- Service installation

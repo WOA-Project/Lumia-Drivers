@@ -22,7 +22,8 @@ CatalogFile.NTarm   = qccamplatform8992.arm.cat
 CatalogFile.NTarm64 = qccamplatform8992.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = %DiskId%
@@ -47,16 +48,19 @@ qccamplatform8992.sys = 0,arm64
 %CameraPlatform.DeviceDesc% = CameraPlatform_Device, ACPI\QCOM245E
 
 [CameraPlatform_Device.NTarm]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [CameraPlatform_Device.NTarm64]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qccamplatform8992.sys
+
+[Drivers_Dir_A64]
 qccamplatform8992.sys
 
 [WDTFSOCDeviceCategory]

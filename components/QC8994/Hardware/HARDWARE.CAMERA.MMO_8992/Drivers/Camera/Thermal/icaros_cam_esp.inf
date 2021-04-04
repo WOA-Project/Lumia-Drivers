@@ -1,8 +1,8 @@
 [Version]
 Signature   = "$Windows NT$"
-Class       = System
-ClassGUID   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
-Provider    = %MMO%
+Class       = Sensor
+ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
+Provider    = %ProviderName%
 DriverVer   = 03/18/2021,12.55.5.110
 PnpLockdown = 1
 
@@ -10,7 +10,8 @@ CatalogFile.NTarm   = icaros_cam_esp.arm.cat
 CatalogFile.NTarm64 = icaros_cam_esp.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 [SourceDisksNames]
@@ -27,7 +28,7 @@ icaros_cam_esp.sys = 0,arm64,
 ;*****************************************
 
 [Manufacturer]
-%MMO% = MMO, NTarm, NTarm64
+%ManufacturerName% = MMO, NTarm, NTarm64
 
 ; Following section is meant for Windows 2000 as it
 ; cannot parse decorated model sections
@@ -40,21 +41,24 @@ icaros_cam_esp.sys = 0,arm64,
 %CameraESP.DeviceDesc% = CameraESP_Device, ACPI\MSHW1010
 
 [MMO.NTarm64]
-%CameraESP.DeviceDescNull% = CameraESP_Device, ACPI\MSHW1010
+%CameraESP.DeviceDesc% = CameraESP_Device, ACPI\MSHW1010
 
 [CameraESP_Device.NTarm]
-CopyFiles       = Drivers_Dir
+CopyFiles       = Drivers_Dir_A32
 AddPowerSetting = Temperature_Power_Setting
 SubClass        = StillImage
 AddReg          = CameraESP_Device_Security_Reg
 
 [CameraESP_Device.NTarm64]
-CopyFiles       = Drivers_Dir
+CopyFiles       = Drivers_Dir_A64
 AddPowerSetting = Temperature_Power_Setting
 SubClass        = StillImage
 AddReg          = CameraESP_Device_Security_Reg
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+icaros_cam_esp.sys
+
+[Drivers_Dir_A64]
 icaros_cam_esp.sys
 
 [CameraESP_Device.NTarm.HW]
@@ -108,8 +112,8 @@ Default = {381B4222-F694-41F0-9685-FF5BB260DF2E}, 1, 1
 
 [Strings]
 SPSVCINST_ASSOCSERVICE   = 0x00000002
-MMO                      = "MMO"
-CameraESP.DeviceDesc     = "Icaros Extra Sensory Perception Driver"
-CameraESP.DeviceDescNull = "Icaros Extra Sensory Perception Driver (Null)"
-CameraESP.SvcDesc        = "Icaros Extra Sensory Perception Service"
+ProviderName             = "Microsoft Mobile Oy"
+ManufacturerName         = "Icaros Incorporated"
+CameraESP.DeviceDesc     = "Icaros Camera Extra Sensory Perception"
+CameraESP.SvcDesc        = "Icaros Camera Extra Sensory Perception
 Desc_x860                = "Data"

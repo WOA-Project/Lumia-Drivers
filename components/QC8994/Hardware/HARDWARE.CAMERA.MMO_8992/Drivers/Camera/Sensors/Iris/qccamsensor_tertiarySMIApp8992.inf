@@ -25,7 +25,8 @@ CatalogFile.NTarm   = qccamsensor_tertiarySMIApp8992.arm.cat
 CatalogFile.NTarm64 = qccamsensor_tertiarySMIApp8992.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 [SourceDisksNames]
@@ -58,16 +59,19 @@ qccamsensor_tertiarySMIApp8992.sys = 0,arm64,
 %CameraTertiarySensor.DeviceDescNull% = CameraTertiarySensor_Device, ACPI\QCOM2436
 
 [CameraTertiarySensor_Device.NTarm]
-CopyFiles  = Drivers_Dir
+CopyFiles  = Drivers_Dir_A32
 SubClass   = StillImage
 DeviceType = 2
 
 [CameraTertiarySensor_Device.NTarm64]
-CopyFiles  = Drivers_Dir
+CopyFiles  = Drivers_Dir_A64
 SubClass   = StillImage
 DeviceType = 2
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qccamsensor_tertiarySMIApp8992.sys
+
+[Drivers_Dir_A64]
 qccamsensor_tertiarySMIApp8992.sys
 
 [CameraTertiarySensor_Device.NTarm.HW]

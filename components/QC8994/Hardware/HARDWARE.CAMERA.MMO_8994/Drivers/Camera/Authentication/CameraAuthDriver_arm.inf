@@ -13,8 +13,8 @@ CatalogFile.NTarm64 = CameraAuth.arm64.cat
 %ManufacturerName% = CameraAuthentication_Device,NTarm,NTarm64
 
 [DestinationDirs]
-DefaultDestDir=13,UMDF ; copy to drivers\umdf
-CameraAuthenticationDriverCopy=13,UMDF ; copy to drivers\umdf
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %MediaDescription%,,,""
@@ -39,12 +39,15 @@ CameraAuthentication.dll = 1,arm64,
 
 ;---------------- Copy files ---------------------
 [CameraAuthentication_Install.NTarm]
-CopyFiles = CameraAuthenticationDriverCopy
+CopyFiles = Drivers_Dir_A32
 
 [CameraAuthentication_Install.NTarm64]
-CopyFiles = CameraAuthenticationDriverCopy
+CopyFiles = Drivers_Dir_A64
 
-[CameraAuthenticationDriverCopy]
+[Drivers_Dir_A32]
+CameraAuthentication.dll
+
+[Drivers_Dir_A64]
 CameraAuthentication.dll
 
 [CameraAuthentication_Install.NTarm.hw]

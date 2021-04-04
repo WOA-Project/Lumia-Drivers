@@ -21,7 +21,8 @@ CatalogFile.NTarm   = qccamcore8992.arm.cat
 CatalogFile.NTarm64 = qccamcore8992.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -46,15 +47,18 @@ ExcludeFromSelect=*
 %CORE.DeviceDesc% = CORE_Device, ROOT\CORE
 
 [CORE_Device.NTarm]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A32
 
 [QC.NTarm64]
 %CORE.DeviceDescNull% = CORE_Devicearm64, ROOT\CORE
 
 [CORE_Devicearm64.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qccamcore8992.sys
+
+[Drivers_Dir_A64]
 qccamcore8992.sys
 
 [CORE_Device.NTarm.HW]

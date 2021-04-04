@@ -139,7 +139,7 @@ HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\VersionIndependentProgID,  
 HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,                          , %REG_EXPAND_SZ%,  "%13%\arm\QCListenSoundModel.dll"
 
 [QCListenSoundModel_arm64_Reg]
-HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,                          , %REG_EXPAND_SZ%,  "%13%\arm\QCListenSoundModel.dll"
+HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,                          , %REG_EXPAND_SZ%,  "%13%\arm64\QCListenSoundModel.dll"
 
 [QCListenSoundModel.Files]
 QCListenSoundModel.dll

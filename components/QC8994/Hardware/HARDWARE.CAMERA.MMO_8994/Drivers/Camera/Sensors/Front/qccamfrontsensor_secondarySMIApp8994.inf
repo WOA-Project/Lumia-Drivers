@@ -25,7 +25,8 @@ CatalogFile.NTarm   = qccamfrontsensor_secondarySMIApp8994.arm.cat
 CatalogFile.NTarm64 = qccamfrontsensor_secondarySMIApp8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 [SourceDisksNames]
@@ -58,16 +59,19 @@ qccamfrontsensor_secondarySMIApp8994.sys = 0,arm64,
 %CameraFrontSensor.DeviceDescNull% = CameraFrontSensor_Device, ACPI\QCOM2439
 
 [CameraFrontSensor_Device.NTarm]
-CopyFiles  = Drivers_Dir
+CopyFiles  = Drivers_Dir_A32
 SubClass   = StillImage
 DeviceType = 2
 
 [CameraFrontSensor_Device.NTarm64]
-CopyFiles  = Drivers_Dir
+CopyFiles  = Drivers_Dir_A64
 SubClass   = StillImage
 DeviceType = 2
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qccamfrontsensor_secondarySMIApp8994.sys
+
+[Drivers_Dir_A64]
 qccamfrontsensor_secondarySMIApp8994.sys
 
 [CameraFrontSensor_Device.NTarm.HW]

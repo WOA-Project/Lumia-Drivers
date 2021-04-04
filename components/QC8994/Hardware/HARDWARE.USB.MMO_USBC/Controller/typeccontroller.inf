@@ -13,8 +13,8 @@ CatalogFile.NTarm   = typeccontroller.arm.cat
 CatalogFile.NTarm64 = typeccontroller.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir       = 13
-tycDriverCopy     = 13
+Drivers_Dir_A32   = 13,arm
+Drivers_Dir_A64   = 13,arm64
 
 [SourceDisksNames]
 1 = %MediaDescription%,,,""
@@ -41,15 +41,20 @@ WppRecorderUM.dll = 1,arm64,
 ;---------------- copy files
 
 [tyc_Inst.NTarm]
-CopyFiles = tycDriverCopy
+CopyFiles = Drivers_Dir_A32
 AddReg    = WdfExt_AddReg
 
 [tyc_Inst.NTarm64]
-CopyFiles = tycDriverCopy
+CopyFiles = Drivers_Dir_A64
 AddReg    = WdfExt_AddReg
 
-[tycDriverCopy]
+[Drivers_Dir_A32]
 tyc.dll
+WppRecorderUM.dll
+
+[Drivers_Dir_A64]
+tyc.dll
+WppRecorderUM.dll
 
 [tyc_Inst.NTarm.HW]
 AddReg = tyc_Inst_SecurityAddReg

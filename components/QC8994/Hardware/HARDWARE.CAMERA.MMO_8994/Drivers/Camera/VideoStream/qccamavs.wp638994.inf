@@ -37,7 +37,8 @@ Catalogfile.NTarm64 = qccamavs8994.arm64.cat
 %qccamavs.DeviceDesc% = QCCamAvs,VIDEO\QCOM_AVStream_8994
 
 [DestinationDirs]
-QCCamAvs.Files = %DRIVERSTORE_FOLDER%
+Drivers_Dir_A32 = %DRIVERSTORE_FOLDER%,arm
+Drivers_Dir_A64 = %DRIVERSTORE_FOLDER%,arm64
 
 [SourceDisksNames]
 0 = %qccamavs.DiskName%
@@ -48,14 +49,17 @@ qccamavs8994.sys = 0,arm,
 [SourceDisksFiles.ARM64]
 qccamavs8994.sys = 0,arm64,
 
-[QCCamAvs.Files]
+[Drivers_Dir_A32]
+qccamavs8994.sys
+
+[Drivers_Dir_A64]
 qccamavs8994.sys
 
 [QCCamAvs.NTarm]
-CopyFiles = QCCamAvs.Files
+CopyFiles = Drivers_Dir_A32
 
 [QCCamAvs.NTarm64]
-CopyFiles = QCCamAvs.Files
+CopyFiles = Drivers_Dir_A64
 
 [QCCamAvs.NTarm.HW]
 AddReg = QCCamAvs.Reg.Security

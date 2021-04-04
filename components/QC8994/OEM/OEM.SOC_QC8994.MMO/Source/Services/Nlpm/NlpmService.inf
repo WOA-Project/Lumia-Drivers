@@ -162,7 +162,7 @@ HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "Enabled", 0x00010001, 0x00000001
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "BSSwitchOffTimeout", 0x00010001, 0x0000001e
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkModeThreshold", 0x00010001, 0x00004e20
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "AppGraphicTimeout", 0x00010001, 0x00000000
-HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "NormalModeElements", 0x00010001, 0x0000007f
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "NormalModeElements", 0x00010001, 0x0000005f
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "MinimizeIcon", 0x00010001, 0x00000000
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "SupportedTouchEvents", 0x00010001, 0x00000000
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkModeElements", 0x00010001, 0x0000004f

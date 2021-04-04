@@ -13,7 +13,8 @@ CatalogFile.NTarm   = TypeCMux.arm.cat
 CatalogFile.NTarm64 = TypeCMux.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
@@ -38,14 +39,17 @@ TypeCMux.sys  = 1,arm64,
 %TypeCMux.DeviceDesc% = TypeCMux_Device, ACPI\MSHW1009
 
 [TypeCMux_Device.NTarm]
-CopyFiles = TypeCMux_CopyFiles
+CopyFiles = Drivers_Dir_A32
 AddReg    = TypeCMuxDriver_SecurityAddReg
 
 [TypeCMux_Device.NTarm64]
-CopyFiles = TypeCMux_CopyFiles
+CopyFiles = Drivers_Dir_A64
 AddReg    = TypeCMuxDriver_SecurityAddReg
 
-[TypeCMux_CopyFiles]
+[Drivers_Dir_A32]
+TypeCMux.sys
+
+[Drivers_Dir_A64]
 TypeCMux.sys
 
 [TypeCMuxDriver_SecurityAddReg]

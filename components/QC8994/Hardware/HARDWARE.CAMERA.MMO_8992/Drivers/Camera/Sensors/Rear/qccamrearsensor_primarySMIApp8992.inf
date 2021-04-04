@@ -25,7 +25,8 @@ CatalogFile.NTarm   = qccamrearsensor_primarySMIApp8992.arm.cat
 CatalogFile.NTarm64 = qccamrearsensor_primarySMIApp8992.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 12
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 [SourceDisksNames]
@@ -58,16 +59,19 @@ qccamrearsensor_primarySMIApp8992.sys = 0,arm64,
 %CameraRearSensor.DeviceDescNull% = CameraRearSensor_Device, ACPI\QCOM2434
 
 [CameraRearSensor_Device.NTarm]
-CopyFiles  = Drivers_Dir
+CopyFiles  = Drivers_Dir_A32
 SubClass   = StillImage
 DeviceType = 2
 
 [CameraRearSensor_Device.NTarm64]
-CopyFiles  = Drivers_Dir
+CopyFiles  = Drivers_Dir_A64
 SubClass   = StillImage
 DeviceType = 2
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qccamrearsensor_primarySMIApp8992.sys
+
+[Drivers_Dir_A64]
 qccamrearsensor_primarySMIApp8992.sys
 
 [CameraRearSensor_Device.NTarm.HW]

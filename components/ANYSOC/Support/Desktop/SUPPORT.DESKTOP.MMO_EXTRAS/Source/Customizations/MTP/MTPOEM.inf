@@ -6,15 +6,14 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = "LumiaWoA authors"
-DriverVer   = 03/14/2021,1.0.0.1
+DriverVer   = 11/20/2019,1.0.0.0
 CatalogFile = MTPOEM.cat
-PnpLockdown = 1
 
 [SourceDisksNames]
 0 = "Disk"
 
 [DestinationDirs]
-MTP_System32_CopyFiles     = 13 ; System32
+MTP_System32_CopyFiles     = 11 ; System32
 
 [SourceDisksFiles]
 DevIcon_Black.ico = 0,,
@@ -40,6 +39,6 @@ OEMAvatar_White.cab,,,0x00000800       ; COPYFLG_NODECOMP
 D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;WD)
 
 [MTP_Registry]
-HKLM, "SOFTWARE\Microsoft\MTP", "OEMAVATAR", 0x00000000, "%13%\OEMAvatar_Black.cab"
-HKLM, "SOFTWARE\Microsoft\MTP", "OEMICON", 0x00000000, "%13%\DevIcon_Black.ico"
+HKLM, "SOFTWARE\Microsoft\MTP", "OEMAVATAR", 0x00000000, "C:\Windows\System32\OEMAvatar_Black.cab"
+HKLM, "SOFTWARE\Microsoft\MTP", "OEMICON", 0x00000000, "C:\Windows\System32\DevIcon_Black.ico"
 
