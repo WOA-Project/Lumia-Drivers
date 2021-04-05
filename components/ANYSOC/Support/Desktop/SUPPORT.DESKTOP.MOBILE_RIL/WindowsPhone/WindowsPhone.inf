@@ -176,7 +176,7 @@ PhoneProviders.dll                                  = 0,arm64,
 CellularAPI.dll                                     = 0,arm64,
 ihvrilproxy.dll                                     = 0,arm64,
 rilproxy.dll                                        = 0,arm64,
-MobileBridgeRIL.exe                                 = 0,arm64,
+MobileNetworkingService.exe                         = 0,arm64,
 
 ; ================= Device section =====================
 
@@ -234,19 +234,19 @@ AddService = RILAdaptation, 0x00000000, RILAdaptation_32_Service
 AddService = RILAdaptation, 0x00000000, RILAdaptation_Service
 ; AddService = UtkService, 0x00000000, UtkService_Service
 ; AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_Service
-AddService = MobileBridgeRIL, 0x00000000, MobileBridgeRIL_Service
+AddService = MobileNetworkingService, 0x00000000, MobileBridgeRIL_Service
 
 [RIL_19565.NT.Services]
 AddService = RILAdaptation, 0x00000000, RILAdaptation_Service
 ; AddService = UtkService, 0x00000000, UtkService_Service
 ; AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_Service
-AddService = MobileBridgeRIL, 0x00000000, MobileBridgeRIL_Service
+AddService = MobileNetworkingService, 0x00000000, MobileBridgeRIL_Service
 
 [RIL_21313.NT.Services]
 AddService = RILAdaptation, 0x00000000, RILAdaptation_Service
 ; AddService = UtkService, 0x00000000, UtkService_Service
 ; AddService = MsgSmsTransportSvc, 0x00000000, MsgSmsTransportSvc_Service
-AddService = MobileBridgeRIL, 0x00000000, MobileBridgeRIL_Service
+AddService = MobileNetworkingService, 0x00000000, MobileBridgeRIL_Service
 
 [RILAdaptation_32_Service]
 DisplayName   = "RILAdaptation Service"
@@ -303,12 +303,12 @@ ServiceBinary = "%%SystemRoot%%\System32\svchost.exe -k UnistackSvcGroup"
 AddReg        = MsgSmsTransportSvc.AddReg, MsgSmsTransportSvc.ARM64.AddReg
 
 [MobileBridgeRIL_Service]
-DisplayName   = "Mobile Bridge for RIL Service"
-Description   = "Mobile Bridge for RIL Service for the Desktop Windows Platform"
+DisplayName   = "Mobile Networking Service"
+Description   = "Provides a bridge for Mobile Networking on the Desktop Windows Platform"
 ServiceType   = 0x10
 StartType     = 2
 ErrorControl  = 1
-ServiceBinary = "%13%\arm64\MobileBridgeRIL.exe"
+ServiceBinary = "%13%\arm64\MobileNetworkingService.exe"
 AddReg        = MobileBridgeRIL.AddReg
 
 [MobileBridgeRIL.AddReg]
@@ -2796,7 +2796,7 @@ CellularAPI.dll
 ihvrilproxy.dll
 rilproxy.dll
 PhoneProviders.dll
-MobileBridgeRIL.exe
+MobileNetworkingService.exe
 
 ;================= Strings section =====================
 
