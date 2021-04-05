@@ -44,17 +44,15 @@ libadsprpc.dll = 0,arm64,
 
 [LibADSP.NTarm]
 CopyFiles = libadsprpc.Files
-AddReg    = libadsprpc_Reg, libadsprpc_path_Reg
 
 [LibADSP.NTarm64]
 CopyFiles = libadsprpc.Files
-AddReg    = libadsprpc_Reg, libadsprpc_path_Reg.NTarm64
 
 [LibADSP.NTarm.Services]
 AddService = libadsprpc,0x00000000,libadsprpc_Service,
 
 [LibADSP.NTarm64.Services]
-AddService = libadsprpc,0x00000000,libadsprpc_Service,
+AddService = libadsprpc,0x00000000,libadsprpc_Service.NTarm64,
 
 ;ServiceType = 0x110
 ;A Win32 program that runs in a process by itself (like Type16) and that can interact with users.
@@ -65,34 +63,53 @@ AddService = libadsprpc,0x00000000,libadsprpc_Service,
 
 [libadsprpc_Service]
 DisplayName   = "libadsprpc"
-Description   = "ADSPRPC Library"
+Description   = "Qualcomm ADSP RPC FS Service"
 ServiceType   = 0x110
-StartType     = 3
+StartType     = 2
 ErrorControl  = 1
 ServiceBinary = "%%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
+AddReg        = libadsprpc_Reg, libadsprpc_path_Reg
+
+[libadsprpc_Service.NTarm64]
+DisplayName   = "libadsprpc"
+Description   = "Qualcomm ADSP RPC FS Service"
+ServiceType   = 0x110
+StartType     = 2
+ErrorControl  = 1
+ServiceBinary = "%%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
+AddReg        = libadsprpc_Reg, libadsprpc_path_Reg.NTarm64
 
 [libadsprpc_Reg]
-HKLM, System\CurrentControlSet\Services\libadsprpc            , DisplayName    , %REG_SZ%       ,  "libadsprpc"
-HKLM, System\CurrentControlSet\Services\libadsprpc            , Description    , %REG_SZ%       ,  "ADSPRPC Library"
-HKLM, System\CurrentControlSet\Services\libadsprpc            , ObjectName     , %REG_SZ%       ,  "LocalSystem"
-HKLM, System\CurrentControlSet\Services\libadsprpc            , ImagePath      , %REG_EXPAND_SZ%,  "%%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
-HKLM, System\CurrentControlSet\Services\libadsprpc            , Type           , %REG_DWORD%    ,  0x0110
-HKLM, System\CurrentControlSet\Services\libadsprpc            , Start          , %REG_DWORD%    ,  0x0003
-HKLM, System\CurrentControlSet\Services\libadsprpc            , ErrorControl   , %REG_DWORD%    ,  0x0001
-HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, libadsprpcGroup, %REG_MULTI_SZ% ,  "libadsprpc"
+HKR,, "FailureActionsOnNonCrashFailures", %REG_DWORD%    , 0x00000001
+HKR,, "ObjectName"                      , %REG_SZ%       , "LocalSystem"
+HKR,, "DisplayName"                     , %REG_SZ%       , "libadsprpc"
+HKR,, "ErrorControl"                    , %REG_DWORD%    , 0x00000001
+HKR,, "ImagePath"                       , %REG_EXPAND_SZ%, "%%systemroot%%\system32\svchost.exe -k libadsprpcGroup"
+HKR,, "Start"                           , %REG_DWORD%    , 0x00000002
+HKR,, "FailureActions"                  , %REG_BINARY%   , \
+	84,03,00,00,00,00,00,00,00,00,00,00,04,00,00, \ ; ··············
+	00,14,00,00,00,01,00,00,00,E8,03,00,00,01,00, \ ; ·········è·····
+	00,00,E8,03,00,00,01,00,00,00,E8,03,00,00,00, \ ; ··è·······è····
+	00,00,00,00,00,00,00                            ; ·······
+
+HKR,, "Type"                            , %REG_DWORD%    , 0x00000110
+HKR,, "Description"                     , %REG_SZ%       , "Qualcomm ADSP RPC FS Service"
+
+HKR , Parameters                                              , ServiceMain    , %REG_SZ%       , "libadsprpcMain"
+HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost    , libadsprpcGroup, %REG_MULTI_SZ% , "libadsprpc"
 
 [libadsprpc_path_Reg]
-HKLM, System\CurrentControlSet\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm\libadsprpc.dll"
+HKR, Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm\libadsprpc.dll"
 
 [libadsprpc_path_Reg.NTarm64]
-HKLM, System\CurrentControlSet\Services\libadsprpc\Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm64\libadsprpc.dll"
+HKR, Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm64\libadsprpc.dll"
 
 [libadsprpc.Files]
 libadsprpc.dll
 
 [Strings]
 QC                    = "Qualcomm Technologies, Inc."
-LibADSPRPC.DeviceDesc =  "Qualcomm ADSP RPC Library"
+LibADSPRPC.DeviceDesc = "Qualcomm ADSP RPC FS Service"
 
 REG_SZ        = 0x00000000
 REG_MULTI_SZ  = 0x00010000
