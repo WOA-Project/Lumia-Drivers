@@ -17,7 +17,8 @@ CatalogFile.NTarm   = qcpep8994.arm.cat
 CatalogFile.NTarm64 = qcpep8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -94,12 +95,12 @@ ExcludeFromSelect = *
 %ADC.DeviceDesc%       = Pep_Device, ACPI\QCOM2493
 
 [Pep_Device.NTarm]
-CopyFiles   = Pep_Device.Copy
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [Pep_Device.NTarm64]
-CopyFiles   = Pep_Device.Copy
+CopyFiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -186,7 +187,10 @@ HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000001
 HKR , Parameters        , DisableL2Ret                , 0x00010001,  0x00000003
 HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000001
 
-[Pep_Device.Copy]
+[Drivers_Dir_A32]
+qcpep8994.sys
+
+[Drivers_Dir_A64]
 qcpep8994.sys
 
 ; WHCK test

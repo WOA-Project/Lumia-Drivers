@@ -13,7 +13,8 @@ CatalogFile.NTarm   = ncsdsvc.arm.cat
 CatalogFile.NTarm64 = ncsdsvc.arm64.cat
 
 [DestinationDirs]
-NcsdSvc.Files = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
@@ -35,10 +36,10 @@ wpcoreutil.dll     = 0,arm64,
 OEMServiceHost.exe = 0,arm64,
 
 [DefaultInstall.NTarm]
-CopyFiles = NcsdSvc.Files
+CopyFiles = Drivers_Dir_A32
 
 [DefaultInstall.NTarm64]
-CopyFiles = NcsdSvc.Files
+CopyFiles = Drivers_Dir_A64
 
 [DefaultInstall.NTarm.Services]
 AddService = NcsdPluginSvc,0x00000000,NcsdSvc_Service,
@@ -126,7 +127,15 @@ HKR, "TriggerInfo\1", "Guid", 0x00000001, \
 
 HKR, "TriggerInfo\1", "DataType1", 0x00010001, 0x00000001
 
-[NcsdSvc.Files]
+[Drivers_Dir_A32]
+NcsdRes.dll
+Ncsd.dll
+NcsdPluginSvc.dll
+phoneinfo.dll
+wpcoreutil.dll
+OEMServiceHost.exe
+
+[Drivers_Dir_A64]
 NcsdRes.dll
 Ncsd.dll
 NcsdPluginSvc.dll

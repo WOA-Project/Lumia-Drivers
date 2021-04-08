@@ -30,16 +30,20 @@ LumiaActivityDriver.dll=1,arm64,
 ;---------------- copy files
 
 [ActivityDriver_Inst.NTarm]
-CopyFiles = SensorDriverCopy
+CopyFiles = Drivers_Dir_A32
 
 [ActivityDriver_Inst.NTarm64]
-CopyFiles = SensorDriverCopy
+CopyFiles = Drivers_Dir_A64
 
-[SensorDriverCopy]
+[Drivers_Dir_A32]
+LumiaActivityDriver.dll
+
+[Drivers_Dir_A64]
 LumiaActivityDriver.dll
 
 [DestinationDirs]
-SensorDriverCopy = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [ActivityDriver_Inst.NTarm.HW]
 AddReg = ActivityDriver_SecurityAddReg

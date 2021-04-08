@@ -47,22 +47,26 @@ qcSensor1UM8994.dll=1,arm64,
 ;---------------- copy files
 
 [Sensor_Inst.NTarm]
-CopyFiles = SensorDriverCopy,UMDriverCopy
+CopyFiles = Drivers_Dir_A32,UMDriverCopy
 AddReg = WdfExt_AddReg,DisableHpf_AddReg
 
 [Sensor_Inst.NTarm64]
-CopyFiles = SensorDriverCopy,UMDriverCopy
+CopyFiles = Drivers_Dir_A64,UMDriverCopy
 AddReg = WdfExt_AddReg,DisableHpf_AddReg
 
-[SensorDriverCopy]
+[Drivers_Dir_A32]
+qcSensors8994.dll
+
+[Drivers_Dir_A64]
 qcSensors8994.dll
 
 [UMDriverCopy]
 qcSensor1UM8994.dll
 
 [DestinationDirs]
-SensorDriverCopy = 13
-UMDriverCopy     = 11
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
+UMDriverCopy    = 11
 
 [Sensor_Inst.NTarm.HW]
 AddReg = Sensor_Inst_SecurityAddReg

@@ -10,7 +10,8 @@ CatalogFile.NTarm   = SscAlgorithmBridge.arm.cat
 CatalogFile.NTarm64 = SscAlgorithmBridge.arm64.cat
 
 [DestinationDirs]
-DriverCopyFiles   = 13
+Drivers_Dir_A32   = 13,arm
+Drivers_Dir_A64   = 13,arm64
 UserModeCopyFiles = 11
 
 [ControlFlags]
@@ -36,49 +37,49 @@ ExcludeFromSelect=*
 ;---------------------------------------------------------------------------
 
 [Activity_Inst.NTarm]
-Copyfiles=DriverCopyFiles,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A32,UserModeCopyFiles
 
 [Activity_Inst.NTarm.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Step_Inst.NTarm]
-Copyfiles=DriverCopyFiles,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A32,UserModeCopyFiles
 
 [Step_Inst.NTarm.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Gesture_Inst.NTarm]
-Copyfiles=DriverCopyFiles,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A32,UserModeCopyFiles
 
 [Gesture_Inst.NTarm.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Control_Inst.NTarm]
-Copyfiles=DriverCopyFiles,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A32,UserModeCopyFiles
 
 [Control_Inst.NTarm.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Activity_Inst.NTarm64]
-Copyfiles=DriverCopyFiles,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A64,UserModeCopyFiles
 
 [Activity_Inst.NTarm64.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Step_Inst.NTarm64]
-Copyfiles=DriverCopyFiles,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A64,UserModeCopyFiles
 
 [Step_Inst.NTarm64.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Gesture_Inst.NTarm64]
-Copyfiles=DriverCopyFiles,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A64,UserModeCopyFiles
 
 [Gesture_Inst.NTarm64.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Control_Inst.NTarm64]
-Copyfiles=DriverCopyFiles,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A64,UserModeCopyFiles
 
 [Control_Inst.NTarm64.HW]
 AddReg = Sensor_Inst_SecurityAddReg
@@ -88,7 +89,10 @@ HKR,,DeviceCharacteristics,0x10001,0x00000100       ; FILE_DEVICE_SECURE_OPEN
 HKR,,Security,,"D:P(A;;GR;;;BA)(A;;GR;;;SY)(A;;GR;;;S-1-5-84-0-0-0-0-0)" ; DACL to allow generic-read access to built-in
                                                                          ; Admin group, System, and UMDF drivers.
 
-[DriverCopyFiles]
+[Drivers_Dir_A32]
+SscAlgorithmBridge8994.dll
+
+[Drivers_Dir_A64]
 SscAlgorithmBridge8994.dll
 
 [UserModeCopyFiles]

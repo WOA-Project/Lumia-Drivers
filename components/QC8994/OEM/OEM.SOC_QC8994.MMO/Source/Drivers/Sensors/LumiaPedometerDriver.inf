@@ -30,16 +30,20 @@ LumiaPedometerDriver.dll=1,arm64,
 ;---------------- copy files
 
 [PedometerDriver_Inst.NTarm]
-CopyFiles = SensorDriverCopy
+CopyFiles = Drivers_Dir_A32
 
 [PedometerDriver_Inst.NTarm64]
-CopyFiles = SensorDriverCopy
+CopyFiles = Drivers_Dir_A64
 
-[SensorDriverCopy]
+[Drivers_Dir_A32]
+LumiaPedometerDriver.dll
+
+[Drivers_Dir_A64]
 LumiaPedometerDriver.dll
 
 [DestinationDirs]
-SensorDriverCopy = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [PedometerDriver_Inst.NTarm.HW]
 AddReg = PedometerDriver_SecurityAddReg

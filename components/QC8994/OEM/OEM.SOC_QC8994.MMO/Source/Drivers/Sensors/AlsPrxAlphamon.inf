@@ -41,18 +41,22 @@ AlsPrxAlphamon.dll = 1,arm64,
 ;---------------- copy files
 
 [Alphamon_Inst.NTarm]
-CopyFiles = SensorDriverCopy
+CopyFiles = Drivers_Dir_A32
 AddReg = WdfExt_AddReg
 
 [Alphamon_Inst.NTarm64]
-CopyFiles = SensorDriverCopy
+CopyFiles = Drivers_Dir_A64
 AddReg = WdfExt_AddReg
 
-[SensorDriverCopy]
+[Drivers_Dir_A32]
+AlsPrxAlphamon.dll
+
+[Drivers_Dir_A64]
 AlsPrxAlphamon.dll
 
 [DestinationDirs]
-SensorDriverCopy = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [Alphamon_Inst.NTarm.HW]
 AddReg = Alphamon_Inst.NT.HW.AddReg

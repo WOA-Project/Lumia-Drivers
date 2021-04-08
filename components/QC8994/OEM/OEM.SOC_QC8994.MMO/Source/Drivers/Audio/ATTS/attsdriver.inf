@@ -7,47 +7,75 @@ Class       = Media
 ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
 Provider    = %ProviderName%
 DriverVer   = 03/18/2021,12.20.34.54
-CatalogFile = attsdriver.cat
 PnpLockdown = 1
+
+CatalogFile.NTarm   = attsdriver.arm.cat
+CatalogFile.NTarm64 = attsdriver.arm64.cat
 
 [SourceDisksNames]
 3426 = windows cd
 
-[SourceDisksFiles]
-attsdriver.sys = 3426
+[SourceDisksFiles.ARM]
+attsdriver.sys = 3426,arm
 
-;12 == Windows\System32\Drivers
+[SourceDisksFiles.ARM64]
+attsdriver.sys = 3426,arm64
+
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32   = 13,arm
+Drivers_Dir_A64   = 13,arm64
 
 ;*****************************************
 ; ATTS  Install Section
 ;*****************************************
 
 [Manufacturer]
-%StdMfg% = Standard,NTarm64
+%StdMfg% = Standard,NTarm,NTarm64
+
+[Standard.NTarm]
+%DeviceDesc% = DriverInstall,ACPI\MSHW1018
 
 [Standard.NTarm64]
 %DeviceDesc% = DriverInstall,ACPI\MSHW1018
 
-[DriverInstall.NT]
-CopyFiles = DriverInstall_Copy
+[DriverInstall.NTarm]
+CopyFiles = Drivers_Dir_A32
 
-[DriverInstall.NT.Services]
-AddService = attsdriver,2,DriverInstall_Service
+[DriverInstall.NTarm64]
+CopyFiles = Drivers_Dir_A64
 
-[DriverInstall_Copy]
+[DriverInstall.NTarm.Services]
+AddService = attsdriver,2,DriverInstall_Service.NTarm
+
+[DriverInstall.NTarm64.Services]
+AddService = attsdriver,2,DriverInstall_Service.NTarm64
+
+[Drivers_Dir_A32]
 attsdriver.sys
 
-[DriverInstall_Service]
+[Drivers_Dir_A64]
+attsdriver.sys
+
+[DriverInstall_Service.NTarm]
 DisplayName    = %SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\attsdriver.sys
+ServiceBinary  = %13%\arm\attsdriver.sys
 LoadOrderGroup = Extended Base
 
-[DriverInstall.NT.HW]
+[DriverInstall_Service.NTarm64]
+DisplayName    = %SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm64\attsdriver.sys
+LoadOrderGroup = Extended Base
+
+[DriverInstall.NTarm.HW]
+AddReg = DriverInstall.SecurityAddReg
+
+[DriverInstall.NTarm64.HW]
 AddReg = DriverInstall.SecurityAddReg
 
 [DriverInstall.SecurityAddReg]

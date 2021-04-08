@@ -10,8 +10,8 @@ CatalogFile.NTarm   = mmo_sec_driver.arm.cat
 CatalogFile.NTarm64 = mmo_sec_driver.arm64.cat
 
 [DestinationDirs]
-;12 == Windows\System32\Drivers
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ;*****************************************
 ; MmoSec Device  Install Section
@@ -27,12 +27,15 @@ DefaultDestDir = 13
 %MmoSec_Null_Device_Desc% = MmoSec_Device, ACPI\MSHW1001
 
 [MmoSec_Device.NTarm]
-CopyFiles = MmoSec_Device.NTarm.Copy
+CopyFiles = Drivers_Dir_A32
 
 [MmoSec_Device.NTarm64]
-CopyFiles = MmoSec_Device.NTarm.Copy
+CopyFiles = Drivers_Dir_A64
 
-[MmoSec_Device.NTarm.Copy]
+[Drivers_Dir_A32]
+mmo_sec_driver.sys
+
+[Drivers_Dir_A64]
 mmo_sec_driver.sys
 
 [MmoSec_Device.NTarm.HW]

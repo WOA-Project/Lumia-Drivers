@@ -10,7 +10,8 @@ CatalogFile.NTarm   = hall_kmd.arm.cat
 CatalogFile.NTarm64 = hall_kmd.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
@@ -35,14 +36,17 @@ hall_kmd.sys  = 1,arm64,
 ;*****************************************
 
 [hall_kmd_Device.NTarm]
-CopyFiles = hall_kmd_Device.CopyFiles
+CopyFiles = Drivers_Dir_A32
 ;AddReg    = hall_kmd_Device.AddReg
 
 [hall_kmd_Device.NTarm64]
-CopyFiles = hall_kmd_Device.CopyFiles
+CopyFiles = Drivers_Dir_A64
 ;AddReg    = hall_kmd_Device.AddReg
 
-[hall_kmd_Device.CopyFiles]
+[Drivers_Dir_A32]
+hall_kmd.sys,,,0x100
+
+[Drivers_Dir_A64]
 hall_kmd.sys,,,0x100
 
 [hall_kmd_Device.AddReg]

@@ -14,7 +14,8 @@ CatalogFile.NTarm   = LumiaNull.arm.cat
 CatalogFile.NTarm64 = LumiaNull.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
@@ -29,12 +30,6 @@ LumiaNull.sys = 1,arm64,
 %ManufacturerName% = Standard,NTarm,NTarm64
 
 [Standard.NTarm]
-%TouchTestNull.DeviceDesc%  = LumiaNull_Device, {1ED875DA-D851-42BE-9DFD-527D97178147}\TOUCH_TEST
-%TouchTestNull.DeviceDesc%  = LumiaNull_Device, {1ed875da-d851-42be-9dfd-527d97178147}\Touch_Test
-
-%TouchNull.DeviceDesc%      = LumiaNull_Device, {3A0AC59A-4D8A-4875-B7EA-304771FF9B9A}\NOKIATOUCH
-%TouchNull.DeviceDesc%      = LumiaNull_Device, {3a0ac59a-4d8a-4875-b7ea-304771ff9b9a}\NokiaTouch
-
 %NokiaAttsNull.DeviceDesc%  = LumiaNull_Device, ACPI\NOKIA_ATTS
 %OddtRegNull.DeviceDesc%    = LumiaNull_Device, ACPI\ODDT_REG
 %OddtVibNull.DeviceDesc%    = LumiaNull_Device, ACPI\ODDT_VIB
@@ -50,12 +45,6 @@ LumiaNull.sys = 1,arm64,
 %1019Null.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW1019
 
 [Standard.NTarm64]
-%TouchTestNull.DeviceDesc%  = LumiaNull_Device, {1ED875DA-D851-42BE-9DFD-527D97178147}\TOUCH_TEST
-%TouchTestNull.DeviceDesc%  = LumiaNull_Device, {1ed875da-d851-42be-9dfd-527d97178147}\Touch_Test
-
-%TouchNull.DeviceDesc%      = LumiaNull_Device, {3A0AC59A-4D8A-4875-B7EA-304771FF9B9A}\NOKIATOUCH
-%TouchNull.DeviceDesc%      = LumiaNull_Device, {3a0ac59a-4d8a-4875-b7ea-304771ff9b9a}\NokiaTouch
-
 %NokiaAttsNull.DeviceDesc%  = LumiaNull_Device, ACPI\NOKIA_ATTS
 %OddtRegNull.DeviceDesc%    = LumiaNull_Device, ACPI\ODDT_REG
 %OddtVibNull.DeviceDesc%    = LumiaNull_Device, ACPI\ODDT_VIB
@@ -71,12 +60,15 @@ LumiaNull.sys = 1,arm64,
 %1019Null.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW1019
 
 [LumiaNull_Device.NTarm]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A32
 
 [LumiaNull_Device.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+LumiaNull.sys
+
+[Drivers_Dir_A64]
 LumiaNull.sys
 
 [LumiaNull_Device.NTarm.Services]
@@ -114,12 +106,6 @@ ManufacturerName         = "LumiaWoA authors"
 DiskName                 = "LumiaWoA Null Driver Installation Disk"
 LumiaNull.DeviceDesc     = "LumiaWoA Null Device"
 LumiaNull.SvcDesc        = "LumiaWoA Null Service"
-
-;
-; Touch test interfaces
-;
-TouchTestNull.DeviceDesc = "Touch Driver Test Interface Device (Null)"
-TouchNull.DeviceDesc     = "Touch Driver Interface Device (Null)"
 
 ;
 ; Unavailable Nokia Mobile Oy (NMO) drivers

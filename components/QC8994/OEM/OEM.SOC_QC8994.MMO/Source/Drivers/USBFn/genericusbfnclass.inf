@@ -17,7 +17,8 @@ CatalogFile.NTarm64 = genericusbfnclass.arm64.cat
 ;*****************************************
 
 [DestinationDirs]
-genericusbfnclass_Files = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
@@ -47,11 +48,11 @@ genericusbfnclass.sys = 0,arm64,
 ;-------------- Service installation
 
 [UfnBus_Child_00]
-CopyFiles = genericusbfnclass_Files
+CopyFiles = Drivers_Dir_A32
 AddReg    = genericusbfnclass_device_descriptor
 
 [UfnBus_Child_00.NTarm64]
-CopyFiles = genericusbfnclass_Files
+CopyFiles = Drivers_Dir_A64
 AddReg    = genericusbfnclass_device_descriptor
 
 [UfnBus_Child_00.Services]
@@ -80,7 +81,10 @@ LoadOrderGroup = "Extended Base"
 ServiceBinary  = %13%\arm64\genericusbfnclass.sys
 AddReg         = genericusbfnclass_Service_Inst.AddReg
 
-[genericusbfnclass_Files]
+[Drivers_Dir_A32]
+genericusbfnclass.sys
+
+[Drivers_Dir_A64]
 genericusbfnclass.sys
 
 [genericusbfnclass_device_descriptor]

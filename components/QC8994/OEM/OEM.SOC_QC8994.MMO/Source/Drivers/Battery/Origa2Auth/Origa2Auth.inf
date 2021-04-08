@@ -14,7 +14,8 @@ CatalogFile.NTarm   = Origa2Auth.arm.cat
 CatalogFile.NTarm64 = Origa2Auth.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 
@@ -41,12 +42,15 @@ Origa2Auth.sys  = 3426,arm64
 %Origa2Auth.DeviceDesc% = Origa2Auth_Device, ACPI\MSHW1002
 
 [Origa2Auth_Device.NTarm]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A32
 
 [Origa2Auth_Device.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+Origa2Auth.sys
+
+[Drivers_Dir_A64]
 Origa2Auth.sys
 
 ;-------------- Service installation
