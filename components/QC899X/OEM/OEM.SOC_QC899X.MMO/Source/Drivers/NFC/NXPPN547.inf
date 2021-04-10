@@ -1,0 +1,152 @@
+;/*++
+;
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+; Module Name:
+;    NFC547.inf
+;
+; Abstract:
+;    INF file for installing the NXP PN547 controller
+;
+;--*/
+
+;/*++
+;
+; Portions from
+;
+;--*/
+
+;/*++
+;
+;Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;Module Name:
+;    MSNfcI2C547.inf
+;
+;Abstract:
+;    INF file for installing the NFCI2C transport driver
+;    for the 547 controller
+;
+;--*/
+
+; ==================== Class section =========================
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = Proximity
+ClassGuid   = {5630831C-06C9-4856-B327-F5D32586E060}
+Provider    = %NXP%
+DriverVer   = 03/18/2021,1.0.0.0
+CatalogFile = NXPPN547.cat
+PnpLockdown = 1
+
+[SourceDisksNames]
+1 = %MediaDescription%
+
+[SourceDisksFiles]
+MSNfcI2C547.dll = 1
+NXPPN547FW.dat  = 1
+
+[DestinationDirs]
+UMDriverCopy     = 13
+NxpCopyFileList  = 13
+
+; ================= Device section =====================
+
+[Manufacturer]
+%NXP% = NXP,NTarm, NTarm64, NTarm64.10.0...17764
+
+[NXP.NTarm]
+%NXPPN547_HWID.DeviceDesc% = NXPPN547_HWID, ACPI\PN547
+
+[NXP.NTarm64]
+%NXPPN547_HWID.DeviceDesc% = NXPPN547_HWID, ACPI\PN547
+
+[NXP.NTarm64.10.0...17764]
+%NXPPN547_HWID.DeviceDesc% = NXPPN547_HWID_1903, ACPI\PN547
+
+[NXPPN547_HWID.NT]
+Include   = msnfci2c547.inf
+Needs     = msnfci2c547.NT
+CopyFiles = NxpCopyFileList
+
+[NXPPN547_HWID_1903.NT]
+CopyFiles = UMDriverCopy,NxpCopyFileList
+
+; ================= Services section ======================
+
+[NXPPN547_HWID.NT.Services]
+Include   = msnfci2c547.inf
+Needs     = msnfci2c547.NT.Services
+
+[NXPPN547_HWID_1903.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %WudfRdDisplayName%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %12%\WUDFRd.sys
+
+; ================= WDF entries ===========================
+
+[NXPPN547_HWID.NT.Wdf]
+Include   = msnfci2c547.inf
+Needs     = msnfci2c547.NT.Wdf
+
+[NXPPN547_HWID_1903.NT.Wdf]
+UmdfService              = "MSNfcI2C547", msnfci2c547_1903_Install
+UmdfServiceOrder         = MSNfcI2C547
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfImpersonationLevel   = Impersonation
+
+[msnfci2c547_1903_Install]
+UmdfLibraryVersion = 2.15.0
+ServiceBinary      = %13%\MSNfcI2C547.dll
+UmdfExtensions     = NfcCx0102
+
+[NXPPN547_HWID.NT.HW]
+AddReg = NXPPN547_Config_AddReg
+
+[NXPPN547_HWID_1903.NT.HW]
+AddReg = NXPPN547_Config_AddReg
+
+[NXPPN547_Config_AddReg]
+HKR,              , "NfcIP_Tgt_Mode" , 0x00010001, 0x0F
+HKR,              , "NfcCE_Mode"     , 0x00010001, 0x0F
+HKR,              , "PollDevInfo"    , 0x00010001, 0x3F
+HKR,              , "NfcIP_Mode"     , 0x00010001, 0x0F
+HKR,              , "Duration"       , 0x00010001, 0x30D40
+HKR,              , "IdleTimeout"    , 0x00010001, 0x2710
+HKR,              , "IdleTimeoutType", 0x00010001, 2
+HKR, "FirmwareMap", "8"              , 0x00020000, "%13%\nxppn547fw.dat"
+HKR, "FirmwareMap", "5"              , 0x00020000, "%13%\nxppn547fw.dat"
+
+; ================= Co-installer section ==================
+
+[NXPPN547_HWID_1903.NT.CoInstallers]
+AddReg = CoInstallers_AddReg
+
+[CoInstallers_AddReg]
+HKR,, CoInstallers32, 0x00010000, "WUDFCoinstaller.dll"
+
+; ================= Copy files ============================
+
+[NxpCopyFileList]
+NXPPN547FW.dat
+
+[UMDriverCopy]
+MSNfcI2C547.dll
+
+;================= Strings section =====================
+
+[Strings]
+;
+; Localizable
+;
+NXP                      = "NXP Semiconductors"
+NXPPN547_HWID.DeviceDesc = "NXP Near Field Communication (NFC) Controller (PN547)"
+MediaDescription         = "NXP Near Field Communication (NFC) Controller (PN547) Installation Media"
+WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framework Reflector"

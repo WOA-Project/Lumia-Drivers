@@ -1,0 +1,76 @@
+;
+; VisaST.inf
+;
+[Version]
+Signature   = "$Windows NT$"
+Class       = Media
+ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider    = %Company%
+DriverVer   = 05/13/2016,21.29.2.0883
+PnpLockdown = 1
+
+CatalogFile.NTarm   = VisaST.arm.cat
+CatalogFile.NTarm64 = VisaST.arm64.cat
+
+[DestinationDirs]
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+VisaST.sys = 1,arm
+
+[SourceDisksFiles.ARM64]
+VisaST.sys = 1,arm64
+
+[Manufacturer]
+%Company% = Standard, NTarm, NTarm64
+
+[Standard.NTARM]
+%DeviceDesc% = VisaST_Inst.NTarm, ACPI\MSHW1019
+
+[Standard.NTARM64]
+%DeviceDescNull% = VisaST_Inst.NTarm64, ACPI\MSHW1019
+
+[VisaST_Inst.NTarm]
+CopyFiles = Drivers_Dir_A32
+
+[VisaST_Inst.NTarm64]
+CopyFiles = Drivers_Dir_A64
+
+[Drivers_Dir_A32]
+VisaST.sys
+
+[Drivers_Dir_A64]
+VisaST.sys
+
+[VisaST_Inst.NTarm.Services]
+AddService = VisaST, 0x00000002, VisaST_service_inst.NTarm
+
+[VisaST_Inst.NTarm64.Services]
+AddService = VisaST, 0x00000002, VisaST_service_inst.NTarm64
+
+[VisaST_service_inst.NTarm]
+DisplayName     =   %VisaST.SvcDesc%
+ServiceType     =   1
+StartType       =   3
+ErrorControl    =   1
+ServiceBinary   =   %13%\arm\VisaST.sys 
+LoadOrderGroup  =   Extended Base
+
+[VisaST_service_inst.NTarm64]
+DisplayName     =   %VisaST.SvcDesc%
+ServiceType     =   1
+StartType       =   3
+ErrorControl    =   1
+ServiceBinary   =   %13%\arm64\VisaST.sys 
+LoadOrderGroup  =   Extended Base
+
+[Strings]
+Company        = "MMO"
+DeviceDesc     = "TI Class-D Mono Audio Amplifier with Class-G Boost and Speaker Sense (TAS2552)"
+DeviceDescNull = "TI Class-D Mono Audio Amplifier with Class-G Boost and Speaker Sense (TAS2552) (Null)"
+VisaST.SvcDesc = "TI Class-D Mono Audio Amplifier with Class-G Boost and Speaker Sense (TAS2552)"
+DiskId1        = "TI Class-D Mono Audio Amplifier with Class-G Boost and Speaker Sense (TAS2552) Installation Disk"

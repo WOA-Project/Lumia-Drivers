@@ -1,0 +1,110 @@
+;/*++
+;
+;   Copyright (c) 2011-2013 Qualcomm Technologies, Inc.
+;               All Rights Reserved.
+;               Qualcomm Technologies Confidential and Proprietary.
+;
+;Module Name:
+;    qcepmadc8994.inf
+;
+;Abstract:
+;    INF file for installing the EpmAdc Driver
+;--*/
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %Qualcomm%
+DriverVer   = 03/18/2021,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTarm   = qcepmadc8994.arm.cat
+CatalogFile.NTarm64 = qcepmadc8994.arm64.cat
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles.ARM]
+qcepmadc8994.sys = 1,arm
+
+[SourceDisksFiles.ARM64]
+qcepmadc8994.sys = 1,arm64
+
+[DestinationDirs]
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%Qualcomm% = QC, NTarm, NTarm64
+
+[QC.NTarm]
+%EPMADC.DeviceDesc% = EPMADC_Device, ACPI\QCOM2411
+
+[QC.NTarm64]
+%EPMADC.DeviceDesc% = EPMADC_Device, ACPI\QCOM2411
+
+[EPMADC_Device.NTarm]
+CopyFiles = Drivers_Dir_A32
+
+[EPMADC_Device.NTarm64]
+CopyFiles = Drivers_Dir_A64
+
+[Drivers_Dir_A32]
+qcepmadc8994.sys
+
+[Drivers_Dir_A64]
+qcepmadc8994.sys
+
+[EPMADC_Device.NTarm.Services]
+AddService = EPMADC,%SPSVCINST_ASSOCSERVICE%, EPMADC_Service_Inst
+
+[EPMADC_Device.NTarm64.Services]
+AddService = EPMADC,%SPSVCINST_ASSOCSERVICE%, EPMADC_Service_Inst.NTarm64
+
+[EPMADC_Device.NTarm.HW]
+addreg = EPMADCSD
+
+[EPMADC_Device.NTarm64.HW]
+addreg = EPMADCSD
+
+[EPMADCSD]
+HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[EPMADC_Service_Inst]
+DisplayName   = %EPMADC.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm\qcepmadc8994.sys
+
+[EPMADC_Service_Inst.NTarm64]
+DisplayName   = %EPMADC.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm64\qcepmadc8994.sys
+
+[EPMADC_Device.NTarm.Wdf]
+KmdfService = EPMADC, EPMADC_wdfsect
+[EPMADC_Device.NTarm64.Wdf]
+KmdfService = EPMADC, EPMADC_wdfsect
+[EPMADC_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+;Localizable Strings
+Qualcomm               = "Qualcomm Technologies, Inc."
+DiskId1                = "Qualcomm EPM ADC Installation Disk"
+EPMADC.DeviceDesc      = "Qualcomm EPM ADC Device"
+EPMADC.SvcDesc         = "Qualcomm EPM ADC Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_NORMAL   = 1

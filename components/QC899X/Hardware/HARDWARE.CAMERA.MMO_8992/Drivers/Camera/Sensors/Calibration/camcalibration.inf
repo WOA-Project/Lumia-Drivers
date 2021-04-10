@@ -1,0 +1,128 @@
+;
+; camcalibration.inf
+;
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 03/18/2021,12.0.30519.0
+PnpLockdown = 1
+
+CatalogFile.NTarm   = camcalibration.arm.cat
+CatalogFile.NTarm64 = camcalibration.arm64.cat
+
+[DestinationDirs]
+; 11 = system32
+CamCalibration.CopyFiles = 12
+
+[SourceDisksNames]
+0 = %DiskId1%
+
+[SourceDisksFiles]
+06002000.dfc = 0,,
+0A214000.dcc = 0,,
+0A214001.dcc = 0,,
+0AEACA01.dcc = 0,,
+0AEACA02.dcc = 0,,
+0AEACA04.dcc = 0,,
+0AEACA05.dcc = 0,,
+0AEACA11.dcc = 0,,
+0AEACA12.dcc = 0,,
+0AEACA14.dcc = 0,,
+0AEACA15.dcc = 0,,
+0C086101.dcc = 0,,
+10454101.dcc = 0,,
+10454102.dcc = 0,,
+10454103.dcc = 0,,
+10454104.dcc = 0,,
+10454105.dcc = 0,,
+10454106.dcc = 0,,
+10454107.dcc = 0,,
+10454110.dcc = 0,,
+10454111.dcc = 0,,
+10454112.dcc = 0,,
+
+;*****************************************
+; CamCal  Install Section
+;*****************************************
+
+[DefaultInstall.NTarm]
+CopyFiles = CamCalibration.CopyFiles
+AddReg    = CamCalibration.AddReg
+
+[DefaultInstall.NTarm64]
+CopyFiles = CamCalibration.CopyFiles
+AddReg    = CamCalibration.AddReg
+
+; System32
+[CamCalibration.CopyFiles]
+06002000.dfc
+0A214000.dcc
+0A214001.dcc
+0AEACA01.dcc
+0AEACA02.dcc
+0AEACA04.dcc
+0AEACA05.dcc
+0AEACA11.dcc
+0AEACA12.dcc
+0AEACA14.dcc
+0AEACA15.dcc
+0C086101.dcc
+10454101.dcc
+10454102.dcc
+10454103.dcc
+10454104.dcc
+10454105.dcc
+10454106.dcc
+10454107.dcc
+10454110.dcc
+10454111.dcc
+10454112.dcc
+
+[CamCalibration.AddReg]
+HKLM, "SOFTWARE\OEM\MMO\Camera\FFC\Rotation", "FlipMirror", 0x00010001, 0x00000001
+HKLM, "SOFTWARE\OEM\MMO\Camera\FFC\Rotation", "", 0x00000000, ""
+
+HKLM, "SOFTWARE\OEM\MMO\Camera\FFC\Caps", "MaxIso", 0x00010001, 0x00000640
+
+HKLM, "SOFTWARE\OEM\MMO\Camera\FFC\Resolution", "", 0x00000000, ""
+HKLM, "SOFTWARE\OEM\MMO\Camera\FFC\Resolution", "StillResolution", 0x00010001, 0x00000003
+HKLM, "SOFTWARE\OEM\MMO\Camera\FFC\Resolution", "VideoResolution", 0x00010001, 0x00000003
+HKLM, "SOFTWARE\OEM\MMO\Camera\FFC\Resolution", "PreviewResolution", 0x00010001, 0x00000004
+
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\CameraI2C", "I2cFreqKhz", 0x00010001, 0x000003E8
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\CameraI2C", "", 0x00000000, ""
+
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Rotation", "FlipMirror", 0x00010001, 0x00000001
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Rotation", "", 0x00000000, ""
+
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Caps", "MinIso", 0x00010001, 0x00000040
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Caps", "MaxIso", 0x00010001, 0x00000C80
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Caps", "FlashModes", 0x00010001, 0x0000003B
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Caps", "VideoLightModes", 0x00010001, 0x00000002
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Caps", "MaxET", 0x00010001, 0x003D0900
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Caps", "MinET", 0x00010001, 0x0000003C
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Caps", "MaxDigiZoom", 0x00010001, 0x00040000
+
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Resolution", "HighResCapture_Resolution_4_3", 0x00000000, "2592x1936"
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Resolution", "VideoResolution", 0x00010001, 0x00000004
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Resolution", "StillResolution", 0x00010001, 0x00000006
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Resolution", "HighResCapture_Resolution_16_9", 0x00000000, "3072x1728"
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Resolution", "PreviewResolution", 0x00010001, 0x00000004
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Resolution", "DngCapture_NeededBufferSize", 0x00010001, 0x01947C00
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Resolution", "HighResCapture_SupportedResolutions", 0x00000000, "5"
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Resolution", "HiddenStillResolution", 0x00000000, "4992x3744,5344x3008"
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFC\Resolution", "HfrVideoProfile", 0x00010001, 0x00000001
+
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFF", "", 0x00000000, ""
+HKLM, "SOFTWARE\OEM\MMO\Camera\RFF", "CustomSetting1", 0x00010001, 0x00000026
+
+HKLM, "SOFTWARE\OEM\MMO\Camera\TFF", "Module", 0x00010001, 0x00000007
+
+HKLM, "SOFTWARE\OEM\MMO\Camera\TFF", "PMICType", 0x00010001, 0x00000001
+HKLM, "SOFTWARE\OEM\MMO\Camera\TFF", "", 0x00000000, ""
+
+[Strings]
+IHV                    = "LumiaWoA authors"
+DiskId1                = "Camera Calibration Installation Disk #1"

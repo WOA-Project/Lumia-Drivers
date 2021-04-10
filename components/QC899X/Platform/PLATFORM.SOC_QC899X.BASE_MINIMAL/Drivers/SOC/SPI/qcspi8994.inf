@@ -1,0 +1,95 @@
+;
+; Copyright (c) 2012-2014 by Qualcomm Technologies, Inc.  All Rights Reserved.
+;
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %Manufacturer_Name%
+DriverVer   = 03/18/2021,1.0.1067.0000
+PnpLockDown = 1
+
+CatalogFile.NTarm   = qcspi8994.arm.cat
+CatalogFile.NTarm64 = qcspi8994.arm64.cat
+
+[SourceDisksNames]
+1 = %Disk_Description%
+
+[SourceDisksFiles.ARM]
+qcspi8994.sys = 1,arm
+
+[SourceDisksFiles.ARM64]
+qcspi8994.sys = 1,arm64
+
+[DestinationDirs]
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%Manufacturer_Name% = Qualcomm_Models, NTarm, NTarm64
+
+[Qualcomm_Models.NTarm]
+%Device_Description% = SPI_Install, ACPI\QCOM240C
+
+[Qualcomm_Models.NTarm64]
+%Device_Description% = SPI_Install, ACPI\QCOM240C
+
+[SPI_Install]
+CopyFiles   = Drivers_Dir_A32
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[SPI_Install.NTarm64]
+CopyFiles   = Drivers_Dir_A64
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir_A32]
+qcspi8994.sys
+
+[Drivers_Dir_A64]
+qcspi8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
+
+[SPI_Install.Services]
+AddService = qcspi, 0x00000002, SPI_Service_Install
+
+[SPI_Install.NTarm64.Services]
+AddService = qcspi, 0x00000002, SPI_Service_Install.NTarm64
+
+[SPI_Service_Install]
+DisplayName   = %Service_Name%
+ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
+StartType     = 3 ; SERVICE_DEMAND_START
+ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm\qcspi8994.sys
+Dependencies  = SpbCx
+
+[SPI_Service_Install.NTarm64]
+DisplayName   = %Service_Name%
+ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
+StartType     = 3 ; SERVICE_DEMAND_START
+ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcspi8994.sys
+Dependencies  = SpbCx
+
+[SPI_Install.Wdf]
+KmdfService = qcspi, SPI_wdfsect
+
+[SPI_Install.NTarm64.Wdf]
+KmdfService = qcspi, SPI_wdfsect
+
+[SPI_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+Manufacturer_Name  = "Qualcomm Technologies, Inc."
+Disk_Description   = "Qualcomm SPI Device Installation Disk"
+Device_Description = "Qualcomm(R) Bus Device"
+Service_Name       = "Qualcomm(R) Bus Device"
