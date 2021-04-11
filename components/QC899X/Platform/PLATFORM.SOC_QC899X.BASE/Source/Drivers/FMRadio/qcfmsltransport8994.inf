@@ -21,7 +21,8 @@ CatalogFile.NTarm = qcfmsltransport8994.arm.cat
 CatalogFile.NTarm64 = qcfmsltransport8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -49,7 +50,7 @@ ExcludeFromSelect = *
 %Bus.DeviceDesc% = Bus_Vendor, ACPI\QCOM24B1
 
 [Bus_Vendor.NTarm]
-CopyFiles   = Bus.CopyFiles
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 
 [Bus_Vendor.NTarm.HW]
@@ -60,7 +61,7 @@ AddReg = Bus_Vendor_NT.AddReg
 AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
 
 [Bus_Vendor.NTarm64]
-CopyFiles   = Bus.CopyFiles
+CopyFiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 
 [Bus_Vendor.NTarm64.HW]
@@ -72,7 +73,10 @@ AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst.NTarm64
 
 [WDTFSOCDeviceCategory]
 
-[Bus.CopyFiles]
+[Drivers_Dir_A32]
+qcfmsltransport8994.sys
+
+[Drivers_Dir_A64]
 qcfmsltransport8994.sys
 
 [Bus_Vendor_NT.AddReg]

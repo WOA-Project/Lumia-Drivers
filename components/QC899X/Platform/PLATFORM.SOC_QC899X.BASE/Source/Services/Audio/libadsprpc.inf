@@ -22,7 +22,8 @@ CatalogFile.NTarm   = "libadsprpc.arm.cat"
 CatalogFile.NTarm64 = "libadsprpc.arm64.cat"
 
 [DestinationDirs]
-libadsprpc.Files = 13 ; \system32 directory on Windows 2000 and later versions
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
@@ -43,10 +44,10 @@ libadsprpc.dll = 0,arm64,
 %LibADSPRPC.DeviceDesc% = LibADSP, SWC\VID_QCOM&PID_248A&SID_0001
 
 [LibADSP.NTarm]
-CopyFiles = libadsprpc.Files
+CopyFiles = Drivers_Dir_A32
 
 [LibADSP.NTarm64]
-CopyFiles = libadsprpc.Files
+CopyFiles = Drivers_Dir_A64
 
 [LibADSP.NTarm.Services]
 AddService = libadsprpc,0x00000000,libadsprpc_Service,
@@ -104,7 +105,10 @@ HKR, Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm\libadsprpc.dll"
 [libadsprpc_path_Reg.NTarm64]
 HKR, Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm64\libadsprpc.dll"
 
-[libadsprpc.Files]
+[Drivers_Dir_A32]
+libadsprpc.dll
+
+[Drivers_Dir_A64]
 libadsprpc.dll
 
 [Strings]

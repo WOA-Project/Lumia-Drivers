@@ -50,9 +50,9 @@ ExcludeFromSelect=*
 CopyFiles = Drivers_Dir_A32
 
 [QC.NTarm64]
-%CORE.DeviceDescNull% = CORE_Devicearm64, ROOT\CORE
+%CORE.DeviceDescNull% = CORE_Device, ROOT\CORE
 
-[CORE_Devicearm64.NTarm64]
+[CORE_Device.NTarm64]
 CopyFiles = Drivers_Dir_A64
 
 [Drivers_Dir_A32]
@@ -64,7 +64,7 @@ qccamcore8992.sys
 [CORE_Device.NTarm.HW]
 AddReg = CORE_Device_Security_Reg
 
-[CORE_Devicearm64.NTarm64.HW]
+[CORE_Device.NTarm64.HW]
 AddReg = CORE_Device_Security_Reg
 
 [CORE_Device_Security_Reg]
@@ -74,8 +74,8 @@ HKR,,DeviceCharacteristics,0x10001,0x100
 [CORE_Device.NTarm.Services]
 AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst
 
-[CORE_Devicearm64.NTarm64.Services]
-AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst
+[CORE_Device.NTarm64.Services]
+AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst.NTarm64
 
 ; -------------- CORE driver install sections
 [CORE_Service_Inst]

@@ -20,8 +20,8 @@ CatalogFile.NTarm64 = QcUsbFnSsFilter8994.arm64.cat
 ExcludeFromSelect = *
 
 [DestinationDirs]
-QcUsbFnSSFilter.CopyFile = 13
-DefaultDestDir           = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 
@@ -38,45 +38,31 @@ QcUsbFnSsFilter8994.sys = 1,arm64,
 ; Install Section
 ;*****************************************
 
-[Manufacturer]
-%Company% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%Standard.DeviceDesc% = QcUsbFnSSFilter   ; upper driver ufsynopsys.inf matches on hardware IDs
-
-[Standard.NTarm64]
-%Standard.DeviceDesc% = QcUsbFnSSFilter; upper driver ufsynopsys.inf matches on hardware IDs
-
-[QcUsbFnSSFilter.NTarm]
+[DefaultInstall.NTarm]
 Include    = qcusbfn8994.inf
-Needs      = QCUSBFN_Device.NT
-CopyFiles  = QcUsbFnSSFilter.CopyFile
+Needs      = QCUSBFN_Device.NTarm
+CopyFiles  = Drivers_Dir_A32
 
-[QcUsbFnSSFilter.NTarm.Services]
+[DefaultInstall.NTarm.Services]
 Include    = qcusbfn8994.inf
 Needs      = QCUSBFN_Device.NTarm.Services
 AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
 
-[QcUsbFnSSFilter.NTarm.HW]
-AddReg = QcUsbFnSSFilter_AddReg
-
-[QcUsbFnSSFilter.NTarm64]
+[DefaultInstall.NTarm64]
 Include    = qcusbfn8994.inf
-Needs      = QCUSBFN_Device.NT
-CopyFiles  = QcUsbFnSSFilter.CopyFile
+Needs      = QCUSBFN_Device.NTarm64
+CopyFiles  = Drivers_Dir_A64
 
-[QcUsbFnSSFilter.NTarm64.Services]
+[DefaultInstall.NTarm64.Services]
 Include    = qcusbfn8994.inf
 Needs      = QCUSBFN_Device.NTarm64.Services
 AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst.NTarm64
 
-[QcUsbFnSSFilter.NTarm64.HW]
-AddReg = QcUsbFnSSFilter_AddReg
-
-[QcUsbFnSSFilter.CopyFile]
+[Drivers_Dir_A32]
 QcUsbFnSsFilter8994.sys
 
-[QcUsbFnSSFilter_AddReg]
+[Drivers_Dir_A64]
+QcUsbFnSsFilter8994.sys
 
 [QcUsbFnSSFilter_Service_AddReg]
 ;HKR,,BootFlags,0x00010003,4

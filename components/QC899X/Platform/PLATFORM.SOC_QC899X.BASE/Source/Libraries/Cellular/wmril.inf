@@ -13,7 +13,8 @@ CatalogFile.NTarm   = wmril.arm.cat
 CatalogFile.NTarm64 = wmril.arm64.cat
 
 [DestinationDirs]
-WMRil.Files = 13 ; \system32 directory on Windows 2000 and later versions
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
@@ -36,11 +37,11 @@ phoneinfo.dll = 0,arm64,
 %WMRIL.DeviceDesc% = WMRIL, SWC\VID_QCOM&PID_0EA0&SID_000B
 
 [WMRIL.NTarm]
-CopyFiles = WMRil.Files
+CopyFiles = Drivers_Dir_A32
 AddReg    = WMRil_Reg, WMRil_32_Reg
 
 [WMRIL.NTarm64]
-CopyFiles = WMRil.Files
+CopyFiles = Drivers_Dir_A64
 AddReg    = WMRil_Reg, WMRil_Reg.NTarm64
 
 [WMRil_32_Reg]
@@ -83,7 +84,11 @@ HKLM, System\CurrentControlSet\Services\RILAdaptation\Parameters\0000, MsrilInst
 HKLM, System\CurrentControlSet\Services\RILAdaptation\Parameters\0000, QueueNumber, %REG_DWORD%, 0x00000001
 HKLM, System\CurrentControlSet\Services\RILAdaptation\Parameters\0000, RILInitIndex, %REG_DWORD%, 0x00000000
 
-[WMRil.Files]
+[Drivers_Dir_A32]
+WMRil.dll
+phoneinfo.dll
+
+[Drivers_Dir_A64]
 WMRil.dll
 phoneinfo.dll
 

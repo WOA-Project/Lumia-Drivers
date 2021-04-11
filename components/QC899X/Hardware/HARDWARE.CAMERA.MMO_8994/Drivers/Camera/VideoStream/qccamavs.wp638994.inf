@@ -73,18 +73,32 @@ HKR,, DeviceCharacteristics, 0x10001, 0x100
 ;---------------------------------------------------------------
 ;                       I n t e r f a c e s
 ;---------------------------------------------------------------
-[QCCamAvs.NT.Interfaces]
-AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NT,
-AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NT,
-AddInterface = %KSCATEGORY_CAPTURE%,      "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NT,
-AddInterface = %KSCATEGORY_CAPTURE%,      "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NT,
-AddInterface = %KSCATEGORY_VIDEO%,        "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NT,
-AddInterface = %KSCATEGORY_VIDEO%,        "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NT,
+[QCCamAvs.NTarm.Interfaces]
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_CAPTURE%,      "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_CAPTURE%,      "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_VIDEO%,        "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_VIDEO%,        "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm,
 
-[BackSensor.CaptureInterface.NT]
+[QCCamAvs.NTarm64.Interfaces]
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm64,
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm64,
+AddInterface = %KSCATEGORY_CAPTURE%,      "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm64,
+AddInterface = %KSCATEGORY_CAPTURE%,      "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm64,
+AddInterface = %KSCATEGORY_VIDEO%,        "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm64,
+AddInterface = %KSCATEGORY_VIDEO%,        "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm64,
+
+[BackSensor.CaptureInterface.NTarm]
 AddReg = QCCamAvs.Reg.BackSensor
 
-[FrontSensor.CaptureInterface.NT]
+[BackSensor.CaptureInterface.NTarm64]
+AddReg = QCCamAvs.Reg.BackSensor
+
+[FrontSensor.CaptureInterface.NTarm]
+AddReg = QCCamAvs.Reg.FrontSensor
+
+[FrontSensor.CaptureInterface.NTarm64]
 AddReg = QCCamAvs.Reg.FrontSensor
 
 ;---------------------------------------------------------------

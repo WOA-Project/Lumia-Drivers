@@ -22,7 +22,8 @@ CatalogFile.NTarm   = qcqmux8994.arm.cat
 CatalogFile.NTarm64 = qcqmux8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 
@@ -49,7 +50,7 @@ qcqmux8994.sys = 1,arm64
 %QMUX.DeviceDesc% = QMUX_Device, ACPI\QCOM244F
 
 [QMUX_Device.NTarm]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -63,7 +64,7 @@ KmdfService = QCQMUX, QMUX_wdfsect
 AddService = QCQMUX,%SPSVCINST_ASSOCSERVICE%, QMUX_Service_Inst
 
 [QMUX_Device.NTarm64]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -81,7 +82,10 @@ HKR,, Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5
 ; FILE_DEVICE_SECURE_OPEN
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcqmux8994.sys
+
+[Drivers_Dir_A64]
 qcqmux8994.sys
 
 [WDTFSOCDeviceCategory]

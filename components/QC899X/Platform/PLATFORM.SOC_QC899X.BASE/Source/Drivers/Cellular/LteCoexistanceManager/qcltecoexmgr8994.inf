@@ -16,7 +16,8 @@ CatalogFile.NTarm   = QcLteCoexMgr8994.arm.cat
 CatalogFile.NTarm64 = QcLteCoexMgr8994.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir_12 = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 
@@ -43,7 +44,7 @@ QcLteCoexMgr8994.sys = 1,arm64
 %COEX.DeviceDesc% = COEX_Device, ACPI\QCOM2487
 
 [COEX_Device.NTarm]
-CopyFiles = Drivers_Dir_12
+CopyFiles = Drivers_Dir_A32
 
 [COEX_Device.NTarm.Services]
 AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst
@@ -52,7 +53,7 @@ AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst
 KmdfService = COEX, COEX_wdfsect
 
 [COEX_Device.NTarm64]
-CopyFiles = Drivers_Dir_12
+CopyFiles = Drivers_Dir_A64
 
 [COEX_Device.NTarm64.Services]
 AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst.NTarm64
@@ -60,7 +61,10 @@ AddService = COEX,%SPSVCINST_ASSOCSERVICE%,COEX_Service_Inst.NTarm64
 [COEX_Device.NTarm64.Wdf]
 KmdfService = COEX, COEX_wdfsect
 
-[Drivers_Dir_12]
+[Drivers_Dir_A32]
+QcLteCoexMgr8994.sys
+
+[Drivers_Dir_A64]
 QcLteCoexMgr8994.sys
 
 ; -------------- COEX driver install sections

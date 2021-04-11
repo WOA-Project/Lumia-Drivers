@@ -23,7 +23,8 @@ CatalogFile.NTarm   = qcusbfnss8994.arm.cat
 CatalogFile.NTarm64 = qcusbfnss8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -46,11 +47,11 @@ qcusbfnss8994.sys  = 1,arm64,
 %DeviceDesc% = QCUSBFN_Device, ACPI\QCOM2484
 
 [QCUSBFN_Device.NTarm] ; DDInstall section
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A32
 AddReg    = QCUSBFN_Device_AddReg
 
 [QCUSBFN_Device.NTarm64] ; DDInstall section
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 AddReg    = QCUSBFN_Device_AddReg
 
 [QCUSBFN_Device.NTarm.HW] ; DDInstall.HW section
@@ -59,7 +60,10 @@ AddReg = QcUsbFnSSFilter_AddReg
 [QCUSBFN_Device.NTarm64.HW] ; DDInstall.HW section
 AddReg = QcUsbFnSSFilter_AddReg
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcusbfnss8994.sys
+
+[Drivers_Dir_A64]
 qcusbfnss8994.sys
 
 ;-----  DDInstall.Services section

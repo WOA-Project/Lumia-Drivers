@@ -20,8 +20,8 @@ CatalogFile.NTarm64 = QcXhciFilter8994.arm64.cat
 ExcludeFromSelect = *
 
 [DestinationDirs]
-QcXhciFilter.CopyFile = 13
-DefaultDestDir        = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 
@@ -50,7 +50,7 @@ QcXhciFilter8994.sys = 1,arm64,
 [QcXhciFilter.NTarm]
 Include      = usbxhci.inf
 Needs        = Generic_NoDebug.Install.NT
-CopyFiles    = QcXhciFilter.CopyFile
+CopyFiles    = Drivers_Dir_A32
 FeatureScore = 80 ; required for XHCI driver from usbxhci.inf
 
 [QcXhciFilter.NTarm.Services]
@@ -65,7 +65,7 @@ AddReg = QcXhciFilter_SDDLString
 [QcXhciFilter.NTarm64]
 Include      = usbxhci.inf
 Needs        = Generic_NoDebug.Install.NT
-CopyFiles    = QcXhciFilter.CopyFile
+CopyFiles    = Drivers_Dir_A64
 FeatureScore = 80 ; required for XHCI driver from usbxhci.inf
 
 [QcXhciFilter.NTarm64.Services]
@@ -77,7 +77,10 @@ AddService = QcXhciFilter,, QcXhciFilter_Service_Inst.NTarm64
 AddReg = QcXhciFilter_AddReg
 AddReg = QcXhciFilter_SDDLString
 
-[QcXhciFilter.CopyFile]
+[Drivers_Dir_A32]
+QcXhciFilter8994.sys
+
+[Drivers_Dir_A64]
 QcXhciFilter8994.sys
 
 [QcXhciFilter_AddReg]

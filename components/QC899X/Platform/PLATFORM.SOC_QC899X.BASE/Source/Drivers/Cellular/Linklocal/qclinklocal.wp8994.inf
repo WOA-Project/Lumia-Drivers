@@ -36,7 +36,8 @@ qclinklocal8994.sys = 1,arm,
 qclinklocal8994.sys = 1,arm64,
 
 [DestinationDirs]
-wwan.CopyFiles = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [Manufacturer]
 %QCOM% = QCOM,NTarm,NTarm64
@@ -54,7 +55,7 @@ Characteristics    = 0x9                   ; NCF_VIRTUAL | NCF_HIDDEN
 *PhysicalMediaType = 19                    ; NdisPhysicalMediumOther
 EnableDhcp         = 0
 AddReg             = wwan.Reg
-CopyFiles          = wwan.CopyFiles
+CopyFiles          = Drivers_Dir_A32
 
 [wwan.ndi.Services]
 AddService = linklocal, 2, wwan.Service, wwan.EventLog
@@ -69,7 +70,7 @@ Characteristics    = 0x9                   ; NCF_VIRTUAL | NCF_HIDDEN
 *PhysicalMediaType = 19                    ; NdisPhysicalMediumOther
 EnableDhcp         = 0
 AddReg             = wwan.Reg
-CopyFiles          = wwan.CopyFiles
+CopyFiles          = Drivers_Dir_A64
 
 [wwan.ndi.NTarm64.Services]
 AddService = linklocal, 2, wwan.NTarm64.Service, wwan.EventLog
@@ -93,7 +94,10 @@ HKR, Ndi\Interfaces, LowerRange, 0,  "ppip"
 ;-----------------------------------------------------------------------------
 ; Driver and Service Section
 ;-----------------------------------------------------------------------------
-[wwan.CopyFiles]
+[Drivers_Dir_A32]
+qclinklocal8994.sys,,, 2,
+
+[Drivers_Dir_A64]
 qclinklocal8994.sys,,, 2,
 
 [wwan.Service]

@@ -13,7 +13,8 @@ CatalogFile.NTarm   = qcimsVTWNIsvc8994.arm.cat
 CatalogFile.NTarm64 = qcimsVTWNIsvc8994.arm64.cat
 
 [DestinationDirs]
-qcimsVTWNIsvc8994.Files = 13 ; \system32 directory on Windows 2000 and later versions
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
@@ -34,11 +35,11 @@ qcimsVTWNIsvc8994.dll = 0,arm64,
 %IMSVTWNI.DeviceDesc% = IMSVTWNI, SWC\VID_QCOM&PID_0EA0&SID_0004
 
 [IMSVTWNI.NTarm]
-CopyFiles = qcimsVTWNIsvc8994.Files
+CopyFiles = Drivers_Dir_A32
 AddReg    = qcimsVTWNIsvc8994_Reg, qcimsVTWNIsvc8994_path_Reg
 
 [IMSVTWNI.NTarm64]
-CopyFiles = qcimsVTWNIsvc8994.Files
+CopyFiles = Drivers_Dir_A64
 AddReg    = qcimsVTWNIsvc8994_Reg, qcimsVTWNIsvc8994_path_Reg.NTarm64
 
 [IMSVTWNI.NTarm.Services]
@@ -78,7 +79,10 @@ HKLM, "System\CurrentControlSet\Services\VTSvc\Parameters"      , "ServiceDll"  
 [qcimsVTWNIsvc8994_path_Reg.NTarm64]
 HKLM, "System\CurrentControlSet\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\arm64\qcimsVTWNIsvc8994.dll"
 
-[qcimsVTWNIsvc8994.Files]
+[Drivers_Dir_A32]
+qcimsVTWNIsvc8994.dll
+
+[Drivers_Dir_A64]
 qcimsVTWNIsvc8994.dll
 
 [Strings]

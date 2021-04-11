@@ -24,7 +24,8 @@ CatalogFile.NTarm   = qcadsprpc8994.arm.cat
 CatalogFile.NTarm64 = qcadsprpc8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13; driverStore
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -45,15 +46,18 @@ qcadsprpc8994.sys = 1,arm64
 %ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
 
 [ADSPRPC_Device.NTarm]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A32
 
 [ADSPRPC_Device.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 
 [ControlFlags]
 ExcludeFromSelect = *
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcadsprpc8994.sys
+
+[Drivers_Dir_A64]
 qcadsprpc8994.sys
 
 [ADSPRPC_Device.NTarm.Services]

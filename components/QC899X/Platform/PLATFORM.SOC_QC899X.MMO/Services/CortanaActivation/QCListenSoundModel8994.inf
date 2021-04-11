@@ -22,7 +22,9 @@ CatalogFile.NTarm   = "QCListenSoundModel.arm.cat"
 CatalogFile.NTarm64 = "QCListenSoundModel.arm64.cat"
 
 [DestinationDirs]
-QCListenSoundModel.Files        = 13 ; \system32 directory on Windows 2000 and later versions
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
+
 VoiceActivationenUSConfig.Files = 11,\VoiceActivationModels\en-US
 VoiceActivationenUSBin.Files    = 11,\VoiceActivationModels\en-US
 VoiceActivationenGBConfig.Files = 11,\VoiceActivationModels\en-GB
@@ -103,11 +105,11 @@ jaJPconfig                   = 0,,
 jaJPVoiceActivationModel.bin = 0,,
 
 [DefaultInstall.NTarm]
-CopyFiles = QCListenSoundModel.Files,VoiceActivationenUSConfig.Files,VoiceActivationenUSBin.Files,VoiceActivationenGBConfig.Files,VoiceActivationenGBBin.Files,VoiceActivationzhCNConfig.Files,VoiceActivationzhCNBin.Files,VoiceActivationdeDEConfig.Files,VoiceActivationdeDEBin.Files,VoiceActivationenAUConfig.Files,VoiceActivationenAUBin.Files,VoiceActivationenCAConfig.Files,VoiceActivationenCABin.Files,VoiceActivationenINConfig.Files,VoiceActivationenINBin.Files,VoiceActivationesESConfig.Files,VoiceActivationesESBin.Files,VoiceActivationfrFRConfig.Files,VoiceActivationfrFRBin.Files,VoiceActivationitITConfig.Files,VoiceActivationitITBin.Files,VoiceActivationjaJPConfig.Files,VoiceActivationjaJPBin.Files
-AddReg    = QCListenSoundModel_Reg, QCListenSoundModel_arm_Reg]
+CopyFiles = Drivers_Dir_A32,VoiceActivationenUSConfig.Files,VoiceActivationenUSBin.Files,VoiceActivationenGBConfig.Files,VoiceActivationenGBBin.Files,VoiceActivationzhCNConfig.Files,VoiceActivationzhCNBin.Files,VoiceActivationdeDEConfig.Files,VoiceActivationdeDEBin.Files,VoiceActivationenAUConfig.Files,VoiceActivationenAUBin.Files,VoiceActivationenCAConfig.Files,VoiceActivationenCABin.Files,VoiceActivationenINConfig.Files,VoiceActivationenINBin.Files,VoiceActivationesESConfig.Files,VoiceActivationesESBin.Files,VoiceActivationfrFRConfig.Files,VoiceActivationfrFRBin.Files,VoiceActivationitITConfig.Files,VoiceActivationitITBin.Files,VoiceActivationjaJPConfig.Files,VoiceActivationjaJPBin.Files
+AddReg    = QCListenSoundModel_Reg, QCListenSoundModel_arm_Reg
 
 [DefaultInstall.NTarm64]
-CopyFiles = QCListenSoundModel.Files,VoiceActivationenUSConfig.Files,VoiceActivationenUSBin.Files,VoiceActivationenGBConfig.Files,VoiceActivationenGBBin.Files,VoiceActivationzhCNConfig.Files,VoiceActivationzhCNBin.Files,VoiceActivationdeDEConfig.Files,VoiceActivationdeDEBin.Files,VoiceActivationenAUConfig.Files,VoiceActivationenAUBin.Files,VoiceActivationenCAConfig.Files,VoiceActivationenCABin.Files,VoiceActivationenINConfig.Files,VoiceActivationenINBin.Files,VoiceActivationesESConfig.Files,VoiceActivationesESBin.Files,VoiceActivationfrFRConfig.Files,VoiceActivationfrFRBin.Files,VoiceActivationitITConfig.Files,VoiceActivationitITBin.Files,VoiceActivationjaJPConfig.Files,VoiceActivationjaJPBin.Files
+CopyFiles = Drivers_Dir_A64,VoiceActivationenUSConfig.Files,VoiceActivationenUSBin.Files,VoiceActivationenGBConfig.Files,VoiceActivationenGBBin.Files,VoiceActivationzhCNConfig.Files,VoiceActivationzhCNBin.Files,VoiceActivationdeDEConfig.Files,VoiceActivationdeDEBin.Files,VoiceActivationenAUConfig.Files,VoiceActivationenAUBin.Files,VoiceActivationenCAConfig.Files,VoiceActivationenCABin.Files,VoiceActivationenINConfig.Files,VoiceActivationenINBin.Files,VoiceActivationesESConfig.Files,VoiceActivationesESBin.Files,VoiceActivationfrFRConfig.Files,VoiceActivationfrFRBin.Files,VoiceActivationitITConfig.Files,VoiceActivationitITBin.Files,VoiceActivationjaJPConfig.Files,VoiceActivationjaJPBin.Files
 AddReg    = QCListenSoundModel_Reg, QCListenSoundModel_arm64_Reg
 
 [QCListenSoundModel_Reg]
@@ -141,7 +143,10 @@ HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,  
 [QCListenSoundModel_arm64_Reg]
 HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,                          , %REG_EXPAND_SZ%,  "%13%\arm64\QCListenSoundModel.dll"
 
-[QCListenSoundModel.Files]
+[Drivers_Dir_A32]
+QCListenSoundModel.dll
+
+[Drivers_Dir_A64]
 QCListenSoundModel.dll
 
 [VoiceActivationenUSConfig.Files]

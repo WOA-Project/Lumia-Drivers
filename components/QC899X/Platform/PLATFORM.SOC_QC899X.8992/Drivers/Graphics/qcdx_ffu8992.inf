@@ -5,6 +5,7 @@ ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5D}
 DriverVer   = 03/18/2021,1.0.0.0
+PnpLockdown = 1
 
 CatalogFile.NTarm   = qcdx_ffu8992.arm.cat
 CatalogFile.NTarm64 = qcdx_ffu8992.arm64.cat

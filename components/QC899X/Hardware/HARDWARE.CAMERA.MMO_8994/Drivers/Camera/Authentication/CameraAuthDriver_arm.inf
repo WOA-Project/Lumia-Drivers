@@ -77,7 +77,7 @@ ServiceBinary = %12%\WUDFRd.sys
 
 ;-------------- WDF specific section -------------
 [CameraAuthentication_Install.NTarm.Wdf]
-UmdfService=CameraAuthentication,CameraAuthentication_Install
+UmdfService=CameraAuthentication,CameraAuthentication_wdf_Install.NTarm
 UmdfServiceOrder=CameraAuthentication
 UmdfHostProcessSharing=ProcessSharingDisabled
 UmdfDirectHardwareAccess = AllowDirectHardwareAccess
@@ -85,18 +85,18 @@ UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfKernelModeClientPolicy = AllowKernelModeClients
 
 [CameraAuthentication_Install.NTarm64.Wdf]
-UmdfService=CameraAuthentication,CameraAuthentication_Install
+UmdfService=CameraAuthentication,CameraAuthentication_wdf_Install.NTarm64
 UmdfServiceOrder=CameraAuthentication
 UmdfHostProcessSharing=ProcessSharingDisabled
 UmdfDirectHardwareAccess = AllowDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfKernelModeClientPolicy = AllowKernelModeClients
 
-[CameraAuthentication_Install]
+[CameraAuthentication_wdf_Install.NTarm]
 UmdfLibraryVersion=2.15.0
 ServiceBinary=%13%\arm\CameraAuthentication.dll
 
-[CameraAuthentication_Install]
+[CameraAuthentication_wdf_Install.NTarm64]
 UmdfLibraryVersion=2.15.0
 ServiceBinary=%13%\arm64\CameraAuthentication.dll
 

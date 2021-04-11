@@ -22,7 +22,8 @@ CatalogFile.NTarm   = qcrmnetbridge8994.arm.cat
 CatalogFile.NTarm64 = qcrmnetbridge8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -43,7 +44,7 @@ qcrmnetbridge8994.sys = 1,arm64,
 %RMNBRG.DeviceDesc% = RMNBRG_Device, ACPI\QCOM2148
 
 [RMNBRG_Device.NTarm]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A32
 
 ;-------------- Service installation
 [RMNBRG_Device.NTarm.Services]
@@ -53,7 +54,7 @@ AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst
 KmdfService = RMNBRG, RMNBRG_wdfsect
 
 [RMNBRG_Device.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 
 ;-------------- Service installation
 [RMNBRG_Device.NTarm64.Services]
@@ -62,7 +63,10 @@ AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst.NTarm64
 [RMNBRG_Device.NTarm64.Wdf]
 KmdfService = RMNBRG, RMNBRG_wdfsect
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcrmnetbridge8994.sys
+
+[Drivers_Dir_A64]
 qcrmnetbridge8994.sys
 
 ; -------------- rmnetbridge driver install sections

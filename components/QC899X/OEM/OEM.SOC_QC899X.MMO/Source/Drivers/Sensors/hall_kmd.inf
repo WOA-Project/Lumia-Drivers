@@ -37,11 +37,11 @@ hall_kmd.sys  = 1,arm64,
 
 [hall_kmd_Device.NTarm]
 CopyFiles = Drivers_Dir_A32
-;AddReg    = hall_kmd_Device.AddReg
+AddReg    = hall_kmd_Device.AddReg
 
 [hall_kmd_Device.NTarm64]
 CopyFiles = Drivers_Dir_A64
-;AddReg    = hall_kmd_Device.AddReg
+AddReg    = hall_kmd_Device.AddReg
 
 [Drivers_Dir_A32]
 hall_kmd.sys,,,0x100
@@ -50,11 +50,11 @@ hall_kmd.sys,,,0x100
 hall_kmd.sys,,,0x100
 
 [hall_kmd_Device.AddReg]
-HKLM, "System\Software\SmartCover", "FrontSensor", 0x00010001, 0
-HKLM, "System\Software\SmartCover", "BackSensor" , 0x00010001, 0
+;HKLM, "System\Software\SmartCover", "FrontSensor", 0x00010001, 0
+;HKLM, "System\Software\SmartCover", "BackSensor" , 0x00010001, 0
 
-HKLM, "System\HallSensor", "Polarity", 0x00010001, 0
-HKLM, "System\HallSensor", "Disabled", 0x00010001, 0
+;HKLM, "System\HallSensor", "Polarity", 0x00010001, 0
+;HKLM, "System\HallSensor", "Disabled", 0x00010001, 0
 
 ;-------------- Service installation
 [hall_kmd_Device.NTarm.Services]

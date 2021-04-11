@@ -49,15 +49,20 @@ PETrust = true
 %QCAUD_A.DeviceDesc% = QCAUD_A, AUDD\QCOM2451
 
 [DestinationDirs]
-QCAUD_A.CopyList                  = 13 ; windows\system32\drivers
-ProxyAPO.CopyList                 = 13; windows\system32
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ;======================================================
 ;QCAUD_A
 ;======================================================
 
-[ProxyAPO.CopyList]
+[Drivers_Dir_A32]
 ProxyAPO.dll
+qcaud8994.sys
+
+[Drivers_Dir_A64]
+ProxyAPO.dll
+qcaud8994.sys
 
 [QCAUD_A.AddReg]
 HKR,                                                     , AssociatedFilters   ,           , "wdmaud,redbook"
@@ -87,9 +92,6 @@ HKLM, %MEDIA_CATEGORIES%\%FmRxCustomNameGUID%             , Name                
 
 [QCAUD_A.SecurityAddReg]
 HKR,, DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
-
-[QCAUD_A.CopyList]
-qcaud8994.sys
 
 [ProxyAPO.NTarm.AddReg]
 ; Mode effect APO COM registration
@@ -468,7 +470,7 @@ HKR, "FX\0", %PKEY_FX_EndpointEffectClsid%,, %FX_ENDPOINT_CLSID%
 [QCAUD_A.NTarm]
 Include     = ks.inf,wdmaudio.inf
 Needs       = KS.Registration, WDMAUDIO.Registration, MsApoFxProxy.Registration
-CopyFiles   = QCAUD_A.CopyList,ProxyAPO.CopyList
+CopyFiles   = Drivers_Dir_A32
 AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg,ProxyAPO.NTarm.AddReg
 AddProperty = QCAUD_A.AddProperty
 
@@ -612,7 +614,7 @@ AddInterface = %KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyHandsetMic%, QCAUD.I.Topol
 [QCAUD_A.NTarm64]
 Include     = ks.inf,wdmaudio.inf
 Needs       = KS.Registration, WDMAUDIO.Registration, MsApoFxProxy.Registration
-CopyFiles   = QCAUD_A.CopyList,ProxyAPO.CopyList
+CopyFiles   = Drivers_Dir_A64
 AddReg      = QCAUD_A.AddReg,ProxyAPO.AddReg,ProxyAPO.NTarm64.AddReg
 AddProperty = QCAUD_A.AddProperty
 

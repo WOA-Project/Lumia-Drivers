@@ -23,8 +23,8 @@ CatalogFile.NTarm   = qcdx_ffu8994.arm.cat
 CatalogFile.NTarm64 = qcdx_ffu8994.arm64.cat
 
 [DestinationDirs]
-QCDX.Files.NTarm_13   = 13
-QCDX.Files.NTarm64_13 = 13
+QCDX.Files.NTarm_13   = 13,arm
+QCDX.Files.NTarm64_13 = 13,arm64
 
 QCDX.Files.NTarm_11   = 11
 
@@ -93,14 +93,12 @@ FeatureScore = D1
 CopyFiles    = QCDX.Files.NTarm_13,QCDX.Files.NTarm_11
 AddReg       = QCDX_SoftwareDeviceSettings.NTarm, QCDX_MftRegistration.NTarm
 AddProperty  = WDTFSOCDeviceCategory
-Reboot
 
 [QCDX_Inst.NTarm64]
 FeatureScore = D1
 CopyFiles    = QCDX.Files.NTarm64_13,QCDX.Files.NTarm64_11,QCDX.Files.NTarm64_10
 AddReg       = QCDX_SoftwareDeviceSettings.NTarm64, QCDX_MftRegistration.NTarm64
 AddProperty  = WDTFSOCDeviceCategory
-Reboot
 
 [QCDX_MftRegistration.NTarm]
 ; system32
@@ -563,13 +561,6 @@ qcvidencarm64mfthevc8994.dll
 qcvidencarm64mftmpeg48994.dll
 qcviddecarm64mft8994.dll
 qchdcpumd8994.dll
-qcdx11um8994.dll
-qcvidencum8994.dll
-qcvidencmfth2638994.dll
-qcvidencmfth2648994.dll
-qcvidencmfthevc8994.dll
-qcvidencmftmpeg48994.dll
-qcviddecmft8994.dll
 
 ; System32
 [QCDX.Files.NTarm_11]

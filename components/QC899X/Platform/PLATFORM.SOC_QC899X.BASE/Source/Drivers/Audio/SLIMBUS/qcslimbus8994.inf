@@ -25,7 +25,8 @@ CatalogFile.NTarm   = qcslimbus8994.arm.cat
 CatalogFile.NTarm64 = qcslimbus8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -53,16 +54,19 @@ qcslimbus8994.sys = 1,arm64
 %qcslimbus.DeviceDesc% = qcslimbus_Device,ADSP\QCOM240D
 
 [qcslimbus_Device.NTarm]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [qcslimbus_Device.NTarm64]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcslimbus8994.sys
+
+[Drivers_Dir_A64]
 qcslimbus8994.sys
 
 [WDTFSOCDeviceCategory]

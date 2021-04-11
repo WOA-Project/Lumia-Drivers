@@ -67,7 +67,7 @@ Characteristics    = 0x84
 BusType            = 5
 AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
 DelReg             = QcWlan.DelReg
-CopyFiles          = QcWlan.CopyFiles, QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
+CopyFiles          = Drivers_Dir_A32, QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
 AddProperty        = WDTFSOCDeviceCategory
 
 [QcWlan.ndi.NTarm64]
@@ -80,7 +80,7 @@ Characteristics    = 0x84
 BusType            = 5
 AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
 DelReg             = QcWlan.DelReg
-CopyFiles          = QcWlan.CopyFiles, QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
+CopyFiles          = Drivers_Dir_A64, QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
 AddProperty        = WDTFSOCDeviceCategory
 
 ;-----------------------------------------------------------------------------
@@ -209,13 +209,17 @@ Data.msc = 1,,
 ; DestinationDirs
 ;-----------------------------------------------------------------------------
 [DestinationDirs]
-QcWlan.CopyFiles            = 13
+Drivers_Dir_A32             = 13,arm
+Drivers_Dir_A64             = 13,arm64
 QcWlan_FW.CopyFiles         = 12
 QcWlan_BD.CopyFiles         = 13
 QcWlan_Data.CopyFiles       = 12
 DefaultDestDir              = 12
 
-[QcWlan.CopyFiles]
+[Drivers_Dir_A32]
+qcwlan8994.sys,,,2
+
+[Drivers_Dir_A64]
 qcwlan8994.sys,,,2
 
 [QcWlan_FW.CopyFiles]

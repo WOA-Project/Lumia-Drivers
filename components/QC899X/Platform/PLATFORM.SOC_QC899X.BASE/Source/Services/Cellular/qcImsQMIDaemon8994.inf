@@ -13,7 +13,8 @@ CatalogFile.NTarm   = qcImsQMIDaemon8994.arm.cat
 CatalogFile.NTarm64 = qcImsQMIDaemon8994.arm64.cat
 
 [DestinationDirs]
-qcImsQMIDaemon8994.Files = 13 ; \system32 directory on Windows 2000 and later versions
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
@@ -34,11 +35,11 @@ qcImsQMIDaemon8994.dll = 0,arm64,
 %IMSQMI.DeviceDesc% = IMSQMI, SWC\VID_QCOM&PID_0EA0&SID_0002
 
 [IMSQMI.NTarm]
-CopyFiles = qcImsQMIDaemon8994.Files
+CopyFiles = Drivers_Dir_A32
 AddReg    = qcImsQMIDaemon8994_Reg, qcImsQMIDaemon8994_path_Reg
 
 [IMSQMI.NTarm64]
-CopyFiles = qcImsQMIDaemon8994.Files
+CopyFiles = Drivers_Dir_A64
 AddReg    = qcImsQMIDaemon8994_Reg, qcImsQMIDaemon8994_path_Reg.NTarm64
 
 [IMSQMI.NTarm.Services]
@@ -81,7 +82,10 @@ HKLM, "System\controlset001\services\IMSQMIsvc\Parameters", "ServiceDll", 0x2000
 [qcImsQMIDaemon8994_path_Reg.NTarm64]
 HKLM, "System\controlset001\services\IMSQMIsvc\Parameters", "ServiceDll", 0x20000, "%13%\arm64\qcImsQMIDaemon8994.dll"
 
-[qcImsQMIDaemon8994.Files]
+[Drivers_Dir_A32]
+qcImsQMIDaemon8994.dll
+
+[Drivers_Dir_A64]
 qcImsQMIDaemon8994.dll
 
 [Strings]

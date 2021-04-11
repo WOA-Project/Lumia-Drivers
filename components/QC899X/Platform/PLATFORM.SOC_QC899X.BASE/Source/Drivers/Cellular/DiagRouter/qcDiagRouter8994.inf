@@ -24,7 +24,8 @@ CatalogFile.NTarm   = QCDIAGROUTER8994.arm.cat
 CatalogFile.NTarm64 = QCDIAGROUTER8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 System_Dir     = 11
 
 [SourceDisksNames]
@@ -48,7 +49,7 @@ qcdiaglogging8994.dll = 1,arm64
 %DIAGROUTER.DeviceDesc% = DiagRouter_Device, ACPI\QCOM2413
 
 [DiagRouter_Device.NTarm]
-CopyFiles   = Drivers_Dir, System_Dir
+CopyFiles   = Drivers_Dir_A32, System_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -62,7 +63,7 @@ addreg = DiagRouter
 KmdfService = QCDiagRouter, DiagRouter_Service_kmdfInst
 
 [DiagRouter_Device.NTarm64]
-CopyFiles   = Drivers_Dir, System_Dir
+CopyFiles   = Drivers_Dir_A64, System_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -75,7 +76,10 @@ addreg = DiagRouter
 [DiagRouter_Device.NTarm64.Wdf]
 KmdfService = QCDiagRouter, DiagRouter_Service_kmdfInst
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+QCDIAGROUTER8994.sys
+
+[Drivers_Dir_A64]
 QCDIAGROUTER8994.sys
 
 [System_Dir]

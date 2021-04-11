@@ -22,7 +22,8 @@ CatalogFile.NTarm = qcmbrg8994.arm.cat
 CatalogFile.NTarm64 = qcmbrg8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -43,7 +44,7 @@ qcmbrg8994.sys = 1,arm64,
 %MBRG.DeviceDesc% = MBRG_Device, ACPI\QCOM2145
 
 [MBRG_Device.NTarm]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A32
 
 [MBRG_Device.NTarm.Wdf]
 KmdfService = MBRG, MBRG_wdfsect
@@ -52,7 +53,7 @@ KmdfService = MBRG, MBRG_wdfsect
 AddService = MBRG,%SPSVCINST_ASSOCSERVICE%, MBRG_Service_Inst
 
 [MBRG_Device.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 
 [MBRG_Device.NTarm64.Wdf]
 KmdfService = MBRG, MBRG_wdfsect
@@ -60,7 +61,10 @@ KmdfService = MBRG, MBRG_wdfsect
 [MBRG_Device.NTarm64.Services]
 AddService = MBRG,%SPSVCINST_ASSOCSERVICE%, MBRG_Service_Inst.NTarm64
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcmbrg8994.sys
+
+[Drivers_Dir_A64]
 qcmbrg8994.sys
 
 ; -------------- MBRG driver install sections

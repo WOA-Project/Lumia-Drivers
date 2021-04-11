@@ -16,7 +16,8 @@ CatalogFile.NTarm   = qcbtuart8994.arm.cat
 CatalogFile.NTarm64 = qcbtuart8994.arm64.cat
 
 [DestinationDirs]
-BTUART.Files = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %SourceDisk%,,1
@@ -40,7 +41,7 @@ ExcludeFromSelect = *
 %UartBtAPQ8994% = QCABTUART, ACPI\QCOM24B2
 
 [QCABTUART.NTarm]
-CopyFiles = BTUART.Files
+CopyFiles = Drivers_Dir_A32
 
 [QCABTUART.NTarm.HW]
 AddReg = BTUART.HW.AddReg
@@ -49,7 +50,7 @@ AddReg = BTUART.HW.AddReg
 AddService = QcBluetooth,0x00000002,BTUART_Service
 
 [QCABTUART.NTarm64]
-CopyFiles = BTUART.Files
+CopyFiles = Drivers_Dir_A64
 
 [QCABTUART.NTarm64.HW]
 AddReg = BTUART.HW.AddReg
@@ -57,7 +58,10 @@ AddReg = BTUART.HW.AddReg
 [QCABTUART.NTarm64.Services]
 AddService = QcBluetooth,0x00000002,BTUART_Service.NTarm64
 
-[BTUART.Files]
+[Drivers_Dir_A32]
+qcbtuart8994.sys
+
+[Drivers_Dir_A64]
 qcbtuart8994.sys
 
 [BTUART.HW.AddReg]
@@ -71,7 +75,6 @@ StartType     = 3  ; SERVICE_DEMAND_START
 ErrorControl  = 1  ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm\qcbtuart8994.sys
 AddReg        = BTUART_Service.AddReg, WPPReg
-AddProperty   = WDTFSOCDeviceCategory
 
 [BTUART_Service.NTarm64]
 DisplayName   = %SvcDispName%
@@ -80,11 +83,6 @@ StartType     = 3  ; SERVICE_DEMAND_START
 ErrorControl  = 1  ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qcbtuart8994.sys
 AddReg        = BTUART_Service.AddReg, WPPReg
-AddProperty   = WDTFSOCDeviceCategory
-
-[WDTFSOCDeviceCategory]
-{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 19, 13,, 1
-{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 1D, 7 ,, 0
 
 [BTUART_Service.AddReg]
 HKR, Parameters, DebugFlags                       , 0x10001, 0xC000C000

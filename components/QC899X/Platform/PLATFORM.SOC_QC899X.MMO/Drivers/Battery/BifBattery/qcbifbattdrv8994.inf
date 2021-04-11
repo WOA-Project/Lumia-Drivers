@@ -29,9 +29,9 @@ qcbifbattdrv8994.sys = 1,arm
 [SourceDisksFiles.ARM64]
 qcbifbattdrv8994.sys = 1,arm64
 
-;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [ControlFlags]
 ExcludeFromSelect=*
@@ -50,7 +50,7 @@ ExcludeFromSelect=*
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM24C2
 
 [PMIC_Inst.NTarm]
-Copyfiles = PMICCopyFiles
+Copyfiles = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -61,7 +61,7 @@ Addreg=PMICBIFACL
 AddService = qcbifbattdrv,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
 
 [PMIC_Inst.NTarm64]
-Copyfiles = PMICCopyFiles
+Copyfiles = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -80,7 +80,10 @@ HKR ,AuthLibrary, AuthInterfaceGuid, 0, "{3bd43166-179a-4fe6-90d6-916ed84d7d3c}"
 HKR ,AuthLibrary, AuthInterfaceVersion, 0x00010001, 0x100
 HKR ,AuthLibrary, QCAuthLibInUse, 0x00010001, 0x0
 
-[PMICCopyFiles]
+[Drivers_Dir_A32]
+qcbifbattdrv8994.sys
+
+[Drivers_Dir_A64]
 qcbifbattdrv8994.sys
 
 [WDTFSOCDeviceCategory]

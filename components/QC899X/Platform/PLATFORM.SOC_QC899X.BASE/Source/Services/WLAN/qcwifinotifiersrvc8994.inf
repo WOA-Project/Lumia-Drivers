@@ -22,7 +22,8 @@ CatalogFile.NTarm   = qcwifinotifiersrvc8994.arm.cat
 CatalogFile.NTarm64 = qcwifinotifiersrvc8994.arm64.cat
 
 [DestinationDirs]
-WifiNotifierSrvc.Files = 13 ; \system32 directory on Windows 2000 and later versions
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
@@ -43,11 +44,11 @@ qcwifinotifiersrvc8994.dll = 0,arm64,
 %WLAN.DeviceDesc% = WLAN, SWC\VID_168C&PID_003E&SID_0001
 
 [WLAN.NTarm]
-CopyFiles = WifiNotifierSrvc.Files
+CopyFiles = Drivers_Dir_A32
 AddReg    = WifiNotifierSrvc_Reg, WifiNotifierSrvc_path_Reg
 
 [WLAN.NTarm64]
-CopyFiles = WifiNotifierSrvc.Files
+CopyFiles = Drivers_Dir_A64
 AddReg    = WifiNotifierSrvc_Reg, WifiNotifierSrvc_path_Reg.NTarm64
 
 [WLAN.NTarm.Services]
@@ -87,7 +88,10 @@ HKLM, System\CurrentControlSet\Services\WifiNotifierSrvc\Parameters, ServiceDll 
 [WifiNotifierSrvc_path_Reg.NTarm64]
 HKLM, System\CurrentControlSet\Services\WifiNotifierSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%,  "%13%\arm64\qcwifinotifiersrvc8994.dll"
 
-[WifiNotifierSrvc.Files]
+[Drivers_Dir_A32]
+qcwifinotifiersrvc8994.dll
+
+[Drivers_Dir_A64]
 qcwifinotifiersrvc8994.dll
 
 [Strings]

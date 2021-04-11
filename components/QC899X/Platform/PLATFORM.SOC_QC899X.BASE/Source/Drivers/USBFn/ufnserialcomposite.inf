@@ -27,7 +27,8 @@ CatalogFile.NTarm   = QCComposite.arm.cat
 CatalogFile.NTarm64 = QCComposite.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ;*****************************************
 ; SerialClass  Install Section
@@ -63,31 +64,31 @@ DefaultDestDir = 13
 %QCCompositeDevice.DeviceDesc3_DPL% = UfnBus_Child_03_DPL, USBFN\DPL
 
 ;[UfnBus_Child_00_SER]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A32
 ;[UfnBus_Child_01_SER]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A32
 ;[UfnBus_Child_02_SER]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A32
 [UfnBus_Child_03_SER]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A32
 
 ;[UfnBus_Child_00_NET]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A32
 [UfnBus_Child_01_NET]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A32
 ;[UfnBus_Child_02_NET]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A32
 ;[UfnBus_Child_03_NET]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A32
 
 [UfnBus_Child_00_DPL]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A32
 [UfnBus_Child_01_DPL]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A32
 [UfnBus_Child_02_DPL]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A32
 [UfnBus_Child_03_DPL]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A32
 
 ;-------------- Interface specific information
 ;[UfnBus_Child_00_SER.HW]
@@ -146,31 +147,31 @@ AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 ; ARM64
 
 ;[UfnBus_Child_00_SER.NTarm64]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A64
 ;[UfnBus_Child_01_SER.NTarm64]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A64
 ;[UfnBus_Child_02_SER.NTarm64]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A64
 [UfnBus_Child_03_SER.NTarm64]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A64
 
 ;[UfnBus_Child_00_NET.NTarm64]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A64
 [UfnBus_Child_01_NET.NTarm64]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A64
 ;[UfnBus_Child_02_NET.NTarm64]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A64
 ;[UfnBus_Child_03_NET.NTarm64]
-;CopyFiles = UfnBus_Child.Copy
+;CopyFiles = Drivers_Dir_A64
 
 [UfnBus_Child_00_DPL.NTarm64]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A64
 [UfnBus_Child_01_DPL.NTarm64]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A64
 [UfnBus_Child_02_DPL.NTarm64]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A64
 [UfnBus_Child_03_DPL.NTarm64]
-CopyFiles = UfnBus_Child.Copy
+CopyFiles = Drivers_Dir_A64
 
 ;-------------- Interface specific information
 ;[UfnBus_Child_00_SER.NTarm64.HW]
@@ -248,7 +249,10 @@ AddReg        = DeviceReg
 
 ; COMMON ARM-ARM64
 
-[UfnBus_Child.Copy]
+[Drivers_Dir_A32]
+ufnserialclass.sys
+
+[Drivers_Dir_A64]
 ufnserialclass.sys
 
 [UfnBus_DIAG_AddReg]

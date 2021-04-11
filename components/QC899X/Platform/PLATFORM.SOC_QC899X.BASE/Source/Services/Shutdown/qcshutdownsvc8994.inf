@@ -22,7 +22,8 @@ CatalogFile.NTarm   = qcshutdownsvc8994.arm.cat
 CatalogFile.NTarm64 = qcshutdownsvc8994.arm64.cat
 
 [DestinationDirs]
-ShutdownSvc.Files = 13 ; \system32 directory on Windows 2000 and later versions
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
@@ -43,11 +44,11 @@ QcShutdownSvc8994.dll = 0,arm64,
 %ShutdownSvc.DeviceDesc% = ShutdownSvc, SWC\VID_QCOM&PID_2425&SID_0002
 
 [ShutdownSvc.NTarm]
-CopyFiles = ShutdownSvc.Files
+CopyFiles = Drivers_Dir_A32
 AddReg    = ShutdownSvc_Reg, ShutdownSvc_path_Reg
 
 [ShutdownSvc.NTarm64]
-CopyFiles = ShutdownSvc.Files
+CopyFiles = Drivers_Dir_A64
 AddReg    = ShutdownSvc_Reg, ShutdownSvc_path_Reg.NTarm64
 
 [ShutdownSvc.NTarm.Services]
@@ -105,7 +106,10 @@ HKLM, "System\CurrentControlSet\services\QcShutdownSvc\Parameters", "ServiceDll"
 [ShutdownSvc_path_Reg.NTarm64]
 HKLM, "System\CurrentControlSet\services\QcShutdownSvc\Parameters", "ServiceDll", 0x00020000, "%13%\arm64\QcShutdownSvc8994.dll"
 
-[ShutdownSvc.Files]
+[Drivers_Dir_A32]
+QcShutdownSvc8994.dll
+
+[Drivers_Dir_A64]
 QcShutdownSvc8994.dll
 
 [Strings]

@@ -31,9 +31,9 @@ qcremotefs8994.sys = 1,arm
 [SourceDisksFiles.ARM64]
 qcremotefs8994.sys = 1,arm64
 
-;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ;*****************************************
 ; remotefs driver Install Section
@@ -49,7 +49,7 @@ DefaultDestDir = 13
 %REMOTEFS.DeviceDesc% = REMOTEFS_Device,ACPI\QCOM2423
 
 [REMOTEFS_Device.NTarm]
-CopyFiles   = RemotefsCopyFiles
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -63,7 +63,7 @@ KmdfService = QCREMOTEFS, REMOTEFS_wdfsect
 AddReg = Remotefs_HW_Reg
 
 [REMOTEFS_Device.NTarm64]
-CopyFiles   = RemotefsCopyFiles
+CopyFiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -76,7 +76,10 @@ KmdfService = QCREMOTEFS, REMOTEFS_wdfsect
 [REMOTEFS_Device.NTarm64.HW]
 AddReg = Remotefs_HW_Reg
 
-[RemotefsCopyFiles]
+[Drivers_Dir_A32]
+qcremotefs8994.sys
+
+[Drivers_Dir_A64]
 qcremotefs8994.sys
 
 [WDTFSOCDeviceCategory]

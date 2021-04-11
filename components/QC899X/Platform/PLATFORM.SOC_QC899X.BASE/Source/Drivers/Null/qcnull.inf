@@ -14,8 +14,8 @@ CatalogFile.NTarm   = qcnull.arm.cat
 CatalogFile.NTarm64 = qcnull.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir                      = 13
-qcnull_Device_CoInstaller_CopyFiles = 11
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 
@@ -24,11 +24,9 @@ qcnull_Device_CoInstaller_CopyFiles = 11
 
 [SourceDisksFiles.ARM]
 qcnull.sys = 1,arm,
-;
 
 [SourceDisksFiles.ARM64]
 qcnull.sys = 1,arm64,
-;
 
 ;*****************************************
 ; Install Section
@@ -46,34 +44,29 @@ qcnull.sys = 1,arm64,
 %25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
 
 [qcnull_Device.NTarm]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A32
 
 [qcnull_Device.NTarm.Wdf]
 KmdfService = qcnull, qcnull_wdfsect
-
-[qcnull_Device.NTarm.CoInstallers]
-AddReg    = qcnull_Device_CoInstaller_AddReg
-CopyFiles = qcnull_Device_CoInstaller_CopyFiles
 
 ;-------------- Service installation
 [qcnull_Device.NTarm.Services]
 AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst
 
 [qcnull_Device.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 
 [qcnull_Device.NTarm64.Wdf]
 KmdfService = qcnull, qcnull_wdfsect
-
-[qcnull_Device.NTarm64.CoInstallers]
-AddReg    = qcnull_Device_CoInstaller_AddReg
-CopyFiles = qcnull_Device_CoInstaller_CopyFiles
 
 ;-------------- Service installation
 [qcnull_Device.NTarm64.Services]
 AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst.NTarm64
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcnull.sys
+
+[Drivers_Dir_A64]
 qcnull.sys
 
 ; -------------- qcnull driver install sections
@@ -90,16 +83,6 @@ ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary = %13%\arm64\qcnull.sys
-
-;
-;--- qcnull_Device Coinstaller installation ------
-;
-
-[qcnull_Device_CoInstaller_AddReg]
-;
-
-[qcnull_Device_CoInstaller_CopyFiles]
-;
 
 [qcnull_wdfsect]
 KmdfLibraryVersion = 1.15

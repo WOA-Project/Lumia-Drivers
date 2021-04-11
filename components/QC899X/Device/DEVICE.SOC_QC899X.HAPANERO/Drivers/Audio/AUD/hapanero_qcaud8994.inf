@@ -409,7 +409,7 @@ HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microp
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wVerticalAngle", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wXCoord", 0x10001, 0x0
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wYCoord", 0x10001, 0x64
-HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wZCoord", 0x10001, 0x0@
+HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicArray1%\Microphones\Microphone3", "wZCoord", 0x10001, 0x0
 
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%", "NumberOfDeviceTypes", 0x10001, 0x1
 HKLM, "System\CurrentControlSet\Services\QCAUD\%KSNAME_TopologyMicHeadset%\Device0",,0x10

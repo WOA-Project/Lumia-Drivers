@@ -20,7 +20,8 @@ CatalogFile.NTarm   = QCDiagBridge8994.arm.cat
 CatalogFile.NTarm64 = QCDiagBridge8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskName%
@@ -44,7 +45,7 @@ ExcludeFromSelect = *
 %QCDiagBridge.DeviceDesc% = QCDiagBridge_Device, ACPI\QCOM248B
 
 [QCDiagBridge_Device.NTarm]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -58,7 +59,7 @@ AddService = QCDiagBridge,%SPSVCINST_ASSOCSERVICE%, QCDiagBridge_Service_Inst
 KmdfService = QCDiagBridge, QCDiagBridge_wdfsect
 
 [QCDiagBridge_Device.NTarm64]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -71,7 +72,10 @@ AddService = QCDiagBridge,%SPSVCINST_ASSOCSERVICE%, QCDiagBridge_Service_Inst.NT
 [QCDiagBridge_Device.NTarm64.Wdf]
 KmdfService = QCDiagBridge, QCDiagBridge_wdfsect
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+QCDiagBridge8994.sys
+
+[Drivers_Dir_A64]
 QCDiagBridge8994.sys
 
 [WDTFSOCDeviceCategory]

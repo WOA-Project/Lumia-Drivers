@@ -31,9 +31,9 @@ qcmipibif8994.sys = 3426,arm
 [SourceDisksFiles.ARM64]
 qcmipibif8994.sys = 3426,arm64
 
-;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -52,18 +52,21 @@ ExcludeFromSelect = *
 %DeviceDesc% = MipiBif_Inst,ACPI\QCOM2459
 
 [MipiBif_Inst.NTarm]
-Copyfiles = MipiBifCopyFiles
+Copyfiles = Drivers_Dir_A32
 
 [MipiBif_Inst.NTarm.Services]
 AddService = qcmipibif,%SPSVCINST_ASSOCSERVICE%,MipiBif_Service_Inst
 
 [MipiBif_Inst.NTarm64]
-Copyfiles = MipiBifCopyFiles
+Copyfiles = Drivers_Dir_A64
 
 [MipiBif_Inst.NTarm64.Services]
 AddService = qcmipibif,%SPSVCINST_ASSOCSERVICE%,MipiBif_Service_Inst.NTarm64
 
-[MipiBifCopyFiles]
+[Drivers_Dir_A32]
+qcmipibif8994.sys,,, 0x100,
+
+[Drivers_Dir_A64]
 qcmipibif8994.sys,,, 0x100,
 
 [MipiBif_Service_Inst]

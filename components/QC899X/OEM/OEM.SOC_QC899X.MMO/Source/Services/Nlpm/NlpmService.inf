@@ -37,9 +37,6 @@ ShellChromeAssets1440x2560.dll = 0,arm64,
 [Manufacturer]
 %MMO% = MMO,NTarm64
 
-[MMO.NTarm]
-%NlpmService.DeviceDesc% = NlpmService, SWC\VID_MSHW&PID_1004&SID_0001
-
 [MMO.NTarm64]
 %NlpmService.DeviceDesc% = NlpmService, SWC\VID_MSHW&PID_1004&SID_0001
 
@@ -97,7 +94,7 @@ HKR, "TriggerInfo\0", "Data1", 0x00000001, \
 	00,00,00,00,01,00,00,00                         ; ········
 
 HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaperProvider", 0x00000000, "{75CF42B3-6A70-425C-9B42-636CA1F63B90}"
-HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaper", 0x00000000, "%10%\OEM\Wallpaper.png"
+HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaper", 0x00020000, "%%SystemRoot%%\OEM\Wallpaper.png"
 HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaperOwner", 0x00000000, "{75CF42B3-6A70-425C-9B42-636CA1F63B90}"
 
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\SvcHost", "NsgGlance", 0x00010008, \
@@ -115,7 +112,7 @@ HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService
 
 HKLM, "Software\WowAA32Node\OEM\Nokia\Touch\WakeupGesture", "SingleTapEnabled", 0x00010001, 0x00000000
 
-HKLM, "Software\WowAA32Node\Microsoft\SecurityManager\TransientObjects\%5C%5C.%5CRpc%5CInteropRPC%5CInterface", "SecurityDescriptor", 0x00000001, \
+HKLM, "Software\WowAA32Node\Microsoft\SecurityManager\TransientObjects\%%5C%%5C.%%5CRpc%%5CInteropRPC%%5CInterface", "SecurityDescriptor", 0x00000001, \
 	01,00,04,80,00,00,00,00,00,00,00,00,00,00,00, \ ; ··············
 	00,14,00,00,00,02,00,48,01,09,00,00,00,00,00, \ ; ·······H·······
 	38,00,00,00,00,10,01,0a,00,00,00,00,00,0f,03, \ ; 8··············

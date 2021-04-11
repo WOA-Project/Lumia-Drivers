@@ -112,7 +112,7 @@ Default = {381B4222-F694-41F0-9685-FF5BB260DF2E}, 1, 1
 
 [Strings]
 SPSVCINST_ASSOCSERVICE   = 0x00000002
-ProviderName             = "Microsoft Mobile Oy"
+ProviderName             = "MMO and LumiaWoA authors"
 ManufacturerName         = "Icaros Incorporated"
 CameraESP.DeviceDesc     = "Icaros Camera Extra Sensory Perception"
 CameraESP.SvcDesc        = "Icaros Camera Extra Sensory Perception

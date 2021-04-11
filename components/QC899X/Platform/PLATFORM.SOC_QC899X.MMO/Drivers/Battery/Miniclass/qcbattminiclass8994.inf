@@ -29,9 +29,9 @@ qcbattminiclass8994.sys = 1,arm
 [SourceDisksFiles.ARM64]
 qcbattminiclass8994.sys = 1,arm64
 
-;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -52,7 +52,7 @@ ExcludeFromSelect = *
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM24C3
 
 [PMIC_Inst.NTarm]
-Copyfiles   = PMICCopyFiles
+Copyfiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -63,7 +63,7 @@ Addreg = BMINIACL
 AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
 
 [PMIC_Inst.NTarm64]
-Copyfiles   = PMICCopyFiles
+Copyfiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -76,7 +76,10 @@ AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst.NTarm64
 [BMINIACL]
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
-[PMICCopyFiles]
+[Drivers_Dir_A32]
+qcbattminiclass8994.sys
+
+[Drivers_Dir_A64]
 qcbattminiclass8994.sys
 
 [WDTFSOCDeviceCategory]

@@ -22,8 +22,9 @@ CatalogFile.NTarm   = qcipcrouter8994.arm.cat
 CatalogFile.NTarm64 = qcipcrouter8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
-System_Dir     = 11
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
+System_Dir      = 11
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -54,7 +55,7 @@ qcsium8994.dll        = 1,arm64
 %IPC_ROUTER.DeviceDesc% = IPC_ROUTER_Device, ACPI\QCOM240A
 
 [IPC_ROUTER_Device.NTarm]
-CopyFiles   = Drivers_Dir, System_Dir
+CopyFiles   = Drivers_Dir_A32, System_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -69,7 +70,7 @@ addreg = IPC_ROUTER
 KmdfService = QCIPC_ROUTER, IPC_ROUTER_wdfsect
 
 [IPC_ROUTER_Device.NTarm64]
-CopyFiles   = Drivers_Dir, System_Dir
+CopyFiles   = Drivers_Dir_A64, System_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -83,8 +84,12 @@ addreg = IPC_ROUTER
 [IPC_ROUTER_Device.NTarm64.Wdf]
 KmdfService = QCIPC_ROUTER, IPC_ROUTER_wdfsect
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
 qcipcrouter8994.sys
+
+[Drivers_Dir_A64]
+qcipcrouter8994.sys
+
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 

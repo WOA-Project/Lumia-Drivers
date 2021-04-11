@@ -23,7 +23,8 @@ CatalogFile.NTarm   = revrmnet8994.arm.cat
 CatalogFile.NTarm64 = revrmnet8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%,,
@@ -47,7 +48,7 @@ qcrevrmnet.sys = 1,arm64,
 ; Installation Section
 ;-------------------------------------------------------------------------
 [QCrevrmnet_Device]
-CopyFiles       = Drivers_Dir
+CopyFiles       = Drivers_Dir_A32
 AddReg          = Inst_Ndi
 Characteristics = 0x0
 
@@ -61,7 +62,7 @@ AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst
 ; Installation Section
 ;-------------------------------------------------------------------------
 [QCrevrmnet_Device.NTarm64]
-CopyFiles       = Drivers_Dir
+CopyFiles       = Drivers_Dir_A64
 AddReg          = Inst_Ndi
 Characteristics = 0x0
 
@@ -71,7 +72,10 @@ Characteristics = 0x0
 [QCrevrmnet_Device.NTarm64.Services]
 AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst.NTarm64
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcrevrmnet.sys
+
+[Drivers_Dir_A64]
 qcrevrmnet.sys
 
 ;-------------------------------------------------------------------------

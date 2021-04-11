@@ -24,7 +24,6 @@ PnPLockdown=1
 [SourceDisksFiles]
 qcbifbattauth8994.sys = 1
 
-;12 == Windows\System32\Drivers
 [DestinationDirs]
 DefaultDestDir = 13
 
@@ -52,17 +51,6 @@ Addreg=BIFBATTAUTHACL
 [PMIC_Inst.NTarm.Services]
 AddService = qcbifbattauth,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
 
-[PMIC_Inst.NTarm64]
-Copyfiles = PMICCopyFiles
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
-[PMIC_Inst.NTarm64.HW]
-Addreg=BIFBATTAUTHACL
-
-[PMIC_Inst.NTarm64.Services]
-AddService = qcbifbattauth,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst.NTarm64
-
 [BIFBATTAUTHACL]
 HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
 
@@ -83,14 +71,6 @@ ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
 ServiceBinary  = %13%\qcbifbattauth8994.sys
-AddReg         = BIFBATTAUTHDRV_SoftwareDeviceSettings
-
-[PMIC_Service_Inst.NTarm64]
-DisplayName    = %BIFBATTAUTHDRIVER.SvcDesc%
-ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_DEMAND_START%
-ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm64\qcbifbattauth8994.sys
 AddReg         = BIFBATTAUTHDRV_SoftwareDeviceSettings
 
 [Strings]

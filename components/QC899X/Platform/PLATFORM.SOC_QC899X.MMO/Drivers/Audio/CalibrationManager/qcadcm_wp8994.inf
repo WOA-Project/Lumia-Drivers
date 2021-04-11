@@ -22,7 +22,8 @@ CatalogFile.NTarm   = qcadcm8994.arm.cat
 CatalogFile.NTarm64 = qcadcm8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -47,7 +48,7 @@ qcadcm8994.sys = 1,arm64
 %ADCM.DeviceDesc% = ADCM_Device, SLM1\QCOM242D
 
 [ADCM_Device.NTarm]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 
 ;-------------- Service installation
@@ -55,14 +56,17 @@ AddProperty = WDTFSOCDeviceCategory
 AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst
 
 [ADCM_Device.NTarm64]
-CopyFiles   = Drivers_Dir
+CopyFiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 
 ;-------------- Service installation
 [ADCM_Device.NTarm64.Services]
 AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst.NTarm64
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcadcm8994.sys
+
+[Drivers_Dir_A64]
 qcadcm8994.sys
 
 [WDTFSOCDeviceCategory]

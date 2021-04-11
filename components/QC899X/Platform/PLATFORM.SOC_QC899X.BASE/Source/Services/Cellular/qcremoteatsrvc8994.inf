@@ -22,7 +22,8 @@ CatalogFile.NTarm   = qcremoteatsrvc8994.arm.cat
 CatalogFile.NTarm64 = qcremoteatsrvc8994.arm64.cat
 
 [DestinationDirs]
-RemoteAtSrvc.Files = 13 ; \system32 directory on Windows 2000 and later versions
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
@@ -43,11 +44,11 @@ qcremoteatsrvc8994.dll = 0,arm64,
 %RemoteAT.DeviceDesc% = RemoteAT, SWC\VID_QCOM&PID_0EA0&SID_0005
 
 [RemoteAT.NTarm]
-CopyFiles = RemoteAtSrvc.Files
+CopyFiles = Drivers_Dir_A32
 AddReg    = RemoteAtSrvc_Reg, RemoteAtSrvc_path_Reg
 
 [RemoteAT.NTarm64]
-CopyFiles = RemoteAtSrvc.Files
+CopyFiles = Drivers_Dir_A64
 AddReg    = RemoteAtSrvc_Reg, RemoteAtSrvc_path_Reg.NTarm64
 
 [RemoteAT.NTarm.Services]
@@ -79,7 +80,10 @@ HKLM, System\CurrentControlSet\Services\RemoteAtSrvc\Parameters, ServiceDll  , %
 [RemoteAtSrvc_path_Reg.NTarm64]
 HKLM, System\CurrentControlSet\Services\RemoteAtSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%, "%13%\arm64\qcremoteatsrvc8994.dll"
 
-[RemoteAtSrvc.Files]
+[Drivers_Dir_A32]
+qcremoteatsrvc8994.dll
+
+[Drivers_Dir_A64]
 qcremoteatsrvc8994.dll
 
 [Strings]

@@ -29,9 +29,9 @@ qcbattmngr8994.sys = 1,arm
 [SourceDisksFiles.ARM64]
 qcbattmngr8994.sys = 1,arm64
 
-;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -50,7 +50,7 @@ ExcludeFromSelect = *
 %DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2453
 
 [BATTMNGR_Inst.NTarm]
-Copyfiles   = BATTMNGRCopyFiles
+Copyfiles   = Drivers_Dir_A32
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -61,7 +61,7 @@ Addreg = BMACL
 AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst
 
 [BATTMNGR_Inst.NTarm64]
-Copyfiles   = BATTMNGRCopyFiles
+Copyfiles   = Drivers_Dir_A64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -74,7 +74,10 @@ AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst.NTarm64
 [BMACL]
 HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
 
-[BATTMNGRCopyFiles]
+[Drivers_Dir_A32]
+qcbattmngr8994.sys
+
+[Drivers_Dir_A64]
 qcbattmngr8994.sys
 
 [WDTFSOCDeviceCategory]

@@ -33,9 +33,9 @@ qchwnhaptics8994.sys = 1,arm
 [SourceDisksFiles.ARM64]
 qchwnhaptics8994.sys = 1,arm64
 
-;12 == Windows\System32\Drivers
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -54,7 +54,7 @@ ExcludeFromSelect = *
 %hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
 
 [hwnhaptics_Device.NTarm]
-Copyfiles = hwnhapticsCopyFiles
+Copyfiles = Drivers_Dir_A32
 
 [hwnhaptics_Device.NTarm.HW]
 AddReg = DriverInst.NT.HW.AddReg
@@ -64,7 +64,7 @@ AddReg = Configuration.NT.HW.AddReg
 AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst
 
 [hwnhaptics_Device.NTarm64]
-Copyfiles = hwnhapticsCopyFiles
+Copyfiles = Drivers_Dir_A64
 
 [hwnhaptics_Device.NTarm64.HW]
 AddReg = DriverInst.NT.HW.AddReg
@@ -89,7 +89,10 @@ ErrorControl   = %SERVICE_ERROR_NORMAL%
 ServiceBinary  = %13%\arm64\qchwnhaptics8994.sys
 LoadOrderGroup = Extended Base
 
-[hwnhapticsCopyFiles]
+[Drivers_Dir_A32]
+qchwnhaptics8994.sys,,, 0x100,
+
+[Drivers_Dir_A64]
 qchwnhaptics8994.sys,,, 0x100,
 
 [DriverInst.NT.HW.AddReg]

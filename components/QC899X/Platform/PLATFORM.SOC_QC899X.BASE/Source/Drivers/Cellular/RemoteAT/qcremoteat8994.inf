@@ -22,7 +22,8 @@ CatalogFile.NTarm   = qcremoteat8994.arm.cat
 CatalogFile.NTarm64 = qcremoteat8994.arm64.cat
 
 [DestinationDirs]
-DefaultDestDir = 13
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
@@ -43,7 +44,7 @@ qcremoteat8994.sys = 1,arm64,
 %RemoteAt.DeviceDesc% = RemoteAt_Device, ACPI\QCOM2155
 
 [RemoteAt_Device.NTarm]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A32
 
 [RemoteAt_Device.NTarm.Wdf]
 KmdfService = RemoteAt, RemoteAt_wdfsect
@@ -52,7 +53,7 @@ KmdfService = RemoteAt, RemoteAt_wdfsect
 AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst
 
 [RemoteAt_Device.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 
 [RemoteAt_Device.NTarm64.Wdf]
 KmdfService = RemoteAt, RemoteAt_wdfsect
@@ -60,7 +61,10 @@ KmdfService = RemoteAt, RemoteAt_wdfsect
 [RemoteAt_Device.NTarm64.Services]
 AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst.NTarm64
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcremoteat8994.sys
+
+[Drivers_Dir_A64]
 qcremoteat8994.sys
 
 ; -------------- RemoteAt driver install sections
