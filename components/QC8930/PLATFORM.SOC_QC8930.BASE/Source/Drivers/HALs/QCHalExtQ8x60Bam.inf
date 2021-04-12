@@ -1,0 +1,64 @@
+; Copyright (C) 2012 QUALCOMM Incorporated.
+; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+;
+; Module Name:
+;
+;    QCHalExtQ8x60Bam.inx
+;
+; Abstract:
+;
+;    Inf file for Qualcomm BAM HAL Extension
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Computer
+ClassGuid   = {4d36e966-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 11/01/2012,1.0.1146.2400
+PnPLockdown = 1
+CatalogFile = "QCHalExtQ8x60Bam.cat"
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[DestinationDirs]
+DefaultDestDir = 11 ; DIRID_SYSTEM
+
+[SourceDisksNames]
+1 = %BAMDiskId%
+
+[SourceDisksFiles]
+QCHalExtQ8x60Bam.dll = 1
+
+[Manufacturer]
+%MFGNAME% = DeviceList, NTARM
+
+[DeviceList.NTARM]
+%QC_8x60_BAM% = QC_8x60_BAM,  ACPI\QCOM1005
+
+[QC_8x60_BAM]
+AddReg    = QC_8x60_BAM_AddReg
+CopyFiles = QC_8x60_BAM_CopyFiles
+
+[QC_8x60_BAM_AddReg]
+HKLM, "%OSEDB%\VEN_QCOM&DEV_1005", "HALExtension", , "QCHalExtQ8x60Bam.dll"
+
+[QC_8x60_BAM_CopyFiles]
+QCHalExtQ8x60Bam.dll, , , 0x00001000,
+
+[QC_8x60_BAM.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%
+
+[Strings]
+
+;Non-localizable
+SPSVCINST_ASSOCSERVICE = 0x00000002
+OSEDB                  = "SYSTEM\CurrentControlSet\Control\OSExtensionDatabase"
+
+;Localizable
+QC                     = "Qualcomm Incorporated"
+MFGNAME                = "Qualcomm Incorporated"
+QC_8x60_BAM            = "Qualcomm 8x60 BAM HAL Extension"
+BAMDiskId              = "Qualcomm BAM HAL Extension Installation Disk #1"
+

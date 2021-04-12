@@ -1,0 +1,119 @@
+;*****************************************
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;8930 PEP.inf file
+;*****************************************
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+RefVersion  = 09/16/2011,1.00.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
+CatalogFile = qcpep8930.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; PEP Device  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTarm
+
+; DisplayName                   Section           DeviceId
+; -----------                   -------           --------
+[QC.NTarm]
+%PepDevice.DeviceDesc% = Pep_Device, ACPI\QCOM0811
+%PA.DeviceDesc%        = Pep_Device, ACPI\QCOM2152
+%PA.DeviceDesc%        = Pep_Device, ACPI\QCOM2153
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2400
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2401
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2402
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2403
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2404
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2405
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2406
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2407
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2408
+%TSENS.DeviceDesc%     = Pep_Device, ACPI\QCOM2409
+%BTMDevice.DeviceDesc% = Pep_Device, ACPI\QCOM2154
+
+; this line is only necessary for INF2CAT, until it supports NTarm
+
+
+[Pep_Device.NT]
+CopyFiles   = Pep_Device.NT.Copy
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Pep_Device.NT.HW]
+Addreg = PEPACL
+
+[PEPACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[PEP_SoftwareDeviceSettings]
+HKR , Parameters                            , DisableSmbcWorkaround, 0x00010001, 0x00000001
+
+HKR , Parameters                            , SystemLatencyFlags, 0x00010001,  0
+
+HKR , PowerSettings\v1\FSVP\Default         , perfincthreshold  , 0x10001   ,  0x00000050
+HKR , PowerSettings\v1\FSVP\Default         , perfdecthreshold  , 0x10001   ,  0x0000003C
+HKR , PowerSettings\v1\FSVP\Default         , procthrottlemax   , 0x10001   ,  0x00000035
+
+HKR , PowerSettings\v1\VideoBatching\Default, perfincthreshold  , 0x10001   ,  0x00000050
+HKR , PowerSettings\v1\VideoBatching\Default, perfdecthreshold  , 0x10001   ,  0x0000003C
+HKR , PowerSettings\v1\VideoBatching\Default, procthrottlemax   , 0x10001   ,  0x00000035
+
+[Pep_Device.NT.Copy]
+qcpep8930.sys
+
+; WHCK test
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+
+[Pep_Device.NT.Services]
+AddService = qcpep, %SPSVCINST_ASSOCSERVICE%, pep_Service_Inst
+
+[pep_Service_Inst]
+DisplayName    = %pep.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 0               ; SERVICE_BOOT_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcpep8930.sys
+LoadOrderGroup = Base
+AddReg         = PEP_SoftwareDeviceSettings
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcpep8930.sys = 1
+
+[Pep_Device.NT.Wdf]
+KmdfService = qcpep, Pep_wdfsect
+[Pep_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm Power Management Controller Disk"
+PepDevice.DeviceDesc   = "Qualcomm Power Engine Plug-in Device"
+pep.SVCDESC            = "Qualcomm Power Engine Plug-in Driver"
+TSENS.DeviceDesc       = "Qualcomm Temperature Sensor Device"
+PA.DeviceDesc          = "Qualcomm PA Temperature Sensor Device"
+BTMDevice.DeviceDesc   = "Qualcomm System Temperature Sensor Device"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
