@@ -1,0 +1,81 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Inc.
+;
+;Module Name:
+;    qccamvfe8930.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks VFE Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/01/2014,14.23.57.0817
+CatalogFile = qccamvfe8930.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+vfe.Files.NTarm_12 = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qccamvfe8930.sys = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; VFE  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTarm
+
+[QC.NTarm]
+%VFE.DeviceDesc% = CameraVFE_Device, ACPI\QCOM0700
+
+[CameraVFE_Device.NT]
+CopyFiles   = vfe.Files.NTarm_12
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[vfe.Files.NTarm_12]
+qccamvfe8930.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+;-------------- Service installation
+[CameraVFE_Device.NT.Services]
+AddService = VFE,%SPSVCINST_ASSOCSERVICE%, VFE_Service_Inst
+
+; -------------- VFE driver install sections
+[VFE_Service_Inst]
+DisplayName   = %VFE.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccamvfe8930.sys
+
+; Checks for compatibility with KMDF version
+[CameraVFE_Device.NT.Wdf]
+KmdfService = VFE, CameraVFE_wdfsect
+[CameraVFE_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm"
+DiskId1                = "Qualcomm Camera VFE Installation Disk"
+VFE.SVCDESC            = "Qualcomm Camera VFE Driver"
+VFE.DeviceDesc         = "Qualcomm Camera VFE Device"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

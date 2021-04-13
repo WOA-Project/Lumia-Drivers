@@ -1,0 +1,204 @@
+;Copyright (c) 2011 Qualcomm Inc All rights Reserved
+;Portions copyright Microsoft Corporation 1998-2000
+;
+;Module Name:
+;   QC8x60Aud.INX
+;
+;Abstract:
+;    INX file for installing WDM audio adapter driver (WaveRT based) for Qualcomm 8x60 SoC
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+provider    = %ProviderName%
+DriverVer   = 06/18/2014,16.38.38.0593
+PnpLockDown = 1
+CatalogFile = qc8x60aud.cat
+
+[Manufacturer]
+%MfgName% = QUALCOMM,NTARM
+
+[SignatureAttributes]
+qc8x60aud.sys = SignatureAttributes.DRM
+
+[SignatureAttributes.DRM]
+DRMLevel = 1300
+
+
+[SourceDisksNames]
+222 = %DiskId%
+
+[SourceDisksFiles]
+qc8x60aud.sys = 222
+
+[QUALCOMM.NTARM]
+%QC8x60AUD.DeviceDesc% = QC8x60AUD, ACPI\QCOM0744
+
+[DestinationDirs]
+QC8x60AUD.CopyList = 12
+
+[QC8x60AUD.CopyList]
+qc8x60aud.sys
+
+[QC8x60AUD.AddReg]
+HKR,                                                                  , AssociatedFilters         ,           , "wdmaud,swmidi,redbook"
+HKR,                                                                  , Driver                    ,           , qc8x60aud.sys
+
+HKR, Drivers                                                          , SubClasses                ,           , "wave,midi,mixer"
+
+HKR, Drivers\wave\wdmaud.drv                                          , Driver                    ,           , wdmaud.drv
+HKR, Drivers\midi\wdmaud.drv                                          , Driver                    ,           , wdmaud.drv
+HKR, Drivers\mixer\wdmaud.drv                                         , Driver                    ,           , wdmaud.drv
+
+HKR, Drivers\wave\wdmaud.drv                                          , Description               ,           , %QC8x60AUD.DeviceDesc%
+HKR, Drivers\midi\wdmaud.drv                                          , Description               ,           , %QC8x60AUD.DeviceDesc%
+HKR, Drivers\mixer\wdmaud.drv                                         , Description               ,           , %QC8x60AUD.DeviceDesc%
+HKR, PowerSettings                                                    , ConservationIdleTime      , 0x00000001, 05,00,00,00
+HKR, PowerSettings                                                    , IdlePowerState            , 0x00000001, 03,00,00,00
+HKR, PowerSettings                                                    , PerformanceIdleTime       , 0x00000001, 05,00,00,00
+
+HKLM,SOFTWARE\OEM\Nokia\VolumeNormalizer\Supported,Supported,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\VolumeNormalizer\Enabled,Enabled,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\VolumeNormalizer\Available,Available,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\VolumeNormalizer\NotAvailableReason,NotAvailableReason,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\VolumeNormalizer\Version,Minor,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\VolumeNormalizer\Version,Major,0x00010001,0x00000001
+
+HKLM,SOFTWARE\OEM\Nokia\DolbyHeadphone\Supported,Supported,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\DolbyHeadphone\Enabled,Enabled,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\DolbyHeadphone\Available,Available,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\DolbyHeadphone\NotAvailableReason,NotAvailableReason,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\DolbyHeadphone\AllowedForVideo,Allowed,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\DolbyHeadphone\AllowedForAudio,Allowed,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\DolbyHeadphone\Version,Minor,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\DolbyHeadphone\Version,Major,0x00010001,0x00000001
+
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,BandCenterFrequency3,0x00010001,0x0000015E
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,MinLevel,0x00010001,0xFFFFFB50
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,Increment,0x00010001,0x00000019
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,BandCenterFrequency5,0x00010001,0x00000708
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,BandCenterFrequency7,0x00010001,0x00001B58
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,BandCenterFrequency6,0x00010001,0x00000DAC
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,MaxLevel,0x00010001,0x000004B0
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,NumberOfBands,0x00010001,0x00000007
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,BandCenterFrequency2,0x00010001,0x00000096
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,BandCenterFrequency4,0x00010001,0x000002BC
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer,BandCenterFrequency1,0x00010001,0x00000032
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\Supported,Supported,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\Enabled,Enabled,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\Available,Available,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\NotAvailableReason,NotAvailableReason,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\GeqBandLevel1,BandLevel,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\GeqBandLevel2,BandLevel,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\GeqBandLevel3,BandLevel,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\GeqBandLevel4,BandLevel,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\GeqBandLevel5,BandLevel,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\GeqBandLevel6,BandLevel,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\GeqBandLevel7,BandLevel,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\Version,Minor,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\GraphicEqualizer\Version,Major,0x00010001,0x00000001
+
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Version,Minor,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Version,Major,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\LowFrequencyPreset,Preset,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\LowFrequencyPreset,SupportedDuringRecording,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\LowFrequencyPreset,Supported,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Orientation,Orientation,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Vibra,Disable,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\ForceLoudspeakerMute,ForceLoudspeakerMute,0x00010001,0x00000000
+
+[QC8x60AUD.Interface.Wave]
+AddReg = QC8x60AUD.I.Wave.AddReg
+
+[QC8x60AUD.Interface.WaveStereo]
+AddReg = QC8x60AUD.I.WaveStereo.AddReg
+
+[QC8x60AUD.I.Wave.AddReg]
+HKR, , CLSID, , %Proxy.CLSID%
+
+[QC8x60AUD.I.WaveStereo.AddReg]
+HKR, , CLSID, , %Proxy.CLSID%
+
+[QC8x60AUD.Interface.Topology]
+AddReg = QC8x60AUD.I.Topo.AddReg
+
+[QC8x60AUD.Interface.TopologyStereo]
+AddReg = QC8x60AUD.I.TopoStereo.AddReg
+
+[QC8x60AUD.I.Topo.AddReg]
+HKR, , CLSID, , %Proxy.CLSID%
+
+[QC8x60AUD.I.TopoStereo.AddReg]
+HKR, , CLSID, , %Proxy.CLSID%
+
+[QC8x60AUD_Service_Inst]
+DisplayName   = %QC8x60AUD.SvcDesc%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qc8x60aud.sys
+
+
+;;================= Windows NT ====================
+[QC8x60AUD.NT]
+Include   = ks.inf,wdmaudio.inf
+Needs     = KS.Registration,WDMAUDIO.Registration
+CopyFiles = QC8x60AUD.CopyList
+AddReg    = QC8x60AUD.AddReg
+Reboot
+
+[QC8x60AUD.NT.Interfaces]
+;
+; Interfaces for render in Wave endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%,%KSNAME_Wave%,QC8x60AUD.Interface.Wave
+AddInterface = %KSCATEGORY_RENDER%,%KSNAME_Wave%,QC8x60AUD.Interface.Wave
+AddInterface = %KSCATEGORY_CAPTURE%,%KSNAME_Wave%,QC8x60AUD.Interface.Wave
+AddInterface = %KSCATEGORY_REALTIME%,%KSNAME_Wave%,QC8x60AUD.Interface.Wave
+AddInterface = %KSCATEGORY_AUDIO%,%KSNAME_Topology%,QC8x60AUD.Interface.Topology
+AddInterface = %KSCATEGORY_TOPOLOGY%,%KSNAME_Topology%,QC8x60AUD.Interface.Topology
+;
+; Interfaces for render in WaveStereo endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%,%KSNAME_WaveStereo%,QC8x60AUD.Interface.WaveStereo
+AddInterface = %KSCATEGORY_RENDER%,%KSNAME_WaveStereo%,QC8x60AUD.Interface.WaveStereo
+AddInterface = %KSCATEGORY_CAPTURE%,%KSNAME_WaveStereo%,QC8x60AUD.Interface.WaveStereo
+AddInterface = %KSCATEGORY_REALTIME%,%KSNAME_WaveStereo%,QC8x60AUD.Interface.WaveStereo
+AddInterface = %KSCATEGORY_AUDIO%,%KSNAME_TopologyStereo%,QC8x60AUD.Interface.TopologyStereo
+AddInterface = %KSCATEGORY_TOPOLOGY%,%KSNAME_TopologyStereo%,QC8x60AUD.Interface.TopologyStereo
+
+[QC8x60AUD.NT.Services]
+AddService = QC8x60AUD, 0x00000002, QC8x60AUD_Service_Inst
+
+[Strings]
+ProviderName                   = "Qualcomm"
+MfgName                        = "QUALCOMM"
+DiskDescription                = "Qualcomm SoC WDM Audio Driver Disk"
+QC8x60AUD_AA.DeviceDesc        = "QCAUD Real Time (WaveRT) Driver for Qualcomm 8x60 SoC"
+QC8x60AUD_AB.DeviceDesc        = "QCAUD Real Time (WaveRT) Driver for Qualcomm 8x60 SoC"
+QC8x60AUD_BA.DeviceDesc        = "QCAUD Real Time (WaveRT) Driver for Qualcomm 8x60 SoC"
+QC8x60AUD.DeviceDesc           = "QCAUD Real Time (WaveRT) Driver for Qualcomm 8x60 SoC"
+
+MediaCategories                = "SYSTEM\CurrentControlSet\Control\MediaCategories"
+
+Proxy.CLSID                    = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO               = "{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER              = "{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE             = "{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_REALTIME            = "{EB115FFC-10C8-4964-831D-6DCB02E6F23F}" ; non-localizable
+KSCATEGORY_TOPOLOGY            = "{DDA54A40-1E4C-11D1-A050-405705C10000}" ; non-localizable
+
+KSNAME_Wave                    = "Wave"
+KSNAME_Topology                = "Topology"
+
+KSNAME_WaveStereo              = "WaveStereo"
+KSNAME_TopologyStereo          = "TopologyStereo"
+
+QC8x60AUD.SvcDesc              = "Service for Qualcomm SoC WDM Audio Driver"
+KSNODETYPE_ANY                 = "{00000000-0000-0000-0000-000000000000}"
+PKEY_AudioEndpoint_Association = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2"
+; PKEY_AudioEndpoint_Supports_EventDriven_Mode = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},7"
+DiskId                         = "QC8x60AUD WaveRT Driver Disk"
+REG_BINARY                     = 0x00000001
+

@@ -1,0 +1,53 @@
+;
+; nokiathermsensordriver.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = "Nokia"
+DriverVer   = 06/18/2014,16.20.59.0567
+CatalogFile = nokiathermsensordriver.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+0 = %diskIns%
+
+[SourceDisksFiles]
+nokiathermsensordriver.sys = 0
+
+[Manufacturer]
+%manufacturer_name% = Standard, NTARM
+
+[Standard.NTARM]
+%nokiathermsensordriver_Device_Desc% = nokiathermsensordriver.NT,     ACPI\NOKIA_THERMAL
+
+[nokiathermsensordriver.nt]
+AddReg    = WDTFSOCDeviceCategory
+CopyFiles = nokiathermsensordriver_copy_files
+
+[WDTFSOCDeviceCategory]
+{a45c254e-df1c-4efd-8020-67d146a850e0}, 001D, 0007, , 00
+
+[nokiathermsensordriver_copy_files]
+nokiathermsensordriver.sys
+
+[nokiathermsensordriver.NT.Services]
+AddService = nokiathermsensordriver, 0x00000002, nokiathermsensordriver_service_inst
+
+[nokiathermsensordriver_service_inst]
+DisplayName    = %nokiathermsensordriver_Service_Desc%
+ServiceType    = 1
+StartType      = 1
+ErrorControl   = 1
+ServiceBinary  = %12%\nokiathermsensordriver.sys 
+LoadOrderGroup = Extended Base
+
+[Strings]
+manufacturer_name                   = "Nokia"
+nokiathermsensordriver_Device_Desc  = "Thermal Sensor Driver"
+nokiathermsensordriver_Service_Desc = "Thermal Sensor Service"
+diskIns                             = "Thermal Sensor Installation Disk"
+

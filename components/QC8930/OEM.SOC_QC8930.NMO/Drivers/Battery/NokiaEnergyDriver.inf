@@ -1,0 +1,81 @@
+; NokiaBIFDriver.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Battery
+ClassGuid   = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
+Provider    = %COMP%
+DriverVer   = 06/18/2014,16.20.27.0808
+CatalogFile = NokiaEnergyDriver.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+NokiaEnergyDriver.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; NokiaEnergyDriver driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Standard,NTARM
+
+[Standard.NTARM]
+%NokiaEnergyDriver.DeviceDesc% = NokiaEnergyDriver_Inst,ACPI\NOKI0B00
+
+[NokiaEnergyDriver_Inst.NT]
+Copyfiles = NokiaEnergyDriverCopyFiles
+AddReg    = NokiaEnergyDriver_Inst.NT.AddReg
+Include   = battery.inf
+Needs     = Battery_Inst
+
+[NokiaEnergyDriver_Inst.NT.AddReg]
+HKR, , DeviceCharacteristics, REG_DWORD, 0x100
+
+[NokiaEnergyDriverCopyFiles]
+NokiaEnergyDriver.sys, , , 0x100,
+
+[NokiaEnergyDriver_Inst.NT.Services]
+AddService = NokiaEnergyDriver,%SPSVCINST_ASSOCSERVICE%,NokiaEnergyDriver_Service_Inst
+
+[NokiaEnergyDriver_Service_Inst]
+DisplayName    = %NokiaEnergyDriver.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\NokiaEnergyDriver.sys
+LoadOrderGroup = Extended base
+
+[Strings]
+;Localizable Strings
+COMP                         = "Nokia"
+NokiaEnergyDriver.SvcDesc    = "Nokia Energy Driver"
+NokiaEnergyDriver.DeviceDesc = "Nokia Energy Driver"
+
+;Non-Localizable Strings
+SPSVCINST_TAGTOFRONT         = 0x00000003
+SPSVCINST_ASSOCSERVICE       = 0x00000002
+SERVICE_KERNEL_DRIVER        = 1
+SERVICE_BOOT_START           = 0
+SERVICE_SYSTEM_START         = 1
+SERVICE_DEMAND_START         = 3
+SERVICE_ERROR_NORMAL         = 1
+SERVICE_ERROR_IGNORE         = 0
+SERVICE_ERROR_CRITICAL       = 3
+REG_EXPAND_SZ                = 0x00020000
+REG_DWORD                    = 0x00010001
+REG_SZ                       = 0x00000000
+
+
+
+
+

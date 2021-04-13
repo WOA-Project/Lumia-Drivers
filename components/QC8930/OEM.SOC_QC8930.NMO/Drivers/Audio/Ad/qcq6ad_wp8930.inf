@@ -1,0 +1,92 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    Q6AD.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Q6AD Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 06/18/2014,16.38.38.0788
+CatalogFile = qcq6ad_wp8930.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcq6ad8930.sys = 1
+
+
+;*****************************************
+; Q6AD  Install Section
+;*****************************************
+
+[Manufacturer]
+%QCOM% = Standard,NTarm
+
+[Standard.NTarm]
+%Q6AD.DeviceDesc% = Q6AD_Device, ACPI\QCOM0750
+
+[Q6AD_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Q6AD_Device.NT.HW]
+Addreg = Q6AD_DeviceACL
+
+[Q6AD_DeviceACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir]
+qcq6ad8930.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+;-------------- Service installation
+[Q6AD_Device.NT.Services]
+AddService = qcQ6AD,%SPSVCINST_ASSOCSERVICE%, Q6AD_Service_Inst
+
+[Q6ADReg_Service]
+HKR, , SOSLog             , , "FALSE"
+HKR, , EnableRxDataLogging, , "FALSE"
+HKR, , EnableTxDataLogging, , "FALSE"
+
+; -------------- Q6AD driver install sections
+[Q6AD_Service_Inst]
+DisplayName   = %Q6AD.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcq6ad8930.sys
+;LoadOrderGroup = Extended Base
+Addreg        = Q6ADReg_Service
+
+;[Q6AD_Device.NT.Wdf]
+;KmdfService =  Q6AD, Q6AD_wdfsect
+;[Q6AD_wdfsect]
+;KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+;Localizable Strings
+QCOM                   = "Qualcomm Inc."
+DiskId1                = "Q6AD Installation Disk"
+Q6AD.DeviceDesc        = "Qualcomm Audio DSP Proxy Device"
+Q6AD.SVCDESC           = "Qualcomm Audio DSP Proxy Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

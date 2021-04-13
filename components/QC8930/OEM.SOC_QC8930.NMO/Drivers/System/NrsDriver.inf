@@ -1,0 +1,75 @@
+; NrsDriver.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = "Nokia Corporation"
+DriverVer   = 04/29/2013,11.56.1.0302
+CatalogFile = NrsDriver.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+NrsDriver.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; NrsDriver driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Standard,NTARM
+
+[Standard.NTARM]
+%NRS.DeviceDesc% = DriverInstall,ACPI\NRSD0001
+
+[DriverInstall.NT]
+Copyfiles = NrsDriverCopyFiles
+
+[NrsDriverCopyFiles]
+NrsDriver.sys, , , 0x100,
+
+[DriverInstall.NT.Services]
+AddService = NokiaRegulatoryScreenDriver,%SPSVCINST_ASSOCSERVICE%,NokiaRegulatoryScreenDriver_service_inst
+
+[NokiaRegulatoryScreenDriver_service_inst]
+DisplayName    = %NRS.ServiceDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\NrsDriver.sys
+LoadOrderGroup = Extended base
+
+[Strings]
+;Localizable Strings
+COMP                   = "Nokia"
+NRS.ServiceDesc        = "Nokia Regulatory Screen Driver"
+NRS.DeviceDesc         = "Nokia Regulatory Screen Driver"
+
+;Non-Localizable Strings
+SPSVCINST_TAGTOFRONT   = 0x00000003
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+
+
+
+

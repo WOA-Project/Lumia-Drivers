@@ -1,0 +1,119 @@
+;
+; qpdst900.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Sensor
+ClassGuid   = {5175d334-c371-4806-b3ba-71fd53c9258d}
+Provider    = "Nokia"
+DriverVer   = 06/18/2014,16.19.5.0178
+CatalogFile = qpdst900.cat
+
+[DestinationDirs]
+;12 == Windows\System32\Drivers
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %diskIns%,,,""
+
+[SourceDisksFiles]
+qpdst900.sys = 1,,
+
+[Manufacturer]
+%comp% = Standard, NTARM
+
+[Standard.NTARM]
+%als.devicedesc% = ALS_Inst.NT,     ACPI\QPDS_T900_ALS
+%prx.devicedesc% = PRX_Inst.NT,     ACPI\QPDS_T900_PRX
+
+[als_inst.nt]
+AddReg    = ALSDeviceReg
+CopyFiles = qpdst900.sys_copy_files
+
+[prx_inst.nt]
+AddReg    = PRXDeviceReg
+CopyFiles = qpdst900.sys_copy_files
+
+[qpdst900.sys_copy_files]
+qpdst900.sys
+
+[ALSDeviceReg]
+HKLM,SYSTEM\CurrentControlSet\Services\Sensors\ALS\TestInterface,Enable,0x00010001,0x00000000
+HKLM,SYSTEM\CurrentControlSet\Services\Sensors\ALS\TestInterface,Value,0x00010001,0x00000000
+
+[PRXDeviceReg]
+HKLM,SYSTEM\CurrentControlSet\Services\Sensors\PS\TestInterface,Enable,0x00010001,0x00000000
+HKLM,SYSTEM\CurrentControlSet\Services\Sensors\PS\TestInterface,Value,0x00010001,0x00000000
+
+[ALS_Inst.NT.Services]
+AddService = qpdst900.sys, 0x00000002, qpdst900.sys_service_inst
+
+[PRX_Inst.NT.Services]
+AddService = qpdst900.sys, 0x00000002, qpdst900.sys_service_inst
+
+[qpdst900.sys_service_inst]
+DisplayName    = %ALSPRX.SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\qpdst900.sys 
+LoadOrderGroup = Extended Base
+AddReg         = qpdst900.sys_Reg
+
+[qpdst900.sys_Reg]
+HKR,Parameters,ConfigVersion,0x00010001,0x00000008
+HKR,Parameters,DppFormat,0x00010001,0x00000001
+HKR,Parameters,DefaultHwRevisionMajor,0x00010001,0x00000000
+HKR,Parameters,DefaultHwRevisionMinor,0x00010001,0x00000000
+HKR,Parameters\0\0,UpperRangeLo,0x00010001,0x0000014F
+HKR,Parameters\0\0,LuxCorrFac06,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrLux00,0x00010001,0x00000000
+HKR,Parameters\0\0,DynThrThresholdHyst,0x00010001,0x00000000
+HKR,Parameters\0\0,CoeffGA,0x00010001,0x00082D82
+HKR,Parameters\0\0,DynThrDecrNumSamples,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrLux03,0x00010001,0x00000000
+HKR,Parameters\0\0,DynExtChRatioDef,0x00010001,0x00001194
+HKR,Parameters\0\0,PrxPersistence,0x00010001,0x00000003
+HKR,Parameters\0\0,LuxCorrLux04,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrLux05,0x00010001,0x00000000
+HKR,Parameters\0\0,LowerRangeLo,0x00010001,0x00000000
+HKR,Parameters\0\0,DynThrMinHeadroom,0x00010001,0x00000000
+HKR,Parameters\0\0,CoeffC,0x00010001,0x0000029B
+HKR,Parameters\0\0,LuxCorrLux02,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrFac04,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrFac03,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrFac05,0x00010001,0x00000000
+HKR,Parameters\0\0,DynThrMaxDeviation,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrNumPoints,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrFac02,0x00010001,0x00000000
+HKR,Parameters\0\0,DynThrMinNumSamples,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrLux07,0x00010001,0x00000000
+HKR,Parameters\0\0,Calibration,0x00010001,0x00000064
+HKR,Parameters\0\0,LuxCorrLux06,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrFac00,0x00010001,0x00000000
+HKR,Parameters\0\0,DynThrMaxNumSamples,0x00010001,0x00000000
+HKR,Parameters\0\0,CoeffD,0x00010001,0x0000043B
+HKR,Parameters\0\0,LuxCorrFac01,0x00010001,0x00000000
+HKR,Parameters\0\0,LEDdriveStrength,0x00010001,0x00000001
+HKR,Parameters\0\0,PulseCount,0x00010001,0x00000003
+HKR,Parameters\0\0,DynThrLpfAlpha,0x00010001,0x00000000
+HKR,Parameters\0\0,LuxCorrLux01,0x00010001,0x00000000
+HKR,Parameters\0\0,DynThrMarginToCrosstalk,0x00010001,0x00000000
+HKR,Parameters\0\0,LowerRangeHi,0x00010001,0x00000181
+HKR,Parameters\0\0,LuxCorrFac07,0x00010001,0x00000000
+HKR,Parameters\0\0,DynExtChRatioMin,0x00010001,0x00000FA0
+HKR,Parameters\0\0,DynExtChRatioMax,0x00010001,0x00001388
+HKR,Parameters\0\0,DynamicThresholds,0x00010001,0x00000000
+HKR,Parameters\0\0,DynRangeExtEnable,0x00010001,0x00000000
+HKR,Parameters\0\0,IntegrationTime,0x00010001,0x00000012
+HKR,Parameters\0\0,CoeffB,0x00010001,0x000049F2
+HKR,Parameters\0\0,DynThrAdjustHysteresis,0x00010001,0x00000000
+HKR,Parameters\0\0,UpperRangeHi,0x00010001,0x000003FF
+
+[Strings]
+comp           = "Nokia"
+als.devicedesc = "Ambient Light Driver"
+prx.devicedesc = "Proximity Driver"
+ALSPRX.SvcDesc = "Ambient Light and Proximity Driver Service"
+diskIns        = "Ambient Light and Proximity Driver Installation Disk"
+
