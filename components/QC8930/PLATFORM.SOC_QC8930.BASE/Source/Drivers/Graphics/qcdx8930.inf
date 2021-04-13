@@ -163,7 +163,7 @@ qcviddecmft8930.dll, , , 0x00004000,
 
 ;  *******Localizable Strings*******
 
-QC                     = ""Qualcomm Incorporated"
+QC                     = "Qualcomm Incorporated"
 DiskDesc               = "Qualcomm Adreno Graphics"
 QC_Device              = "Qualcomm Adreno 305 (WDDM v1.2)"
 ServiceName            = "Qualcomm Adreno Graphics"
