@@ -16,7 +16,7 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}  ;{13891054-2FF4-4E78-8F2F-
 
 
 Provider    = %QC%
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qcfmtransport8930.cat
 
 

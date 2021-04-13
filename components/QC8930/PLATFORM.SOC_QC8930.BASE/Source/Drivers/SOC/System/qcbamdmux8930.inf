@@ -16,7 +16,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QUALCOMM%
-DriverVer   = 12/18/2013,1.0.3051.0005
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qcbamdmux8930.cat
 
 [DestinationDirs]
@@ -32,7 +32,7 @@ qcbamdmux8930.sys = 1                     ; The source files that are used durin
 %QUALCOMM% = Standard,NTARM          ; QCOM drivers may need to follow same process here?
 
 [Standard.NTARM]                          ; Decorated model section take precedence over undecorated
-%bam_dmux.DeviceDesc% = bam_dmux_Device, ACPI\QCOM2100
+%bam_dmux.DeviceDesc% = bam_dmux_Device, ACPI\QCOM0F50
 
 [bam_dmux_Device.NT]
 CopyFiles   = Drivers_Dir

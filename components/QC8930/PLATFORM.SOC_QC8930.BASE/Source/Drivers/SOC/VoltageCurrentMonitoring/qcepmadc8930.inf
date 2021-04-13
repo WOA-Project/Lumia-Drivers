@@ -16,7 +16,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QUALCOMM%
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qcepmadc8930.cat
 PnpLockDown = 1
 
@@ -36,7 +36,7 @@ ExcludeFromSelect = *
 %QUALCOMM% = QC, NTARM
 
 [QC.NTARM]
-%EPMADC.DeviceDesc% = EPMADC_Device, ACPI\QCOM2074
+%EPMADC.DeviceDesc% = EPMADC_Device, ACPI\QCOM0C10
 
 [EPMADC_Device.NT]
 CopyFiles = Drivers_Dir

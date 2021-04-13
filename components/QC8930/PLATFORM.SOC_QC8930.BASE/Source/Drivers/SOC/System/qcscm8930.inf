@@ -16,7 +16,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QUALCOMM%
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qcscm8930.cat
 PnpLockDown = 1
 
@@ -36,7 +36,7 @@ qcscm8930.sys = 1
 %QUALCOMM% = Standard,NTarm
 
 [Standard.NTarm]
-%SCM.DeviceDesc% = SCM_Device, ACPI\QCOM2071
+%SCM.DeviceDesc% = SCM_Device, ACPI\QCOM0E90
 
 [SCM_Device.NT]
 CopyFiles   = Drivers_Dir

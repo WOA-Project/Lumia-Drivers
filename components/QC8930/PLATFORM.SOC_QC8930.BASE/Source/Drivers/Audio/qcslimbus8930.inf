@@ -16,7 +16,7 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %ManufacturerName%
 CatalogFile = qcslimbus8930.cat
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 PnpLockDown = 1
 
 [DestinationDirs]
@@ -39,7 +39,7 @@ qcslimbus8930.sys = 1
 %ManufacturerName% = Standard,NTARM
 
 [Standard.NTARM]
-%qcslimbus.DeviceDesc% = qcslimbus_Device.NTARM,ACPI\QCOM2118
+%qcslimbus.DeviceDesc% = qcslimbus_Device.NTARM,ACPI\QCOM0190
 
 [qcslimbus_Device.NTARM]
 CopyFiles   = Drivers_Dir

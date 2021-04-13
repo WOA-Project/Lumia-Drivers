@@ -12,7 +12,7 @@ Signature="$WINDOWS NT$"
 Class=System
 ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider=%QC%
-DriverVer=09/26/2013,1.0.3051.0000
+DriverVer=03/24/2014,1.0.3058.0000
 CatalogFile=qcpowerkeygpio8930.cat
 PnpLockDown = 1
 
@@ -37,7 +37,7 @@ ExcludeFromSelect=*
 %QC%=Qualcomm,NTARM
 
 [Qualcomm.NTARM]
-%PWIO.DeviceDesc%=PWIO_Inst,ACPI\QCOM2109
+%PWIO.DeviceDesc%=PWIO_Inst,ACPI\QCOM0D20
 
 [PWIO_Inst.NT]
 CopyFiles = PWIOCopyFiles

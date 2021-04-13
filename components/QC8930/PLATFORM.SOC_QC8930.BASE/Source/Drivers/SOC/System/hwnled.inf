@@ -18,7 +18,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 06/18/2014,16.20.23.0068
 CatalogFile = hwnled.cat
 
 [SourceDisksNames]

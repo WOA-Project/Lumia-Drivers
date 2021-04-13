@@ -15,7 +15,7 @@ Signature    = "$WINDOWS NT$"
 Class        = System
 ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider     = %COMP%
-DriverVer    = 09/26/2013,1.0.3051.0000
+DriverVer    = 03/24/2014,1.0.3058.0000
 CatalogFile  = qcpmicgpio8930.cat
 BootCritical = 1
 PnPLockdown  = 1
@@ -41,7 +41,7 @@ ExcludeFromSelect = *
 %COMP% = Qualcomm,NTARM
 
 [Qualcomm.NTARM]
-%DeviceDesc% = PMIO_Inst,ACPI\QCOM2038
+%DeviceDesc% = PMIO_Inst,ACPI\QCOM05C0
 
 [PMIO_Inst.NT]
 Copyfiles   = PMIOCopyFiles

@@ -17,7 +17,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = QCDIAGCSI8930.cat
 
 [DestinationDirs]
@@ -33,7 +33,7 @@ QCDIAGCSI8930.sys = 1
 %QC% = QC,NTARM
 
 [QC.NTARM]                           ; NTARM is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
-%DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM2105
+%DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM0F81
 
 [DiagCSI_Device.NT]
 CopyFiles = Drivers_Dir

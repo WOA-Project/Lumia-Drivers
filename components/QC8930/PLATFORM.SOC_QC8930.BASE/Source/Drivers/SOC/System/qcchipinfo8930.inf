@@ -17,7 +17,7 @@ Signature    = "$WINDOWS NT$"
 Class        = System
 ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider     = %QUALCOMM%
-DriverVer    = 09/26/2013,1.0.3051.0000
+DriverVer    = 03/24/2014,1.0.3058.0000
 CatalogFile  = qcchipinfo8930.cat
 BootCritical = 1
 PnpLockDown  = 1
@@ -41,7 +41,7 @@ ExcludeFromSelect = *
 %QC% = QC, NTARM
 
 [QC.NTARM]
-%CHIPINFO.DeviceDesc% = CHIPINFO_Device, ACPI\QCOM2104
+%CHIPINFO.DeviceDesc% = CHIPINFO_Device, ACPI\QCOM1201
 
 [CHIPINFO_Device.NT]
 CopyFiles   = Drivers_Dir

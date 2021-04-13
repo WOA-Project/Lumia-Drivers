@@ -18,7 +18,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
-DriverVer   = 12/18/2014,18.34.39.0619
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qcmbhc_wp8930.cat
 PnpLockDown = 1
 
@@ -42,7 +42,7 @@ ExcludeFromSelect = *
 %QUALCOMM% = Standard,NTARM
 
 [Standard.NTARM]
-%mbhc.DeviceDesc% = mbhc_Inst,ACPI\QCOM2063
+%mbhc.DeviceDesc% = mbhc_Inst,ACPI\QCOM0746
 
 [mbhc_Inst.NT]
 Copyfiles   = mbhcCopyFiles

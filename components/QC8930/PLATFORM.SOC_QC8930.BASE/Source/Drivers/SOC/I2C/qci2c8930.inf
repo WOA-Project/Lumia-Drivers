@@ -15,7 +15,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
-DriverVer   = 08/27/2012,1.0.1146.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qci2c8930.cat
 PnpLockDown = 1
 
@@ -39,7 +39,7 @@ ExcludeFromSelect = *
 %QC% = QC,NTARM
 
 [QC.NTARM]
-%q8660i2c.DeviceDesc% = q8660i2c_Device, ACPI\QCOM2004
+%q8660i2c.DeviceDesc% = q8660i2c_Device, ACPI\QCOM0180
 
 [q8660i2c_Device.NT]
 CopyFiles   = Drivers_Dir

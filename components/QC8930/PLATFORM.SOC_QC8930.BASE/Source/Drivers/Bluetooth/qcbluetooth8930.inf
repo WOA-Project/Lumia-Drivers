@@ -16,7 +16,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = QcBluetooth8930.cat
 PnPLockdown = 1
 
@@ -43,8 +43,8 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [VendorModels.NTARM]
-%Bus.DeviceDesc%     = Bus_Vendor, ACPI\QCOM2049
-%Bus.DeviceDesc_WCN% = Bus_Vendor, QWCN\QCOM2049
+%Bus.DeviceDesc%     = Bus_Vendor, ACPI\QCOM01E0
+%Bus.DeviceDesc_WCN% = Bus_Vendor, QWCN\QCOM01E0
 
 [Bus_Vendor.NT]
 CopyFiles   = Bus.CopyFiles

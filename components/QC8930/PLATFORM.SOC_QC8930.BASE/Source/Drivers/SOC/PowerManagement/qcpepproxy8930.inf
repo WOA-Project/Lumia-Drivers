@@ -15,7 +15,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qcpepproxy8930.cat
 PnpLockDown = 1
 
@@ -38,7 +38,7 @@ qcpepproxy8930.sys = 1,,
 %QCOM% = QCOM, NTarm
 
 [QCOM.NTarm]
-%PepProxy.DeviceDesc% = PepProxy_Device, ACPI\QCOM2112
+%PepProxy.DeviceDesc% = PepProxy_Device, ACPI\QCOM0812
 
 [PepProxy_Device.NT]
 CopyFiles   = Drivers_Dir

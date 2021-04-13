@@ -16,7 +16,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qcabd8930.cat
 PnPLockdown = 1
 
@@ -35,7 +35,7 @@ qcabd8930.sys = 1
 %QC% = QC, NTarm
 
 [QC.NTarm]
-%ABD.DeviceDesc% = ABD_Device, ACPI\QCOM2099
+%ABD.DeviceDesc% = ABD_Device, ACPI\QCOM1200
 
 [ABD_Device.NT]
 CopyFiles   = Drivers_Dir

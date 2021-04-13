@@ -17,7 +17,7 @@ Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QUALCOMM%
 CatalogFile = qccdi8930.cat
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 PnpLockDown = 1
 
 [DestinationDirs]
@@ -37,7 +37,7 @@ qccdi8930.sys = 1,,
 %ManufacturerName% = Standard,NTarm
 
 [Standard.NTarm]
-%QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM2065
+%QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM0E31
 
 [QCCDI_Device.NT]
 CopyFiles = Drivers_Dir

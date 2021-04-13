@@ -16,7 +16,7 @@ Signature    = "$WINDOWS NT$"
 Class        = System
 ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider     = %QUALCOMM%
-DriverVer    = 09/26/2013,1.0.3051.0000
+DriverVer    = 03/24/2014,1.0.3058.0000
 CatalogFile  = qcxoadc8930.cat
 BootCritical = 1
 PnpLockDown  = 1
@@ -40,7 +40,7 @@ ExcludeFromSelect = *
 %QUALCOMM% = Standard,NTARM
 
 [Standard.NTARM]
-%XOADC.DeviceDesc% = XOADC_Device, ACPI\QCOM2043
+%XOADC.DeviceDesc% = XOADC_Device, ACPI\QCOM0C00
 
 [XOADC_Device.NT]
 CopyFiles   = Drivers_Dir

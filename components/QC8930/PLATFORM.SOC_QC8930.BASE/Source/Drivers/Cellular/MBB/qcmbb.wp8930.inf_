@@ -3,7 +3,7 @@
 ;Copyright (c) 1990-2000  Microsoft Corporation
 ;
 ;Module Name:
-;    QCMBB8660.INF or QCMBB8930.INF
+;    QCMBB8660.INF or QCMBB8960.INF
 ;
 ;Abstract:
 ;    INF file for installing the MBB driver (Qualcomm Wireless Network Device)
@@ -11,7 +11,7 @@
 ;Installation Notes: 
 ;    Using Devcon:
 ;      8660: Type "devcon update QCMBB8660.inf ACPI\QCOM0EA0" to install
-;      8930: Type "devcon update QCMBB8930.inf ACPI\QCOM2072" to install
+;      8960: Type "devcon update QCMBB8930.inf ACPI\QCOM2072" to install
 ;
 ;--*/
 
@@ -20,7 +20,7 @@ Signature   = "$Windows NT$"
 Class       = Net
 ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
-DriverVer   = 12/18/2014,18.28.45.0654
+DriverVer   = 06/18/2014,16.20.48.0885
 Catalogfile = qcmbb8930.cat ;todo .cat file generated once driver passes WHQL
 
 [ControlFlags]
@@ -39,7 +39,7 @@ wwan.CopyFiles = 12
 %QCOM% = QCOM, NTarm
 
 [QCOM.NTarm]
-%wwan.DeviceDesc% = wwan.ndi, ACPI\QCOM2072
+%wwan.DeviceDesc% = wwan.ndi, ACPI\QCOM0EA0
 
 [wwan.ndi]
 Include            = netvchannel.inf

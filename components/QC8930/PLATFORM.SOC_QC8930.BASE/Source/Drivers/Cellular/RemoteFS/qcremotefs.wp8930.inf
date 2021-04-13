@@ -16,7 +16,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %COMP%
-DriverVer   = 09/26/2013,1.0.3051.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qcremotefs.wp8930.cat
 PnpLockDown = 1
 
@@ -41,7 +41,7 @@ ExcludeFromSelect = *
 %COMP% = Qualcomm,NTARM
 
 [Qualcomm.NTARM]
-%REMOTEFS.DeviceDesc% = REMOTEFS_Device,ACPI\QCOM2015
+%REMOTEFS.DeviceDesc% = REMOTEFS_Device,ACPI\QCOM0F20
 
 [REMOTEFS_Device.NT]
 CopyFiles   = RemotefsCopyFiles

@@ -14,7 +14,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
-DriverVer   = 07/02/2015,1.0.1067.0000
+DriverVer   = 03/24/2014,1.0.3058.0000
 CatalogFile = qcbattmngr8930.cat
 PnPLockdown = 1
 
@@ -39,7 +39,7 @@ ExcludeFromSelect = *
 %COMP% = Qualcomm,NTARM
 
 [Qualcomm.NTARM]
-%DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2039
+%DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM0B00
 
 [BATTMNGR_Inst.NT]
 Copyfiles   = BATTMNGRCopyFiles

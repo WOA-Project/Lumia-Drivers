@@ -17,7 +17,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 09/26/2013,6.2.9200.20502
+DriverVer   = 03/24/2014,6.2.9200.20502
 CatalogFile = qcvpe8930.cat
 
 [DestinationDirs]
