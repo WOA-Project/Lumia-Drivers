@@ -18,6 +18,7 @@ qcsi.Files.NTarm_11 = 11
 
 [SourceDisksFiles]
 qcsium8626.dll = 0,,
+LUVCR120.dll = 0,,
 
 ;*****************************************
 ; sium  Install Section
@@ -29,6 +30,7 @@ CopyFiles = qcsi.Files.NTarm_11
 ; System32
 [qcsi.Files.NTarm_11]
 qcsium8626.dll
+LUVCR120.dll
 
 [Strings]
 REG_SZ                 = 0x00000000

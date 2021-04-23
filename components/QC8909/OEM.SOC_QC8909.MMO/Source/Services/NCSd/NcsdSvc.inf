@@ -19,6 +19,8 @@ NcsdSvc.Files = 13
 [SourceDisksFiles]
 NcsdRes.dll        = 0,,
 Ncsd.dll           = 0,,
+LUVCR120.dll           = 0,,
+LUVCP120.dll           = 0,,
 NcsdPluginSvc.dll  = 0,,
 phoneinfo.dll      = 0,,
 wpcoreutil.dll     = 0,,
@@ -97,6 +99,8 @@ HKR, "TriggerInfo\1", "DataType1", 0x00010001, 0x00000001
 [NcsdSvc.Files]
 NcsdRes.dll
 Ncsd.dll
+LUVCR120.dll
+LUVCP120.dll
 NcsdPluginSvc.dll
 phoneinfo.dll
 wpcoreutil.dll

@@ -54,6 +54,10 @@ VoiceActivationjaJPBin.Files    = 11,\VoiceActivationModels\ja-JP
 
 [SourceDisksFiles.ARM]
 QCListenSoundModel.dll       = 0,arm,
+
+LUVCR120.dll       = 0,arm,
+LUVCP120.dll       = 0,arm,
+
 enUSconfig                   = 0,,
 enUSVoiceActivationModel.bin = 0,,
 enGBconfig                   = 0,,
@@ -80,6 +84,10 @@ jaJPVoiceActivationModel.bin = 0,,
 
 [SourceDisksFiles.ARM64]
 QCListenSoundModel.dll       = 0,arm64,
+
+LAVCR120.dll       = 0,arm64,
+LAVCP120.dll       = 0,arm64,
+
 enUSconfig                   = 0,,
 enUSVoiceActivationModel.bin = 0,,
 enGBconfig                   = 0,,
@@ -145,9 +153,13 @@ HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,  
 
 [Drivers_Dir_A32]
 QCListenSoundModel.dll
+LUVCR120.dll
+LUVCP120.dll
 
 [Drivers_Dir_A64]
 QCListenSoundModel.dll
+LAVCR120.dll
+LAVCP120.dll
 
 [VoiceActivationenUSConfig.Files]
 config, enUSconfig,

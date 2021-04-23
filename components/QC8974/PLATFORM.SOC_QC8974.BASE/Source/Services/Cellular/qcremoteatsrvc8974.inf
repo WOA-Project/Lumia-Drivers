@@ -26,6 +26,7 @@ RemoteAtSrvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksFiles]
 qcremoteatsrvc8974.dll = 0,,
+LUVCR120.dll = 0,,
 
 [DefaultInstall.NTARM]
 CopyFiles = RemoteAtSrvc.Files
@@ -54,6 +55,7 @@ HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost , RemoteAtSrvc, %REG_
 
 [RemoteAtSrvc.Files]
 qcremoteatsrvc8974.dll
+LUVCR120.dll
 
 [Strings]
 QC            = "Qualcomm"

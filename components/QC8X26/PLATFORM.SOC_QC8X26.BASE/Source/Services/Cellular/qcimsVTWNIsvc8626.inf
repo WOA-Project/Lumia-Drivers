@@ -17,6 +17,8 @@ qcimsVTWNIsvc8626.Files = 11 ; \system32 directory on Windows 2000 and later ver
 
 [SourceDisksFiles]
 qcimsVTWNIsvc8626.dll = 0,,
+LUVCR120.dll = 0,,
+LUVCP120.dll = 0,,
 
 [DefaultInstall.NTARM]
 CopyFiles = qcimsVTWNIsvc8626.Files
@@ -58,6 +60,8 @@ HKLM, "Software\Classes\AppID\{B523A26D-268E-4FE6-83A9-21DF07EDD543}", "LocalSer
 
 [qcimsVTWNIsvc8626.Files]
 qcimsVTWNIsvc8626.dll
+LUVCR120.dll
+LUVCP120.dll
 
 [Strings]
 QC            = "Qualcomm"

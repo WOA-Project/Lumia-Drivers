@@ -10,9 +10,10 @@ CatalogFile.NTarm   = SscAlgorithmBridge.arm.cat
 CatalogFile.NTarm64 = SscAlgorithmBridge.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir_A32   = 13,arm
-Drivers_Dir_A64   = 13,arm64
-UserModeCopyFiles = 11
+Drivers_Dir_A32     = 13,arm
+Drivers_Dir_A64     = 13,arm64
+UserModeCopyFiles   = 11
+UserModeCopyFiles64 = 11
 
 [ControlFlags]
 ExcludeFromSelect=*
@@ -61,25 +62,25 @@ Copyfiles=Drivers_Dir_A32,UserModeCopyFiles
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Activity_Inst.NTarm64]
-Copyfiles=Drivers_Dir_A64,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A64,UserModeCopyFiles64
 
 [Activity_Inst.NTarm64.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Step_Inst.NTarm64]
-Copyfiles=Drivers_Dir_A64,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A64,UserModeCopyFiles64
 
 [Step_Inst.NTarm64.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Gesture_Inst.NTarm64]
-Copyfiles=Drivers_Dir_A64,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A64,UserModeCopyFiles64
 
 [Gesture_Inst.NTarm64.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Control_Inst.NTarm64]
-Copyfiles=Drivers_Dir_A64,UserModeCopyFiles
+Copyfiles=Drivers_Dir_A64,UserModeCopyFiles64
 
 [Control_Inst.NTarm64.HW]
 AddReg = Sensor_Inst_SecurityAddReg
@@ -97,6 +98,13 @@ SscAlgorithmBridge8994.dll
 
 [UserModeCopyFiles]
 LumiaActivityDetectionV2.dll
+LUVCR120.dll
+LumiaGestureRecognition.dll
+LumiaSensorAlgorithmControl.dll
+LumiaStepCounterV2.dll
+
+[UserModeCopyFiles64]
+LumiaActivityDetectionV2.dll
 LumiaGestureRecognition.dll
 LumiaSensorAlgorithmControl.dll
 LumiaStepCounterV2.dll
@@ -107,6 +115,7 @@ LumiaStepCounterV2.dll
 [SourceDisksFiles.ARM]
 SscAlgorithmBridge8994.dll = 1,arm,
 LumiaActivityDetectionV2.dll = 1,arm,
+LUVCR120.dll = 1,arm,
 LumiaGestureRecognition.dll = 1,arm,
 LumiaSensorAlgorithmControl.dll = 1,arm,
 LumiaStepCounterV2.dll = 1,arm,

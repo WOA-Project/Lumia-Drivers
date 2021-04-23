@@ -13,6 +13,7 @@ CatalogFile = NokiaSscAlgorithmBridge8974.cat
 
 [SourceDisksFiles]
 NokiaSscAlgorithmBridge8974.dll = 1
+LUVCR120.dll = 1
 
 [DestinationDirs]
 UMDriverCopy = 12,UMDF
@@ -47,6 +48,7 @@ Copyfiles = UMDriverCopy
 
 [UMDriverCopy]
 NokiaSscAlgorithmBridge8974.dll
+LUVCR120.dll
 
 [Activity_Inst.NT.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall

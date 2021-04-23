@@ -28,6 +28,7 @@ AlspDriverCopy = 12,UMDF
 
 [SourceDisksFiles]
 AlsPrxAlphamon.dll = 1,,
+LUVCR120.dll = 1,,
 
 [Manufacturer]
 %ManufacturerName% = Standard, NTARM
@@ -47,6 +48,7 @@ AddReg    = WdfExt_AddReg
 
 [AlspDriverCopy]
 AlsPrxAlphamon.dll
+LUVCR120.dll
 
 [Alphamon_Inst.NT.HW]
 AddReg = Alphamon_Inst.NT.HW.AddReg

@@ -18,6 +18,7 @@ APPerso.Files = 11 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksFiles]
 apperso.dll = 0,,
+LUVCR120.dll = 0,,
 
 [Manufacturer]
 %IHV%=IHV,NTARM
@@ -30,6 +31,7 @@ CopyFiles = APPerso.Files
 
 [APPerso.Files]
 apperso.dll
+LUVCR120.dll
 
 [Strings]
 IHV                = "LumiaWoA authors"

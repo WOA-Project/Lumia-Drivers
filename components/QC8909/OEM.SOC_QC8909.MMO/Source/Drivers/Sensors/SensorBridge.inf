@@ -64,12 +64,14 @@ HKR,,Security,,"D:P(A;;GR;;;BA)(A;;GR;;;SY)(A;;GR;;;S-1-5-84-0-0-0-0-0)" ; DACL 
 
 [DriverCopyFiles]
 SensorBridge.dll
+LUVCR120.dll
 
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
 
 [SourceDisksFiles]
 SensorBridge.dll = 1,
+LUVCR120.dll = 1,
 
 ;---------------------------------------------------------------------------
 ; Service installation

@@ -31,9 +31,109 @@ PlatformOobe.cmd        = 0,,
 
 [DefaultInstall.NTarm]
 CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
+AddReg    = PPM.AddReg
 
 [DefaultInstall.NTarm64]
 CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
+AddReg    = PPM.AddReg
+
+[PPM.AddReg]
+HKLM, "SYSTEM\CurrentControlSet\Control\BitLocker", "SlicedEncryptionRequestsMax", 0x00010001, 0x00000002
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power", "HighPerfDurationCSExit", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Control\Power", "PerfArtificialDomain", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power", "HighPerfDurationBoot", 0x00010001, 0x00003a98
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0300f6f8-abd6-45A9-b74f-4908691a40b5\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0300f6f8-abd6-45A9-b74f-4908691a40b5\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\06cadf0e-64ed-448a-8927-ce7bf90eb35d\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000055
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\06cadf0e-64ed-448a-8927-ce7bf90eb35d\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000055
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\12a0ab44-fe28-4fa9-b3bd-4b64f44960a6\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000041
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\12a0ab44-fe28-4fa9-b3bd-4b64f44960a6\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000041
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\2430ab6f-a520-44a2-9601-f7f23b5134b1\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x0000004b
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\2430ab6f-a520-44a2-9601-f7f23b5134b1\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x0000004b
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\2ddd5a84-5a71-437e-912a-db0b8c788732\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\2ddd5a84-5a71-437e-912a-db0b8c788732\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\3b04d4fd-1cc7-4f23-ab1c-d1337819c4bb\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\3b04d4fd-1cc7-4f23-ab1c-d1337819c4bb\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\40fbefc7-2e9d-4d25-a185-0cfd8574bac6\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\40fbefc7-2e9d-4d25-a185-0cfd8574bac6\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\447235c7-6a8d-4cc0-8e24-9eaf70b96e2b\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\447235c7-6a8d-4cc0-8e24-9eaf70b96e2b\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\45bcc044-d885-43e2-8605-ee0ec6e96b59\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\45bcc044-d885-43e2-8605-ee0ec6e96b59\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\465e1f50-b610-473a-ab58-00d1077dc418\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000003
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\465e1f50-b610-473a-ab58-00d1077dc418\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000003
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\4bdaf4e9-d103-46d7-a5f0-6280121616ef\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x0000004b
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\4bdaf4e9-d103-46d7-a5f0-6280121616ef\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x0000004b
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\4d2b0152-7d5c-498b-88e2-34345392a2c5\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x0000001e
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\4d2b0152-7d5c-498b-88e2-34345392a2c5\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x0000001e
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\619b7505-003b-4e82-b7a6-4dd29c300971\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "ACSettingIndex", 0x00010001, 0x00000032
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\619b7505-003b-4e82-b7a6-4dd29c300971\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DCSettingIndex", 0x00010001, 0x00000032
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\71021b41-c749-4d21-be74-a00f335d582b\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\71021b41-c749-4d21-be74-a00f335d582b\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\77D7F282-8F1A-42cd-8537-45450A839BE8\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\77D7F282-8F1A-42cd-8537-45450A839BE8\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\893dee8e-2bef-41e0-89c6-b55d0929964c\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000005
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\893dee8e-2bef-41e0-89c6-b55d0929964c\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000005
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\943c8cb6-6f93-4227-ad87-e9a3feec08d1\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x0000005c
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\943c8cb6-6f93-4227-ad87-e9a3feec08d1\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x0000005c
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\94d3a615-a899-4ac5-ae2b-e4d8f634367f\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\94d3a615-a899-4ac5-ae2b-e4d8f634367f\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\984cf492-3bed-4488-a8f9-4286c97bf5aa\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\984cf492-3bed-4488-a8f9-4286c97bf5aa\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\99b3ef01-752f-46A1-80fb-7730011f2354\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\99b3ef01-752f-46A1-80fb-7730011f2354\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\bc5038f7-23e0-4960-96da-33abaf5935ec\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000064
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\bc5038f7-23e0-4960-96da-33abaf5935ec\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000064
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\be337238-0d82-4146-a960-4f3749d470c7\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000003
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\be337238-0d82-4146-a960-4f3749d470c7\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000003
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\c7be0679-2817-4d69-9d02-519a537ed0c6\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\c7be0679-2817-4d69-9d02-519a537ed0c6\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\d8edeb9b-95cf-4f95-a73c-b061973693c8\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000008
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\d8edeb9b-95cf-4f95-a73c-b061973693c8\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000008
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\dfd10d17-d5eb-45dd-877a-9a34ddd15c82\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000001
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\dfd10d17-d5eb-45dd-877a-9a34ddd15c82\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000001
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\e0007330-f589-42ed-a401-5ddb10e785d3\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000000
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\e0007330-f589-42ed-a401-5ddb10e785d3\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000000
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\ea062031-0e34-4ff1-9b6d-eb1059334028\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000064
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\ea062031-0e34-4ff1-9b6d-eb1059334028\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000064
+
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\f735a673-2066-4f80-a0c5-ddee0cf1bf5d\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "DcSettingIndex", 0x00010001, 0x00000046
+HKLM, "SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\f735a673-2066-4f80-a0c5-ddee0cf1bf5d\DefaultPowerSchemeValues\381b4222-f694-41f0-9685-ff5bb260df2e", "AcSettingIndex", 0x00010001, 0x00000046
+
+HKLM, "SYSTEM\CurrentControlSet\services\fvevol", "BytesDecryptedInDiskRequestOverhead", 0x00010001, 0x00040000
+HKLM, "SYSTEM\CurrentControlSet\services\fvevol", "MaxDecryptRequests", 0x00010001, 0x00000004
+HKLM, "SYSTEM\CurrentControlSet\services\fvevol", "MaxCryptoRequestsPerIo", 0x00010001, 0x00000004
 
 [OOBECmd.Files]
 PlatformOobe.cmd

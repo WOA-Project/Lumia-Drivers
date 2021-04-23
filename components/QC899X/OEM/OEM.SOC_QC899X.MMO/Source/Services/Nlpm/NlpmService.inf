@@ -20,6 +20,8 @@ NlpmService.Files = 13,arm64
 [SourceDisksFiles.ARM64]
 A32To64PanelIntTranslator.dll  = 0,arm64,
 NlpmService.dll                = 0,arm64,
+LUVCR120.dll                   = 0,arm64,
+LUVCP120.dll                   = 0,arm64,
 NlpmServiceStub.dll            = 0,arm64,
 OEMServiceHost.exe             = 0,arm64,
 SecRuntime.dll                 = 0,arm64,
@@ -172,6 +174,8 @@ HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkModeStart", 0x00010001, 0x00000
 [NlpmService.Files]
 A32To64PanelIntTranslator.dll
 NlpmService.dll
+LUVCR120.dll
+LUVCP120.dll
 NlpmServiceStub.dll
 OEMServiceHost.exe
 SecRuntime.dll

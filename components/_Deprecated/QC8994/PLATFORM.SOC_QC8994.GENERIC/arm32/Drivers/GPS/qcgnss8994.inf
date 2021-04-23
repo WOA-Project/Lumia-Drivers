@@ -31,6 +31,7 @@ DefaultDestDir = 12,UMDF
 
 [SourceDisksFiles]
 qcgnss.dll = 1,,
+LAVCR120.dll = 1,,
 
 [Manufacturer]
 %ManufacturerName% = qcgnss_Device,NTarm
@@ -51,6 +52,7 @@ AddReg    = QCGNSSReg
 
 [qcgnssCopy]
 qcgnss.dll
+LAVCR120.dll
 
 [qcgnss_Inst.NT.HW]
 AddReg = qcgnss_Inst_SecurityAddReg

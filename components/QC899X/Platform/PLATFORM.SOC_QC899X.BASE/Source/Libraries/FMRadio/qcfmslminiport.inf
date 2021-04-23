@@ -13,16 +13,19 @@ CatalogFile.NTarm   = "qcfmslminiport.arm.cat"
 CatalogFile.NTarm64 = "qcfmslminiport.arm64.cat"
 
 [DestinationDirs]
-qcfmslminiport.Files = 11 ; \system32 directory on Windows 2000 and later versions
+qcfmslminiport.Files = 11
+qcfmslminiport.Files64 = 11
 
 [SourceDisksNames]
 0 = "Disk"
 
 [SourceDisksFiles.ARM]
 qcfmslminiport.dll = 0,arm,
+LUVCR120.dll       = 0,arm,
 
 [SourceDisksFiles.ARM64]
 qcfmslminiport.dll = 0,arm64,
+LAVCR120.dll       = 0,arm64,
 
 [Manufacturer]
 %QC% = QC,NTarm,NTarm64
@@ -38,7 +41,7 @@ CopyFiles = qcfmslminiport.Files
 AddReg    = qcfmslminiport_Reg
 
 [FMS.NTarm64]
-CopyFiles = qcfmslminiport.Files
+CopyFiles = qcfmslminiport.Files64
 AddReg    = qcfmslminiport_Reg
 
 [qcfmslminiport_Reg]
@@ -55,6 +58,11 @@ HKLM, "System\CurrentControlSet\Control\Tuner\Audio\FmRadio", "SiNRFinalStage", 
 
 [qcfmslminiport.Files]
 qcfmslminiport.dll
+LUVCR120.dll
+
+[qcfmslminiport.Files64]
+qcfmslminiport.dll
+LAVCR120.dll
 
 [Strings]
 QC            = "Qualcomm Technologies, Inc."

@@ -21,11 +21,13 @@ Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksFiles.ARM]
 qcImsDataDaemon8994.dll = 0,arm,
+LUVCR120.dll = 0,arm,
 cmnet.dll               = 0,arm,
 CmOemUtil.dll           = 0,arm,
 
 [SourceDisksFiles.ARM64]
 qcImsDataDaemon8994.dll = 0,arm64,
+LAVCR120.dll = 0,arm64,
 cmnet.dll               = 0,arm64,
 CmOemUtil.dll           = 0,arm64,
 
@@ -81,11 +83,13 @@ HKLM, "System\controlset001\services\IMSDATAsvc\Parameters", "ServiceDll", 0x200
 
 [Drivers_Dir_A32]
 qcImsDataDaemon8994.dll
+LUVCR120.dll
 cmnet.dll
 CmOemUtil.dll
 
 [Drivers_Dir_A64]
 qcImsDataDaemon8994.dll
+LAVCR120.dll
 cmnet.dll
 CmOemUtil.dll
 

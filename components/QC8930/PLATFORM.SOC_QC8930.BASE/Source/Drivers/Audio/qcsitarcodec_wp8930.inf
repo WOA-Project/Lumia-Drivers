@@ -1,0 +1,90 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    SitarCodecDriver.INX
+;
+;Abstract:
+;    INF file for installing the Sitar Codec Driver
+;
+;Installation Notes: 
+;   
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 06/18/2014,16.38.38.0828
+CatalogFile = qcsitarcodec_wp8930.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcsitarcodec8930.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; sitar driver Install Section
+;*****************************************
+
+[Manufacturer]
+%stdmfg% = Standard,NTARM
+
+[Standard.NTARM]
+%SITAR.DeviceDesc% = SITAR_Device,ACPI\QCOM0741
+
+[SITAR_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[SITAR_Device.NT.HW]
+Addreg = SITAR_DeviceACL
+
+[SITAR_DeviceACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir]
+qcsitarcodec8930.sys
+
+;-------------- Service installation
+[SITAR_Device.NT.Services]
+AddService = qcsitar,%SPSVCINST_ASSOCSERVICE%,SITAR_Service_Inst
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+; -------------- Sitar driver install sections
+[SITAR_Service_Inst]
+DisplayName    = %SITAR.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qcsitarcodec8930.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+stdmfg                 = "(Standard system devices)"
+SITAR.DeviceDesc       = "Qualcomm Audio Sitar Codec Device"
+SITAR.SvcDesc          = "Qualcomm Audio Sitar Codec Driver"
+DiskId1                = "Qualcomm Audio Sitar Codec Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

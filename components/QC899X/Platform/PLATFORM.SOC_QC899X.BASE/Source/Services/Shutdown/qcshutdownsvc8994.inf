@@ -30,6 +30,7 @@ Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksFiles.ARM]
 QcShutdownSvc8994.dll = 0,arm,
+LUVCR120.dll = 0,arm,
 
 [SourceDisksFiles.ARM64]
 QcShutdownSvc8994.dll = 0,arm64,
@@ -108,6 +109,7 @@ HKLM, "System\CurrentControlSet\services\QcShutdownSvc\Parameters", "ServiceDll"
 
 [Drivers_Dir_A32]
 QcShutdownSvc8994.dll
+LUVCR120.dll
 
 [Drivers_Dir_A64]
 QcShutdownSvc8994.dll

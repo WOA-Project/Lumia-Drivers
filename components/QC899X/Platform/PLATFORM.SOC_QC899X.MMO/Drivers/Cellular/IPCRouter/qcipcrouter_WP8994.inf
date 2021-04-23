@@ -25,6 +25,7 @@ CatalogFile.NTarm64 = qcipcrouter8994.arm64.cat
 Drivers_Dir_A32 = 13,arm
 Drivers_Dir_A64 = 13,arm64
 System_Dir      = 11
+System_Dir64    = 11
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -33,12 +34,14 @@ System_Dir      = 11
 qcipcrouter8994.sys   = 1,arm
 qsocketipcrum8994.dll = 1,arm
 qccium8994.dll        = 1,arm
+LUVCR120.dll        = 1,arm
 qcsium8994.dll        = 1,arm
 
 [SourceDisksFiles.ARM64]
 qcipcrouter8994.sys   = 1,arm64
 qsocketipcrum8994.dll = 1,arm64
 qccium8994.dll        = 1,arm64
+LAVCR120.dll        = 1,arm64
 qcsium8994.dll        = 1,arm64
 
 ;*****************************************
@@ -70,7 +73,7 @@ addreg = IPC_ROUTER
 KmdfService = QCIPC_ROUTER, IPC_ROUTER_wdfsect
 
 [IPC_ROUTER_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64, System_Dir
+CopyFiles   = Drivers_Dir_A64, System_Dir64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -96,6 +99,13 @@ qcipcrouter8994.sys
 [System_Dir]
 qsocketipcrum8994.dll
 qccium8994.dll
+LUVCR120.dll
+qcsium8994.dll
+
+[System_Dir64]
+qsocketipcrum8994.dll
+qccium8994.dll
+LAVCR120.dll
 qcsium8994.dll
 
 [IPC_ROUTER]

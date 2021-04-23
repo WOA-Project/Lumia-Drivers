@@ -19,6 +19,8 @@ ComponentDir = 11
 [SourceDisksFiles]
 NfcController.sys = 0
 NxpNfcDriver.dll  = 0
+LUVCR120.dll  = 0
+LUVCP120.dll  = 0
 NxpPN544c3Fw.dll  = 0
 
 [Manufacturer]
@@ -36,6 +38,8 @@ NfcController.sys
 
 [ComponentDir]
 NxpNfcDriver.dll
+LUVCR120.dll
+LUVCP120.dll
 NxpPN544c3Fw.dll
 
 [DeviceReg]

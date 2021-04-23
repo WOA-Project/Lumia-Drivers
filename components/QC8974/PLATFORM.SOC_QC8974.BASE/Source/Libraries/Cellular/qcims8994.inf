@@ -18,6 +18,7 @@ qcims8974.Files = 11 ; \system32 directory on Windows 2000 and later versions
 [SourceDisksFiles]
 qcimssink8974.dll = 0,,
 qcimssrc8974.dll  = 0,,
+LUVCR120.dll  = 0,,
 
 [Manufacturer]
 %QC%=QC,NTARM
@@ -52,6 +53,7 @@ HKLM, "Software\Classes\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}\InProcServe
 [qcims8974.Files]
 qcimssink8974.dll
 qcimssrc8974.dll
+LUVCR120.dll
 
 [Strings]
 QC             = "Qualcomm Technologies, Inc."

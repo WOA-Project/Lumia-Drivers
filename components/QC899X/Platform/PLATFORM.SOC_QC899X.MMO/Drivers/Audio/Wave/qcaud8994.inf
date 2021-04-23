@@ -24,10 +24,14 @@ CatalogFile.NTarm64 = qcaud8994.arm64.cat
 [SourceDisksFiles.ARM]
 qcaud8994.sys                     = 222,arm,
 ProxyAPO.dll                      = 222,arm,
+LUVCR120.dll                      = 222,arm,
+LUVCP120.dll                      = 222,arm,
 
 [SourceDisksFiles.ARM64]
 qcaud8994.sys                     = 222,arm64,
 ProxyAPO.dll                      = 222,arm64,
+LAVCR120.dll                      = 222,arm64,
+LAVCP120.dll                      = 222,arm64,
 
 [SignatureAttributes]
 qcaud8994.sys = SignatureAttributes.DRM
@@ -58,10 +62,14 @@ Drivers_Dir_A64 = 13,arm64
 
 [Drivers_Dir_A32]
 ProxyAPO.dll
+LUVCR120.dll
+LUVCP120.dll
 qcaud8994.sys
 
 [Drivers_Dir_A64]
 ProxyAPO.dll
+LAVCR120.dll
+LAVCP120.dll
 qcaud8994.sys
 
 [QCAUD_A.AddReg]

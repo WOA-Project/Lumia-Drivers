@@ -17,6 +17,7 @@ qcImsQMIDaemon8626.Files = 11 ; \system32 directory on Windows 2000 and later ve
 
 [SourceDisksFiles]
 qcImsQMIDaemon8626.dll = 0,,
+LUVCR120.dll = 0,,
 
 [DefaultInstall.NTARM]
 CopyFiles = qcImsQMIDaemon8626.Files
@@ -56,6 +57,7 @@ HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", IMSQMIsvcGroup    
 
 [qcImsQMIDaemon8626.Files]
 qcImsQMIDaemon8626.dll
+LUVCR120.dll
 
 [Strings]
 QC            = "Qualcomm"

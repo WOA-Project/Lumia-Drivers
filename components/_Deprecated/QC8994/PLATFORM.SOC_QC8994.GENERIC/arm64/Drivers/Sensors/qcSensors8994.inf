@@ -29,6 +29,7 @@ ConfDriverCopy   = 11
 [SourceDisksFiles]
 qcSensors8994.dll          = 1,,
 qcSensor1UM8994.dll        = 1,,
+LAVCR120.dll        = 1,,
 qcSensorsDefaults_CHI.conf = 1,,
 
 [Manufacturer]
@@ -53,6 +54,7 @@ qcSensors8994.dll
 
 [ConfDriverCopy]
 qcSensor1UM8994.dll
+LAVCR120.dll
 qcSensorsDefaults_CHI.conf
 
 [Sensor_Inst.NT.HW]

@@ -21,6 +21,7 @@ Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksFiles.ARM]
 CameraAuthentication.dll = 1,arm,
+LUVCR120.dll = 1,arm,
 
 [SourceDisksFiles.ARM64]
 CameraAuthentication.dll = 1,arm64,
@@ -46,6 +47,7 @@ CopyFiles = Drivers_Dir_A64
 
 [Drivers_Dir_A32]
 CameraAuthentication.dll
+LUVCR120.dll
 
 [Drivers_Dir_A64]
 CameraAuthentication.dll

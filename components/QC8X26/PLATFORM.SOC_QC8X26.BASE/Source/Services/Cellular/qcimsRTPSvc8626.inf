@@ -17,6 +17,7 @@ qcimsRTPSvc8626.Files = 11 ; \system32 directory on Windows 2000 and later versi
 
 [SourceDisksFiles]
 qcimsRTPSvc8626.dll = 0,,
+LUVCR120.dll = 0,,
 
 [DefaultInstall.NTARM]
 CopyFiles = qcimsRTPSvc8626.Files
@@ -57,6 +58,7 @@ HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", RTPSvcGroup       
 
 [qcimsRTPSvc8626.Files]
 qcimsRTPSvc8626.dll
+LUVCR120.dll
 
 [Strings]
 QC            = "Qualcomm"

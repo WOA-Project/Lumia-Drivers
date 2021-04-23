@@ -18,7 +18,9 @@ qcims8626.Files = 11 ; \system32 directory on Windows 2000 and later versions
 [SourceDisksFiles]
 qcimssink8626.dll = 0,,
 qcimssrc8626.dll  = 0,,
+LUVCR120.dll  = 0,,
 qcimsVT8626.dll   = 0,,
+LUVCP120.dll   = 0,,
 qcimsvtmf8626.dll = 0,,
 vcel8626.dll      = 0,,
 
@@ -49,7 +51,9 @@ HKLM, "Software\Classes\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}\InProcServe
 [qcims8626.Files]
 qcimssink8626.dll
 qcimssrc8626.dll
+LUVCR120.dll
 qcimsVT8626.dll
+LUVCP120.dll
 qcimsvtmf8626.dll
 vcel8626.dll
 

@@ -33,12 +33,16 @@ Drivers_Dir_A6432 = 13,arm
 [SourceDisksFiles.ARM]
 qccamjpege8994.sys = 0,arm,
 QcWicEncoder8994.dll=0,arm64,
+LAVCR120.dll=0,arm64,
 QcWicEncoderARM8994.dll=0,arm,
+LUVCR120.dll=0,arm,
 
 [SourceDisksFiles.ARM64]
 qccamjpege8994.sys = 0,arm64,
 QcWicEncoder8994.dll=0,arm64,
+LAVCR120.dll=0,arm64,
 QcWicEncoderARM8994.dll=0,arm,
+LUVCR120.dll=0,arm,
 
 ;*****************************************
 ; Camera JPEG Encoder Install Section
@@ -68,13 +72,16 @@ Reboot
 [Drivers_Dir_A32]
 qccamjpege8994.sys
 QcWicEncoderARM8994.dll
+LUVCR120.dll
 
 [Drivers_Dir_A64]
 qccamjpege8994.sys
 QcWicEncoder8994.dll
+LAVCR120.dll
 
 [Drivers_Dir_A6432]
 QcWicEncoderARM8994.dll
+LUVCR120.dll
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0

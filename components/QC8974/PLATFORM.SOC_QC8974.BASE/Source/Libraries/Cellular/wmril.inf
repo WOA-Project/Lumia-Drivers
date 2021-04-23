@@ -18,6 +18,8 @@ WMRil.Files = 13 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksFiles]
 WMRil.dll = 0,,
+LUVCR120.dll = 0,,
+LUVCP120.dll = 0,,
 phoneinfo.dll = 0,,
 
 [Manufacturer]
@@ -69,6 +71,8 @@ HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, RILInitIndex,
 
 [WMRil.Files]
 WMRil.dll
+LUVCR120.dll
+LUVCP120.dll
 phoneinfo.dll
 
 [Strings]

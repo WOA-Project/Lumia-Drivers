@@ -14,6 +14,8 @@ CatalogFile.NTarm64 = LumiaActivityDriver.arm64.cat
 
 [SourceDisksFiles.ARM]
 LumiaActivityDriver.dll=1,arm,
+LUVCR120.dll=1,arm,
+LUVCP120.dll=1,arm,
 
 [SourceDisksFiles.ARM64]
 LumiaActivityDriver.dll=1,arm64,
@@ -37,6 +39,8 @@ CopyFiles = Drivers_Dir_A64
 
 [Drivers_Dir_A32]
 LumiaActivityDriver.dll
+LUVCR120.dll
+LUVCP120.dll
 
 [Drivers_Dir_A64]
 LumiaActivityDriver.dll

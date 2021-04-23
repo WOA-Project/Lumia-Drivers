@@ -21,16 +21,20 @@ Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksFiles.ARM]
 qcimssink8994.dll = 0,arm,
-qcimssrc8994.dll = 0,arm,
-qcimsVT8994.dll = 0,arm,
+LUVCR120.dll      = 0,arm,
+qcimssrc8994.dll  = 0,arm,
+qcimsVT8994.dll   = 0,arm,
+LUVCP120.dll      = 0,arm,
 qcimsvtmf8994.dll = 0,arm,
 
 [SourceDisksFiles.ARM64]
 qcimssink8994.dll = 0,arm64,
-qcimssrc8994.dll = 0,arm64,
-qcimsVT8994.dll = 0,arm64,
+LAVCR120.dll      = 0,arm64,
+qcimssrc8994.dll  = 0,arm64,
+qcimsVT8994.dll   = 0,arm64,
+LAVCP120.dll      = 0,arm64,
 qcimsvtmf8994.dll = 0,arm64,
-vcel8994.dll = 0,arm64,
+vcel8994.dll      = 0,arm64,
 
 [Manufacturer]
 %QC% = QC,NTarm,NTarm64
@@ -91,14 +95,18 @@ HKLM, "Software\Classes\CLSID\{C9282AD7-0609-4FD0-9F88-6FEFB42AEE27}\InProcServe
 
 [Drivers_Dir_A32]
 qcimssink8994.dll
+LUVCR120.dll
 qcimssrc8994.dll
 qcimsVT8994.dll
+LUVCP120.dll
 qcimsvtmf8994.dll
 
 [Drivers_Dir_A64]
 qcimssink8994.dll
+LAVCR120.dll
 qcimssrc8994.dll
 qcimsVT8994.dll
+LAVCP120.dll
 qcimsvtmf8994.dll
 vcel8994.dll
 

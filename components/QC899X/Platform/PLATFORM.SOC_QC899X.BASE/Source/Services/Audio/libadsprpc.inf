@@ -30,9 +30,11 @@ Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksFiles.ARM]
 libadsprpc.dll = 0,arm,
+LUVCR120.dll = 0,arm,
 
 [SourceDisksFiles.ARM64]
 libadsprpc.dll = 0,arm64,
+LAVCR120.dll = 0,arm64,
 
 [Manufacturer]
 %QC% = QC,NTarm,NTarm64
@@ -107,9 +109,11 @@ HKR, Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm64\libadsprpc.dll"
 
 [Drivers_Dir_A32]
 libadsprpc.dll
+LUVCR120.dll
 
 [Drivers_Dir_A64]
 libadsprpc.dll
+LAVCR120.dll
 
 [Strings]
 QC                    = "Qualcomm Technologies, Inc."

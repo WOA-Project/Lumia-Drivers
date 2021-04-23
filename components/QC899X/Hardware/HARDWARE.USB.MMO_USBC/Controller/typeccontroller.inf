@@ -24,6 +24,8 @@ Drivers_Dir_A64   = 13,arm64
 
 [SourceDisksFiles.ARM]
 tyc.dll           = 1,arm,
+LUVCR120.dll      = 1,arm,
+LUVCP120.dll      = 1,arm,
 WppRecorderUM.dll = 1,arm,
 
 [SourceDisksFiles.ARM64]
@@ -50,6 +52,8 @@ AddReg    = WdfExt_AddReg
 
 [Drivers_Dir_A32]
 tyc.dll
+LUVCR120.dll
+LUVCP120.dll
 WppRecorderUM.dll
 
 [Drivers_Dir_A64]

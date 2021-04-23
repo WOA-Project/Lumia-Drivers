@@ -16,6 +16,7 @@ AlspDriverCopy = 12,UMDF
 
 [SourceDisksFiles]
 AccCubeST.dll = 1,,
+LUVCR120.dll = 1,,
 
 [Manufacturer]
 %ManufacturerName% = Standard, NTARM
@@ -35,6 +36,7 @@ AddReg    = WdfExt_AddReg
 
 [AlspDriverCopy]
 AccCubeST.dll
+LUVCR120.dll
 
 [CubeST_Inst.NT.HW]
 AddReg = CubeST_Inst.NT.HW.AddReg

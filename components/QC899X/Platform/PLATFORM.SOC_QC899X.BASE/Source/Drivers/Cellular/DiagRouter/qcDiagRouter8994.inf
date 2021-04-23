@@ -26,7 +26,8 @@ CatalogFile.NTarm64 = QCDIAGROUTER8994.arm64.cat
 [DestinationDirs]
 Drivers_Dir_A32 = 13,arm
 Drivers_Dir_A64 = 13,arm64
-System_Dir     = 11
+System_Dir      = 11
+System_Dir64    = 11
 
 [SourceDisksNames]
 1 = %DiskId1%
@@ -34,10 +35,12 @@ System_Dir     = 11
 [SourceDisksFiles.ARM]
 QCDIAGROUTER8994.sys  = 1,arm
 qcdiaglogging8994.dll = 1,arm
+LUVCR120.dll = 1,arm
 
 [SourceDisksFiles.ARM64]
 QCDIAGROUTER8994.sys  = 1,arm64
 qcdiaglogging8994.dll = 1,arm64
+LAVCR120.dll = 1,arm64
 
 [Manufacturer]
 %QC% = QC,NTarm,NTarm64
@@ -63,7 +66,7 @@ addreg = DiagRouter
 KmdfService = QCDiagRouter, DiagRouter_Service_kmdfInst
 
 [DiagRouter_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64, System_Dir
+CopyFiles   = Drivers_Dir_A64, System_Dir64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
@@ -84,6 +87,11 @@ QCDIAGROUTER8994.sys
 
 [System_Dir]
 qcdiaglogging8994.dll
+LUVCR120.dll
+
+[System_Dir64]
+qcdiaglogging8994.dll
+LAVCR120.dll
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD},2,7,,2

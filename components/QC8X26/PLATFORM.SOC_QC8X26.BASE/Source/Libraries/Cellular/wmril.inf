@@ -17,6 +17,8 @@ WMRil.Files = 11 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksFiles]
 WMRil.dll = 0,,
+LUVCR120.dll = 0,,
+LUVCP120.dll = 0,,
 
 [DefaultInstall.NTARM]
 CopyFiles = WMRil.Files
@@ -67,6 +69,8 @@ HKLM, SYSTEM\ControlSet001\Services\RILAdaptation\Parameters\0000, RILPath      
 
 [WMRil.Files]
 WMRil.dll
+LUVCR120.dll
+LUVCP120.dll
 
 [Strings]
 QC            = "Qualcomm"

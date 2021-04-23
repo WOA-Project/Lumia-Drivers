@@ -42,10 +42,14 @@ QcXhciFilter8994.sys = 1,arm64,
 %Company% = Standard,NTarm,NTarm64
 
 [Standard.NTarm]
-%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B6&HOST ;URS mode
+%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B6&HOST ;URS mode MSFT FN stack
+%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B7&HOST ;URS mode QC FN stack
+%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM2430 ;Host mode
 
 [Standard.NTarm64]
-%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B6&HOST ;URS mode
+%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B6&HOST ;URS mode MSFT FN stack
+%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B7&HOST ;URS mode QC FN stack
+%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM2430 ;Host mode
 
 [QcXhciFilter.NTarm]
 Include      = usbxhci.inf
@@ -87,7 +91,7 @@ QcXhciFilter8994.sys
 HKR,, "LowerFilters", 0x00010000, QcXhciFilter
 
 [QcXhciFilter_SDDLString]
-HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ; Allow Generic Access to Builtin Admins and System
+HKR,, Security,, "D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GRGWGX;;;WD)(A;;GRGX;;;RC)" ; Allow Generic Access to Builtin Admins and System
 
 [QcXhciFilter_Service_AddReg]
 HKR,, BootFlags, 0x00010003, 4  ; CM_SERVICE_USB_DISK_BOOT_LOAD

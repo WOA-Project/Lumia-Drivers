@@ -14,6 +14,7 @@ CatalogFile.NTarm64 = LumiaPedometerDriver.arm64.cat
 
 [SourceDisksFiles.ARM]
 LumiaPedometerDriver.dll=1,arm,
+LUVCR120.dll=1,arm,
 
 [SourceDisksFiles.ARM64]
 LumiaPedometerDriver.dll=1,arm64,
@@ -37,6 +38,7 @@ CopyFiles = Drivers_Dir_A64
 
 [Drivers_Dir_A32]
 LumiaPedometerDriver.dll
+LUVCR120.dll
 
 [Drivers_Dir_A64]
 LumiaPedometerDriver.dll

@@ -24,12 +24,12 @@ CatalogFile.NTarm64 = qcdx_ffu8994.arm64.cat
 
 [DestinationDirs]
 QCDX.Files.NTarm_13   = 13,arm
-QCDX.Files.NTarm64_13 = 13,arm64
-
 QCDX.Files.NTarm_11   = 11
 
-QCDX.Files.NTarm64_11 = 11
-QCDX.Files.NTarm64_10 = 10,SysArm32
+QCDX.Files.NTarm64_13   = 13,arm64
+QCDX.Files.NTarm3264_13 = 13,arm
+QCDX.Files.NTarm64_11   = 11
+QCDX.Files.NTarm3264_10 = 10,SysArm32
 
 [SourceDisksNames]
 0 = %DiskDesc%
@@ -46,6 +46,8 @@ qcvidencmfthevc8994.dll       = 0,arm,
 qcvidencmftmpeg48994.dll      = 0,arm,
 qcdx11um8994.dll              = 0,arm,
 qcdx11compiler8994.dll        = 0,arm,
+LUVCR120.dll                  = 0,arm,
+LUVCP120.dll                  = 0,arm,
 
 [SourceDisksFiles.ARM64]
 qcdxkm8994.sys                = 0,arm64,
@@ -59,6 +61,8 @@ qcvidencmfthevc8994.dll       = 0,arm,
 qcvidencmftmpeg48994.dll      = 0,arm,
 qcdx11um8994.dll              = 0,arm,
 qcdx11compiler8994.dll        = 0,arm,
+LUVCR120.dll                  = 0,arm,
+LUVCP120.dll                  = 0,arm,
 
 qcvidencarm64um8994.dll       = 0,arm64,
 qcviddecarm64mft8994.dll      = 0,arm64,
@@ -68,6 +72,8 @@ qcvidencarm64mfthevc8994.dll  = 0,arm64,
 qcvidencarm64mftmpeg48994.dll = 0,arm64,
 qcdx11arm64um8994.dll         = 0,arm64,
 qcdx11arm64compiler8994.dll   = 0,arm64,
+LAVCR120.dll                  = 0,arm64,
+LAVCP120.dll                  = 0,arm64,
 
 [SignatureAttributes]
 qcdx11arm64um8994.dll       = SignatureAttributes.PETrust
@@ -90,15 +96,17 @@ PETrust = true
 
 [QCDX_Inst.NTarm]
 FeatureScore = D1
-CopyFiles    = QCDX.Files.NTarm_13,QCDX.Files.NTarm_11
+CopyFiles    = QCDX.Files.NTarm_13, QCDX.Files.NTarm_11
 AddReg       = QCDX_SoftwareDeviceSettings.NTarm, QCDX_MftRegistration.NTarm
 AddProperty  = WDTFSOCDeviceCategory
+Reboot
 
 [QCDX_Inst.NTarm64]
 FeatureScore = D1
-CopyFiles    = QCDX.Files.NTarm64_13,QCDX.Files.NTarm64_11,QCDX.Files.NTarm64_10
+CopyFiles    = QCDX.Files.NTarm64_13, QCDX.Files.NTarm3264_13, QCDX.Files.NTarm64_11, QCDX.Files.NTarm3264_10
 AddReg       = QCDX_SoftwareDeviceSettings.NTarm64, QCDX_MftRegistration.NTarm64
 AddProperty  = WDTFSOCDeviceCategory
+Reboot
 
 [QCDX_MftRegistration.NTarm]
 ; system32
@@ -223,6 +231,30 @@ HKLM, Software\Classes\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef
 	  E5,D8,EF,6E,FD,69,76,4B,2D,C0,D6,33,68,B4,45,97,1A,05,A4,B0,4B,AB,91
 HKLM, Software\Classes\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                                                                    , MFTFlags              , %REG_DWORD%    , 0x6
 HKLM, Software\Classes\MediaFoundation\Transforms\Categories\d6c02d4b-6833-45b4-971a-05a4b04bab91\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                    ,                       , 0x10
+
+HKLM, Software\Policies\Microsoft\Edge, HardwareAccelerationModeEnabled, %REG_DWORD%, 0
+
+; Circumscribe Miracast Session on 8994 to macroblocks for 1080@60 when max is 4k@30
+HKLM, Software\Microsoft\Windows Media Foundation\Network, MiracastPreserveVideoEncoderMBRate, %REG_DWORD%, "0x85980"
+
+HKLM, "System\CurrentControlSet\Control\GraphicsDrivers", "CddBootImageMode", 0x00010001, 0x00000001
+
+HKLM, "System\CurrentControlSet\Control\GraphicsDrivers\CddBootImageData", "CddBootImageOffsetX", 0x00010001, 0x00000000
+HKLM, "System\CurrentControlSet\Control\GraphicsDrivers\CddBootImageData", "CddBootImageBackgroundColor", 0x00010001, 0x00000000
+HKLM, "System\CurrentControlSet\Control\GraphicsDrivers\CddBootImageData", "CddBootImageOffsetY", 0x00010001, 0x00000000
+
+HKLM, "Software\QCOM\Drivers\DxKMD\Miniport\DISPLAY", "HDCPOverride", 0x00010001, 0x00000000
+
+HKLM, "Software\QCOM\MFTs\VideoEncoder", "720PTargetBitRate", 0x00010001, 0x00989680
+HKLM, "Software\QCOM\MFTs\VideoEncoder", "1080PTargetBitRate", 0x00010001, 0x0121EAC0
+HKLM, "Software\QCOM\MFTs\VideoEncoder", "FWVGAThresholdBitRate", 0x00010001, 0x00D59F80
+HKLM, "Software\QCOM\MFTs\VideoEncoder", "FWVGATargetBitRate", 0x00010001, 0x004C4B40
+HKLM, "Software\QCOM\MFTs\VideoEncoder", "720PThresholdBitRate", 0x00010001, 0x00D59F80
+HKLM, "Software\QCOM\MFTs\VideoEncoder", "1080PThresholdBitRate", 0x00010001, 0x01312D00
+
+HKLM, "Software\Microsoft\Windows Media Foundation\HardwareMFT", "EnableDecoders", 0x00010001, 0x00000001
+
+HKLM, "Software\Microsoft\Windows Media Foundation\Platform\VideoStabilization", "MaxPixelsPerSecond", 0x00010001, 0x00000000
 
 [QCDX_MftRegistration.NTarm64]
 ; system32
@@ -550,6 +582,8 @@ qcvidencmfthevc8994.dll
 qcvidencmftmpeg48994.dll
 qcviddecmft8994.dll
 qchdcpumd8994.dll
+LUVCR120.dll
+LUVCP120.dll
 
 [QCDX.Files.NTarm64_13]
 qcdxkm8994.sys
@@ -561,6 +595,19 @@ qcvidencarm64mfthevc8994.dll
 qcvidencarm64mftmpeg48994.dll
 qcviddecarm64mft8994.dll
 qchdcpumd8994.dll
+LAVCR120.dll
+LAVCP120.dll
+
+[QCDX.Files.NTarm3264_13]
+qcdx11um8994.dll
+qcvidencum8994.dll
+qcvidencmfth2638994.dll
+qcvidencmfth2648994.dll
+qcvidencmfthevc8994.dll
+qcvidencmftmpeg48994.dll
+qcviddecmft8994.dll
+LUVCR120.dll
+LUVCP120.dll
 
 ; System32
 [QCDX.Files.NTarm_11]
@@ -571,7 +618,7 @@ qcdx11compiler8994.dll
 qcdx11compiler8994.dll, qcdx11arm64compiler8994.dll,,0x00004000,
 
 ; SysArm32
-[QCDX.Files.NTarm64_10]
+[QCDX.Files.NTarm3264_10]
 qcdx11compiler8994.dll
 
 [Strings]

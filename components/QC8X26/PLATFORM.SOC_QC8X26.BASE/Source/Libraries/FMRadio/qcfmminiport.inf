@@ -17,6 +17,7 @@ qcfmminiport.Files = 11 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksFiles]
 qcfmminiport.dll = 0,,
+LUVCR120.dll = 0,,
 
 [DefaultInstall.NTARM]
 CopyFiles = qcfmminiport.Files
@@ -36,6 +37,7 @@ HKLM, "SYSTEM\ControlSet001\Control\Tuner\Audio\FmRadio", "SiNRFinalStage"    , 
 
 [qcfmminiport.Files]
 qcfmminiport.dll
+LUVCR120.dll
 
 [Strings]
 QC            = "Qualcomm Technologies, Inc."

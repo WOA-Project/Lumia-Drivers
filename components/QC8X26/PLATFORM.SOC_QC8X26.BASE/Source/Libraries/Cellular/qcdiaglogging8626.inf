@@ -18,6 +18,7 @@ qcdiaglogging.Files.NTarm_11 = 11
 
 [SourceDisksFiles]
 qcdiaglogging8626.dll = 0,,
+LUVCR120.dll = 0,,
 
 ;*****************************************
 ; Diag Logging  Install Section
@@ -29,6 +30,7 @@ CopyFiles = qcdiaglogging.Files.NTarm_11
 ; System32
 [qcdiaglogging.Files.NTarm_11]
 qcdiaglogging8626.dll
+LUVCR120.dll
 
 [Strings]
 REG_SZ                 = 0x00000000

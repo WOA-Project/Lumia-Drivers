@@ -31,6 +31,7 @@ Ctrl.CopyFiles = 11
 [SourceDisksFiles]
 QcBluetooth8626.sys   = 1,,
 QcBtradioctrl8626.dll = 1,,
+LUVCR120.dll = 1,,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -56,6 +57,7 @@ QcBluetooth8626.sys
 
 [Ctrl.CopyFiles]
 QcBtradioctrl8626.dll
+LUVCR120.dll
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0

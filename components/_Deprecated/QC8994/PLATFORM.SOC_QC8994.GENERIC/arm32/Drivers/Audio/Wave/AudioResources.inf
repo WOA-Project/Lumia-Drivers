@@ -17,6 +17,8 @@ AudioResources.Files = 10,OEM\Drivers
 
 [SourceDisksFiles]
 ProxyAPO.dll   = 0,,
+LAVCR120.dll   = 0,,
+LAVCP120.dll   = 0,,
 qcaud8994.cat_ = 0,,
 qcaud8994.inf_ = 0,,
 qcaud8994.sys  = 0,,
@@ -26,6 +28,8 @@ CopyFiles = AudioResources.Files
 
 [AudioResources.Files]
 ProxyAPO.dll
+LAVCR120.dll
+LAVCP120.dll
 qcaud8994.cat, qcaud8994.cat_, , 0x00004000,
 qcaud8994.inf, qcaud8994.inf_, , 0x00004000,
 qcaud8994.sys

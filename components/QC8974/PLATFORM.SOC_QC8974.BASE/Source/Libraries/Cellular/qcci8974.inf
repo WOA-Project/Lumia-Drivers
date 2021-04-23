@@ -20,6 +20,7 @@ qcci.Files.NTarm_11 = 11
 
 [SourceDisksFiles]
 qccium8974.dll = 0,,
+LUVCR120.dll = 0,,
 
 ;*****************************************
 ; ccium  Install Section
@@ -31,6 +32,7 @@ CopyFiles = qcci.Files.NTarm_11
 ; System32
 [qcci.Files.NTarm_11]
 qccium8974.dll
+LUVCR120.dll
 
 [Strings]
 REG_SZ                 = 0x00000000

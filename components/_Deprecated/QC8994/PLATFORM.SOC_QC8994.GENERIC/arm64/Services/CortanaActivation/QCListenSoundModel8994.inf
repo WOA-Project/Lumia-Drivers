@@ -49,6 +49,8 @@ VoiceActivationjaJPBin.Files    = 11,\VoiceActivationModels\ja-JP
 
 [SourceDisksFiles]
 QCListenSoundModel.dll       = 0,,
+LAVCR120.dll       = 0,,
+LAVCP120.dll       = 0,,
 enUSconfig                   = 0,,
 enUSVoiceActivationModel.bin = 0,,
 enGBconfig                   = 0,,
@@ -105,6 +107,8 @@ HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\VersionIndependentProgID,  
 
 [QCListenSoundModel.Files]
 QCListenSoundModel.dll
+LAVCR120.dll
+LAVCP120.dll
 
 [VoiceActivationenUSConfig.Files]
 config, enUSconfig,

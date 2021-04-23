@@ -16,6 +16,7 @@ DefaultDestDir = 13
 
 [SourceDisksFiles.ARM]
 ngp_drv.dll=1,,
+LUVCR120.dll=1,,
 
 [Manufacturer]
 %ManufacturerName% = ngp_drv_Device,NTarm ;,NTarm64
@@ -35,6 +36,7 @@ AddReg = ngp_drvReg
 
 [ngp_drvCopy]
 ngp_drv.dll
+LUVCR120.dll
 
 [ngp_drv_Inst.NT.HW]
 AddReg = ngp_drv_SecurityAddReg

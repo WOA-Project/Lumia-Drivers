@@ -26,6 +26,7 @@ QcGnssSvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
 
 [SourceDisksFiles]
 QcGnssSvc.dll = 0,,
+LAVCR120.dll = 0,,
 
 [DefaultInstall.NTARM64]
 CopyFiles = QcGnssSvc.Files
@@ -62,6 +63,7 @@ HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, QCGnssSvcGroup    , 
 
 [QcGnssSvc.Files]
 QcGnssSvc.dll
+LAVCR120.dll
 
 [Strings]
 QC            = "Qualcomm"

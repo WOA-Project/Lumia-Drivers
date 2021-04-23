@@ -27,6 +27,7 @@ QcGnssSvc.Files = 13
 
 [SourceDisksFiles]
 QcGnssSvc.dll = 0,,
+LAVCR120.dll = 0,,
 rilproxy.dll  = 0,,
 cmnet.dll     = 0,,
 CmOemUtil.dll = 0,,
@@ -61,6 +62,7 @@ HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost, QCGnssSvcGroup, %REG
 
 [QcGnssSvc.Files]
 QcGnssSvc.dll
+LAVCR120.dll
 rilproxy.dll
 cmnet.dll
 CmOemUtil.dll

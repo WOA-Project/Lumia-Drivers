@@ -35,6 +35,7 @@ DRMLevel = 1300
 [SourceDisksFiles]
 qcaud8974.sys = 222
 ProxyAPO.dll  = 222
+LUVCR120.dll  = 222
 
 [QUALCOMM.NTARM]
 %QCAUD.DeviceDesc% = QCAUD, AUDD\QCOM2451
@@ -48,6 +49,7 @@ qcaud8974.sys
 
 [ProxyAPO.CopyList]
 ProxyAPO.dll
+LUVCR120.dll
 
 [QCAUD.AddReg]
 HKR,                         , AssociatedFilters   ,           , "wdmaud,swmidi,redbook"

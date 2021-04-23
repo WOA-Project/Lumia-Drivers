@@ -38,25 +38,68 @@ QcUsbFnSsFilter8994.sys = 1,arm64,
 ; Install Section
 ;*****************************************
 
-[DefaultInstall.NTarm]
-Include    = qcusbfn8994.inf
-Needs      = QCUSBFN_Device.NTarm
-CopyFiles  = Drivers_Dir_A32
+[Manufacturer]
+%Company%=Standard,NTARM64
 
-[DefaultInstall.NTarm.Services]
-Include    = qcusbfn8994.inf
-Needs      = QCUSBFN_Device.NTarm.Services
-AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
+[Standard.NTARM]
+%Standard.DeviceDesc%=QcUsbFnSSFilter.Install_MS, URS\QCOM24B6&FUNCTION ;URS MSFT mode
+%Standard.DeviceDesc%=QcUsbFnSSFilter.Install_QC, URS\QCOM24B7&FUNCTION ;URS QC mode
 
-[DefaultInstall.NTarm64]
-Include    = qcusbfn8994.inf
-Needs      = QCUSBFN_Device.NTarm64
-CopyFiles  = Drivers_Dir_A64
+[Standard.NTARM64]
+%Standard.DeviceDesc%=QcUsbFnSSFilter.Install_MS, URS\QCOM24B6&FUNCTION ;URS MSFT mode
+%Standard.DeviceDesc%=QcUsbFnSSFilter.Install_QC, URS\QCOM24B7&FUNCTION ;URS QC mode
 
-[DefaultInstall.NTarm64.Services]
-Include    = qcusbfn8994.inf
-Needs      = QCUSBFN_Device.NTarm64.Services
-AddService = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst.NTarm64
+[QcUsbFnSSFilter.Install_MS.NTarm]
+;Include MS driver
+Include      = ufxsynopsys.inf
+Needs        = ufxsynopsys.Install.NT
+CopyFiles    = Drivers_Dir_A32
+;FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
+
+[QcUsbFnSSFilter.Install_QC.NTarm]
+;Include QC driver
+Include      = qcusbfn8994.inf
+Needs        = QCUSBFN_Device.NTarm
+CopyFiles    = Drivers_Dir_A32
+FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
+
+[QcUsbFnSSFilter.Install_MS.NTarm.Services]
+;Include MS driver
+Include      = ufxsynopsys.inf
+Needs        = ufxsynopsys.Install.NT.Services
+AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
+
+[QcUsbFnSSFilter.Install_QC.NTarm.Services]
+;Include QC driver
+Include      = qcusbfn8994.inf
+Needs        = QCUSBFN_Device.NTarm.Services
+AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
+
+[QcUsbFnSSFilter.Install_MS.NTarm64]
+;Include MS driver
+Include      = ufxsynopsys.inf
+Needs        = ufxsynopsys.Install.NT
+CopyFiles    = Drivers_Dir_A64
+;FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
+
+[QcUsbFnSSFilter.Install_QC.NTarm64]
+;Include QC driver
+Include      = qcusbfn8994.inf
+Needs        = QCUSBFN_Device.NTarm64
+CopyFiles    = Drivers_Dir_A64
+FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
+
+[QcUsbFnSSFilter.Install_MS.NTarm64.Services]
+;Include MS driver
+Include      = ufxsynopsys.inf
+Needs        = ufxsynopsys.Install.NT.Services
+AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst.NTarm64
+
+[QcUsbFnSSFilter.Install_QC.NTarm64.Services]
+;Include QC driver
+Include      = qcusbfn8994.inf
+Needs        = QCUSBFN_Device.NTarm64.Services
+AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst.NTarm64
 
 [Drivers_Dir_A32]
 QcUsbFnSsFilter8994.sys

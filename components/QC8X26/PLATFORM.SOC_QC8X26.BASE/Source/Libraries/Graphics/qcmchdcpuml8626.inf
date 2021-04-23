@@ -29,6 +29,7 @@ Drivers_Dir_24 = 11
 
 [SourceDisksFiles]
 qcmchdcpuml8626.dll = 1
+LUVCR120.dll = 1
 
 ;*****************************************
 ; MC HDCP Install Section
@@ -46,6 +47,7 @@ CopyFiles = Drivers_Dir_24
 
 [Drivers_Dir_24]
 qcmchdcpuml8626.dll
+LUVCR120.dll
 
 ;-------------- Service installation
 [MCHL_Device.Services]

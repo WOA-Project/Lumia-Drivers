@@ -17,7 +17,9 @@ ServiceDestDir = 11
 
 [SourceDisksFiles]
 ngp_core.dll=1,,
+LUVCR120.dll=1,,
 ngp_main.dll=1,,
+LUVCP120.dll=1,,
 ngp_svc.exe=1,,
 ngp_tp.dll=1,,
 SecurityRuntime.dll=1,,
@@ -34,7 +36,9 @@ AddReg    = ngp_svcReg
 
 [ServiceDestDir]
 ngp_core.dll
+LUVCR120.dll
 ngp_main.dll
+LUVCP120.dll
 ngp_svc.exe
 ngp_tp.dll
 SecurityRuntime.dll
