@@ -42,11 +42,11 @@ qcusbfnss8994.sys  = 1,arm64,
 ;----- Models section
 [QCOM.NTarm]
 %DeviceDesc% = QCUSBFN_Device, ACPI\QCOM2484
-%DeviceDesc% = QCUSBFN_Device, URS\QCOM24B6&FUNCTION   ; Dual-Role stack
+;%DeviceDesc% = QCUSBFN_Device, URS\QCOM24B6&FUNCTION   ; Dual-Role stack
 
 [QCOM.NTarm64]
 %DeviceDesc% = QCUSBFN_Device, ACPI\QCOM2484
-%DeviceDesc% = QCUSBFN_Device, URS\QCOM24B6&FUNCTION   ; Dual-Role stack
+;%DeviceDesc% = QCUSBFN_Device, URS\QCOM24B6&FUNCTION   ; Dual-Role stack
 
 [QCUSBFN_Device.NTarm] ; DDInstall section
 CopyFiles    = Drivers_Dir_A32
