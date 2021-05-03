@@ -92,22 +92,29 @@ HKR,,Security,,"D:P(A;;GR;;;BA)(A;;GR;;;SY)(A;;GR;;;S-1-5-84-0-0-0-0-0)" ; DACL 
 
 [Drivers_Dir_A32]
 SscAlgorithmBridge8994.dll
+LUVCR120.dll
 
 [Drivers_Dir_A64]
 SscAlgorithmBridge8994.dll
+concrt140.dll
+msvcp140.dll
+vcruntime140.dll
 
 [UserModeCopyFiles]
 LumiaActivityDetectionV2.dll
-LUVCR120.dll
 LumiaGestureRecognition.dll
 LumiaSensorAlgorithmControl.dll
 LumiaStepCounterV2.dll
+LUVCR120.dll
 
 [UserModeCopyFiles64]
 LumiaActivityDetectionV2.dll
 LumiaGestureRecognition.dll
 LumiaSensorAlgorithmControl.dll
 LumiaStepCounterV2.dll
+concrt140.dll
+msvcp140.dll
+vcruntime140.dll
 
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
@@ -126,6 +133,9 @@ LumiaActivityDetectionV2.dll = 1,arm64,
 LumiaGestureRecognition.dll = 1,arm64,
 LumiaSensorAlgorithmControl.dll = 1,arm64,
 LumiaStepCounterV2.dll = 1,arm64,
+concrt140.dll=1,arm64,
+msvcp140.dll=1,arm64,
+vcruntime140.dll= 1,arm64,
 
 ;---------------------------------------------------------------------------
 ; Service installation

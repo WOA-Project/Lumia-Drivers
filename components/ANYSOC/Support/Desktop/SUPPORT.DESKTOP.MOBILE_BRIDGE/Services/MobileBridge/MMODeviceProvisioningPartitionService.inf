@@ -55,7 +55,7 @@ Description   = "Syncs Information between DPP and the Desktop Windows Platform"
 ServiceType   = 0x10
 StartType     = 2
 ErrorControl  = 1
-ServiceBinary = "%13%\arm\MMODeviceProvisioningPartitionService.exe"
+ServiceBinary = "%13%\arm64\MMODeviceProvisioningPartitionService.exe"
 AddReg        = MMODeviceProvisioningPartitionService_64_Reg, MMODeviceProvisioningPartitionService_Reg
 
 [MMODeviceProvisioningPartitionService_32_Reg]

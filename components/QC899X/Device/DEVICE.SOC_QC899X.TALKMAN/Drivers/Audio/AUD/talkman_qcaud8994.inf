@@ -9,10 +9,12 @@
 
 [Version]
 Signature   = "$CHICAGO$"
-Class       = Extension
-ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+;Class       = Extension
+;ClassGuid   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 provider    = %QCOM%
-ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F4E}
+;ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F4E}
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
 
@@ -22,19 +24,25 @@ CatalogFile.NTarm64 = talkman_qcaud8994.arm64.cat
 [SourceDisksNames]
 222 = %DiskId%
 
-[Manufacturer]
-%MfgName% = DeviceExtensions,NTarm,NTarm64
+;[Manufacturer]
+;%MfgName% = DeviceExtensions,NTarm,NTarm64
 
-[DeviceExtensions.NTarm]
-%QCAUD_A.DeviceDesc% = DeviceExtension_Install, AUDD\QCOM2451
+;[DeviceExtensions.NTarm]
+;%QCAUD_A.DeviceDesc% = DeviceExtension_Install, AUDD\QCOM2451
 
-[DeviceExtensions.NTarm64]
-%QCAUD_A.DeviceDesc% = DeviceExtension_Install, AUDD\QCOM2451
+;[DeviceExtensions.NTarm64]
+;%QCAUD_A.DeviceDesc% = DeviceExtension_Install, AUDD\QCOM2451
 
-[DeviceExtension_Install]
+;[DeviceExtension_Install]
 
-[DeviceExtension_Install.HW]
-Addreg    = QCAUD.AddReg.Service
+;[DeviceExtension_Install.HW]
+;Addreg = QCAUD.AddReg.Service
+
+[DefaultInstall.NTarm]
+Addreg = QCAUD.AddReg.Service
+
+[DefaultInstall.NTarm64]
+Addreg = QCAUD.AddReg.Service
 
 [QCAUD.AddReg.Service]
 HKLM, "System\CurrentControlSet\Services\QCAUD\APO",,0x10

@@ -1,7 +1,7 @@
-## Lumia Drivers BSP - Version 2103.32
-**Released:** 03/10/2021 09:00 PM UTC+1
+﻿## Lumia Drivers BSP - Version 2105.1
+**Released:** 05/03/2021 12:00 PM UTC+2
 
-**Quality:** Interim
+**Quality:** Preview
 
 ### Important installation notes
 
@@ -20,69 +20,45 @@ ________________________________________________________________________________
 
 Changelog
 
-![image](glance.jpg)
-
-- Ported over glance screen. A couple of notes about glance screen in this release:
-
-  Current issues with glance screen:
-
-  - When the glance screen times out after the time specified there's a chance the screen won't turn off, this is still needing investigation but the issue can only be two things:
-  — either the device got out of S0ix and is sleeping at a lower level, because wifi is not connected for example, as a result the glance service is unable to take actions, this is a problem
-  — or, the glance service is trying to clear the screen, (there's a specific panel driver command to do so), and for some reason this is failing.
-  This specific issue might take some time to completely iron out.
-
-  - The following status notifications are not implemented in the port/non functional in the wrapper libraries:
-  — Battery saver indication
-  — Ringer indication (vibrate on, silence on)
-  — Alarm indication
-  — Detailed text indication
-  — Notification badges
-
-  - The following functionality is not implemented:
-  — Wake glance on single tap
-
-
-  To answer one main question we saw repeated a lot, (we did answer it in the discussion group that you probably want to join)
-
-  - Yes, the clock moves vertically to prevent oled burnin, this feature is absent on OS Glance, which was introduced in Windows 10 Redstone 2, but is present in the old implementation, which is what this port uses
-
-  - Yes, this is the original glance implementation by nokia ported over with wrapper libraries so it would work "fine"
-
-    As a result, this means you do not have the 5 minutes timeout option that OS Glance had with Redstone 2
-
-  - No, this is not the prerelease glance that had application/sdk support. Getting that one working is a bit more difficult, and wouldn't bring much different.
-
-  - Are we thinking about making our own implementation?
-
-    Yes we are kinda, mainly because of the timeout issue, if it doesn't manage to get fixed, we will have to roll our own implementation unfortunately. Also the battery saver indication issue might be tough to fix, currently it is NOP'd in the binary, but we would have to reimplement a windows phone winrt api to wrap this around
-
-    For the other issues, we need to implement such functionality in the wrapper.
-
-  - Syncing the background wallpaper is also a task that needs to be done, and might get tricky.
-
-- Fixed an issue impacting Color Profile toggle functionality in action center
-- Improvements to Color Profiles
-
-![image](settings.png)
-
-- General improvements to system applications. System applications are no longer present under the extras section of the settings application but instead can be found according to the following table:
-
-   - Advanced Info => Bluetooth and other devices
-
-   - Touch => Touch
-
-   - Vibration => Notifications
-
-   - USB Function Mode => USB
-
-   - Color Profile => Display
-
-   - Glance Screen => Lockscreen
-
-
-- A new touch settings app was introduced in this release, but is not yet functional
-- Removed the vidstream device from the default usb function configuration, as this could prevent power vetos
-- Other general bug fixes
+- You can now disable double tap to wake in the settings app.
+- Addresses an issue in glance where the service might stop when trying to initialize the InteropRPC interface (COREBSPNT #124)
+- Adds Icaros ESP camera drivers to the tree, replacing the previous stubs (COREBSPNT #104)
+- Addresses an issue where the touch driver checked the wrong registry name for double tap to wake (COREBSPNT #126)
+- Addresses an issue where the touch settings app could not change the registry value for double tap to wake (COREBSPNT #126)
+- Addresses an issue where some HID collections for the touch driver were not properly registered with the operating system (COREBSPNT #127)
+- Addresses an issue where some drivers did not properly respect the DIRID 13 specification (still WIP across the tree) (COREBSPNT #102/103, GH #22/#12)
+- General improvements to the Lattice UC120 driver (N/A)
+- Addresses an issue where the phone might not register properly cable/charging events (COREBSPNT #128)
+- Addresses an issue where charging might be slow when plugging some charger types (COREBSPNT #128)
+- Addresses an issue where Cortana Activation did not work (COREBSPNT #125)
+- Addresses an issue where connected standby would not register properly due to a non PoFx registered device (digitizer power), replaces the previously stubbed driver with a proper implementation (COREBSPNT #126)
+- Addresses an issue where some devices like hapanero had broken touch with recent touch driver updates (COREBSPNT #126)
+- Implements keypad support to the digitizer driver (COREBSPNT #126)
+- Addresses an issue with broken audio on 8994/2 (COREBSPNT #129)
+- Addresses an issue with broken OEMPanel settings on 8994/2 (COREBSPNT #129)
+- Changes default settings for glance screen to not show the background by default (COREBSPNT #130)
+- Addresses an issue where MTP might have been broken with recent updates (COREBSPNT #131)
+- Addresses an issue where the icon for MTP was broken (COREBSPNT #131)
+- Adds ARM32 specific definition files for ARMv8.0 devices that only had ARM64 before (COREBSPNT #123)
+- Split mobile bridge into sub services (COREBSPNT #102/103, GH #22/#12)
+- Fixed 2 crash issues with the GPU driver and Camera AV Stream driver
+- Addresses an issue with ARM32 UWP apps not rendering properly
+- Addresses an issue with ColorProfile switching from action center puts invalid values in registry, breaking the settings app
+- Addresses an issue with Installation might fail with driverupdater when updating an already running system
+- Addresses an issue with Audio driver might install bootloop on newer builds
+- Addresses an issue with USBFN not working as it should
+- Addresses an issue with Touch settings app having an empty section
+- Addresses an issue with newer insider builds looping during install
+- Addresses an issue with NFC
+- Addresses an issue with ColorProfile toggle being grayed out (it's smart enough now so this shouldn't happen ever again)
+- Addresses an issue with DPI not changing
+- Addresses an issue with Camcore not installing
+- Addresses an issue with powersettings not applying
+- General refactoring
+- Modularized Services for cellular audio and misc.
+- Addresses an issue with Conntected Standby
+- Addresses an issue with Alarms not functioning properly in standby
+- Addresses an issue with Cellular on old builds
 
 ____________________________________________________________________________________________________________________________
 
@@ -99,11 +75,11 @@ How to offline update an existing Windows Desktop installation
 
 - If your device is a Lumia 950, execute the following command:
   
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\Internal\950.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\ARM64\Internal\950.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
 
 - If your device is a Lumia 950 XL, execute the following command:
   
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\Internal\950xl.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\ARM64\Internal\950xl.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
 
 - Reboot the device, the device will now begin PnP setup once again, and hopefully you will be back soon enough to your desktop
 
@@ -113,32 +89,6 @@ ________________________________________________________________________________
 How to install Windows Desktop on internal Storage
 
 - Please follow the steps detailed at https://woa-project.github.io/LumiaWOA/guides/
-
-____________________________________________________________________________________________________________________________
-
-
-How to install Windows Desktop on an SD card
-
-- Insert your SD Card
-- Install Windows on the SD card like you would on any external storage media (some tools even exist that can do it for you ie Rufus)
-- Set TestSigning on the {bootloadersettings} object of BCD on the sd card
-- Setup BootShim/Lumia950XlPkg on the phone eMMC like you would on a traditional installation (You can download bootshim from here: https://dev.azure.com/LumiaWoA/Boot%20Shim/_build/results?buildId=174&view=results) (and the UEFI from here: https://github.com/WOA-Project/Lumia950XLPkg/releases)
-- Take note of the drive letter the Windows partition is using on the sd card, here we will assume it got mounted as I:
-
-- Download [Lumia-Drivers-Full.zip] from https://github.com/WOA-Project/Lumia-Drivers/releases/latest
-- Extract said zip file to a folder of your choice, we will assume here we extracted it to C:\UpdatedDrivers
-- Download the DriverUpdater utility from https://github.com/WOA-Project/DriverUpdater/releases/latest
-- Open a command prompt as administrator, where the driver utility got downloaded
-
-- If your device is a Lumia 950, execute the following command:
-  
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\SDCard\950.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
-
-- If your device is a Lumia 950 XL, execute the following command:
-  
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\SDCard\950xl.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
-
-- Reboot the device, boot into BootShim, let the UEFI load, and you should be able to boot from SD Card.
 
 ____________________________________________________________________________________________________________________________
 
@@ -179,6 +129,28 @@ General software defects
   Tap advanced, tap change owner, in the dialog that opens, enter "Everyone" (without the quotes), tap check names
   press ok, press ok. Tap ALL APPLICATION PACKAGES, select 'full control', do the same for other listed accounts (optionally)
   Apply, and close regedit.
+
+- Cellular is unavailable on builds lower than 16362.
+- Some drivers and mainly sensors will not be working on RS3, RS4 and/or RS5. Might vary depending on patch level.
+- An APN might be required to specify for some user in order to get cellular data working.
+
+Current issues with glance screen:
+
+When the glance screen times out after the time specified there's a chance the screen won't turn off, this is still needing investigation but the issue can only be two things:
+— either the device got out of S0ix and is sleeping at a lower level, because wifi is not connected for example, as a result the glance service is unable to take actions, this is a problem
+— or, the glance service is trying to clear the screen, (there's a specific panel driver command to do so), and for some reason this is failing.
+This specific issue might take some time to completely iron out.
+
+The following status notifications are not implemented in the port/non functional in the wrapper libraries:
+— Battery saver indication
+— Ringer indication (vibrate on, silence on)
+— Alarm indication
+— Detailed text indication
+— Notification badges
+
+The following functionality is not implemented:
+— Wake glance on single tap
+
 ____________________________________________________________________________________________________________________________
 
 

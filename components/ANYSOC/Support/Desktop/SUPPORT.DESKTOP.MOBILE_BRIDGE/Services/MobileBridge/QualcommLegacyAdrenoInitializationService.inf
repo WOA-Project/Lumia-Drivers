@@ -51,7 +51,7 @@ Description   = "Ensures Proper Initialization of Qualcomm Legacy Adreno Drivers
 ServiceType   = 0x10
 StartType     = 2
 ErrorControl  = 1
-ServiceBinary = "%13%\arm\QualcommLegacyAdrenoInitializationService.exe"
+ServiceBinary = "%13%\arm64\QualcommLegacyAdrenoInitializationService.exe"
 AddReg        = QualcommLegacyAdrenoInitializationService_64_Reg, QualcommLegacyAdrenoInitializationService_Reg
 
 [QualcommLegacyAdrenoInitializationService_32_Reg]

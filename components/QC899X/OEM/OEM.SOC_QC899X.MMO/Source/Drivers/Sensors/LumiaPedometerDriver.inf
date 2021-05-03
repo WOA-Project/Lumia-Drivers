@@ -18,6 +18,9 @@ LUVCR120.dll=1,arm,
 
 [SourceDisksFiles.ARM64]
 LumiaPedometerDriver.dll=1,arm64,
+concrt140.dll=1,arm64,
+msvcp140.dll=1,arm64,
+vcruntime140.dll=1,arm64,
 
 [Manufacturer]
 %ManufacturerName% = Sensor_Device,NTarm,NTarm64
@@ -42,6 +45,9 @@ LUVCR120.dll
 
 [Drivers_Dir_A64]
 LumiaPedometerDriver.dll
+concrt140.dll
+msvcp140.dll
+vcruntime140.dll
 
 [DestinationDirs]
 Drivers_Dir_A32 = 13,arm

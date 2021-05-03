@@ -1,0 +1,41 @@
+[Version]
+Signature   = "$Windows NT$"
+Class       = Monitor
+ClassGuid   = {4d36e96e-e325-11ce-bfc1-08002be10318}
+Provider    = %IHV%
+DriverVer   = 03/18/2021,1.0.0.0
+PnpLockdown = 1
+
+CatalogFile.NTarm   = cityman_monitor.arm.cat
+CatalogFile.NTarm64 = cityman_monitor.arm64.cat
+
+; Don't show this driver as an option to install for other devices
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%SAMSUNG%      = IHV,NTarm,NTarm64
+
+[IHV.NTarm]
+%CMO0011%    = CMO0011, Monitor\CMO0011
+
+[IHV.NTarm64]
+%CMO0011%    = CMO0011, Monitor\CMO0011
+
+[CMO0011]
+AddReg      = CMO0011.AddReg
+
+[CMO0011.AddReg]
+HKR,, PreferredScaleFactor, %REG_DWORD%, 225
+HKR,, MaxResolution       , %REG_SZ%   , "1440,2560"
+
+[Strings]
+; Non-Localizable Strings
+;
+REG_DWORD   = 0x10001
+REG_SZ      = 0x00000
+; User visible strings
+;
+IHV       = "LumiaWoA authors"
+SAMSUNG   = "Samsung"
+CMO0011   = "Samsung 5.7-inch 1440x2560 (WQHD) 518ppi AM-OLED 16.7M Colors Display Panel (AMS567DJ06)"

@@ -1,9 +1,11 @@
 @echo off
-rmdir /Q /S ..\..\Lumia-Drivers-Release
+REM rmdir /Q /S ..\..\Lumia-Drivers-Release
 mkdir ..\..\Lumia-Drivers-Release
 
 "%ProgramFiles%\7-zip\7z.exe" a -tzip -r ..\..\Lumia-Drivers-Release\DEVICE.SOC_QC899X.CITYMAN.zip ..\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN
+"%ProgramFiles%\7-zip\7z.exe" a -tzip -r ..\..\Lumia-Drivers-Release\DEVICE.SOC_QC899X.CITYMAN_DESKTOP.zip ..\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN_DESKTOP
 "%ProgramFiles%\7-zip\7z.exe" a -tzip -r ..\..\Lumia-Drivers-Release\DEVICE.SOC_QC899X.TALKMAN.zip ..\components\QC899X\Device\DEVICE.SOC_QC899X.TALKMAN
+"%ProgramFiles%\7-zip\7z.exe" a -tzip -r ..\..\Lumia-Drivers-Release\DEVICE.SOC_QC899X.TALKMAN_DESKTOP.zip ..\components\QC899X\Device\DEVICE.SOC_QC899X.TALKMAN_DESKTOP
 "%ProgramFiles%\7-zip\7z.exe" a -tzip -r ..\..\Lumia-Drivers-Release\HARDWARE.USB.MMO_USBC.zip ..\components\QC899X\Hardware\HARDWARE.USB.MMO_USBC
 "%ProgramFiles%\7-zip\7z.exe" a -tzip -r ..\..\Lumia-Drivers-Release\HARDWARE.CAMERA.MMO_8994.zip ..\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994
 "%ProgramFiles%\7-zip\7z.exe" a -tzip -r ..\..\Lumia-Drivers-Release\HARDWARE.CAMERA.MMO_8992.zip ..\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8992

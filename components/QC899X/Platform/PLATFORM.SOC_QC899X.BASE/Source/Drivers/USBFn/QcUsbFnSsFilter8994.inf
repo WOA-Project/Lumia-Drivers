@@ -52,9 +52,9 @@ QcUsbFnSsFilter8994.sys = 1,arm64,
 [QcUsbFnSSFilter.Install_MS.NTarm]
 ;Include MS driver
 Include      = ufxsynopsys.inf
-Needs        = ufxsynopsys.Install.NT
+Needs        = ufxsynopsys.Install_Qualcomm.NT
 CopyFiles    = Drivers_Dir_A32
-;FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
+FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
 
 [QcUsbFnSSFilter.Install_QC.NTarm]
 ;Include QC driver
@@ -66,7 +66,7 @@ FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
 [QcUsbFnSSFilter.Install_MS.NTarm.Services]
 ;Include MS driver
 Include      = ufxsynopsys.inf
-Needs        = ufxsynopsys.Install.NT.Services
+Needs        = ufxsynopsys.Install_Qualcomm.NT.Services
 AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
 
 [QcUsbFnSSFilter.Install_QC.NTarm.Services]
@@ -75,12 +75,18 @@ Include      = qcusbfn8994.inf
 Needs        = QCUSBFN_Device.NTarm.Services
 AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
 
+[QcUsbFnSSFilter.Install_MS.NTarm.HW]
+;Include MS driver
+Include    = ufxsynopsys.inf
+Needs      = ufxsynopsys.Install_Qualcomm.NT.HW
+AddReg     = QcUsbFnSSFilter_AddReg
+
 [QcUsbFnSSFilter.Install_MS.NTarm64]
 ;Include MS driver
 Include      = ufxsynopsys.inf
-Needs        = ufxsynopsys.Install.NT
+Needs        = ufxsynopsys.Install_Qualcomm.NT
 CopyFiles    = Drivers_Dir_A64
-;FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
+FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
 
 [QcUsbFnSSFilter.Install_QC.NTarm64]
 ;Include QC driver
@@ -92,7 +98,7 @@ FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
 [QcUsbFnSSFilter.Install_MS.NTarm64.Services]
 ;Include MS driver
 Include      = ufxsynopsys.inf
-Needs        = ufxsynopsys.Install.NT.Services
+Needs        = ufxsynopsys.Install_Qualcomm.NT.Services
 AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst.NTarm64
 
 [QcUsbFnSSFilter.Install_QC.NTarm64.Services]
@@ -100,6 +106,12 @@ AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst.NTarm64
 Include      = qcusbfn8994.inf
 Needs        = QCUSBFN_Device.NTarm64.Services
 AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst.NTarm64
+
+[QcUsbFnSSFilter.Install_MS.NTarm64.HW]
+;Include MS driver
+Include    = ufxsynopsys.inf
+Needs      = ufxsynopsys.Install_Qualcomm.NT.HW
+AddReg     = QcUsbFnSSFilter_AddReg
 
 [Drivers_Dir_A32]
 QcUsbFnSsFilter8994.sys
@@ -109,6 +121,9 @@ QcUsbFnSsFilter8994.sys
 
 [QcUsbFnSSFilter_Service_AddReg]
 ;HKR,,BootFlags,0x00010003,4
+
+[QcUsbFnSSFilter_AddReg]
+HKR,, "LowerFilters", 0x00010000, QcUsbFnSSFilter
 
 ; -------------- QcUsbFnSSFilter driver install sections
 [QcUsbFnSSFilter_Service_Inst]

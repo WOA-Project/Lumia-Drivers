@@ -612,14 +612,20 @@ LUVCP120.dll
 ; System32
 [QCDX.Files.NTarm_11]
 qcdx11compiler8994.dll
+LUVCR120.dll
+LUVCP120.dll
 
 ; System32
 [QCDX.Files.NTarm64_11]
 qcdx11compiler8994.dll, qcdx11arm64compiler8994.dll,,0x00004000,
+LAVCR120.dll
+LAVCP120.dll
 
 ; SysArm32
 [QCDX.Files.NTarm3264_10]
 qcdx11compiler8994.dll
+LUVCR120.dll
+LUVCP120.dll
 
 [Strings]
 

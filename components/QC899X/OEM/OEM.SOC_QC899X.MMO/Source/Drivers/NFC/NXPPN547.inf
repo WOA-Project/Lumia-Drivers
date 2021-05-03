@@ -10,25 +10,6 @@
 ;
 ;--*/
 
-;/*++
-;
-; Portions from
-;
-;--*/
-
-;/*++
-;
-;Copyright (c) Microsoft Corporation.  All rights reserved.
-;
-;Module Name:
-;    MSNfcI2C547.inf
-;
-;Abstract:
-;    INF file for installing the NFCI2C transport driver
-;    for the 547 controller
-;
-;--*/
-
 ; ==================== Class section =========================
 
 [Version]
@@ -37,47 +18,67 @@ Class       = Proximity
 ClassGuid   = {5630831C-06C9-4856-B327-F5D32586E060}
 Provider    = %NXP%
 DriverVer   = 03/18/2021,1.0.0.0
-CatalogFile = NXPPN547.cat
 PnpLockdown = 1
+
+CatalogFile.NTarm   = NXPPN547.arm.cat
+CatalogFile.NTarm64 = NXPPN547.arm64.cat
 
 [SourceDisksNames]
 1 = %MediaDescription%
 
 [SourceDisksFiles]
-MSNfcI2C547.dll = 1
+MSNfcI2C547.arm.rs2.dll = 1
+MSNfcI2C547.1803.dll = 1
+MSNfcI2C547.1809.dll = 1
+MSNfcI2C547.1903.dll = 1
 NXPPN547FW.dat  = 1
 
 [DestinationDirs]
-UMDriverCopy     = 13
+UMDriverCopyARMRS2 = 13 ; copy to drivers\umdf
+UMDriverCopy1803 = 13 ; copy to drivers\umdf
+UMDriverCopy1809 = 13 ; copy to drivers\umdf
+UMDriverCopy1903 = 13 ; copy to drivers\umdf
 NxpCopyFileList  = 13
 
 ; ================= Device section =====================
 
 [Manufacturer]
-%NXP% = NXP,NTarm, NTarm64, NTarm64.10.0...17764
+%NXP% = NXP, NTarm, NTarm64, NTarm64.10.0...17135, NTarm64.10.0...18886
 
 [NXP.NTarm]
-%NXPPN547_HWID.DeviceDesc% = NXPPN547_HWID, ACPI\PN547
+%NXPPN547_HWID.DeviceDesc% = NXPPN547_HWID_ARM_RS2, ACPI\PN547
 
 [NXP.NTarm64]
-%NXPPN547_HWID.DeviceDesc% = NXPPN547_HWID, ACPI\PN547
+%NXPPN547_HWID.DeviceDesc% = NXPPN547_HWID_1803, ACPI\PN547
 
-[NXP.NTarm64.10.0...17764]
+[NXP.NTarm64.10.0...17135]
+%NXPPN547_HWID.DeviceDesc% = NXPPN547_HWID_1809, ACPI\PN547
+
+[NXP.NTarm64.10.0...18886]
 %NXPPN547_HWID.DeviceDesc% = NXPPN547_HWID_1903, ACPI\PN547
 
-[NXPPN547_HWID.NT]
-Include   = msnfci2c547.inf
-Needs     = msnfci2c547.NT
-CopyFiles = NxpCopyFileList
+[NXPPN547_HWID_ARM_RS2.NT]
+CopyFiles = UMDriverCopyARMRS2,NxpCopyFileList
+
+[NXPPN547_HWID_1803.NT]
+CopyFiles = UMDriverCopy1803,NxpCopyFileList
+
+[NXPPN547_HWID_1809.NT]
+CopyFiles = UMDriverCopy1809,NxpCopyFileList
 
 [NXPPN547_HWID_1903.NT]
-CopyFiles = UMDriverCopy,NxpCopyFileList
+CopyFiles = UMDriverCopy1903,NxpCopyFileList
 
 ; ================= Services section ======================
 
-[NXPPN547_HWID.NT.Services]
-Include   = msnfci2c547.inf
-Needs     = msnfci2c547.NT.Services
+[NXPPN547_HWID_ARM_RS2.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[NXPPN547_HWID_1803.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[NXPPN547_HWID_1809.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [NXPPN547_HWID_1903.NT.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
@@ -91,9 +92,26 @@ ServiceBinary = %12%\WUDFRd.sys
 
 ; ================= WDF entries ===========================
 
-[NXPPN547_HWID.NT.Wdf]
-Include   = msnfci2c547.inf
-Needs     = msnfci2c547.NT.Wdf
+[NXPPN547_HWID_ARM_RS2.NT.Wdf]
+UmdfService              = "MSNfcI2C547", msnfci2c547_arm_rs2_Install
+UmdfServiceOrder         = MSNfcI2C547
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfImpersonationLevel   = Impersonation
+
+[NXPPN547_HWID_1803.NT.Wdf]
+UmdfService              = "MSNfcI2C547", msnfci2c547_1803_Install
+UmdfServiceOrder         = MSNfcI2C547
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfImpersonationLevel   = Impersonation
+
+[NXPPN547_HWID_1809.NT.Wdf]
+UmdfService              = "MSNfcI2C547", msnfci2c547_1809_Install
+UmdfServiceOrder         = MSNfcI2C547
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+UmdfImpersonationLevel   = Impersonation
 
 [NXPPN547_HWID_1903.NT.Wdf]
 UmdfService              = "MSNfcI2C547", msnfci2c547_1903_Install
@@ -102,12 +120,33 @@ UmdfDirectHardwareAccess = AllowDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfImpersonationLevel   = Impersonation
 
-[msnfci2c547_1903_Install]
+[msnfci2c547_arm_rs2_Install]
 UmdfLibraryVersion = 2.15.0
-ServiceBinary      = %13%\MSNfcI2C547.dll
+ServiceBinary      = %13%\MSNfcI2C547.arm.rs2.dll
 UmdfExtensions     = NfcCx0102
 
-[NXPPN547_HWID.NT.HW]
+[msnfci2c547_1803_Install]
+UmdfLibraryVersion = 2.15.0
+ServiceBinary      = %13%\MSNfcI2C547.1803.dll
+UmdfExtensions     = NfcCx0102
+
+[msnfci2c547_1809_Install]
+UmdfLibraryVersion = 2.15.0
+ServiceBinary      = %13%\MSNfcI2C547.1809.dll
+UmdfExtensions     = NfcCx0102
+
+[msnfci2c547_1903_Install]
+UmdfLibraryVersion = 2.15.0
+ServiceBinary      = %13%\MSNfcI2C547.1903.dll
+UmdfExtensions     = NfcCx0102
+
+[NXPPN547_HWID_ARM_RS2.NT.HW]
+AddReg = NXPPN547_Config_AddReg
+
+[NXPPN547_HWID_1803.NT.HW]
+AddReg = NXPPN547_Config_AddReg
+
+[NXPPN547_HWID_1809.NT.HW]
 AddReg = NXPPN547_Config_AddReg
 
 [NXPPN547_HWID_1903.NT.HW]
@@ -126,6 +165,15 @@ HKR, "FirmwareMap", "5"              , 0x00020000, "%13%\nxppn547fw.dat"
 
 ; ================= Co-installer section ==================
 
+[NXPPN547_HWID_ARM_RS2.NT.CoInstallers]
+AddReg = CoInstallers_AddReg
+
+[NXPPN547_HWID_1803.NT.CoInstallers]
+AddReg = CoInstallers_AddReg
+
+[NXPPN547_HWID_1809.NT.CoInstallers]
+AddReg = CoInstallers_AddReg
+
 [NXPPN547_HWID_1903.NT.CoInstallers]
 AddReg = CoInstallers_AddReg
 
@@ -137,8 +185,17 @@ HKR,, CoInstallers32, 0x00010000, "WUDFCoinstaller.dll"
 [NxpCopyFileList]
 NXPPN547FW.dat
 
-[UMDriverCopy]
-MSNfcI2C547.dll
+[UMDriverCopyARMRS2]
+MSNfcI2C547.arm.rs2.dll
+
+[UMDriverCopy1803]
+MSNfcI2C547.1803.dll
+
+[UMDriverCopy1809]
+MSNfcI2C547.1809.dll
+
+[UMDriverCopy1903]
+MSNfcI2C547.1903.dll
 
 ;================= Strings section =====================
 

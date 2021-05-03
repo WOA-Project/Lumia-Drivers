@@ -1,5 +1,5 @@
 @echo off
-call :installRootDevice qccamcore8994.inf ROOT\CORE ROOT\CORE
+call :installRootDevice qccamcore8992.inf ROOT\CORE ROOT\CORE\0000
 
 goto :eof
 

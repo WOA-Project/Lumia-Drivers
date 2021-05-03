@@ -25,6 +25,11 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\qcdx11compiler8994.dll"  , 0x00000000, "qcdx_ffu8994.inf\arm\qcdx11compiler8994.dll"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcvss8994.mbn"           , 0x00000000, "cityman_qcdx_ffu8994.inf\qcvss8994.mbn"
 
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\LAVCR120.dll"            , 0x00000000, "qcdx_ffu8994.inf\arm64\LAVCR120.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\LAVCP120.dll"            , 0x00000000, "qcdx_ffu8994.inf\arm64\LAVCP120.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\LUVCR120.dll"            , 0x00000000, "qcdx_ffu8994.inf\arm\LUVCR120.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\LUVCP120.dll"            , 0x00000000, "qcdx_ffu8994.inf\arm\LUVCP120.dll"
+
 ;
 ; qcacsp8994.inf
 ;
@@ -59,6 +64,10 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ; qcSensors8994.inf
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcSensor1UM8994.dll"           , 0x00000000, "qcSensors8994.inf\arm64\qcSensor1UM8994.dll"
+
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\concrt140.dll"                 , 0x00000000, "qcSensors8994.inf\arm64\concrt140.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\msvcp140.dll"                  , 0x00000000, "qcSensors8994.inf\arm64\msvcarm64p140.dll"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\vcruntime140.dll"              , 0x00000000, "qcSensors8994.inf\arm64\vcarm64runtime140.dll"
 
 ;
 ; SscAlgorithmBridge8994.inf
@@ -188,24 +197,6 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ; qcfmslminiport.inf
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcfmslminiport.dll", 0x00000000, "qcfmslminiport.inf\arm64\qcfmslminiport.dll"
-
-;
-; luvc120.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\luvcp120.dll", 0x00000000, "luvc120.inf\arm64\luvcarm64p120.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\luvcr120.dll", 0x00000000, "luvc120.inf\arm64\luvcarm64r120.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\luvcp120.dll", 0x00000000, "luvc120.inf\arm\luvcp120.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\luvcr120.dll", 0x00000000, "luvc120.inf\arm\luvcr120.dll"
-
-;
-; msvc140.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\concrt140.dll"   , 0x00000000, "msvc140.inf\arm64\concrt140.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\msvcp140.dll"    , 0x00000000, "msvc140.inf\arm64\msvcarm64p140.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\vcruntime140.dll", 0x00000000, "msvc140.inf\arm64\vcarm64runtime140.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\msvcp140.dll"    , 0x00000000, "msvc140.inf\arm\msvcp140.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\vccorlib140.dll" , 0x00000000, "msvc140.inf\arm\vccorlib140.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\SysArm32\vcruntime140.dll", 0x00000000, "msvc140.inf\arm\vcruntime140.dll"
 
 [Strings]
 IHV = "LumiaWoA authors"

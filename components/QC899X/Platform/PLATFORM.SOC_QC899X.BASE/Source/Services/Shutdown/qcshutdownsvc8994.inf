@@ -34,6 +34,9 @@ LUVCR120.dll = 0,arm,
 
 [SourceDisksFiles.ARM64]
 QcShutdownSvc8994.dll = 0,arm64,
+concrt140.dll = 0,arm64,
+msvcp140.dll = 0,arm64,
+vcruntime140.dll = 0,arm64,
 
 [Manufacturer]
 %QC% = QC,NTarm,NTarm64
@@ -113,6 +116,9 @@ LUVCR120.dll
 
 [Drivers_Dir_A64]
 QcShutdownSvc8994.dll
+concrt140.dll
+msvcp140.dll
+vcruntime140.dll
 
 [Strings]
 QC                     = "Qualcomm Technologies, Inc."

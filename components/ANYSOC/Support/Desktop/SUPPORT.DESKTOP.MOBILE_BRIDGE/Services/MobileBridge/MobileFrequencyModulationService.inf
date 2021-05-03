@@ -51,7 +51,7 @@ Description   = "Provides a bridge between Mobile Frequency Modulation drivers a
 ServiceType   = 0x10
 StartType     = 2
 ErrorControl  = 1
-ServiceBinary = "%13%\arm\MobileFrequencyModulationService.exe"
+ServiceBinary = "%13%\arm64\MobileFrequencyModulationService.exe"
 AddReg        = MobileFrequencyModulationService_64_Reg, MobileFrequencyModulationService_Reg
 
 [MobileFrequencyModulationService_32_Reg]
