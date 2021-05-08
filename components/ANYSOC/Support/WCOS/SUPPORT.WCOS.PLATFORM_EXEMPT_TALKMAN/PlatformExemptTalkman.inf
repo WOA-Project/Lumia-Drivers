@@ -196,5 +196,14 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcfmslminiport.dll", 0x00000000, "qcfmslminiport.inf\arm64\qcfmslminiport.dll"
 
+;
+; MMOPanelColorProfileService.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\spool\drivers\color\Advanced.icm"   , 0x00000000, "MMOPanelColorProfileService.inf\Advanced.icm"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\spool\drivers\color\Cool.icm"       , 0x00000000, "MMOPanelColorProfileService.inf\Cool.icm"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\spool\drivers\color\Standard.icm"   , 0x00000000, "MMOPanelColorProfileService.inf\Standard.icm"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\spool\drivers\color\Vivid.icm"      , 0x00000000, "MMOPanelColorProfileService.inf\Vivid.icm"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\spool\drivers\color\Night light.icm", 0x00000000, "MMOPanelColorProfileService.inf\Night light.icm"
+
 [Strings]
 IHV = "LumiaWoA authors"

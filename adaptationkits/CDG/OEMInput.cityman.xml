@@ -10,20 +10,44 @@
   <ReleaseType>Test</ReleaseType>
   <BuildType>fre</BuildType>
   <Languages>
-    <Language Default="true">en-us</Language>
+    <Language Default="true">en-US</Language>
+    <Language>da-DK</Language>
+    <Language>de-DE</Language>
+    <Language>en-GB</Language>
+    <Language>es-ES</Language>
+    <Language>es-MX</Language>
+    <Language>fi-FI</Language>
+    <Language>fr-CA</Language>
+    <Language>fr-FR</Language>
+    <Language>it-IT</Language>
+    <Language>ja-JP</Language>
+    <Language>ko-KR</Language>
+    <Language>nb-NO</Language>
+    <Language>nl-NL</Language>
+    <Language>pl-PL</Language>
+    <Language>pt-PT</Language>
+    <Language>ru-RU</Language>
+    <Language>sv-SE</Language>
+    <Language>th-TH</Language>
+    <Language>zh-CN</Language>
+    <Language>zh-TW</Language>
   </Languages>
   <AdditionalFMs>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WindowsCoreProductionFM.xml</AdditionalFM>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WindowsCoreNonProductionFM.xml</AdditionalFM>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WindowsCoreInternalOnlyFM.xml</AdditionalFM>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCAppsFM.xml</AdditionalFM>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCSelfhostFM.xml</AdditionalFM>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCNonProductionFM.xml</AdditionalFM>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WCOSCDGFM.xml</AdditionalFM>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\MobileDeviceSpaceFM.xml</AdditionalFM>
-    <AdditionalFM>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\CitymanDeviceFM.xml</AdditionalFM>
+    <!-- Microsoft -->
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WindowsCoreProductionFM.xml</AdditionalFM>
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WindowsCoreNonProductionFM.xml</AdditionalFM>
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WindowsCoreInternalOnlyFM.xml</AdditionalFM>
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCAppsFM.xml</AdditionalFM>
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCSelfhostFM.xml</AdditionalFM>
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\ModernPCNonProductionFM.xml</AdditionalFM>
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\WCOSCDGFM.xml</AdditionalFM>
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\MobileDeviceSpaceFM.xml</AdditionalFM>
+    <!-- OEM -->
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\OEM\CitymanDeviceFM.xml</AdditionalFM>
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\OEM\CitymanDeviceDriversFM.xml</AdditionalFM>
+    <AdditionalFM>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\FMs\OEM\MicrosoftMobileDeviceAppsFM.xml</AdditionalFM>
   </AdditionalFMs>
-  <MachineInfoFile>C:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\machineinfo.cityman.xml</MachineInfoFile>
+  <MachineInfoFile>E:\10.0.20279.1002.fe_release_10x.201214-1532_arm64fre_26ce5ebdeaad\machineinfo.cityman.xml</MachineInfoFile>
   <Features>
     <Microsoft>
       <Feature>ALLOW_CONNECTEDSTANDBY</Feature>

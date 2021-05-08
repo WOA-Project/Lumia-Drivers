@@ -11,6 +11,6 @@
       cd "C:\Program Files (x86)\Windows Kits\10\tools\bin\i386"
       c:
 
-      mkdir %DIR%\Image_%dtStamp%_Cityman
+      mkdir "%DIR%\Image_%dtStamp%_Cityman"
       imggen "%DIR%\Image_%dtStamp%_Cityman\Flash.vhd" "%DIR%\OEMInput.Cityman.xml" "%DIR%" ARM64
       cd %DIR%
