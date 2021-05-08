@@ -1,5 +1,5 @@
 ﻿## Lumia Drivers BSP - Version 2105.1
-**Released:** 05/03/2021 12:00 PM UTC+2
+**Released:** 05/08/2021 11:00 PM UTC+2
 
 **Quality:** Preview
 
@@ -20,28 +20,34 @@ ________________________________________________________________________________
 
 Changelog
 
+- [ADDED] You can now get the unique ICan0 GUID value from the registry. For more information, see https://t.me/LumiaWOA_Announcements/259
+
 - You can now disable double tap to wake in the settings app.
-- Addresses an issue in glance where the service might stop when trying to initialize the InteropRPC interface (COREBSPNT #124)
+- General refactoring
 - Adds Icaros ESP camera drivers to the tree, replacing the previous stubs (COREBSPNT #104)
+- General improvements to the Lattice UC120 driver (N/A)
+- Implements keypad support to the digitizer driver (COREBSPNT #126)
+- Changes default settings for glance screen to not show the background by default (COREBSPNT #130)
+- Adds ARM32 specific definition files for ARMv8.0 devices that only had ARM64 before (COREBSPNT #123)
+- Split mobile bridge into sub services (COREBSPNT #102/103, GH #22/#12)
+- Modularized Services for cellular, audio, sensors, and panel.
+
+- Fixed 2 crash issues with the GPU driver and Camera AV Stream driver
+
+- Addresses an issue in glance where the service might stop when trying to initialize the InteropRPC interface (COREBSPNT #124)
 - Addresses an issue where the touch driver checked the wrong registry name for double tap to wake (COREBSPNT #126)
 - Addresses an issue where the touch settings app could not change the registry value for double tap to wake (COREBSPNT #126)
 - Addresses an issue where some HID collections for the touch driver were not properly registered with the operating system (COREBSPNT #127)
 - Addresses an issue where some drivers did not properly respect the DIRID 13 specification (still WIP across the tree) (COREBSPNT #102/103, GH #22/#12)
-- General improvements to the Lattice UC120 driver (N/A)
 - Addresses an issue where the phone might not register properly cable/charging events (COREBSPNT #128)
 - Addresses an issue where charging might be slow when plugging some charger types (COREBSPNT #128)
 - Addresses an issue where Cortana Activation did not work (COREBSPNT #125)
 - Addresses an issue where connected standby would not register properly due to a non PoFx registered device (digitizer power), replaces the previously stubbed driver with a proper implementation (COREBSPNT #126)
 - Addresses an issue where some devices like hapanero had broken touch with recent touch driver updates (COREBSPNT #126)
-- Implements keypad support to the digitizer driver (COREBSPNT #126)
 - Addresses an issue with broken audio on 8994/2 (COREBSPNT #129)
 - Addresses an issue with broken OEMPanel settings on 8994/2 (COREBSPNT #129)
-- Changes default settings for glance screen to not show the background by default (COREBSPNT #130)
 - Addresses an issue where MTP might have been broken with recent updates (COREBSPNT #131)
 - Addresses an issue where the icon for MTP was broken (COREBSPNT #131)
-- Adds ARM32 specific definition files for ARMv8.0 devices that only had ARM64 before (COREBSPNT #123)
-- Split mobile bridge into sub services (COREBSPNT #102/103, GH #22/#12)
-- Fixed 2 crash issues with the GPU driver and Camera AV Stream driver
 - Addresses an issue with ARM32 UWP apps not rendering properly
 - Addresses an issue with ColorProfile switching from action center puts invalid values in registry, breaking the settings app
 - Addresses an issue with Installation might fail with driverupdater when updating an already running system
@@ -54,8 +60,6 @@ Changelog
 - Addresses an issue with DPI not changing
 - Addresses an issue with Camcore not installing
 - Addresses an issue with powersettings not applying
-- General refactoring
-- Modularized Services for cellular audio and misc.
 - Addresses an issue with Conntected Standby
 - Addresses an issue with Alarms not functioning properly in standby
 - Addresses an issue with Cellular on old builds
@@ -115,26 +119,26 @@ General software defects
 - MTP may fail to start if the device is plugged a second time, stop the NcsdService to fix the issue via task manager
 - Dual SIM devices are unsupported for Cellular, do not expect cellular to work properly on these
 - DirectX is unavailable for x86 and amd64 applications
-- No VoLTE
-- No VoWiFi
-- No Cellular data sharing
-- Phone Calls require manual provisioning by the user on builds higher than 18363
-- Text messages are unavailable on builds higher then 18363
 - Microphone level under Settings is stuck at 50%
 - Phone may not boot reliably or have random reboots when the battery falls below 50% on certain devices, if all cores are enabled.
   As a workaround, you can run "bcdedit /set numproc 4" to disable the second core cluster
 
+- No VoLTE
+- No VoWiFi
+- No Cellular data sharing
+- Phone Calls require manual provisioning by the user on builds higher than 18908
+- Text messages are unavailable on builds higher then 18908
 - Some users might end up being unable to send texts on build 18908 and lower. To address this issue, open regedit on
   the device, go to HKLM\SOFTWARE\Microsoft\Messaging\IMEISpecific (or IMSISpecific), right click, go to security
   Tap advanced, tap change owner, in the dialog that opens, enter "Everyone" (without the quotes), tap check names
   press ok, press ok. Tap ALL APPLICATION PACKAGES, select 'full control', do the same for other listed accounts (optionally)
   Apply, and close regedit.
+- An APN might be required to specify for some users in order to get cellular data working.
 
-- Cellular is unavailable on builds lower than 16362.
-- Some drivers and mainly sensors will not be working on RS3, RS4 and/or RS5. Might vary depending on patch level.
-- An APN might be required to specify for some user in order to get cellular data working.
+- Cellular is unavailable on builds lower than 17672.
+- Some drivers and mainly sensors will not be working on RS3 (16299).
 
-Current issues with glance screen:
+- Current issues with glance screen:
 
 When the glance screen times out after the time specified there's a chance the screen won't turn off, this is still needing investigation but the issue can only be two things:
 — either the device got out of S0ix and is sleeping at a lower level, because wifi is not connected for example, as a result the glance service is unable to take actions, this is a problem
@@ -159,16 +163,14 @@ Deprecation notice
 - Support for Build 18363 has ended, we cannot guarentee anymore that things will continue to work due to ongoing testing being halted.
   18363 and lower are over 3 years old. Please upgrade to 19041 or higher.
 
-- Build 17763 is deprecated and will not boot successfully anymore [<= 18363 is deprecated, see above]
-- Volume / Audio switching is broken on 18363 [Won't fix, <= 18363 is deprecated, see above]
-- Night light is broken on 18363 [Won't fix, <= 18363 is deprecated, see above]
+- Night light is broken on 18363 and lower [Won't fix, <= 18363 is deprecated, see above]
 
 ____________________________________________________________________________________________________________________________
 
 
 Windows 10 software defects
 
-- Applications do not get installed if the user reboots the device on first boot before completion.
+- Applications do not get installed if the user reboots the device on first boot before completion or if the date and time settings are incorrect during OOBE (Out Of Box Experience).
   As a workaround, find the "Second Party Application Provisioner" application in the start menu, right click, run as administrator
 - System reset is not supported
 - First boot can have bad thermal performance due to Windows initial app installation.
