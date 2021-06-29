@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FeatureManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Revision="1" SchemaVersion="1.3" ReleaseType="Production" OwnerType="OEM" ID="MODERNPCTALDEV" BuildInfo="fe_release_10x.20279.1002.201214-1532" BuildID="42bb36b7-9aee-f77e-289a-158efbe711a3" OwnerName="OEM" OSVersion="10.0.20279.1002" xmlns="http://schemas.microsoft.com/embedded/2004/10/ImageUpdate">
+  <BasePackages>
+    <!-- Enable Rotation support -->
+    <PackageFile Path="$(mspackageroot)\Retail\$(cputype)\$(buildtype)" ID="Microsoft-Composable-ModernUX-SystemSupportedOrientations-All-Package" />
+    <!-- Binary Packages -->
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-DBI-Package" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-HYP-Package" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-PMIC-Package" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-RPM-Package" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-SBL1-Package" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-TZ-Package" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-TZAPPS-Package" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-UEFI-Package" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-WINSECAPP-Package" />
+    <!-- Non Binary Packages -->
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-ARM_EFIESP-Package" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" ID="Microsoft-OneCore-Talkman-PLAT-Package" />
+    <!-- FIP -->
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" Name="Microsoft.ModernPC.TalkmanDeviceFM~31bf3856ad364e35~ARM64~~.cab" FeatureIdentifierPackage="true" ID="Microsoft.ModernPC.TalkmanDeviceFM" />
+  </BasePackages>
+  <OEMDevicePlatformPackages>
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" FeatureIdentifierPackage="true" ID="Microsoft-OneCore-Talkman-DevicePlatform-Package" Device="Talkman" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" Name="Microsoft.ModernPC.OEMDEVICEPLATFORM_TALKMAN.MODERNPCTALDEV.FIP~31bf3856ad364e35~ARM64~~.cab" ID="Microsoft.ModernPC.OEMDEVICEPLATFORM_TALKMAN.MODERNPCTALDEV.FIP" Device="Talkman" />
+  </OEMDevicePlatformPackages>
+  <DeviceLayoutPackages>
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" FeatureIdentifierPackage="true" ID="Microsoft-OneCore-Talkman-SpaceDeviceLayout-Package" SOC="TALKMAN_SPACES" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" FeatureIdentifierPackage="true" ID="Microsoft-OneCore-Talkman-LegacyDeviceLayout-Package" SOC="TALKMAN_LEGACY" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" Name="Microsoft.ModernPC.DEVICELAYOUT_TALKMAN_SPACES.MODERNPCTALDEV.FIP~31bf3856ad364e35~ARM64~~.cab" ID="Microsoft.ModernPC.DEVICELAYOUT_TALKMAN.MODERNPCTALDEV.FIP" SOC="TALKMAN_SPACES" />
+    <PackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)" Name="Microsoft.ModernPC.DEVICELAYOUT_TALKMAN_LEGACY.MODERNPCTALDEV.FIP~31bf3856ad364e35~ARM64~~.cab" ID="Microsoft.ModernPC.DEVICELAYOUT_TALKMAN.MODERNPCTALDEV.FIP" SOC="TALKMAN_LEGACY" />
+  </DeviceLayoutPackages>
+</FeatureManifest>
