@@ -12,13 +12,6 @@
       <OOBE>
         <HideWirelessSetupInOOBE>false</HideWirelessSetupInOOBE>
       </OOBE>
-      <Themes>
-        <ThemeName>Windows Dark Theme</ThemeName>
-        <WindowColor>0xFF0078D4</WindowColor>
-        <DefaultThemesOff>false</DefaultThemesOff>
-        <DesktopBackground>C:\Windows\OEM\Wallpaper.png</DesktopBackground>
-        <UWPAppsUseLightTheme>false</UWPAppsUseLightTheme>
-      </Themes>
     </component>
     <component name="Microsoft-Windows-Deployment" processorArchitecture="ARM" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <DeviceForm>1</DeviceForm>
@@ -52,5 +45,5 @@
       <DeviceForm>1</DeviceForm>
     </component>
   </settings>
-  <cpi:offlineImage cpi:source="wim:d:/image/sources/install.wim#Windows 10 Pro" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
+  <cpi:offlineImage cpi:source="wim:d:/image/sources/install.wim#Windows 11 Pro" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>

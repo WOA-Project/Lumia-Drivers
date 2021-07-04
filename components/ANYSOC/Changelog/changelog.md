@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2105.1
-**Released:** 05/08/2021 11:00 PM UTC+2
+﻿## Lumia Drivers BSP - Version 2107.12
+**Released:** 07/04/2021 11:00 PM UTC+1
 
 **Quality:** Preview
 
@@ -20,49 +20,10 @@ ________________________________________________________________________________
 
 Changelog
 
-- [ADDED] You can now get the unique ICan0 GUID value from the registry. For more information, see https://t.me/LumiaWOA_Announcements/259
-
-- You can now disable double tap to wake in the settings app.
-- General refactoring
-- Adds Icaros ESP camera drivers to the tree, replacing the previous stubs (COREBSPNT #104)
-- General improvements to the Lattice UC120 driver (N/A)
-- Implements keypad support to the digitizer driver (COREBSPNT #126)
-- Changes default settings for glance screen to not show the background by default (COREBSPNT #130)
-- Adds ARM32 specific definition files for ARMv8.0 devices that only had ARM64 before (COREBSPNT #123)
-- Split mobile bridge into sub services (COREBSPNT #102/103, GH #22/#12)
-- Modularized Services for cellular, audio, sensors, and panel.
-
-- Fixed 2 crash issues with the GPU driver and Camera AV Stream driver
-
-- Addresses an issue in glance where the service might stop when trying to initialize the InteropRPC interface (COREBSPNT #124)
-- Addresses an issue where the touch driver checked the wrong registry name for double tap to wake (COREBSPNT #126)
-- Addresses an issue where the touch settings app could not change the registry value for double tap to wake (COREBSPNT #126)
-- Addresses an issue where some HID collections for the touch driver were not properly registered with the operating system (COREBSPNT #127)
-- Addresses an issue where some drivers did not properly respect the DIRID 13 specification (still WIP across the tree) (COREBSPNT #102/103, GH #22/#12)
-- Addresses an issue where the phone might not register properly cable/charging events (COREBSPNT #128)
-- Addresses an issue where charging might be slow when plugging some charger types (COREBSPNT #128)
-- Addresses an issue where Cortana Activation did not work (COREBSPNT #125)
-- Addresses an issue where connected standby would not register properly due to a non PoFx registered device (digitizer power), replaces the previously stubbed driver with a proper implementation (COREBSPNT #126)
-- Addresses an issue where some devices like hapanero had broken touch with recent touch driver updates (COREBSPNT #126)
-- Addresses an issue with broken audio on 8994/2 (COREBSPNT #129)
-- Addresses an issue with broken OEMPanel settings on 8994/2 (COREBSPNT #129)
-- Addresses an issue where MTP might have been broken with recent updates (COREBSPNT #131)
-- Addresses an issue where the icon for MTP was broken (COREBSPNT #131)
-- Addresses an issue with ARM32 UWP apps not rendering properly
-- Addresses an issue with ColorProfile switching from action center puts invalid values in registry, breaking the settings app
-- Addresses an issue with Installation might fail with driverupdater when updating an already running system
-- Addresses an issue with Audio driver might install bootloop on newer builds
-- Addresses an issue with USBFN not working as it should
-- Addresses an issue with Touch settings app having an empty section
-- Addresses an issue with newer insider builds looping during install
-- Addresses an issue with NFC
-- Addresses an issue with ColorProfile toggle being grayed out (it's smart enough now so this shouldn't happen ever again)
-- Addresses an issue with DPI not changing
-- Addresses an issue with Camcore not installing
-- Addresses an issue with powersettings not applying
-- Addresses an issue with Conntected Standby
-- Addresses an issue with Alarms not functioning properly in standby
-- Addresses an issue with Cellular on old builds
+- FactoryOS (22000.1) support
+- General updates to built in applications for Windows 11
+- Removes custom theme on clean installs
+- Addresses an issue with the Dialer application on Windows 11
 
 ____________________________________________________________________________________________________________________________
 
