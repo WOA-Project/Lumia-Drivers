@@ -6,7 +6,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 03/14/2021,1.0.0.11
+DriverVer   = 08/13/2021,1.0.0.12
 PnpLockdown = 1
 
 CatalogFile.NTARM   = MobileAutoRotationService.arm.cat
