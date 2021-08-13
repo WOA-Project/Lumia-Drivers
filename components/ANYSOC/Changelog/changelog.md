@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2108.42 (Prussian Blue)
-**Released:** 08/13/2021 10:00 AM UTC+1
+﻿## Lumia Drivers BSP - Version 2108.44 (Prussian Blue)
+**Released:** 08/13/2021 06:00 PM UTC+1
 
 **Quality:** Preview
 
@@ -20,28 +20,11 @@ ________________________________________________________________________________
 
 Changelog
 
-- Updated Processor Power Management Profiles for MSM8994 (Critical)
+- Updated Mobile Ambient Light Service and Mobile Automatic Rotation Service (Critical)
 
-  Processor should behave better, wrong profiles accidentally made their way in a commit some time ago
-  and the issue just got noticed.
-
-- Updated Dialer
-
-- Updated Chat
-
-- Updated Advanced Info
-
-- Updated Glance Screen Settings
-
-- Updated Gestures & Touch Settings
-
-- Updated Color Profile Settings
-
-- Updated Vibration Settings
-
-- Updated Phone Tips
-
-- Updated USB Function Switcher Settings
+  Both services were locking up the device sensors preventing the device from going into Modern Standby states
+  
+  Battery life, thermals, and responsiveness should be improved as a result of this update while the device sleeps.
 
 ____________________________________________________________________________________________________________________________
 
