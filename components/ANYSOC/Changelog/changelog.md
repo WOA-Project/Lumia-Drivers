@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2107.12
-**Released:** 07/04/2021 11:00 PM UTC+1
+﻿## Lumia Drivers BSP - Version 2108.42 (Prussian Blue)
+**Released:** 08/13/2021 10:00 AM UTC+1
 
 **Quality:** Preview
 
@@ -20,10 +20,28 @@ ________________________________________________________________________________
 
 Changelog
 
-- FactoryOS (22000.1) support
-- General updates to built in applications for Windows 11
-- Removes custom theme on clean installs
-- Addresses an issue with the Dialer application on Windows 11
+- Updated Processor Power Management Profiles for MSM8994 (Critical)
+
+  Processor should behave better, wrong profiles accidentally made their way in a commit some time ago
+  and the issue just got noticed.
+
+- Updated Dialer
+
+- Updated Chat
+
+- Updated Advanced Info
+
+- Updated Glance Screen Settings
+
+- Updated Gestures & Touch Settings
+
+- Updated Color Profile Settings
+
+- Updated Vibration Settings
+
+- Updated Phone Tips
+
+- Updated USB Function Switcher Settings
 
 ____________________________________________________________________________________________________________________________
 

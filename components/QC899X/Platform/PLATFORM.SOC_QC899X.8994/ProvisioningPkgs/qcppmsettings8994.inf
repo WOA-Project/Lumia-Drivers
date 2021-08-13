@@ -6,7 +6,7 @@ Signature   = "$Windows NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QCOM%
-DriverVer   = 03/18/2021,1.0.1067.0000
+DriverVer   = 03/18/2021,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = qcppmsettings8994.arm.cat
@@ -19,11 +19,8 @@ qcppmsettings.Files.NTarm = 10,Provisioning\Packages
 [SourceDisksNames]
 0 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-PPMSettings-8994Profiles.ppkg = 0,arm,
-
-[SourceDisksFiles.ARM64]
-PPMSettings-8994Profiles.ppkg = 0,arm64,
+[SourceDisksFiles]
+PPMSettings-8994Profiles.ppkg = 0,,
 
 ;*****************************************
 ; PPMSettings  Install Section
