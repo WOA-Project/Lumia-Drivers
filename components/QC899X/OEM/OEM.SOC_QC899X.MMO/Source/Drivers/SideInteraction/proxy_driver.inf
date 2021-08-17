@@ -6,47 +6,82 @@ Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGUID   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
-DriverVer   = 03/18/2021,6.25.57.445
-CatalogFile = proxy_driver.cat
+DriverVer   = 08/17/2021,15.20.6.0777
 PnpLockdown = 1
 
+CatalogFile.NTarm   = proxy_driver.arm.cat
+CatalogFile.NTarm64 = proxy_driver.arm64.cat
+
 [DestinationDirs]
-DefaultDestDir = 13
+GripProxy_Inst.NTarm.CopyFiles   = 13,arm
+GripProxy_Inst.NTarm64.CopyFiles = 13,arm64
 
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
 
-[SourceDisksFiles]
-proxy_driver.sys  = 1,,
+[SourceDisksFiles.ARM]
+proxy_driver.sys  = 1,arm,
+
+[SourceDisksFiles.ARM64]
+proxy_driver.sys  = 1,arm64,
 
 [Manufacturer]
-%COMP% = Standard,NTarm64
+%COMP% = Standard,NTarm,NTarm64
+
+[Standard.NTarm]
+%GripProxy.DeviceDesc% = GripProxy_Inst.NTarm, Root\GripProxy
 
 [Standard.NTarm64]
-%GripProxy.DeviceDesc% = GripProxy_Inst.NT, Root\GripProxy
+%GripProxy.DeviceDesc% = GripProxy_Inst.NTarm64, Root\GripProxy
 
 ;*****************************************
 ; TchDriver client driver Install Section
 ;*****************************************
 
-[GripProxy_Inst.NT]
-CopyFiles = GripProxy_Inst.NT.CopyFiles
+[GripProxy_Inst.NTarm]
+CopyFiles = GripProxy_Inst.NTarm.CopyFiles
 
-[GripProxy_Inst.NT.CopyFiles]
+[GripProxy_Inst.NTarm64]
+CopyFiles = GripProxy_Inst.NTarm64.CopyFiles
+
+[GripProxy_Inst.NTarm.HW]
+AddReg = GripProxy_SecurityAddReg
+
+[GripProxy_Inst.NTarm64.HW]
+AddReg = GripProxy_SecurityAddReg
+
+[GripProxy_Inst.NTarm.CopyFiles]
 proxy_driver.sys
 
+[GripProxy_Inst.NTarm64.CopyFiles]
+proxy_driver.sys
+
+[GripProxy_SecurityAddReg]
+; FILE_DEVICE_SECURE_OPEN
+HKR,,DeviceCharacteristics,0x10001,0x100
+HKR,, Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;UD)(A;;GA;;;AU)(A;;GA;;;AC)(A;;GA;;;WD)"    ; Allow everyone to access this driver
+
 ;-------------- Service installation
-[GripProxy_Inst.NT.Services]
-AddService = GripProxy, %SPSVCINST_ASSOCSERVICE%, GripProxy_Inst_Service_Inst
+[GripProxy_Inst.NTarm.Services]
+AddService = GripProxy, %SPSVCINST_ASSOCSERVICE%, GripProxy_arm_Inst_Service_Inst
+
+[GripProxy_Inst.NTarm64.Services]
+AddService = GripProxy, %SPSVCINST_ASSOCSERVICE%, GripProxy_arm64_Inst_Service_Inst
 
 ; ------------- TchDriver driver install section
-[GripProxy_Inst_Service_Inst]
+[GripProxy_arm_Inst_Service_Inst]
 DisplayName    = %GripProxy.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_DEMAND_START%
+StartType      = %SERVICE_SYSTEM_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\proxy_driver.sys
-LoadOrderGroup = Base
+ServiceBinary  = %13%\arm\proxy_driver.sys
+
+[GripProxy_arm64_Inst_Service_Inst]
+DisplayName    = %GripProxy.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_SYSTEM_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm64\proxy_driver.sys
 
 ; ------------- Strings section
 [Strings]

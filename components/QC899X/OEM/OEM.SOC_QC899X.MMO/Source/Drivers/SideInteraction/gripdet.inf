@@ -7,185 +7,211 @@ Class       = Sensor
 ClassGUID   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
 DriverVer   = 03/18/2021,6.25.57.445
-CatalogFile = gripdet.cat
 PnpLockdown = 1
 
+CatalogFile.NTarm   = gripdet.arm.cat
+CatalogFile.NTarm64 = gripdet.arm64.cat
+
 [DestinationDirs]
-DefaultDestDir = 13
+TchDriver_Device.NTarm.CopyFiles   = 13,arm
+TchDriver_Device.NTarm64.CopyFiles = 13,arm64
 
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
 
-[SourceDisksFiles]
-gripdet.sys  = 1,,
+[SourceDisksFiles.ARM]
+gripdet.sys  = 1,arm,
+
+[SourceDisksFiles.ARM64]
+gripdet.sys  = 1,arm64,
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTarm64
+%ManufacturerName% = Standard,NTarm,NTarm64
+
+[Standard.NTarm]
+%TchDriver_Device_Desc% = TchDriver_Device.NTarm, ACPI\MSHW100F
 
 [Standard.NTarm64]
-%TchDriver_Device_Desc% = TchDriver_Device.NT, ACPI\MSHW100F
+%TchDriver_Device_Desc% = TchDriver_Device.NTarm64, ACPI\MSHW100F
 
 ;*****************************************
 ; TchDriver client driver Install Section
 ;*****************************************
 
-[TchDriver_Device.NT]
-CopyFiles = TchDriver_Device.NT.CopyFiles
+[TchDriver_Device.NTarm]
+CopyFiles = TchDriver_Device.NTarm.CopyFiles
 
-[TchDriver_Device.NT.CopyFiles]
-gripdet.sys
+[TchDriver_Device.NTarm64]
+CopyFiles = TchDriver_Device.NTarm64.CopyFiles
 
-[TchDriver_Device.NT.HW]
-AddReg = TchDriver_Device.NT.HW.AddReg
+[TchDriver_Device.NTarm.CopyFiles]
+gripdet.sys,,,0x100
 
-[TchDriver_Device.NT.HW.AddReg]
-HKR,,"Device_l", 0x10001, 0x65C
-HKR,,"Device_t", 0x10001, 0x57
-HKR,,"Device_w", 0x10001, 0x356
-HKR,,"Display_l", 0x10001, 0x532
-HKR,,"Display_w", 0x10001, 0x2EE
-HKR,,"Display_x", 0x10001, 0x34
-HKR,,"Display_y", 0x10001, 0x9B
-HKR,,"EnhancedPowerManagementEnabled", 0x10001, 0x0
-HKR,,"EnhancedPowerManagementUseMonitor", 0x10001, 0x0
-HKR,,"MultiportDevice", 0x10001, 0x0
-HKR,,"s00_l", 0x10001, 0xDC
-HKR,,"s00_t", 0x10001, 0x1
-HKR,,"s00_w", 0x10001, 0xA
-HKR,,"s00_x", 0x10001, 0x352
-HKR,,"s00_y", 0x10001, 0x109
-HKR,,"s00_z", 0x10001, 0x57
-HKR,,"s01_l", 0x10001, 0x82
-HKR,,"s01_t", 0x10001, 0x1
-HKR,,"s01_w", 0x10001, 0xA
-HKR,,"s01_x", 0x10001, 0x352
-HKR,,"s01_y", 0x10001, 0x21C
-HKR,,"s01_z", 0x10001, 0x57
-HKR,,"s02_l", 0x10001, 0x82
-HKR,,"s02_t", 0x10001, 0x1
-HKR,,"s02_w", 0x10001, 0xA
-HKR,,"s02_x", 0x10001, 0x352
-HKR,,"s02_y", 0x10001, 0x40B
-HKR,,"s02_z", 0x10001, 0x57
-HKR,,"s03_l", 0x10001, 0xDC
-HKR,,"s03_t", 0x10001, 0x1
-HKR,,"s03_w", 0x10001, 0xA
-HKR,,"s03_x", 0x10001, 0x352
-HKR,,"s03_y", 0x10001, 0x51E
-HKR,,"s03_z", 0x10001, 0x57
-HKR,,"s04_l", 0x10001, 0xDC
-HKR,,"s04_t", 0x10001, 0x1
-HKR,,"s04_w", 0x10001, 0xA
-HKR,,"s04_x", 0x10001, 0x4
-HKR,,"s04_y", 0x10001, 0x109
-HKR,,"s04_z", 0x10001, 0x57
-HKR,,"s05_l", 0x10001, 0x82
-HKR,,"s05_t", 0x10001, 0x1
-HKR,,"s05_w", 0x10001, 0xA
-HKR,,"s05_x", 0x10001, 0x4
-HKR,,"s05_y", 0x10001, 0x21C
-HKR,,"s05_z", 0x10001, 0x57
-HKR,,"s06_l", 0x10001, 0x82
-HKR,,"s06_t", 0x10001, 0x1
-HKR,,"s06_w", 0x10001, 0xA
-HKR,,"s06_x", 0x10001, 0x4
-HKR,,"s06_y", 0x10001, 0x40B
-HKR,,"s06_z", 0x10001, 0x57
-HKR,,"s07_l", 0x10001, 0xDC
-HKR,,"s07_t", 0x10001, 0x1
-HKR,,"s07_w", 0x10001, 0xA
-HKR,,"s07_x", 0x10001, 0x4
-HKR,,"s07_y", 0x10001, 0x51E
-HKR,,"s07_z", 0x10001, 0x57
+[TchDriver_Device.NTarm64.CopyFiles]
+gripdet.sys,,,0x100
 
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "BufferSize", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "ClockType", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "FileMax", 0x10001, 0x4
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "FlushTimer", 0x10001, 0x5
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "GUID", 0x0, "{9208BAEF-D481-460F-B9D9-104BEE07E0CA}"
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "LogFileMode", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "MaxFileSize", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "MaximumBuffers", 0x10001, 0x2A
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "MinimumBuffers", 0x10001, 0x4
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "Start", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "Status", 0x10001, 0x0
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "Enabled", 0x10001, 0x1
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "EnableLevel", 0x10001, 0x5
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "MatchAnyKeyword", 0x10001, 0x0
-HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "Status", 0x10001, 0x0
+[TchDriver_Device.NTarm.HW]
+AddReg = FilterInst.NT.HW.AddReg
+AddReg = PowerConfig.NT.HW.AddReg
+AddReg = SensorPlacement.NT.HW.AddReg
 
-HKLM, "System\SIDEINTERACTION", "AUTO", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION", "DIFF", 0x10001, 0x2
-HKLM, "System\SIDEINTERACTION", "FULL", 0x10001, 0x0
-HKLM, "System\SIDEINTERACTION", "GAIN", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION", "MAX", 0x10001, 0x8000
-HKLM, "System\SIDEINTERACTION", "OFFSET", 0x10001, 0x0
-HKLM, "System\SIDEINTERACTION", "SENSORS", 0x10001, 0x8
+[TchDriver_Device.NTarm64.HW]
+AddReg = FilterInst.NT.HW.AddReg
+AddReg = PowerConfig.NT.HW.AddReg
+AddReg = SensorPlacement.NT.HW.AddReg
 
-HKLM, "System\SIDEINTERACTION\BIST", "DIFF", 0x10001, 0x282
-HKLM, "System\SIDEINTERACTION\BIST", "LOWER", 0x10001, 0x1388
-HKLM, "System\SIDEINTERACTION\BIST", "SHORT", 0x10001, 0x64
-HKLM, "System\SIDEINTERACTION\BIST", "UPPER", 0x10001, 0x4268
+;Enable AutoLogger
+AddReg = Autologger.NT.HW.AddReg    
 
-HKLM, "System\SIDEINTERACTION\CIN", "0", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\CIN", "1", 0x10001, 0x2
-HKLM, "System\SIDEINTERACTION\CIN", "10", 0x10001, 0xFFFFFFFF
-HKLM, "System\SIDEINTERACTION\CIN", "11", 0x10001, 0xFFFFFFFF
-HKLM, "System\SIDEINTERACTION\CIN", "2", 0x10001, 0x7
-HKLM, "System\SIDEINTERACTION\CIN", "3", 0x10001, 0x8
-HKLM, "System\SIDEINTERACTION\CIN", "4", 0x10001, 0x4
-HKLM, "System\SIDEINTERACTION\CIN", "5", 0x10001, 0x3
-HKLM, "System\SIDEINTERACTION\CIN", "6", 0x10001, 0xA
-HKLM, "System\SIDEINTERACTION\CIN", "7", 0x10001, 0x9
-HKLM, "System\SIDEINTERACTION\CIN", "8", 0x10001, 0xB
-HKLM, "System\SIDEINTERACTION\CIN", "9", 0x10001, 0x6
+[FilterInst.NT.HW.AddReg]
+HKR,,"UpperFilters",    %REG_MULTI_SZ%, %HIDKMDF_Service%
+HKR,,"MultiportDevice", %REG_DWORD%,    0
 
-HKLM, "System\SIDEINTERACTION\Gain", "0", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "1", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "10", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "11", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "2", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "3", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "4", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "5", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "6", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "7", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "8", 0x10001, 0x1
-HKLM, "System\SIDEINTERACTION\Gain", "9", 0x10001, 0x1
+[PowerConfig.NT.HW.AddReg]
+HKR,,"EnhancedPowerManagementEnabled",    %REG_DWORD%, 0
+HKR,,"EnhancedPowerManagementUseMonitor", %REG_DWORD%, 0
 
-HKLM, "System\SIDEINTERACTION\Offset", "0", 0x10001, 0x1797
-HKLM, "System\SIDEINTERACTION\Offset", "1", 0x10001, 0x1999
-HKLM, "System\SIDEINTERACTION\Offset", "10", 0x10001, 0x0
-HKLM, "System\SIDEINTERACTION\Offset", "11", 0x10001, 0x0
-HKLM, "System\SIDEINTERACTION\Offset", "2", 0x10001, 0x1D9D
-HKLM, "System\SIDEINTERACTION\Offset", "3", 0x10001, 0x1F9F
-HKLM, "System\SIDEINTERACTION\Offset", "4", 0x10001, 0x1697
-HKLM, "System\SIDEINTERACTION\Offset", "5", 0x10001, 0x1899
-HKLM, "System\SIDEINTERACTION\Offset", "6", 0x10001, 0x1D9E
-HKLM, "System\SIDEINTERACTION\Offset", "7", 0x10001, 0x28A7
-HKLM, "System\SIDEINTERACTION\Offset", "8", 0x10001, 0x1D9D
-HKLM, "System\SIDEINTERACTION\Offset", "9", 0x10001, 0x1D9D
+[SensorPlacement.NT.HW.AddReg]
+HKR,,"Device_l", %REG_DWORD%, 0x65C
+HKR,,"Device_t", %REG_DWORD%, 0x57
+HKR,,"Device_w", %REG_DWORD%, 0x356
+HKR,,"Display_l", %REG_DWORD%, 0x532
+HKR,,"Display_w", %REG_DWORD%, 0x2EE
+HKR,,"Display_x", %REG_DWORD%, 0x34
+HKR,,"Display_y", %REG_DWORD%, 0x9B
+HKR,,"s00_l", %REG_DWORD%, 0xDC
+HKR,,"s00_t", %REG_DWORD%, 0x1
+HKR,,"s00_w", %REG_DWORD%, 0xA
+HKR,,"s00_x", %REG_DWORD%, 0x352
+HKR,,"s00_y", %REG_DWORD%, 0x109
+HKR,,"s00_z", %REG_DWORD%, 0x57
+HKR,,"s01_l", %REG_DWORD%, 0x82
+HKR,,"s01_t", %REG_DWORD%, 0x1
+HKR,,"s01_w", %REG_DWORD%, 0xA
+HKR,,"s01_x", %REG_DWORD%, 0x352
+HKR,,"s01_y", %REG_DWORD%, 0x21C
+HKR,,"s01_z", %REG_DWORD%, 0x57
+HKR,,"s02_l", %REG_DWORD%, 0x82
+HKR,,"s02_t", %REG_DWORD%, 0x1
+HKR,,"s02_w", %REG_DWORD%, 0xA
+HKR,,"s02_x", %REG_DWORD%, 0x352
+HKR,,"s02_y", %REG_DWORD%, 0x40B
+HKR,,"s02_z", %REG_DWORD%, 0x57
+HKR,,"s03_l", %REG_DWORD%, 0xDC
+HKR,,"s03_t", %REG_DWORD%, 0x1
+HKR,,"s03_w", %REG_DWORD%, 0xA
+HKR,,"s03_x", %REG_DWORD%, 0x352
+HKR,,"s03_y", %REG_DWORD%, 0x51E
+HKR,,"s03_z", %REG_DWORD%, 0x57
+HKR,,"s04_l", %REG_DWORD%, 0xDC
+HKR,,"s04_t", %REG_DWORD%, 0x1
+HKR,,"s04_w", %REG_DWORD%, 0xA
+HKR,,"s04_x", %REG_DWORD%, 0x4
+HKR,,"s04_y", %REG_DWORD%, 0x109
+HKR,,"s04_z", %REG_DWORD%, 0x57
+HKR,,"s05_l", %REG_DWORD%, 0x82
+HKR,,"s05_t", %REG_DWORD%, 0x1
+HKR,,"s05_w", %REG_DWORD%, 0xA
+HKR,,"s05_x", %REG_DWORD%, 0x4
+HKR,,"s05_y", %REG_DWORD%, 0x21C
+HKR,,"s05_z", %REG_DWORD%, 0x57
+HKR,,"s06_l", %REG_DWORD%, 0x82
+HKR,,"s06_t", %REG_DWORD%, 0x1
+HKR,,"s06_w", %REG_DWORD%, 0xA
+HKR,,"s06_x", %REG_DWORD%, 0x4
+HKR,,"s06_y", %REG_DWORD%, 0x40B
+HKR,,"s06_z", %REG_DWORD%, 0x57
+HKR,,"s07_l", %REG_DWORD%, 0xDC
+HKR,,"s07_t", %REG_DWORD%, 0x1
+HKR,,"s07_w", %REG_DWORD%, 0xA
+HKR,,"s07_x", %REG_DWORD%, 0x4
+HKR,,"s07_y", %REG_DWORD%, 0x51E
+HKR,,"s07_z", %REG_DWORD%, 0x57
+
+HKLM, "System\SIDEINTERACTION", "AUTO", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION", "DIFF", %REG_DWORD%, 0x2
+HKLM, "System\SIDEINTERACTION", "FULL", %REG_DWORD%, 0x0
+HKLM, "System\SIDEINTERACTION", "GAIN", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION", "MAX", %REG_DWORD%, 0x8000
+HKLM, "System\SIDEINTERACTION", "OFFSET", %REG_DWORD%, 0x0
+HKLM, "System\SIDEINTERACTION", "SENSORS", %REG_DWORD%, 0x8
+
+HKLM, "System\SIDEINTERACTION\BIST", "DIFF", %REG_DWORD%, 0x282
+HKLM, "System\SIDEINTERACTION\BIST", "LOWER", %REG_DWORD%, 0x1388
+HKLM, "System\SIDEINTERACTION\BIST", "SHORT", %REG_DWORD%, 0x64
+HKLM, "System\SIDEINTERACTION\BIST", "UPPER", %REG_DWORD%, 0x4268
+
+HKLM, "System\SIDEINTERACTION\CIN", "0", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\CIN", "1", %REG_DWORD%, 0x2
+HKLM, "System\SIDEINTERACTION\CIN", "10", %REG_DWORD%, 0xFFFFFFFF
+HKLM, "System\SIDEINTERACTION\CIN", "11", %REG_DWORD%, 0xFFFFFFFF
+HKLM, "System\SIDEINTERACTION\CIN", "2", %REG_DWORD%, 0x7
+HKLM, "System\SIDEINTERACTION\CIN", "3", %REG_DWORD%, 0x8
+HKLM, "System\SIDEINTERACTION\CIN", "4", %REG_DWORD%, 0x4
+HKLM, "System\SIDEINTERACTION\CIN", "5", %REG_DWORD%, 0x3
+HKLM, "System\SIDEINTERACTION\CIN", "6", %REG_DWORD%, 0xA
+HKLM, "System\SIDEINTERACTION\CIN", "7", %REG_DWORD%, 0x9
+HKLM, "System\SIDEINTERACTION\CIN", "8", %REG_DWORD%, 0xB
+HKLM, "System\SIDEINTERACTION\CIN", "9", %REG_DWORD%, 0x6
+
+HKLM, "System\SIDEINTERACTION\Gain", "0", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "1", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "10", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "11", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "2", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "3", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "4", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "5", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "6", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "7", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "8", %REG_DWORD%, 0x1
+HKLM, "System\SIDEINTERACTION\Gain", "9", %REG_DWORD%, 0x1
+
+HKLM, "System\SIDEINTERACTION\Offset", "0", %REG_DWORD%, 0x1797
+HKLM, "System\SIDEINTERACTION\Offset", "1", %REG_DWORD%, 0x1999
+HKLM, "System\SIDEINTERACTION\Offset", "10", %REG_DWORD%, 0x0
+HKLM, "System\SIDEINTERACTION\Offset", "11", %REG_DWORD%, 0x0
+HKLM, "System\SIDEINTERACTION\Offset", "2", %REG_DWORD%, 0x1D9D
+HKLM, "System\SIDEINTERACTION\Offset", "3", %REG_DWORD%, 0x1F9F
+HKLM, "System\SIDEINTERACTION\Offset", "4", %REG_DWORD%, 0x1697
+HKLM, "System\SIDEINTERACTION\Offset", "5", %REG_DWORD%, 0x1899
+HKLM, "System\SIDEINTERACTION\Offset", "6", %REG_DWORD%, 0x1D9E
+HKLM, "System\SIDEINTERACTION\Offset", "7", %REG_DWORD%, 0x28A7
+HKLM, "System\SIDEINTERACTION\Offset", "8", %REG_DWORD%, 0x1D9D
+HKLM, "System\SIDEINTERACTION\Offset", "9", %REG_DWORD%, 0x1D9D
 
 ;-------------- Service installation
-[TchDriver_Device.NT.Services]
-AddService = Grip Detection, %SPSVCINST_ASSOCSERVICE%, TchDriver_Service_Inst
+[TchDriver_Device.NTarm.Services]
+AddService = Grip Detection, %SPSVCINST_ASSOCSERVICE%, TchDriver_arm_Service_Inst
+
+[TchDriver_Device.NTarm64.Services]
+AddService = Grip Detection, %SPSVCINST_ASSOCSERVICE%, TchDriver_arm64_Service_Inst
 
 ; ------------- TchDriver driver install section
-[TchDriver_Service_Inst]
+[TchDriver_arm_Service_Inst]
 DisplayName    = %TchDriver_Service_Desc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\gripdet.sys
+ServiceBinary  = %13%\arm\gripdet.sys
+LoadOrderGroup = Base
+
+[TchDriver_arm64_Service_Inst]
+DisplayName    = %TchDriver_Service_Desc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\arm64\gripdet.sys
 LoadOrderGroup = Base
 
 ; ------------- Strings section
 [Strings]
 VendorName              = "MMO"
 ManufacturerName        = "Analog Devices"
-Installation_Disk       = "Analog Devices CapTouch Programmable Controller (AD7147) Installation Disk"
-TchDriver_Device_Desc   = "Analog Devices CapTouch Programmable Controller (AD7147)"
-TchDriver_Service_Desc  = "Analog Devices CapTouch Programmable Controller (AD7147) Driver"
+Installation_Disk       = "Analog Devices CapTouch Programmable Controller (AD7146) Installation Disk"
+TchDriver_Device_Desc   = "Analog Devices CapTouch Programmable Controller (AD7146)"
+TchDriver_Service_Desc  = "Analog Devices CapTouch Programmable Controller (AD7146) Driver"
+HIDKMDF_Service         = "mshidkmdf"
 
 ; ------------- non-localizable strings
 SPSVCINST_ASSOCSERVICE  = 0x00000002
@@ -200,3 +226,20 @@ REG_EXPAND_SZ           = 0x00020000
 REG_MULTI_SZ            = 0x00010000
 REG_DWORD               = 0x00010001
 REG_SZ                  = 0x00000000
+
+[Autologger.NT.HW.AddReg]
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "BufferSize", %REG_DWORD%, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "ClockType", %REG_DWORD%, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "FileMax", %REG_DWORD%, 0x4
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "FlushTimer", %REG_DWORD%, 0x5
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "GUID", 0x0, "{9208BAEF-D481-460F-B9D9-104BEE07E0CA}"
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "LogFileMode", %REG_DWORD%, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "MaxFileSize", %REG_DWORD%, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "MaximumBuffers", %REG_DWORD%, 0x2A
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "MinimumBuffers", %REG_DWORD%, 0x4
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "Start", %REG_DWORD%, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet", "Status", %REG_DWORD%, 0x0
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "Enabled", %REG_DWORD%, 0x1
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "EnableLevel", %REG_DWORD%, 0x5
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "MatchAnyKeyword", %REG_DWORD%, 0x0
+HKLM, "System\CurrentControlSet\Control\WMI\Autologger\gripdet\{69B195D3-DDC4-4340-BF81-121546024783}", "Status", %REG_DWORD%, 0x0
