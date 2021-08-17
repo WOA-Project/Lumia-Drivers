@@ -165,17 +165,17 @@ HKR , Parameters        , BCLMode                     , 0x00010001,  0x00000001	
 HKR , Parameters        , DisableBCLLowVBattMitigation, 0x00010001,  0x00000001
 
 [PEP_SoftwareDeviceSettings.NTarm]
-HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000000
-HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000000
 HKR , Parameters        , DisableL2Ret                , 0x00010001,  0x00000000
+HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000000
 HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000000
+HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000000
 HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000001
 
 [PEP_SoftwareDeviceSettings.NTarm64]
-HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000001
-HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000001
 HKR , Parameters        , DisableL2Ret                , 0x00010001,  0x00000003
+HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000001
 HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000001
+HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000001
 HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000000 ; Disabled due to issues on 8992, will cause a crash
 
 [Drivers_Dir_A32]
