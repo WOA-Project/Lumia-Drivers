@@ -10,7 +10,7 @@ Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 RefVersion  = 09/16/2011,1.0.1067.0000
-DriverVer   = 03/18/2021,1.0.1067.0000
+DriverVer   = 08/17/2021,1.0.1067.0000
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcpep8992.arm.cat
@@ -110,64 +110,59 @@ Addreg = PEPACL
 HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
 
 [PEP_SoftwareDeviceSettings]
-HKR , Parameters        , BCLMode                     , 0x00010001,  0x00000001
-HKR , Parameters        , CprFlags                    , 0x00010001,  0x00000000
-HKR , Parameters        , DisableCCI                  , 0x00010001,  0x00000000
-HKR , Parameters        , DisableCoreRotation         , 0x00010001,  0x00000000
 HKR , Parameters        , DisableCpuRet               , 0x00010001,  0x000000FF
 HKR , Parameters        , DisableCpuVdd               , 0x00010001,  0x00000000
-HKR , Parameters        , DisableL2Collapse           , 0x00010001,  0x00000000
 HKR , Parameters        , DisableL2GDHS               , 0x00010001,  0x00000003
+HKR , Parameters        , DisableL2Collapse           , 0x00010001,  0x00000000
+HKR , Parameters        , DisableCCI                  , 0x00010001,  0x00000000
+HKR , Parameters        , DisablePhaseScaling         , 0x00010001,  0x00000001
 HKR , Parameters        , DisableOfflineNotification  , 0x00010001,  0x00000001
 HKR , Parameters        , DisablePCE                  , 0x00010001,  0x00000000
-HKR , Parameters        , DisablePhaseScaling         , 0x00010001,  0x00000001
-HKR , Parameters        , EapsFlags                   , 0x00010001,  0x00000200
-HKR , Parameters        , EnableIdleCrashDebug        , 0x00010001,  0x00000001
 HKR , Parameters        , EnableMicroPep              , 0x00010001,  0x00000001
-HKR , Parameters        , EnableMsftSdPStates         , 0x00010001,  0x00000000
+HKR , Parameters        , EnableIdleCrashDebug        , 0x00010001,  0x00000001
+HKR , Parameters        , DisableCoreRotation         , 0x00010001,  0x00000000
+HKR , Parameters        , EapsFlags                   , 0x00010001,  0x00000200
+HKR , Parameters        , CprFlags                    , 0x00010001,  0x00000000
 HKR , Parameters        , ErrataFlags                 , 0x00010001,  0x80000001
+HKR , Parameters        , EnableMsftSdPStates         , 0x00010001,  0x00000000
+
+HKR , Parameters\SDC1   , SamplingInterval            , 0x00010001,  0x002DC6C0   ; 300 msec in nano second intervals
+HKR , Parameters\SDC1   , PerfStateCount              , 0x00010001,  0x00000004   ; No of MSFT SD P-states
+HKR , Parameters\SDC1\P0, MaxUtilizationThreshold     , 0x00010001,  0x00000064   ; 100%
+HKR , Parameters\SDC1\P0, MinUtilizationThreshold     , 0x00010001,  0x00000023   ; 35%
+HKR , Parameters\SDC1\P0, Frequency                   , 0x00010001,  0x00061A80   ; 400Mhz
+HKR , Parameters\SDC1\P0, Performance                 , 0x00010001,  0x00000000   ; index for p0 is 0
+HKR , Parameters\SDC1\P1, MaxUtilizationThreshold     , 0x00010001,  0x00000064   ; 100%
+HKR , Parameters\SDC1\P1, MinUtilizationThreshold     , 0x00010001,  0x00000023   ; 35%
+HKR , Parameters\SDC1\P1, Frequency                   , 0x00010001,  0x00030D40   ; 200Mhz
+HKR , Parameters\SDC1\P1, Performance                 , 0x00010001,  0x00000001   ; index for p1 is 1
+HKR , Parameters\SDC1\P2, MaxUtilizationThreshold     , 0x00010001,  0x00000064   ; 100%
+HKR , Parameters\SDC1\P2, MinUtilizationThreshold     , 0x00010001,  0x00000023   ; 35%
+HKR , Parameters\SDC1\P2, Frequency                   , 0x00010001,  0x000186A0   ; 100Mhz
+HKR , Parameters\SDC1\P2, Performance                 , 0x00010001,  0x00000002   ; index for p2 is 2
+HKR , Parameters\SDC1\P3, MaxUtilizationThreshold     , 0x00010001,  0x00000050   ; 80%
+HKR , Parameters\SDC1\P3, MinUtilizationThreshold     , 0x00010001,  0x00000000   ; 0%
+HKR , Parameters\SDC1\P3, Frequency                   , 0x00010001,  0x0000C350   ; 50Mhz
+HKR , Parameters\SDC1\P3, Performance                 , 0x00010001,  0x00000003   ; index for p3 is 3
+
+HKR , Parameters\SDC2   , SamplingInterval            , 0x00010001,  0x002DC6C0   ; 300 msec in nano second intervals
+HKR , Parameters\SDC2   , PerfStateCount              , 0x00010001,  0x00000003   ; No of MSFT SD P-states
+HKR , Parameters\SDC2\P0, MaxUtilizationThreshold     , 0x00010001,  0x00000064   ; 100%
+HKR , Parameters\SDC2\P0, MinUtilizationThreshold     , 0x00010001,  0x00000019   ; 25%
+HKR , Parameters\SDC2\P0, Frequency                   , 0x00010001,  0x00030D40   ; 200Mhz
+HKR , Parameters\SDC2\P0, Performance                 , 0x00010001,  0x00000000   ; index for p0 is 0
+HKR , Parameters\SDC2\P1, MaxUtilizationThreshold     , 0x00010001,  0x0000000F   ; 15%
+HKR , Parameters\SDC2\P1, MinUtilizationThreshold     , 0x00010001,  0x0000000A   ; 10%
+HKR , Parameters\SDC2\P1, Frequency                   , 0x00010001,  0x000186A0   ; 100Mhz
+HKR , Parameters\SDC2\P1, Performance                 , 0x00010001,  0x00000001   ; index for p1 is 1
+HKR , Parameters\SDC2\P2, MaxUtilizationThreshold     , 0x00010001,  0x0000001E   ; 30%
+HKR , Parameters\SDC2\P2, MinUtilizationThreshold     , 0x00010001,  0x00000000   ; 0%
+HKR , Parameters\SDC2\P2, Frequency                   , 0x00010001,  0x0000C350   ; 50Mhz
+HKR , Parameters\SDC2\P2, Performance                 , 0x00010001,  0x00000002   ; index for p2 is 2
+
 HKR , Parameters        , WPPEnabled                  , 0x00010001,  0x00000000
-
-HKR , Parameters\SDC1   , SamplingInterval            , 0x00010001,  0x002dc6c0
-HKR , Parameters\SDC1   , PerfStateCount              , 0x00010001,  0x00000004
-HKR , Parameters\SDC1\P0, MaxUtilizationThreshold     , 0x00010001,  0x00000064
-HKR , Parameters\SDC1\P0, MinUtilizationThreshold     , 0x00010001,  0x00000023
-HKR , Parameters\SDC1\P0, Frequency                   , 0x00010001,  0x00061a80
-HKR , Parameters\SDC1\P0, Performance                 , 0x00010001,  0x00000000
-HKR , Parameters\SDC1\P1, MaxUtilizationThreshold     , 0x00010001,  0x00000064
-HKR , Parameters\SDC1\P1, MinUtilizationThreshold     , 0x00010001,  0x00000023
-HKR , Parameters\SDC1\P1, Frequency                   , 0x00010001,  0x00030d40
-HKR , Parameters\SDC1\P1, Performance                 , 0x00010001,  0x00000001
-HKR , Parameters\SDC1\P2, MaxUtilizationThreshold     , 0x00010001,  0x00000064
-HKR , Parameters\SDC1\P2, MinUtilizationThreshold     , 0x00010001,  0x00000023
-HKR , Parameters\SDC1\P2, Frequency                   , 0x00010001,  0x000186a0
-HKR , Parameters\SDC1\P2, Performance                 , 0x00010001,  0x00000002
-HKR , Parameters\SDC1\P3, MaxUtilizationThreshold     , 0x00010001,  0x00000050
-HKR , Parameters\SDC1\P3, MinUtilizationThreshold     , 0x00010001,  0x00000000
-HKR , Parameters\SDC1\P3, Frequency                   , 0x00010001,  0x0000c350
-HKR , Parameters\SDC1\P3, Performance                 , 0x00010001,  0x00000003
-
-HKR , Parameters\SDC2   , SamplingInterval            , 0x00010001,  0x002dc6c0
-HKR , Parameters\SDC2   , PerfStateCount              , 0x00010001,  0x00000003
-HKR , Parameters\SDC2\P0, MaxUtilizationThreshold     , 0x00010001,  0x00000064
-HKR , Parameters\SDC2\P0, MinUtilizationThreshold     , 0x00010001,  0x00000019
-HKR , Parameters\SDC2\P0, Frequency                   , 0x00010001,  0x00030d40
-HKR , Parameters\SDC2\P0, Performance                 , 0x00010001,  0x00000000
-HKR , Parameters\SDC2\P1, MaxUtilizationThreshold     , 0x00010001,  0x0000000f
-HKR , Parameters\SDC2\P1, MinUtilizationThreshold     , 0x00010001,  0x0000000a
-HKR , Parameters\SDC2\P1, Frequency                   , 0x00010001,  0x000186a0
-HKR , Parameters\SDC2\P1, Performance                 , 0x00010001,  0x00000001
-HKR , Parameters\SDC2\P2, MaxUtilizationThreshold     , 0x00010001,  0x0000001e
-HKR , Parameters\SDC2\P2, MinUtilizationThreshold     , 0x00010001,  0x00000000
-HKR , Parameters\SDC2\P2, Frequency                   , 0x00010001,  0x0000c350
-HKR , Parameters\SDC2\P2, Performance                 , 0x00010001,  0x00000002
-
-HKLM, System\CurrentControlSet\Control\Power,                 PoFxSystemIrpWaitForReportDevicePowered, 0x00010001, 1
-HKLM, System\CurrentControlSet\Control\Session Manager\Power, HiberbootEnabled                       , 0x00010001, 0
-
-HKLM, "System\CurrentControlSet\Control\ACPIEX", "ComplianceFlags", 0x00010001, 0x00000007
-
-HKLM, "System\CurrentControlSet\Control\Power", "DripsWatchdogAction", 0x00010001, 0x00000000
+HKR , Parameters        , BCLMode                     , 0x00010001,  0x00000001	; VBatt triggered 
+HKR , Parameters        , DisableBCLLowVBattMitigation, 0x00010001,  0x00000001
 
 [PEP_SoftwareDeviceSettings.NTarm]
 HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000000
