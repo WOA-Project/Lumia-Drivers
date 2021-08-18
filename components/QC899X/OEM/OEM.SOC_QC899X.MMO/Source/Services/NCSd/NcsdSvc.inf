@@ -6,7 +6,7 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 03/18/2021,1.0.1067.0000
+DriverVer   = 08/18/2021,1.0.1067.0000
 PnpLockdown = 1
 
 CatalogFile.NTarm   = ncsdsvc.arm.cat
@@ -55,21 +55,21 @@ AddService = NcsdPluginSvc,0x00000000,NcsdSvc_Service.NTarm64,
 DisplayName   = "NcsdPluginSvc"
 Description   = "Native Care Service"
 ServiceType   = 0x20
-StartType     = 2
+StartType     = 4
 ErrorControl  = 0
 ServiceBinary = "%13%\arm\OEMServiceHost.exe -k NsgExtUti"
-AddReg        = NcsdSvc_Reg, NcsdSvc_32_Reg
+AddReg        = NcsdSvc_Reg, NcsdSvc_Reg.NTarm
 
 [NcsdSvc_Service.NTarm64]
 DisplayName   = "NcsdPluginSvc"
 Description   = "Native Care Service"
 ServiceType   = 0x20
-StartType     = 2
+StartType     = 4
 ErrorControl  = 0
 ServiceBinary = "%13%\arm64\OEMServiceHost.exe -k NsgExtUti"
 AddReg        = NcsdSvc_Reg, NcsdSvc_Reg.NTarm64
 
-[NcsdSvc_32_Reg]
+[NcsdSvc_Reg.NTarm]
 HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\arm\NcsdPluginSvc.dll"
 HKLM, "Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\arm\NcsdPluginSvc.dll"
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\arm\NcsdRes.dll"
@@ -95,7 +95,7 @@ HKR,, "Type", 0x00010001, 0x00000020
 HKR,, "RequiredPrivileges", 0x00010008, \
 	"SeShutdownPrivilege", "SeChangeNotifyPrivilege", "SeIncreaseWorkingSetPrivilege", "SeCreateGlobalPrivilege"
 
-HKR,, "Start", 0x00010001, 0x00000003
+HKR,, "Start", 0x00010001, 0x00000004
 HKR,, "FailureActions", 0x00000001, \
 	80,51,01,00,00,00,00,00,00,00,00,00,04,00,00, \ ; Q·············
 	00,14,00,00,00,01,00,00,00,E8,03,00,00,01,00, \ ; ·········è·····
