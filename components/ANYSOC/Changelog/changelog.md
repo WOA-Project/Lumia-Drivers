@@ -1,5 +1,5 @@
 ﻿## Lumia Drivers BSP - Version 2108.58 (Prussian Blue)
-**Released:** 08/18/2021 01:00 PM UTC+2
+**Released:** 08/18/2021 03:00 PM UTC+2
 
 **Quality:** Stable
 
