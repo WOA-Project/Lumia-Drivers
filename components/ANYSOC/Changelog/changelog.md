@@ -1,7 +1,7 @@
-﻿## Lumia Drivers BSP - Version 2108.44 (Prussian Blue)
-**Released:** 08/13/2021 06:00 PM UTC+1
+﻿## Lumia Drivers BSP - Version 2108.58 (Prussian Blue)
+**Released:** 08/18/2021 01:00 PM UTC+2
 
-**Quality:** Preview
+**Quality:** Stable
 
 ### Important installation notes
 
@@ -20,11 +20,36 @@ ________________________________________________________________________________
 
 Changelog
 
-- Updated Mobile Ambient Light Service and Mobile Automatic Rotation Service (Critical)
+- Updated LTE Coexistance Manager for 8992 and 8994 Platforms (Critical)
 
-  Both services were locking up the device sensors preventing the device from going into Modern Standby states
-  
-  Battery life, thermals, and responsiveness should be improved as a result of this update while the device sleeps.
+  Expect better thermals battery life and more with WiFi turned on.
+
+- Updated Mobile Networking Service (Critical)
+
+  Resolved an issue where ICan0/ICan1 changes would revert on builds higher or equal than 18908
+
+- Updated PEP configuration and PoFx configuration for 8992 and 8994 Platforms (Critical)
+
+  Resolved an issue where incorrect PoFx settings would be applied and as a result Windows would not allow Modern Standby
+  to properly operate on the device
+
+- Updated Color Profile Service
+
+  Resolved an issue where the color profile would not get applied under some specific conditions
+
+- Updated NCSd
+
+  Service is now disabled by default due to issues and low usages, now MTP (Media Transfer Protocol, the technology
+  that enables you to transfer files from your phone to your pc) will always work reliably without having to restart
+  said service.
+
+- Updated assets for MTP and Device Stage
+
+  Assets now represent the current state of the project
+
+- Updated Side Interaction stack for Prototype devices that support it
+
+  No futher documentation is made currently available.
 
 ____________________________________________________________________________________________________________________________
 
@@ -68,7 +93,6 @@ ________________________________________________________________________________
 
 General software defects
 
-- Under certain circumstances, the Lumia 950 (''Talkman'') may fail to reboot properly. Shut down the device via other means (Developer Menu / Flash App & THOR2). This happens during Setup, where the device will display a black screen
 - Cameras are not available
 - Windows Hello Iris Scanner is not available
 - Hyper-V is not available
@@ -78,11 +102,11 @@ General software defects
 - Miracast is not functional with many wireless devices, but works fine on Xbox, and Windows 10 computers
 - Graphical glitches can be observed with acrylic effects on builds lower or equal than 20100
 - Graphical glitches can be observed on shadows
-- MTP may fail to start if the device is plugged a second time, stop the NcsdService to fix the issue via task manager
+- MTP may fail to start if the device is plugged a second time if the NcsdService is enabled, stop the NcsdService to fix the issue via task manager
 - Dual SIM devices are unsupported for Cellular, do not expect cellular to work properly on these
 - DirectX is unavailable for x86 and amd64 applications
 - Microphone level under Settings is stuck at 50%
-- Phone may not boot reliably or have random reboots when the battery falls below 50% on certain devices, if all cores are enabled.
+- Phone may not boot reliably or have random reboots when the battery falls below 50% on certain devices, if all cores are enabled. Especially if the battery is counterfeit or worn out.
   As a workaround, you can run "bcdedit /set numproc 4" to disable the second core cluster
 
 - No VoLTE
@@ -130,7 +154,7 @@ Deprecation notice
 ____________________________________________________________________________________________________________________________
 
 
-Windows 10 software defects
+Windows 10/11 software defects
 
 - Applications do not get installed if the user reboots the device on first boot before completion or if the date and time settings are incorrect during OOBE (Out Of Box Experience).
   As a workaround, find the "Second Party Application Provisioner" application in the start menu, right click, run as administrator
@@ -142,6 +166,9 @@ ________________________________________________________________________________
 
 
 Windows 10X software defects
+
+NOTE: Windows 10X is a dead Operating System currently and we have no plans to offer images ourselves anymore. We believe those who still want to go this way should be able
+      to build an image themselves with the content we provide under the adaptationkit directory.
 
 - Vibration is unavailable
 - Under certain circumstances, Windows may fail booting on talkman devices when AutoChk runs (repairing drive at boot). If this is your case, let the device reboot a couple of times, or reflash the FFU file til the issue vanishes
