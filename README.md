@@ -17,9 +17,11 @@ This repository isn't complete due to the lack of hardware. While we could theor
 
 [Forum](https://woaproject.net)
 
+[Guides](https://woa-project.github.io/LumiaWOA/guides/)
+
 [WOA Deployer for ARM64 and 950 devices](https://github.com/WOA-Project/WOA-Deployer-Lumia)
 
-[WPInternals for unlocking the bootloader of Lumia devices](http://wpinternals.net)
+[WPInternals for unlocking the bootloader of Lumia devices](https://github.com/ReneLergner/WPinternals/releases)
 
 [Old repository Wiki containing some information about this project](https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki)
 
@@ -27,7 +29,7 @@ This repository isn't complete due to the lack of hardware. While we could theor
 
 **Below notice must be present in all redistributed portions of this software**
 
-Copyright (c) 2017-2020 WOA-Project
+Copyright (c) 2017-2021 WOA-Project
 
 Copyright (c) 2011-2016 Qualcomm Incorporated
 
@@ -123,4 +125,4 @@ Refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Insta
 
 ### Hapanero
 
-To install on Hapaneros using Qualcomm's UEFI, refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Getting-started-on-Hapanero-(Qualcomm-UEFI). It is highly recommended to avoid using this on EB2 Hapanero devices, and using Lumia950XlPkg instead.
+To install on Hapaneros using Qualcomm's UEFI, refer to https://github.com/WOA-Project/MSM8994-8992-NT-ARM64-Drivers/wiki/Getting-started-on-Hapanero-(Qualcomm-UEFI). It is highly recommended to avoid using this on EB2 Hapanero devices, and using Lumia950XLPkg instead.
