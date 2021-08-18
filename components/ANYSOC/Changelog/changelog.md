@@ -1,5 +1,5 @@
 ﻿## Lumia Drivers BSP - Version 2108.58 (Prussian Blue)
-**Released:** 08/18/2021 03:00 PM UTC+2
+**Released:** 08/18/2021 03:30 PM UTC+2
 
 **Quality:** Stable
 
@@ -50,6 +50,8 @@ Changelog
 - Updated Side Interaction stack for Prototype devices that support it
 
   No further documentation is made currently available.
+
+- Updated Dialer to resolve an UI issue with in the call page
 
 ____________________________________________________________________________________________________________________________
 
