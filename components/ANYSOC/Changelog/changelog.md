@@ -49,7 +49,7 @@ Changelog
 
 - Updated Side Interaction stack for Prototype devices that support it
 
-  No futher documentation is made currently available.
+  No further documentation is made currently available.
 
 ____________________________________________________________________________________________________________________________
 
