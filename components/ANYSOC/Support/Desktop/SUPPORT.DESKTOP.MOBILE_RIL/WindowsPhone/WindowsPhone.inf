@@ -9,7 +9,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
-DriverVer   = 08/17/2021,1.0.0.5
+DriverVer   = 08/20/2021,1.0.0.6
 PnpLockdown = 1
 
 CatalogFile.NTARM   = WindowsPhone.arm.cat

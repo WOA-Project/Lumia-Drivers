@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2108.58 (Prussian Blue)
-**Released:** 08/18/2021 03:30 PM UTC+2
+﻿## Lumia Drivers BSP - Version 2108.67
+**Released:** 08/21/2021 12:00 AM UTC+2
 
 **Quality:** Stable
 
@@ -20,38 +20,13 @@ ________________________________________________________________________________
 
 Changelog
 
-- Updated LTE Coexistance Manager for 8992 and 8994 Platforms (Critical)
+- Updated Mobile Networking Service
 
-  Expect better thermals battery life and more with WiFi turned on.
+  Addresses an issue that prevented creation of the ICan0 value on builds lower or equal to 18908.
 
-- Updated Mobile Networking Service (Critical)
+Side note:
 
-  Resolved an issue where ICan0/ICan1 changes would revert on builds higher or equal than 18908
-
-- Updated PEP configuration and PoFx configuration for 8992 and 8994 Platforms (Critical)
-
-  Resolved an issue where incorrect PoFx settings would be applied and as a result Windows would not allow Modern Standby
-  to properly operate on the device
-
-- Updated Color Profile Service
-
-  Resolved an issue where the color profile would not get applied under some specific conditions
-
-- Updated NCSd
-
-  Service is now disabled by default due to issues and low usages, now MTP (Media Transfer Protocol, the technology
-  that enables you to transfer files from your phone to your pc) will always work reliably without having to restart
-  said service.
-
-- Updated assets for MTP and Device Stage
-
-  Assets now represent the current state of the project
-
-- Updated Side Interaction stack for Prototype devices that support it
-
-  No further documentation is made currently available.
-
-- Updated Dialer to resolve an UI issue with in the call page
+  We also have an updated UEFI along with this release which brings fTPM support to our devices!
 
 ____________________________________________________________________________________________________________________________
 
