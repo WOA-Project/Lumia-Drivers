@@ -10,7 +10,7 @@ Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 RefVersion  = 09/16/2011,1.0.1067.0000
-DriverVer   = 08/17/2021,1.0.1067.0000
+DriverVer   = 08/23/2021,1.0.1067.0000
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcpep8992.arm.cat
