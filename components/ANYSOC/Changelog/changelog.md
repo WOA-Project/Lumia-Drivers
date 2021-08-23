@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2108.67
-**Released:** 08/21/2021 12:00 AM UTC+2
+﻿## Lumia Drivers BSP - Version 2108.74
+**Released:** 08/23/2021 09:00 PM UTC+2
 
 **Quality:** Stable
 
@@ -20,13 +20,9 @@ ________________________________________________________________________________
 
 Changelog
 
-- Updated Mobile Networking Service
+- Updated PEP for ''Plutonium'' MSM8992/Qualcomm Snapdragon 808
 
-  Addresses an issue that prevented creation of the ICan0 value on builds lower or equal to 18908.
-
-Side note:
-
-  We also have an updated UEFI along with this release which brings fTPM support to our devices!
+  This update contains nothing new and is designed to test our new code changes.
 
 ____________________________________________________________________________________________________________________________
 
