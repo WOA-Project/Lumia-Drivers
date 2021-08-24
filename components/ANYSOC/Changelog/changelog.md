@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2108.74
-**Released:** 08/23/2021 09:00 PM UTC+2
+﻿## Lumia Drivers BSP - Version 2108.77
+**Released:** 08/24/2021 09:00 PM UTC+2
 
 **Quality:** Stable
 
@@ -20,9 +20,20 @@ ________________________________________________________________________________
 
 Changelog
 
-- Updated PEP for ''Plutonium'' MSM8992/Qualcomm Snapdragon 808
+- Update to the Synaptics RMI4 F12 Touch Driver
 
-  This update contains nothing new and is designed to test our new code changes.
+  This update brings bug fixes and quality enhancements.
+  
+- Update to MobileNetworkingService component
+
+  This update brings bug fixes and quality enhancements.
+
+  Addresses an issue impacting the following functionality:
+
+  -- Retrieving ICan0/ICan1 values from the registry with correct data
+
+  -- Setting ICan0/ICan1 values to the registry and having the phone accept them
+
 
 ____________________________________________________________________________________________________________________________
 
