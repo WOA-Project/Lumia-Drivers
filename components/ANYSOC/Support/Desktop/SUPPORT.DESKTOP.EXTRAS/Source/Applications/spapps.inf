@@ -6,7 +6,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 08/18/2021,1.0.0.4
+DriverVer   = 08/25/2021,1.0.0.5
 PnpLockdown = 1
 
 CatalogFile.NTARM   = spapps.arm.cat
@@ -23,12 +23,12 @@ AppDepARM64  = 10,OEM\Applications\Dependencies\arm64
 
 [SourceDisksFiles]
 8419TigerWang.Airwaves_hv6sjhp5j6q2j.appxbundle           = 0,,
-1407ADeltaX.MobileShell_nk3791r0483r0.msixbundle          = 0,,
-LumiaWOA.Vibration_btf4vqatnxdpt.appxbundle               = 0,,
-LumiaWOA.USBFunctionMode_btf4vqatnxdpt.appxbundle         = 0,,
-LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle                  = 0,,
 LumiaWOA.Chat_btf4vqatnxdpt.appxbundle                    = 0,,
+LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle                  = 0,,
+LumiaWOA.MobileShell_ax9k4b3m2m5jw.msixbundle             = 0,,
+LumiaWOA.USBFunctionMode_btf4vqatnxdpt.appxbundle         = 0,,
 LumiaWOA.Tips_btf4vqatnxdpt.appxbundle                    = 0,,
+LumiaWOA.Vibration_btf4vqatnxdpt.appxbundle               = 0,,
 
 Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe.appx     = 0,arm64,
 Microsoft.NET.Native.Runtime.2.2_8wekyb3d8bbwe.appx       = 0,arm64,
@@ -39,6 +39,7 @@ Microsoft.UI.Xaml.2.6_8wekyb3d8bbwe.appx                  = 0,arm64,
 Microsoft.CommsPhone_8wekyb3d8bbwe.appxbundle             = 0,arm,
 Microsoft.NET.Native.Framework.2.2.arm_8wekyb3d8bbwe.appx = 0,arm,
 Microsoft.NET.Native.Runtime.2.2.arm_8wekyb3d8bbwe.appx   = 0,arm,
+Microsoft.VCLibs.140.00.UWPDesktop.arm_8wekyb3d8bbwe.appx = 0,arm,
 Microsoft.VCLibs.140.00.arm_8wekyb3d8bbwe.appx            = 0,arm,
 Microsoft.UI.Xaml.2.6.arm_8wekyb3d8bbwe.appx              = 0,arm,
 
@@ -53,18 +54,19 @@ CopyFiles = PstDrv.Files,AppDepARM,AppDepARM64
 CopyFiles = PstDrv.Files,AppDepARM,AppDepARM64
 
 [PstDrv.Files]
-1407ADeltaX.MobileShell_nk3791r0483r0.msixbundle
 8419TigerWang.Airwaves_hv6sjhp5j6q2j.appxbundle
 LumiaWOA.Chat_btf4vqatnxdpt.appxbundle
 LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle
+LumiaWOA.MobileShell_ax9k4b3m2m5jw.msixbundle
 LumiaWOA.Tips_btf4vqatnxdpt.appxbundle
-LumiaWOA.Vibration_btf4vqatnxdpt.appxbundle
 LumiaWOA.USBFunctionMode_btf4vqatnxdpt.appxbundle
+LumiaWOA.Vibration_btf4vqatnxdpt.appxbundle
 Microsoft.CommsPhone_8wekyb3d8bbwe.appxbundle
 
 [AppDepARM]
 Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe.appx, Microsoft.NET.Native.Framework.2.2.arm_8wekyb3d8bbwe.appx, , 0x00004000,
 Microsoft.NET.Native.Runtime.2.2_8wekyb3d8bbwe.appx, Microsoft.NET.Native.Runtime.2.2.arm_8wekyb3d8bbwe.appx, , 0x00004000,
+Microsoft.VCLibs.140.00.UWPDesktop.arm_8wekyb3d8bbwe.appx, Microsoft.VCLibs.140.00.UWPDesktop_8wekyb3d8bbwe.appx, , 0x00004000,
 Microsoft.VCLibs.140.00_8wekyb3d8bbwe.appx, Microsoft.VCLibs.140.00.arm_8wekyb3d8bbwe.appx, , 0x00004000,
 Microsoft.UI.Xaml.2.6_8wekyb3d8bbwe.appx, Microsoft.UI.Xaml.2.6.arm_8wekyb3d8bbwe.appx, , 0x00004000,
 

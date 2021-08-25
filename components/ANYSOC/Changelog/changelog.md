@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2108.77
-**Released:** 08/24/2021 09:00 PM UTC+2
+﻿## Lumia Drivers BSP - Version 2108.80
+**Released:** 08/25/2021 11:30 PM UTC+2
 
 **Quality:** Stable
 
@@ -20,19 +20,11 @@ ________________________________________________________________________________
 
 Changelog
 
-- Update to the Synaptics RMI4 F12 Touch Driver
+- Update to MobileShell
 
-  This update brings bug fixes and quality enhancements.
-  
-- Update to MobileNetworkingService component
+  Fixes MobileShell not being usable on Windows 11
 
-  This update brings bug fixes and quality enhancements.
-
-  Addresses an issue impacting the following functionality:
-
-  -- Retrieving ICan0/ICan1 values from the registry with correct data
-
-  -- Setting ICan0/ICan1 values to the registry and having the phone accept them
+  Adds a startup option in settings (right click app in the start menu -> app settings -> tasks on login -> Start MobileShell automatically when I login -> flip it on)
 
 
 ____________________________________________________________________________________________________________________________
