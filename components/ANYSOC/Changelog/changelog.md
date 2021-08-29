@@ -1,5 +1,5 @@
 ﻿## Lumia Drivers BSP - Version 2108.80
-**Released:** 08/25/2021 11:30 PM UTC+2
+**Released:** 08/29/2021 19:00 PM UTC+2
 
 **Quality:** Stable
 
@@ -20,12 +20,9 @@ ________________________________________________________________________________
 
 Changelog
 
-- Update to MobileShell
+- Update to the touch driver (Synaptics)
 
-  Fixes MobileShell not being usable on Windows 11
-
-  Adds a startup option in settings (right click app in the start menu -> app settings -> tasks on login -> Start MobileShell automatically when I login -> flip it on)
-
+  Resolves an issue preventing double tap to wake functionality
 
 ____________________________________________________________________________________________________________________________
 

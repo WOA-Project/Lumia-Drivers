@@ -6,7 +6,7 @@ Signature   = "$Windows NT$"
 Class       = USB
 ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %VendorName%
-DriverVer   = 03/18/2021,2.00.00.01
+DriverVer   = 08/29/2021,2.00.00.01
 PnpLockdown = 1
 
 CatalogFile.NTarm   = typeccontroller.arm.cat
@@ -34,11 +34,9 @@ WppRecorderUM.dll = 1,arm64,
 
 [Standard.NTarm]
 %DevDesc% = tyc_Inst, umdf2\tyc
-%DevDesc% = tyc_Inst, ACPI\LUMI0002
 
 [Standard.NTarm64]
 %DevDesc% = tyc_Inst, umdf2\tyc
-%DevDesc% = tyc_Inst, ACPI\LUMI0002
 
 ;---------------- copy files
 

@@ -7,9 +7,11 @@ Signature   = "$Windows NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 03/18/2021,1.0.0.0000
-CatalogFile = mmodriverusbsetup.cat
+DriverVer   = 08/29/2021,1.0.0.0001
 PnpLockdown = 1
+
+CatalogFile.NTarm   = mmodriverusbsetup.arm.cat
+CatalogFile.NTarm64 = mmodriverusbsetup.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
@@ -28,6 +30,9 @@ MMOUSBDriversOobe.cmd                 = 0,,
 ;*****************************************
 
 [DefaultInstall.NTarm]
+CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
+
+[DefaultInstall.NTarm64]
 CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
 [OOBECmd.Files]
