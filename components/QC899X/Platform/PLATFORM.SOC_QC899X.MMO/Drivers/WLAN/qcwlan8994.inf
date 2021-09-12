@@ -10,7 +10,7 @@ Signature   = "$Windows NT$"
 Class       = Net
 ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
-DriverVer   = 07/02/2015,1.0.1078.0053
+DriverVer   = 09/12/2021,1.0.1078.0053
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcwlan8994.arm.cat
@@ -65,9 +65,9 @@ Needs              = VWiFiBus.CopyFiles
 *PhysicalMediaType = 9         ; NdisPhysicalMediumNative802_11
 Characteristics    = 0x84
 BusType            = 5
-AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
+AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
 DelReg             = QcWlan.DelReg
-CopyFiles          = Drivers_Dir_A32, QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
+CopyFiles          = Drivers_Dir_A32
 AddProperty        = WDTFSOCDeviceCategory
 
 [QcWlan.ndi.NTarm64]
@@ -78,9 +78,9 @@ Needs              = VWiFiBus.CopyFiles
 *PhysicalMediaType = 9         ; NdisPhysicalMediumNative802_11
 Characteristics    = 0x84
 BusType            = 5
-AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, FW_30.reg, BD_30.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
+AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
 DelReg             = QcWlan.DelReg
-CopyFiles          = Drivers_Dir_A64, QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
+CopyFiles          = Drivers_Dir_A64
 AddProperty        = WDTFSOCDeviceCategory
 
 ;-----------------------------------------------------------------------------
@@ -195,15 +195,9 @@ HKR,,CountryName
 
 [SourceDisksFiles.ARM]
 qcwlan8994.sys = 1,arm,
-qwlan30.bin = 1,,
-bdwlan30.bin = 1,,
-Data.msc = 1,,
 
 [SourceDisksFiles.ARM64]
 qcwlan8994.sys = 1,arm64,
-qwlan30.bin = 1,,
-bdwlan30.bin = 1,,
-Data.msc = 1,,
 
 ;-----------------------------------------------------------------------------
 ; DestinationDirs
@@ -211,9 +205,6 @@ Data.msc = 1,,
 [DestinationDirs]
 Drivers_Dir_A32             = 13,arm
 Drivers_Dir_A64             = 13,arm64
-QcWlan_FW.CopyFiles         = 12
-QcWlan_BD.CopyFiles         = 13
-QcWlan_Data.CopyFiles       = 12
 DefaultDestDir              = 12
 
 [Drivers_Dir_A32]
@@ -221,15 +212,6 @@ qcwlan8994.sys,,,2
 
 [Drivers_Dir_A64]
 qcwlan8994.sys,,,2
-
-[QcWlan_FW.CopyFiles]
-qwlan30.bin,,,2
-
-[QcWlan_BD.CopyFiles]
-bdwlan30.bin,,,2
-
-[QcWlan_Data.CopyFiles]
-Data.msc,,,2
 
 ;-----------------------------------------------------------------------------
 ; Driver and Service Section
@@ -360,13 +342,6 @@ HKR, "Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLim
 
 [ProtocolPS.reg]
 HKR,,                                 ProtocolPowerSave,                      0x00010001,  "1"
-
-[FW_30.reg]
-HKR,,FWFileName, 0x00000000, "qwlan30.bin"
-
-[BD_30.reg]
-HKR,,BoardDataFileName, 0x00000000, "bdwlan30.bin"
-HKR,,BoardDataFilePath, 0x00000000, "%13%"
 
 ; ----------------------------------------------------------------------------
 ; NAN registry entries

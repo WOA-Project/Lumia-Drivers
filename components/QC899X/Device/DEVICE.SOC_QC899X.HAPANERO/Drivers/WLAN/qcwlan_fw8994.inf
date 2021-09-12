@@ -1,0 +1,75 @@
+;/*++
+;
+;Copyright (c) 2012-2013  Qualcomm Technologies, Inc.
+;
+;Module Name:
+;    QCWLAN_FW.INF
+;
+;Abstract:
+;    INF file for installing the WLAN FW Package for the QCLWAN Driver.
+;
+;Installation Notes: 
+;    
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %QC%
+ExtensionId = {21E3E289-3E58-570D-B9DF-75549CD11F5A}
+DriverVer   = 09/12/2021,1.0.1067.0
+
+CatalogFile.NTarm   = qcwlan_fw8994.arm.cat
+CatalogFile.NTarm64 = qcwlan_fw8994.arm64.cat
+
+[DestinationDirs]
+QcWlan_FW.CopyFiles         = 12
+QcWlan_BD.CopyFiles         = 13
+QcWlan_Data.CopyFiles       = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qwlan30.bin  = 1,,
+bdwlan30.bin = 1,,
+Data.msc     = 1,,
+
+[Manufacturer]
+%QC% = DeviceExtensions, NTarm, NTarm64
+
+[DeviceExtensions.NTarm]
+%WLAN.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
+
+[DeviceExtensions.NTarm64]
+%WLAN.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
+
+[DeviceExtension_Install.NT]
+CopyFiles = QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
+
+[DeviceExtension_Install.HW]
+AddReg = FW_30.reg, BD_30.reg
+
+[FW_30.reg]
+HKR,,FWFileName, 0x00000000, "qwlan30.bin"
+
+[BD_30.reg]
+HKR,,BoardDataFileName, 0x00000000, "bdwlan30.bin"
+HKR,,BoardDataFilePath, 0x00000000, "%13%"
+
+[QcWlan_FW.CopyFiles]
+qwlan30.bin,,,2
+
+[QcWlan_BD.CopyFiles]
+bdwlan30.bin,,,2
+
+[QcWlan_Data.CopyFiles]
+Data.msc,,,2
+
+[Strings]
+QC                     = "Qualcomm Technologies, Inc."
+DiskId1                = "Qualcomm(R) Wi-Fi B/G/N/AC (2x2) Board Data Extension Installation Disk #1"
+WLAN.DeviceDesc        = "Qualcomm(R) Wi-Fi B/G/N/AC (2x2) Board Data Extension"
+
