@@ -10,7 +10,7 @@ Class       = System
 ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 RefVersion  = 09/16/2011,1.0.1067.0000
-DriverVer   = 08/23/2021,1.0.1067.0000
+DriverVer   = 08/24/2021,1.0.1067.0000
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcpep8992.arm.cat
@@ -115,6 +115,7 @@ HKR , Parameters        , DisableCpuVdd               , 0x00010001,  0x00000000
 HKR , Parameters        , DisableL2GDHS               , 0x00010001,  0x00000003
 HKR , Parameters        , DisableL2Collapse           , 0x00010001,  0x00000000
 HKR , Parameters        , DisableCCI                  , 0x00010001,  0x00000000
+HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000001
 HKR , Parameters        , DisablePhaseScaling         , 0x00010001,  0x00000001
 HKR , Parameters        , DisableOfflineNotification  , 0x00010001,  0x00000001
 HKR , Parameters        , DisablePCE                  , 0x00010001,  0x00000000
@@ -169,14 +170,12 @@ HKR , Parameters        , DisableL2Ret                , 0x00010001,  0x00000000
 HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000000
 HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000000
 HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000000
-HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000001
 
 [PEP_SoftwareDeviceSettings.NTarm64]
 HKR , Parameters        , DisableL2Ret                , 0x00010001,  0x00000003
 HKR , Parameters        , DisableCXO                  , 0x00010001,  0x00000001
 HKR , Parameters        , DisableVddMin               , 0x00010001,  0x00000001
 HKR , Parameters        , DisableBWMonBusDCVS         , 0x00010001,  0x00000001
-HKR , Parameters        , EnableProcessorManagement   , 0x00010001,  0x00000000 ; Disabled due to issues on 8992, will cause a crash
 
 [Drivers_Dir_A32]
 qcpep8992.sys
