@@ -32,7 +32,6 @@ AddComponent = imsVTWNIsvc_SoftwareComponent  ,, imsVTWNIsvc_Install
 ; Libraries
 AddComponent = Ims_SoftwareComponent          ,, Ims_Install
 AddComponent = SSD_SoftwareComponent          ,, SSD_Install
-AddComponent = WMRIL_SoftwareComponent        ,, WMRIL_Install
 
 [ImsDataDeamon_Install]
 ComponentIds = VID_QCOM&PID_0EA0&SID_0001
@@ -51,9 +50,6 @@ ComponentIds = VID_QCOM&PID_0EA0&SID_0008
 
 [SSD_Install]
 ComponentIds = VID_QCOM&PID_0EA0&SID_000A
-
-[WMRIL_Install]
-ComponentIds = VID_QCOM&PID_0EA0&SID_000B
 
 [Strings]
 ;Localizable Strings

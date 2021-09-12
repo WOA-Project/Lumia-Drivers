@@ -14,10 +14,10 @@ CatalogFile.NTarm64 = qcwmrilextension8994.arm64.cat
 %QC% = DeviceExtensions,NTarm,NTarm64
 
 [DeviceExtensions.NTarm]
-%WMRil.DeviceDesc% = DeviceExtension_Install, SWC\VID_QCOM&PID_0EA0&SID_000B
+%WMRil.DeviceDesc% = DeviceExtension_Install, SWC\VEN_QCOM&DEV_WMRIL&PLAT_8994
 
 [DeviceExtensions.NTarm64]
-%WMRil.DeviceDesc% = DeviceExtension_Install, SWC\VID_QCOM&PID_0EA0&SID_000B
+%WMRil.DeviceDesc% = DeviceExtension_Install, SWC\VEN_QCOM&DEV_WMRIL&PLAT_8994
 
 [DeviceExtension_Install.NT]
 ; No changes
