@@ -7,7 +7,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 08/29/2021,1.0.0.0001
+DriverVer   = 09/13/2021,1.0.0.0001
 PnpLockdown = 1
 
 CatalogFile.NTARM   = phonereleaseversion.arm.cat
@@ -24,7 +24,7 @@ Addreg    = phonereleaseversionReg
 Addreg    = phonereleaseversionReg
 
 [phonereleaseversionReg]
-HKLM, "SYSTEM\Platform\DeviceTargetingInfo", "PhoneReleaseVersion", 0x0,  "2108.93"
+HKLM, "SYSTEM\Platform\DeviceTargetingInfo", "PhoneReleaseVersion", 0x0,  "210X.XX (9/13/2021, 21:01 UTC+2)"
 
 [Strings]
 IHV                    = "LumiaWoA authors"
