@@ -35,7 +35,7 @@ proxy_driver.sys  = 1,arm64,
 %GripProxy.DeviceDesc% = GripProxy_Inst.NTarm64, Root\GripProxy
 
 [DeviceInstall32]
-AddDevice = ROOT\GripProxy\1000,,GripProxy_Inst_Device
+AddDevice = ROOT\GripProxy\0000,,GripProxy_Inst_Device
 
 [GripProxy_Inst_Device]
 HardwareIds = Root\GripProxy

@@ -6,7 +6,7 @@ Signature   = "$Windows NT$"
 Class       = SoftwareComponent
 ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
-DriverVer   = 03/18/2021,1.0.0.4
+DriverVer   = 10/01/2021,1.0.0.4
 PnpLockdown = 1
 
 CatalogFile.NTarm64 = NlpmService.arm64.cat
@@ -96,7 +96,7 @@ HKR, "TriggerInfo\0", "Data1", 0x00000001, \
 	00,00,00,00,01,00,00,00                         ; ········
 
 HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaperProvider", 0x00000000, "{75CF42B3-6A70-425C-9B42-636CA1F63B90}"
-HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaper", 0x00020000, "%%SystemRoot%%\OEM\Wallpaper.png"
+HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaper", 0x00000000, "%10%\OEM\Wallpaper.png"
 HKLM, "Software\Microsoft\Shell\Wallpaper", "CurrentWallpaperOwner", 0x00000000, "{75CF42B3-6A70-425C-9B42-636CA1F63B90}"
 
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\SvcHost", "NsgGlance", 0x00010008, \

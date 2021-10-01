@@ -1,4 +1,4 @@
-;
+; 
 ; Copyright (c) 2011-2015 Qualcomm Technologies, Inc. All Rights Reserved.
 ; Qualcomm Technologies Proprietary and Confidential.
 ;
@@ -8,7 +8,7 @@
 ;
 ; Abstract:
 ;
-;    Inf file for Qualcomm WDDM DirectX drivers for Windows
+;    Inf file for Qualcomm WDDM DirectX drivers for Windows Phone
 ;
 [Version]
 Signature   = "$Windows NT$"
@@ -530,7 +530,7 @@ HKLM, Software\Policies\Microsoft\Edge\WebView2, HardwareAccelerationModeEnabled
 HKLM, Software\Policies\Google\Chrome,           HardwareAccelerationModeEnabled, %REG_DWORD%, 0
 
 [WDTFSOCDeviceCategory]
-{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD},2,7,,0
 
 [QCDX_Inst.NTarm.Services]
 AddService = QCDX,0x00000002,QCDX_Service.NTarm,
@@ -561,17 +561,21 @@ KmdfService = QCDX, QCDX_wdfsect
 [QCDX_wdfsect]
 KmdfLibraryVersion = 1.15
 
+;
+; Display Adapter Specific Settings
+;
 [QCDX_SoftwareDeviceSettings.NTarm]
-HKR,, InstalledDisplayDrivers    , %REG_MULTI_SZ%,  qcdx11um8994,                 qcdx11um8994,                     qcdx11um8994
+HKR,, InstalledDisplayDrivers    , %REG_MULTI_SZ%,  qcdx11um8994,                     qcdx11um8994,                     qcdx11um8994
 HKR,, VgaCompatible              , %REG_DWORD%   ,  0
-HKR,, UserModeDriverName         , %REG_MULTI_SZ%,  <>,                           %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll, %13%\arm\qcdx11um8994.dll
+HKR,, UserModeDriverName         , %REG_MULTI_SZ%,  %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll
+HKR,, UserModeDriverNameWow      , %REG_MULTI_SZ%,  %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll
 HKR,, ContentProtectionDriverName, %REG_SZ%      ,  %13%\arm\qchdcpumd8994.dll
 
 [QCDX_SoftwareDeviceSettings.NTarm64]
-HKR,, InstalledDisplayDrivers    , %REG_MULTI_SZ%,  qcdx11arm64um8994,            qcdx11arm64um8994,                qcdx11arm64um8994
+HKR,, InstalledDisplayDrivers    , %REG_MULTI_SZ%,  qcdx11arm64um8994,                qcdx11arm64um8994,                qcdx11arm64um8994
 HKR,, VgaCompatible              , %REG_DWORD%   ,  0
-HKR,, UserModeDriverName         , %REG_MULTI_SZ%,  <>,                           %13%\arm64\qcdx11arm64um8994.dll, %13%\arm64\qcdx11arm64um8994.dll, %13%\arm64\qcdx11arm64um8994.dll
-HKR,, UserModeDriverNameWow2     , %REG_MULTI_SZ%,  <>,                           %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll
+HKR,, UserModeDriverName         , %REG_MULTI_SZ%,  %13%\arm64\qcdx11arm64um8994.dll, %13%\arm64\qcdx11arm64um8994.dll, %13%\arm64\qcdx11arm64um8994.dll
+HKR,, UserModeDriverNameWow2     , %REG_MULTI_SZ%,  %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll,        %13%\arm\qcdx11um8994.dll
 HKR,, ContentProtectionDriverName, %REG_SZ%      ,  %13%\arm64\qchdcpumd8994.dll
 
 [QCDX.Files.NTarm_13]
@@ -619,15 +623,15 @@ LUVCP120.dll
 
 ; System32
 [QCDX.Files.NTarm64_11]
-qcdx11compiler8994.dll, qcdx11arm64compiler8994.dll,,0x00004000,
-LAVCR120.dll
-LAVCP120.dll
+qcdx11compiler8994.dll, qcdx11arm64compiler8994.dll,,0x00004000
+LAVCR120.dll,                                      ,,0x00004000
+LAVCP120.dll,                                      ,,0x00004000
 
 ; SysArm32
 [QCDX.Files.NTarm3264_10]
-qcdx11compiler8994.dll
-LUVCR120.dll
-LUVCP120.dll
+qcdx11compiler8994.dll,                            ,,0x00004000
+LUVCR120.dll,                                      ,,0x00004000
+LUVCP120.dll,                                      ,,0x00004000
 
 [Strings]
 
