@@ -34,6 +34,12 @@ proxy_driver.sys  = 1,arm64,
 [Standard.NTarm64]
 %GripProxy.DeviceDesc% = GripProxy_Inst.NTarm64, Root\GripProxy
 
+[DeviceInstall32]
+AddDevice = ROOT\GripProxy\1000,,GripProxy_Inst_Device
+
+[GripProxy_Inst_Device]
+HardwareIds = Root\GripProxy
+
 ;*****************************************
 ; TchDriver client driver Install Section
 ;*****************************************

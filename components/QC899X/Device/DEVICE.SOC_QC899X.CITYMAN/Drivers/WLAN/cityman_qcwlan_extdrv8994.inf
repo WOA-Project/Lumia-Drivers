@@ -1,0 +1,104 @@
+;-------------------------------------------------------------------------------
+; QCWLAN8994EXTDRV.INF
+;
+; Qualcomm Wireless LAN NDIS Miniport Adapter
+;
+; Copyright (c) Qualcomm Inc.  All rights reserved.
+
+[version]
+Signature   = "$Windows NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %OEM%
+DriverVer   = 09/21/2021,1.0.1067.0000
+ExtensionId = {872672DF-6BB6-4238-9553-8CD37C721040}
+
+CatalogFile.NTarm   = cityman_qcwlan8994extdrv.arm.cat
+CatalogFile.NTarm64 = cityman_qcwlan8994extdrv.arm64.cat
+
+[DestinationDirs]
+QcWlan_FW.CopyFiles         = 12
+QcWlan_BD.CopyFiles         = 13
+QcWlan_Data.CopyFiles       = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qwlan30.bin  = 1,,
+bdwlan30.bin = 1,,
+Data.msc     = 1,,
+
+[Manufacturer]
+%OEM% = Extension,NTARM64
+
+; For WinXP and later
+[Extension.NTARM]
+%WLAN.DeviceDesc%    = Extension_Inst.ndi, PCI\VEN_168C&DEV_003E
+
+; For WinXP and later
+[Extension.NTARM64]
+%WLAN.DeviceDesc%    = Extension_Inst.ndi, PCI\VEN_168C&DEV_003E
+
+[Extension_Inst.ndi.NT]
+CopyFiles = QcWlan_FW.CopyFiles, QcWlan_BD.CopyFiles, QcWlan_Data.CopyFiles
+
+[Extension_Inst.ndi.HW]
+AddReg = caps.Reg, oscaps.reg, FW_30.reg, BD_30.reg
+
+[caps.reg]
+HKR,,ignore11dBeacon, %REG_DWORD%,1
+;HKR,,CountryName,,"2G"
+HKR,,linkQualityChangeThresh, %REG_DWORD%,2
+HKR,,gEnableModulatedDTIM, %REG_DWORD%,3
+HKR,,gMaxLIModulatedDTIM, %REG_DWORD%,5
+HKR,,WfdGoEnable11b, %REG_DWORD%,0
+HKR,,Enable11acWfd, %REG_DWORD%,1
+HKR,,WfdEnable2GHT40, %REG_DWORD%,1
+HKR,,hsEnable, %REG_DWORD%,1
+HKR,,roamPrefer5GHz, %REG_DWORD%,1
+HKR,,Roam_FullPassiveScan, %REG_DWORD%,1
+HKR,,ScanOptimizationChannelCount, %REG_DWORD%,0
+
+[oscaps.reg]
+HKLM, Software\Microsoft\WlanSvc, NoResetRecoveryForLimitDetection, %REG_DWORD%, "1"
+
+HKLM, System\CurrentControlSet\services\WlanSvc\parameters\OEM\SystemCapabilities, WLANPlatformLevelDeviceResetSupported, %REG_DWORD%, "1"
+HKLM, System\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, CoexistenceSupport,                    %REG_DWORD%, "1"
+HKLM, System\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, SimultaneousMultiChannelSupported,     %REG_DWORD%, "1"
+HKLM, System\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, WLANFunctionLevelDeviceResetSupported, %REG_DWORD%, "1"
+HKLM, System\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, NumAntennaConnected,                   %REG_DWORD%, "2"
+
+HKLM, "Software\Microsoft\WcmSvc\WiFiNetworkManager\Config", "SignalStrengthDelta", %REG_DWORD%, 0x00000014
+HKLM, "Software\Microsoft\WcmSvc\WiFiNetworkManager\Config", "EnableWEPDiscovery",  %REG_DWORD%, 0x00000000
+HKLM, "Software\Microsoft\WcmSvc\WiFiNetworkManager\Config", "DefaultSharingState", %REG_DWORD%, 0x00000001
+
+[FW_30.reg]
+HKR,,FWFileName, 0x00000000, "qwlan30.bin"
+
+[BD_30.reg]
+HKR,,BoardDataFileName, 0x00000000, "bdwlan30.bin"
+HKR,,BoardDataFilePath, 0x00000000, "%13%"
+
+[QcWlan_FW.CopyFiles]
+qwlan30.bin,,,2
+
+[QcWlan_BD.CopyFiles]
+bdwlan30.bin,,,2
+
+[QcWlan_Data.CopyFiles]
+Data.msc,,,2
+
+;-----------------------------------------------------------------------------
+; Strings
+;-----------------------------------------------------------------------------
+[Strings]
+; localizable
+OEM                         = "Qualcomm Technologies, Inc."
+WLAN.DeviceDesc             = "Qualcomm(R) Wi-Fi B/G/N/AC (2x2) Board Data Extension"
+
+; non localizable
+QcWlan.Service.Name         = "Qualcomm(R) Wi-Fi B/G/N/AC (2x2) Board Data Extension"
+REG_SZ                      = 0x00000000
+REG_DWORD                   = 0x00010001
+REG_QWORD                   = 0x000B0001

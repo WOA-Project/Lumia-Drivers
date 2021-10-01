@@ -15,8 +15,8 @@ Signature   = "$Windows NT$"
 Class       = Display
 ClassGUID   = {4d36e968-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
-DriverVer   = 03/18/2021,11.18.1067.0000
-;DriverVer.NTarm   = 03/18/2021,11.18.1078.0053
+DriverVer   = 09/26/2021,11.18.1067.0000
+;DriverVer.NTarm   = 09/26/2021,11.18.1078.0053
 PnpLockdown = 1
 
 CatalogFile.NTarm   = qcdx_ffu8994.arm.cat
@@ -97,14 +97,14 @@ PETrust = true
 [QCDX_Inst.NTarm]
 FeatureScore = D1
 CopyFiles    = QCDX.Files.NTarm_13, QCDX.Files.NTarm_11
-AddReg       = QCDX_SoftwareDeviceSettings.NTarm, QCDX_MftRegistration.NTarm
+AddReg       = QCDX_SoftwareDeviceSettings.NTarm, QCDX_MftRegistration.NTarm, ChromiumHardwareAccelerationConfig_AddReg
 AddProperty  = WDTFSOCDeviceCategory
 Reboot
 
 [QCDX_Inst.NTarm64]
 FeatureScore = D1
 CopyFiles    = QCDX.Files.NTarm64_13, QCDX.Files.NTarm3264_13, QCDX.Files.NTarm64_11, QCDX.Files.NTarm3264_10
-AddReg       = QCDX_SoftwareDeviceSettings.NTarm64, QCDX_MftRegistration.NTarm64
+AddReg       = QCDX_SoftwareDeviceSettings.NTarm64, QCDX_MftRegistration.NTarm64, ChromiumHardwareAccelerationConfig_AddReg
 AddProperty  = WDTFSOCDeviceCategory
 Reboot
 
@@ -231,8 +231,6 @@ HKLM, Software\Classes\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef
 	  E5,D8,EF,6E,FD,69,76,4B,2D,C0,D6,33,68,B4,45,97,1A,05,A4,B0,4B,AB,91
 HKLM, Software\Classes\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                                                                    , MFTFlags              , %REG_DWORD%    , 0x6
 HKLM, Software\Classes\MediaFoundation\Transforms\Categories\d6c02d4b-6833-45b4-971a-05a4b04bab91\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                    ,                       , 0x10
-
-HKLM, Software\Policies\Microsoft\Edge, HardwareAccelerationModeEnabled, %REG_DWORD%, 0
 
 ; Circumscribe Miracast Session on 8994 to macroblocks for 1080@60 when max is 4k@30
 HKLM, Software\Microsoft\Windows Media Foundation\Network, MiracastPreserveVideoEncoderMBRate, %REG_DWORD%, "0x85980"
@@ -503,8 +501,6 @@ HKLM, Software\Classes\WowAA32Node\MediaFoundation\Transforms\df20ddfa-0d19-463a
 HKLM, Software\Classes\WowAA32Node\MediaFoundation\Transforms\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                                                                    , MFTFlags              , %REG_DWORD%    , 0x6
 HKLM, Software\Classes\WowAA32Node\MediaFoundation\Transforms\Categories\d6c02d4b-6833-45b4-971a-05a4b04bab91\df20ddfa-0d19-463a-ab46-e5d8ef6efd69                    ,                       , 0x10
 
-HKLM, Software\Policies\Microsoft\Edge, HardwareAccelerationModeEnabled, %REG_DWORD%, 0
-
 ; Circumscribe Miracast Session on 8994 to macroblocks for 1080@60 when max is 4k@30
 HKLM, Software\Microsoft\Windows Media Foundation\Network, MiracastPreserveVideoEncoderMBRate, %REG_DWORD%, "0x85980"
 
@@ -526,6 +522,12 @@ HKLM, "Software\QCOM\MFTs\VideoEncoder", "1080PThresholdBitRate", 0x00010001, 0x
 HKLM, "Software\Microsoft\Windows Media Foundation\HardwareMFT", "EnableDecoders", 0x00010001, 0x00000001
 
 HKLM, "Software\Microsoft\Windows Media Foundation\Platform\VideoStabilization", "MaxPixelsPerSecond", 0x00010001, 0x00000000
+
+; Disable Hardware Acceleration for compatible Chromium browsers
+[ChromiumHardwareAccelerationConfig_AddReg]
+HKLM, Software\Policies\Microsoft\Edge,          HardwareAccelerationModeEnabled, %REG_DWORD%, 0
+HKLM, Software\Policies\Microsoft\Edge\WebView2, HardwareAccelerationModeEnabled, %REG_DWORD%, 0
+HKLM, Software\Policies\Google\Chrome,           HardwareAccelerationModeEnabled, %REG_DWORD%, 0
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2

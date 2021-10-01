@@ -10,7 +10,7 @@ Signature   = "$Windows NT$"
 Class       = Net
 ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
-DriverVer   = 09/12/2021,1.0.1078.0053
+DriverVer   = 09/20/2021,1.0.1078.0053
 PnpLockDown = 1
 
 CatalogFile.NTarm   = qcwlan8994.arm.cat
@@ -92,31 +92,6 @@ HKR, Ndi\Interfaces,                LowerRange, 0, "wlan,ethernet,vwifi"
 HKR, Ndi\Interfaces,                DefUpper,   0, "ndis5"
 HKR, Ndi\Interfaces,                DefLower,   0, "ethernet"
 HKR, Ndi,                           Service,    0, %QcWlan.Service.Name%
-
-HKR,,ignore11dBeacon,0x00010001,1
-;HKR,,CountryName,,"2G"
-HKR,,linkQualityChangeThresh,0x00010001,2
-HKR,,gEnableModulatedDTIM,0x00010001,3
-HKR,,gMaxLIModulatedDTIM,0x00010001,5
-HKR,,WfdGoEnable11b,0x00010001,0
-HKR,,Enable11acWfd,0x00010001,1
-HKR,,WfdEnable2GHT40,0x00010001,1
-HKR,,hsEnable,0x00010001,1
-HKR,,roamPrefer5GHz,0x00010001,1
-HKR,,Roam_FullPassiveScan,0x00010001,1
-HKR,,ScanOptimizationChannelCount,0x00010001,0
-
-HKLM, Software\Microsoft\WlanSvc, NoResetRecoveryForLimitDetection, 0x10001, "1"
-
-HKLM, System\CurrentControlSet\services\WlanSvc\parameters\OEM\SystemCapabilities, WLANPlatformLevelDeviceResetSupported, 0x10001, "1"
-HKLM, System\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, CoexistenceSupport, 0x10001, "1"
-HKLM, System\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, SimultaneousMultiChannelSupported, 0x10001, "1"
-HKLM, System\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, WLANFunctionLevelDeviceResetSupported, 0x10001, "1"
-HKLM, System\CurrentControlSet\services\Wlansvc\parameters\OEM\SystemCapabilities, NumAntennaConnected, 0x10001, "2"
-
-HKLM, "Software\Microsoft\WcmSvc\WiFiNetworkManager\Config", "SignalStrengthDelta", 0x00010001, 0x00000014
-HKLM, "Software\Microsoft\WcmSvc\WiFiNetworkManager\Config", "EnableWEPDiscovery", 0x00010001, 0x00000000
-HKLM, "Software\Microsoft\WcmSvc\WiFiNetworkManager\Config", "DefaultSharingState", 0x00010001, 0x00000001
 
 [QcWlan.DelReg]
 HKR,Ndi\Params\tpc

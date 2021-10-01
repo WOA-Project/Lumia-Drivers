@@ -36,6 +36,12 @@ qccamcore8994.sys  = 1,arm64,
 [ControlFlags]
 ExcludeFromSelect=*
 
+[DeviceInstall32]
+AddDevice = ROOT\CORE\1000,,CORE_Inst_Device
+
+[CORE_Inst_Device]
+HardwareIds = ROOT\CORE
+
 ;*****************************************
 ; CORE  Install Section
 ;*****************************************

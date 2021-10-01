@@ -95,7 +95,7 @@ LoadOrderGroup = Extended Base
 [Strings]
 ;Localizable Strings
 QC                     = "Qualcomm Technologies, Inc."
-DiskId1                = "ADSPRPC Installation Disk"
+DiskId1                = "Qualcomm ADSPRPC Driver Installation Disk"
 ADSPRPC.DeviceDesc     = "Qualcomm(R) Hexagon(TM) V56 DSP"
 ADSPRPC.SvcDesc        = "Qualcomm(R) Hexagon(TM) V56 DSP"
 

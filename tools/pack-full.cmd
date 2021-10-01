@@ -8,7 +8,7 @@
       if "%HOUR:~0,1%" == " " (SET dtStamp=%dtStamp9%) else (SET dtStamp=%dtStamp24%)
 
 
-title [2105.%dtStamp%.prerelease] [Build preparation] [Packing Binaries]
+title [211X.%dtStamp%.prerelease] [Build preparation] [Packing Binaries]
 REM rmdir /Q /S ..\..\Lumia-Drivers-Release
 REM mkdir ..\..\Lumia-Drivers-Release
 

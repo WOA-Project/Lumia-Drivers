@@ -6,7 +6,7 @@ Signature   = "$WINDOWS NT$"
 Class       = SYSTEM
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
-DriverVer   = 08/18/2021,1.0.0.1
+DriverVer   = 09/27/2021,1.0.0.1
 PnpLockdown = 1
 
 CatalogFile.NTARM   = cityman_dsdt_test_sd_boot_update.arm.cat

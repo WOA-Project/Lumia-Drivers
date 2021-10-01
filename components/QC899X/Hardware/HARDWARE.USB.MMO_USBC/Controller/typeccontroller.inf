@@ -38,6 +38,12 @@ WppRecorderUM.dll = 1,arm64,
 [Standard.NTarm64]
 %DevDesc% = tyc_Inst, umdf2\tyc
 
+[DeviceInstall32]
+AddDevice = ROOT\tyc\1000,,tyc_Inst_Device
+
+[tyc_Inst_Device]
+HardwareIds = umdf2\tyc
+
 ;---------------- copy files
 
 [tyc_Inst.NTarm]

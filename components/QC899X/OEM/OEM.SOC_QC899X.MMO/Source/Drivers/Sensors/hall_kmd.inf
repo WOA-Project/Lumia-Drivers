@@ -3,7 +3,7 @@ Signature   = "$Windows NT$"
 Class       = Sensor
 ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %MMO%
-DriverVer   = 03/18/2021,1.0.1078.0056
+DriverVer   = 09/25/2021,1.0.1078.0056
 PnpLockdown = 1
 
 CatalogFile.NTarm   = hall_kmd.arm.cat
@@ -50,11 +50,11 @@ hall_kmd.sys,,,0x100
 hall_kmd.sys,,,0x100
 
 [hall_kmd_Device.AddReg]
-;HKLM, "System\Software\SmartCover", "FrontSensor", 0x00010001, 0
-;HKLM, "System\Software\SmartCover", "BackSensor" , 0x00010001, 0
+HKLM, "System\Software\SmartCover", "FrontSensor", 0x00010001, 0
+HKLM, "System\Software\SmartCover", "BackSensor" , 0x00010001, 0
 
-;HKLM, "System\HallSensor", "Polarity", 0x00010001, 0
-;HKLM, "System\HallSensor", "Disabled", 0x00010001, 0
+HKLM, "System\HallSensor", "Polarity", 0x00010001, 0
+HKLM, "System\HallSensor", "Disabled", 0x00010001, 0
 
 ;-------------- Service installation
 [hall_kmd_Device.NTarm.Services]

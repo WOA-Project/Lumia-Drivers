@@ -48,6 +48,12 @@ vcruntime140.dll= 1,arm64,
 [Sensor_Device.NTarm64]
 %DevDesc% = Sensor_Inst, ACPI\QCOM2495
 
+[DeviceInstall32]
+AddDevice = ROOT\FusionV2\0000,,FusionV2_Inst
+
+[FusionV2_Inst]
+HardwareIds = umdf2\FusionV2
+
 ;---------------- copy files
 
 [Sensor_Inst.NTarm]
