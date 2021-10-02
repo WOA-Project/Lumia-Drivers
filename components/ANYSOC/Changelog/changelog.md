@@ -1,7 +1,29 @@
-﻿## Lumia Drivers BSP - Version 2108.80
-**Released:** 08/29/2021 19:00 PM UTC+2
+﻿## Lumia Drivers BSP - Version 2110.1
+**Released:** 10/02/2021 12:00 PM UTC+2
 
 **Quality:** Stable
+
+### Compatibility
+
+| Operating System                                                          | Supported? |
+|---------------------------------------------------------------------------|------------|
+| Windows 10 Build 16299 (1709)                                             | ❌         |
+| Windows 10 Build 17134 (1803)                                             | ⚠️         |
+| Windows 10 Build 17763 (1809)                                             | ⚠️         |
+| Windows 10 Build 18362 (1903)                                             | ⚠️         |
+| Windows 10 Build 18363 (1909)                                             | ⚠️         |
+| Windows 10 Build 19041 (2004)                                             | ✅         |
+| Windows 10 Build 19042 (20h2)                                             | ✅         |
+| Windows 10 Build 19043 (21h1)                                             | ✅         |
+| Windows 10 Build 19044 (21h2)                                             | ✅         |
+| Windows 11 Build 22000 (21h2)                                             | ✅         |
+| Windows 11 vNext (Nickel Semester)                                        | ✅ *       |
+
+* Might break in the future. Long term compatibility uncertain due to ARMv8.1 Atomics being required.
+
+❌: Not supported, important issues present
+⚠️: Not supported, minor issues present, not actively maintained anymore
+✅: Fully supported, known issues present but nothing impactful, actively maintained
 
 ### Important installation notes
 
@@ -20,9 +42,44 @@ ________________________________________________________________________________
 
 Changelog
 
-- Update to the touch driver (Synaptics)
+- General updates to root device installation process. The installation process for the Type C Controller, Grip Proxy,
+  FusionV2 (Sensors), Camera Core no longer rely on installation scripts, and offer better reliability.
 
-  Resolves an issue preventing double tap to wake functionality
+- The HALL Sensor driver no longer crashes on unload.
+
+- Reworked Installation process for the Qualcomm Radio Interface Layer
+
+- Fixed an issue with the Qualcomm Adreno GPU Driver UMD component registration
+
+- Fixed an issue impacting the rendering of Edge WebView 2 applications in the system as well as Google Chrome and Chromium
+
+- Addressed a few issues with the Type-C PHY driver that occured after swapping twice in a row the port
+
+- Updated PEP for the Qualcomm Snapdragon 808 Processor (MSM8992). The new update enables stable 1.53Ghz (temporary) for
+  the Cortex-A53 Cluster. It requires no change or input of the user in order to work.
+
+- Updated the Touch Driver to add support for Surface Pen input if a supported firmware has been flashed onto the digitizer
+  (refer to the Surface Pen Support section of this document to learn more).
+
+- Updated ACPI tables for SD Card support in order to fix a few issues with defined functions
+
+- This release is the first release to support SD Card deployment officially.
+
+- Enables enhanced power saving mode for the touch digitizer while the device is asleep
+
+- Addresses an issue with non calibrated board data for the WLAN Chip on the Lumia 950 (Talkman)
+
+- Reworked IMS/RCS Stack. The stack is not yet usable. It will get enabled on a future release.
+
+- Addresses issues with Windows Insider Dev Channel builds from the Nickel Development Cycle
+
+- Addresses an issue with driver signing
+
+- Addresses an issue with the device not properly shutting down due to Hibernation being enabled
+
+- Addresses an issue with the side buttons in some rare occasions not being correctly mapped to expected functionality
+
+- Removed a mandatory reboot during clean installs
 
 ____________________________________________________________________________________________________________________________
 
@@ -57,6 +114,66 @@ How to install Windows Desktop on internal Storage
 ____________________________________________________________________________________________________________________________
 
 
+How to install Windows Desktop on an SD card
+
+NOTE: It is also possible to put the UEFI and bootshim on the sd card, but steps are not detailed here. Short Version: 
+Copy EFIESP to a new partition on your SD Card, edit BCD to remove WP boot entries and ensure bootshim/uefi is present. 
+In order to boot from the SD Card EFIESP press volume down at boot of your device with the sd card inserted.
+
+- Insert your SD Card
+- Install Windows on the SD card like you would on any external storage media (some tools even exist that can do it for you ie Rufus)
+- Set TestSigning on the {bootloadersettings} object of BCD on the sd card
+- Setup BootShim/Lumia950XlPkg on the phone eMMC like you would on a traditional installation
+  (You can download bootshim from here: https://dev.azure.com/LumiaWoA/Boot%20Shim/_build/results?buildId=174&view=results)
+  (and the UEFI from here: https://github.com/WOA-Project/Lumia950XLPkg/releases)
+- Take note of the drive letter the Windows partition is using on the sd card, here we will assume it got mounted as I:
+
+- Download [Lumia-Drivers-Full.zip] from https://github.com/WOA-Project/Lumia-Drivers/releases/latest
+- Extract said zip file to a folder of your choice, we will assume here we extracted it to C:\UpdatedDrivers
+- Download the DriverUpdater utility from https://github.com/WOA-Project/DriverUpdater/releases/latest
+- Open a command prompt as administrator, where the driver utility got downloaded
+
+- If your device is a Lumia 950, execute the following command:
+  
+  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\SDCard\950.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+
+- If your device is a Lumia 950 XL, execute the following command:
+  
+  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\SDCard\950xl.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+
+- Reboot the device, boot into BootShim, let the UEFI load, and you should be able to boot from SD Card.
+
+____________________________________________________________________________________________________________________________
+
+
+Surface Pen Support
+
+Surface Pen Support in the Digitizer driver has been enabled in this release. It may work with other pens but it has 
+not been tested with others.
+
+Currently the implementation requires you to reflash the digitizer firmware to one with pen functionality enabled. 
+Unfortunately such firmware is currently only available for the Lumia 950 (Talkman) device and not the Lumia 950 XL (Cityman)
+
+To learn more on how to reflash such firmware and thus enable pen support, please go to the following message:
+
+https://t.me/LumiaWOA_Announcements/364
+
+
+____________________________________________________________________________________________________________________________
+
+
+Note on the Power Engine Plugin (PEP) support for the Qualcomm Snapdragon 808 Processor (MSM8992)
+
+Currently PEP only manages properly the first cluster A53. The Second Cluster is not getting faster clock speeds due to 
+overclocking issues in the driver. Normally the A53 cluster should be running at 1.48Ghz instead of 1.53Ghz as well.
+The overclocking issue in PEP makes the A57 cluster run at 1.96Ghz instead of 1.87Ghz leading to a platform crash during
+boot. Parking is functional for both clusters in this release. Only higher clock speeds is incorrectly done.
+
+Please do not apply previous workarounds from the past, they are not compatible with this release.
+
+____________________________________________________________________________________________________________________________
+
+
 Hardware specific defects
 
 - A considerable amount of Lumia 950 and Lumia 950 XL devices do not work with the HP lapdock properly when using a wired connection
@@ -66,6 +183,7 @@ ________________________________________________________________________________
 
 General software defects
 
+- Plugging an iPhone into the USB C port of the device will result in a power delivery negotiation loop
 - Cameras are not available
 - Windows Hello Iris Scanner is not available
 - Hyper-V is not available
