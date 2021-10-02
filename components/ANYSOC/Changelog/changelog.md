@@ -19,10 +19,14 @@
 | Windows 11 Build 22000 (21h2)                                             | ✅         |
 | Windows 11 vNext (Nickel Semester)                                        | ✅ *       |
 
+
 * Might break in the future. Long term compatibility uncertain due to ARMv8.1 Atomics being required.
 
+
 ❌: Not supported, important issues present
+
 ⚠️: Not supported, minor issues present, not actively maintained anymore
+
 ✅: Fully supported, known issues present but nothing impactful, actively maintained
 
 ### Important installation notes
@@ -218,19 +222,19 @@ General software defects
 - Current issues with glance screen:
 
 When the glance screen times out after the time specified there's a chance the screen won't turn off, this is still needing investigation but the issue can only be two things:
-— either the device got out of S0ix and is sleeping at a lower level, because wifi is not connected for example, as a result the glance service is unable to take actions, this is a problem
-— or, the glance service is trying to clear the screen, (there's a specific panel driver command to do so), and for some reason this is failing.
+- either the device got out of S0ix and is sleeping at a lower level, because wifi is not connected for example, as a result the glance service is unable to take actions, this is a problem
+- or, the glance service is trying to clear the screen, (there's a specific panel driver command to do so), and for some reason this is failing.
 This specific issue might take some time to completely iron out.
 
 The following status notifications are not implemented in the port/non functional in the wrapper libraries:
-— Battery saver indication
-— Ringer indication (vibrate on, silence on)
-— Alarm indication
-— Detailed text indication
-— Notification badges
+- Battery saver indication
+- Ringer indication (vibrate on, silence on)
+- Alarm indication
+- Detailed text indication
+- Notification badges
 
 The following functionality is not implemented:
-— Wake glance on single tap
+- Wake glance on single tap
 
 ____________________________________________________________________________________________________________________________
 
