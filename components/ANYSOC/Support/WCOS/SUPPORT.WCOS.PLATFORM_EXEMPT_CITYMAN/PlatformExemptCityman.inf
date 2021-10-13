@@ -6,7 +6,11 @@ Provider    = %IHV%
 DriverVer   = 01/01/2021,1.0.0.0
 PnpLockDown = 1
 
+CatalogFile.NTARM   = PlatformExemptCityman.arm.cat
 CatalogFile.NTARM64 = PlatformExemptCityman.arm64.cat
+
+[DefaultInstall.NTARM]
+AddReg = PlatformExempt_AddReg
 
 [DefaultInstall.NTARM64]
 AddReg = PlatformExempt_AddReg
@@ -15,8 +19,8 @@ AddReg = PlatformExempt_AddReg
 ;
 ; qcwlan8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\qwlan30.bin" , 0x00000000, "qcwlan8994.inf\qwlan30.bin"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\Data.msc"    , 0x00000000, "qcwlan8994.inf\Data.msc"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\qwlan30.bin" , 0x00000000, "cityman_qcwlan_extdrv8994.inf\qwlan30.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\Data.msc"    , 0x00000000, "cityman_qcwlan_extdrv8994.inf\Data.msc"
 
 ;
 ; qcdx_ffu8994.inf
@@ -46,6 +50,13 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ; qcauddev_wp8994.inf
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qccpe8994.mbn", 0x00000000, "cityman_qcauddev_wp8994.inf\qccpe8994.mbn"
+
+;
+; qcsubsys_ffu8994.inf
+;
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcadsp8994.mbn", 0x00000000, "qcsubsys_ffu8994.inf\qcadsp8994.mbn"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdsp1v28994.mbn", 0x00000000, "qcsubsys_ffu8994.inf\qcdsp1v28994.mbn"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\qcdsp28994.mbn", 0x00000000, "qcsubsys_ffu8994.inf\qcdsp28994.mbn"
 
 ;
 ; qcbtuart8994.inf
@@ -93,19 +104,9 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\RilServiceActivation.exe", 0x00000000, "RilServiceActivation.inf\arm64\RilServiceActivation.exe"
 
 ;
-; OEMServiceHost.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\OEMServiceHost.exe", 0x00000000, "OEMServiceHost.inf\arm64\OEMServiceHost.exe"
-
-;
 ; oempanel.inf
 ;
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\Drivers\ColorData.bin"   , 0x00000000, "oempanel.inf\ColorData.bin"
-
-;
-; qcaud8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\ProxyAPO.dll", 0x00000000, "qcaud8994.inf\arm64\ProxyAPO.dll"
 
 ;
 ; qcipcrouter_WP8994.inf
@@ -117,7 +118,6 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ;
 ; QCListenSoundModel8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\QCListenSoundModel.dll"                              , 0x00000000, "QCListenSoundModel8994.inf\arm64\QCListenSoundModel.dll"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\de-DE\config"                  , 0x00000000, "QCListenSoundModel8994.inf\deDEconfig"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\de-DE\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\deDEVoiceActivationModel.bin"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-AU\config"                  , 0x00000000, "QCListenSoundModel8994.inf\enAUconfig"
@@ -130,8 +130,8 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-IN\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\enINVoiceActivationModel.bin"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-US\config"                  , 0x00000000, "QCListenSoundModel8994.inf\enUSconfig"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-US\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\enUSVoiceActivationModel.bin"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-ES\config"                  , 0x00000000, "QCListenSoundModel8994.inf\esESconfig"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\en-ES\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\esESVoiceActivationModel.bin"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\es-ES\config"                  , 0x00000000, "QCListenSoundModel8994.inf\esESconfig"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\es-ES\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\esESVoiceActivationModel.bin"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\fr-FR\config"                  , 0x00000000, "QCListenSoundModel8994.inf\frFRconfig"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\fr-FR\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\frFRVoiceActivationModel.bin"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\it-IT\config"                  , 0x00000000, "QCListenSoundModel8994.inf\itITconfig"
@@ -141,16 +141,7 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\zh-CN\config"                  , 0x00000000, "QCListenSoundModel8994.inf\zhCNconfig"
 HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\Windows\System32\VoiceActivationModels\zh-CN\VoiceActivationModel.bin", 0x00000000, "QCListenSoundModel8994.inf\zhCNVoiceActivationModel.bin"
 
-;
-; CameraAuthDriver_arm.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\System32\drivers\UMDF\CameraAuthentication.dll", 0x00000000, "CameraAuthDriver_arm.inf\arm64\CameraAuthentication.dll"
 
-;
-; qccamjpege8994.inf
-;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\System32\QcWicEncoder8994.dll", 0x00000000, "qccamjpege8994.inf\arm64\QcWicEncoder8994.dll"
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\SysArm32\QcWicEncoder8994.dll", 0x00000000, "qccamjpege8994.inf\arm\QcWicEncoderARM8994.dll"
 
 ;
 ; camcalibration.inf
@@ -181,7 +172,7 @@ HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirection
 ;
 ; qcppmsettings8994.inf
 ;
-HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\Provisioning\Packages\PPMSettings-8994Profiles.ppkg", 0x00000000, "qcppmsettings8994.inf\arm64\PPMSettings-8994Profiles.ppkg"
+HKLM, "SYSTEM\CurrentControlSet\Services\XRO\Parameters\BspVolumeFileRedirectionMappings", "\Device\BootDevice\windows\Provisioning\Packages\PPMSettings-8994Profiles.ppkg", 0x00000000, "qcppmsettings8994.inf\PPMSettings-8994Profiles.ppkg"
 
 ;
 ; qcDiagRouter8994.inf

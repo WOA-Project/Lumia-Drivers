@@ -12,6 +12,7 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC899X.TALKMAN\Drivers\Sensors" Name="talkman_alsprxalphamon.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC899X.TALKMAN\Drivers\Subsystems" Name="qcsubsys_ffu8992.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC899X.TALKMAN\Drivers\Touch" Name="talkman_SynapticsTouch.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC899X.TALKMAN\Drivers\WLAN" Name="talkman_qcwlan_extdrv8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC899X.TALKMAN\Settings" Name="devicestage.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC899X.TALKMAN\Settings" Name="oled.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\DEVICE.SOC_QC899X.TALKMAN_WCOS" Name="talkman_monitor.inf" />
@@ -30,7 +31,6 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.CAMERA.MMO_8992\Drivers\Camera\Thermal" Name="icaros_cam_esp.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.CAMERA.MMO_8992\Drivers\Camera\Thermal" Name="icaros_cam_esp_thermal.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.CAMERA.MMO_8992\Drivers\Camera\VideoStream" Name="qccamavs.wp638992.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.CAMERA.MMO_8992\Scripts" Name="mmodriversocsetup.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid01.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid02.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid03.inf" />
@@ -41,8 +41,6 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.USB.MMO_USBC\HDMI" Name="hdmidpi.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.USB.MMO_USBC\MUX" Name="TypeCMux.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.USB.MMO_USBC\PHY" Name="ice5lp_2k.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\HARDWARE.USB.MMO_USBC\Scripts" Name="mmodriverusbsetup.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Scripts" Name="driverssetup.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Drivers\Audio\ATTS" Name="attsdriver.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Drivers\Audio\Visa" Name="VisaST.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Drivers\Battery\Origa2Auth" Name="Origa2Auth.inf" />
@@ -57,6 +55,7 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="qcSensors8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="SscAlgorithmBridge8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Drivers\SideInteraction" Name="gripdet.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Drivers\SideInteraction" Name="gripdethid01.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Drivers\SideInteraction" Name="proxy_driver.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Drivers\USBFn" Name="genericusbfnclass.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Libraries" Name="apperso.inf" />
@@ -67,12 +66,12 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Services\NCSd" Name="NcsdSvc.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Services\Nlpm" Name="NlpmService.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Services\Nlpm" Name="oempanelextension.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Settings" Name="disablehiberboot.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO\Source\Settings" Name="disablereservedstorage.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\OEM.SOC_QC899X.MMO_MINIMAL\Touch" Name="touch_power.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.8992\Drivers\Graphics" Name="qcdx_ffu8992.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.8992\ProvisioningPkgs" Name="qcppmsettings8992.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.8992_MINIMAL\Drivers\SOC\PowerManagement" Name="QCPEP8992.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Scripts" Name="platformsetup.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Audio\ResourceConstraints" Name="qcaudresconst8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Audio\RPC" Name="qcadsprpc8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Audio\SLIMBUS" Name="qcslimbus8994.inf" />
@@ -105,10 +104,13 @@
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcpepextension8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcremoteatextension8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcwlanextension8994.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcWMRil_mbb_ext8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcwmrilextension8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcims8994.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcimssink_mbb_ext8994.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcimssrc_mbb_ext8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcssd8994.inf" />
-      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="wmril.inf" />
+      <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcWMRil8994.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Libraries\FMRadio" Name="qcfmslminiport.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Services\Audio" Name="libadsprpc.inf" />
       <DriverPackageFile Path="$(mspackageroot)\MMO\Talkman\$(cputype)\$(buildtype)\Drivers\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcImsDataDaemon8994.inf" />
