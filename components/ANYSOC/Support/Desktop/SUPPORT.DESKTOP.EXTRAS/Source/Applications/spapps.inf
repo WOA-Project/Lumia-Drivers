@@ -22,7 +22,7 @@ AppDepARM64  = 10,OEM\Applications\Dependencies\arm64
 0 = %DiskId1%
 
 [SourceDisksFiles]
-8419TigerWang.Airwaves_hv6sjhp5j6q2j.appxbundle           = 0,,
+LumiaWOA.Airwaves_btf4vqatnxdpt.appxbundle           = 0,,
 LumiaWOA.Chat_btf4vqatnxdpt.appxbundle                    = 0,,
 LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle                  = 0,,
 LumiaWOA.MobileShell_ax9k4b3m2m5jw.msixbundle             = 0,,
@@ -52,7 +52,7 @@ CopyFiles = PstDrv.Files,AppDepARM,AppDepARM64
 CopyFiles = PstDrv.Files,AppDepARM,AppDepARM64
 
 [PstDrv.Files]
-8419TigerWang.Airwaves_hv6sjhp5j6q2j.appxbundle
+LumiaWOA.Airwaves_btf4vqatnxdpt.appxbundle
 LumiaWOA.Chat_btf4vqatnxdpt.appxbundle
 LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle
 LumiaWOA.MobileShell_ax9k4b3m2m5jw.msixbundle
