@@ -6,7 +6,7 @@ Signature = "$Windows NT$"
 Class     = USB
 ClassGUID = {36FC9E60-C465-11CF-8056-444553540000}
 Provider  = %ProviderName%
-DriverVer = 09/26/2021,12.21.0.313
+DriverVer = 10/14/2021,12.21.0.313
 PnpLockdown = 1
 
 CatalogFile.NTarm   = ice5lp_2k.arm.cat
