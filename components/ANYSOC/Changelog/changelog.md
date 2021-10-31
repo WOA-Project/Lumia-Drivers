@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2110.1
-**Released:** 10/02/2021 12:00 PM UTC+2
+﻿## Lumia Drivers BSP - Version 2111.1
+**Released:** 10/31/2021 12:00 AM UTC+1
 
 **Quality:** Stable
 
@@ -46,44 +46,13 @@ ________________________________________________________________________________
 
 Changelog
 
-- General updates to root device installation process. The installation process for the Type C Controller, Grip Proxy,
-  FusionV2 (Sensors), Camera Core no longer rely on installation scripts, and offer better reliability.
+- Introducing a new combined settings application, "Lumia Settings". This application combines the previous apps
+  (Advanced info, Gestures & Touch, Color Profile, USB Function Mode, Glance Screen, etc) into a single app,
+  accessible from the start menu.
+  
+![LumiaApp](https://raw.githubusercontent.com/WOA-Project/LumiaApp/master/assets/MainPage.png)
 
-- The HALL Sensor driver no longer crashes on unload.
-
-- Reworked Installation process for the Qualcomm Radio Interface Layer
-
-- Fixed an issue with the Qualcomm Adreno GPU Driver UMD component registration
-
-- Fixed an issue impacting the rendering of Edge WebView 2 applications in the system as well as Google Chrome and Chromium
-
-- Addressed a few issues with the Type-C PHY driver that occured after swapping twice in a row the port
-
-- Updated PEP for the Qualcomm Snapdragon 808 Processor (MSM8992). The new update enables stable 1.53Ghz (temporary) for
-  the Cortex-A53 Cluster. It requires no change or input of the user in order to work.
-
-- Updated the Touch Driver to add support for Surface Pen input if a supported firmware has been flashed onto the digitizer
-  (refer to the Surface Pen Support section of this document to learn more).
-
-- Updated ACPI tables for SD Card support in order to fix a few issues with defined functions
-
-- This release is the first release to support SD Card deployment officially.
-
-- Enables enhanced power saving mode for the touch digitizer while the device is asleep
-
-- Addresses an issue with non calibrated board data for the WLAN Chip on the Lumia 950 (Talkman)
-
-- Reworked IMS/RCS Stack. The stack is not yet usable. It will get enabled on a future release.
-
-- Addresses issues with Windows Insider Dev Channel builds from the Nickel Development Cycle
-
-- Addresses an issue with driver signing
-
-- Addresses an issue with the device not properly shutting down due to Hibernation being enabled
-
-- Addresses an issue with the side buttons in some rare occasions not being correctly mapped to expected functionality
-
-- Removed a mandatory reboot during clean installs
+- Bug fixes to the USB-C PHY Driver
 
 ____________________________________________________________________________________________________________________________
 
