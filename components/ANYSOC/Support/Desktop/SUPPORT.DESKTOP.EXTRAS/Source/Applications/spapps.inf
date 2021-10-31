@@ -26,9 +26,7 @@ AppDepARM64  = 10,OEM\Applications\Dependencies\arm64
 LumiaWOA.Chat_btf4vqatnxdpt.appxbundle                    = 0,,
 LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle                  = 0,,
 LumiaWOA.MobileShell_ax9k4b3m2m5jw.msixbundle             = 0,,
-LumiaWOA.USBFunctionMode_btf4vqatnxdpt.appxbundle         = 0,,
 LumiaWOA.Tips_btf4vqatnxdpt.appxbundle                    = 0,,
-LumiaWOA.Vibration_btf4vqatnxdpt.appxbundle               = 0,,
 
 Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe.appx     = 0,arm64,
 Microsoft.NET.Native.Runtime.2.2_8wekyb3d8bbwe.appx       = 0,arm64,
@@ -59,8 +57,6 @@ LumiaWOA.Chat_btf4vqatnxdpt.appxbundle
 LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle
 LumiaWOA.MobileShell_ax9k4b3m2m5jw.msixbundle
 LumiaWOA.Tips_btf4vqatnxdpt.appxbundle
-LumiaWOA.USBFunctionMode_btf4vqatnxdpt.appxbundle
-LumiaWOA.Vibration_btf4vqatnxdpt.appxbundle
 Microsoft.CommsPhone_8wekyb3d8bbwe.appxbundle
 
 [AppDepARM]

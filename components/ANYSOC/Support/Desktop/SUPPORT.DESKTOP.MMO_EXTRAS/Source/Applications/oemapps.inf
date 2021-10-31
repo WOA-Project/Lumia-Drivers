@@ -18,10 +18,7 @@ PstDrv.Files        = 10,OEM\Applications
 0 = %DiskId1%
 
 [SourceDisksFiles]
-LumiaWOA.AdvancedInfo_btf4vqatnxdpt.appxbundle = 0,,
-LumiaWOA.ColorProfile_btf4vqatnxdpt.appxbundle = 0,,
-LumiaWOA.GlanceScreen_btf4vqatnxdpt.appxbundle = 0,,
-LumiaWOA.GesturesTouch_btf4vqatnxdpt.appxbundle = 0,,
+LumiaWOA.LumiaApp_btf4vqatnxdpt.msixbundle = 0,,
 
 ;*****************************************
 ; oemapps  Install Section
@@ -31,10 +28,7 @@ LumiaWOA.GesturesTouch_btf4vqatnxdpt.appxbundle = 0,,
 CopyFiles = PstDrv.Files
 
 [PstDrv.Files]
-LumiaWOA.AdvancedInfo_btf4vqatnxdpt.appxbundle
-LumiaWOA.ColorProfile_btf4vqatnxdpt.appxbundle
-LumiaWOA.GlanceScreen_btf4vqatnxdpt.appxbundle
-LumiaWOA.GesturesTouch_btf4vqatnxdpt.appxbundle
+LumiaWOA.LumiaApp_btf4vqatnxdpt.msixbundle
 
 [Strings]
 IHV     = "LumiaWoA authors"
