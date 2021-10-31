@@ -2,7 +2,7 @@
 <FeatureManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Revision="1" SchemaVersion="1.3" xmlns="http://schemas.microsoft.com/embedded/2004/10/ImageUpdate">
   <AppX>
     <AppXPackages>
-        <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="8419TigerWang.Airwaves_hv6sjhp5j6q2j.appxbundle" ID="8419TigerWang.Airwaves_hv6sjhp5j6q2j" />
+        <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.Airwaves_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.Airwaves_btf4vqatnxdpt" />
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.LumiaApp_btf4vqatnxdpt.msixbundle" ID="LumiaWOA.LumiaApp_btf4vqatnxdpt" />
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.Chat_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.Chat_btf4vqatnxdpt" />
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle" ID="LumiaWOA.Dialer_mgf8b6qyy0nb4" />
