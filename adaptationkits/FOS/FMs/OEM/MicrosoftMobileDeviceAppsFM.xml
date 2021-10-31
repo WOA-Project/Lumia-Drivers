@@ -3,15 +3,10 @@
   <AppX>
     <AppXPackages>
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="8419TigerWang.Airwaves_hv6sjhp5j6q2j.appxbundle" ID="8419TigerWang.Airwaves_hv6sjhp5j6q2j" />
-        <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.AdvancedInfo_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.AdvancedInfo_btf4vqatnxdpt" />
+        <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.LumiaApp_btf4vqatnxdpt.msixbundle" ID="LumiaWOA.LumiaApp_btf4vqatnxdpt" />
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.Chat_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.Chat_btf4vqatnxdpt" />
-        <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.ColorProfile_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.ColorProfile_btf4vqatnxdpt" />
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.Dialer_mgf8b6qyy0nb4.appxbundle" ID="LumiaWOA.Dialer_mgf8b6qyy0nb4" />
-        <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.GesturesTouch_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.GesturesTouch_btf4vqatnxdpt" />
-        <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.GlanceScreen_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.GlanceScreen_btf4vqatnxdpt" />
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.Tips_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.Tips_btf4vqatnxdpt" />
-        <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.USBFunctionMode_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.USBFunctionMode_btf4vqatnxdpt" />
-        <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="LumiaWOA.Vibration_btf4vqatnxdpt.appxbundle" ID="LumiaWOA.Vibration_btf4vqatnxdpt" />
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="Microsoft.CommsPhone_8wekyb3d8bbwe.appxbundle" ID="Microsoft.CommsPhone_8wekyb3d8bbwe" />
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="Microsoft.NET.Native.Framework.2.2.arm_8wekyb3d8bbwe.appx" ID="Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe" />
         <PackageFile Path="$(mspackageroot)\MMO\AppX" Name="Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe.appx" ID="Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe" />
