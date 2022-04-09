@@ -1,0 +1,79 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcspmi.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks qcspmiDriver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcspmi8612.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+qcspmi8612.sys = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]
+%qcspmi.DeviceDesc% = qcspmi_Device, ACPI\QCOM2404
+
+[qcspmi_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[Drivers_Dir]
+qcspmi8612.sys
+
+;-------------- Service installation
+[qcspmi_Device.NT.Services]
+AddService = qcspmi,%SPSVCINST_ASSOCSERVICE%, qcspmi_Service_Inst
+
+; -------------- qcspmi driver install sections
+[qcspmi_Service_Inst]
+DisplayName    = %qcspmi.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qcspmi8612.sys
+LoadOrderGroup = Filter
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskName               = "Qualcomm SPMI Device Installation Disk"
+qcspmi.DeviceDesc      = "Qualcomm SPMI Device"
+qcspmi.SVCDESC         = "Qualcomm SPMI Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_ERROR_NORMAL   = 1
+

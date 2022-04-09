@@ -1,0 +1,73 @@
+;/*++
+;
+;Copyright (c) 2014-2015  Qualcomm Technologies Incs
+;
+;Module Name:
+;    QCSSM8612.INF
+;
+;Abstract:
+;    INF file for installing SSM Driver for EA
+;
+;Installation Notes:
+;Use the "dism.exe" install tool for WP and "devcon.exe" for EA.
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = QCSSM8612.cat         ; This file is given when a driver passes WHQL testing
+
+[DestinationDirs]
+DefaultDestDir = 12                 ; This is a directory id (dirid)
+                                    ; 12 is equivalent to %SystemRoot%\system32\drivers for Windows 2000 and later
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+QCSSM8612.sys = 1,,
+
+[Manufacturer]
+%StdMfg% = Standard,NTARM          ; QCOM drivers may need to follow same process here?
+
+[Standard.NTARM]                        ; Decorated model section take precedence over undecorated
+%SSM.DeviceDesc% = Ssm_Device, ACPI\QCOM2414
+
+[Ssm_Device.NT]
+CopyFiles = Drivers_Dir
+
+
+[Drivers_Dir]
+QCSSM8612.sys                             ; Copied from the source media to the default destination directory (see [DestinationDirs])
+
+
+
+[Ssm_Device.NT.Services]
+AddService = SSM,%SPSVCINST_ASSOCSERVICE%, Ssm_Service_Inst; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+
+
+; -------------- SSM driver install sections
+[SSM_Service_Inst]
+DisplayName    = %SSM.SVCDESC%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\QCSSM8612.sys
+LoadOrderGroup = Extended Base
+AddReg         = SsmReg
+
+[SsmReg]
+HKR, , TzappName, 0x00000000, "SsmApp"
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QUALCOMM               = "Qualcomm, Inc."
+StdMfg                 = "(Standard system devices)"
+DiskId1                = "Ssm Installation Disk #1"
+SSM.DeviceDesc         = "Ssm Driver"
+SSM.SVCDESC            = "Qualcomm Ssm Service"
+ClassName              = "System"
+

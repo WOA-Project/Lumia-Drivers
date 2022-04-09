@@ -1,0 +1,95 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    RPEN.INF
+;
+;Abstract:
+;    INF file for installing the RPEN Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcrpen8612.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                               
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcrpen8612.sys = 1
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]                                    
+%RPEN.DeviceDesc% = RPEN_Device, ACPI\QCOM245C
+
+[RPEN_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+AddReg      = RPENReg
+Reboot
+
+[RPEN_Device.NT.HW]
+AddReg = RPENACL
+
+[RPENACL]
+; Built-in Admins (BA), Local System (SY)
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[RPENReg]
+; Autologger registry keys follow
+; Autologger will record trace messages to a buffer in the kernel where they can be easily used for postmortem debugging
+; Arbitrary GUID to identify logger
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog                                       , Start      , %REG_DWORD%, 0
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog                                       , Guid       , %REG_SZ%   , "{7311d40c-ce4f-496f-a563-f72d7bc9d92e}"
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496f-a563-f72d7bc9d92f}, Enabled    , %REG_DWORD%, 1
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496f-a563-f72d7bc9d92f}, EnableFlags, %REG_DWORD%, 0xFFFF
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\RPENlog\{7311d40c-ce4f-496f-a563-f72d7bc9d92f}, EnableLevel, %REG_DWORD%, 5
+; To control and view these traces use !wmitrace from KD/WinDbg, or tracelog/traceview tools in the WDK
+
+[Drivers_Dir]
+qcrpen8612.sys                                        
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 1
+
+[RPEN_Device.NT.Services]
+AddService = QCRPEN,%SPSVCINST_ASSOCSERVICE%, RPEN_Service_Inst
+                                               
+
+; -------------- RPEN driver install sections
+[RPEN_Service_Inst]
+DisplayName   = %RPEN.SVCDESC%
+ServiceType   = 1                              ; SERVICE_KERNEL_DRIVER
+StartType     = 3                              ; SERVICE_DEMAND_START
+ErrorControl  = 1                              ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcrpen8612.sys
+
+[RPEN_Device.NT.Wdf]
+KmdfService = QCRPEN, RPEN_wdfsect
+[RPEN_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Incorporated"
+DiskId1                = "Qualcomm Reset Power Error Notifier Device Installation Disk"
+RPEN.DeviceDesc        = "Qualcomm Reset Power Error Notifier Device"
+RPEN.SVCDESC           = "Qualcomm Reset Power Error Notifier Driver"
+
+;Non-localizable Strings
+REG_SZ                 = 0x00000000
+REG_DWORD              = 0x00010001
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+

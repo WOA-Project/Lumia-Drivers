@@ -1,0 +1,118 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;
+;    QcBluetooth8612.INF
+;
+;Abstract:
+;    QUALCOMM's INF file for installing a SMD driver between Krait and Riva
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = QcBluetooth8612.cat
+PnPLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+Bus.CopyFiles  = 12
+Ctrl.CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+QcBluetooth8612.sys   = 1,,
+QcBtradioctrl8612.dll = 1,,
+LUVCR120.dll = 1,,
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%QC% = VendorModels,NTARM
+
+;*****************************************
+; Serial bus driver install Section
+;*****************************************
+
+[VendorModels.NTARM]
+%Bus.DeviceDesc_WCN% = Bus_Vendor, QWCN\QCOM245D
+
+[Bus_Vendor.NT]
+CopyFiles   = Bus.CopyFiles,Ctrl.CopyFiles
+AddProperty = WDTFSOCDeviceCategory
+AddReg      = WPPReg
+Reboot
+
+[Bus.CopyFiles]
+QcBluetooth8612.sys
+
+[Ctrl.CopyFiles]
+QcBtradioctrl8612.dll
+LUVCR120.dll
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 0
+
+[Bus_Vendor.NT.HW]
+AddReg = Bus_Vendor.NT.AddReg
+
+[Bus_Vendor.NT.AddReg]
+; Reference: http://msdn.microsoft.com/en-us/library/ff546320.aspx
+HKR, , DeviceCharacteristics, 0x10001, 0x0100      ; Use same security checks on relative opens
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;LS)"   ; DACL Protected to allow generic-all access to built-in Admin group, system, and Local Service.
+
+[WPPReg]
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTSMD                                       , Start      , %REG_DWORD%, 0
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTSMD                                       , Guid       , %REG_SZ%   , "{625DA9FD-B3B2-41F5-A731-36A59AF561DC}"
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTSMD\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, Enabled    , %REG_DWORD%, 1
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTSMD\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, EnableFlags, %REG_DWORD%, 0xFFFF
+HKLM, SYSTEM\CurrentControlSet\Control\WMI\Autologger\BTSMD\{C484A08D-41CE-4CD6-AF73-06F987827ACE}, EnableLevel, %REG_DWORD%, 5
+
+
+;-------------- Service installation
+[Bus_Vendor.NT.Services]
+AddService = QcBluetooth,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
+
+; -------------- statbus driver install sections
+[Bus_Service_Inst]
+DisplayName   = %Bus.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\QcBluetooth8612.sys
+AddReg        = QcBluetoothReg_Service
+
+[QcBluetoothReg_Service]
+HKR, , BrEdrPowerClass , %REG_DWORD%, "0"
+HKR, , LePowerClass    , %REG_DWORD%, "1"
+HKR, , DownLoadNVMItems, %REG_DWORD%, "0"
+HKR, , BtOnOff         , %REG_DWORD%, "1"
+HKR, , BtleRSSI        , %REG_DWORD%, "0"
+
+[Bus_Vendor.NT.Wdf]
+KmdfService = QcBluetooth, QcBluetooth_wdfsect
+[QcBluetooth_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Non-Localizable
+SPSVCINST_ASSOCSERVICE = 0x00000002
+REG_SZ                 = 0x00000000
+REG_DWORD              = 0x00010001
+
+;Localizable
+QC                     = "Qualcomm Incorporated"
+DiskId1                = "QUALCOMM Bluetooth Driver SDM Installation Disk"
+Bus.DeviceDesc         = "Qualcomm Bluetooth Device"
+Bus.DeviceDesc_WCN     = "Qualcomm Bluetooth Device"
+Bus.SVCDESC            = "Qualcomm Bluetooth Driver"
+

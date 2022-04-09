@@ -1,0 +1,85 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qckmbam8612.INF
+;
+;Abstract:
+;    INF file for installing the BAM Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon install BAM.inf ACPI\QCOM2401" to install
+;    Or find the BAM HW in device manager ("other devices") and install from there
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qckmBam8612.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12                 ; This is a directory id (dirid)
+                                    ; 12 is equivalent to %SystemRoot%\system32\drivers for Windows 2000 and later
+[SourceDisksNames]
+1 = %DiskId1%                  ; A disk id and its name that contain the installation files
+
+[SourceDisksFiles]
+qckmbam8612.sys = 1                       ; The source files that are used during installation and the installation
+
+[Manufacturer]
+%StdMfg% = Standard,NTARM          ; QCOM drivers may need to follow same process here?
+
+[Standard.NTARM]                          ; Decorated model section take precedence over undecorated
+%BAM.DeviceDesc% = BAM_Device, ACPI\QCOM2401   ; ACPI root, find the BAM HW in device manager to install driver
+
+[BAM_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[BAM_Device.NT.HW]
+Addreg = BAMACL
+
+[BAMACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[Drivers_Dir]
+qckmbam8612.sys                             ; Copied from the source media to the default destination directory (see [DestinationDirs])
+
+[BAM_Device.NT.Services]
+AddService = qcbam,%SPSVCINST_ASSOCSERVICE%, BAM_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
+
+; -------------- SMD driver install sections
+[BAM_Service_Inst]
+DisplayName   = %BAM.SVCDESC%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qckmbam8612.sys
+
+
+[BAM_Device.NT.Wdf]
+KmdfService = qcbam, BAM_wdfsect
+[BAM_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+StdMfg                 = "Qualcomm Inc."
+DiskId1                = "BAM Installation Disk #1"
+BAM.DeviceDesc         = "Qualcomm Bus Access Module Device"
+BAM.SVCDESC            = "Qualcomm Bus Access Modules Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+

@@ -1,0 +1,75 @@
+; QCBMS8612
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %COMP%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcbms8612.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+qcbms8612.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; qcbms driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Standard,NTARM
+
+[Standard.NTARM]
+%QCBMS.DeviceDesc% = QCBMS_Inst,ACPI\QCOM2454
+
+[QCBMS_Inst.NT]
+Copyfiles = QCBMSCopyFiles
+
+[QCBMSCopyFiles]
+qcbms8612.sys, , , 0x100,
+
+[QCBMS_Inst.NT.Services]
+AddService = qcbms,%SPSVCINST_ASSOCSERVICE%,QCBMS_Service_Inst
+
+[QCBMS_Service_Inst]
+DisplayName   = %QCBMS.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcbms8612.sys
+
+
+[Strings]
+;Localizable Strings
+COMP                   = "Qualcomm Incorporated"
+QCBMS.SvcDesc          = "Qualcomm Battery Monitoring System Driver"
+QCBMS.DeviceDesc       = "Qualcomm Battery Monitoring System Driver"
+
+;Non-Localizable Strings
+SPSVCINST_TAGTOFRONT   = 0x00000003
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+
+
+
+

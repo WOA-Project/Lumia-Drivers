@@ -1,0 +1,82 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qci2c.inf
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks qci2c Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qci2c8612.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qci2c8612.sys = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; qci2c  client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTARM
+
+[QC.NTARM]
+%qci2c.DeviceDesc% = qci2c_Device, ACPI\QCOM240E
+
+[qci2c_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[Drivers_Dir]
+qci2c8612.sys
+
+;-------------- Service installation
+[qci2c_Device.NT.Services]
+AddService = "qci2c",%SPSVCINST_ASSOCSERVICE%, qci2c_Service_Inst
+
+; ------------- qci2c driver install sections
+[qci2c_Service_Inst]
+DisplayName   = %qci2c.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qci2c8612.sys
+Dependencies  = SpbCx
+
+; Checks for compatibility with KMDF version
+[qci2c_Device.NT.Wdf]
+KmdfService = "qci2c", qci2c_wdfsect
+[qci2c_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm I2C Controller Installation Disk"
+qci2c.DeviceDesc       = "Qualcomm I2C Device"
+qci2c.SVCDESC          = "Qualcomm I2C Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

@@ -1,0 +1,137 @@
+;/*++
+;
+;   Copyright (c) 2008-2014 QUALCOMM Technologies Incorporated.
+;               All Rights Reserved.
+;               Qualcomm Confidential and Proprietary
+;
+;Module Name:
+;    qcqdss8612.inf
+;
+;Abstract:
+;    INF file for installing the QDSS Driver
+;--*/
+
+[Version]
+Signature    = "$WINDOWS NT$"
+Class        = System
+ClassGuid    = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider     = %QUALCOMM%
+DriverVer    = 04/15/2015,1.0.2074.0000
+CatalogFile  = qcqdss8612.cat
+BootCritical = 1
+PnpLockDown  = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcqdss8612.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; QDSS Install Section
+;*****************************************
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]
+;%QDSS.DeviceDesc%=QDSS_Device, ROOT\QDSS
+%QDSS.DeviceDesc% = QDSS_Device, ACPI\QCOM247D
+
+[QDSS_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcqdss8612.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+[QDSS_Device.NT.Services]
+AddService = qcQDSS,%SPSVCINST_ASSOCSERVICE%, QDSS_Service_Inst
+
+;-------------- HW installation
+[QDSS_Device.NT.HW]
+addreg = QDSSSD
+
+[QDSSSD]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- QDSS driver install sections
+[QDSS_Service_Inst]
+DisplayName    = %QDSS.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+LoadOrderGroup = Base
+Tag            = 1
+ServiceBinary  = %12%\qcqdss8612.sys
+addreg         = QDSSCONFIG
+
+[QDSSCONFIG]
+; set default clock speed to SVS - speed depends on Voltage (150MHz - 300 MHz)
+HKR, Parameters                           , ClockSpeed             , 0x00010001,  0x1
+HKR, Parameters                           , TraceOn                , 0x00010001, 0
+HKR, Parameters                           , ETMOn                  , 0x00010001, 0
+;turn on STM by default (will not get effected unless TraceOn is ON)
+HKR, Parameters                           , STMOn                  , 0x00010001, 1
+;file sink (0) - ETB is the default trace sink
+HKR, Parameters                           , TraceSinkType          , 0x00010001, 0x0
+;by default DDR is 1 MByte
+HKR, Parameters                           , ETRBufferSize          , 0x00010001, 0x100000
+;by default file sink is 10 MBytes
+HKR, Parameters                           , ETRFileSinkSize        , 0x00010001, 0xA00000
+;TPIU-SD is the popular TPIU variant and it expects "continuous" TPIU Mode
+; hence setting default TPIU Mode to "continuous"
+HKR, Parameters                           , TPIUMode               , 0x00010001,  0x3
+HKR, Parameters                           , STMHwEventsOn          , 0x00010001, 0x0
+HKR, Parameters                           , STMSwEventsOn          , 0x00010001, 0x0
+HKR, Parameters                           , BusTraceOn             , 0x00010001, 0x0
+;by default ETW activated trace is OFF
+HKR, Parameters                           , ETWTraceControl        , 0x00010001, 0x0
+; ---------------------- NHLOS Trace Control -------------------
+; uses - 1 + 128 + 24 + 8 + 4 + 1 = 166 bytes of registry memory
+; Global Flag Controlling NHLOS Tracing
+HKR, Parameters                           , NHLOSSubSysTraceControl, 0x00010001,  0x00000000
+
+
+; We assume there are at most 4 subsystems which provides swevt trace,
+; the names are hardcoded as ADSP, PRM, MPSS, WCNSS. We also limit the
+; maximum number of images per subsystem as 4. Such assumptions are
+; hardcorded here as well as in qdssdevice.h. This INX file set all
+; bitmask as 0x0 and CRC as "". It is expected that user should run
+; registry update script (generated from profile based configuration tool)
+; to update those registries. Once updated and then with a reboot, driver
+; understands how many subsystems there are, each subsystem has how many
+; images, what is each image's CRC, bitmask and bitmask's bit length.
+
+HKR, Parameters, RpmSwevt                 , 0x00000001,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,94,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,E7,00,00,00,00,00,00,00,0E,02,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,04,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+HKR, Parameters, AdspSwevt                , 0x00000001,38,00,00,00,00,46,00
+HKR, Parameters, WcnssSwevt               , 0x00000001,00,F0,1F
+HKR, Parameters, MpssSwevt                , 0x00000001,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,18,02,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+
+; Checks for compatibility with KMDF version
+[QDSS_Device.NT.Wdf]
+KmdfService = qcQDSS, QDSS_wdfsect
+[QDSS_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "QDSS Installation Disk"
+QDSS.DeviceDesc        = "Qualcomm QDSS Device"
+QDSS.SVCDESC           = "Qualcomm QDSS Driver"
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

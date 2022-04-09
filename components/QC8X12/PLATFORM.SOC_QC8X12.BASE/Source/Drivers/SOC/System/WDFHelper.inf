@@ -1,0 +1,64 @@
+;*****************************************
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;WDFHelper
+;*****************************************
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+RefVersion  = 09/16/2011,1.00.0000
+DriverVer   = 03/03/2015,11.15.4.0591
+CatalogFile = wdfhelper.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;*****************************************
+; WDF Helper Device  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTARM
+
+; DisplayName                   Section           DeviceId
+; -----------                   -------           --------
+; For ARM
+[QC.NTARM]
+%WDFHelper_Device.DeviceDesc% = WDFHelper_Device, ACPI\QCOM247F
+
+[WDFHelper_Device.NT]
+CopyFiles = WDFHelper_Device.NT.Copy
+
+[WDFHelper_Device.NT.Copy]
+WDFHelper.sys
+
+;-------------- Service installation
+
+[WDFHelper_Device.NT.Services]
+AddService = WDFHELPER, %SPSVCINST_ASSOCSERVICE%, WDFHELPER_Service_Inst
+
+[WDFHELPER_Service_Inst]
+DisplayName    = %WDFHelper_Device.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_BOOT_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\WDFHELPER.sys
+LoadOrderGroup = Extended Base
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+WDFHELPER.sys = 1,,
+
+[Strings]
+SPSVCINST_ASSOCSERVICE      = 0x00000002
+QC                          = "Qualcomm Inc."
+DiskId1                     = "WDF Helper Device Driver Disk"
+WDFHelper_Device.DeviceDesc = "WDF Helper Device"
+WDFHelper_Device.SVCDESC    = "WDF Helper Driver"
+

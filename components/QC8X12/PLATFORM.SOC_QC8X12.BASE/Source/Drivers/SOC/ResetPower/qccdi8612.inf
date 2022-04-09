@@ -1,0 +1,88 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+
+;Module Name:
+;    qccdi8612.INF
+;
+;Abstract:
+;    INF file for installing the Crashdump Injector Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+CatalogFile = qccdi8612.cat
+DriverVer   = 04/15/2015,1.0.2074.0000
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+qccdi8612.sys = 1,,
+
+;*****************************************
+; QCCDI Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NTARM
+
+[Standard.NTARM]
+%QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM245B
+
+[QCCDI_Device.NT]
+CopyFiles = Drivers_Dir
+;AddReg=QCCDIReg
+Reboot
+
+[QCCDI_Device.NT.HW]
+AddReg = CDIACL
+
+[CDIACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[QCCDIReg]
+HKR, Parameters, "PreserveOld"  , 0x00010001, 00
+HKR, Parameters, "DumpSubFolder", %REG_SZ%  , "ssr_dumps"
+HKR, Parameters, "DumpRoot"     , %REG_SZ%  , "\??\c:\"
+
+;
+[Drivers_Dir]
+qccdi8612.sys
+
+;-------------- Service installation
+[QCCDI_Device.NT.Services]
+AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_Service_Inst
+
+; -------------- QCCDI driver install sections
+[QCCDI_Service_Inst]
+DisplayName   = %QCCDI.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qccdi8612.sys
+
+[QCCDI_Device.NT.Wdf]
+KmdfService = QCCDI, QCCDI_wdfsect
+
+[QCCDI_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName       = "Qualcomm Incorporated"
+DiskName               = "Qualcomm Crash Dump Injector Installation Disk"
+QCCDI.DeviceDesc       = "Qualcomm Crash Dump Injector Device"
+QCCDI.SVCDESC          = "Qualcomm Crash Dump Injector Service"
+QUALCOMM               = "Qualcomm Incorporated"
+REG_SZ                 = 0x00000000
+

@@ -1,0 +1,67 @@
+;/*++
+;
+;Copyright (C) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    RemoteAt.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks RemoteAt Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcremoteat8612.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+qcremoteat8612.sys = 1,,
+
+[Manufacturer]
+%QCOM% = QCOM, NTarm
+
+[QCOM.NTarm]
+%RemoteAt.DeviceDesc% = RemoteAt_Device, ACPI\QCOM2155
+
+[RemoteAt_Device.NT]
+CopyFiles = Drivers_Dir
+
+[Drivers_Dir]
+qcremoteat8612.sys
+
+
+;-------------- Service installation
+[RemoteAt_Device.NT.Services]
+AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst
+
+; -------------- RemoteAt driver install sections
+[RemoteAt_Service_Inst]
+DisplayName    = %RemoteAt.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcremoteat8612.sys
+LoadOrderGroup = Extended Base
+
+[RemoteAt_Device.NT.Wdf]
+KmdfService = RemoteAt, RemoteAt_wdfsect
+[RemoteAt_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm Incorporated"
+DiskId1                = "Qualcomm Modembridge Driver Disk"
+RemoteAt.DeviceDesc    = "Qualcomm Win8 Remote AT Command Processor Device"
+RemoteAt.SVCDESC       = "Qualcomm Win8 Remote AT Command Processor Service"
+

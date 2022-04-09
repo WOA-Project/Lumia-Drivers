@@ -1,0 +1,68 @@
+; 
+; Copyright (C) 2012 QUALCOMM Incorporated.
+; All Rights Reserved. QUALCOMM Proprietary and Confidential.
+;
+; Module Name:
+;
+;    qcremoteatsrvc.inf
+;
+; Abstract:
+;
+;    Inf file for Qualcomm usermode Remote AT Command Handler Service
+;
+[Version]
+Signature   = "$Windows NT$"
+Class       = SYSTEM
+ClassGUID   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/26/2015,1.0.2177.0000
+CatalogFile = qcremoteatsrvc8612.cat
+
+[DestinationDirs]
+RemoteAtSrvc.Files = 11 ; \system32 directory on Windows 2000 and later versions
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+qcremoteatsrvc8612.dll = 0,,
+LUVCR120.dll = 0,,
+
+[DefaultInstall.NTARM]
+CopyFiles = RemoteAtSrvc.Files
+AddReg    = RemoteAtSrvc_Reg
+
+[DefaultInstall.NTARM.Services]
+AddService = RemoteAtSrvc,0x00000000,RemoteAtSrvc_Service,
+
+[RemoteAtSrvc_Service]
+DisplayName   = "RemoteAtSrvc"
+Description   = "Qualcomm Remote AT Command Processor Service"
+ServiceType   = 0x20
+StartType     = 2
+ErrorControl  = 1
+ServiceBinary = "%%systemroot%%\system32\svchost.exe -k RemoteAtSrvc"
+
+[RemoteAtSrvc_Reg]
+HKLM, System\ControlSet001\Services\RemoteAtSrvc           , DisplayName , %REG_SZ%       ,  "RemoteAtSrvc"
+HKLM, System\ControlSet001\Services\RemoteAtSrvc           , Description , %REG_SZ%       ,  "Qualcomm Remote AT Command Processor Service"
+HKLM, System\ControlSet001\Services\RemoteAtSrvc           , ImagePath   , %REG_EXPAND_SZ%,  "%%systemroot%%\system32\svchost.exe -k RemoteAtSrvc"
+HKLM, System\ControlSet001\Services\RemoteAtSrvc           , Type        , %REG_DWORD%    ,  0x20
+HKLM, System\ControlSet001\Services\RemoteAtSrvc           , Start       , %REG_DWORD%    ,  0x0002
+HKLM, System\ControlSet001\Services\RemoteAtSrvc           , ErrorControl, %REG_DWORD%    ,  0x0001
+HKLM, System\ControlSet001\Services\RemoteAtSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%,  "%%SystemRoot%%\System32\qcremoteatsrvc8612.dll"
+HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost , RemoteAtSrvc, %REG_SZ%       ,  "RemoteAtSrvc"
+
+[RemoteAtSrvc.Files]
+qcremoteatsrvc8612.dll
+LUVCR120.dll
+
+[Strings]
+QC            = "Qualcomm"
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+REG_BINARY    = 0x00000001
+

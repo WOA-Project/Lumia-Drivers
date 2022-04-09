@@ -1,0 +1,89 @@
+;/*++
+;
+;   Copyright (c) 2008-2013 Qualcomm Technologies, Inc.
+;               All Rights Reserved.
+;               Qualcomm Technologies Confidential and Proprietary.
+;
+;Module Name:
+;    qcadc8612.inf
+;
+;Abstract:
+;    INF file for installing the ADC Driver
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcadc8612.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcadc8612.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; ADC Install Section
+;*****************************************
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]
+%ADC.DeviceDesc% = ADC_Device, ACPI\QCOM240F
+
+[ADC_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcadc8612.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+[ADC_Device.NT.Services]
+AddService = qcADC,%SPSVCINST_ASSOCSERVICE%, ADC_Service_Inst
+
+;-------------- HW installation
+[ADC_Device.NT.HW]
+addreg = ADCSD
+
+[ADCSD]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- ADC driver install sections
+[ADC_Service_Inst]
+DisplayName   = %ADC.SVCDESC%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qcadc8612.sys
+
+; Checks for compatibility with KMDF version
+[ADC_Device.NT.Wdf]
+KmdfService = qcADC, ADC_wdfsect
+[ADC_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "ADC Installation Disk"
+ADC.DeviceDesc         = "Qualcomm ADC Device"
+ADC.SVCDESC            = "Qualcomm ADC Driver"
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+

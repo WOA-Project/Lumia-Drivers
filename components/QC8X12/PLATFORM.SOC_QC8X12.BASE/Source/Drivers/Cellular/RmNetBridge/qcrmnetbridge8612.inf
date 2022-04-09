@@ -1,0 +1,67 @@
+;/*++
+;
+;Copyright (C) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    qcrmnetbridge.inx
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks RMNBRG Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcrmnetbridge8612.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+qcrmnetbridge8612.sys = 1,,
+
+[Manufacturer]
+%QCOM% = QCOM, NTarm
+
+[QCOM.NTarm]
+%RMNBRG.DeviceDesc% = RMNBRG_Device, ACPI\QCOM2148
+
+[RMNBRG_Device.NT]
+CopyFiles = Drivers_Dir
+
+[Drivers_Dir]
+qcrmnetbridge8612.sys
+
+
+;-------------- Service installation
+[RMNBRG_Device.NT.Services]
+AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst
+
+; -------------- rmnetbridge driver install sections
+[RMNBRG_Service_Inst]
+DisplayName    = %RMNBRG.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcrmnetbridge8612.sys
+LoadOrderGroup = Extended Base
+
+[RMNBRG_Device.NT.Wdf]
+KmdfService = RMNBRG, RMNBRG_wdfsect
+[RMNBRG_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm Incorporated"
+DiskId1                = "Qualcomm rmnetbridge Driver Disk"
+RMNBRG.DeviceDesc      = "Qualcomm Win8 rmnetbridge Device"
+RMNBRG.SVCDESC         = "Qualcomm Win8 rmnetbridge Service"
+

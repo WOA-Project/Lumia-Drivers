@@ -1,0 +1,91 @@
+;/*++
+;
+;Copyright (c) 2012  Qualcomm Corporation
+;
+;Module Name:
+;    qcscm.INX
+;
+;Abstract:
+;    INF file for installing the qcscm Driver
+;
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcscm8612.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+qcscm8612.sys = 1
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTARM
+
+[Standard.NTARM]
+%SCM.DeviceDesc% = SCM_Device, ACPI\QCOM0E90
+
+[SCM_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+;AddReg=TpmSettings
+
+[Drivers_Dir]
+qcscm8612.sys
+
+;[TpmSettings]
+;HKLM,SYSTEM\CurrentControlSet\Services\TPM\WMI,NoAutoProvision,%REG_DWORD%,1
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+;-------------- Service installation
+[SCM_Device.NT.Services]
+AddService = qcscm, %SPSVCINST_ASSOCSERVICE%, SCM_Service_Inst
+
+[SCM_Device.NT.HW]
+addreg = SCMSD
+
+[SCMSD]
+HKR, , Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
+HKR, , DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
+
+; -------------- SCM driver install sections
+[SCM_Service_Inst]
+DisplayName    = %SCM.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 0               ; SERVICE_BOOT_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcscm8612.sys
+LoadOrderGroup = Extended Base
+
+[SCM_Device.NT.Wdf]
+KmdfService = qcSCM, SCM_wdfsect
+[SCM_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM               = "Qualcomm Inc."
+DiskId1                = "Qualcomm Secure Channel Manager Device Installation Disk"
+SCM.DeviceDesc         = "Qualcomm Secure Channel Manager Device"
+SCM.SVCDESC            = "Qualcomm Secure Channel Manager Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+REG_DWORD              = 0x00010001
+

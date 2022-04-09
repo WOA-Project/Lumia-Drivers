@@ -1,0 +1,67 @@
+;/*++
+;
+;Copyright (C) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    QCMBRG.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks MBRG Driver
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QCOM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcmbrg8612.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+qcmbrg8612.sys = 1,,
+
+[Manufacturer]
+%QCOM% = QCOM, NTarm
+
+[QCOM.NTarm]
+%MBRG.DeviceDesc% = MBRG_Device, ACPI\QCOM2145
+
+[MBRG_Device.NT]
+CopyFiles = Drivers_Dir
+
+[Drivers_Dir]
+qcmbrg8612.sys
+
+
+;-------------- Service installation
+[MBRG_Device.NT.Services]
+AddService = MBRG,%SPSVCINST_ASSOCSERVICE%, MBRG_Service_Inst
+
+; -------------- MBRG driver install sections
+[MBRG_Service_Inst]
+DisplayName    = %MBRG.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\qcmbrg8612.sys
+LoadOrderGroup = Extended Base
+
+[MBRG_Device.NT.Wdf]
+KmdfService = MBRG, MBRG_wdfsect
+[MBRG_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QCOM                   = "Qualcomm Incorporated"
+DiskId1                = "Qualcomm Modembridge Driver Disk"
+MBRG.DeviceDesc        = "Qualcomm Win8 Modembridge Device"
+MBRG.SVCDESC           = "Qualcomm Win8 Modembridge Service"
+

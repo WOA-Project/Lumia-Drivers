@@ -1,0 +1,60 @@
+;*****************************************
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;8960 PEP.inf file
+;*****************************************
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %QC%
+RefVersion  = 09/16/2011,1.00.0000
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcpepproxy8612.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;*****************************************
+; PEP Proxy  Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTARM
+
+[QC.NTARM]
+%PepProxy.DeviceDesc% = PepProxy_Device, ACPI\QCOM2427
+
+[PepProxy_Device.NT]
+CopyFiles = PepProxy_Device.NT.Copy
+Reboot
+
+[PepProxy_Device.NT.Copy]
+qcpepproxy8612.sys
+
+;-------------- Service installation
+
+[PepProxy_Device.NT.Services]
+AddService = qcpepproxy, %SPSVCINST_ASSOCSERVICE%, PepProxy_Service_Inst
+
+[PepProxy_Service_Inst]
+DisplayName   = %pepproxy.SVCDESC%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 0
+ServiceBinary = %12%\qcpepproxy8612.sys
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+qcpepproxy8612.sys = 1,,
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QC                     = "Qualcomm Inc."
+DiskId1                = "Qualcomm PEP Proxy Device Disk"
+PepProxy.DeviceDesc    = "Qualcomm PEP Proxy Device"
+

@@ -1,0 +1,86 @@
+;
+; qcBCryptCipherKM8612.inf
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcBCryptCipherKM8612.cat
+PnpLockDown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+qcBCryptCipherKM8612.sys = 1
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%QUALCOMM% = Standard,NTarm
+
+[Standard.NTarm]
+%BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_Device, ACPI\QCOM241D
+
+[BCryptCipher_KM_Device.NT]
+CopyFiles   = Drivers_Dir
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[Drivers_Dir]
+qcBCryptCipherKM8612.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+
+
+;-------------- Service installation
+[BCryptCipher_KM_Device.NT.Services]
+AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_Service_Inst
+
+;-------------- HW installation
+[BCryptCipher_KM_Device.NT.HW]
+addreg = BCryptCipher_KM
+
+[BCryptCipher_KM]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+; -------------- BCryptCipher_KM driver install sections
+[BCryptCipher_KM_Service_Inst]
+DisplayName   = %BCryptCipher_KM.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcBCryptCipherKM8612.sys
+
+
+[BCryptCipher_KM_Device.NT.Wdf]
+KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect
+[BCryptCipher_KM_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QUALCOMM                   = "Qualcomm Inc."
+DiskName                   = "Qualcomm BcryptCipher Device Installation Disk"
+BCryptCipher_KM.DeviceDesc = "Qualcomm BcryptCipher Device"
+BCryptCipher_KM.SVCDESC    = "Qualcomm BcryptCipher Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE     = 0x00000002
+
+

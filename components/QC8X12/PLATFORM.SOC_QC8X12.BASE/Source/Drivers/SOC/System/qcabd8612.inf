@@ -1,0 +1,89 @@
+;/*++
+;
+;Copyright (c) 2012 by QUALCOMM, Incorporated.  All Rights Reserved.
+;
+;Module Name:
+;    ABD.inx
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks ABD Driver
+;
+;
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/15/2015,1.0.2074.0000
+CatalogFile = qcabd8612.cat
+PnPLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+1 = %DiskId%
+
+[SourceDisksFiles]
+qcabd8612.sys = 1
+
+[Manufacturer]
+%QC% = QC, NTARM
+
+[QC.NTARM]
+%ABD.DeviceDesc% = ABD_Device, ACPI\QCOM2431
+
+[ABD_Device.NT]
+CopyFiles   = Drivers_Dir
+AddReg      = AbdReg
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[AbdReg]
+HKLM, System\CurrentControlSet\Control\ACPIEX, ComplianceFlags, %REG_DWORD%,  0x7
+
+[ABD_Device.NT.HW]
+Addreg = AbdACL
+
+[AbdACL]
+HKR, , Security, , "D:P(A;;GA;;;BA)(A;;GA;;;SY)"
+
+[Drivers_Dir]
+qcabd8612.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7, , 2
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;-------------- Service installation
+[ABD_Device.NT.Services]
+AddService = qcABD,%SPSVCINST_ASSOCSERVICE%, ABD_Service_Inst
+
+; -------------- ABD driver install sections
+[ABD_Service_Inst]
+DisplayName   = %ABD.SVCDESC%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcabd8612.sys
+
+; Checks for compatibility with KMDF version
+[ABD_Device.NT.Wdf]
+KmdfService = qcABD, ABD_wdfsect
+[ABD_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+QC                     = "Qualcomm Technologies Inc."
+ABD.DeviceDesc         = "Qualcomm ACPI Bridge Device"
+ABD.SVCDESC            = "Qualcomm ACPI Bridge Driver"
+REG_DWORD              = 0x00010001
+DiskId                 = "Qualcomm ACPI Bridge Driver Installation Disk"
+
