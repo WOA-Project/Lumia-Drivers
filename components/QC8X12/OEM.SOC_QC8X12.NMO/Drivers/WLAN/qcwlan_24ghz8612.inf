@@ -1,0 +1,293 @@
+;-------------------------------------------------------------------------------
+; QCAWLAN8612.INF
+;
+; Qualcomm Atheros Wireless LAN NDIS Miniport Adapter
+;
+; Copyright (c) Qualcomm Inc.  All rights reserved.
+
+
+[version]
+Signature   = "$Windows NT$"
+Class       = Net
+ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider    = %QUALCOMM%
+DriverVer   = 04/24/2015,10.31.34.0033
+CatalogFile = QCWLAN8612.cat
+
+[ControlFlags]
+
+
+[Manufacturer]
+%QUALCOMM% = QUALCOMM,NTARM
+
+; For WinXP and later
+[QUALCOMM.NTARM]
+%WLAN.DeviceDesc% = QcaWlan.ndi, QWCN\QCOM2450
+
+[QcaWlan.ndi.NTARM]
+Include            = netvwifibus.inf
+Needs              = VWiFiBus.CopyFiles
+*IfType            = 71		; IF_TYPE_IEEE80211
+*MediaType         = 16		; NdisMediumNative802_11
+*PhysicalMediaType = 9
+Characteristics    = 0x84    ; NCF_PHYSICAL | NCF_HAS_UI
+BusType            = 15        ; PnP Bus
+AddReg             = QcaWlan.Reg, AdvancedParms, CommonParams, WapiParms
+CopyFiles          = QcaWlan.CopyFiles
+CopyFiles          = QcaWlan2.CopyFiles
+
+[QcaWlan.ndi.NTARM.Services]
+Include    = netvwifibus.inf
+Needs      = VWiFiBus.Services
+AddService = QcaWlan, 2, QcaWlan.Service
+
+[QcaWlan.ndi.NTARM.HW]
+Include = netvwifibus.inf
+Needs   = VWiFiBus.PnPFilterRegistration.HW
+
+[QcaWlan.ndi.Wdf]
+KmdfService = QcaWlan, QcaWlan_wdfsect
+
+[QcaWlan_wdfsect]
+KmdfLibraryVersion = 1.11
+
+;-----------------------------------------------------------------------------
+; Wireless Local Area Network Adaptor Common
+;-----------------------------------------------------------------------------
+[QcaWlan.Reg]
+HKR, Ndi\Interfaces, UpperRange, 0,  "ndis5"
+HKR, Ndi\Interfaces, LowerRange, 0,  "wlan,ethernet,vwifi"
+HKR, Ndi\Interfaces, DefUpper  , 0,  "ndis5"
+HKR, Ndi\Interfaces, DefLower  , 0,  "ethernet"
+HKR, Ndi           , Service   , 0,  QCWLAN
+
+HKLM,SYSTEM\CurrentControlSet\services\QCWCN\Parameters,RestartEnabled,0x00010001,0x00000001
+
+;-----------------------------------------------------------------------------
+;Source
+;-----------------------------------------------------------------------------
+[SourceDisksNames]
+1 = %DiskId1%,,
+
+
+[SourceDisksFiles]
+QCWLAN8612cfg.dat = 1
+QCWLAN8612.sys    = 1
+
+[SourceDisksFiles.ARM]
+QCWLAN8612cfg.dat = 1
+QCWLAN8612.sys    = 1
+
+;-----------------------------------------------------------------------------
+; DestinationDirs
+;-----------------------------------------------------------------------------
+[DestinationDirs]
+QcaWlan.CopyFiles  = 12
+QcaWlan2.CopyFiles = 11
+
+[QcaWlan.CopyFiles]
+QCWLAN8612.sys, , , 2,
+
+[QcaWlan2.CopyFiles]
+QCWLAN8612cfg.dat, , , 2,
+
+;-----------------------------------------------------------------------------
+; Driver and Service Section
+;-----------------------------------------------------------------------------
+
+[QcaWlan.Service]
+DisplayName    = %QcaWlan.Service.DispName%
+ServiceType    = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType      = 3 ;%SERVICE_DEMAND_START%
+ErrorControl   = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\QCWLAN8612.sys
+LoadOrderGroup = NDIS
+
+; ============================================================================
+; Parameters on the 'Advanced' Property page
+; ============================================================================
+[AdvancedParms]
+HKR,                              , *MiracastSupported, 0x00010001, 1
+
+HKR,                              , *ReceiveBuffers   ,           , "256"
+HKR, Ndi\params\*ReceiveBuffers   , Base              , 0         ,  "10"
+HKR, Ndi\params\*ReceiveBuffers   , default           , 0         ,  "256"
+HKR, Ndi\params\*ReceiveBuffers   , max               , 0         ,  "00000512"
+HKR, Ndi\params\*ReceiveBuffers   , min               , 0         ,  "1"
+HKR, Ndi\params\*ReceiveBuffers   , ParamDesc         , 0         ,  "Receive Buffers"
+HKR, Ndi\params\*ReceiveBuffers   , step              , 0         ,  "1"
+HKR, Ndi\params\*ReceiveBuffers   , type              , 0         ,  "int"
+
+HKR,                              , *TransmitBuffers  ,           , "128"
+HKR, Ndi\params\*TransmitBuffers  , ParamDesc         , 0         ,  "Transmit Buffers"
+HKR, Ndi\params\*TransmitBuffers  , default           , 0         ,  "128"
+HKR, Ndi\params\*TransmitBuffers  , min               , 0         ,  "1"
+HKR, Ndi\params\*TransmitBuffers  , max               , 0         ,  "00000512"
+HKR, Ndi\params\*TransmitBuffers  , step              , 0         ,  "1"
+HKR, Ndi\params\*TransmitBuffers  , Base              , 0         ,  "10"
+HKR, Ndi\params\*TransmitBuffers  , type              , 0         ,  "int"
+
+HKR,                              , NetworkAddress    ,           , ""
+HKR, Ndi\params\NetworkAddress    , ParamDesc         , 0         ,   "Network Address"
+HKR, Ndi\params\NetworkAddress    , default           , 0         ,   ""
+HKR, Ndi\params\NetworkAddress    , LimitText         , 0         ,   "12"
+HKR, Ndi\params\NetworkAddress    , UpperCase         , 0         ,   "1"
+HKR, Ndi\params\NetworkAddress    , optional          , 0         ,   "1"
+HKR, Ndi\params\NetworkAddress    , type              , 0         ,   "edit"
+
+HKR,                              , shortPreamble     ,           , "1"
+HKR, Ndi\params\shortPreamble     , ParamDesc         , 0         ,   "802.11b Preamble"
+HKR, Ndi\params\shortPreamble     , Base              , 0         ,   "10"
+HKR, Ndi\params\shortPreamble     , default           , 0         ,   "1"
+HKR, Ndi\params\shortPreamble     , type              , 0         ,   "enum"
+HKR, Ndi\params\shortPreamble\enum, "1"               , 0         ,   "Long and Short"
+HKR, Ndi\params\shortPreamble\enum, "0"               , 0         ,   "Long only"
+
+HKR,                              , htAdhocEnable     ,           , "0"
+HKR, NDI\params\htAdhocEnable     , ParamDesc         ,           , 	"AdHoc 11n"
+HKR, NDI\params\htAdhocEnable     , type              ,           , 		"enum"
+HKR, NDI\params\htAdhocEnable     , Default           ,           , 	"0"
+HKR, NDI\params\htAdhocEnable\enum, 0                 ,           , 	        "Disable"
+HKR, NDI\params\htAdhocEnable\enum, 1                 ,           , 	        "Enable"
+
+HKR,                              , NetBand           ,           , "2060"
+HKR, Ndi\params\NetBand           , ParamDesc         , 0         ,   "802.11n Bandwidth"
+HKR, Ndi\params\NetBand           , Base              , 0         ,   "10"
+HKR, Ndi\params\NetBand           , default           , 0         ,   "2060"
+HKR, Ndi\params\NetBand           , type              , 0         ,   "enum"
+HKR, Ndi\params\NetBand\enum      , "26636"           , 0         ,   "20MHz/40MHz Auto"
+HKR, Ndi\params\NetBand\enum      , "2060"            , 0         ,   "20MHz Only"
+
+HKR,                              , smpsDynamic       ,           , "0"
+HKR, Ndi\params\smpsDynamic       , ParamDesc         , 0         ,   "Dynamic MIMO Power Save"
+HKR, Ndi\params\smpsDynamic       , Base              , 0         ,   "10"
+HKR, Ndi\params\smpsDynamic       , default           , 0         ,   "0"
+HKR, Ndi\params\smpsDynamic       , type              , 0         ,   "enum"
+HKR, Ndi\params\smpsDynamic\enum  , "1"               , 0         ,   "Enable"
+HKR, Ndi\params\smpsDynamic\enum  , "0"               , 0         ,   "Disable"
+
+[CommonParams]
+HKR, , AwakeTimePwrSaveMax           , 0x00010001, 400
+HKR, , AwakeTimePwrSave              , 0x00010001, 400
+HKR, , AwakeTimePerf                 , 0x00010001, 400
+
+HKR, , BandCapability                , 0x00010001, 0
+
+HKR, , btActiveGpioSelect            , 0x00002   , "4"
+HKR, , btCoexAgent                   , 0x00002   , "1"
+HKR, , btCoexAntDivEnable            , 0x00002   , "0"
+HKR, , btCoexDisablePTA              , 0x00002   , "2621441"
+HKR, , btCoexEnable                  , 0x00002   , "4"
+HKR, , btCoexRSSIModeProfile         , 0x00002   , "84224001"
+HKR, , btPriorityGpioSelect          , 0x00002   , "8"
+HKR, , btWlanIsolation               , 0x00002   , "25"
+
+HKR, , c3WarTimerPeriod              , 0x00002   , "130"
+HKR, , ChannelBandSelection          , 0x00010001, 0xffffffff
+HKR, , ConfigFileName                ,           , "QCWLAN8612cfg.dat"
+HKR, , CountryName                   ,           , "2G"
+
+HKR, , defaultApChannel              , 0x00010001, 11
+HKR, , defaultApPhyMode              , 0x00010001, 8
+HKR, , DriverMode                    , 0x00010001, 0
+
+HKR, , enable2GHzHt40Cap             , 0x00010001, 0
+HKR, , enableRssiRoaming             , 0x00010001, 1
+
+HKR, , gAOACSupported                , 0x00010001, 1
+HKR, , gChannelBondingMode5GHz       , 0x00010001, 1
+HKR, , gEnableAutomaticTxPowerControl, 0x00010001, 0
+HKR, , gEnableCloseLoop              , 0x00010001, 1
+HKR, , gEnableFWBeaconFiltering      , 0x00010001, 1
+HKR, , gEnableFWHeartBeatMonitoring  , 0x00010001, 1
+HKR, , gEnableFWRssiMonitoring       , 0x00010001, 1
+HKR, , gEnableHandoff                , 0x00010001, 1
+HKR, , gEnableLpwrImgTransition      , 0x00010001, 1
+HKR, , gEnableModulatedDTIM          , 0x00010001, 1
+HKR, , gEnableWlanLteCoex            , 0x00010001, 0
+HKR, , gFixedRate                    , 0x00010001, 0
+HKR, , gFragmentationThreshold       , 0x00010001, 2346
+HKR, , gNthBeaconFilter              , 0x00010001, 10
+HKR, , gpioFunc0ActHi                , 0x00002   , "0"
+HKR, , gpioPinFunc0                  , 0x00002   , "6"
+HKR, , gRTSThreshold                 , 0x00010001, 2347
+HKR, , gShortGI20Mhz                 , 0x00010001, 1
+HKR, , gShortGI40Mhz                 , 0x00010001, 1
+HKR, , gVhtRxMCS                     , 0x00010001, 1
+HKR, , gVhtTxMCS                     , 0x00010001, 1
+
+HKR, , halPllPwrSave                 , 0x00002   , "7"
+HKR, , HardwareID                    ,           , "WNI0000"
+HKR, , IdlePowerSave                 , 0x00010001, 1
+HKR, , ignore11dBeacon               , 0x00010001, 1
+HKR, , infraUapsdBeDelayIntv         , 0x00010001, 3000
+HKR, , InfraUapsdBeSrvIntv           , 0x00010001, 300
+HKR, , infraUapsdBkDelayIntv         , 0x00010001, 3000
+HKR, , InfraUapsdBkSrvIntv           , 0x00010001, 300
+HKR, , infraUapsdViDelayIntv         , 0x00010001, 3000
+HKR, , InfraUapsdViSrvIntv           , 0x00010001, 300
+HKR, , infraUapsdVoDelayIntv         , 0x00010001, 3000
+HKR, , InfraUapsdVoSrvIntv           , 0x00010001, 20
+
+HKR, , linkMonitorFreq               , 0x00010001, 1
+HKR, , linkMonitorFreqWfd            , 0x00010001, 1
+HKR, , linkQualityChangeThresh       , 0x00010001, 2
+HKR, , listenInterval                , 0x00010001, 1
+HKR, , LogLevelMask                  , 0x00010001, 262
+HKR, , LTEMwsCoexConfig              , 0x00010001, 0
+
+HKR, , maxMSMOffChannelTimeMs        , 0x00010001, 120
+HKR, , McastBcastFilter              , 0x00010001, 0
+HKR, , mccAdaptiveSchedulerEnable    , 0x00010001, 1
+HKR, , minMSMRestTimeMs              , 0x00010001, 80
+
+HKR, , nMaxPsPoll                    , 0x00010001, 0
+HKR, , periodicScanEnable            , 0x00010001, 0
+HKR, , ProtocolPowerSave             , 0x00010001, 1
+HKR, , psPollEnabled                 , 0x00010001, 0
+
+HKR, , roamRssiA                     , 0x00010001, 17
+HKR, , roamRssiB                     , 0x00010001, 17
+HKR, , roamRssiBOnly                 , 0x00010001, 17
+
+HKR, , scanTimeValid                 , 0x00010001, 60
+HKR, , SleepTimePerf                 , 0x00010001, 100
+HKR, , SleepTimePwrSave              , 0x00010001, 500
+HKR, , SleepTimePwrSaveMax           , 0x00010001, 1000
+
+HKR, , txRateChangeThresh            , 0x00010001, 5
+HKR, , txRateChangeThreshWfd         , 0x00010001, 2
+HKR, , txTrigLevelMax                , 0x00002   , "32"
+
+HKR, , uapsdEnabledBE                , 0x00010001, 0
+HKR, , uapsdEnabledBK                , 0x00010001, 0
+HKR, , uapsdEnabledVI                , 0x00010001, 0
+HKR, , uapsdEnabledVO                , 0x00010001, 0
+
+HKR, , wlanActiveGpioSelect          , 0x00002   , "5"
+
+; ----------------------------------------------------------------------------
+; WAPI registry entries
+; ----------------------------------------------------------------------------
+[WapiParms]
+; Add IHVExtensions for WAPI
+HKR, NDI\IHVExtensions, AdapterOUI      , 0x10001,    00123456
+HKR, NDI\IHVExtensions, ExtensibilityDLL, 0x00000,    "C:\\windows\\system32\\WapiIhvExt.dll"
+
+;-----------------------------------------------------------------------------
+; Localizable Strings
+;-----------------------------------------------------------------------------
+[Strings]
+QUALCOMM                 = "Qualcomm Atheros Inc"
+WLAN.DeviceDesc          = "Qualcomm Atheros Wireless LAN Adapter"
+QcaWlan.Service.DispName = "Qualcomm Atheros Wireless LAN Adapter Svc"
+QcaWlan.Service.Name     = "QCWLAN"
+DiskId1                  = "Qualcomm Atheros Wireless LAN Adapter Device Installation Disk #1"
+rssiThrHigh              = "RSSI Threshold"
+rssiThrHighNormal        = "Normal"
+rssiThrHighMin           = "Min"
+scanTime                 = "Roam Time (sec)"
+roamRssiA                = "Roam Time Threshold (db)"
+WirelessMode             = "Wireless Mode Selection"
+adhocchannel             = "Adhoc channel Selection"
+

@@ -1,0 +1,123 @@
+; HimaxTouch.INF
+; Copyright (c) 2000,2011 Microsoft Corporation
+; Copyright (c) 2018,2019 Bingxing Wang
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider    = %MSFT%
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5C}
+DriverVer   = 11/09/2019,1.0.0.0
+CatalogFile = chakra_HimaxTouch.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %Installation_Disk%,,,""
+
+[SourceDisksFiles]
+
+;*****************************************
+; TchDriver client driver Install Section
+;*****************************************
+
+[TchDriver_Device.NT.CopyFiles]
+
+[Manufacturer]
+%MSFT% = DeviceExtensions,NTarm
+
+[DeviceExtensions.NTarm]
+%TchDriver_Device_Desc% = DeviceExtension_Install, ACPI\NOKIA_TOUCH
+
+[DeviceExtension_Install]
+AddReg    = CapButtons.NT.HW.AddReg
+AddReg    = PowerConfig.NT.HW.AddReg
+AddReg    = Configuration.NT.HW.AddReg
+AddReg    = Resolutions.NT.HW.AddReg
+AddReg    = DisplaySize.NT.HW.AddReg
+AddReg    = ButtonBacklights.NT.HW.AddReg
+AddReg    = LegacyTouchScaling.NT.HW.AddReg
+CopyFiles = TchDriver_Device.NT.CopyFiles
+
+[LegacyTouchScaling.NT.HW.AddReg]
+HKR, , "LegacyTouchScaling", 0x00010001,   0x0
+
+[CapButtons.NT.HW.AddReg]
+HKLM,SYSTEM\TOUCH\BUTTONS,Area,0x00000000,"0,1280 720,1353"
+HKLM,SYSTEM\TOUCH\BUTTONS,Count,0x00010001,0x00000003
+HKLM,SYSTEM\TOUCH\BUTTONS\0,Name,0x00000000,"Back"
+HKLM,SYSTEM\TOUCH\BUTTONS\0,VKey,0x00010001,0x0000001B
+HKLM,SYSTEM\TOUCH\BUTTONS\0,Area,0x00000000,"0,1290 196,1353"
+HKLM,SYSTEM\TOUCH\BUTTONS\1,Name,0x00000000,"Start"
+HKLM,SYSTEM\TOUCH\BUTTONS\1,VKey,0x00010001,0x00000071
+HKLM,SYSTEM\TOUCH\BUTTONS\1,Area,0x00000000,"262,1290 458,1353"
+HKLM,SYSTEM\TOUCH\BUTTONS\2,Name,0x00000000,"Search"
+HKLM,SYSTEM\TOUCH\BUTTONS\2,VKey,0x00010001,0x00000072
+HKLM,SYSTEM\TOUCH\BUTTONS\2,Area,0x00000000,"524,1290 720,1353"
+HKLM,SYSTEM\TOUCH\BUTTONS\BACKLIGHT,InactivityTimeout,0x00010001,0x00000000
+HKLM,SYSTEM\TOUCH\BUTTONS\BACKLIGHT,LedCount,0x00010001,0x00000003
+
+[PowerConfig.NT.HW.AddReg]
+HKR, , "EnhancedPowerManagementEnabled"   , %REG_DWORD%,   0
+HKR, , "EnhancedPowerManagementUseMonitor", %REG_DWORD%,   0
+
+[Configuration.NT.HW.AddReg]
+HKLM,SYSTEM\TOUCH\GEN1,FirstBooted,0x00010001,0x00000001
+
+[Resolutions.NT.HW.AddReg]
+HKLM, %ScreenProps%,TouchInvertYAxis,0x00010001,0x00000000
+HKLM, %ScreenProps%,TouchPhysicalButtonHeight,0x00010001,0x00000049
+HKLM, %ScreenProps%,TouchLetterBoxHeightTop,0x00010001,0x00000000
+HKLM, %ScreenProps%,DisplayLetterBoxHeightTop,0x00010001,0x00000000
+HKLM, %ScreenProps%,TouchSwapAxes,0x00010001,0x00000000
+HKLM, %ScreenProps%,TouchPhysicalHeight,0x00010001,0x00000549
+HKLM, %ScreenProps%,TouchPillarBoxWidthLeft,0x00010001,0x00000000
+HKLM, %ScreenProps%,TouchLetterBoxHeightBottom,0x00010001,0x00000000
+HKLM, %ScreenProps%,DisplayLetterBoxHeightBottom,0x00010001,0x00000000
+HKLM, %ScreenProps%,DisplayPhysicalHeight,0x00010001,0x00000500
+HKLM, %ScreenProps%,TouchInvertXAxis,0x00010001,0x00000000
+HKLM, %ScreenProps%,TouchPhysicalWidth,0x00010001,0x000002CF
+HKLM, %ScreenProps%,DisplayPillarBoxWidthLeft,0x00010001,0x00000000
+HKLM, %ScreenProps%,DisplayPillarBoxWidthRight,0x00010001,0x00000000
+HKLM, %ScreenProps%,DisplayPhysicalWidth,0x00010001,0x000002D0
+HKLM, %ScreenProps%,TouchPillarBoxWidthRight,0x00010001,0x00000000
+HKLM, %ScreenProps%,DisplayViewableWidth,0x00010001,0x0000021C
+HKLM, %ScreenProps%,DisplayViewableHeight,0x00010001,0x000003C0
+
+[DisplaySize.NT.HW.AddReg]
+HKLM, %DisplaySize%,DisplayWidth10um,0x00010001,0x0000189C
+HKLM, %DisplaySize%,DisplayHeight10um,0x00010001,0x00002B5C
+
+[ButtonBacklights.NT.HW.AddReg]
+
+; ------------- Strings section
+[Strings]
+MSFT                   = "LumiaWoA authors"
+Manufacturer_Name      = "Himax"
+Installation_Disk      = "Himax Touch Driver Installation Disk"
+TchDriver_Device_Desc  = "Himax 8528 Chakra Digitizer Device"
+TchDriver_Service      = "HimaxTouch"
+TchDriver_Service_Desc = "Himax 8528 Chakra Digitizer Driver Service"
+HIDKMDF_Service        = "mshidkmdf"
+
+; ------------- non-localizable strings
+Configuration          = "SYSTEM\TOUCH\SETTINGS"
+FFConfiguration        = "SYSTEM\TOUCH\SETTINGS\FF"
+ScreenProps            = "SYSTEM\TOUCH\SCREENPROPERTIES"
+DisplaySize            = "SYSTEM\TOUCH\DISPLAYPROPERTIES"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_MULTI_SZ           = 0x00010000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+

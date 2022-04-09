@@ -1,0 +1,90 @@
+;/*++
+;
+; Copyright (c) 2012-2013 Qualcomm Technologies, Inc.  All Rights Reserved.
+; Qualcomm Technologies Proprietary and Confidential
+;
+;Module Name:
+;    qcoempanel.INF
+;
+;Abstract:
+;    INF file for installing the OEM Class Extension Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon update qcoempanel.inf ACPI\NOKIA_PANEL" to install
+;
+;--*/
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/24/2015,10.28.50.0572
+CatalogFile = qcoempanel.cat
+
+[SourceDisksNames]
+1 = %%DiskId1%%
+
+[SourceDisksFiles]
+qcoempanel8612.sys     = 1
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; oem panel client driver Install Section
+;*****************************************
+
+[Manufacturer]
+%QC% = QC,NTARM
+
+[QC.NTARM]
+%OEM.DeviceDesc% = OEM_Inst, ACPI\Nokia_PANEL
+
+[OEM_Inst.NT]
+Copyfiles = OEMCopyFiles
+AddReg    = OEM_Settings
+
+[OEM_Settings]
+HKLM,SOFTWARE\OEM\Autobrightness,MaxCurrent,0x00010001,0x00000017
+HKLM,SOFTWARE\QCOM\Drivers\DxKMD\Miniport\BACKLIGHT,DisableCABL,0x00010001,0x00000001
+HKLM,SOFTWARE\QCOM\Drivers\DxKMD\Miniport\BACKLIGHT,DisableSBC,0x00010001,0x00000001                                                              , "OPR_Med"                   , 0x10001,  0x190
+
+[OEMCopyFiles]
+qcoempanel8612.sys
+
+[OEM_Inst.NT.Services]
+AddService = NOKIA_PANEL, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst
+
+[OEM_Service_Inst]
+DisplayName    = %OEM.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\qcoempanel8612.sys
+LoadOrderGroup = Extended Base
+
+[OEM_Inst.NT.Wdf]
+KmdfService = NOKIA_PANEL, OEM_wdfsect
+
+[OEM_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Inc."
+OEM.SvcDesc            = "Qualcomm Display OEM Panel Driver"
+OEM.DeviceDesc         = "Qualcomm Display OEM Panel Device"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_NORMAL   = 1
+
+

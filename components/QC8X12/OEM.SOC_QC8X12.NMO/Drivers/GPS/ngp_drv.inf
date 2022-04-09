@@ -1,0 +1,69 @@
+[Version]
+Signature   = "$Windows NT$"
+CatalogFile = ngp_drv.cat
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+DriverVer   = 04/24/2015,10.29.15.0845
+
+[DestinationDirs]
+;12 == Windows\System32\Drivers
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,""
+
+[SourceDisksFiles]
+ngp_drv.sys = 1,,
+
+[Manufacturer]
+%ManufacturerName% = ngp_drv_Device,NTARM
+
+;*******************************
+; ngp_drv Install Section
+;*******************************
+
+[ngp_drv_Device.NTARM]
+%ngp_drv.DevDesc% = ngp_drv_Inst, ACPI\QCOM_GPS
+
+;---------------- copy files
+
+[ngp_drv_Inst.NT]
+CopyFiles = ngp_drvCopy
+
+[ngp_drvCopy]
+ngp_drv.sys
+
+[ngp_drv_Inst.NT.HW]
+AddReg = ngp_drv_SecurityAddReg
+
+;-------------- Service installation
+[ngp_drv_Inst.NT.Services]
+AddService = ngp_drv,2,ngp_drv_ServiceInstall
+
+[ngp_drv_ServiceInstall]
+DisplayName    = %ngp_drv.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\ngp_drv.sys
+LoadOrderGroup = Extended Base
+
+[ngp_drv_Inst.NT.Wdf]
+KmdfService = ngp_drv, ngp_drv_wdfsect
+[ngp_drv_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[ngp_drv_SecurityAddReg]
+HKR, , DeviceCharacteristics, 0x10001, 0x00000100       ; FILE_DEVICE_SECURE_OPEN
+
+[Strings]
+MediaDescription      = "ngp_drv Collection Installation Media"
+ManufacturerName      = "Nokia Corporation"
+ngp_drv.SVCDESC       = "ngp_drv Service"
+ngp_drv.DevDesc       = "ngp_drv Device"
+
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_DEMAND_START  = 3
+SERVICE_ERROR_NORMAL  = 1
+

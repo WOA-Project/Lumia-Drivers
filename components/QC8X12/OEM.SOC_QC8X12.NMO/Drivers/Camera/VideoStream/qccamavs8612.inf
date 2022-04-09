@@ -1,0 +1,139 @@
+;
+;Copyright (c) 2013-2014  Qualcomm Inc
+;
+;Qualcomm pin centric Camera AVStream mini driver (qccamavschld.sys) installation file. 
+;
+
+[Version]
+signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+Catalogfile = qccamavs8612.cat
+DriverVer   = 11/27/2014,16.37.22.0430
+PnpLockDown = 1
+
+[SourceDisksNames]
+1000 = %cdname%,,,
+
+[SourceDisksFiles]
+qccamavs8612.sys            = 1000
+LUVCR120.dll = 1000
+QCJpegEncoderMFT.dll        = 1000
+
+[DestinationDirs]
+; 12 = Windows\System32\drivers
+; 11 = Windows\System32
+DefaultDestDir       = 12
+qccamavs.DriverFiles = 12
+qccamavs.Sys32Files  = 11
+
+[qccamavs.DriverFiles]
+qccamavs8612.sys
+
+[qccamavs.Sys32Files]
+LUVCR120.dll
+QCJpegEncoderMFT.dll
+
+[Manufacturer]
+%QC% = Qc,NTarm
+
+[Qc.NTarm]
+%qccamavs.DeviceDesc% = QCCAMAVS_Device_Inst, VIDEO\QCOM_AVSTREAM
+
+[QCCAMAVS_Device_Inst.NTarm]
+Include   = ks.inf, KSCAPTUR.inf
+Needs     = KS.Registration,KSCAPTUR.Registration.NT
+CopyFiles = qccamavs.DriverFiles, qccamavs.Sys32Files
+Reboot
+
+[QCCAMAVS_Device_Inst.NTarm.HW]
+AddReg = Camera_SD.reg
+
+;---------------------------------------------------------------
+;                I n t e r f a c e s
+;---------------------------------------------------------------
+
+[QCCAMAVS_Device_Inst.NTarm.Interfaces]
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%,"Front Sensor",FrontSensor.CaptureInterface.NT,
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%,"Back Sensor",BackSensor.CaptureInterface.NT,
+
+[FrontSensor.CaptureInterface.NT]
+AddReg = FrontSensor.qccamavs.Reader.AddReg
+
+[BackSensor.CaptureInterface.NT]
+AddReg = BackSensor.qccamavs.Reader.AddReg
+
+;---------------------------------------------------------------
+;                A d d R e g
+;---------------------------------------------------------------
+[Camera_SD.reg]
+HKR,                                                                                , Security      ,               , "D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GRGWGX;;;WD)(A;;GRGX;;;RC)"
+HKLM, SYSTEM\CurrentControlSet\Control\InternalDeviceModification\%qccamavs.model.id%, HardwareIDs   , %REG_MULTI_SZ%, %qccamavs.hardware.id.8612%
+
+[FrontSensor.qccamavs.Reader.AddReg]
+HKR,                           , CLSID                          ,           , %Proxy.CLSID%
+HKR,                           , FriendlyName                   ,           , %FrontSensor.qccamavs.Reader.FriendlyName%
+HKR, %ExtProp.FocusModeControl%, Disable                        , 0x00010001, 1
+HKR, %ExtProp.FlashModeControl%, Disable                        , 0x00010001, 1
+
+[BackSensor.qccamavs.Reader.AddReg]
+HKR, , CLSID                          , , %Proxy.CLSID%
+HKR, , FriendlyName                   , , %BackSensor.qccamavs.Reader.FriendlyName%
+
+;---------------------------------------------------------------
+;                S e r v i c e s
+;---------------------------------------------------------------
+
+[QCCAMAVS_Device_Inst.NTarm.Services]
+AddService = qccamavs, 0x00000002, qccamavs.ServiceInstall
+
+[qccamavs.ServiceInstall]
+DisplayName   = %qccamavs.DeviceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\qccamavs8612.sys
+
+;---------------------------------------------------------------
+;                S t r i n g s
+;---------------------------------------------------------------
+
+[Strings]
+; non-localizable
+Proxy.CLSID                              = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_VIDEO_CAMERA                  = "{E5323777-F976-4F5B-9B55-B94699C46E44}"
+KSCATEGORY_CAPTURE                       = "{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_VIDEO                         = "{6994AD05-93EF-11D0-A3CC-00A0C9223196}"
+
+SERVICE_KERNEL_DRIVER                    = 1
+SERVICE_DEMAND_START                     = 3
+SERVICE_ERROR_NORMAL                     = 1
+
+;localizable
+QC                                       = "Qualcomm"
+qccamavs.DeviceDesc                      = "Qualcomm Camera AVStream Mini Driver"
+
+FrontSensor.qccamavs.Reader.FriendlyName = "Qualcomm Front Camera"
+BackSensor.qccamavs.Reader.FriendlyName  = "Qualcomm Back Camera"
+
+qccamavs.mft0.clsid                      = "{ABC98449-3E92-4194-9457-73724461C5CF}"
+qccamavs.mft0.typelib                    = "{CEC2270D-85B5-4B28-B4A6-C69E7C7646A2}"
+qccamavs.mft0.interfaceid                = "{1853F2FE-7817-40D1-BF6C-F4FBEC032DE8}"
+qccamavs.mft0.proxyStubClsid             = "{00020424-0000-0000-C000-000000000046}"
+qccamavs.hardware.id.8960                = "VIDEO#VEN_4D4F4351&DEV_32303032&SUBSYS_00000000&REV_00&QCOM_AVStream"
+qccamavs.hardware.id.8064                = "VIDEO#VEN_4D4F4351&DEV_36313232&SUBSYS_00000000&REV_00&QCOM_AVStream"
+qccamavs.hardware.id.8612                = "VIDEO#VEN_4D4F4351&DEV_30303330&QCOM_AVStream"
+qccamavs.model.id                        = "{B6882BE8-47E4-4513-9638-1A696E75BF65}"
+cdname                                   = "Qualcomm Camera AVStream Installation Disk"
+ExtProp.FocusModeControl                 = "ExtPropControls\13"
+ExtProp.FlashModeControl                 = "ExtPropControls\9"
+
+;  *******Non Localizable Strings*******
+
+REG_MULTI_SZ                             = 0x00010000
+REG_EXPAND_SZ                            = 0x00020000
+REG_DWORD                                = 0x00010001
+REG_BINARY                               = 0x00000001
+REG_SZ                                   = 0x00000000
+

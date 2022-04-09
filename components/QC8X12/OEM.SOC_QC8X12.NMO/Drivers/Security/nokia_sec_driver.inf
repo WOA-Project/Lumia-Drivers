@@ -1,0 +1,73 @@
+; nokia_sec_driver.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %Manufacturer_Name%
+DriverVer   = 03/09/2015,20.21.25.0405
+CatalogFile = nokia_sec_driver.cat
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+nokia_sec_driver.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; NokiaSec_Device driver Install Section
+;*****************************************
+
+[Manufacturer]
+%Manufacturer_Name% = Standard,NTARM
+
+[Standard.NTARM]
+%NokiaSec_Device_Desc% = NokiaSec_Device_Inst,ACPI\NOKIA_SEC
+
+[NokiaSec_Device_Inst.NT]
+Copyfiles = NokiaSec_DeviceCopyFiles
+
+[NokiaSec_DeviceCopyFiles]
+nokia_sec_driver.sys, , , 0x100,
+
+[NokiaSec_Device_Inst.NT.Services]
+AddService = nokia_sec_driver,%SPSVCINST_ASSOCSERVICE%,NokiaSec_Device_Service_Inst
+
+[NokiaSec_Device_Service_Inst]
+DisplayName    = %NokiaSec_Device_Desc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\nokia_sec_driver.sys
+LoadOrderGroup = Extended base
+
+[Strings]
+;Localizable Strings
+Manufacturer_Name      = "Nokia"
+NokiaSec_Device_Desc   = "Nokia security driver"
+
+;Non-Localizable Strings
+SPSVCINST_TAGTOFRONT   = 0x00000003
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+
+
+
+

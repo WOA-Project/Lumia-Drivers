@@ -1,0 +1,81 @@
+; nokia_cam_esp.inf
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %NOKIA%
+DriverVer   = 11/27/2014,16.37.22.0664
+CatalogFile = nokia_cam_esp.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+3426 = windows cd
+
+[SourceDisksFiles]
+nokia_cam_esp.sys = 3426
+
+;12 == Windows\System32\Drivers
+[DestinationDirs]
+DefaultDestDir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;*****************************************
+; CameraESP driver Install Section
+;*****************************************
+
+[Manufacturer]
+%NOKIA% = Standard,NTARM
+
+[Standard.NTARM]
+%CameraESP.DeviceDesc% = CameraESP_Inst,ACPI\CESP0001
+
+[CameraESP_Inst.NT]
+Copyfiles = CameraESPCopyFiles
+
+[CameraESPCopyFiles]
+nokia_cam_esp.sys, , , 0x100,
+
+[CameraESP_Inst.NT.Services]
+AddService = CameraESP,%SPSVCINST_ASSOCSERVICE%,CameraESP_Service_Inst
+
+[CameraESP_Inst.NT.HW]
+AddReg = CameraESP_AddReg
+
+[CameraESP_Service_Inst]
+DisplayName   = %CameraESP.SvcDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\nokia_cam_esp.sys
+
+[CameraESP_AddReg]
+HKR, , DeviceCharacteristics, 0x00010001, 0x100
+HKR, , Security             , 0x00000000, "D:P(A;;GA;;;SY)(A;;GA;;;S-1-15-3-1024-978770360-120978706-370478463-3607821418-2899652023-1167433329-2132211847-2760562517)(A;;GA;;;S-1-5-21-2702878673-795188819-444038987-1030)(A;;GA;;;S-1-5-21-2702878673-795188819-444038987-1315)(A;;GA;;;S-1-15-3-1024-3574683068-1752226521-1155147068-583173471-3187734153-2008299352-2522859398-1938523291)(A;;GA;;;S-1-5-21-2702878673-795188819-444038987-1030)(A;;GA;;;S-1-5-21-2702878673-795188819-444038987-1316)(A;;GA;;;S-1-15-3-1024-3924064082-2900048707-2201890956-2645363950-3844151028-2141764874-1227579062-1245366485)(A;;GA;;;S-1-5-21-2702878673-795188819-444038987-1030)(A;;GA;;;S-1-5-21-2702878673-795188819-444038987-1152)(A;;GA;;;S-1-5-80-863221175-2215566307-1075945011-3265209178-3810344701)"
+
+[Strings]
+;Localizable Strings
+NOKIA                  = "Nokia Corporation"
+CameraESP.SvcDesc      = "Nokia Extra Sensory Perception Service"
+CameraESP.DeviceDesc   = "Nokia Extra Sensory Perception Driver"
+
+;Non-Localizable Strings
+SPSVCINST_TAGTOFRONT   = 0x00000003
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000
+
+
+
+
+

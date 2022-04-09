@@ -1,0 +1,76 @@
+;/*++
+;
+;Copyright (c) 2010-2012  QualComm Inc
+;
+;Module Name:
+;    QCDIAGCSI8612.INF
+;
+;Abstract:
+;    INF file for installing Qualcomm Diagnostic Consumer Interface Driver (DiagCSI)
+;
+;Installation Notes: 
+;Install using DISM
+;--*/
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %QC%
+DriverVer   = 04/24/2015,10.28.16.0008
+CatalogFile = QCDIAGCSI8612.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+                                    
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+QCDIAGCSI8612.sys = 1
+
+[Manufacturer]
+%QC% = QC,NTARM
+
+[QC.NTARM]                           ; NTARM is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
+%DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM2412
+
+[DiagCSI_Device.NT]
+CopyFiles = Drivers_Dir
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Drivers_Dir]
+QCDIAGCSI8612.sys                        
+
+[DiagCSI_Device.NT.Services]
+AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_Service_Inst
+
+[DiagCSI_Device.NT.Wdf]
+KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
+
+[DiagCSI_Service_kmdfInst]
+KmdfLibraryVersion = 1.11
+
+
+; -------------- DIAGCSI driver install sections
+[DIAGCSI_Service_Inst]
+DisplayName    = %DIAGCSI.SVCDESC%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\QCDIAGCSI8612.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+;Localizable Strings
+QC                     = "Qualcomm Incorporated"
+DiskId1                = "DiagCSI Installation Disk"
+DIAGCSI.DeviceDesc     = "Qualcomm Diagnostic Consumer Interface Device"
+DIAGCSI.SVCDESC        = "Qualcomm Diagnostic Consumer Interface Driver"
+
+;Non-localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+
+

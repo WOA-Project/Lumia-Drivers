@@ -1,0 +1,295 @@
+;Copyright (c) 2011 Qualcomm Inc All rights Reserved
+;Portions copyright Microsoft Corporation 1998-2000
+;
+;Module Name:
+;   QCAud8612.INX
+;
+;Abstract:
+;    INX file for installing WDM audio adapter driver (WaveRT based) for Qualcomm 8612 SoC
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGUID   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+provider    = %ProviderName%
+DriverVer   = 03/03/2015,11.15.4.0201
+PnpLockDown = 1
+CatalogFile = qcaud8612.cat
+
+[Manufacturer]
+%MfgName% = QUALCOMM,NTARM
+
+[SignatureAttributes]
+Qcaud8612.sys = SignatureAttributes.DRM
+;ProxyAPO.dll=SignatureAttributes.PETrust
+
+[SignatureAttributes.DRM]
+DRMLevel = 1300
+
+;[SignatureAttributes.PETrust]
+;PETrust=true
+
+[SourceDisksNames]
+222 = %DiskId%
+
+[SourceDisksFiles]
+qcaud8612.sys = 222
+ProxyAPO.dll  = 222
+LUVCR120.dll  = 222
+
+[QUALCOMM.NTARM]
+%QCAUD.DeviceDesc% = QCAUD, AUDD\QCOM2451
+
+[DestinationDirs]
+QCAUD.CopyList    = 12; windows\system32\drivers
+ProxyAPO.CopyList = 11; windows\system32
+
+[QCAUD.CopyList]
+qcaud8612.sys
+
+[ProxyAPO.CopyList]
+ProxyAPO.dll
+LUVCR120.dll
+
+[QCAUD.AddReg]
+HKR,                         , AssociatedFilters   ,           , "wdmaud,swmidi,redbook"
+HKR,                         , Driver              ,           , qcaud8612.sys
+
+HKR, Drivers                 , SubClasses          ,           , "wave,midi,mixer"
+
+HKR, Drivers\wave\wdmaud.drv , Driver              ,           , wdmaud.drv
+HKR, Drivers\midi\wdmaud.drv , Driver              ,           , wdmaud.drv
+HKR, Drivers\mixer\wdmaud.drv, Driver              ,           , wdmaud.drv
+
+HKR, Drivers\wave\wdmaud.drv , Description         ,           , %QCAUD.DeviceDesc%
+HKR, Drivers\midi\wdmaud.drv , Description         ,           , %QCAUD.DeviceDesc%
+HKR, Drivers\mixer\wdmaud.drv, Description         ,           , %QCAUD.DeviceDesc%
+HKR, PowerSettings           , ConservationIdleTime, 0x00000001, 05,00,00,00
+HKR, PowerSettings           , IdlePowerState      , 0x00000001, 03,00,00,00
+HKR, PowerSettings           , PerformanceIdleTime , 0x00000001, 05,00,00,00
+
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Version,Minor,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Version,Major,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\LowFrequencyPreset,Preset,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\LowFrequencyPreset,SupportedDuringRecording,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\LowFrequencyPreset,Supported,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Orientation,Orientation,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Wnr,Supported,0x00010001,0x00000001
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Wnr,State,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\Audio\EnhancedRecording\Vibra,Disable,0x00010001,0x00000000
+HKLM,SOFTWARE\OEM\Nokia\Audio\NonVolatileMemory\AcaNonVolatile,Data,0x00000001,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+HKLM,SOFTWARE\OEM\Nokia\Audio\NonVolatileMemory\AepNonVolatile,Data,0x00000001,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\{986E9E1C-F44C-413E-9A59-EA6AD6AFDC2A},Name,0x00000000,"Surround Microphone"
+HKLM,SYSTEM\CurrentControlSet\Services\QCSUBSYS\Parameters\Buffers,{A2E1ACDD-1B8F-47DC-A079-76C9B04B7D60},0x00010001,0x00028000
+HKLM,SYSTEM\CurrentControlSet\Services\QCSUBSYS\Parameters\Buffers,{C1F8153E-3592-4FAB-BDBF-2BFB8ED3157A},0x00010001,0x000CC000
+
+
+[ProxyAPO.AddReg]
+; Mode effect APO COM registration
+HKCR, CLSID\%FX_MODE_CLSID%                                 ,                       ,           , %MFX_FriendlyName%
+HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  ,                       ,           , %11%\ProxyAPO.dll
+HKCR, CLSID\%FX_MODE_CLSID%\InProcServer32                  , ThreadingModel        ,           , "Both"
+
+; Mode effect APO registration
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "FriendlyName"        ,           , %MFX_FriendlyName%
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "Copyright"           ,           , %MfgName%
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MajorVersion"        , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MinorVersion"        , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "Flags"               , 0x00010001,  0x0000000d
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MinInputConnections" , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MaxInputConnections" , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MinOutputConnections", 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MaxOutputConnections", 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "MaxInstances"        , 0x00010001,  0xffffffff
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "NumAPOInterfaces"    , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_MODE_CLSID%    , "APOInterface0"       ,           , "{FD7F2B29-24D0-4B5C-B177-592C39F9CA10}"
+
+
+; Endpoint effect APO COM registration
+HKCR, CLSID\%FX_ENDPOINT_CLSID%                             ,                       ,           , %EFX_FriendlyName%
+HKCR, CLSID\%FX_ENDPOINT_CLSID%\InProcServer32              ,                       ,           , %11%\ProxyAPO.dll
+HKCR, CLSID\%FX_ENDPOINT_CLSID%\InProcServer32              , ThreadingModel        ,           , "Both"
+
+; Endpoint effect APO registration
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "FriendlyName"        ,           , %EFX_FriendlyName%
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "Copyright"           ,           , %MfgName%
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MajorVersion"        , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MinorVersion"        , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "Flags"               , 0x00010001,  0x0000000d
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MinInputConnections" , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MaxInputConnections" , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MinOutputConnections", 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MaxOutputConnections", 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "MaxInstances"        , 0x00010001,  0xffffffff
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "NumAPOInterfaces"    , 0x00010001,  1
+HKCR, AudioEngine\AudioProcessingObjects\%FX_ENDPOINT_CLSID%, "APOInterface0"       ,           , "{FD7F2B29-24D0-4B5C-B177-592C39F9CA10}"
+
+
+[QCAUD.Interface.Wave]
+AddReg = QCAUD.I.Wave.AddReg
+
+[QCAUD.I.Wave.AddReg]
+HKR, , CLSID, , %Proxy.CLSID%
+
+[QCAUD.Interface.Topology]
+AddReg = QCAUD.I.Topo.AddReg,ProxyAPO.I.Association0.AddReg
+
+[QCAUD.I.Topo.AddReg]
+HKR,        , CLSID                                  ,   , %Proxy.CLSID%
+HKR, "EP\\0", %PKEY_AudioEndpoint_Association%       ,   , %KSNODETYPE_ANY%
+
+HKR, "EP\\0", "{14242002-0320-4de4-9555-a7d82b73c286}, 0", ,"Hardware Audio Effects Options"
+HKR, "EP\\0", "{14242002-0320-4de4-9555-a7d82b73c286}, 1", ,"TBD1;TBD2"
+HKR, "EP\\0", "{f1ab780d-2010-4ed3-a3a6-8b87f0f0c476}, 0", ,"{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
+HKR, "EP\\0", "{f1ab780d-2010-4ed3-a3a6-8b87f0f0c476}, 1", ,"@ProxyAPO.dll,-200"
+
+HKR, "FX\\0", %PKEY_FX_Association%                  ,   , %KSNODETYPE_ANY%
+
+HKR, "FX\\0", "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D}, 6", ,"{61AF8716-C9B7-4522-AA60-9F7201791BF9}"
+HKR, "FX\\0", "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D}, 7", ,"{697DA8EE-64F9-4096-BEBC-7C1C42CC2876}"
+
+
+[QCAUD.Interface.WaveWFD]
+AddReg = QCAUD.I.WaveWFD.AddReg
+
+[QCAUD.I.WaveWFD.AddReg]
+HKR, , CLSID                     ,  , %Proxy.CLSID%
+HKR, , SetupPreferredAudioDevices, 3, 01,00,00,00
+
+[QCAUD.Interface.TopologyWFD]
+AddReg = QCAUD.I.TopoWFD.AddReg,ProxyAPO.I.Association0.AddReg
+
+[QCAUD.I.TopoWFD.AddReg]
+HKR,        , CLSID                                  ,   , %Proxy.CLSID%
+HKR, "EP\\0", %PKEY_AudioEndpoint_Association%       ,   , %KSNODETYPE_ANY%
+
+HKR, "EP\\0", "{14242002-0320-4de4-9555-a7d82b73c286}, 0", ,"Hardware Audio Effects Options"
+HKR, "EP\\0", "{14242002-0320-4de4-9555-a7d82b73c286}, 1", ,"TBD1;TBD2"
+HKR, "EP\\0", "{f1ab780d-2010-4ed3-a3a6-8b87f0f0c476}, 0", ,"{6f64adce-8211-11e2-8c70-2c27d7f001fa}"
+HKR, "EP\\0", "{f1ab780d-2010-4ed3-a3a6-8b87f0f0c476}, 1", ,"@ProxyAPO.dll,-200"
+
+HKR, "FX\\0", %PKEY_FX_Association%                  ,   , %KSNODETYPE_ANY%
+
+HKR, "FX\\0", "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D}, 6", ,"{61AF8716-C9B7-4522-AA60-9F7201791BF9}"
+HKR, "FX\\0", "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D}, 7", ,"{697DA8EE-64F9-4096-BEBC-7C1C42CC2876}"
+
+;======================================================
+; APO per-interface registry
+;======================================================
+[ProxyAPO.I.Association0.AddReg]
+; Instruct audio endpoint builder to set the CLSIDs for stream, mode, and endpoint APOs
+; into the effects property store
+HKR, "FX\\0", %PKEY_FX_ModeEffectClsid%    , , %FX_MODE_CLSID%
+HKR, "FX\\0", %PKEY_FX_EndpointEffectClsid%, , %FX_ENDPOINT_CLSID%
+
+; Driver developer would replace the list of supported processing modes here
+;HKR,"FX\\0",%PKEY_MFX_ProcessingModes_Supported_For_Streaming%,0x00010000,%AUDIO_SIGNALPROCESSINGMODE_DEFAULT%
+;HKR,"FX\\0",%PKEY_EFX_ProcessingModes_Supported_For_Streaming%,0x00010000,%AUDIO_SIGNALPROCESSINGMODE_DEFAULT%
+
+
+[QCAUD_Service_Inst]
+DisplayName   = %QCAUD.SvcDesc%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\qcaud8612.sys
+AddReg        = QCAUD.AddReg.service
+
+[QCAUD.AddReg.service]
+HKR, , "AudioPlus", 0x00010001,  0
+HKR, , "HfpCodecs", 0x00000001,  0x02
+HKR, , "AudioPlus",           ,  "-5"
+
+[QCAudDrvApp_Interface]
+AddProperty = QCAudDrvApp_Interface_AddProperty
+
+[QCAudDrvApp_Interface_AddProperty]
+{026e516e-b814-414b-83cd-856d6fef4822}, 6, 0x11, , 1
+
+
+;;================= Windows NT ====================
+[QCAUD.NT]
+Include   = ks.inf,wdmaudio.inf
+Needs     = KS.Registration,WDMAUDIO.Registration
+CopyFiles = qcaud.CopyList,ProxyAPO.CopyList
+AddReg    = QCAUD.AddReg,ProxyAPO.AddReg
+Reboot
+
+[QCAUD.NT.Interfaces]
+;
+; Interfaces for render in endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%,%KSNAME_Wave%,QCAUD.Interface.Wave
+AddInterface = %KSCATEGORY_RENDER%,%KSNAME_Wave%,QCAUD.Interface.Wave
+AddInterface = %KSCATEGORY_CAPTURE%,%KSNAME_Wave%,QCAUD.Interface.Wave
+AddInterface = %KSCATEGORY_REALTIME%,%KSNAME_Wave%,QCAUD.Interface.Wave
+AddInterface = %KSCATEGORY_AUDIO%,%KSNAME_Topology%,QCAUD.Interface.Topology
+AddInterface = %KSCATEGORY_TOPOLOGY%,%KSNAME_Topology%,QCAUD.Interface.Topology
+;
+; Interfaces for render in WFD endpoint.
+;
+AddInterface = %KSCATEGORY_AUDIO%,%KSNAME_WaveWFD%,QCAUD.Interface.WaveWFD
+AddInterface = %KSCATEGORY_RENDER%,%KSNAME_WaveWFD%,QCAUD.Interface.WaveWFD
+AddInterface = %KSCATEGORY_CAPTURE%,%KSNAME_WaveWFD%,QCAUD.Interface.WaveWFD
+AddInterface = %KSCATEGORY_REALTIME%,%KSNAME_WaveWFD%,QCAUD.Interface.WaveWFD
+AddInterface = %KSCATEGORY_AUDIO%,%KSNAME_TopologyWFD%,QCAUD.Interface.TopologyWFD
+AddInterface = %KSCATEGORY_TOPOLOGY%,%KSNAME_TopologyWFD%,QCAUD.Interface.TopologyWFD
+;
+; Expose third-party interface as accessible to WSDA
+;
+AddInterface = {83BF8857-5742-4B77-988D-1B7E9604E98D},"QC_AUDIO_THIRD_PARTY_PROPERTY_REF_STRING",QCAudDrvApp_Interface
+
+[QCAUD.NT.Services]
+AddService = QCAUD, 0x00000002, QCAUD_Service_Inst
+
+[Strings]
+ProviderName                                     = "QUALCOMM"
+MfgName                                          = "QUALCOMM"
+DiskDescription                                  = "Qualcomm SoC WDM Audio Driver Disk"
+QCAUD.DeviceDesc                                 = "QCAUD Real Time (WaveRT) Driver for Qualcomm SoC"
+
+QCAUD.Wave.szPname                               = "Qualcomm Soc Wave"
+QCAUD.Topology.szPname                           = "Qualcomm Codec Topology"
+
+QCAUD.WaveWFD.szPname                            = "Qualcomm Soc Wave WFD"
+QCAUD.TopologyWFD.szPname                        = "Qualcomm Codec Topology WFD"
+
+MediaCategories                                  = "SYSTEM\CurrentControlSet\Control\MediaCategories"
+RegPath                                          = "SYSTEM\CurrentControlSet\Services\QCAUD"
+
+Proxy.CLSID                                      = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO                                 = "{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER                                = "{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE                               = "{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_REALTIME                              = "{EB115FFC-10C8-4964-831D-6DCB02E6F23F}" ; non-localizable
+KSCATEGORY_TOPOLOGY                              = "{DDA54A40-1E4C-11D1-A050-405705C10000}" ; non-localizable
+
+PKEY_FX_Association                              = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},0"
+PKEY_FX_ModeEffectClsid                          = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},6"
+PKEY_FX_EndpointEffectClsid                      = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},7"
+
+PKEY_MFX_ProcessingModes_Supported_For_Streaming = "{D3993A3F-99C2-4402-B5EC-A92A0367664B},6"
+PKEY_EFX_ProcessingModes_Supported_For_Streaming = "{D3993A3F-99C2-4402-B5EC-A92A0367664B},7"
+
+AUDIO_SIGNALPROCESSINGMODE_DEFAULT               = "{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}"
+
+
+; Driver developer would replace these CLSIDs with those of his own APOs.
+FX_MODE_CLSID                                    = "{61AF8716-C9B7-4522-AA60-9F7201791BF9}"
+FX_ENDPOINT_CLSID                                = "{697DA8EE-64F9-4096-BEBC-7C1C42CC2876}"
+
+MFX_FriendlyName                                 = "Qualcomm Audio Proxy APO (mode effect)"
+EFX_FriendlyName                                 = "Qualcomm Audio Proxy APO (Endpoint effect)"
+
+KSNAME_Wave                                      = "Wave"
+KSNAME_Topology                                  = "Topology"
+
+KSNAME_WaveWFD                                   = "WaveWFD"
+KSNAME_TopologyWFD                               = "TopologyWFD"
+
+QCAUD.SvcDesc                                    = "Service for Qualcomm SoC WDM Audio Driver"
+KSNODETYPE_ANY                                   = "{00000000-0000-0000-0000-000000000000}"
+PKEY_AudioEndpoint_Association                   = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2"
+DiskId                                           = "QCAUD WaveRT Driver Disk"
+REG_BINARY                                       = 0x00000001
+
