@@ -17,8 +17,8 @@
 | Windows 10 Build 19043 (21h1)                                             | ✅         |
 | Windows 10 Build 19044 (21h2)                                             | ✅         |
 | Windows 11 Build 22000 (21h2)                                             | ✅         |
-| Windows 11 vNext (Nickel Semester)                                        | ✅ *       |
-
+| Windows 11 Build 22621 (22h2)                                             | ✅         |
+| Windows 11 vNext (Copper Semester)                                        | ✅ *       |
 
 * Might break in the future. Long term compatibility uncertain due to ARMv8.1 Atomics being required.
 
