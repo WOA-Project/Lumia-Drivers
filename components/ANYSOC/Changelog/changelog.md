@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2111.1
-**Released:** 10/31/2021 12:00 AM UTC+1
+﻿## Lumia Drivers BSP - Version 2206.86
+**Released:** 06/26/2022 12:00 AM UTC+1
 
 **Quality:** Stable
 
@@ -46,13 +46,15 @@ ________________________________________________________________________________
 
 Changelog
 
-- Introducing a new combined settings application, "Lumia Settings". This application combines the previous apps
-  (Advanced info, Gestures & Touch, Color Profile, USB Function Mode, Glance Screen, etc) into a single app,
-  accessible from the start menu.
-  
-![LumiaApp](https://raw.githubusercontent.com/WOA-Project/LumiaApp/master/assets/MainPage.png)
+Bug fixes for the Mobile Haptics Service
 
-- Bug fixes to the USB-C PHY Driver
+NEW: We now have TWO update channels for drivers.
+
+- The **Experimental** update channel contains work in progress, unstable/rough functionality. This update channel contains all the features you're used to from previous releases, but might have thermal issues, performance issues, or be very unstable.
+
+- The **Stable** update channel contains validated, stable, code. However this channel is missing many features you've come used to from past updates. Currently this update channel does not contain support for: GPU, Cellular, Wifi, Desktop bridges, Automatic Brightness. It is however stable, will not overheat as much as the **Experimental** channel, and fully usable.
+
+Installations using WOA Deployer will default to the **Stable** channel. The **Experimental** channel is available using DriverUpdater and the provided ```Lumia-Drivers-Experimental.zip``` file on Github.
 
 ____________________________________________________________________________________________________________________________
 
