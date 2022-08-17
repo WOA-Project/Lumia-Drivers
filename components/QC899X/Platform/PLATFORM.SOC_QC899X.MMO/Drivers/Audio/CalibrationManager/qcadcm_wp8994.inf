@@ -17,56 +17,36 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcadcm8994.arm.cat
-CatalogFile.NTarm64 = qcadcm8994.arm64.cat
+CatalogFile = qcadcm8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-qcadcm8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcadcm8994.sys = 1,arm64
+[SourceDisksFiles]
+qcadcm8994.sys = 1,
 
 ;*****************************************
 ; Audio DSP and Calibration Manager (ADCM) Install Section
 ;*****************************************
 
 [Manufacturer]
-%QCOM% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%ADCM.DeviceDesc% = ADCM_Device, SLM1\QCOM242D
+%QCOM% = Standard,NTarm64
 
 [Standard.NTarm64]
 %ADCM.DeviceDesc% = ADCM_Device, SLM1\QCOM242D
 
-[ADCM_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-
-;-------------- Service installation
-[ADCM_Device.NTarm.Services]
-AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst
-
 [ADCM_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 
 ;-------------- Service installation
 [ADCM_Device.NTarm64.Services]
-AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst.NTarm64
+AddService = qcadcm,%SPSVCINST_ASSOCSERVICE%, ADCM_Service_Inst
 
-[Drivers_Dir_A32]
-qcadcm8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcadcm8994.sys
 
 [WDTFSOCDeviceCategory]
@@ -78,17 +58,7 @@ DisplayName   = %ADCM.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcadcm8994.sys
-;Tag            = 4
-;LoadOrderGroup = Extended Base
-Addreg        = ADCMReg_Service
-
-[ADCM_Service_Inst.NTarm64]
-DisplayName   = %ADCM.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcadcm8994.sys
+ServiceBinary = %13%\qcadcm8994.sys
 ;Tag            = 4
 ;LoadOrderGroup = Extended Base
 Addreg        = ADCMReg_Service

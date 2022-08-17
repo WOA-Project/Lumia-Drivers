@@ -20,22 +20,16 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qchwnhaptics8994.arm.cat
-CatalogFile.NTarm64 = qchwnhaptics8994.arm64.cat
+CatalogFile = qchwnhaptics8994.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-qchwnhaptics8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qchwnhaptics8994.sys = 1,arm64
+[SourceDisksFiles]
+qchwnhaptics8994.sys = 1,
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -45,54 +39,30 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = Qualcomm,NTarm,NTarm64
-
-[Qualcomm.NTarm]
-%hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
+%QC% = Qualcomm,NTarm64
 
 [Qualcomm.NTarm64]
 %hwnhaptics.DeviceDesc% = hwnhaptics_Device, ACPI\QCOM24A4
 
-[hwnhaptics_Device.NTarm]
-Copyfiles = Drivers_Dir_A32
-
-[hwnhaptics_Device.NTarm.HW]
-AddReg = DriverInst.NT.HW.AddReg
-AddReg = Configuration.NT.HW.AddReg
-
-[hwnhaptics_Device.NTarm.Services]
-AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst
-
 [hwnhaptics_Device.NTarm64]
-Copyfiles = Drivers_Dir_A64
+Copyfiles = Drivers_Dir
 
 [hwnhaptics_Device.NTarm64.HW]
 AddReg = DriverInst.NT.HW.AddReg
 AddReg = Configuration.NT.HW.AddReg
 
 [hwnhaptics_Device.NTarm64.Services]
-AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst.NTarm64
+AddService = hwnhaptics,%SPSVCINST_ASSOCSERVICE%,hwnhaptics_Service_Inst
 
 [hwnhaptics_Service_Inst]
 DisplayName    = %hwnhaptics.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm\qchwnhaptics8994.sys
+ServiceBinary  = %13%\qchwnhaptics8994.sys
 LoadOrderGroup = Extended Base
 
-[hwnhaptics_Service_Inst.NTarm64]
-DisplayName    = %hwnhaptics.SvcDesc%
-ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_DEMAND_START%
-ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm64\qchwnhaptics8994.sys
-LoadOrderGroup = Extended Base
-
-[Drivers_Dir_A32]
-qchwnhaptics8994.sys,,, 0x100,
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qchwnhaptics8994.sys,,, 0x100,
 
 [DriverInst.NT.HW.AddReg]

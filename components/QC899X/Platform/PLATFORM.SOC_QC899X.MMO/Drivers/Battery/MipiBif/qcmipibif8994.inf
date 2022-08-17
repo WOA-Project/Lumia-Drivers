@@ -18,22 +18,16 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
 DriverVer   = 03/18/2021,1.0.1078.0056
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcmipibif8994.arm.cat
-CatalogFile.NTarm64 = qcmipibif8994.arm64.cat
+CatalogFile = qcmipibif8994.cat
 
 [SourceDisksNames]
 3426 = windows cd
 
-[SourceDisksFiles.ARM]
-qcmipibif8994.sys = 3426,arm
-
-[SourceDisksFiles.ARM64]
-qcmipibif8994.sys = 3426,arm64
+[SourceDisksFiles]
+qcmipibif8994.sys = 3426,
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -43,30 +37,18 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = Qualcomm,NTarm,NTarm64
-
-[Qualcomm.NTarm]
-%DeviceDesc% = MipiBif_Inst,ACPI\QCOM2459
+%COMP% = Qualcomm,NTarm64
 
 [Qualcomm.NTarm64]
 %DeviceDesc% = MipiBif_Inst,ACPI\QCOM2459
 
-[MipiBif_Inst.NTarm]
-Copyfiles = Drivers_Dir_A32
+[MipiBif_Inst]
+Copyfiles = Drivers_Dir
 
-[MipiBif_Inst.NTarm.Services]
+[MipiBif_Inst.Services]
 AddService = qcmipibif,%SPSVCINST_ASSOCSERVICE%,MipiBif_Service_Inst
 
-[MipiBif_Inst.NTarm64]
-Copyfiles = Drivers_Dir_A64
-
-[MipiBif_Inst.NTarm64.Services]
-AddService = qcmipibif,%SPSVCINST_ASSOCSERVICE%,MipiBif_Service_Inst.NTarm64
-
-[Drivers_Dir_A32]
-qcmipibif8994.sys,,, 0x100,
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcmipibif8994.sys,,, 0x100,
 
 [MipiBif_Service_Inst]
@@ -74,15 +56,7 @@ DisplayName    = %%MipiBif.SvcDesc%%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm\qcmipibif8994.sys
-LoadOrderGroup = Extended Base
-
-[MipiBif_Service_Inst.NTarm64]
-DisplayName    = %%MipiBif.SvcDesc%%
-ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_DEMAND_START%
-ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm64\qcmipibif8994.sys
+ServiceBinary  = %13%\qcmipibif8994.sys
 LoadOrderGroup = Extended Base
 
 [Strings]

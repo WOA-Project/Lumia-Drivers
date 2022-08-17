@@ -8,33 +8,32 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
 DriverVer   = 10/01/2021,1.0.0.4
 PnpLockdown = 1
-
-CatalogFile.NTarm64 = NlpmService.arm64.cat
+CatalogFile = NlpmService.cat
 
 [DestinationDirs]
-NlpmService.Files = 13,arm64
+NlpmService.Files = 13,
 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles.ARM64]
-A32To64PanelIntTranslator.dll  = 0,arm64,
-NlpmService.dll                = 0,arm64,
-LUVCR120.dll                   = 0,arm64,
-LUVCP120.dll                   = 0,arm64,
-NlpmServiceStub.dll            = 0,arm64,
-OEMServiceHost.exe             = 0,arm64,
-SecRuntime.dll                 = 0,arm64,
-SecurityRuntime.dll            = 0,arm64,
-shellchromeapi.dll             = 0,arm64,
-lpmFont_720P.bin               = 0,arm64,
-lpmFont_720P_hi.bin            = 0,arm64,
-lpmFont_FHD.bin                = 0,arm64,
-lpmFont_WQHD.bin               = 0,arm64,
-lpmFont_WQHD_hi.bin            = 0,arm64,
-lpmFont_WVGA.bin               = 0,arm64,
-lpmFont_WXGA.bin               = 0,arm64,
-ShellChromeAssets1440x2560.dll = 0,arm64,
+[SourceDisksFiles]
+A32To64PanelIntTranslator.dll  = 0,
+NlpmService.dll                = 0,
+LUVCR120.dll                   = 0,
+LUVCP120.dll                   = 0,
+NlpmServiceStub.dll            = 0,
+OEMServiceHost.exe             = 0,
+SecRuntime.dll                 = 0,
+SecurityRuntime.dll            = 0,
+shellchromeapi.dll             = 0,
+lpmFont_720P.bin               = 0,
+lpmFont_720P_hi.bin            = 0,
+lpmFont_FHD.bin                = 0,
+lpmFont_WQHD.bin               = 0,
+lpmFont_WQHD_hi.bin            = 0,
+lpmFont_WVGA.bin               = 0,
+lpmFont_WXGA.bin               = 0,
+ShellChromeAssets1440x2560.dll = 0,
 
 [Manufacturer]
 %MMO% = MMO,NTarm64
@@ -55,11 +54,11 @@ Description   = "Standby screen service"
 ServiceType   = 0x20
 StartType     = 2
 ErrorControl  = 0
-ServiceBinary = "%13%\arm64\OEMServiceHost.exe -k NsgGlance"
+ServiceBinary = "%13%\OEMServiceHost.exe -k NsgGlance"
 AddReg        = NlpmService.AddReg
 
 [NlpmService.AddReg]
-HKR,, "ImagePath", 0x00020000, "%13%\arm64\OEMServiceHost.exe -k NsgGlance"
+HKR,, "ImagePath", 0x00020000, "%13%\OEMServiceHost.exe -k NsgGlance"
 HKR,, "ServiceSidType", 0x00010001, 0x00000001
 HKR,, "RequiredPrivileges", 0x00010008, \
 	"SeChangeNotifyPrivilege", "SeIncreaseWorkingSetPrivilege", "SeCreateGlobalPrivilege"
@@ -79,7 +78,7 @@ HKR,, "ObjectName", 0x00000000, "LocalSystem"
 HKR,, "ErrorControl", 0x00010001, 0x00000000
 
 HKR, "Parameters", "ServiceDllUnloadOnStop", 0x00010001, 0x00000001
-HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\arm64\NlpmServiceStub.dll"
+HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\NlpmServiceStub.dll"
 
 HKR, "TriggerInfo\0", "DataType1", 0x00010001, 0x00000001
 HKR, "TriggerInfo\0", "Action", 0x00010001, 0x00000001
@@ -104,12 +103,12 @@ HKLM, "Software\Microsoft\Windows NT\CurrentVersion\SvcHost", "NsgGlance", 0x000
 
 HKLM, "Software\WowAA32Node\Microsoft\EventSounds\Sounds", "RingerVibrateState", 0x00010001, 0x00000002
 
-HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "PluginPath", 0x00000000, "%13%\arm64\NlpmService.dll"
+HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "PluginPath", 0x00000000, "%13%\NlpmService.dll"
 HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "UseBeta", 0x00010001, 0x00000000
 HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Enabled", 0x00010001, 0x00000001
 HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "PluginVersion", 0x00000000, "4.1.12.4"
 HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Version", 0x00000000, "4.1.12.4"
-HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Path", 0x00000000, "%13%\arm64\NlpmServiceStub.dll"
+HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "Path", 0x00000000, "%13%\NlpmServiceStub.dll"
 HKLM, "Software\WowAA32Node\OEM\Nokia\NokiaSvcHost\Plugins\NsgGlance\NlpmService", "UsingBeta", 0x00010001, 0x00000000
 
 HKLM, "Software\WowAA32Node\OEM\Nokia\Touch\WakeupGesture", "SingleTapEnabled", 0x00010001, 0x00000000
@@ -148,7 +147,7 @@ HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "ShowSystemNotifications", 0x0001000
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "GripWakeup", 0x00010001, 0x00000000
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "DarkModeOverrideColor", 0x00010001, 0x00ff0000
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "Mode", 0x00010001, 0x00000002
-HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "FontFile", 0x00000000, "%13%\arm64\lpmFont_WQHD.bin"
+HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "FontFile", 0x00000000, "%13%\lpmFont_WQHD.bin"
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "SingleTapWakeup", 0x00010001, 0x00000000
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "AppGraphicGestures", 0x00010001, 0x00000000
 HKLM, "Software\WowAA32Node\OEM\Nokia\lpm", "ShowDetailedAppStatus", 0x00010001, 0x00000001

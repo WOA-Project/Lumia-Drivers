@@ -16,22 +16,16 @@ ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qccamisp8992.arm.cat
-CatalogFile.NTarm64 = qccamisp8992.arm64.cat
+CatalogFile = qccamisp8992.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-qccamisp8992.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qccamisp8992.sys = 1,arm64
+[SourceDisksFiles]
+qccamisp8992.sys = 1,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -41,35 +35,21 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC, NTarm, NTarm64
-
-[QC.NTarm]
-%ISP.DeviceDesc% = CameraISP_Device, ACPI\QCOM2432
+%QC% = QC, NTarm64
 
 [QC.NTarm64]
 %ISP.DeviceDesc% = CameraISP_Device, ACPI\QCOM2432
 
-[CameraISP_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
 [CameraISP_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Drivers_Dir_A32]
-qccamisp8992.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qccamisp8992.sys
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 0
-
-[CameraISP_Device.NTarm.HW]
-AddReg = CameraISP_Device_Security_Reg
 
 [CameraISP_Device.NTarm64.HW]
 AddReg = CameraISP_Device_Security_Reg
@@ -78,11 +58,8 @@ AddReg = CameraISP_Device_Security_Reg
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
-[CameraISP_Device.NTarm.Services]
-AddService = qcISP,%SPSVCINST_ASSOCSERVICE%, ISP_Service_Inst
-
 [CameraISP_Device.NTarm64.Services]
-AddService = qcISP,%SPSVCINST_ASSOCSERVICE%, ISP_Service_Inst.NTarm64
+AddService = qcISP,%SPSVCINST_ASSOCSERVICE%, ISP_Service_Inst
 
 ; -------------- ISP driver install sections
 [ISP_Service_Inst]
@@ -90,14 +67,7 @@ DisplayName   = %ISP.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qccamisp8992.sys
-
-[ISP_Service_Inst.NTarm64]
-DisplayName   = %ISP.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qccamisp8992.sys
+ServiceBinary = %13%\qccamisp8992.sys
 
 [Strings]
 ;Localizable Strings

@@ -20,51 +20,33 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcsmmu8994.arm.cat
-CatalogFile.NTarm64 = qcsmmu8994.arm64.cat
+CatalogFile = qcsmmu8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId%
 
-[SourceDisksFiles.ARM]
-qcsmmu8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcsmmu8994.sys = 1,arm64
+[SourceDisksFiles]
+qcsmmu8994.sys = 1,
 
 [ControlFlags]
 ExcludeFromSelect = *
 
 [Manufacturer]
-%QC% = QC, NTarm, NTarm64
-
-[QC.NTarm]
-%SMMU.DeviceDesc% = SMMU_Device, ACPI\QCOM2400
+%QC% = QC, NTarm64
 
 [QC.NTarm64]
 %SMMU.DeviceDesc% = SMMU_Device, ACPI\QCOM2400
 
-[SMMU_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-AddReg      = WppReg
-Reboot
-
 [SMMU_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
 Reboot
 
-[Drivers_Dir_A32]
-qcsmmu8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcsmmu8994.sys
 
 [WDTFSOCDeviceCategory]
@@ -92,11 +74,8 @@ HKR,, EnableGuardPages   , %REG_DWORD%,  1
 HKR,, EnableTestInterface, %REG_DWORD%,  1
 
 ;-------------- Service installation
-[SMMU_Device.NTarm.Services]
-AddService = qcsmmuv2,%SPSVCINST_ASSOCSERVICE%, SMMU_Service_Inst
-
 [SMMU_Device.NTarm64.Services]
-AddService = qcsmmuv2,%SPSVCINST_ASSOCSERVICE%, SMMU_Service_Inst.NTarm64
+AddService = qcsmmuv2,%SPSVCINST_ASSOCSERVICE%, SMMU_Service_Inst
 
 ; -------------- skeletoni2c driver install sections
 [SMMU_Service_Inst]
@@ -104,19 +83,9 @@ DisplayName   = %SMMU.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcsmmu8994.sys
+ServiceBinary = %13%\qcsmmu8994.sys
 AddReg        = SMMU_SoftwareDeviceSettings
 
-[SMMU_Service_Inst.NTarm64]
-DisplayName   = %SMMU.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcsmmu8994.sys
-AddReg        = SMMU_SoftwareDeviceSettings
-
-[SMMU_Device.NTarm.Wdf]
-KmdfService = qcsmmuv2, SMMU_wdfsect
 [SMMU_Device.NTarm64.Wdf]
 KmdfService = qcsmmuv2, SMMU_wdfsect
 [SMMU_wdfsect]

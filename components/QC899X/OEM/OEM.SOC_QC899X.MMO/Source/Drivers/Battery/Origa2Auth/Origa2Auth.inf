@@ -9,56 +9,38 @@ ClassGuid    = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
 Provider     = %ProviderName%
 DriverVer    = 03/18/2021,8.0.0.0002
 PnpLockdown  = 1
-
-CatalogFile.NTarm   = Origa2Auth.arm.cat
-CatalogFile.NTarm64 = Origa2Auth.arm64.cat
+CatalogFile = Origa2Auth.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 ; ================= Class section =====================
 
 [SourceDisksNames]
 3426=windows cd
 
-[SourceDisksFiles.ARM]
-Origa2Auth.sys  = 3426,arm
-
-[SourceDisksFiles.ARM64]
-Origa2Auth.sys  = 3426,arm64
+[SourceDisksFiles]
+Origa2Auth.sys  = 3426,
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%Origa2Auth.DeviceDesc% = Origa2Auth_Device, ACPI\MSHW1002
+%ManufacturerName% = Standard,NTarm64
 
 [Standard.NTarm64]
 %Origa2Auth.DeviceDesc% = Origa2Auth_Device, ACPI\MSHW1002
 
-[Origa2Auth_Device.NTarm]
-CopyFiles = Drivers_Dir_A32
-
 [Origa2Auth_Device.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
-[Drivers_Dir_A32]
-Origa2Auth.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 Origa2Auth.sys
 
 ;-------------- Service installation
-[Origa2Auth_Device.NTarm.Services]
-AddService = Origa2Auth,%SPSVCINST_ASSOCSERVICE%, Origa2Auth_Service_Inst
-
 [Origa2Auth_Device.NTarm64.Services]
-AddService = Origa2Auth,%SPSVCINST_ASSOCSERVICE%, Origa2Auth_Service_Inst.NTarm64
+AddService = Origa2Auth,%SPSVCINST_ASSOCSERVICE%, Origa2Auth_Service_Inst
 
 ; -------------- Origa2Auth driver install sections
 [Origa2Auth_Service_Inst]
@@ -66,15 +48,7 @@ DisplayName    = %Origa2Auth.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm\Origa2Auth.sys
-LoadOrderGroup = Extended Base
-
-[Origa2Auth_Service_Inst.NTarm64]
-DisplayName    = %Origa2Auth.SvcDesc%
-ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_DEMAND_START%
-ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm64\Origa2Auth.sys
+ServiceBinary  = %13%\Origa2Auth.sys
 LoadOrderGroup = Extended Base
 
 ;

@@ -18,26 +18,17 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = QcTrEE8994.arm.cat
-CatalogFile.NTarm64 = QcTrEE8994.arm64.cat
+CatalogFile = QcTrEE8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 ;*****************************************
 ; QcTrEE Device Install Section
 ;*****************************************
 
 [Manufacturer]
-%Qualcomm% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-; DisplayName       		Section           DeviceId
-; -----------       		-------           --------
-%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24BA
-%QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24B9
+%Qualcomm% = Standard,NTarm64
 
 [Standard.NTarm64]
 ; DisplayName       		Section           DeviceId
@@ -45,18 +36,11 @@ Drivers_Dir_A64 = 13,arm64
 %QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24BA
 %QcTrEE.DeviceDesc% = QcTrEE, ACPI\QCOM24B9
 
-[QcTrEE.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-
 [QcTrEE.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 
-[Drivers_Dir_A32]
-QcTrEE8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 QcTrEE8994.sys
 
 [WDTFSOCDeviceCategory]
@@ -64,28 +48,15 @@ QcTrEE8994.sys
 
 ;-------------- Service installation
 
-[QcTrEE.NTarm.Services]
-AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst
-
 [QcTrEE.NTarm64.Services]
-AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst.NTarm64
+AddService = QcTrEE, %SPSVCINST_ASSOCSERVICE%, QcTrEE_Service_Inst
 
 [QcTrEE_Service_Inst]
 DisplayName    = %QcTrEE.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 0               ; SERVICE_BOOT_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\QcTrEE8994.sys
-Dependencies   = WindowsTrustedRT,WindowsTrustedRTProxy,fastfat
-LoadOrderGroup = Extended Base
-AddReg         = QcTrEE_SecureService_AddReg
-
-[QcTrEE_Service_Inst.NTarm64]
-DisplayName    = %QcTrEE.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 0               ; SERVICE_BOOT_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\QcTrEE8994.sys
+ServiceBinary  = %13%\QcTrEE8994.sys
 Dependencies   = WindowsTrustedRT,WindowsTrustedRTProxy,fastfat
 LoadOrderGroup = Extended Base
 AddReg         = QcTrEE_SecureService_AddReg
@@ -150,11 +121,8 @@ HKR, %OsServices.RegKey%        ,               , %REG_KEY_ONLY%,
 [SourceDisksNames]
 1 = %DiskId1%,,,""
 
-[SourceDisksFiles.ARM]
-QcTrEE8994.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-QcTrEE8994.sys = 1,arm64,
+[SourceDisksFiles]
+QcTrEE8994.sys = 1,
 
 [Strings]
 SPSVCINST_ASSOCSERVICE    = 0x00000002

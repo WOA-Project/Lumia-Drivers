@@ -8,32 +8,20 @@ ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %VendorName%
 DriverVer   = 08/29/2021,2.00.00.01
 PnpLockdown = 1
-
-CatalogFile.NTarm   = typeccontroller.arm.cat
-CatalogFile.NTarm64 = typeccontroller.arm64.cat
+CatalogFile = typeccontroller.cat
 
 [DestinationDirs]
-Drivers_Dir_A32   = 13,arm
-Drivers_Dir_A64   = 13,arm64
+Drivers_Dir   = 13,
 
 [SourceDisksNames]
 1 = %MediaDescription%,,,""
 
 [Manufacturer]
-%ManufacturerName% = Standard, NTarm, NTarm64
+%ManufacturerName% = Standard, NTarm64
 
-[SourceDisksFiles.ARM]
-tyc.dll           = 1,arm,
-LUVCR120.dll      = 1,arm,
-LUVCP120.dll      = 1,arm,
-WppRecorderUM.dll = 1,arm,
-
-[SourceDisksFiles.ARM64]
-tyc.dll           = 1,arm64,
-WppRecorderUM.dll = 1,arm64,
-
-[Standard.NTarm]
-%DevDesc% = tyc_Inst, umdf2\tyc
+[SourceDisksFiles]
+tyc.dll           = 1,
+WppRecorderUM.dll = 1,
 
 [Standard.NTarm64]
 %DevDesc% = tyc_Inst, umdf2\tyc
@@ -46,35 +34,19 @@ HardwareIds = umdf2\tyc
 
 ;---------------- copy files
 
-[tyc_Inst.NTarm]
-CopyFiles = Drivers_Dir_A32
+[tyc_Inst]
+CopyFiles = Drivers_Dir
 AddReg    = WdfExt_AddReg
 
-[tyc_Inst.NTarm64]
-CopyFiles = Drivers_Dir_A64
-AddReg    = WdfExt_AddReg
-
-[Drivers_Dir_A32]
-tyc.dll
-LUVCR120.dll
-LUVCP120.dll
-WppRecorderUM.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 tyc.dll
 WppRecorderUM.dll
 
-[tyc_Inst.NTarm.HW]
-AddReg = tyc_Inst_SecurityAddReg
-
-[tyc_Inst.NTarm64.HW]
+[tyc_Inst.HW]
 AddReg = tyc_Inst_SecurityAddReg
 
 ;-------------- Service installation
-[tyc_Inst.NTarm.Services]
-AddService = WUDFRd, 0x000001fa, WUDFRD_ServiceInstall
-
-[tyc_Inst.NTarm64.Services]
+[tyc_Inst.Services]
 AddService = WUDFRd, 0x000001fa, WUDFRD_ServiceInstall
 
 [WUDFRD_ServiceInstall]
@@ -86,16 +58,7 @@ ServiceBinary = %12%\WUDFRd.sys
 
 ;-------------- WDF specific section
 
-[tyc_Inst.NTarm.Wdf]
-UmdfService                 = tyc, tyc_Install.NTarm
-UmdfServiceOrder            = tyc
-UmdfDirectHardwareAccess    = AllowDirectHardwareAccess
-UmdfFileObjectPolicy        = AllowNullAndUnknownFileObjects
-UmdfHostProcessSharing      = ProcessSharingDisabled
-UmdfImpersonationLevel      = Impersonation
-UmdfKernelModeClientPolicy  = AllowKernelModeClients
-
-[tyc_Inst.NTarm64.Wdf]
+[tyc_Inst.Wdf]
 UmdfService                 = tyc, tyc_Install.NTarm64
 UmdfServiceOrder            = tyc
 UmdfDirectHardwareAccess    = AllowDirectHardwareAccess
@@ -104,14 +67,9 @@ UmdfHostProcessSharing      = ProcessSharingDisabled
 UmdfImpersonationLevel      = Impersonation
 UmdfKernelModeClientPolicy  = AllowKernelModeClients
 
-[tyc_Install.NTarm]
-UmdfLibraryVersion       = 2.15.0
-ServiceBinary            = %13%\arm\tyc.dll
-UmdfExtensions           = UcmCx0102
-
 [tyc_Install.NTarm64]
 UmdfLibraryVersion       = 2.15.0
-ServiceBinary            = %13%\arm64\tyc.dll
+ServiceBinary            = %13%\tyc.dll
 UmdfExtensions           = UcmCx0102
 
 [WdfExt_AddReg]

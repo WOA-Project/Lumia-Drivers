@@ -21,47 +21,32 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %VendorName%
 DriverVer   = 03/18/2021, 07.14.2.8061
 PnpLockdown = 1
-
-CatalogFile.NTarm   = oempanel.arm.cat
-CatalogFile.NTarm64 = oempanel.arm64.cat
+CatalogFile = oempanel.cat
 
 [SourceDisksNames]
 1 = %%DiskId1%%
 
-[SourceDisksFiles.ARM]
-oempanel.sys     = 1,arm,
-ColorData.bin    = 1
-oempanel_etw.dll = 1,arm,
-
-[SourceDisksFiles.ARM64]
-oempanel.sys     = 1,arm64,
-ColorData.bin    = 1
-oempanel_etw.dll = 1,arm64,
+[SourceDisksFiles]
+oempanel.sys     = 1,
+ColorData.bin    = 1,
+oempanel_etw.dll = 1,
 
 ;12 == Windows\System32\Drivers
 [DestinationDirs]
-OEMCopyFilesA64 = 13,arm64
-OEMCopyFilesARM = 13,arm
-Sys32Dir        = 12
+OEMCopyFilesA64 = 13,
+Sys32Dir        = 12,
 
 ;*****************************************
 ; oem panel client driver Install Section
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]
-%OEM.DeviceDesc% = OEM_Inst, ACPI\MSHW1004
+%QC% = QC,NTarm64
 
 [QC.NTarm64]
 %OEM.DeviceDesc% = OEM_Inst, ACPI\MSHW1004
 
-[OEM_Inst.NTarm]
-Copyfiles = OEMCopyFilesARM,Sys32Dir
-AddReg    = OEM_Settings,User_Settings
-
-[OEM_Inst.NTarm64]
+[OEM_Inst]
 Copyfiles = OEMCopyFilesA64,Sys32Dir
 AddReg    = OEM_Settings,User_Settings
 
@@ -151,10 +136,6 @@ HKLM, "Software\OEM\NOKIA\Display\ColorAndLightProperties", "UserSettingDisplayC
 [User_Settings.Security]
 "D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;GA;;;AU)(A;;GA;;;BG)(A;;GA;;;S-1-15-2-1)(A;;GA;;;WD)"
 
-[OEMCopyFilesARM]
-oempanel.sys
-oempanel_etw.dll
-
 [OEMCopyFilesA64]
 oempanel.sys
 oempanel_etw.dll
@@ -162,32 +143,18 @@ oempanel_etw.dll
 [Sys32Dir]
 ColorData.bin
 
-[OEM_Inst.NTarm.Services]
-AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst.NTarm
+[OEM_Inst.Services]
+AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst
 
-[OEM_Inst.NTarm64.Services]
-AddService = MmoPanel, %SPSVCINST_ASSOCSERVICE%, OEM_Service_Inst.NTarm64
-
-[OEM_Service_Inst.NTarm]
+[OEM_Service_Inst]
 DisplayName    = %OEM.SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm\oempanel.sys
+ServiceBinary  = %13%\oempanel.sys
 LoadOrderGroup = Extended Base
 
-[OEM_Service_Inst.NTarm64]
-DisplayName    = %OEM.SvcDesc%
-ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_DEMAND_START%
-ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm64\oempanel.sys
-LoadOrderGroup = Extended Base
-
-[OEM_Inst.NTarm.Wdf]
-KmdfService = MmoPanel, OEM_wdfsect
-
-[OEM_Inst.NTarm64.Wdf]
+[OEM_Inst.Wdf]
 KmdfService = MmoPanel, OEM_wdfsect
 
 [OEM_wdfsect]

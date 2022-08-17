@@ -12,79 +12,50 @@ ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %Company%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = QcXhciFilter8994.arm.cat
-CatalogFile.NTarm64 = QcXhciFilter8994.arm64.cat
+CatalogFile = QcXhciFilter8994.cat
 
 [ControlFlags]
 ExcludeFromSelect = *
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 ; ================= Class section =====================
 
 [SourceDisksNames]
 1 = %DiskName%
 
-[SourceDisksFiles.ARM]
-QcXhciFilter8994.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-QcXhciFilter8994.sys = 1,arm64,
+[SourceDisksFiles]
+QcXhciFilter8994.sys = 1,
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [Manufacturer]
-%Company% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B6&HOST ;URS mode MSFT FN stack
-%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B7&HOST ;URS mode QC FN stack
-%Standard.DeviceDesc% = QcXhciFilter, URS\QCOM2430 ;Host mode
+%Company% = Standard,NTarm64
 
 [Standard.NTarm64]
 %Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B6&HOST ;URS mode MSFT FN stack
 %Standard.DeviceDesc% = QcXhciFilter, URS\QCOM24B7&HOST ;URS mode QC FN stack
 %Standard.DeviceDesc% = QcXhciFilter, URS\QCOM2430 ;Host mode
 
-[QcXhciFilter.NTarm]
-Include      = usbxhci.inf
-Needs        = Generic_NoDebug.Install.NT
-CopyFiles    = Drivers_Dir_A32
-FeatureScore = 80 ; required for XHCI driver from usbxhci.inf
-
-[QcXhciFilter.NTarm.Services]
-Include    = usbxhci.inf
-Needs      = Generic_NoDebug.Install.NT.Services
-AddService = QcXhciFilter,, QcXhciFilter_Service_Inst
-
-[QcXhciFilter.NTarm.HW]
-AddReg = QcXhciFilter_AddReg
-AddReg = QcXhciFilter_SDDLString
-
 [QcXhciFilter.NTarm64]
 Include      = usbxhci.inf
 Needs        = Generic_NoDebug.Install.NT
-CopyFiles    = Drivers_Dir_A64
+CopyFiles    = Drivers_Dir
 FeatureScore = 80 ; required for XHCI driver from usbxhci.inf
 
 [QcXhciFilter.NTarm64.Services]
 Include    = usbxhci.inf
 Needs      = Generic_NoDebug.Install.NT.Services
-AddService = QcXhciFilter,, QcXhciFilter_Service_Inst.NTarm64
+AddService = QcXhciFilter,, QcXhciFilter_Service_Inst
 
 [QcXhciFilter.NTarm64.HW]
 AddReg = QcXhciFilter_AddReg
 AddReg = QcXhciFilter_SDDLString
 
-[Drivers_Dir_A32]
-QcXhciFilter8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 QcXhciFilter8994.sys
 
 [QcXhciFilter_AddReg]
@@ -102,15 +73,7 @@ DisplayName   = %Filter.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\QcXhciFilter8994.sys
-AddReg        = QcXhciFilter_Service_AddReg
-
-[QcXhciFilter_Service_Inst.NTarm64]
-DisplayName   = %Filter.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\QcXhciFilter8994.sys
+ServiceBinary = %13%\QcXhciFilter8994.sys
 AddReg        = QcXhciFilter_Service_AddReg
 
 [Strings]

@@ -12,9 +12,7 @@ Provider    = %MSFT%
 ;ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5C}
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-
-CatalogFile.NTarm   = hapanero_SynapticsTouch.arm.cat
-CatalogFile.NTarm64 = hapanero_SynapticsTouch.arm64.cat
+CatalogFile = hapanero_SynapticsTouch.cat
 
 [DestinationDirs]
 DefaultDestDir = 12
@@ -35,7 +33,7 @@ SynaFWVendor1.img,,, 0x100,
 SynaFWVendor2.img,,, 0x100,
 
 ;[Manufacturer]
-;%MSFT% = DeviceExtensions,NTarm,NTarm64
+;%MSFT% = DeviceExtensions,NTarm64
 
 ;[DeviceExtensions.NTarm]
 ;%TchDriver_Device_Desc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1003
@@ -52,16 +50,6 @@ SynaFWVendor2.img,,, 0x100,
 ;AddReg    = ButtonBacklights.NT.HW.AddReg
 ;AddReg    = LegacyTouchScaling.NT.HW.AddReg
 ;CopyFiles = TchDriver_Device.CopyFiles
-
-[DefaultInstall.NTarm]
-AddReg    = CapButtons.NT.HW.AddReg
-AddReg    = PowerConfig.NT.HW.AddReg
-AddReg    = Configuration.NT.HW.AddReg
-AddReg    = Resolutions.NT.HW.AddReg
-AddReg    = DisplaySize.NT.HW.AddReg
-AddReg    = ButtonBacklights.NT.HW.AddReg
-AddReg    = LegacyTouchScaling.NT.HW.AddReg
-CopyFiles = TchDriver_Device.CopyFiles
 
 [DefaultInstall.NTarm64]
 AddReg    = CapButtons.NT.HW.AddReg

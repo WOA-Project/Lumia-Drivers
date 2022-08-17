@@ -17,13 +17,10 @@ ClassGUID   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.0.1
 PnpLockdown = 1
-
-CatalogFile.NTarm   = "QCListenSoundModel.arm.cat"
-CatalogFile.NTarm64 = "QCListenSoundModel.arm64.cat"
+CatalogFile = "QCListenSoundModel.cat"
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 VoiceActivationenUSConfig.Files = 11,\VoiceActivationModels\en-US
 VoiceActivationenUSBin.Files    = 11,\VoiceActivationModels\en-US
@@ -52,41 +49,11 @@ VoiceActivationjaJPBin.Files    = 11,\VoiceActivationModels\ja-JP
 [SourceDisksNames]
 0 = %Disk%
 
-[SourceDisksFiles.ARM]
-QCListenSoundModel.dll       = 0,arm,
+[SourceDisksFiles]
+QCListenSoundModel.dll       = 0,
 
-LUVCR120.dll       = 0,arm,
-LUVCP120.dll       = 0,arm,
-
-enUSconfig                   = 0,,
-enUSVoiceActivationModel.bin = 0,,
-enGBconfig                   = 0,,
-enGBVoiceActivationModel.bin = 0,,
-zhCNconfig                   = 0,,
-zhCNVoiceActivationModel.bin = 0,,
-
-deDEconfig                   = 0,,
-deDEVoiceActivationModel.bin = 0,,
-enAUconfig                   = 0,,
-enAUVoiceActivationModel.bin = 0,,
-enCAconfig                   = 0,,
-enCAVoiceActivationModel.bin = 0,,
-enINconfig                   = 0,,
-enINVoiceActivationModel.bin = 0,,
-esESconfig                   = 0,,
-esESVoiceActivationModel.bin = 0,,
-frFRconfig                   = 0,,
-frFRVoiceActivationModel.bin = 0,,
-itITconfig                   = 0,,
-itITVoiceActivationModel.bin = 0,,
-jaJPconfig                   = 0,,
-jaJPVoiceActivationModel.bin = 0,,
-
-[SourceDisksFiles.ARM64]
-QCListenSoundModel.dll       = 0,arm64,
-
-LAVCR120.dll       = 0,arm64,
-LAVCP120.dll       = 0,arm64,
+LAVCR120.dll       = 0,
+LAVCP120.dll       = 0,
 
 enUSconfig                   = 0,,
 enUSVoiceActivationModel.bin = 0,,
@@ -111,13 +78,9 @@ itITconfig                   = 0,,
 itITVoiceActivationModel.bin = 0,,
 jaJPconfig                   = 0,,
 jaJPVoiceActivationModel.bin = 0,,
-
-[DefaultInstall.NTarm]
-CopyFiles = Drivers_Dir_A32,VoiceActivationenUSConfig.Files,VoiceActivationenUSBin.Files,VoiceActivationenGBConfig.Files,VoiceActivationenGBBin.Files,VoiceActivationzhCNConfig.Files,VoiceActivationzhCNBin.Files,VoiceActivationdeDEConfig.Files,VoiceActivationdeDEBin.Files,VoiceActivationenAUConfig.Files,VoiceActivationenAUBin.Files,VoiceActivationenCAConfig.Files,VoiceActivationenCABin.Files,VoiceActivationenINConfig.Files,VoiceActivationenINBin.Files,VoiceActivationesESConfig.Files,VoiceActivationesESBin.Files,VoiceActivationfrFRConfig.Files,VoiceActivationfrFRBin.Files,VoiceActivationitITConfig.Files,VoiceActivationitITBin.Files,VoiceActivationjaJPConfig.Files,VoiceActivationjaJPBin.Files
-AddReg    = QCListenSoundModel_Reg, QCListenSoundModel_arm_Reg
 
 [DefaultInstall.NTarm64]
-CopyFiles = Drivers_Dir_A64,VoiceActivationenUSConfig.Files,VoiceActivationenUSBin.Files,VoiceActivationenGBConfig.Files,VoiceActivationenGBBin.Files,VoiceActivationzhCNConfig.Files,VoiceActivationzhCNBin.Files,VoiceActivationdeDEConfig.Files,VoiceActivationdeDEBin.Files,VoiceActivationenAUConfig.Files,VoiceActivationenAUBin.Files,VoiceActivationenCAConfig.Files,VoiceActivationenCABin.Files,VoiceActivationenINConfig.Files,VoiceActivationenINBin.Files,VoiceActivationesESConfig.Files,VoiceActivationesESBin.Files,VoiceActivationfrFRConfig.Files,VoiceActivationfrFRBin.Files,VoiceActivationitITConfig.Files,VoiceActivationitITBin.Files,VoiceActivationjaJPConfig.Files,VoiceActivationjaJPBin.Files
+CopyFiles = Drivers_Dir,VoiceActivationenUSConfig.Files,VoiceActivationenUSBin.Files,VoiceActivationenGBConfig.Files,VoiceActivationenGBBin.Files,VoiceActivationzhCNConfig.Files,VoiceActivationzhCNBin.Files,VoiceActivationdeDEConfig.Files,VoiceActivationdeDEBin.Files,VoiceActivationenAUConfig.Files,VoiceActivationenAUBin.Files,VoiceActivationenCAConfig.Files,VoiceActivationenCABin.Files,VoiceActivationenINConfig.Files,VoiceActivationenINBin.Files,VoiceActivationesESConfig.Files,VoiceActivationesESBin.Files,VoiceActivationfrFRConfig.Files,VoiceActivationfrFRBin.Files,VoiceActivationitITConfig.Files,VoiceActivationitITBin.Files,VoiceActivationjaJPConfig.Files,VoiceActivationjaJPBin.Files
 AddReg    = QCListenSoundModel_Reg, QCListenSoundModel_arm64_Reg
 
 [QCListenSoundModel_Reg]
@@ -145,18 +108,10 @@ HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\TypeLib                 ,  
 HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\Version                 ,                          , %REG_SZ%       ,  "1.0"
 HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\VersionIndependentProgID,                          , %REG_SZ%       ,  "QCListenSoundModel.Object.1"
 
-[QCListenSoundModel_arm_Reg]
-HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,                          , %REG_EXPAND_SZ%,  "%13%\arm\QCListenSoundModel.dll"
-
 [QCListenSoundModel_arm64_Reg]
-HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,                          , %REG_EXPAND_SZ%,  "%13%\arm64\QCListenSoundModel.dll"
+HKCR, CLSID\"{76882AA2-2E80-48F1-A14E-4DB1FAC1F849}"\InprocServer32          ,                          , %REG_EXPAND_SZ%,  "%13%\QCListenSoundModel.dll"
 
-[Drivers_Dir_A32]
-QCListenSoundModel.dll
-LUVCR120.dll
-LUVCP120.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 QCListenSoundModel.dll
 LAVCR120.dll
 LAVCP120.dll

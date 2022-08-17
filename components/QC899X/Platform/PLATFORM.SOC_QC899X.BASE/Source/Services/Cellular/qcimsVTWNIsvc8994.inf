@@ -8,46 +8,28 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1057.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qcimsVTWNIsvc8994.arm.cat
-CatalogFile.NTarm64 = qcimsVTWNIsvc8994.arm64.cat
+CatalogFile = qcimsVTWNIsvc8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles.ARM]
-qcimsVTWNIsvc8994.dll = 0,arm,
-LUVCR120.dll = 0,arm,
-LUVCP120.dll = 0,arm,
-
-[SourceDisksFiles.ARM64]
-qcimsVTWNIsvc8994.dll = 0,arm64,
-LAVCR120.dll = 0,arm64,
-LAVCP120.dll = 0,arm64,
+[SourceDisksFiles]
+qcimsVTWNIsvc8994.dll = 0,
+LAVCR120.dll = 0,
+LAVCP120.dll = 0,
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]
-%IMSVTWNI.DeviceDesc% = IMSVTWNI, SWC\VID_QCOM&PID_0EA0&SID_0004
+%QC% = QC,NTarm64
 
 [QC.NTarm64]
 %IMSVTWNI.DeviceDesc% = IMSVTWNI, SWC\VID_QCOM&PID_0EA0&SID_0004
 
-[IMSVTWNI.NTarm]
-CopyFiles = Drivers_Dir_A32
-AddReg    = qcimsVTWNIsvc8994_Reg, qcimsVTWNIsvc8994_path_Reg
-
 [IMSVTWNI.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 AddReg    = qcimsVTWNIsvc8994_Reg, qcimsVTWNIsvc8994_path_Reg.NTarm64
-
-[IMSVTWNI.NTarm.Services]
-AddService = VTSvc,0x00000000,qcimsVTWNIsvc8994_Service,
 
 [IMSVTWNI.NTarm64.Services]
 AddService = VTSvc,0x00000000,qcimsVTWNIsvc8994_Service,
@@ -77,18 +59,10 @@ HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", "VTSvcGroup"      
 ;HKLM, "Software\Microsoft\WindowsRuntime\Server\VideoTelephonyServer", "ServiceName" , %REG_SZ%, "VTSvc"
 HKLM, "Software\Classes\AppID\{B523A26D-268E-4FE6-83A9-21DF07EDD543}", "LocalService", %REG_SZ%, "VTSvc"
 
-[qcimsVTWNIsvc8994_path_Reg]
-HKLM, "System\CurrentControlSet\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\arm\qcimsVTWNIsvc8994.dll"
-
 [qcimsVTWNIsvc8994_path_Reg.NTarm64]
-HKLM, "System\CurrentControlSet\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\arm64\qcimsVTWNIsvc8994.dll"
+HKLM, "System\CurrentControlSet\Services\VTSvc\Parameters"      , "ServiceDll"            , %REG_EXPAND_SZ%, "%13%\qcimsVTWNIsvc8994.dll"
 
-[Drivers_Dir_A32]
-qcimsVTWNIsvc8994.dll
-LUVCR120.dll
-LUVCP120.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcimsVTWNIsvc8994.dll
 LAVCR120.dll
 LAVCP120.dll

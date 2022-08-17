@@ -5,75 +5,45 @@ ClassGUID   = {36FC9E60-C465-11CF-8056-444553540000}
 Provider    = %ProviderName%
 DriverVer   = 03/18/2021,0.6.0000.0
 PnpLockdown = 1
-
-CatalogFile.NTarm   = hdmidpi.arm.cat
-CatalogFile.NTarm64 = hdmidpi.arm64.cat
+CatalogFile = hdmidpi.cat
 
 [SourceDisksNames]
 3426=windows cd
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
-[SourceDisksFiles.ARM]
-hdmidpi.sys = 3426,arm,
-
-[SourceDisksFiles.ARM64]
-hdmidpi.sys = 3426,arm64,
+[SourceDisksFiles]
+hdmidpi.sys = 3426,
 
 [Manufacturer]
-%ManufacturerName% = MMO,NTarm,NTarm64
-
-[MMO.NTarm]
-%DeviceDescription% = hdmidpi_Inst,ACPI\MSHW1007
+%ManufacturerName% = MMO,NTarm64
 
 [MMO.NTarm64]
 %DeviceDescription% = hdmidpi_Inst,ACPI\MSHW1007
 
-[hdmidpi_Inst.NTarm]
-CopyFiles = Drivers_Dir_A32
+[hdmidpi_Inst]
+CopyFiles = Drivers_Dir
 AddReg    = HdmiDpiDriver_SecurityAddReg
 
-[hdmidpi_Inst.NTarm64]
-CopyFiles = Drivers_Dir_A64
-AddReg    = HdmiDpiDriver_SecurityAddReg
-
-[hdmidpi_Inst.NTarm.HW]
+[hdmidpi_Inst.HW]
 AddReg = HdmiDpiDriver_SecurityAddReg
 
-[hdmidpi_Inst.NTarm64.HW]
-AddReg = HdmiDpiDriver_SecurityAddReg
-
-[Drivers_Dir_A32]
-hdmidpi.sys,,,0x100
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 hdmidpi.sys,,,0x100
 
 [HdmiDpiDriver_SecurityAddReg]
 HKR,,DeviceCharacteristics,0x10001,0x100
 
-[hdmidpi_Inst.NTarm.Services]
+[hdmidpi_Inst.Services]
 AddService = hdmidpi,%SPSVCINST_ASSOCSERVICE%,hdmidpi_Service_Inst
-
-[hdmidpi_Inst.NTarm64.Services]
-AddService = hdmidpi,%SPSVCINST_ASSOCSERVICE%,hdmidpi_Service_Inst.NTarm64
 
 [hdmidpi_Service_Inst]
 DisplayName    = %DisplayName%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\hdmidpi.sys
-LoadOrderGroup = Base
-
-[hdmidpi_Service_Inst.NTarm64]
-DisplayName    = %DisplayName%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\hdmidpi.sys
+ServiceBinary  = %13%\hdmidpi.sys
 LoadOrderGroup = Base
 
 [Strings]

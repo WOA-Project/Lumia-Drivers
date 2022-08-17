@@ -8,52 +8,31 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 09/23/2021,1.0.1057.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = "qcims8994.arm.cat"
-CatalogFile.NTarm64 = "qcims8994.arm64.cat"
+CatalogFile = "qcims8994.cat"
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles.ARM]
-LUVCR120.dll      = 0,arm,
-qcimsVT8994.dll   = 0,arm,
-LUVCP120.dll      = 0,arm,
-qcimsvtmf8994.dll = 0,arm,
-
-[SourceDisksFiles.ARM64]
-LAVCR120.dll      = 0,arm64,
-qcimsVT8994.dll   = 0,arm64,
-LAVCP120.dll      = 0,arm64,
-qcimsvtmf8994.dll = 0,arm64,
-vcel8994.dll      = 0,arm64,
+[SourceDisksFiles]
+LAVCR120.dll      = 0,
+qcimsVT8994.dll   = 0,
+LAVCP120.dll      = 0,
+qcimsvtmf8994.dll = 0,
+vcel8994.dll      = 0,
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]
-%IMS.DeviceDesc% = IMS, SWC\VID_QCOM&PID_0EA0&SID_0008
+%QC% = QC,NTarm64
 
 [QC.NTarm64]
 %IMS.DeviceDesc% = IMS, SWC\VID_QCOM&PID_0EA0&SID_0008
 
-[IMS.NTarm]
-CopyFiles = Drivers_Dir_A32
-
 [IMS.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
-[Drivers_Dir_A32]
-LUVCR120.dll
-qcimsVT8994.dll
-LUVCP120.dll
-qcimsvtmf8994.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 LAVCR120.dll
 qcimsVT8994.dll
 LAVCP120.dll

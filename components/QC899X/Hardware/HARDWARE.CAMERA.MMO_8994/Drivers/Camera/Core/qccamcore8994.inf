@@ -16,22 +16,16 @@ ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider=%QC%
 DriverVer=03/18/2021,5.0.0.3788
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qccamcore8994.arm.cat
-CatalogFile.NTarm64 = qccamcore8994.arm64.cat
+CatalogFile = qccamcore8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
 
-[SourceDisksFiles.ARM]
-qccamcore8994.sys  = 1,arm,
-
-[SourceDisksFiles.ARM64]
-qccamcore8994.sys  = 1,arm64,
+[SourceDisksFiles]
+qccamcore8994.sys  = 1,
 
 [ControlFlags]
 ExcludeFromSelect=*
@@ -47,28 +41,16 @@ HardwareIds = ROOT\CORE
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC, NTarm, NTarm64
-
-[QC.NTarm]
-%CORE.DeviceDesc% = CORE_Device, ROOT\CORE
-
-[CORE_Device.NTarm]
-CopyFiles = Drivers_Dir_A32
+%QC% = QC, NTarm64
 
 [QC.NTarm64]
 %CORE.DeviceDescNull% = CORE_Device, ROOT\CORE
 
 [CORE_Device.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
-[Drivers_Dir_A32]
+[Drivers_Dir]
 qccamcore8994.sys
-
-[Drivers_Dir_A64]
-qccamcore8994.sys
-
-[CORE_Device.NTarm.HW]
-AddReg = CORE_Device_Security_Reg
 
 [CORE_Device.NTarm64.HW]
 AddReg = CORE_Device_Security_Reg
@@ -77,11 +59,8 @@ AddReg = CORE_Device_Security_Reg
 HKR,,DeviceCharacteristics,0x10001,0x100
 
 ;-------------- Service installation
-[CORE_Device.NTarm.Services]
-AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst
-
 [CORE_Device.NTarm64.Services]
-AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst.NTarm64
+AddService = qccamcore,%SPSVCINST_ASSOCSERVICE%, CORE_Service_Inst
 
 ; -------------- CORE driver install sections
 [CORE_Service_Inst]
@@ -90,16 +69,7 @@ ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 ;StartType      = 2               ; SERVICE_AUTO_START
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\qccamcore8994.sys
-LoadOrderGroup = Extended Base
-
-[CORE_Service_Inst.NTarm64]
-DisplayName    = %CORE.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-;StartType      = 2               ; SERVICE_AUTO_START
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\qccamcore8994.sys
+ServiceBinary  = %13%\qccamcore8994.sys
 LoadOrderGroup = Extended Base
 
 [Strings]

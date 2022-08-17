@@ -20,51 +20,33 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcocmem8994.arm.cat
-CatalogFile.NTarm64 = qcocmem8994.arm64.cat
+CatalogFile = qcocmem8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId%
 
-[SourceDisksFiles.ARM]
-qcocmem8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcocmem8994.sys = 1,arm64
+[SourceDisksFiles]
+qcocmem8994.sys = 1,
 
 [ControlFlags]
 ExcludeFromSelect = *
 
 [Manufacturer]
-%QC% = QC, NTarm, NTarm64
-
-[QC.NTarm]
-%OCMEM.DeviceDesc% = OCMEM_Device, ACPI\QCOM2403
+%QC% = QC, NTarm64
 
 [QC.NTarm64]
 %OCMEM.DeviceDesc% = OCMEM_Device, ACPI\QCOM2403
 
-[OCMEM_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-AddReg      = WppReg
-Reboot
-
 [OCMEM_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
 Reboot
 
-[Drivers_Dir_A32]
-qcocmem8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcocmem8994.sys
 
 [WDTFSOCDeviceCategory]
@@ -91,11 +73,8 @@ HKR,, EnablePtCaching , %REG_DWORD%,  0
 HKR,, EnableGuardPages, %REG_DWORD%,  1
 
 ;-------------- Service installation
-[OCMEM_Device.NTarm.Services]
-AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_Service_Inst
-
 [OCMEM_Device.NTarm64.Services]
-AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_Service_Inst.NTarm64
+AddService = qcocmem,%SPSVCINST_ASSOCSERVICE%, OCMEM_Service_Inst
 
 ; -------------- OCMEM driver install sections
 [OCMEM_Service_Inst]
@@ -103,19 +82,8 @@ DisplayName   = %OCMEM.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcocmem8994.sys
+ServiceBinary = %13%\qcocmem8994.sys
 AddReg        = OCMEM_SoftwareDeviceSettings
-
-[OCMEM_Service_Inst.NTarm64]
-DisplayName   = %OCMEM.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 0               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcocmem8994.sys
-AddReg        = OCMEM_SoftwareDeviceSettings
-
-[OCMEM_Device.NTarm.Wdf]
-KmdfService = qcocmem, OCMEM_wdfsect
 
 [OCMEM_Device.NTarm64.Wdf]
 KmdfService = qcocmem, OCMEM_wdfsect

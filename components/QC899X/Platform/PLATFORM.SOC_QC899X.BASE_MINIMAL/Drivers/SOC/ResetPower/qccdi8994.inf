@@ -18,50 +18,33 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qccdi8994.arm.cat
-CatalogFile.NTarm64 = qccdi8994.arm64.cat
+CatalogFile = qccdi8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
 
-[SourceDisksFiles.ARM]
-qccdi8994.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-qccdi8994.sys = 1,arm64,
+[SourceDisksFiles]
+qccdi8994.sys = 1,
 
 ;*****************************************
 ; QCCDI Install Section
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM245B
+%ManufacturerName% = Standard,NTarm64
 
 [Standard.NTarm64]
 %QCCDI.DeviceDesc% = QCCDI_Device, ACPI\QCOM245B
 
-[QCCDI_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
 [QCCDI_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [WDTFSOCDeviceCategory]
-
-[QCCDI_Device.NTarm.HW]
-AddReg = CDIACL
 
 [QCCDI_Device.NTarm64.HW]
 AddReg = CDIACL
@@ -78,18 +61,12 @@ HKR, Parameters, "SkipEbootFuseStatus", 0x00010001, 0x01
 HKR, Parameters, "CrashDumpDbgFlags"  , 0x00010001, 0x07
 
 ;
-[Drivers_Dir_A32]
-qccdi8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qccdi8994.sys
 
 ;-------------- Service installation
-[QCCDI_Device.NTarm.Services]
-AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_Service_Inst
-
 [QCCDI_Device.NTarm64.Services]
-AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_Service_Inst.NTarm64
+AddService = QCCDI,%SPSVCINST_ASSOCSERVICE%, QCCDI_Service_Inst
 
 ; -------------- QCCDI driver install sections
 [QCCDI_Service_Inst]
@@ -97,19 +74,8 @@ DisplayName   = %QCCDI.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qccdi8994.sys
+ServiceBinary = %13%\qccdi8994.sys
 AddReg        = QCCDIReg
-
-[QCCDI_Service_Inst.NTarm64]
-DisplayName   = %QCCDI.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qccdi8994.sys
-AddReg        = QCCDIReg
-
-[QCCDI_Device.NTarm.Wdf]
-KmdfService = QCCDI, QCCDI_wdfsect
 
 [QCCDI_Device.NTarm64.Wdf]
 KmdfService = QCCDI, QCCDI_wdfsect

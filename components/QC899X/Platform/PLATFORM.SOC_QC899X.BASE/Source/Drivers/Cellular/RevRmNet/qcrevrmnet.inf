@@ -18,28 +18,19 @@ ClassGUID   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 07/02/2015,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = revrmnet8994.arm.cat
-CatalogFile.NTarm64 = revrmnet8994.arm64.cat
+CatalogFile = revrmnet8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%,,
 
-[SourceDisksFiles.ARM]
-qcrevrmnet.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-qcrevrmnet.sys = 1,arm64,
+[SourceDisksFiles]
+qcrevrmnet.sys = 1,
 
 [Manufacturer]
-%QCOM% = QCOM, NTarm, NTarm64
-
-[QCOM.NTarm]
-%QCrevrmnet.DeviceDesc% = QCrevrmnet_Device, ACPI\QCOM2498
+%QCOM% = QCOM, NTarm64
 
 [QCOM.NTarm64]
 %QCrevrmnet.DeviceDesc% = QCrevrmnet_Device, ACPI\QCOM2498
@@ -62,7 +53,7 @@ AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst
 ; Installation Section
 ;-------------------------------------------------------------------------
 [QCrevrmnet_Device.NTarm64]
-CopyFiles       = Drivers_Dir_A64
+CopyFiles       = Drivers_Dir
 AddReg          = Inst_Ndi
 Characteristics = 0x0
 
@@ -70,12 +61,9 @@ Characteristics = 0x0
 ; Service installation support
 ;-------------------------------------------------------------------------
 [QCrevrmnet_Device.NTarm64.Services]
-AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst.NTarm64
+AddService = QCrevrmnet,2,QCrevrmnet_Service_Inst
 
-[Drivers_Dir_A32]
-qcrevrmnet.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcrevrmnet.sys
 
 ;-------------------------------------------------------------------------
@@ -91,16 +79,7 @@ DisplayName    = %revrmnet.SvcDesc%
 ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
 StartType      = 3 ;AUTO
 ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\qcrevrmnet.sys
-LoadOrderGroup = NDIS
-Description    = %revrmnet.SvcDesc%
-
-[QCrevrmnet_Service_Inst.NTarm64]
-DisplayName    = %revrmnet.SvcDesc%
-ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
-StartType      = 3 ;AUTO
-ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\qcrevrmnet.sys
+ServiceBinary  = %13%\qcrevrmnet.sys
 LoadOrderGroup = NDIS
 Description    = %revrmnet.SvcDesc%
 

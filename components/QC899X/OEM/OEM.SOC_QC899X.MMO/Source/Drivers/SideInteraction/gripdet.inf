@@ -8,28 +8,19 @@ ClassGUID   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
 DriverVer   = 03/18/2021,6.25.57.445
 PnpLockdown = 1
-
-CatalogFile.NTarm   = gripdet.arm.cat
-CatalogFile.NTarm64 = gripdet.arm64.cat
+CatalogFile = gripdet.cat
 
 [DestinationDirs]
-TchDriver_Device.NTarm.CopyFiles   = 13,arm
-TchDriver_Device.NTarm64.CopyFiles = 13,arm64
+TchDriver_Device.NTarm64.CopyFiles = 13,
 
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
 
-[SourceDisksFiles.ARM]
-gripdet.sys  = 1,arm,
-
-[SourceDisksFiles.ARM64]
-gripdet.sys  = 1,arm64,
+[SourceDisksFiles]
+gripdet.sys  = 1,
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%TchDriver_Device_Desc% = TchDriver_Device.NTarm, ACPI\MSHW100F
+%ManufacturerName% = Standard,NTarm64
 
 [Standard.NTarm64]
 %TchDriver_Device_Desc% = TchDriver_Device.NTarm64, ACPI\MSHW100F
@@ -38,22 +29,11 @@ gripdet.sys  = 1,arm64,
 ; TchDriver client driver Install Section
 ;*****************************************
 
-[TchDriver_Device.NTarm]
-CopyFiles = TchDriver_Device.NTarm.CopyFiles
-
 [TchDriver_Device.NTarm64]
 CopyFiles = TchDriver_Device.NTarm64.CopyFiles
 
-[TchDriver_Device.NTarm.CopyFiles]
-gripdet.sys,,,0x100
-
 [TchDriver_Device.NTarm64.CopyFiles]
 gripdet.sys,,,0x100
-
-[TchDriver_Device.NTarm.HW]
-AddReg = FilterInst.NT.HW.AddReg
-AddReg = PowerConfig.NT.HW.AddReg
-AddReg = SensorPlacement.NT.HW.AddReg
 
 [TchDriver_Device.NTarm64.HW]
 AddReg = FilterInst.NT.HW.AddReg
@@ -181,27 +161,16 @@ HKLM, "System\SIDEINTERACTION\Offset", "8", %REG_DWORD%, 0x1D9D
 HKLM, "System\SIDEINTERACTION\Offset", "9", %REG_DWORD%, 0x1D9D
 
 ;-------------- Service installation
-[TchDriver_Device.NTarm.Services]
-AddService = Grip Detection, %SPSVCINST_ASSOCSERVICE%, TchDriver_arm_Service_Inst
-
 [TchDriver_Device.NTarm64.Services]
 AddService = Grip Detection, %SPSVCINST_ASSOCSERVICE%, TchDriver_arm64_Service_Inst
 
 ; ------------- TchDriver driver install section
-[TchDriver_arm_Service_Inst]
-DisplayName    = %TchDriver_Service_Desc%
-ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_DEMAND_START%
-ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm\gripdet.sys
-LoadOrderGroup = Base
-
 [TchDriver_arm64_Service_Inst]
 DisplayName    = %TchDriver_Service_Desc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm64\gripdet.sys
+ServiceBinary  = %13%\gripdet.sys
 LoadOrderGroup = Base
 
 ; ------------- Strings section

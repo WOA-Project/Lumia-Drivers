@@ -12,20 +12,12 @@ ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
 DriverVer   = 09/20/2021,1.0.1078.0053
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcwlan8994.arm.cat
-CatalogFile.NTarm64 = qcwlan8994.arm64.cat
+CatalogFile = qcwlan8994.cat
 
 [Manufacturer]
-%Qualcomm% = Qualcomm, NTarm, NTarm64
+%Qualcomm% = Qualcomm, NTarm64
 
 [ControlFlags]
-
-[Qualcomm.NTarm]
-; DisplayName               Section                 DeviceID
-; -----------               -------                 --------
-;legacy HW Entries
-%WLAN.DeviceDesc%          = QcWlan.ndi,            PCI\VEN_168C&DEV_003E
 
 [Qualcomm.NTarm64]
 ; DisplayName               Section                 DeviceID
@@ -37,38 +29,15 @@ CatalogFile.NTarm64 = qcwlan8994.arm64.cat
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD},2,7,,0
 
-[QcWlan.ndi.NTarm.Services]
-AddService = qcwlan, 2, QcWlan.ndi.NTarm.Service, QcWlan.EventLog
-Include    = netvwifibus.inf
-Needs      = VWiFiBus.Services
-
 [QcWlan.ndi.NTarm64.Services]
 AddService = qcwlan, 2, QcWlan.ndi.NTarm64.Service, QcWlan.EventLog
 Include    = netvwifibus.inf
 Needs      = VWiFiBus.Services
 
-[QcWlan.ndi.NTarm.HW]
-AddReg  = MSI.reg
-Include = pci.inf,netvwifibus.inf
-Needs   = PciIoSpaceNotRequired.HW, PciD3ColdSupported.HW, VWiFiBus.PnPFilterRegistration.HW
-
 [QcWlan.ndi.NTarm64.HW]
 AddReg  = MSI.reg
 Include = pci.inf,netvwifibus.inf
 Needs   = PciIoSpaceNotRequired.HW, PciD3ColdSupported.HW, VWiFiBus.PnPFilterRegistration.HW
-
-[QcWlan.ndi.NTarm]
-Include            = pci.inf, netvwifibus.inf
-Needs              = VWiFiBus.CopyFiles
-*IfType            = 71        ; IF_TYPE_IEEE80211
-*MediaType         = 16        ; NdisMediumNative802_11
-*PhysicalMediaType = 9         ; NdisPhysicalMediumNative802_11
-Characteristics    = 0x84
-BusType            = 5
-AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
-DelReg             = QcWlan.DelReg
-CopyFiles          = Drivers_Dir_A32
-AddProperty        = WDTFSOCDeviceCategory
 
 [QcWlan.ndi.NTarm64]
 Include            = pci.inf, netvwifibus.inf
@@ -80,7 +49,7 @@ Characteristics    = 0x84
 BusType            = 5
 AddReg             = QcWlan.Reg, QcWlan11n.reg, smpsDynamic.reg, D0PC.reg, wowenable.reg, ProtocolPS.reg, TxBf.reg, MAS.reg, DriverMode.Reg, BugCheckOnTargetLost.Reg, WpBugCheckOnTargetFailure.Reg
 DelReg             = QcWlan.DelReg
-CopyFiles          = Drivers_Dir_A64
+CopyFiles          = Drivers_Dir
 AddProperty        = WDTFSOCDeviceCategory
 
 ;-----------------------------------------------------------------------------
@@ -168,44 +137,29 @@ HKR,,CountryName
 ;
 1 = %DiskId1%,,
 
-[SourceDisksFiles.ARM]
-qcwlan8994.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-qcwlan8994.sys = 1,arm64,
+[SourceDisksFiles]
+qcwlan8994.sys = 1,
 
 ;-----------------------------------------------------------------------------
 ; DestinationDirs
 ;-----------------------------------------------------------------------------
 [DestinationDirs]
-Drivers_Dir_A32             = 13,arm
-Drivers_Dir_A64             = 13,arm64
+Drivers_Dir             = 13,
 DefaultDestDir              = 12
 
-[Drivers_Dir_A32]
-qcwlan8994.sys,,,2
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcwlan8994.sys,,,2
 
 ;-----------------------------------------------------------------------------
 ; Driver and Service Section
 ;-----------------------------------------------------------------------------
 
-[QcWlan.ndi.NTarm.Service]
-DisplayName     = %QcWlan.Service.DispName%
-ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
-StartType       = 3 ;%SERVICE_DEMAND_START%
-ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
-ServiceBinary   = %13%\arm\qcwlan8994.sys
-LoadOrderGroup  = NDIS
-
 [QcWlan.ndi.NTarm64.Service]
 DisplayName     = %QcWlan.Service.DispName%
 ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
 StartType       = 3 ;%SERVICE_DEMAND_START%
 ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
-ServiceBinary   = %13%\arm64\qcwlan8994.sys
+ServiceBinary   = %13%\qcwlan8994.sys
 LoadOrderGroup  = NDIS
 
 [QcWlan11n.reg]

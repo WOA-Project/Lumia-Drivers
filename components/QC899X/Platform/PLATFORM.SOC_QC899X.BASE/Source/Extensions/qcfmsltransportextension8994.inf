@@ -6,15 +6,10 @@ Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F58}
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qcfmsltransportextension8994.arm.cat
-CatalogFile.NTarm64 = qcfmsltransportextension8994.arm64.cat
+CatalogFile = qcfmsltransportextension8994.cat
 
 [Manufacturer]
-%QC% = DeviceExtensions,NTarm,NTarm64
-
-[DeviceExtensions.NTarm]
-%FMS.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_24B1
+%QC% = DeviceExtensions,NTarm64
 
 [DeviceExtensions.NTarm64]
 %FMS.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_24B1

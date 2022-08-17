@@ -5,48 +5,32 @@ ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %ProviderName%
 DriverVer   = 03/18/2021,0.1.0.0
 PnpLockdown = 1
-
-CatalogFile.NTarm   = icaros_cam_esp_thermal.arm.cat
-CatalogFile.NTarm64 = icaros_cam_esp_thermal.arm64.cat
+CatalogFile = icaros_cam_esp_thermal.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 ; ================= Class section =====================
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
 
-[SourceDisksFiles.ARM]
-icaros_cam_esp_thermal.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-icaros_cam_esp_thermal.sys = 1,arm64,
+[SourceDisksFiles]
+icaros_cam_esp_thermal.sys = 1,
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard, NTarm, NTarm64
-
-[Standard.NTarm]
-%Icaros_KMD_ESP_Thermal.DeviceDesc% = Icaros_KMD_ESP_Thermal_Device, ACPI\MSHW1011
+%ManufacturerName% = Standard, NTarm64
 
 [Standard.NTarm64]
 %Icaros_KMD_ESP_Thermal.DeviceDesc% = Icaros_KMD_ESP_Thermal_Device, ACPI\MSHW1011
 
-[Icaros_KMD_ESP_Thermal_Device.NTarm]
-CopyFiles = Drivers_Dir_A32
-AddReg    = Icaros_KMD_ESP_Thermal_SecurityAddReg
-
 [Icaros_KMD_ESP_Thermal_Device.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 AddReg    = Icaros_KMD_ESP_Thermal_SecurityAddReg
-
-[Icaros_KMD_ESP_Thermal_Device.NTarm.HW]
-AddReg = Icaros_KMD_ESP_Thermal_SecurityAddReg
 
 [Icaros_KMD_ESP_Thermal_Device.NTarm64.HW]
 AddReg = Icaros_KMD_ESP_Thermal_SecurityAddReg
@@ -54,34 +38,20 @@ AddReg = Icaros_KMD_ESP_Thermal_SecurityAddReg
 [Icaros_KMD_ESP_Thermal_SecurityAddReg]
 HKR,, DeviceCharacteristics, 0x10001, 0x100 ; FILE_DEVICE_SECURE_OPEN
 
-[Drivers_Dir_A32]
-icaros_cam_esp_thermal.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 icaros_cam_esp_thermal.sys
 
 ;-------------- Service installation
-[Icaros_KMD_ESP_Thermal_Device.NTarm.Services]
-AddService = Icaros_KMD_ESP_Thermal, %SPSVCINST_ASSOCSERVICE%, Icaros_KMD_ESP_Thermal_Service_Inst.NTarm
-
 [Icaros_KMD_ESP_Thermal_Device.NTarm64.Services]
-AddService = Icaros_KMD_ESP_Thermal, %SPSVCINST_ASSOCSERVICE%, Icaros_KMD_ESP_Thermal_Service_Inst.NTarm64
+AddService = Icaros_KMD_ESP_Thermal, %SPSVCINST_ASSOCSERVICE%, Icaros_KMD_ESP_Thermal_Service_Inst
 
 ; -------------- Icaros_KMD_ESP_Thermal driver install sections
-[Icaros_KMD_ESP_Thermal_Service_Inst.NTarm]
+[Icaros_KMD_ESP_Thermal_Service_Inst]
 DisplayName    = %Icaros_KMD_ESP_Thermal.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 1               ; SERVICE_SYSTEM_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\icaros_cam_esp_thermal.sys
-LoadOrderGroup = Extended Base
-
-[Icaros_KMD_ESP_Thermal_Service_Inst.NTarm64]
-DisplayName    = %Icaros_KMD_ESP_Thermal.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 1               ; SERVICE_SYSTEM_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\icaros_cam_esp_thermal.sys
+ServiceBinary  = %13%\icaros_cam_esp_thermal.sys
 LoadOrderGroup = Extended Base
 
 ;

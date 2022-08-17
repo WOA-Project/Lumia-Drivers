@@ -18,22 +18,16 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcgpio.arm.cat
-CatalogFile.NTarm64 = qcgpio.arm64.cat
+CatalogFile = qcgpio.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId%
 
-[SourceDisksFiles.ARM]
-qcgpio.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcgpio.sys = 1,arm64
+[SourceDisksFiles]
+qcgpio.sys = 1,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -43,50 +37,30 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = QcGpioComp,NTarm,NTarm64
-
-[QcGpioComp.NTarm]
-%GPIO.DeviceDesc% = GPIO_Inst,ACPI\QCOM2405
+%COMP% = QcGpioComp,NTarm64
 
 [QcGpioComp.NTarm64]
 %GPIO.DeviceDesc% = GPIO_Inst,ACPI\QCOM2405
 
-[GPIO_Inst.NTarm]
-Copyfiles   = Drivers_Dir_A32
+[GPIO_Inst]
+Copyfiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 
-[GPIO_Inst.NTarm64]
-Copyfiles   = Drivers_Dir_A64
-AddProperty = WDTFSOCDeviceCategory
-
-[Drivers_Dir_A32]
-qcgpio.sys,,, 0x100,
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcgpio.sys,,, 0x100,
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
-[GPIO_Inst.NTarm.Services]
+[GPIO_Inst.Services]
 AddService = qcgpio,%SPSVCINST_ASSOCSERVICE%,GPIO_Service_Inst
-
-[GPIO_Inst.NTarm64.Services]
-AddService = qcgpio,%SPSVCINST_ASSOCSERVICE%,GPIO_Service_Inst.NTarm64
 
 [GPIO_Service_Inst]
 DisplayName   = %GPIO.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %13%\arm\qcgpio.sys
-
-[GPIO_Service_Inst.NTarm64]
-DisplayName   = %GPIO.SvcDesc%
-ServiceType   = %SERVICE_KERNEL_DRIVER%
-StartType     = %SERVICE_DEMAND_START%
-ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %13%\arm64\qcgpio.sys
+ServiceBinary = %13%\qcgpio.sys
 
 [Strings]
 ;Localizable Strings

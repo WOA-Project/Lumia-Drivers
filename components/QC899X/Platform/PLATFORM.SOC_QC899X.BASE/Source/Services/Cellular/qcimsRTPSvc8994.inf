@@ -8,44 +8,27 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1057.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qcimsRTPSvc8994.arm.cat
-CatalogFile.NTarm64 = qcimsRTPSvc8994.arm64.cat
+CatalogFile = qcimsRTPSvc8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles.ARM]
-qcimsRTPSvc8994.dll = 0,arm,
-LUVCR120.dll = 0,arm,
-
-[SourceDisksFiles.ARM64]
-qcimsRTPSvc8994.dll = 0,arm64,
-LAVCR120.dll = 0,arm64,
+[SourceDisksFiles]
+qcimsRTPSvc8994.dll = 0,
+LAVCR120.dll = 0,
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]
-%IMSRTP.DeviceDesc% = IMSRTP, SWC\VID_QCOM&PID_0EA0&SID_0003
+%QC% = QC,NTarm64
 
 [QC.NTarm64]
 %IMSRTP.DeviceDesc% = IMSRTP, SWC\VID_QCOM&PID_0EA0&SID_0003
 
-[IMSRTP.NTarm]
-CopyFiles = Drivers_Dir_A32
-AddReg    = qcimsRTPSvc8994_Reg, qcimsRTPSvc8994_path_Reg
-
 [IMSRTP.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 AddReg    = qcimsRTPSvc8994_Reg, qcimsRTPSvc8994_path_Reg.NTarm64
-
-[IMSRTP.NTarm.Services]
-AddService = RTPSvc,0x00000000,qcimsRTPSvc8994_Service,
 
 [IMSRTP.NTarm64.Services]
 AddService = RTPSvc,0x00000000,qcimsRTPSvc8994_Service,
@@ -79,17 +62,10 @@ HKLM, "System\controlset001\services\RTPSvc\Parameters", "ServiceMain", 0x0, "Se
 HKLM, "System\controlset001\services\RTPSvc\Parameters", "ServiceDllUnloadOnStop", 0x10001, 0x1
 HKLM, "Software\Microsoft\Windows NT\CurrentVersion\Svchost", RTPSvcGroup, %REG_MULTI_SZ%, "RTPSvc"
 
-[qcimsRTPSvc8994_path_Reg]
-HKLM, "System\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%13%\arm\qcimsRTPSvc8994.dll"
-
 [qcimsRTPSvc8994_path_Reg.NTarm64]
-HKLM, "System\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%13%\arm64\qcimsRTPSvc8994.dll"
+HKLM, "System\controlset001\services\RTPSvc\Parameters", "ServiceDll", 0x20000, "%13%\qcimsRTPSvc8994.dll"
 
-[Drivers_Dir_A32]
-qcimsRTPSvc8994.dll
-LUVCR120.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcimsRTPSvc8994.dll
 LAVCR120.dll
 

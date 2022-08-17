@@ -18,61 +18,38 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcipa8994.arm.cat
-CatalogFile.NTarm64 = qcipa8994.arm64.cat
+CatalogFile = qcipa8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%                                                 ; A disk id and its name that contain the installation files
 
-[SourceDisksFiles.ARM]
-qcipa8994.sys = 1,arm                                         ; The source files that are used during installation and the installation
-
-[SourceDisksFiles.ARM64]
-qcipa8994.sys = 1,arm64                                       ; The source files that are used during installation and the installation
+[SourceDisksFiles]
+qcipa8994.sys = 1,                                       ; The source files that are used during installation and the installation
 
 [Manufacturer]
-%Qualcomm% = Standard,NTarm,NTarm64                           ; QCOM drivers may need to follow same process here?
-
-[Standard.NTarm]                                            ; Decorated model section take precedence over undecorated
-%ipa.DeviceDesc% = ipa_Device, ACPI\QCOM24B0
+%Qualcomm% = Standard,NTarm64                           ; QCOM drivers may need to follow same process here?
 
 [Standard.NTarm64]                                          ; Decorated model section take precedence over undecorated
 %ipa.DeviceDesc% = ipa_Device, ACPI\QCOM24B0
 
-[ipa_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
 [ipa_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Drivers_Dir_A32]
-qcipa8994.sys                                                 ; Copied from the source media to the default destination directory (see [DestinationDirs])
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcipa8994.sys                                                 ; Copied from the source media to the default destination directory (see [DestinationDirs])
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
-[ipa_Device.NTarm.Services]
+[ipa_Device.NTarm64.Services]
 AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_Service_Inst ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
 
-[ipa_Device.NTarm64.Services]
-AddService = qcipa,%SPSVCINST_ASSOCSERVICE%, ipa_Service_Inst.NTarm64 ; SPSVCINST_ASSOCSERVICE: Assign the named service as the PnP function driver for this device
-
 ;-------------- HW installation
-[ipa_Device.NTarm.HW]
-addreg = ipa
-
 [ipa_Device.NTarm64.HW]
 addreg = ipa
 
@@ -85,23 +62,13 @@ DisplayName   = %ipa.SvcDesc%
 ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
 StartType     = 3                  ; SERVICE_DEMAND_START
 ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcipa8994.sys
-AddReg        = IPA_Reg
-
-[ipa_Service_Inst.NTarm64]
-DisplayName   = %ipa.SvcDesc%
-ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
-StartType     = 3                  ; SERVICE_DEMAND_START
-ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcipa8994.sys
+ServiceBinary = %13%\qcipa8994.sys
 AddReg        = IPA_Reg
 
 [IPA_Reg]
 HKR, "Parameters", "NumOfBuffers", 0x00010001 , 0x100
 HKR, "Parameters", "A2PCEnabled" , %REG_DWORD%, 0x1
 
-[ipa_Device.NTarm.Wdf]
-KmdfService = qcipa, ipa_wdfsect
 [ipa_Device.NTarm64.Wdf]
 KmdfService = qcipa, ipa_wdfsect
 [ipa_wdfsect]

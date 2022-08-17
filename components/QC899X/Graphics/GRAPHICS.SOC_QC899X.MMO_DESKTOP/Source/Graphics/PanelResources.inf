@@ -8,47 +8,30 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-
-CatalogFile.NTarm   = PanelResources.arm.cat
-CatalogFile.NTarm64 = PanelResources.arm64.cat
+CatalogFile = PanelResources.cat
 
 [DestinationDirs]
 PanelResources.Files    = 10,OEM\Drivers
-PanelResources_32.Files = 10,OEM\Drivers\arm
-PanelResources.NTarm64.Files = 10,OEM\Drivers\arm64
 
 [SourceDisksNames]
 0 = "Disk"
 
 [SourceDisksFiles]
 ColorData.bin          = 0,,
-oempanel.arm.cat_      = 0,,
-oempanel.arm64.cat_    = 0,,
-oempanel.arm.sys       = 0,,
-oempanel.arm64.sys     = 0,,
-oempanel_etw.arm.dll   = 0,,
-oempanel_etw.arm64.dll = 0,,
+oempanel.cat_    = 0,,
+oempanel.sys     = 0,,
+oempanel_etw.dll = 0,,
 oempanel.inf_          = 0,,
 
-[DefaultInstall.NTarm]
-CopyFiles = PanelResources.Files, PanelResources_32.Files, PanelResources.NTarm64.Files
-
 [DefaultInstall.NTarm64]
-CopyFiles = PanelResources.Files, PanelResources_32.Files, PanelResources.NTarm64.Files
+CopyFiles = PanelResources.Files, PanelResources.NTarm64.Files
 
 [PanelResources.Files]
 ColorData.bin
-oempanel.arm.cat, oempanel.arm.cat_,, 0x00004000,
-oempanel.arm64.cat, oempanel.arm64.cat_,, 0x00004000,
+oempanel.cat, oempanel.cat_,, 0x00004000,
 oempanel.inf, oempanel.inf_,, 0x00004000,
-
-[PanelResources_32.Files]
-oempanel.sys, oempanel.arm.sys,, 0x00004000,
-oempanel_etw.dll, oempanel_etw.arm.dll,, 0x00004000,
-
-[PanelResources.NTarm64.Files]
-oempanel.sys, oempanel.arm64.sys,, 0x00004000,
-oempanel_etw.dll, oempanel_etw.arm64.dll,, 0x00004000,
+oempanel.sys, oempanel.sys,, 0x00004000,
+oempanel_etw.dll, oempanel_etw.dll,, 0x00004000,
 
 [Strings]
 IHV = "LumiaWoA authors"

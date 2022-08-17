@@ -22,35 +22,19 @@ ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %QCOM%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = QCComposite.arm.cat
-CatalogFile.NTarm64 = QCComposite.arm64.cat
+CatalogFile = QCComposite.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 ;*****************************************
 ; SerialClass  Install Section
 ;*****************************************
 
 [Manufacturer]
-%StdMfg% = Standard, NTarm, NTarm64
+%StdMfg% = Standard, NTarm64
 
 ; For ARM platforms
-[Standard.NTarm]
-; DisplayName                   Section           DeviceId
-; -----------                   -------           --------
-%QCCompositeDevice.DeviceDesc3_SER% = UfnBus_Child_03_SER, USBFN\TRACE
-
-%QCCompositeDevice.DeviceDesc1_NET% = UfnBus_Child_01_NET, USBFN\NMEA
-
-%QCCompositeDevice.DeviceDesc0_DPL% = UfnBus_Child_00_DPL, USBFN\DIAG
-%QCCompositeDevice.DeviceDesc1_DPL% = UfnBus_Child_01_DPL, USBFN\MODEM
-%QCCompositeDevice.DeviceDesc2_DPL% = UfnBus_Child_02_DPL, USBFN\RMNET
-%QCCompositeDevice.DeviceDesc3_DPL% = UfnBus_Child_03_DPL, USBFN\DPL
-
-; For ARM64 platforms
 [Standard.NTarm64]
 ; DisplayName                   Section           DeviceId
 ; -----------                   -------           --------
@@ -147,31 +131,31 @@ AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 ; ARM64
 
 ;[UfnBus_Child_00_SER.NTarm64]
-;CopyFiles = Drivers_Dir_A64
+;CopyFiles = Drivers_Dir
 ;[UfnBus_Child_01_SER.NTarm64]
-;CopyFiles = Drivers_Dir_A64
+;CopyFiles = Drivers_Dir
 ;[UfnBus_Child_02_SER.NTarm64]
-;CopyFiles = Drivers_Dir_A64
+;CopyFiles = Drivers_Dir
 [UfnBus_Child_03_SER.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
 ;[UfnBus_Child_00_NET.NTarm64]
-;CopyFiles = Drivers_Dir_A64
+;CopyFiles = Drivers_Dir
 [UfnBus_Child_01_NET.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 ;[UfnBus_Child_02_NET.NTarm64]
-;CopyFiles = Drivers_Dir_A64
+;CopyFiles = Drivers_Dir
 ;[UfnBus_Child_03_NET.NTarm64]
-;CopyFiles = Drivers_Dir_A64
+;CopyFiles = Drivers_Dir
 
 [UfnBus_Child_00_DPL.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 [UfnBus_Child_01_DPL.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 [UfnBus_Child_02_DPL.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 [UfnBus_Child_03_DPL.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
 ;-------------- Interface specific information
 ;[UfnBus_Child_00_SER.NTarm64.HW]
@@ -203,29 +187,29 @@ AddReg = UfnBus_DPL_AddReg, DeviceConfigurationReg
 
 ;-------------- Service installation
 ;[UfnBus_Child_00_SER.NTarm64.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 ;[UfnBus_Child_01_SER.NTarm64.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 ;[UfnBus_Child_02_SER.NTarm64.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 [UfnBus_Child_03_SER.NTarm64.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 ;[UfnBus_Child_00_NET.NTarm64.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 [UfnBus_Child_01_NET.NTarm64.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 ;[UfnBus_Child_02_NET.NTarm64.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 ;[UfnBus_Child_03_NET.NTarm64.Services]
-;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+;AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 [UfnBus_Child_00_DPL.NTarm64.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 [UfnBus_Child_01_DPL.NTarm64.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 [UfnBus_Child_02_DPL.NTarm64.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 [UfnBus_Child_03_DPL.NTarm64.Services]
-AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst.NTarm64
+AddService = ufnserialclass, 0x00000002, ufnserialclass_Service_Inst
 
 [ufnserialclass_Service_Inst]
 DisplayName   = %QCCompositeDevice.SvcDesc%
@@ -233,26 +217,13 @@ ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 0               ; SERVICE_BOOT_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
-ServiceBinary = %13%\arm\ufnserialclass.sys
+ServiceBinary = %13%\ufnserialclass.sys
 ;AddReg         = ufnserialclass_Service_Inst.AddReg
-AddReg        = DeviceReg
-
-[ufnserialclass_Service_Inst.NTarm64]
-DisplayName   = %QCCompositeDevice.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 0               ; SERVICE_BOOT_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
-ServiceBinary = %13%\arm64\ufnserialclass.sys
-;AddReg         = ufnserialclass_Service_Inst.NTarm64.AddReg
 AddReg        = DeviceReg
 
 ; COMMON ARM-ARM64
 
-[Drivers_Dir_A32]
-ufnserialclass.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 ufnserialclass.sys
 
 [UfnBus_DIAG_AddReg]
@@ -473,11 +444,8 @@ hklm, system\currentcontrolset\control\wmi\autologger\ufnserial\{d5393b53-8aae-4
 [SourceDisksNames]
 1 = %DiskId1%,,,""
 
-[SourceDisksFiles.ARM]
-ufnserialclass.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-ufnserialclass.sys = 1,arm64,
+[SourceDisksFiles]
+ufnserialclass.sys = 1,
 
 [Strings]
 SPSVCINST_ASSOCSERVICE            = 0x00000002

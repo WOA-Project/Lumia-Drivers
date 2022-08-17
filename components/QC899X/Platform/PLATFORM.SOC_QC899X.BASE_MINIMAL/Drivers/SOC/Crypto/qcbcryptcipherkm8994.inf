@@ -11,13 +11,10 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcBCryptCipherKM8994.arm.cat
-CatalogFile.NTarm64 = qcBCryptCipherKM8994.arm64.cat
+CatalogFile = qcBCryptCipherKM8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -25,55 +22,35 @@ ExcludeFromSelect = *
 [SourceDisksNames]
 1 = %DiskName%
 
-[SourceDisksFiles.ARM]
-qcBCryptCipherKM8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcBCryptCipherKM8994.sys = 1,arm64
+[SourceDisksFiles]
+qcBCryptCipherKM8994.sys = 1,
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [Manufacturer]
-%Qualcomm% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_Device, ACPI\QCOM241D
+%Qualcomm% = Standard,NTarm64
 
 [Standard.NTarm64]
 %BCryptCipher_KM.DeviceDesc% = BCryptCipher_KM_Device, ACPI\QCOM241D
 
-[BCryptCipher_KM_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
 [BCryptCipher_KM_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Drivers_Dir_A32]
-qcBCryptCipherKM8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcBCryptCipherKM8994.sys
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;-------------- Service installation
-[BCryptCipher_KM_Device.NTarm.Services]
+[BCryptCipher_KM_Device.NTarm64.Services]
 AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_Service_Inst
 
-[BCryptCipher_KM_Device.NTarm64.Services]
-AddService = qcBCryptCipher_KM,%SPSVCINST_ASSOCSERVICE%, BCryptCipher_KM_Service_Inst.NTarm64
-
 ;-------------- HW installation
-[BCryptCipher_KM_Device.NTarm.HW]
-addreg = BCryptCipher_KM
-
 [BCryptCipher_KM_Device.NTarm64.HW]
 addreg = BCryptCipher_KM
 
@@ -86,17 +63,8 @@ DisplayName   = %BCryptCipher_KM.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcBCryptCipherKM8994.sys
+ServiceBinary = %13%\qcBCryptCipherKM8994.sys
 
-[BCryptCipher_KM_Service_Inst.NTarm64]
-DisplayName   = %BCryptCipher_KM.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcBCryptCipherKM8994.sys
-
-[BCryptCipher_KM_Device.NTarm.Wdf]
-KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect
 [BCryptCipher_KM_Device.NTarm64.Wdf]
 KmdfService = qcBCryptCipher_KM, BCryptCipher_KM_wdfsect
 [BCryptCipher_KM_wdfsect]

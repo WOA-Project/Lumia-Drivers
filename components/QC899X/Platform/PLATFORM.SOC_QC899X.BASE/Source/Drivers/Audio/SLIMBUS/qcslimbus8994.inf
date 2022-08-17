@@ -20,13 +20,10 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %ManufacturerName%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcslimbus8994.arm.cat
-CatalogFile.NTarm64 = qcslimbus8994.arm64.cat
+CatalogFile = qcslimbus8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -34,54 +31,33 @@ ExcludeFromSelect = *
 [SourceDisksNames]
 1 = %DiskName%
 
-[SourceDisksFiles.ARM]
-qcslimbus8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcslimbus8994.sys = 1,arm64
+[SourceDisksFiles]
+qcslimbus8994.sys = 1,
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%qcslimbus.DeviceDesc% = qcslimbus_Device,ADSP\QCOM240D
+%ManufacturerName% = Standard,NTarm64
 
 [Standard.NTarm64]
 %qcslimbus.DeviceDesc% = qcslimbus_Device,ADSP\QCOM240D
 
-[qcslimbus_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
 [qcslimbus_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Drivers_Dir_A32]
-qcslimbus8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcslimbus8994.sys
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 1
 
 ;-------------- Service installation
-[qcslimbus_Device.NTarm.Services]
-AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_Service_Inst
-
-;-------------- HW installation
-[qcslimbus_Device.NTarm.HW]
-addreg = qcslimbus
-
 [qcslimbus_Device.NTarm64.Services]
-AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_Service_Inst.NTarm64
+AddService = qcslimbus,%SPSVCINST_ASSOCSERVICE%, qcslimbus_Service_Inst
 
 [qcslimbus_Device.NTarm64.HW]
 addreg = qcslimbus
@@ -95,17 +71,7 @@ DisplayName   = %qcslimbus.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcslimbus8994.sys
-
-[qcslimbus_Service_Inst.NTarm64]
-DisplayName   = %qcslimbus.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcslimbus8994.sys
-
-[qcslimbus_Device.NTarm.Wdf]
-KmdfService = qcslimbus, qcslimbus_wdfsect
+ServiceBinary = %13%\qcslimbus8994.sys
 
 [qcslimbus_Device.NTarm64.Wdf]
 KmdfService = qcslimbus, qcslimbus_wdfsect

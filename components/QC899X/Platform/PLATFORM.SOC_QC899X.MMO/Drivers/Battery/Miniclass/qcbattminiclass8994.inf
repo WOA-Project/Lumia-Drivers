@@ -16,22 +16,16 @@ ClassGuid   = {72631e54-78a4-11d0-bcf7-00aa00b7b32a}
 Provider    = %COMP%
 DriverVer   = 03/18/2021,1.0.1078.0056
 PnPLockdown = 1
-
-CatalogFile.NTarm   = qcbattminiclass8994.arm.cat
-CatalogFile.NTarm64 = qcbattminiclass8994.arm64.cat
+CatalogFile = qcbattminiclass8994.cat
 
 [SourceDisksNames]
 1 = %DiskId%
 
-[SourceDisksFiles.ARM]
-qcbattminiclass8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcbattminiclass8994.sys = 1,arm64
+[SourceDisksFiles]
+qcbattminiclass8994.sys = 1,
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -41,45 +35,27 @@ ExcludeFromSelect = *
 ;************************************************
 
 [Manufacturer]
-%COMP% = Qualcomm,NTarm,NTarm64
-
-[Qualcomm.NTarm]
-%DeviceDesc% = PMIC_Inst,ACPI\QCOM2452
-%DeviceDesc% = PMIC_Inst,ACPI\QCOM24C3
+%COMP% = Qualcomm,NTarm64
 
 [Qualcomm.NTarm64]
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM2452
 %DeviceDesc% = PMIC_Inst,ACPI\QCOM24C3
 
-[PMIC_Inst.NTarm]
-Copyfiles   = Drivers_Dir_A32
+[PMIC_Inst]
+Copyfiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[PMIC_Inst.NTarm.HW]
+[PMIC_Inst.HW]
 Addreg = BMINIACL
 
-[PMIC_Inst.NTarm.Services]
+[PMIC_Inst.Services]
 AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
-
-[PMIC_Inst.NTarm64]
-Copyfiles   = Drivers_Dir_A64
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
-[PMIC_Inst.NTarm64.HW]
-Addreg = BMINIACL
-
-[PMIC_Inst.NTarm64.Services]
-AddService = qcbattminiclass,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst.NTarm64
 
 [BMINIACL]
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
-[Drivers_Dir_A32]
-qcbattminiclass8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcbattminiclass8994.sys
 
 [WDTFSOCDeviceCategory]
@@ -90,14 +66,7 @@ DisplayName   = %PMICBatteryMiniclass.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %13%\arm\qcbattminiclass8994.sys
-
-[PMIC_Service_Inst.NTarm64]
-DisplayName   = %PMICBatteryMiniclass.SvcDesc%
-ServiceType   = %SERVICE_KERNEL_DRIVER%
-StartType     = %SERVICE_DEMAND_START%
-ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %13%\arm64\qcbattminiclass8994.sys
+ServiceBinary = %13%\qcbattminiclass8994.sys
 
 [Strings]
 ;Localizable Strings

@@ -11,46 +11,28 @@ ClassGuid      = {e0cbf06c-cd8b-4647-bb8a-263b43f0f974}
 Provider       = %QCA%
 DriverVer      = 03/18/2021,2.3.0.6
 PnpLockDown    = 1
-
-CatalogFile.NTarm   = qcbtuart8994.arm.cat
-CatalogFile.NTarm64 = qcbtuart8994.arm64.cat
+CatalogFile = qcbtuart8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %SourceDisk%,,1
 
-[SourceDisksFiles.ARM]
-qcbtuart8994.sys     = 1,arm,
-
-[SourceDisksFiles.ARM64]
-qcbtuart8994.sys     = 1,arm64,
+[SourceDisksFiles]
+qcbtuart8994.sys     = 1,
 
 [ControlFlags]
 ExcludeFromSelect = *
 
 [Manufacturer]
-%QCA% = QCABT,NTarm,NTarm64
-
-[QCABT.NTarm]
-%UartBtAPQ8994% = QCABTUART, ACPI\QCOM24B2
+%QCA% = QCABT,NTarm64
 
 [QCABT.NTarm64]
 %UartBtAPQ8994% = QCABTUART, ACPI\QCOM24B2
 
-[QCABTUART.NTarm]
-CopyFiles = Drivers_Dir_A32
-
-[QCABTUART.NTarm.HW]
-AddReg = BTUART.HW.AddReg
-
-[QCABTUART.NTarm.Services]
-AddService = QcBluetooth,0x00000002,BTUART_Service
-
 [QCABTUART.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
 [QCABTUART.NTarm64.HW]
 AddReg = BTUART.HW.AddReg
@@ -58,30 +40,19 @@ AddReg = BTUART.HW.AddReg
 [QCABTUART.NTarm64.Services]
 AddService = QcBluetooth,0x00000002,BTUART_Service.NTarm64
 
-[Drivers_Dir_A32]
-qcbtuart8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcbtuart8994.sys
 
 [BTUART.HW.AddReg]
 HKR,, DeviceCharacteristics, 0x10001, 0x0100                  ; Use same security checks on relative opens
 HKR,, Security             ,        , "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;LS)"   ; Allow generic-all access to Built-in administrators and Local system
 
-[BTUART_Service]
-DisplayName   = %SvcDispName%
-ServiceType   = 1  ; SERVICE_KERNEL_DRIVER
-StartType     = 3  ; SERVICE_DEMAND_START
-ErrorControl  = 1  ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcbtuart8994.sys
-AddReg        = BTUART_Service.AddReg, WPPReg
-
 [BTUART_Service.NTarm64]
 DisplayName   = %SvcDispName%
 ServiceType   = 1  ; SERVICE_KERNEL_DRIVER
 StartType     = 3  ; SERVICE_DEMAND_START
 ErrorControl  = 1  ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcbtuart8994.sys
+ServiceBinary = %13%\qcbtuart8994.sys
 AddReg        = BTUART_Service.AddReg, WPPReg
 
 [BTUART_Service.AddReg]

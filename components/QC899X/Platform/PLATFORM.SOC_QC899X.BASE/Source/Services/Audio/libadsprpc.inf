@@ -17,42 +17,26 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = "libadsprpc.arm.cat"
-CatalogFile.NTarm64 = "libadsprpc.arm64.cat"
+CatalogFile = "libadsprpc.cat"
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles.ARM]
-libadsprpc.dll = 0,arm,
-LUVCR120.dll = 0,arm,
-
-[SourceDisksFiles.ARM64]
-libadsprpc.dll = 0,arm64,
-LAVCR120.dll = 0,arm64,
+[SourceDisksFiles]
+libadsprpc.dll = 0,
+LAVCR120.dll = 0,
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]
-%LibADSPRPC.DeviceDesc% = LibADSP, SWC\VID_QCOM&PID_248A&SID_0001
+%QC% = QC,NTarm64
 
 [QC.NTarm64]
 %LibADSPRPC.DeviceDesc% = LibADSP, SWC\VID_QCOM&PID_248A&SID_0001
 
-[LibADSP.NTarm]
-CopyFiles = Drivers_Dir_A32
-
 [LibADSP.NTarm64]
-CopyFiles = Drivers_Dir_A64
-
-[LibADSP.NTarm.Services]
-AddService = libadsprpc,0x00000000,libadsprpc_Service,
+CopyFiles = Drivers_Dir
 
 [LibADSP.NTarm64.Services]
 AddService = libadsprpc,0x00000000,libadsprpc_Service.NTarm64,
@@ -101,17 +85,10 @@ HKR,, "Description"                     , %REG_SZ%       , "Qualcomm ADSP RPC FS
 HKR , Parameters                                              , ServiceMain    , %REG_SZ%       , "libadsprpcMain"
 HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost    , libadsprpcGroup, %REG_MULTI_SZ% , "libadsprpc"
 
-[libadsprpc_path_Reg]
-HKR, Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm\libadsprpc.dll"
-
 [libadsprpc_path_Reg.NTarm64]
-HKR, Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\arm64\libadsprpc.dll"
+HKR, Parameters , ServiceDll     , %REG_EXPAND_SZ%,  "%13%\libadsprpc.dll"
 
-[Drivers_Dir_A32]
-libadsprpc.dll
-LUVCR120.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 libadsprpc.dll
 LAVCR120.dll
 

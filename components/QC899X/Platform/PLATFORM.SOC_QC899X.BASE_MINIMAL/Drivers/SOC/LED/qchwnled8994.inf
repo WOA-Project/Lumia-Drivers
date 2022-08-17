@@ -20,22 +20,16 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qchwnled8994.arm.cat
-CatalogFile.NTarm64 = qchwnled8994.arm64.cat
+CatalogFile = qchwnled8994.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-qchwnled8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qchwnled8994.sys = 1,arm64
+[SourceDisksFiles]
+qchwnled8994.sys = 1,
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -45,46 +39,26 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%QC% = Qualcomm,NTarm,NTarm64
-
-[Qualcomm.NTarm]
-%hwnled.DeviceDesc% = hwnled_Device, ACPI\QCOM24A3
+%QC% = Qualcomm,NTarm64
 
 [Qualcomm.NTarm64]
 %hwnled.DeviceDesc% = hwnled_Device, ACPI\QCOM24A3
 
-[hwnled_Device.NTarm]
-Copyfiles = Drivers_Dir_A32
-
 [hwnled_Device.NTarm64]
-Copyfiles = Drivers_Dir_A64
+Copyfiles = Drivers_Dir
 
-[Drivers_Dir_A32]
+[Drivers_Dir]
 qchwnled8994.sys,,, 0x100,
-
-[Drivers_Dir_A64]
-qchwnled8994.sys,,, 0x100,
-
-[hwnled_Device.NTarm.Services]
-AddService = hwnled,%SPSVCINST_ASSOCSERVICE%,hwnled_Service_Inst
 
 [hwnled_Device.NTarm64.Services]
-AddService = hwnled,%SPSVCINST_ASSOCSERVICE%,hwnled_Service_Inst.NTarm64
+AddService = hwnled,%SPSVCINST_ASSOCSERVICE%,hwnled_Service_Inst
 
 [hwnled_Service_Inst]
 DisplayName    = %hwnled.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\qchwnled8994.sys
-LoadOrderGroup = Extended Base
-
-[hwnled_Service_Inst.NTarm64]
-DisplayName    = %hwnled.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\qchwnled8994.sys
+ServiceBinary  = %13%\qchwnled8994.sys
 LoadOrderGroup = Extended Base
 
 [Strings]

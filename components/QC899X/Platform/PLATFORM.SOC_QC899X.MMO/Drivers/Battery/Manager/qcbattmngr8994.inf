@@ -16,22 +16,16 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
 DriverVer   = 03/18/2021,1.0.1078.0056
 PnPLockdown = 1
-
-CatalogFile.NTarm   = qcbattmngr8994.arm.cat
-CatalogFile.NTarm64 = qcbattmngr8994.arm64.cat
+CatalogFile = qcbattmngr8994.cat
 
 [SourceDisksNames]
 1 = %DiskId%
 
-[SourceDisksFiles.ARM]
-qcbattmngr8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcbattmngr8994.sys = 1,arm64
+[SourceDisksFiles]
+qcbattmngr8994.sys = 1,
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -41,43 +35,26 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = Qualcomm,NTarm,NTarm64
-
-[Qualcomm.NTarm]
-%DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2453
+%COMP% = Qualcomm,NTarm64
 
 [Qualcomm.NTarm64]
 %DeviceDesc% = BATTMNGR_Inst,ACPI\QCOM2453
 
-[BATTMNGR_Inst.NTarm]
-Copyfiles   = Drivers_Dir_A32
+[BATTMNGR_Inst]
+Copyfiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[BATTMNGR_Inst.NTarm.HW]
+[BATTMNGR_Inst.HW]
 Addreg = BMACL
 
-[BATTMNGR_Inst.NTarm.Services]
+[BATTMNGR_Inst.Services]
 AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst
-
-[BATTMNGR_Inst.NTarm64]
-Copyfiles   = Drivers_Dir_A64
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
-[BATTMNGR_Inst.NTarm64.HW]
-Addreg = BMACL
-
-[BATTMNGR_Inst.NTarm64.Services]
-AddService = qcbattmngr,%SPSVCINST_ASSOCSERVICE%,BATTMNGR_Service_Inst.NTarm64
 
 [BMACL]
 HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
 
-[Drivers_Dir_A32]
-qcbattmngr8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcbattmngr8994.sys
 
 [WDTFSOCDeviceCategory]
@@ -88,14 +65,7 @@ DisplayName   = %BATTMNGR.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %13%\arm\qcbattmngr8994.sys
-
-[BATTMNGR_Service_Inst.NTarm64]
-DisplayName   = %BATTMNGR.SvcDesc%
-ServiceType   = %SERVICE_KERNEL_DRIVER%
-StartType     = %SERVICE_DEMAND_START%
-ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %13%\arm64\qcbattmngr8994.sys
+ServiceBinary = %13%\qcbattmngr8994.sys
 
 [Strings]
 ;Localizable Strings

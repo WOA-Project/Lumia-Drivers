@@ -17,43 +17,26 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1057.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qcremoteatsrvc8994.arm.cat
-CatalogFile.NTarm64 = qcremoteatsrvc8994.arm64.cat
+CatalogFile = qcremoteatsrvc8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles.ARM]
-qcremoteatsrvc8994.dll = 0,arm,
-LUVCR120.dll = 0,arm,
-
-[SourceDisksFiles.ARM64]
-qcremoteatsrvc8994.dll = 0,arm64,
+[SourceDisksFiles]
+qcremoteatsrvc8994.dll = 0,
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]
-%RemoteAT.DeviceDesc% = RemoteAT, SWC\VID_QCOM&PID_0EA0&SID_0005
+%QC% = QC,NTarm64
 
 [QC.NTarm64]
 %RemoteAT.DeviceDesc% = RemoteAT, SWC\VID_QCOM&PID_0EA0&SID_0005
 
-[RemoteAT.NTarm]
-CopyFiles = Drivers_Dir_A32
-AddReg    = RemoteAtSrvc_Reg, RemoteAtSrvc_path_Reg
-
 [RemoteAT.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 AddReg    = RemoteAtSrvc_Reg, RemoteAtSrvc_path_Reg.NTarm64
-
-[RemoteAT.NTarm.Services]
-AddService = RemoteAtSrvc,0x00000000,RemoteAtSrvc_Service,
 
 [RemoteAT.NTarm64.Services]
 AddService = RemoteAtSrvc,0x00000000,RemoteAtSrvc_Service,
@@ -75,17 +58,10 @@ HKLM, System\CurrentControlSet\Services\RemoteAtSrvc           , Start       , %
 HKLM, System\CurrentControlSet\Services\RemoteAtSrvc           , ErrorControl, %REG_DWORD%    , 0x0001
 HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost , RemoteAtSrvc, %REG_SZ%       , "RemoteAtSrvc"
 
-[RemoteAtSrvc_path_Reg]
-HKLM, System\CurrentControlSet\Services\RemoteAtSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%, "%13%\arm\qcremoteatsrvc8994.dll"
-
 [RemoteAtSrvc_path_Reg.NTarm64]
-HKLM, System\CurrentControlSet\Services\RemoteAtSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%, "%13%\arm64\qcremoteatsrvc8994.dll"
+HKLM, System\CurrentControlSet\Services\RemoteAtSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%, "%13%\qcremoteatsrvc8994.dll"
 
-[Drivers_Dir_A32]
-qcremoteatsrvc8994.dll
-LUVCR120.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcremoteatsrvc8994.dll
 
 [Strings]

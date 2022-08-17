@@ -5,28 +5,19 @@ ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %MMO%
 DriverVer   = 09/25/2021,1.0.1078.0056
 PnpLockdown = 1
-
-CatalogFile.NTarm   = hall_kmd.arm.cat
-CatalogFile.NTarm64 = hall_kmd.arm64.cat
+CatalogFile = hall_kmd.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
 
-[SourceDisksFiles.ARM]
-hall_kmd.sys  = 1,arm,
-
-[SourceDisksFiles.ARM64]
-hall_kmd.sys  = 1,arm64,
+[SourceDisksFiles]
+hall_kmd.sys  = 1,
 
 [Manufacturer]
-%Manufacturer_Name% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%hall_kmd.DeviceDesc% = hall_kmd_Device, ACPI\MSHW1015
+%Manufacturer_Name% = Standard,NTarm64
 
 [Standard.NTarm64]
 %hall_kmd.DeviceDesc% = hall_kmd_Device, ACPI\MSHW1015
@@ -35,18 +26,11 @@ hall_kmd.sys  = 1,arm64,
 ; Install Section
 ;*****************************************
 
-[hall_kmd_Device.NTarm]
-CopyFiles = Drivers_Dir_A32
-AddReg    = hall_kmd_Device.AddReg
-
 [hall_kmd_Device.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 AddReg    = hall_kmd_Device.AddReg
 
-[Drivers_Dir_A32]
-hall_kmd.sys,,,0x100
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 hall_kmd.sys,,,0x100
 
 [hall_kmd_Device.AddReg]
@@ -57,11 +41,8 @@ HKLM, "System\HallSensor", "Polarity", 0x00010001, 0
 HKLM, "System\HallSensor", "Disabled", 0x00010001, 0
 
 ;-------------- Service installation
-[hall_kmd_Device.NTarm.Services]
-AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_Service_Inst
-
 [hall_kmd_Device.NTarm64.Services]
-AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_Service_Inst.NTarm64
+AddService = %hall_kmd_service%,%SPSVCINST_ASSOCSERVICE%, hall_kmd_Service_Inst
 
 ; -------------- hall_kmd driver install sections
 [hall_kmd_Service_Inst]
@@ -69,22 +50,11 @@ DisplayName    = %hall_kmd.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\hall_kmd.sys
-LoadOrderGroup = Base
-
-[hall_kmd_Service_Inst.NTarm64]
-DisplayName    = %hall_kmd.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\hall_kmd.sys
+ServiceBinary  = %13%\hall_kmd.sys
 LoadOrderGroup = Base
 ;
 ;--- hall_kmd_Device Coinstaller installation ------
 ;
-
-[hall_kmd_Device.NTarm.Wdf]
-KmdfService =  hall_kmd, hall_kmd_wdfsect
 
 [hall_kmd_Device.NTarm64.Wdf]
 KmdfService =  hall_kmd, hall_kmd_wdfsect

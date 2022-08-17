@@ -16,52 +16,32 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}  ;{13891054-2FF4-4E78-8F2F-
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm = qcfmsltransport8994.arm.cat
-CatalogFile.NTarm64 = qcfmsltransport8994.arm64.cat
+CatalogFile = qcfmsltransport8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
 
-[SourceDisksFiles.ARM]
-qcfmsltransport8994.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-qcfmsltransport8994.sys = 1,arm64,
+[SourceDisksFiles]
+qcfmsltransport8994.sys = 1,
 
 [ControlFlags]
 ExcludeFromSelect = *
 
 [Manufacturer]
-%StdMfg% = VendorModels,NTarm,NTarm64
+%StdMfg% = VendorModels,NTarm64
 
 ;*****************************************
 ; Serial bus driver install Section
 ;*****************************************
 
-[VendorModels.NTarm]
-%Bus.DeviceDesc% = Bus_Vendor, ACPI\QCOM24B1
-
 [VendorModels.NTarm64]
 %Bus.DeviceDesc% = Bus_Vendor, ACPI\QCOM24B1
 
-[Bus_Vendor.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-
-[Bus_Vendor.NTarm.HW]
-AddReg = Bus_Vendor_NT.AddReg
-
-;-------------- Service installation
-[Bus_Vendor.NTarm.Services]
-AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
-
 [Bus_Vendor.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 
 [Bus_Vendor.NTarm64.HW]
@@ -69,14 +49,11 @@ AddReg = Bus_Vendor_NT.AddReg
 
 ;-------------- Service installation
 [Bus_Vendor.NTarm64.Services]
-AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst.NTarm64
+AddService = qcfmsltransport,%SPSVCINST_ASSOCSERVICE%, Bus_Service_Inst
 
 [WDTFSOCDeviceCategory]
 
-[Drivers_Dir_A32]
-qcfmsltransport8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcfmsltransport8994.sys
 
 [Bus_Vendor_NT.AddReg]
@@ -90,15 +67,7 @@ DisplayName   = %Bus.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcfmsltransport8994.sys
-AddReg        = WPPReg
-
-[Bus_Service_Inst.NTarm64]
-DisplayName   = %Bus.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcfmsltransport8994.sys
+ServiceBinary = %13%\qcfmsltransport8994.sys
 AddReg        = WPPReg
 
 [WPPReg]

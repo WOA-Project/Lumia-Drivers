@@ -20,70 +20,43 @@ ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcauddev8994.arm.cat
-CatalogFile.NTarm64 = qcauddev8994.arm64.cat
+CatalogFile = qcauddev8994.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-qcauddev8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcauddev8994.sys = 1,arm64
+[SourceDisksFiles]
+qcauddev8994.sys = 1,
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 ;*****************************************
 ; Audio Device Driver Install Section
 ;*****************************************
 
 [Manufacturer]
-%StdMfg% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%AUDD.DeviceDesc% = AUDIODEVICE,ADCM\QCOM242E
-%MBHC.DeviceDesc% = MBHC       ,AUDD\QCOM2468
+%StdMfg% = Standard,NTarm64
 
 [Standard.NTarm64]
 %AUDD.DeviceDesc% = AUDIODEVICE,ADCM\QCOM242E
 %MBHC.DeviceDesc% = MBHC       ,AUDD\QCOM2468
 
-[AUDIODEVICE.NTarm]
-CopyFiles = Drivers_Dir_A32
-
-[AUDIODEVICE.NTarm.HW]
-AddReg = AUDDSpkrProtReg,CPEPathReg
-
-[AUDIODEVICE.NTarm.Services]
-AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
-
-[MBHC.NTarm]
-
-[MBHC.NTarm.Services]
-AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
-
 [AUDIODEVICE.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
 [AUDIODEVICE.NTarm64.HW]
 AddReg = AUDDSpkrProtReg,CPEPathReg
 
 [AUDIODEVICE.NTarm64.Services]
-AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst.NTarm64
+AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
 
 [MBHC.NTarm64]
 
 [MBHC.NTarm64.Services]
-AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst.NTarm64
+AddService = qcauddev,%SPSVCINST_ASSOCSERVICE%,AUDD_Service_Inst
 
-[Drivers_Dir_A32]
-qcauddev8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcauddev8994.sys
 
 ; -------------- AUDD driver install sections
@@ -92,15 +65,7 @@ DisplayName    = %AUDD.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\qcauddev8994.sys
-LoadOrderGroup = Extended Base
-
-[AUDD_Service_Inst.NTarm64]
-DisplayName    = %AUDD.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\qcauddev8994.sys
+ServiceBinary  = %13%\qcauddev8994.sys
 LoadOrderGroup = Extended Base
 
 [AUDDSpkrProtReg]

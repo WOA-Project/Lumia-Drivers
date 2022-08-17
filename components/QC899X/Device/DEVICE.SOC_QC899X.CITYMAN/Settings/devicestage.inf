@@ -8,9 +8,7 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 08/18/2021,1.0.0.1
 PnpLockdown = 1
-
-CatalogFile.NTarm   = devicestage.arm.cat
-CatalogFile.NTarm64 = devicestage.arm64.cat
+CatalogFile = devicestage.cat
 
 [DestinationDirs]
 Drivers_Dir_24 = 24,ProgramData\Microsoft\Windows\DeviceMetadataStore\EN-US
@@ -20,9 +18,6 @@ Drivers_Dir_24 = 24,ProgramData\Microsoft\Windows\DeviceMetadataStore\EN-US
 
 [SourceDisksFiles]
 d03957ff-526f-40a2-a191-f987182046bd.devicemetadata-ms = 1,,
-
-[DefaultInstall.NTarm]
-CopyFiles = Drivers_Dir_24
 
 [DefaultInstall.NTarm64]
 CopyFiles = Drivers_Dir_24

@@ -17,54 +17,33 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qcremoteat8994.arm.cat
-CatalogFile.NTarm64 = qcremoteat8994.arm64.cat
+CatalogFile = qcremoteat8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
 
-[SourceDisksFiles.ARM]
-qcremoteat8994.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-qcremoteat8994.sys = 1,arm64,
+[SourceDisksFiles]
+qcremoteat8994.sys = 1,
 
 [Manufacturer]
-%QCOM% = QCOM, NTarm, NTarm64
-
-[QCOM.NTarm]
-%RemoteAt.DeviceDesc% = RemoteAt_Device, ACPI\QCOM2155
+%QCOM% = QCOM, NTarm64
 
 [QCOM.NTarm64]
 %RemoteAt.DeviceDesc% = RemoteAt_Device, ACPI\QCOM2155
 
-[RemoteAt_Device.NTarm]
-CopyFiles = Drivers_Dir_A32
-
-[RemoteAt_Device.NTarm.Wdf]
-KmdfService = RemoteAt, RemoteAt_wdfsect
-
-[RemoteAt_Device.NTarm.Services]
-AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst
-
 [RemoteAt_Device.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
 [RemoteAt_Device.NTarm64.Wdf]
 KmdfService = RemoteAt, RemoteAt_wdfsect
 
 [RemoteAt_Device.NTarm64.Services]
-AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst.NTarm64
+AddService = RemoteAt,%SPSVCINST_ASSOCSERVICE%, RemoteAt_Service_Inst
 
-[Drivers_Dir_A32]
-qcremoteat8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcremoteat8994.sys
 
 ; -------------- RemoteAt driver install sections
@@ -73,16 +52,7 @@ DisplayName    = %RemoteAt.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\qcremoteat8994.sys
-LoadOrderGroup = Extended Base
-
-; -------------- RemoteAt driver install sections
-[RemoteAt_Service_Inst.NTarm64]
-DisplayName    = %RemoteAt.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\qcremoteat8994.sys
+ServiceBinary  = %13%\qcremoteat8994.sys
 LoadOrderGroup = Extended Base
 
 [RemoteAt_wdfsect]

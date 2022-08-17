@@ -8,9 +8,7 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-
-CatalogFile.NTarm   = NullResources.arm.cat
-CatalogFile.NTarm64 = NullResources.arm64.cat
+CatalogFile = NullResources.cat
 
 [DestinationDirs]
 NullResources.Files = 10,OEM\Drivers
@@ -18,18 +16,10 @@ NullResources.Files = 10,OEM\Drivers
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles.ARM]
-qcmbbnull.cat_ = 0,arm,
-qcmbbnull.inf_ = 0,arm,
-qcmbbnull.sys = 0,arm,
-
-[SourceDisksFiles.ARM64]
-qcmbbnull.cat_ = 0,arm64,
-qcmbbnull.inf_ = 0,arm64,
-qcmbbnull.sys = 0,arm64,
-
-[DefaultInstall.NTarm]
-CopyFiles = NullResources.Files
+[SourceDisksFiles]
+qcmbbnull.cat_ = 0,
+qcmbbnull.inf_ = 0,
+qcmbbnull.sys = 0,
 
 [DefaultInstall.NTarm64]
 CopyFiles = NullResources.Files

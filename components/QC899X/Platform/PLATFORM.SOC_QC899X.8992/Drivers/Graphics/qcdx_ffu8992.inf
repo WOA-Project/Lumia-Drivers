@@ -6,15 +6,10 @@ Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5D}
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qcdx_ffu8992.arm.cat
-CatalogFile.NTarm64 = qcdx_ffu8992.arm64.cat
+CatalogFile = qcdx_ffu8992.cat
 
 [Manufacturer]
-%QC% = DeviceExtensions,NTarm,NTarm64
-
-[DeviceExtensions.NTarm]
-%QC_Device% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_246F
+%QC% = DeviceExtensions,NTarm64
 
 [DeviceExtensions.NTarm64]
 %QC_Device% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_246F

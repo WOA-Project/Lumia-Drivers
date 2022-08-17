@@ -17,56 +17,34 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcrmnetbridge8994.arm.cat
-CatalogFile.NTarm64 = qcrmnetbridge8994.arm64.cat
+CatalogFile = qcrmnetbridge8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
 
-[SourceDisksFiles.ARM]
-qcrmnetbridge8994.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-qcrmnetbridge8994.sys = 1,arm64,
+[SourceDisksFiles]
+qcrmnetbridge8994.sys = 1,
 
 [Manufacturer]
-%QCOM% = QCOM, NTarm, NTarm64
-
-[QCOM.NTarm]
-%RMNBRG.DeviceDesc% = RMNBRG_Device, ACPI\QCOM2148
+%QCOM% = QCOM, NTarm64
 
 [QCOM.NTarm64]
 %RMNBRG.DeviceDesc% = RMNBRG_Device, ACPI\QCOM2148
 
-[RMNBRG_Device.NTarm]
-CopyFiles = Drivers_Dir_A32
-
-;-------------- Service installation
-[RMNBRG_Device.NTarm.Services]
-AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst
-
-[RMNBRG_Device.NTarm.Wdf]
-KmdfService = RMNBRG, RMNBRG_wdfsect
-
 [RMNBRG_Device.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
 ;-------------- Service installation
 [RMNBRG_Device.NTarm64.Services]
-AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst.NTarm64
+AddService = RMNBRG,%SPSVCINST_ASSOCSERVICE%, RMNBRG_Service_Inst
 
 [RMNBRG_Device.NTarm64.Wdf]
 KmdfService = RMNBRG, RMNBRG_wdfsect
 
-[Drivers_Dir_A32]
-qcrmnetbridge8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcrmnetbridge8994.sys
 
 ; -------------- rmnetbridge driver install sections
@@ -75,15 +53,7 @@ DisplayName    = %RMNBRG.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\qcrmnetbridge8994.sys
-LoadOrderGroup = Extended Base
-
-[RMNBRG_Service_Inst.NTarm64]
-DisplayName    = %RMNBRG.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\qcrmnetbridge8994.sys
+ServiceBinary  = %13%\qcrmnetbridge8994.sys
 LoadOrderGroup = Extended Base
 
 [RMNBRG_wdfsect]

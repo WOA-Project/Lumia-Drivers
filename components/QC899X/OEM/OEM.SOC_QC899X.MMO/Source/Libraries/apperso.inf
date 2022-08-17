@@ -8,9 +8,7 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
 DriverVer   = 03/18/2021,1.0.1047.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = APPerso.arm.cat
-CatalogFile.NTarm64 = APPerso.arm64.cat
+CatalogFile = APPerso.cat
 
 [DestinationDirs]
 APPerso.Files = 11
@@ -19,27 +17,16 @@ APPerso.Files.NTarm64 = 11
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles.ARM]
-apperso.dll              = 0,arm,
-LUVCR120.dll              = 0,arm,
-LUVCP120.dll              = 0,arm,
-
-[SourceDisksFiles.ARM64]
-apperso.dll              = 0,arm64,
-LAVCR120.dll              = 0,arm64,
-LAVCP120.dll              = 0,arm64,
+[SourceDisksFiles]
+apperso.dll              = 0,
+LAVCR120.dll              = 0,
+LAVCP120.dll              = 0,
 
 [Manufacturer]
-%IHV% = IHV,NTarm,NTarm64
-
-[IHV.NTarm]
-%APPerso.DeviceDesc% = APPerso, SWC\VID_QCOM&PID_0EA0&SID_00A1
+%IHV% = IHV,NTarm64
 
 [IHV.NTarm64]
 %APPerso.DeviceDesc% = APPerso, SWC\VID_QCOM&PID_0EA0&SID_00A1
-
-[APPerso.NTarm]
-CopyFiles = APPerso.Files
 
 [APPerso.NTarm64]
 CopyFiles = APPerso.Files.NTarm64

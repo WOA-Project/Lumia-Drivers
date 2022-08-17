@@ -19,55 +19,34 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcadsprpc8994.arm.cat
-CatalogFile.NTarm64 = qcadsprpc8994.arm64.cat
+CatalogFile = qcadsprpc8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-qcadsprpc8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcadsprpc8994.sys = 1,arm64
+[SourceDisksFiles]
+qcadsprpc8994.sys = 1,
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]                           ; NTarm is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
-%ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
+%QC% = QC,NTarm64
 
 [QC.NTarm64]                         ; NTarm64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
 %ADSPRPC.DeviceDesc% = ADSPRPC_Device, ACPI\QCOM248A
 
-[ADSPRPC_Device.NTarm]
-CopyFiles = Drivers_Dir_A32
-
 [ADSPRPC_Device.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
 [ControlFlags]
 ExcludeFromSelect = *
 
-[Drivers_Dir_A32]
+[Drivers_Dir]
 qcadsprpc8994.sys
-
-[Drivers_Dir_A64]
-qcadsprpc8994.sys
-
-[ADSPRPC_Device.NTarm.Services]
-AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_Service_Inst
-
-[ADSPRPC_Device.NTarm.Wdf]
-KmdfService = QCADSPRPC, ADSPRPC_Service_kmdfInst
 
 [ADSPRPC_Device.NTarm64.Services]
-AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_Service_Inst.NTarm64
+AddService = QCADSPRPC,%SPSVCINST_ASSOCSERVICE%, ADSPRPC_Service_Inst
 
 [ADSPRPC_Device.NTarm64.Wdf]
 KmdfService = QCADSPRPC, ADSPRPC_Service_kmdfInst
@@ -81,15 +60,7 @@ DisplayName    = %ADSPRPC.SvcDesc%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\qcadsprpc8994.sys
-LoadOrderGroup = Extended Base
-
-[ADSPRPC_Service_Inst.NTarm64]
-DisplayName    = %ADSPRPC.SvcDesc%
-ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
-StartType      = 3                  ; SERVICE_DEMAND_START
-ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\qcadsprpc8994.sys
+ServiceBinary  = %13%\qcadsprpc8994.sys
 LoadOrderGroup = Extended Base
 
 [Strings]

@@ -5,30 +5,24 @@ ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %ProviderName%
 DriverVer   = 03/18/2021,12.55.5.110
 PnpLockdown = 1
-
-CatalogFile.NTarm   = icaros_cam_esp.arm.cat
-CatalogFile.NTarm64 = icaros_cam_esp.arm64.cat
+CatalogFile = icaros_cam_esp.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 ; ================= Class section =====================
 [SourceDisksNames]
 0 = %Desc_x860%
 
-[SourceDisksFiles.ARM]
-icaros_cam_esp.sys = 0,arm,
-
-[SourceDisksFiles.ARM64]
-icaros_cam_esp.sys = 0,arm64,
+[SourceDisksFiles]
+icaros_cam_esp.sys = 0,
 
 ;*****************************************
 ; Camera Sensor  Install Section
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = MMO, NTarm, NTarm64
+%ManufacturerName% = MMO, NTarm64
 
 ; Following section is meant for Windows 2000 as it
 ; cannot parse decorated model sections
@@ -37,32 +31,17 @@ icaros_cam_esp.sys = 0,arm64,
 ;
 ; Decorated model section take precedence over undecorated
 ; ones on XP and later.
-[MMO.NTarm]
-%CameraESP.DeviceDesc% = CameraESP_Device, ACPI\MSHW1010
-
 [MMO.NTarm64]
 %CameraESP.DeviceDesc% = CameraESP_Device, ACPI\MSHW1010
 
-[CameraESP_Device.NTarm]
-CopyFiles       = Drivers_Dir_A32
-AddPowerSetting = Temperature_Power_Setting
-SubClass        = StillImage
-AddReg          = CameraESP_Device_Security_Reg
-
 [CameraESP_Device.NTarm64]
-CopyFiles       = Drivers_Dir_A64
+CopyFiles       = Drivers_Dir
 AddPowerSetting = Temperature_Power_Setting
 SubClass        = StillImage
 AddReg          = CameraESP_Device_Security_Reg
 
-[Drivers_Dir_A32]
+[Drivers_Dir]
 icaros_cam_esp.sys
-
-[Drivers_Dir_A64]
-icaros_cam_esp.sys
-
-[CameraESP_Device.NTarm.HW]
-AddReg = CameraESP_Device_Security_Reg
 
 [CameraESP_Device.NTarm64.HW]
 AddReg = CameraESP_Device_Security_Reg
@@ -71,26 +50,16 @@ AddReg = CameraESP_Device_Security_Reg
 HKR,, DeviceCharacteristics, 0x10001, 0x100
 
 ;-------------- Service installation
-[CameraESP_Device.NTarm.Services]
-AddService = CameraESP, %SPSVCINST_ASSOCSERVICE%, CameraESP_Service_Inst.NTarm
-
 [CameraESP_Device.NTarm64.Services]
-AddService = CameraESP, %SPSVCINST_ASSOCSERVICE%, CameraESP_Service_Inst.NTarm64
+AddService = CameraESP, %SPSVCINST_ASSOCSERVICE%, CameraESP_Service_Inst
 
 ; -------------- CameraESP driver install sections
-[CameraESP_Service_Inst.NTarm]
+[CameraESP_Service_Inst]
 DisplayName    = %CameraESP.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 1               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\icaros_cam_esp.sys
-
-[CameraESP_Service_Inst.NTarm64]
-DisplayName    = %CameraESP.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 1               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\icaros_cam_esp.sys
+ServiceBinary  = %13%\icaros_cam_esp.sys
 
 [Temperature_Power_Setting]
 SubGroup   = {7D54AE13-7A01-469d-8AF3-6FF4662C5371}

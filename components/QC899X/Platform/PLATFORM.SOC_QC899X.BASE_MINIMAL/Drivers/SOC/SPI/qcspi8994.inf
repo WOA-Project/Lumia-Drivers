@@ -9,31 +9,22 @@ ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %Manufacturer_Name%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcspi8994.arm.cat
-CatalogFile.NTarm64 = qcspi8994.arm64.cat
+CatalogFile = qcspi8994.cat
 
 [SourceDisksNames]
 1 = %Disk_Description%
 
-[SourceDisksFiles.ARM]
-qcspi8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcspi8994.sys = 1,arm64
+[SourceDisksFiles]
+qcspi8994.sys = 1,
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
 
 [Manufacturer]
-%Manufacturer_Name% = Qualcomm_Models, NTarm, NTarm64
-
-[Qualcomm_Models.NTarm]
-%Device_Description% = SPI_Install, ACPI\QCOM240C
+%Manufacturer_Name% = Qualcomm_Models, NTarm64
 
 [Qualcomm_Models.NTarm64]
 %Device_Description% = SPI_Install, ACPI\QCOM240C
@@ -44,14 +35,11 @@ AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 [SPI_Install.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Drivers_Dir_A32]
-qcspi8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcspi8994.sys
 
 [WDTFSOCDeviceCategory]
@@ -63,20 +51,12 @@ AddService = qcspi, 0x00000002, SPI_Service_Install
 [SPI_Install.NTarm64.Services]
 AddService = qcspi, 0x00000002, SPI_Service_Install.NTarm64
 
-[SPI_Service_Install]
-DisplayName   = %Service_Name%
-ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
-StartType     = 3 ; SERVICE_DEMAND_START
-ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcspi8994.sys
-Dependencies  = SpbCx
-
 [SPI_Service_Install.NTarm64]
 DisplayName   = %Service_Name%
 ServiceType   = 1 ; SERVICE_KERNEL_DRIVER
 StartType     = 3 ; SERVICE_DEMAND_START
 ErrorControl  = 1 ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcspi8994.sys
+ServiceBinary = %13%\qcspi8994.sys
 Dependencies  = SpbCx
 
 [SPI_Install.Wdf]

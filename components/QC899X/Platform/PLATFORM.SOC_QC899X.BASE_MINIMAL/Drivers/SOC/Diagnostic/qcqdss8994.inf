@@ -18,22 +18,16 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcqdss8994.arm.cat
-CatalogFile.NTarm64 = qcqdss8994.arm64.cat
+CatalogFile = qcqdss8994.cat
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-qcqdss8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcqdss8994.sys = 1,arm64
+[SourceDisksFiles]
+qcqdss8994.sys = 1,
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -42,44 +36,27 @@ ExcludeFromSelect = *
 ; QDSS Install Section
 ;*****************************************
 [Manufacturer]
-%Qualcomm% = Standard,NTarm, NTarm64
-
-[Standard.NTarm]
-%QDSS.DeviceDesc% = QDSS_Device, ACPI\QCOM247D
+%Qualcomm% = Standard, NTarm64
 
 [Standard.NTarm64]
 %QDSS.DeviceDesc% = QDSS_Device, ACPI\QCOM247D
 
-[QDSS_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
 [QDSS_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[Drivers_Dir_A32]
-qcqdss8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcqdss8994.sys
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
 ;-------------- Service installation
-[QDSS_Device.NTarm.Services]
+[QDSS_Device.NTarm64.Services]
 AddService = qcQDSS,%SPSVCINST_ASSOCSERVICE%, QDSS_Service_Inst
 
-[QDSS_Device.NTarm64.Services]
-AddService = qcQDSS,%SPSVCINST_ASSOCSERVICE%, QDSS_Service_Inst.NTarm64
-
 ;-------------- HW installation
-[QDSS_Device.NTarm.HW]
-addreg = QDSSSD
-
 [QDSS_Device.NTarm64.HW]
 addreg = QDSSSD
 
@@ -93,16 +70,7 @@ ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_BOOT_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
 LoadOrderGroup = Base
-ServiceBinary  = %13%\arm\qcqdss8994.sys
-addreg         = QDSSCONFIG
-
-[QDSS_Service_Inst.NTarm64]
-DisplayName    = %QDSS.SvcDesc%
-ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_BOOT_START%
-ErrorControl   = %SERVICE_ERROR_NORMAL%
-LoadOrderGroup = Base
-ServiceBinary  = %13%\arm64\qcqdss8994.sys
+ServiceBinary  = %13%\qcqdss8994.sys
 addreg         = QDSSCONFIG
 
 [QDSSCONFIG]
@@ -226,8 +194,6 @@ HKR, Parameters\Dump\QDSS\TimeStamp       , Interrupt              , 0x00010001,
 HKR, Parameters\Dump\QDSS\TimeStamp       , dumpInterval           , 0x00010001, 0
 
 ; Checks for compatibility with KMDF version
-[QDSS_Device.NTarm.Wdf]
-KmdfService = qcQDSS, QDSS_wdfsect
 [QDSS_Device.NTarm64.Wdf]
 KmdfService = qcQDSS, QDSS_wdfsect
 [QDSS_wdfsect]

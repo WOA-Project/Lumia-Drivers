@@ -17,22 +17,16 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %COMP%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnPLockdown = 1
-
-CatalogFile.NTarm   = qcpmic3p8994.arm.cat
-CatalogFile.NTarm64 = qcpmic3p8994.arm64.cat
+CatalogFile = qcpmic3p8994.cat
 
 [SourceDisksNames]
 1 = %DiskId%
 
-[SourceDisksFiles.ARM]
-qcpmic3p8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcpmic3p8994.sys = 1,arm64
+[SourceDisksFiles]
+qcpmic3p8994.sys = 1,
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -42,61 +36,37 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = Qualcomm,NTarm,NTarm64
-
-[Qualcomm.NTarm]
-%DeviceDesc% = qcpmic3p_Inst,ACPI\QCOM2456
+%COMP% = Qualcomm,NTarm64
 
 [Qualcomm.NTarm64]
 %DeviceDesc% = qcpmic3p_Inst,ACPI\QCOM2456
 
-[qcpmic3p_Inst.NTarm]
-Copyfiles   = Drivers_Dir_A32
+[qcpmic3p_Inst]
+Copyfiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
-[qcpmic3p_Inst.NTarm64]
-Copyfiles   = Drivers_Dir_A64
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
-[qcpmic3p_Inst.NTarm.HW]
-Addreg = PMICPACL
-
-[qcpmic3p_Inst.NTarm64.HW]
+[qcpmic3p_Inst.HW]
 Addreg = PMICPACL
 
 [PMICPACL]
 HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
 
-[Drivers_Dir_A32]
-qcpmic3p8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcpmic3p8994.sys
 
 [WDTFSOCDeviceCategory]
 {5D078032-6378-437B-8DA5-9B32B7CA3FDD}, 2, 7,, 2
 
-[qcpmic3p_Inst.NTarm.Services]
+[qcpmic3p_Inst.Services]
 AddService = qcpmic3p,%SPSVCINST_ASSOCSERVICE%,qcpmic3p_Service_Inst
-
-[qcpmic3p_Inst.NTarm64.Services]
-AddService = qcpmic3p,%SPSVCINST_ASSOCSERVICE%,qcpmic3p_Service_Inst.NTarm64
 
 [qcpmic3p_Service_Inst]
 DisplayName   = %qcpmic3p.SvcDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %13%\arm\qcpmic3p8994.sys
-
-[qcpmic3p_Service_Inst.NTarm64]
-DisplayName   = %qcpmic3p.SvcDesc%
-ServiceType   = %SERVICE_KERNEL_DRIVER%
-StartType     = %SERVICE_DEMAND_START%
-ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %13%\arm64\qcpmic3p8994.sys
+ServiceBinary = %13%\qcpmic3p8994.sys
 
 [Strings]
 ;Localizable Strings

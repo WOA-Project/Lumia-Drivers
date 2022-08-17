@@ -5,13 +5,10 @@ ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %VendorName%
 DriverVer   = 03/18/2021,1.0.1078.0056
 PnpLockdown = 1
-
-CatalogFile.NTarm   = SscAlgorithmBridge.arm.cat
-CatalogFile.NTarm64 = SscAlgorithmBridge.arm64.cat
+CatalogFile = SscAlgorithmBridge.cat
 
 [DestinationDirs]
-Drivers_Dir_A32     = 13,arm
-Drivers_Dir_A64     = 13,arm64
+Drivers_Dir     = 13,
 UserModeCopyFiles   = 11
 UserModeCopyFiles64 = 11
 
@@ -19,13 +16,7 @@ UserModeCopyFiles64 = 11
 ExcludeFromSelect=*
 
 [Manufacturer]
-%ManufacturerName% = MMO,NTarm,NTarm64
-
-[MMO.NTarm]
-%ACT.DeviceDesc% = Activity_Inst,ACPI\MSHW101C
-%STEP.DeviceDesc% = Step_Inst,ACPI\MSHW101D
-%GES.DeviceDesc% = Gesture_Inst,ACPI\MSHW101E
-%SAC.DeviceDesc% = Control_Inst,ACPI\MSHW101F
+%ManufacturerName% = MMO,NTarm64
 
 [MMO.NTarm64]
 %ACT.DeviceDesc% = Activity_Inst,ACPI\MSHW101C
@@ -37,52 +28,28 @@ ExcludeFromSelect=*
 ; File copy
 ;---------------------------------------------------------------------------
 
-[Activity_Inst.NTarm]
-Copyfiles=Drivers_Dir_A32,UserModeCopyFiles
+[Activity_Inst]
+Copyfiles=Drivers_Dir,UserModeCopyFiles64
 
-[Activity_Inst.NTarm.HW]
+[Activity_Inst.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
-[Step_Inst.NTarm]
-Copyfiles=Drivers_Dir_A32,UserModeCopyFiles
+[Step_Inst]
+Copyfiles=Drivers_Dir,UserModeCopyFiles64
 
-[Step_Inst.NTarm.HW]
+[Step_Inst.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
-[Gesture_Inst.NTarm]
-Copyfiles=Drivers_Dir_A32,UserModeCopyFiles
+[Gesture_Inst]
+Copyfiles=Drivers_Dir,UserModeCopyFiles64
 
-[Gesture_Inst.NTarm.HW]
+[Gesture_Inst.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
-[Control_Inst.NTarm]
-Copyfiles=Drivers_Dir_A32,UserModeCopyFiles
+[Control_Inst]
+Copyfiles=Drivers_Dir,UserModeCopyFiles64
 
-[Control_Inst.NTarm.HW]
-AddReg = Sensor_Inst_SecurityAddReg
-
-[Activity_Inst.NTarm64]
-Copyfiles=Drivers_Dir_A64,UserModeCopyFiles64
-
-[Activity_Inst.NTarm64.HW]
-AddReg = Sensor_Inst_SecurityAddReg
-
-[Step_Inst.NTarm64]
-Copyfiles=Drivers_Dir_A64,UserModeCopyFiles64
-
-[Step_Inst.NTarm64.HW]
-AddReg = Sensor_Inst_SecurityAddReg
-
-[Gesture_Inst.NTarm64]
-Copyfiles=Drivers_Dir_A64,UserModeCopyFiles64
-
-[Gesture_Inst.NTarm64.HW]
-AddReg = Sensor_Inst_SecurityAddReg
-
-[Control_Inst.NTarm64]
-Copyfiles=Drivers_Dir_A64,UserModeCopyFiles64
-
-[Control_Inst.NTarm64.HW]
+[Control_Inst.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 [Sensor_Inst_SecurityAddReg]
@@ -90,11 +57,7 @@ HKR,,DeviceCharacteristics,0x10001,0x00000100       ; FILE_DEVICE_SECURE_OPEN
 HKR,,Security,,"D:P(A;;GR;;;BA)(A;;GR;;;SY)(A;;GR;;;S-1-5-84-0-0-0-0-0)" ; DACL to allow generic-read access to built-in
                                                                          ; Admin group, System, and UMDF drivers.
 
-[Drivers_Dir_A32]
-SscAlgorithmBridge8994.dll
-LUVCR120.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 SscAlgorithmBridge8994.dll
 concrt140.dll
 msvcp140.dll
@@ -119,50 +82,30 @@ vcruntime140.dll
 [SourceDisksNames]
 1 = %Installation_Disk%,,,""
 
-[SourceDisksFiles.ARM]
-SscAlgorithmBridge8994.dll = 1,arm,
-LumiaActivityDetectionV2.dll = 1,arm,
-LUVCR120.dll = 1,arm,
-LumiaGestureRecognition.dll = 1,arm,
-LumiaSensorAlgorithmControl.dll = 1,arm,
-LumiaStepCounterV2.dll = 1,arm,
-
-[SourceDisksFiles.ARM64]
-SscAlgorithmBridge8994.dll = 1,arm64,
-LumiaActivityDetectionV2.dll = 1,arm64,
-LumiaGestureRecognition.dll = 1,arm64,
-LumiaSensorAlgorithmControl.dll = 1,arm64,
-LumiaStepCounterV2.dll = 1,arm64,
-concrt140.dll=1,arm64,
-msvcp140.dll=1,arm64,
-vcruntime140.dll= 1,arm64,
+[SourceDisksFiles]
+SscAlgorithmBridge8994.dll = 1,
+LumiaActivityDetectionV2.dll = 1,
+LumiaGestureRecognition.dll = 1,
+LumiaSensorAlgorithmControl.dll = 1,
+LumiaStepCounterV2.dll = 1,
+concrt140.dll=1,
+msvcp140.dll=1,
+vcruntime140.dll= 1,
 
 ;---------------------------------------------------------------------------
 ; Service installation
 ;---------------------------------------------------------------------------
 
-[Activity_Inst.NTarm.Services]
+[Activity_Inst.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
-[Step_Inst.NTarm.Services]
+[Step_Inst.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
-[Gesture_Inst.NTarm.Services]
+[Gesture_Inst.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
-[Control_Inst.NTarm.Services]
-AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
-
-[Activity_Inst.NTarm64.Services]
-AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
-
-[Step_Inst.NTarm64.Services]
-AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
-
-[Gesture_Inst.NTarm64.Services]
-AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
-
-[Control_Inst.NTarm64.Services]
+[Control_Inst.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [WUDFRD_ServiceInstall]
@@ -176,69 +119,37 @@ ServiceBinary = %12%\WUDFRd.sys
 ; WDF
 ;---------------------------------------------------------------------------
 
-[Activity_Inst.NTarm.Wdf]
-UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install
-UmdfServiceOrder         = MmoSscBridgeService
-UmdfDirectHardwareAccess = RejectDirectHardwareAccess
-UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
-UmdfFsContextUsePolicy   = CannotUseFsContexts
-
-[Step_Inst.NTarm.Wdf]
-UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install
-UmdfServiceOrder         = MmoSscBridgeService
-UmdfDirectHardwareAccess = RejectDirectHardwareAccess
-UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
-UmdfFsContextUsePolicy   = CannotUseFsContexts
-
-[Gesture_Inst.NTarm.Wdf]
-UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install
-UmdfServiceOrder         = MmoSscBridgeService
-UmdfDirectHardwareAccess = RejectDirectHardwareAccess
-UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
-UmdfFsContextUsePolicy   = CannotUseFsContexts
-
-[Control_Inst.NTarm.Wdf]
-UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install
-UmdfServiceOrder         = MmoSscBridgeService
-UmdfDirectHardwareAccess = RejectDirectHardwareAccess
-UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
-UmdfFsContextUsePolicy   = CannotUseFsContexts
-
-[Activity_Inst.NTarm64.Wdf]
+[Activity_Inst.Wdf]
 UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install.NTarm64
 UmdfServiceOrder         = MmoSscBridgeService
 UmdfDirectHardwareAccess = RejectDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfFsContextUsePolicy   = CannotUseFsContexts
 
-[Step_Inst.NTarm64.Wdf]
+[Step_Inst.Wdf]
 UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install.NTarm64
 UmdfServiceOrder         = MmoSscBridgeService
 UmdfDirectHardwareAccess = RejectDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfFsContextUsePolicy   = CannotUseFsContexts
 
-[Gesture_Inst.NTarm64.Wdf]
+[Gesture_Inst.Wdf]
 UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install.NTarm64
 UmdfServiceOrder         = MmoSscBridgeService
 UmdfDirectHardwareAccess = RejectDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfFsContextUsePolicy   = CannotUseFsContexts
 
-[Control_Inst.NTarm64.Wdf]
+[Control_Inst.Wdf]
 UmdfService              = MmoSscBridgeService, MmoSscBridgeService_Install.NTarm64
 UmdfServiceOrder         = MmoSscBridgeService
 UmdfDirectHardwareAccess = RejectDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfFsContextUsePolicy   = CannotUseFsContexts
-
-[MmoSscBridgeService_Install]
-UmdfLibraryVersion       = 2.15.0
-ServiceBinary            = %13%\arm\SscAlgorithmBridge8994.dll
 
 [MmoSscBridgeService_Install.NTarm64]
 UmdfLibraryVersion       = 2.15.0
-ServiceBinary            = %13%\arm64\SscAlgorithmBridge8994.dll
+ServiceBinary            = %13%\SscAlgorithmBridge8994.dll
 
 [Strings]
 VendorName               = "MMO"

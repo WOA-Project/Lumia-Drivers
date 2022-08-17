@@ -20,9 +20,7 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QCOM%
 DriverVer   = 03/18/2021,2.3.0.6
 PnpLockdown = 1
-
-CatalogFile.NTarm   = cityman_qcbtuart8994.arm.cat
-CatalogFile.NTarm64 = cityman_qcbtuart8994.arm64.cat
+CatalogFile = cityman_qcbtuart8994.cat
 
 [DestinationDirs]
 Drivers_Dir_24 = 12
@@ -35,9 +33,6 @@ nvm_tlv_3.0.bin      = 1,,
 nvm_tlv_3.2.bin      = 1,,
 rampatch_tlv_3.0.tlv = 1,,
 rampatch_tlv_3.2.tlv = 1,,
-
-[DefaultInstall.NTarm]
-CopyFiles = Drivers_Dir_24
 
 [DefaultInstall.NTarm64]
 CopyFiles = Drivers_Dir_24

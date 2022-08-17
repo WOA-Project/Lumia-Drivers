@@ -8,54 +8,36 @@ ClassGUID = {36FC9E60-C465-11CF-8056-444553540000}
 Provider  = %ProviderName%
 DriverVer = 10/14/2021,12.21.0.313
 PnpLockdown = 1
-
-CatalogFile.NTarm   = ice5lp_2k.arm.cat
-CatalogFile.NTarm64 = ice5lp_2k.arm64.cat
+CatalogFile = ice5lp_2k.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
 
-[SourceDisksFiles.ARM]
-ice5lp_2k.sys  = 1,arm,
-
-[SourceDisksFiles.ARM64]
-ice5lp_2k.sys  = 1,arm64,
+[SourceDisksFiles]
+ice5lp_2k.sys  = 1,
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard, NTarm, NTarm64
-
-[Standard.NTarm]
-%ice5lp_2k.DeviceDesc% = ice5lp_2k_Device, ACPI\MSHW1006
+%ManufacturerName% = Standard, NTarm64
 
 [Standard.NTarm64]
 %ice5lp_2k.DeviceDesc% = ice5lp_2k_Device, ACPI\MSHW1006
 
-[ice5lp_2k_Device.NTarm]
-CopyFiles = Drivers_Dir_A32
-
 [ice5lp_2k_Device.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
-[Drivers_Dir_A32]
-ice5lp_2k.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 ice5lp_2k.sys
 
 ;-------------- Service installation
-[ice5lp_2k_Device.NTarm.Services]
-AddService = ice5lp_2k, %SPSVCINST_ASSOCSERVICE%, ice5lp_2k_Service_Inst
-
 [ice5lp_2k_Device.NTarm64.Services]
-AddService = ice5lp_2k, %SPSVCINST_ASSOCSERVICE%, ice5lp_2k_Service_Inst.NTarm64
+AddService = ice5lp_2k, %SPSVCINST_ASSOCSERVICE%, ice5lp_2k_Service_Inst
 
 ; -------------- ice5lp_2k driver install sections
 [ice5lp_2k_Service_Inst]
@@ -63,23 +45,12 @@ DisplayName    = %ice5lp_2k.SvcDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\ice5lp_2k.sys
-LoadOrderGroup = Extended Base
-
-[ice5lp_2k_Service_Inst.NTarm64]
-DisplayName    = %ice5lp_2k.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 3               ; SERVICE_DEMAND_START
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\ice5lp_2k.sys
+ServiceBinary  = %13%\ice5lp_2k.sys
 LoadOrderGroup = Extended Base
 
 ;
 ;--- ice5lp_2k_Device Coinstaller installation ------
 ;
-[ice5lp_2k_Device.NTarm.Wdf]
-KmdfService = ice5lp_2k, ice5lp_2k_wdfsect
-
 [ice5lp_2k_Device.NTarm64.Wdf]
 KmdfService = ice5lp_2k, ice5lp_2k_wdfsect
 

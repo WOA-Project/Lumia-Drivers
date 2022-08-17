@@ -17,15 +17,13 @@ provider    = %QCOM%
 ;ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F4E}
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = hapanero_qcaud8994.arm.cat
-CatalogFile.NTarm64 = hapanero_qcaud8994.arm64.cat
+CatalogFile = hapanero_qcaud8994.cat
 
 [SourceDisksNames]
 222 = %DiskId%
 
 ;[Manufacturer]
-;%MfgName% = DeviceExtensions,NTarm,NTarm64
+;%MfgName% = DeviceExtensions,NTarm64
 
 ;[DeviceExtensions.NTarm]
 ;%QCAUD_A.DeviceDesc% = DeviceExtension_Install, AUDD\QCOM2451
@@ -37,9 +35,6 @@ CatalogFile.NTarm64 = hapanero_qcaud8994.arm64.cat
 
 ;[DeviceExtension_Install.HW]
 ;Addreg = QCAUD.AddReg.Service
-
-[DefaultInstall.NTarm]
-Addreg = QCAUD.AddReg.Service
 
 [DefaultInstall.NTarm64]
 Addreg = QCAUD.AddReg.Service

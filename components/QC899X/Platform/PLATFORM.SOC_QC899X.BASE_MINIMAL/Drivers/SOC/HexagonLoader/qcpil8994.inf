@@ -17,22 +17,16 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
 DriverVer   = 03/18/2021,1.1.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcpil8994.arm.cat
-CatalogFile.NTarm64 = qcpil8994.arm64.cat
+CatalogFile = qcpil8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-qcpil8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcpil8994.sys = 1,arm64
+[SourceDisksFiles]
+qcpil8994.sys = 1,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -42,30 +36,18 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%Qualcomm% = QC,NTarm,NTarm64
-
-[QC.NTarm]
-%PIL.DeviceDesc% = PIL_Device, ACPI\QCOM2429
+%Qualcomm% = QC,NTarm64
 
 [QC.NTarm64]
 %PIL.DeviceDesc% = PIL_Device, ACPI\QCOM2429
 
-[PIL_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32
-AddProperty = WDTFSOCDeviceCategory
-AddReg      = WppReg
-Reboot
-
 [PIL_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64
+CopyFiles   = Drivers_Dir
 AddProperty = WDTFSOCDeviceCategory
 AddReg      = WppReg
 Reboot
 
-[Drivers_Dir_A32]
-qcpil8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcpil8994.sys
 
 ; guid, property-pid, type, [flags], value (value = 2 for a "Critical" driver, value = 1 for a "Core" driver)
@@ -92,11 +74,8 @@ HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8d
 HKLM, System\CurrentControlSet\Control\WMI\Autologger\PIL\{4b2ae6cb-2afc-4251-8df6-55939744250f}, Status        , %REG_DWORD%, 0
 
 ;-------------- Service installation
-[PIL_Device.NTarm.Services]
-AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_Service_Inst
-
 [PIL_Device.NTarm64.Services]
-AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_Service_Inst.NTarm64
+AddService = qcPILC,%SPSVCINST_ASSOCSERVICE%, PIL_Service_Inst
 
 ; -------------- PIL driver install sections
 [PIL_Service_Inst]
@@ -106,19 +85,8 @@ StartType      = 0               ; SERVICE_BOOT_START (0)
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 LoadOrderGroup = Base            ; First of all driver groups to load
 Tag            = 17              ; First to load within the "Base" driver group
-ServiceBinary  = %13%\arm\qcpil8994.sys
+ServiceBinary  = %13%\qcpil8994.sys
 
-[PIL_Service_Inst.NTarm64]
-DisplayName    = %PIL.SvcDesc%
-ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
-StartType      = 0               ; SERVICE_BOOT_START (0)
-ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-LoadOrderGroup = Base            ; First of all driver groups to load
-Tag            = 17              ; First to load within the "Base" driver group
-ServiceBinary  = %13%\arm64\qcpil8994.sys
-
-[PIL_Device.NTarm.Wdf]
-KmdfService = qcPILC, PIL_wdfsect
 [PIL_Device.NTarm64.Wdf]
 KmdfService = qcPILC, PIL_wdfsect
 [PIL_wdfsect]

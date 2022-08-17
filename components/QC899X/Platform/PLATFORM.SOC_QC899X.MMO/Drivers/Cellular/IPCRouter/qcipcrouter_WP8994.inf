@@ -17,69 +17,41 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcipcrouter8994.arm.cat
-CatalogFile.NTarm64 = qcipcrouter8994.arm64.cat
+CatalogFile = qcipcrouter8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 System_Dir      = 11
 System_Dir64    = 11
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-qcipcrouter8994.sys   = 1,arm
-qsocketipcrum8994.dll = 1,arm
-qccium8994.dll        = 1,arm
-LUVCR120.dll        = 1,arm
-qcsium8994.dll        = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcipcrouter8994.sys   = 1,arm64
-qsocketipcrum8994.dll = 1,arm64
-qccium8994.dll        = 1,arm64
-LAVCR120.dll        = 1,arm64
-qcsium8994.dll        = 1,arm64
+[SourceDisksFiles]
+qcipcrouter8994.sys   = 1,
+qsocketipcrum8994.dll = 1,
+qccium8994.dll        = 1,
+LAVCR120.dll        = 1,
+qcsium8994.dll        = 1,
 
 ;*****************************************
 ; IPC_ROUTER  Install Section
 ;*****************************************
 
 [Manufacturer]
-%Qualcomm% = Qualcomm,NTarm,NTarm64
-
-[Qualcomm.NTarm]
-%IPC_ROUTER.DeviceDesc% = IPC_ROUTER_Device, ACPI\QCOM240A
+%Qualcomm% = Qualcomm,NTarm64
 
 [Qualcomm.NTarm64]
 %IPC_ROUTER.DeviceDesc% = IPC_ROUTER_Device, ACPI\QCOM240A
 
-[IPC_ROUTER_Device.NTarm]
-CopyFiles   = Drivers_Dir_A32, System_Dir
-AddProperty = WDTFSOCDeviceCategory
-Reboot
-
-;-------------- Service installation
-[IPC_ROUTER_Device.NTarm.Services]
-AddService = QCIPC_ROUTER,%SPSVCINST_ASSOCSERVICE%, IPC_ROUTER_Service_Inst
-
-[IPC_ROUTER_Device.NTarm.HW]
-addreg = IPC_ROUTER
-
-[IPC_ROUTER_Device.NTarm.Wdf]
-KmdfService = QCIPC_ROUTER, IPC_ROUTER_wdfsect
-
 [IPC_ROUTER_Device.NTarm64]
-CopyFiles   = Drivers_Dir_A64, System_Dir64
+CopyFiles   = Drivers_Dir, System_Dir64
 AddProperty = WDTFSOCDeviceCategory
 Reboot
 
 ;-------------- Service installation
 [IPC_ROUTER_Device.NTarm64.Services]
-AddService = QCIPC_ROUTER,%SPSVCINST_ASSOCSERVICE%, IPC_ROUTER_Service_Inst.NTarm64
+AddService = QCIPC_ROUTER,%SPSVCINST_ASSOCSERVICE%, IPC_ROUTER_Service_Inst
 
 [IPC_ROUTER_Device.NTarm64.HW]
 addreg = IPC_ROUTER
@@ -87,10 +59,7 @@ addreg = IPC_ROUTER
 [IPC_ROUTER_Device.NTarm64.Wdf]
 KmdfService = QCIPC_ROUTER, IPC_ROUTER_wdfsect
 
-[Drivers_Dir_A32]
-qcipcrouter8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcipcrouter8994.sys
 
 [WDTFSOCDeviceCategory]
@@ -119,15 +88,7 @@ DisplayName   = %IPC_ROUTER.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcipcrouter8994.sys
-AddReg        = IPC_ROUTER_Reg
-
-[IPC_ROUTER_Service_Inst.NTarm64]
-DisplayName   = %IPC_ROUTER.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcipcrouter8994.sys
+ServiceBinary = %13%\qcipcrouter8994.sys
 AddReg        = IPC_ROUTER_Reg
 
 [IPC_ROUTER_Reg]

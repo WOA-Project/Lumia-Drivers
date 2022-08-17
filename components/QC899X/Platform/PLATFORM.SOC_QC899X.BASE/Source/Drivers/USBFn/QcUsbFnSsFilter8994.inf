@@ -12,27 +12,21 @@ ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %Company%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = QcUsbFnSsFilter8994.arm.cat
-CatalogFile.NTarm64 = QcUsbFnSsFilter8994.arm64.cat
+CatalogFile = QcUsbFnSsFilter8994.cat
 
 [ControlFlags]
 ExcludeFromSelect = *
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 ; ================= Class section =====================
 
 [SourceDisksNames]
 1 = %DiskName%
 
-[SourceDisksFiles.ARM]
-QcUsbFnSsFilter8994.sys = 1,arm,
-
-[SourceDisksFiles.ARM64]
-QcUsbFnSsFilter8994.sys = 1,arm64,
+[SourceDisksFiles]
+QcUsbFnSsFilter8994.sys = 1,
 
 ;*****************************************
 ; Install Section
@@ -41,71 +35,35 @@ QcUsbFnSsFilter8994.sys = 1,arm64,
 [Manufacturer]
 %Company%=Standard,NTARM64
 
-[Standard.NTARM]
-%Standard.DeviceDesc%=QcUsbFnSSFilter.Install_MS, URS\QCOM24B6&FUNCTION ;URS MSFT mode
-%Standard.DeviceDesc%=QcUsbFnSSFilter.Install_QC, URS\QCOM24B7&FUNCTION ;URS QC mode
-
 [Standard.NTARM64]
 %Standard.DeviceDesc%=QcUsbFnSSFilter.Install_MS, URS\QCOM24B6&FUNCTION ;URS MSFT mode
 %Standard.DeviceDesc%=QcUsbFnSSFilter.Install_QC, URS\QCOM24B7&FUNCTION ;URS QC mode
-
-[QcUsbFnSSFilter.Install_MS.NTarm]
-;Include MS driver
-Include      = ufxsynopsys.inf
-Needs        = ufxsynopsys.Install_Qualcomm.NT
-CopyFiles    = Drivers_Dir_A32
-FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
-
-[QcUsbFnSSFilter.Install_QC.NTarm]
-;Include QC driver
-Include      = qcusbfn8994.inf
-Needs        = QCUSBFN_Device.NTarm
-CopyFiles    = Drivers_Dir_A32
-FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
-
-[QcUsbFnSSFilter.Install_MS.NTarm.Services]
-;Include MS driver
-Include      = ufxsynopsys.inf
-Needs        = ufxsynopsys.Install_Qualcomm.NT.Services
-AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
-
-[QcUsbFnSSFilter.Install_QC.NTarm.Services]
-;Include QC driver
-Include      = qcusbfn8994.inf
-Needs        = QCUSBFN_Device.NTarm.Services
-AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
-
-[QcUsbFnSSFilter.Install_MS.NTarm.HW]
-;Include MS driver
-Include    = ufxsynopsys.inf
-Needs      = ufxsynopsys.Install_Qualcomm.NT.HW
-AddReg     = QcUsbFnSSFilter_AddReg
 
 [QcUsbFnSSFilter.Install_MS.NTarm64]
 ;Include MS driver
 Include      = ufxsynopsys.inf
 Needs        = ufxsynopsys.Install_Qualcomm.NT
-CopyFiles    = Drivers_Dir_A64
+CopyFiles    = Drivers_Dir
 FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
 
 [QcUsbFnSSFilter.Install_QC.NTarm64]
 ;Include QC driver
 Include      = qcusbfn8994.inf
 Needs        = QCUSBFN_Device.NTarm64
-CopyFiles    = Drivers_Dir_A64
+CopyFiles    = Drivers_Dir
 FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
 
 [QcUsbFnSSFilter.Install_MS.NTarm64.Services]
 ;Include MS driver
 Include      = ufxsynopsys.inf
 Needs        = ufxsynopsys.Install_Qualcomm.NT.Services
-AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst.NTarm64
+AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
 
 [QcUsbFnSSFilter.Install_QC.NTarm64.Services]
 ;Include QC driver
 Include      = qcusbfn8994.inf
 Needs        = QCUSBFN_Device.NTarm64.Services
-AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst.NTarm64
+AddService   = QcUsbFnSSFilter,, QcUsbFnSSFilter_Service_Inst
 
 [QcUsbFnSSFilter.Install_MS.NTarm64.HW]
 ;Include MS driver
@@ -113,10 +71,7 @@ Include    = ufxsynopsys.inf
 Needs      = ufxsynopsys.Install_Qualcomm.NT.HW
 AddReg     = QcUsbFnSSFilter_AddReg
 
-[Drivers_Dir_A32]
-QcUsbFnSsFilter8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 QcUsbFnSsFilter8994.sys
 
 [QcUsbFnSSFilter_Service_AddReg]
@@ -132,16 +87,7 @@ ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 0               ; SERVICE_BOOT_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
 Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
-ServiceBinary = %13%\arm\QcUsbFnSsFilter8994.sys
-AddReg        = QcUsbFnSSFilter_Service_AddReg
-
-[QcUsbFnSSFilter_Service_Inst.NTarm64]
-DisplayName   = %Filter.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 0               ; SERVICE_BOOT_START
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-Group         = filter          ; Needed for boot-critical loading per ServiceGroupOrder
-ServiceBinary = %13%\arm64\QcUsbFnSsFilter8994.sys
+ServiceBinary = %13%\QcUsbFnSsFilter8994.sys
 AddReg        = QcUsbFnSSFilter_Service_AddReg
 
 [Strings]

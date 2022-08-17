@@ -17,46 +17,29 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qcwifinotifiersrvc8994.arm.cat
-CatalogFile.NTarm64 = qcwifinotifiersrvc8994.arm64.cat
+CatalogFile = qcwifinotifiersrvc8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles.ARM]
-qcwifinotifiersrvc8994.dll = 0,arm,
-LUVCR120.dll = 0,arm,
-
-[SourceDisksFiles.ARM64]
-qcwifinotifiersrvc8994.dll = 0,arm64,
-concrt140.dll = 0,arm64,
-msvcp140.dll = 0,arm64,
-vcruntime140.dll = 0,arm64,
+[SourceDisksFiles]
+qcwifinotifiersrvc8994.dll = 0,
+concrt140.dll = 0,
+msvcp140.dll = 0,
+vcruntime140.dll = 0,
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]
-%WLAN.DeviceDesc% = WLAN, SWC\VID_168C&PID_003E&SID_0001
+%QC% = QC,NTarm64
 
 [QC.NTarm64]
 %WLAN.DeviceDesc% = WLAN, SWC\VID_168C&PID_003E&SID_0001
 
-[WLAN.NTarm]
-CopyFiles = Drivers_Dir_A32
-AddReg    = WifiNotifierSrvc_Reg, WifiNotifierSrvc_path_Reg
-
 [WLAN.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 AddReg    = WifiNotifierSrvc_Reg, WifiNotifierSrvc_path_Reg.NTarm64
-
-[WLAN.NTarm.Services]
-AddService = WifiNotifierSrvc,0x00000000,WifiNotifierSrvc_Service,
 
 [WLAN.NTarm64.Services]
 AddService = WifiNotifierSrvc,0x00000000,WifiNotifierSrvc_Service,
@@ -86,17 +69,10 @@ HKLM, System\CurrentControlSet\Services\WifiNotifierSrvc           , Start      
 HKLM, System\CurrentControlSet\Services\WifiNotifierSrvc           , ErrorControl, %REG_DWORD%    ,  0x0001
 HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost     , IhvSvcGrp   , %REG_MULTI_SZ% ,  "WifiNotifierSrvc"
 
-[WifiNotifierSrvc_path_Reg]
-HKLM, System\CurrentControlSet\Services\WifiNotifierSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%,  "%13%\arm\qcwifinotifiersrvc8994.dll"
-
 [WifiNotifierSrvc_path_Reg.NTarm64]
-HKLM, System\CurrentControlSet\Services\WifiNotifierSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%,  "%13%\arm64\qcwifinotifiersrvc8994.dll"
+HKLM, System\CurrentControlSet\Services\WifiNotifierSrvc\Parameters, ServiceDll  , %REG_EXPAND_SZ%,  "%13%\qcwifinotifiersrvc8994.dll"
 
-[Drivers_Dir_A32]
-qcwifinotifiersrvc8994.dll
-LUVCR120.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcwifinotifiersrvc8994.dll
 concrt140.dll
 msvcp140.dll

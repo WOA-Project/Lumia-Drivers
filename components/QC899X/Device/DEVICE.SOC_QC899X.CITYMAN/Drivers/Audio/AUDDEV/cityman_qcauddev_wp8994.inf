@@ -21,9 +21,7 @@ provider    = %QCOM%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11E4E}
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = cityman_qcauddev8994.arm.cat
-CatalogFile.NTarm64 = cityman_qcauddev8994.arm64.cat
+CatalogFile = cityman_qcauddev8994.cat
 
 [DestinationDirs]
 Drivers_Dir_24 = 11
@@ -38,10 +36,7 @@ qccpe8994.mbn = 1
 qccpe8994.mbn
 
 [Manufacturer]
-%QCOM% = DeviceExtensions,NTarm,NTarm64
-
-[DeviceExtensions.NTarm]
-%AUDD.DeviceDesc% = DeviceExtension_Install, ADCM\QCOM242E
+%QCOM% = DeviceExtensions,NTarm64
 
 [DeviceExtensions.NTarm64]
 %AUDD.DeviceDesc% = DeviceExtension_Install, ADCM\QCOM242E

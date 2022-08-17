@@ -16,34 +16,24 @@ ClassGuid   = {5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider    = %ManufacturerName%
 DriverVer   = 03/18/2021,1.0.1078.0056
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcSensors8994.arm.cat
-CatalogFile.NTarm64 = qcSensors8994.arm64.cat
+CatalogFile = qcSensors8994.cat
 
 [SourceDisksNames]
 1 = %MediaDescription%,,,""
 
-[SourceDisksFiles.ARM]
-qcSensors8994.dll=1,arm,
-qcSensor1UM8994.dll=1,arm,
-LUVCR120.dll=1,arm,
-
-[SourceDisksFiles.ARM64]
-qcSensors8994.dll=1,arm64,
-qcSensor1UM8994.dll=1,arm64,
-concrt140.dll=1,arm64,
-msvcp140.dll=1,arm64,
-vcruntime140.dll= 1,arm64,
+[SourceDisksFiles]
+qcSensors8994.dll=1,
+qcSensor1UM8994.dll=1,
+concrt140.dll=1,
+msvcp140.dll=1,
+vcruntime140.dll= 1,
 
 [Manufacturer]
-%ManufacturerName% = Sensor_Device,NTarm,NTarm64
+%ManufacturerName% = Sensor_Device,NTarm64
 
 ;*******************************
 ; qcSensors Install Section
 ;*******************************
-
-[Sensor_Device.NTarm]
-%DevDesc% = Sensor_Inst, ACPI\QCOM2495
 
 [Sensor_Device.NTarm64]
 %DevDesc% = Sensor_Inst, ACPI\QCOM2495
@@ -56,18 +46,11 @@ HardwareIds = umdf2\FusionV2
 
 ;---------------- copy files
 
-[Sensor_Inst.NTarm]
-CopyFiles = Drivers_Dir_A32,UMDriverCopy
+[Sensor_Inst]
+CopyFiles = Drivers_Dir,UMDriverCopy64
 AddReg = WdfExt_AddReg,DisableHpf_AddReg
 
-[Sensor_Inst.NTarm64]
-CopyFiles = Drivers_Dir_A64,UMDriverCopy64
-AddReg = WdfExt_AddReg,DisableHpf_AddReg
-
-[Drivers_Dir_A32]
-qcSensors8994.dll
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 qcSensors8994.dll
 concrt140.dll
 msvcp140.dll
@@ -84,22 +67,15 @@ msvcp140.dll
 vcruntime140.dll
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 UMDriverCopy    = 11
 UMDriverCopy64  = 11
 
-[Sensor_Inst.NTarm.HW]
-AddReg = Sensor_Inst_SecurityAddReg
-
-[Sensor_Inst.NTarm64.HW]
+[Sensor_Inst.HW]
 AddReg = Sensor_Inst_SecurityAddReg
 
 ;-------------- Service installation
-[Sensor_Inst.NTarm.Services]
-AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
-
-[Sensor_Inst.NTarm64.Services]
+[Sensor_Inst.Services]
 AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [WUDFRD_ServiceInstall]
@@ -111,15 +87,7 @@ ServiceBinary = %12%\WUDFRd.sys
 
 ;-------------- WDF specific section
 
-[Sensor_Inst.NTarm.Wdf]
-UmdfService              = qcSensors, qcSensors_Install.NTarm
-UmdfServiceOrder         = qcSensors
-UmdfDirectHardwareAccess = AllowDirectHardwareAccess
-UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
-UmdfFsContextUsePolicy   = CannotUseFsContexts
-UmdfHostProcessSharing   = ProcessSharingDisabled
-
-[Sensor_Inst.NTarm64.Wdf]
+[Sensor_Inst.Wdf]
 UmdfService              = qcSensors, qcSensors_Install.NTarm64
 UmdfServiceOrder         = qcSensors
 UmdfDirectHardwareAccess = AllowDirectHardwareAccess
@@ -127,14 +95,9 @@ UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfFsContextUsePolicy   = CannotUseFsContexts
 UmdfHostProcessSharing   = ProcessSharingDisabled
 
-[qcSensors_Install.NTarm]
-UmdfLibraryVersion       = 2.15.0
-ServiceBinary            = %13%\arm\qcSensors8994.dll
-UmdfExtensions           = SensorsCx0102
-
 [qcSensors_Install.NTarm64]
 UmdfLibraryVersion       = 2.15.0
-ServiceBinary            = %13%\arm64\qcSensors8994.dll
+ServiceBinary            = %13%\qcSensors8994.dll
 UmdfExtensions           = SensorsCx0102
 
 [WdfExt_AddReg]

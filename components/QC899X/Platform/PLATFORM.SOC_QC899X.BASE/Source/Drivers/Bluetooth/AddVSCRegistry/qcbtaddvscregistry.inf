@@ -18,9 +18,7 @@ Class          = Bluetooth
 CLASSGUID      = {e0cbf06c-cd8b-4647-bb8a-263b43f0f974};
 DriverVer      = 03/18/2021,1.0.1080.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qcbtaddvscregistry.arm.cat
-CatalogFile.NTarm64 = qcbtaddvscregistry.arm64.cat
+CatalogFile = qcbtaddvscregistry.cat
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -29,11 +27,7 @@ ExcludeFromSelect = *
 1 = %SourceDisk%,,1
 
 [Manufacturer]
-%QC% = XYZBth,NTarm,NTarm64
-
-[XYZBth.NTarm]
-%BthRadio1% = Bt1, QCA_SHB\UART_H4
-%BthRadio2% = Bt1, SystemBusQc\SMD_BT
+%QC% = XYZBth,NTarm64
 
 [XYZBth.NTarm64]
 %BthRadio1% = Bt1, QCA_SHB\UART_H4

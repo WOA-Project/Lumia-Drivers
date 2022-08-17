@@ -19,46 +19,28 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = QCDIAGCSI8994.arm.cat
-CatalogFile.NTarm64 = QCDIAGCSI8994.arm64.cat
+CatalogFile = QCDIAGCSI8994.cat
 
 [DestinationDirs]
-Drivers_Dir_A32 = 13,arm
-Drivers_Dir_A64 = 13,arm64
+Drivers_Dir = 13,
 
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-QCDIAGCSI8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-QCDIAGCSI8994.sys = 1,arm64
+[SourceDisksFiles]
+QCDIAGCSI8994.sys = 1,
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]                           ; NTarm is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
-%DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM2412
+%QC% = QC,NTarm64
 
 [QC.NTarm64]                         ; NTarm64 is set to ARM/ARM64 at runtime. Its needed to generate correct inf file.
 %DIAGCSI.DeviceDesc% = DiagCSI_Device, ACPI\QCOM2412
 
-[DiagCSI_Device.NTarm]
-CopyFiles = Drivers_Dir_A32
-
-[DiagCSI_Device.NTarm.Services]
-AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_Service_Inst
-
-[DiagCSI_Device.NTarm.Wdf]
-KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
-
 [DiagCSI_Device.NTarm64]
-CopyFiles = Drivers_Dir_A64
+CopyFiles = Drivers_Dir
 
 [DiagCSI_Device.NTarm64.Services]
-AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_Service_Inst.NTarm64
+AddService = qcDIAGCSI,%SPSVCINST_ASSOCSERVICE%, DiagCSI_Service_Inst
 
 [DiagCSI_Device.NTarm64.Wdf]
 KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
@@ -66,10 +48,7 @@ KmdfService = qcDiagCSI, DiagCSI_Service_kmdfInst
 [ControlFlags]
 ExcludeFromSelect = *
 
-[Drivers_Dir_A32]
-QCDIAGCSI8994.sys
-
-[Drivers_Dir_A64]
+[Drivers_Dir]
 QCDIAGCSI8994.sys
 
 [DiagCSI_Service_kmdfInst]
@@ -81,15 +60,7 @@ DisplayName    = %DIAGCSI.SvcDesc%
 ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm\QCDIAGCSI8994.sys
-LoadOrderGroup = Extended Base
-
-[DIAGCSI_Service_Inst.NTarm64]
-DisplayName    = %DIAGCSI.SvcDesc%
-ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
-StartType      = 3                  ; SERVICE_DEMAND_START
-ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\arm64\QCDIAGCSI8994.sys
+ServiceBinary  = %13%\QCDIAGCSI8994.sys
 LoadOrderGroup = Extended Base
 
 [Strings]

@@ -8,72 +8,43 @@ ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
 Provider    = %ProviderName%
 DriverVer   = 03/18/2021,12.20.34.54
 PnpLockdown = 1
-
-CatalogFile.NTarm   = attsdriver.arm.cat
-CatalogFile.NTarm64 = attsdriver.arm64.cat
+CatalogFile = attsdriver.cat
 
 [SourceDisksNames]
 3426 = windows cd
 
-[SourceDisksFiles.ARM]
-attsdriver.sys = 3426,arm
-
-[SourceDisksFiles.ARM64]
-attsdriver.sys = 3426,arm64
+[SourceDisksFiles]
+attsdriver.sys = 3426,
 
 [DestinationDirs]
-Drivers_Dir_A32   = 13,arm
-Drivers_Dir_A64   = 13,arm64
+Drivers_Dir   = 13,
 
 ;*****************************************
 ; ATTS  Install Section
 ;*****************************************
 
 [Manufacturer]
-%StdMfg% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%DeviceDesc% = DriverInstall,ACPI\MSHW1018
+%StdMfg% = Standard,NTarm64
 
 [Standard.NTarm64]
 %DeviceDesc% = DriverInstall,ACPI\MSHW1018
 
-[DriverInstall.NTarm]
-CopyFiles = Drivers_Dir_A32
-
 [DriverInstall.NTarm64]
-CopyFiles = Drivers_Dir_A64
-
-[DriverInstall.NTarm.Services]
-AddService = attsdriver,2,DriverInstall_Service.NTarm
+CopyFiles = Drivers_Dir
 
 [DriverInstall.NTarm64.Services]
 AddService = attsdriver,2,DriverInstall_Service.NTarm64
 
-[Drivers_Dir_A32]
+[Drivers_Dir]
 attsdriver.sys
-
-[Drivers_Dir_A64]
-attsdriver.sys
-
-[DriverInstall_Service.NTarm]
-DisplayName    = %SvcDesc%
-ServiceType    = %SERVICE_KERNEL_DRIVER%
-StartType      = %SERVICE_DEMAND_START%
-ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm\attsdriver.sys
-LoadOrderGroup = Extended Base
 
 [DriverInstall_Service.NTarm64]
 DisplayName    = %SvcDesc%
 ServiceType    = %SERVICE_KERNEL_DRIVER%
 StartType      = %SERVICE_DEMAND_START%
 ErrorControl   = %SERVICE_ERROR_NORMAL%
-ServiceBinary  = %13%\arm64\attsdriver.sys
+ServiceBinary  = %13%\attsdriver.sys
 LoadOrderGroup = Extended Base
-
-[DriverInstall.NTarm.HW]
-AddReg = DriverInstall.SecurityAddReg
 
 [DriverInstall.NTarm64.HW]
 AddReg = DriverInstall.SecurityAddReg

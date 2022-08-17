@@ -17,13 +17,10 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %Qualcomm%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockDown = 1
-
-CatalogFile.NTarm   = qcsubsys8994.arm.cat
-CatalogFile.NTarm64 = qcsubsys8994.arm64.cat
+CatalogFile = qcsubsys8994.cat
 
 [DestinationDirs]
-Driver_Dir_arm = 13,arm
-Driver_Dir_a64 = 13,arm64
+Driver_Dir = 13,
 Drivers_Dir_24 = 11
 
 [SourceDisksNames]
@@ -34,12 +31,7 @@ qcadsp8994.mbn   = 1
 qcdsp1v28994.mbn = 1
 qcdsp28994.mbn   = 1
 ;qcwcnss8994.mbn = 1
-
-[SourceDisksFiles.ARM]
-qcsubsys8994.sys = 1,arm
-
-[SourceDisksFiles.ARM64]
-qcsubsys8994.sys = 1,arm64
+qcsubsys8994.sys = 1,
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -49,18 +41,7 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%Qualcomm% = Standard,NTarm,NTarm64
-
-[Standard.NTarm]
-%WCN.DeviceDesc%            = SUBSYS_Device,            ACPI\QCOM242A
-%ADSP.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242B
-%AMSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM242C
-%SERVICEMANAGER.DeviceDesc% = SUBSYS_Device, ACPI\QCOM24B8
-%AMSSCXThermal.DeviceDesc%  = SUBSYS_Device,  ACPI\QCOM24C0
-%SCSS.DeviceDesc%           = SUBSYS_Device,           ACPI\QCOM24C1
-%TEST.DeviceDesc%           = SUBSYS_Device,           ADSP\DEADCODE
-%TEST.DeviceDesc%           = SUBSYS_Device,           QCMS\DEADCODE
-%TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
+%Qualcomm% = Standard,NTarm64
 
 [Standard.NTarm64]
 %WCN.DeviceDesc%            = SUBSYS_Device,            ACPI\QCOM242A
@@ -73,20 +54,12 @@ ExcludeFromSelect = *
 %TEST.DeviceDesc%           = SUBSYS_Device,           QCMS\DEADCODE
 %TEST.DeviceDesc%           = SUBSYS_Device,           QWCN\DEADCODE
 
-[SUBSYS_Device.NTarm]
-CopyFiles   = Driver_Dir_arm,Drivers_Dir_24
-AddReg      = SUBSYSReg
-AddProperty = WDTFSOCDeviceCategory
-
 [SUBSYS_Device.NTarm64]
-CopyFiles   = Driver_Dir_a64,Drivers_Dir_24
+CopyFiles   = Driver_Dir,Drivers_Dir_24
 AddReg      = SUBSYSReg
 AddProperty = WDTFSOCDeviceCategory
 
 [WDTFSOCDeviceCategory]
-
-[SUBSYS_Device.NTarm.HW]
-AddReg = SUBSYSACL
 
 [SUBSYS_Device.NTarm64.HW]
 AddReg = SUBSYSACL
@@ -94,10 +67,7 @@ AddReg = SUBSYSACL
 [SUBSYSACL]
 HKR,, Security,, "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GA;;;S-1-5-84-0-0-0-0-0)"
 
-[Driver_Dir_arm]
-qcsubsys8994.sys
-
-[Driver_Dir_a64]
+[Driver_Dir]
 qcsubsys8994.sys
 
 [Drivers_Dir_24]
@@ -139,27 +109,16 @@ HKLM, System\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38
 HKLM, System\CurrentControlSet\services\qcSubsystemLoad\{93367D0F-35CE-4EC4-8E38-BB33030C58B2}, MemoryAlignment         , %REG_DWORD%, 0x00100000
 
 ;-------------- Service installation
-[SUBSYS_Device.NTarm.Services]
-AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst.NTarm
-
 [SUBSYS_Device.NTarm64.Services]
-AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst.NTarm64
+AddService = qcsubsys,%SPSVCINST_ASSOCSERVICE%, SUBSYS_Service_Inst
 
 ; -------------- Subsystem driver install sections
-[SUBSYS_Service_Inst.NTarm]
+[SUBSYS_Service_Inst]
 DisplayName   = %SUBSYS.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm\qcsubsys8994.sys
-AddReg        = SUBSYS_Service_AddReg
-
-[SUBSYS_Service_Inst.NTarm64]
-DisplayName   = %SUBSYS.SvcDesc%
-ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
-StartType     = 3               ; SERVICE_DEMAND_START (3) SERVICE_SYSTEM_START (1)
-ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\arm64\qcsubsys8994.sys
+ServiceBinary = %13%\qcsubsys8994.sys
 AddReg        = SUBSYS_Service_AddReg
 
 [SUBSYS_Service_AddReg]
@@ -170,8 +129,6 @@ HKR, Parameters, "RestartTimer", 0x00010001, 0x1e0
 HKR, Parameters, "WcnRestartEnabled", 0x00010001, 0x0
 HKR, Parameters\DIAG, "FreeReservedMemory", 0x00010001, 0x01
 
-[SUBSYS_Device.NTarm.Wdf]
-KmdfService = qcsubsys, SUBSYS_wdfsect
 [SUBSYS_Device.NTarm64.Wdf]
 KmdfService = qcsubsys, SUBSYS_wdfsect
 [SUBSYS_wdfsect]

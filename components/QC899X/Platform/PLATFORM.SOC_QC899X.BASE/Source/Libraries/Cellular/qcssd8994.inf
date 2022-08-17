@@ -8,9 +8,7 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QCOM%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-
-CatalogFile.NTarm   = qcssd8994.arm.cat
-CatalogFile.NTarm64 = qcssd8994.arm64.cat
+CatalogFile = qcssd8994.cat
 
 [DestinationDirs]
 qcssd.Files.NTarm_11   = 11
@@ -19,37 +17,22 @@ qcssd.Files.NTarm64_11 = 11
 [SourceDisksNames]
 0 = %DiskId1%
 
-[SourceDisksFiles.ARM]
-BinaryPartitionDecrypt.dll = 0,arm,
-LUVCR120.dll = 0,arm,
-
-[SourceDisksFiles.ARM64]
-BinaryPartitionDecrypt.dll = 0,arm64,
-LAVCR120.dll = 0,arm64,
+[SourceDisksFiles]
+BinaryPartitionDecrypt.dll = 0,
+LAVCR120.dll = 0,
 
 ;*****************************************
 ; ssd Install Section
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC,NTarm,NTarm64
-
-[QC.NTarm]
-%SSD.DeviceDesc% = SSD, SWC\VID_QCOM&PID_0EA0&SID_000A
+%QC% = QC,NTarm64
 
 [QC.NTarm64]
 %SSD.DeviceDesc% = SSD, SWC\VID_QCOM&PID_0EA0&SID_000A
 
-[SSD.NTarm]
-CopyFiles = qcssd.Files.NTarm_11
-
 [SSD.NTarm64]
 CopyFiles = qcssd.Files.NTarm64_11
-
-; System32
-[qcssd.Files.NTarm_11]
-BinaryPartitionDecrypt.dll
-LUVCR120.dll
 
 ; System32
 [qcssd.Files.NTarm64_11]
