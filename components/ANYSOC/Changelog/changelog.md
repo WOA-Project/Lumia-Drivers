@@ -1,7 +1,7 @@
-﻿## Lumia Drivers BSP - Version 2206.86
-**Released:** 06/26/2022 12:00 AM UTC+1
+﻿## Lumia Drivers BSP - Version 2208.54
+**Released:** 08/17/2022 05:00 PM UTC+2
 
-**Quality:** Stable
+**Quality:** Preview (Not for daily use)
 
 ### Compatibility
 
@@ -46,15 +46,14 @@ ________________________________________________________________________________
 
 Changelog
 
-Bug fixes for the Mobile Haptics Service
+- Due to low usage, the Stable channel has been removed and the experimental channel is now the default going forward.
+- ARM32 for 8994/8992 Has been deprecated. Sorry (but also not sorry) 🥳🍾🥂🍷🎇🎆
+- Download size is way smaller than it used to be, should help with people with poor download connections.
+- Some improvements were made regarding communication between thermal sensors and other system sensors.
+- Device Names have been reverted to the stock defaults for ease of use.
+- Improvements to the power management configuration in use by the system.
 
-NEW: We now have TWO update channels for drivers.
-
-- The **Experimental** update channel contains work in progress, unstable/rough functionality. This update channel contains all the features you're used to from previous releases, but might have thermal issues, performance issues, or be very unstable.
-
-- The **Stable** update channel contains validated, stable, code. However this channel is missing many features you've come used to from past updates. Currently this update channel does not contain support for: GPU, Cellular, Wifi, Desktop bridges, Automatic Brightness. It is however stable, will not overheat as much as the **Experimental** channel, and fully usable.
-
-Installations using WOA Deployer will default to the **Stable** channel. The **Experimental** channel is available using DriverUpdater and the provided ```Lumia-Drivers-Experimental.zip``` file on Github.
+Note: you may have to completely reinstall in order to get everything in a somewhat working state.
 
 ____________________________________________________________________________________________________________________________
 
