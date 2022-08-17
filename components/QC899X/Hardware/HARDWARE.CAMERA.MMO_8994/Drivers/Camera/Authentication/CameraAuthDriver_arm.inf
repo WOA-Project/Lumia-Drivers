@@ -1,48 +1,71 @@
+;
+;Copyright © 2014 Microsoft Mobile. All rights reserved.
+;
+;Module Name:
+;    CameraAuth_arm.inf 
+;
+;Abstract:
+;    INF file for installing the Microsoft Mobile Camera Authentication Driver for ARM64
+;
+
 [Version]
 Signature="$Windows NT$"
 Class=Sensor
 ClassGuid={5175D334-C371-4806-B3BA-71FD53C9258D}
 Provider=%ManufacturerName%
 DriverVer=03/18/2021,1.2.0.0
-PnpLockdown = 1
-CatalogFile = CameraAuth.cat
+CatalogFile=CameraAuth.cat
 
 [Manufacturer]
-%ManufacturerName% = CameraAuthentication_Device,NTarm64
+%ManufacturerName%=CameraAuthentication_Device,NTARM64
+
+;[ClassInstall32]
+;AddReg=SampleClass_RegistryAdd
+
+;[SampleClass_RegistryAdd]
+;HKR,,,,%ClassName%
+;HKR,,Icon,,"-10"
 
 [DestinationDirs]
-Drivers_Dir = 13,
+DefaultDestDir=13, ; copy to drivers\umdf
 
 [SourceDisksNames]
 1 = %MediaDescription%,,,""
 
 [SourceDisksFiles]
-CameraAuthentication.dll = 1,
+CameraAuthentication.dll = 1, ,
 
-[CameraAuthentication_Device.NTarm64]
+[CameraAuthentication_Device.NTARM64]
 ; DisplayName    Section    DeviceId
 ; -----------    -------    --------
-%DeviceNameNull% = CameraAuthentication_Install, umdf2\CameraAuthentication
+%DeviceName%=CameraAuthentication_Install, umdf2\CameraAuthentication
+;[SourceDisksNames]
+;1=%DiskName%
 
 ; =================== UMDF Device ==================================
 
 ;---------------- Copy files ---------------------
-[CameraAuthentication_Install.NTarm64]
-CopyFiles = Drivers_Dir
+[CameraAuthentication_Install.NT]
+CopyFiles = CameraAuthenticationDriverCopy
 
-[Drivers_Dir]
+[CameraAuthenticationDriverCopy]
 CameraAuthentication.dll
 
-[CameraAuthentication_Install.NTarm64.hw]
-AddReg = CameraAuthentication_Install_SecurityAddReg
+[DestinationDirs]
+CameraAuthenticationDriverCopy=13, ; copy to drivers\umdf
+
+[CameraAuthentication_Install.NT.hw]
+AddReg=CameraAuthentication_Install_SecurityAddReg
 
 [CameraAuthentication_Install_SecurityAddReg]
 HKR,,DeviceCharacteristics,0x10001,0x00000100                               ; FILE_DEVICE_SECURE_OPEN
 HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)"                                ; SDDL_DEVOBJ_SYS_ALL_ADM_ALL
 
+
+
 ;-------------- Service installation -------------
-[CameraAuthentication_Install.NTarm64.Services]
-AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+[CameraAuthentication_Install.NT.Services]
+AddService=WUDFRd,0x000001fa,WUDFRD_ServiceInstall
 
 [WUDFRD_ServiceInstall]
 DisplayName = %WudfRdDisplayName%
@@ -52,16 +75,23 @@ ErrorControl = 1 ; SERVICE_ERROR_NORMAL
 ServiceBinary = %12%\WUDFRd.sys
 ;LoadOrderGroup = Base
 
+; ---- - CameraAuthentication Device Coinstaller installation------
+;[CameraAuthentication_Install.NT.CoInstallers]
+;AddReg=CoInstallers_AddReg
+
+;[CoInstallers_AddReg]
+;HKR,,CoInstallers32,0x00010000,"WUDFCoinstaller.dll"
+
 ;-------------- WDF specific section -------------
-[CameraAuthentication_Install.NTarm64.Wdf]
-UmdfService=CameraAuthentication,CameraAuthentication_wdf_Install.NTarm64
+[CameraAuthentication_Install.NT.Wdf]
+UmdfService=CameraAuthentication,CameraAuthentication_Install
 UmdfServiceOrder=CameraAuthentication
 UmdfHostProcessSharing=ProcessSharingDisabled
 UmdfDirectHardwareAccess = AllowDirectHardwareAccess
 UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
 UmdfKernelModeClientPolicy = AllowKernelModeClients
 
-[CameraAuthentication_wdf_Install.NTarm64]
+[CameraAuthentication_Install]
 UmdfLibraryVersion=2.15.0
 ServiceBinary=%13%\CameraAuthentication.dll
 
@@ -69,7 +99,8 @@ ServiceBinary=%13%\CameraAuthentication.dll
 
 [Strings]
 ManufacturerName    ="MMO"
+;ClassName          ="Samples" ; TODO: edit ClassName
+;DiskName           = "CameraAuthentication Installation Disk"
 WudfRdDisplayName   ="Windows Driver Foundation - User-mode Driver Framework Reflector"
 DeviceName          ="CameraAuthentication Device"
-DeviceNameNull      ="CameraAuthentication Device (Null)"
 MediaDescription    ="CameraAuthentication Driver"
