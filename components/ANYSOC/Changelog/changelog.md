@@ -31,7 +31,7 @@
 
 ### Important installation notes
 
-![image](battery.png)
+![image](https://user-images.githubusercontent.com/3755345/129907454-a456fac4-3574-48f8-bf11-843a64e01d52.png)
 
 Please make sure your battery is fully charged before installing this driver pack. For most batteries the charge must be 100% as the phone may shutdown during setup if the battery is even at 80% charge.
 Make sure battery is charged to 100% before continuing. If this is not the case, reboot your device **now** and charge it in an **Operating System**.
@@ -62,20 +62,24 @@ ________________________________________________________________________________
 How to offline update an existing Windows Desktop installation
 
 - Switch the device into mass storage.
-- Take note of the drive letter the Windows partition is using, here we will assume it got mounted as I:
+- Take note of the drive letter the Windows partition is using, here we will assume it got mounted as X:
 
 - Download [Lumia-Drivers-Full.zip] from https://github.com/WOA-Project/Lumia-Drivers/releases/latest
-- Extract said zip file to a folder of your choice, we will assume here we extracted it to C:\UpdatedDrivers
+- Extract said zip file to a folder of your choice, we will assume here we extracted it to \<path to extracted drivers\>
 - Download the DriverUpdater utility from https://github.com/WOA-Project/DriverUpdater/releases/latest
 - Open a command prompt as administrator, where the driver utility got downloaded
 
 - If your device is a Lumia 950, execute the following command:
   
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\ARM64\Internal\950.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+```
+DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\Internal\950.txt" -r "<path to extracted drivers>" -p X:\
+```
 
 - If your device is a Lumia 950 XL, execute the following command:
   
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\ARM64\Internal\950xl.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+```
+DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\Internal\950xl.txt" -r "<path to extracted drivers>" -p X:\
+```
 
 - Reboot the device, the device will now begin PnP setup once again, and hopefully you will be back soon enough to your desktop
 
@@ -101,20 +105,24 @@ In order to boot from the SD Card EFIESP press volume down at boot of your devic
 - Setup BootShim/Lumia950XlPkg on the phone eMMC like you would on a traditional installation
   (You can download bootshim from here: https://dev.azure.com/LumiaWoA/Boot%20Shim/_build/results?buildId=174&view=results)
   (and the UEFI from here: https://github.com/WOA-Project/Lumia950XLPkg/releases)
-- Take note of the drive letter the Windows partition is using on the sd card, here we will assume it got mounted as I:
+- Take note of the drive letter the Windows partition is using on the sd card, here we will assume it got mounted as X:
 
 - Download [Lumia-Drivers-Full.zip] from https://github.com/WOA-Project/Lumia-Drivers/releases/latest
-- Extract said zip file to a folder of your choice, we will assume here we extracted it to C:\UpdatedDrivers
+- Extract said zip file to a folder of your choice, we will assume here we extracted it to \<path to extracted drivers\>
 - Download the DriverUpdater utility from https://github.com/WOA-Project/DriverUpdater/releases/latest
 - Open a command prompt as administrator, where the driver utility got downloaded
 
 - If your device is a Lumia 950, execute the following command:
-  
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\SDCard\950.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+
+```
+DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\SDCard\950.txt" -r "<path to extracted drivers>" -p X:\
+```
 
 - If your device is a Lumia 950 XL, execute the following command:
-  
-  DriverUpdater.exe C:\UpdatedDrivers\Lumia-Drivers-XXXX\definitions\Desktop\SDCard\950xl.txt C:\UpdatedDrivers\Lumia-Drivers-XXXX\ I:\
+
+```
+DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\SDCard\950xl.txt" -r "<path to extracted drivers>" -p X:\
+```
 
 - Reboot the device, boot into BootShim, let the UEFI load, and you should be able to boot from SD Card.
 
