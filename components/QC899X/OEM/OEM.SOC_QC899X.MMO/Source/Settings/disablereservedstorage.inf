@@ -9,11 +9,16 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-CatalogFile = DisableReservedStorage.cat
+
+CatalogFile.NTarm = DisableReservedStorage.arm.cat
+CatalogFile.NTarm64 = DisableReservedStorage.arm64.cat
 
 ;*****************************************
 ; DisableReservedStorage  Install Section
 ;*****************************************
+
+[DefaultInstall.NTarm]
+Addreg    = DisableReservedStorageReg
 
 [DefaultInstall.NTarm64]
 Addreg    = DisableReservedStorageReg

@@ -9,19 +9,39 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %ManufacturerName%
 DriverVer   = 03/18/2021,18.13.19.793
 PnpLockdown = 1
-CatalogFile = LumiaNull.cat
+
+CatalogFile.NTarm   = LumiaNull.arm.cat
+CatalogFile.NTarm64 = LumiaNull.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir = 13,
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
 
-[SourceDisksFiles]
-LumiaNull.sys = 1,
+[SourceDisksFiles.ARM]
+LumiaNull.sys = 1,arm,
+
+[SourceDisksFiles.ARM64]
+LumiaNull.sys = 1,arm64,
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTarm64
+%ManufacturerName% = Standard,NTarm,NTarm64
+
+[Standard.NTarm]
+%NokiaAttsNull.DeviceDesc%  = LumiaNull_Device, ACPI\NOKIA_ATTS
+%OddtRegNull.DeviceDesc%    = LumiaNull_Device, ACPI\ODDT_REG
+%OddtVibNull.DeviceDesc%    = LumiaNull_Device, ACPI\ODDT_VIB
+%OddtCpuNull.DeviceDesc%    = LumiaNull_Device, ACPI\ODDT_CPU
+%EnoGpioNull.DeviceDesc%    = LumiaNull_Device, ACPI\ENOGPIO
+%EnoEmNull.DeviceDesc%      = LumiaNull_Device, ACPI\NOKIA_ENOEM
+%WPCrasherNull.DeviceDesc%  = LumiaNull_Device, ACPI\WP_CRASHER
+
+%1008Null.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW1008
+%100CNull.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW100C
+%100DNull.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW100D
+%1014Null.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW1014
 
 [Standard.NTarm64]
 %NokiaAttsNull.DeviceDesc%  = LumiaNull_Device, ACPI\NOKIA_ATTS
@@ -37,21 +57,40 @@ LumiaNull.sys = 1,
 %100DNull.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW100D
 %1014Null.DeviceDesc%       = LumiaNull_Device, ACPI\MSHW1014
 
-[LumiaNull_Device.NTarm64]
-CopyFiles = Drivers_Dir
+[LumiaNull_Device.NTarm]
+CopyFiles = Drivers_Dir_A32
 
-[Drivers_Dir]
+[LumiaNull_Device.NTarm64]
+CopyFiles = Drivers_Dir_A64
+
+[Drivers_Dir_A32]
 LumiaNull.sys
 
-[LumiaNull_Device.NTarm64.Services]
+[Drivers_Dir_A64]
+LumiaNull.sys
+
+[LumiaNull_Device.NTarm.Services]
 AddService = LumiaNull,%SPSVCINST_ASSOCSERVICE%, LumiaNull_Service_Inst
+
+[LumiaNull_Device.NTarm64.Services]
+AddService = LumiaNull,%SPSVCINST_ASSOCSERVICE%, LumiaNull_Service_Inst.NTarm64
 
 [LumiaNull_Service_Inst]
 DisplayName   = %LumiaNull.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\LumiaNull.sys
+ServiceBinary = %13%\arm\LumiaNull.sys
+
+[LumiaNull_Service_Inst.NTarm64]
+DisplayName   = %LumiaNull.SvcDesc%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\LumiaNull.sys
+
+[LumiaNull_Device.NTarm.Wdf]
+KmdfService = LumiaNull, LumiaNull_wdfsect
 
 [LumiaNull_Device.NTarm64.Wdf]
 KmdfService = LumiaNull, LumiaNull_wdfsect

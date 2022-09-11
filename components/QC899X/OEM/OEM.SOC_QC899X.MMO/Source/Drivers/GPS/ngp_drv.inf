@@ -1,0 +1,89 @@
+[Version]
+Signature   = "$Windows NT$"
+Class       = Sensor
+ClassGuid   = {5175d334-c371-4806-b3ba-71fd53c9258d}
+Provider    = %VendorName%
+DriverVer   = 03/18/2021,0.0.6.0000
+CatalogFile = ngp_drv.cat
+PnpLockdown = 1
+
+[DestinationDirs]
+;12 == Windows\System32\Drivers\UMDF
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,""
+
+[SourceDisksFiles.ARM]
+ngp_drv.dll=1,,
+LUVCR120.dll=1,,
+
+[Manufacturer]
+%ManufacturerName% = ngp_drv_Device,NTarm ;,NTarm64
+
+;*******************************
+; ngp_drv Install Section
+;*******************************
+
+[ngp_drv_Device.NTarm]
+%DevDesc% = ngp_drv_Inst, ACPI\QCOM24B4
+
+;---------------- copy files
+
+[ngp_drv_Inst.NT]
+CopyFiles = ngp_drvCopy
+AddReg = ngp_drvReg
+
+[ngp_drvCopy]
+ngp_drv.dll
+LUVCR120.dll
+
+[ngp_drv_Inst.NT.HW]
+AddReg = ngp_drv_SecurityAddReg
+
+;-------------- Service installation
+[ngp_drv_Inst.NT.Services]
+AddService = WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[ngp_drv_Inst.NT.CoInstallers]
+CopyFiles = ngp_drvCopy
+AddReg = CoInstallers_AddReg
+
+[WUDFRD_ServiceInstall]
+DisplayName   = %WudfRdDisplayName%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\WUDFRd.sys
+
+[ngp_drvReg]
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\WUDF\Services\ngp_drv\Parameters",Dummy,0x00000000,"0"
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WUDFCoinstaller.dll"
+
+;-------------- WDF specific section
+
+[ngp_drv_Inst.NT.Wdf]
+UmdfService              = ngp_drv, ngp_drv_Install
+UmdfServiceOrder         = ngp_drv
+UmdfDirectHardwareAccess = AllowDirectHardwareAccess
+UmdfFileObjectPolicy     = AllowNullAndUnknownFileObjects
+
+[ngp_drv_Install]
+UmdfLibraryVersion       = 2.0.0
+ServiceBinary            = %13%\ngp_drv.dll
+
+[ngp_drv_SecurityAddReg]
+HKR,,DeviceCharacteristics,0x10001,0x00000100       ; FILE_DEVICE_SECURE_OPEN
+
+[Strings]
+MediaDescription         = "Microsoft Mobile Global Navigation Collection Installation Media"
+VendorName               = "MMO"
+ManufacturerName         = "Microsoft Mobile Oy"
+DevDesc                  = "Microsoft Mobile Global Navigation Collection"
+WudfRdDisplayName        = "Windows Driver Foundation - User-mode Driver Framework Reflector"
+
+SERVICE_KERNEL_DRIVER    = 1
+SERVICE_DEMAND_START     = 3
+SERVICE_ERROR_NORMAL     = 1

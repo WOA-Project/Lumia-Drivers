@@ -1,0 +1,87 @@
+;/*++
+;
+;Copyright (c) 2015 by Qualcomm Technologies, Incorporated.  All Rights Reserved.
+;Module Name:
+;    qcbifbattauth8994.INF
+;
+;Abstract:
+;    INF file for installing the BIF Battery Authentication Driver
+;
+;--*/
+
+[Version]
+Signature="$Windows NT$"
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%COMP%
+DriverVer=03/18/2021,8.0.0.0002
+CatalogFile=qcbifbattauth8994.cat
+PnPLockdown=1
+
+[SourceDisksNames]
+1=%DiskId%
+
+[SourceDisksFiles]
+qcbifbattauth8994.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+;*****************************************
+; BIF Battery Authentiation driver Install Section
+;*****************************************
+
+[Manufacturer]
+%COMP% = Qualcomm,NTarm
+
+[Qualcomm.NTarm]
+%DeviceDesc% = PMIC_Inst,ACPI\QCOM24C4
+
+[PMIC_Inst.NTarm]
+Copyfiles = PMICCopyFiles
+AddProperty = WDTFSOCDeviceCategory
+Reboot
+
+[PMIC_Inst.NTarm.HW]
+Addreg=BIFBATTAUTHACL
+
+[PMIC_Inst.NTarm.Services]
+AddService = qcbifbattauth,%SPSVCINST_ASSOCSERVICE%,PMIC_Service_Inst
+
+[BIFBATTAUTHACL]
+HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;SY)" ;built in admin and local sys access
+
+[BIFBATTAUTHDRV_SoftwareDeviceSettings]
+HKR, TAEF, ResponseType, 0x00010001, 0x1
+HKR, BatteryProfiles\{4A069986-56EF-4A1E-99E0-D5BF6E0BA21D}, ManufacturerId, 0x00010001, 0x11A
+HKR, BatteryProfiles\{4A069986-56EF-4A1E-99E0-D5BF6E0BA21D}, ProductId /t REG_DWORD  /d 0x619
+
+[PMICCopyFiles]
+qcbifbattauth8994.sys
+
+[WDTFSOCDeviceCategory]
+{5D078032-6378-437B-8DA5-9B32B7CA3FDD},2,7,,2
+
+[PMIC_Service_Inst]
+DisplayName    = %BIFBATTAUTHDRIVER.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %13%\qcbifbattauth8994.sys
+AddReg         = BIFBATTAUTHDRV_SoftwareDeviceSettings
+
+[Strings]
+;Localizable Strings
+COMP                  		= "Qualcomm Technologies, Inc."
+BIFBATTAUTHDRIVER.SvcDesc       = "Qualcomm BIF Battery Authentication Driver"
+DeviceDesc            		= "Qualcomm BIF Battery Authentication Device"
+DiskId                		= "Qualcomm BIF Battery Authentication Installation Disk"
+
+;Non-Localizable Strings
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1

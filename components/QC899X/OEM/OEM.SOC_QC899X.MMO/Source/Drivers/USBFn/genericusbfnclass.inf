@@ -8,25 +8,37 @@ ClassGuid = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider  = %IHV%
 DriverVer = 03/18/2021,14.27.55.0047
 PnpLockdown = 1
-CatalogFile = genericusbfnclass.cat
+
+CatalogFile.NTarm   = genericusbfnclass.arm.cat
+CatalogFile.NTarm64 = genericusbfnclass.arm64.cat
 
 ;*****************************************
 ; Generic USB Fn Class Install Section
 ;*****************************************
 
 [DestinationDirs]
-Drivers_Dir = 13,
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles]
-genericusbfnclass.sys = 0,
+[SourceDisksFiles.ARM]
+genericusbfnclass.sys = 0,arm,
+
+[SourceDisksFiles.ARM64]
+genericusbfnclass.sys = 0,arm64,
 
 [Manufacturer]
-%StdMfg% = Standard, NTarm64
+%StdMfg% = Standard, NTarm, NTarm64
 
 ; For ARM platforms
+[Standard.NTarm]
+; DisplayName                   Section           DeviceId
+; -----------                   -------           --------
+%WdfSimpleDevice.DeviceDesc%  = UfnBus_Child_00, USBFN\NCSd
+%WdfSimpleDevice.DeviceDesc2% = UfnBus_Child_00, USBFN\OddtControl
+
 [Standard.NTarm64]
 ; DisplayName                   Section           DeviceId
 ; -----------                   -------           --------
@@ -40,14 +52,14 @@ CopyFiles = Drivers_Dir_A32
 AddReg    = genericusbfnclass_device_descriptor
 
 [UfnBus_Child_00.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 AddReg    = genericusbfnclass_device_descriptor
 
 [UfnBus_Child_00.Services]
 AddService = genericusbfnclass, 0x00000002, genericusbfnclass_Service_Inst
 
 [UfnBus_Child_00.NTarm64.Services]
-AddService = genericusbfnclass, 0x00000002, genericusbfnclass_Service_Inst
+AddService = genericusbfnclass, 0x00000002, genericusbfnclass_Service_Inst.NTarm64
 
 [genericusbfnclass_Service_Inst]
 DisplayName    = %WDFSIMPLE.SvcDesc%
@@ -56,10 +68,23 @@ StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 Tag            = 0x0F
 LoadOrderGroup = "Extended Base"
-ServiceBinary  = %13%\genericusbfnclass.sys
+ServiceBinary  = %13%\arm\genericusbfnclass.sys
 AddReg         = genericusbfnclass_Service_Inst.AddReg
 
-[Drivers_Dir]
+[genericusbfnclass_Service_Inst.NTarm64]
+DisplayName    = %WDFSIMPLE.SvcDesc%
+ServiceType    = 1               ; SERVICE_KERNND_STARTEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+Tag            = 0x0F
+LoadOrderGroup = "Extended Base"
+ServiceBinary  = %13%\arm64\genericusbfnclass.sys
+AddReg         = genericusbfnclass_Service_Inst.AddReg
+
+[Drivers_Dir_A32]
+genericusbfnclass.sys
+
+[Drivers_Dir_A64]
 genericusbfnclass.sys
 
 [genericusbfnclass_device_descriptor]
