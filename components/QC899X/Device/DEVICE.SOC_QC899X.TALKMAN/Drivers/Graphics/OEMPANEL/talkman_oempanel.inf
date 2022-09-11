@@ -22,14 +22,19 @@ Provider    = %SAMSUNG%
 ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD11E4B}
 DriverVer   = 03/18/2021, 8.0.0.0
 PnpLockdown = 1
-CatalogFile = talkman_oempanel.cat
+
+CatalogFile.NTarm   = talkman_oempanel.arm.cat
+CatalogFile.NTarm64 = talkman_oempanel.arm64.cat
 
 ;*****************************************
 ; oem panel client driver Install Section
 ;*****************************************
 
 [Manufacturer]
-%SAMSUNG% = DeviceExtensions,NTarm64
+%SAMSUNG% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%OEM.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1004
 
 [DeviceExtensions.NTarm64]
 %OEM.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1004

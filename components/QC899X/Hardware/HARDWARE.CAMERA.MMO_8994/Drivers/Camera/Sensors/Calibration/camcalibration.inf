@@ -8,7 +8,9 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 03/18/2021,12.0.30519.0
 PnpLockdown = 1
-CatalogFile = camcalibration.cat
+
+CatalogFile.NTarm   = camcalibration.arm.cat
+CatalogFile.NTarm64 = camcalibration.arm64.cat
 
 [DestinationDirs]
 ; 11 = system32
@@ -44,6 +46,10 @@ CamCalibration.CopyFiles = 12
 ;*****************************************
 ; CamCal  Install Section
 ;*****************************************
+
+[DefaultInstall.NTarm]
+CopyFiles = CamCalibration.CopyFiles
+AddReg    = CamCalibration.AddReg
 
 [DefaultInstall.NTarm64]
 CopyFiles = CamCalibration.CopyFiles

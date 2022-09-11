@@ -12,7 +12,9 @@ ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %OEM%
 DriverVer   = 09/21/2021,1.0.1067.0000
 ExtensionId = {872672DF-6BB6-4238-9553-8CD37C721040}
-CatalogFile = cityman_qcwlan8994extdrv.cat
+
+CatalogFile.NTarm   = cityman_qcwlan8994extdrv.arm.cat
+CatalogFile.NTarm64 = cityman_qcwlan8994extdrv.arm64.cat
 
 [DestinationDirs]
 QcWlan_FW.CopyFiles         = 12
@@ -29,6 +31,10 @@ Data.msc     = 1,,
 
 [Manufacturer]
 %OEM% = Extension,NTARM64
+
+; For WinXP and later
+[Extension.NTARM]
+%WLAN.DeviceDesc%    = Extension_Inst.ndi, PCI\VEN_168C&DEV_003E
 
 ; For WinXP and later
 [Extension.NTARM64]

@@ -17,13 +17,15 @@ provider    = %QCOM%
 ;ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F4E}
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-CatalogFile = talkman_qcaud8994.cat
+
+CatalogFile.NTarm   = talkman_qcaud8994.arm.cat
+CatalogFile.NTarm64 = talkman_qcaud8994.arm64.cat
 
 [SourceDisksNames]
 222 = %DiskId%
 
 ;[Manufacturer]
-;%MfgName% = DeviceExtensions,NTarm64
+;%MfgName% = DeviceExtensions,NTarm,NTarm64
 
 ;[DeviceExtensions.NTarm]
 ;%QCAUD_A.DeviceDesc% = DeviceExtension_Install, AUDD\QCOM2451
@@ -35,6 +37,9 @@ CatalogFile = talkman_qcaud8994.cat
 
 ;[DeviceExtension_Install.HW]
 ;Addreg = QCAUD.AddReg.Service
+
+[DefaultInstall.NTarm]
+Addreg = QCAUD.AddReg.Service
 
 [DefaultInstall.NTarm64]
 Addreg = QCAUD.AddReg.Service

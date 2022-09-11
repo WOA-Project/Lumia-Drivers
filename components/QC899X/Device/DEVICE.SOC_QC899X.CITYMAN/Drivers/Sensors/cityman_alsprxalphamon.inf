@@ -17,10 +17,15 @@ Provider    = %ManufacturerName%
 ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD22E4B}
 DriverVer   = 03/18/2021,1.0.1078.0056
 PnpLockdown = 1
-CatalogFile = cityman_alsprxalphamon.cat
+
+CatalogFile.NTarm   = cityman_alsprxalphamon.arm.cat
+CatalogFile.NTarm64 = cityman_alsprxalphamon.arm64.cat
 
 [Manufacturer]
-%ManufacturerName% = DeviceExtensions, NTarm64
+%ManufacturerName% = DeviceExtensions, NTarm, NTarm64
+
+[DeviceExtensions.NTarm]
+%DevDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1016
 
 [DeviceExtensions.NTarm64]
 %DevDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1016

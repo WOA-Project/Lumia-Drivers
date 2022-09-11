@@ -17,7 +17,9 @@ Provider    = %COMP%
 ExtensionId = {21E3E289-3E58-469D-B9DF-55339CD11F4D}
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnPLockdown = 1
-CatalogFile = cityman_qcbattmngr8994.cat
+
+CatalogFile.NTarm   = cityman_qcbattmngr8994.arm.cat
+CatalogFile.NTarm64 = cityman_qcbattmngr8994.arm64.cat
 
 [ControlFlags]
 ExcludeFromSelect = *
@@ -27,7 +29,10 @@ ExcludeFromSelect = *
 ;*****************************************
 
 [Manufacturer]
-%COMP% = DeviceExtensions,NTarm64
+%COMP% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2453
 
 [DeviceExtensions.NTarm64]
 %DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_2453

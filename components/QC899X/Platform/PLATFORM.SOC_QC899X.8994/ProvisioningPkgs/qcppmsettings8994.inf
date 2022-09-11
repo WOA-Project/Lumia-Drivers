@@ -8,7 +8,9 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QCOM%
 DriverVer   = 03/18/2021,1.0.1078.0056
 PnpLockdown = 1
-CatalogFile = qcppmsettings8994.cat
+
+CatalogFile.NTarm   = qcppmsettings8994.arm.cat
+CatalogFile.NTarm64 = qcppmsettings8994.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
@@ -25,15 +27,24 @@ PPMSettings-8994Profiles.ppkg = 0,,
 ;*****************************************
 
 [Manufacturer]
-%QC% = QC,NTarm64
+%QC% = QC,NTarm,NTarm64
+
+[QC.NTarm]
+%PPM.DeviceDesc% = PPM, SWC\VID_QCOM&PID_2425&SID_0001
 
 [QC.NTarm64]
 %PPM.DeviceDesc% = PPM, SWC\VID_QCOM&PID_2425&SID_0001
+
+[PPM.NTarm]
+CopyFiles = qcppmsettings.Files.NTarm
 
 [PPM.NTarm64]
 CopyFiles = qcppmsettings.Files.NTarm
 
 ; System32
+[qcppmsettings.Files.NTarm]
+PPMSettings-8994Profiles.ppkg
+
 [Strings]
 REG_SZ                 = 0x00000000
 SPSVCINST_ASSOCSERVICE = 0x00000002

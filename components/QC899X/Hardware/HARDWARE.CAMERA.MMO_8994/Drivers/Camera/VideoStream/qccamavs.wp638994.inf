@@ -23,28 +23,46 @@ ClassGUID   = %MEDIA_DEVICES_CLSID%
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-CatalogFile = qccamavs8994.cat
+
+Catalogfile.NTarm   = qccamavs8994.arm.cat
+Catalogfile.NTarm64 = qccamavs8994.arm64.cat
 
 [Manufacturer]
-%QC% = Qualcomm,NTarm64
+%QC% = Qualcomm,NTarm,NTarm64
+
+[Qualcomm.NTarm]
+%qccamavs.DeviceDesc% = QCCamAvs,VIDEO\QCOM_AVStream_8994
 
 [Qualcomm.NTarm64]
 %qccamavs.DeviceDesc% = QCCamAvs,VIDEO\QCOM_AVStream_8994
 
 [DestinationDirs]
-Drivers_Dir = %DRIVERSTORE_FOLDER%,
+Drivers_Dir_A32 = %DRIVERSTORE_FOLDER%,arm
+Drivers_Dir_A64 = %DRIVERSTORE_FOLDER%,arm64
 
 [SourceDisksNames]
 0 = %qccamavs.DiskName%
 
-[SourceDisksFiles]
-qccamavs8994.sys = 0,
+[SourceDisksFiles.ARM]
+qccamavs8994.sys = 0,arm,
 
-[Drivers_Dir]
+[SourceDisksFiles.ARM64]
+qccamavs8994.sys = 0,arm64,
+
+[Drivers_Dir_A32]
 qccamavs8994.sys
 
+[Drivers_Dir_A64]
+qccamavs8994.sys
+
+[QCCamAvs.NTarm]
+CopyFiles = Drivers_Dir_A32
+
 [QCCamAvs.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
+
+[QCCamAvs.NTarm.HW]
+AddReg = QCCamAvs.Reg.Security
 
 [QCCamAvs.NTarm64.HW]
 AddReg = QCCamAvs.Reg.Security
@@ -55,6 +73,14 @@ HKR,, DeviceCharacteristics, 0x10001, 0x100
 ;---------------------------------------------------------------
 ;                       I n t e r f a c e s
 ;---------------------------------------------------------------
+[QCCamAvs.NTarm.Interfaces]
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_CAPTURE%,      "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_CAPTURE%,      "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_VIDEO%,        "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm,
+AddInterface = %KSCATEGORY_VIDEO%,        "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm,
+
 [QCCamAvs.NTarm64.Interfaces]
 AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm64,
 AddInterface = %KSCATEGORY_VIDEO_CAMERA%, "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm64,
@@ -63,8 +89,14 @@ AddInterface = %KSCATEGORY_CAPTURE%,      "%FrontSensor.RefGuid%", FrontSensor.C
 AddInterface = %KSCATEGORY_VIDEO%,        "%BackSensor.RefGuid%",  BackSensor.CaptureInterface.NTarm64,
 AddInterface = %KSCATEGORY_VIDEO%,        "%FrontSensor.RefGuid%", FrontSensor.CaptureInterface.NTarm64,
 
+[BackSensor.CaptureInterface.NTarm]
+AddReg = QCCamAvs.Reg.BackSensor
+
 [BackSensor.CaptureInterface.NTarm64]
 AddReg = QCCamAvs.Reg.BackSensor
+
+[FrontSensor.CaptureInterface.NTarm]
+AddReg = QCCamAvs.Reg.FrontSensor
 
 [FrontSensor.CaptureInterface.NTarm64]
 AddReg = QCCamAvs.Reg.FrontSensor
@@ -288,15 +320,25 @@ HKR, "KSCAMERAPROFILE_VideoRecording  , 1\PINNAME_VIDEO_CAPTURE"       , "Media3
 ;---------------------------------------------------------------
 ;                S e r v i c e s
 ;---------------------------------------------------------------
+[QCCamAvs.NTarm.Services]
+AddService = QCCamAvs, 0x00000002, QCCamAvs.AddService.NTarm
+
 [QCCamAvs.NTarm64.Services]
 AddService = QCCamAvs, 0x00000002, QCCamAvs.AddService.NTarm64
+
+[QCCamAvs.AddService.NTarm]
+DisplayName   = %qccamavs.DeviceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %13%\arm\qccamavs8994.sys
 
 [QCCamAvs.AddService.NTarm64]
 DisplayName   = %qccamavs.DeviceDesc%
 ServiceType   = %SERVICE_KERNEL_DRIVER%
 StartType     = %SERVICE_DEMAND_START%
 ErrorControl  = %SERVICE_ERROR_NORMAL%
-ServiceBinary = %13%\qccamavs8994.sys
+ServiceBinary = %13%\arm64\qccamavs8994.sys
 
 ;---------------------------------------------------------------
 ;                S t r i n g s

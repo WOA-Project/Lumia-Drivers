@@ -18,40 +18,64 @@ ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
 Provider    = %Company%
 DriverVer   = 03/18/2021,16.8.6.884
 PnpLockdown = 1
-CatalogFile = qcusbfnss8994.cat
+
+CatalogFile.NTarm   = qcusbfnss8994.arm.cat
+CatalogFile.NTarm64 = qcusbfnss8994.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir = 13,
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DiskId1%,,,""
 
-[SourceDisksFiles]
-qcusbfnss8994.sys  = 1,
+[SourceDisksFiles.ARM]
+qcusbfnss8994.sys  = 1,arm,
+
+[SourceDisksFiles.ARM64]
+qcusbfnss8994.sys  = 1,arm64,
 
 ;----- Manufacturer section
 [Manufacturer]
-%Company% = QCOM, NTarm64
+%Company% = QCOM, NTarm, NTarm64
 
 ;----- Models section
+[QCOM.NTarm]
+%DeviceDesc% = QCUSBFN_Device, ACPI\QCOM2484
+;%DeviceDesc% = QCUSBFN_Device, URS\QCOM24B6&FUNCTION   ; Dual-Role stack
+
 [QCOM.NTarm64]
 %DeviceDesc% = QCUSBFN_Device, ACPI\QCOM2484
 ;%DeviceDesc% = QCUSBFN_Device, URS\QCOM24B6&FUNCTION   ; Dual-Role stack
 
-[QCUSBFN_Device.NTarm64] ; DDInstall section
-CopyFiles    = Drivers_Dir
+[QCUSBFN_Device.NTarm] ; DDInstall section
+CopyFiles    = Drivers_Dir_A32
 AddReg       = QCUSBFN_Device_AddReg
 FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
+
+[QCUSBFN_Device.NTarm64] ; DDInstall section
+CopyFiles    = Drivers_Dir_A64
+AddReg       = QCUSBFN_Device_AddReg
+FeatureScore = 80 ; Override feature score for PnP to pick QC filter driver
+
+[QCUSBFN_Device.NTarm.HW] ; DDInstall.HW section
+AddReg = QcUsbFnSSFilter_AddReg
 
 [QCUSBFN_Device.NTarm64.HW] ; DDInstall.HW section
 AddReg = QcUsbFnSSFilter_AddReg
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcusbfnss8994.sys
+
+[Drivers_Dir_A64]
 qcusbfnss8994.sys
 
 ;-----  DDInstall.Services section
-[QCUSBFN_Device.NTarm64.Services]
+[QCUSBFN_Device.NTarm.Services]
 AddService = %ServiceName%, %SPSVCINST_ASSOCSERVICE%, QCUSBFN_Service_Inst
+
+[QCUSBFN_Device.NTarm64.Services]
+AddService = %ServiceName%, %SPSVCINST_ASSOCSERVICE%, QCUSBFN_Service_Inst.NTarm64
 
 ;----- DDInstall.Service install section
 [QCUSBFN_Service_Inst]
@@ -59,7 +83,16 @@ DisplayName    = %ServiceDesc%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary  = %13%\qcusbfnss8994.sys
+ServiceBinary  = %13%\arm\qcusbfnss8994.sys
+LoadOrderGroup = Extended Base
+AddReg         = QCUSBFN_SERVICE_ADDREG
+
+[QCUSBFN_Service_Inst.NTarm64]
+DisplayName    = %ServiceDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\arm64\qcusbfnss8994.sys
 LoadOrderGroup = Extended Base
 AddReg         = QCUSBFN_SERVICE_ADDREG
 

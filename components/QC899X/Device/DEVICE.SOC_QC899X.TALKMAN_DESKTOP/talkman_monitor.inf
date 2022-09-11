@@ -5,14 +5,19 @@ ClassGuid   = {4d36e96e-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-CatalogFile = talkman_monitor.cat
+
+CatalogFile.NTarm   = talkman_monitor.arm.cat
+CatalogFile.NTarm64 = talkman_monitor.arm64.cat
 
 ; Don't show this driver as an option to install for other devices
 [ControlFlags]
 ExcludeFromSelect=*
 
 [Manufacturer]
-%SAMSUNG%      = IHV,NTarm64
+%SAMSUNG%      = IHV,NTarm,NTarm64
+
+[IHV.NTarm]
+%CMO0011%    = CMO0011, Monitor\CMO0011
 
 [IHV.NTarm64]
 %CMO0011%    = CMO0011, Monitor\CMO0011

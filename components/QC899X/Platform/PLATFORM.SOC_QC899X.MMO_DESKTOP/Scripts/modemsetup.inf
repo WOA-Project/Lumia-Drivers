@@ -9,7 +9,9 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 03/18/2021,1.0.0.1
 PnpLockdown = 1
-CatalogFile = modemsetup.cat
+
+CatalogFile.NTarm   = modemsetup.arm.cat
+CatalogFile.NTarm64 = modemsetup.arm64.cat
 
 [DestinationDirs]
 ; 10 = Windows
@@ -26,6 +28,9 @@ ModemOobe.cmd        = 0,,
 ;*****************************************
 ; modemsetup  Install Section
 ;*****************************************
+
+[DefaultInstall.NTarm]
+CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files
 
 [DefaultInstall.NTarm64]
 CopyFiles = OOBECmd.Files,SpecializeCmd.Files,FirstLogonCmd.Files

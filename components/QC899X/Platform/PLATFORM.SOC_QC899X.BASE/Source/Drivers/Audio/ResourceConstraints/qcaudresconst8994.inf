@@ -23,10 +23,12 @@ Provider    = %QCOM%
 ;ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F4D}
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-CatalogFile = qcaudresconst8994.cat
+
+CatalogFile.NTarm   = qcaudresconst8994.arm.cat
+CatalogFile.NTarm64 = qcaudresconst8994.arm64.cat
 
 ;[Manufacturer]
-;%MfgName% = DeviceExtensions,NTarm64
+;%MfgName% = DeviceExtensions,NTarm,NTarm64
 
 ;[DeviceExtensions.NTarm]
 ;%QCAUD_A.DeviceDesc% = DeviceExtension_Install, AUDD\QCOM2451
@@ -37,6 +39,10 @@ CatalogFile = qcaudresconst8994.cat
 ;[DeviceExtension_Install]
 ;Addreg    = audresconstReg
 ;CopyFiles = AudioResourceConstraints.CopyList
+
+[DefaultInstall.NTarm]
+Addreg    = audresconstReg
+CopyFiles = AudioResourceConstraints.CopyList
 
 [DefaultInstall.NTarm64]
 Addreg    = audresconstReg

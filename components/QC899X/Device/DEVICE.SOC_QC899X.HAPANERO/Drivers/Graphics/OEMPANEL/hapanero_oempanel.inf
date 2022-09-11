@@ -22,14 +22,19 @@ Provider    = %QC%
 ExtensionId = {21E3E279-2E58-469D-B9DF-65339CD11E4B}
 DriverVer   = 03/18/2021, 07.14.2.8061
 PnpLockdown = 1
-CatalogFile = hapanero_oempanel.cat
+
+CatalogFile.NTarm   = hapanero_oempanel.arm.cat
+CatalogFile.NTarm64 = hapanero_oempanel.arm64.cat
 
 ;*****************************************
 ; oem panel client driver Install Section
 ;*****************************************
 
 [Manufacturer]
-%QC% = DeviceExtensions,NTarm64
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%OEM.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1004
 
 [DeviceExtensions.NTarm64]
 %OEM.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1004

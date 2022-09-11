@@ -9,41 +9,64 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %ManufacturerName%
 DriverVer   = 03/18/2021,18.13.19.793
 PnpLockdown = 1
-CatalogFile = qcnull.cat
+
+CatalogFile.NTarm   = qcnull.arm.cat
+CatalogFile.NTarm64 = qcnull.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir = 13,
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 ; ================= Class section =====================
 
 [SourceDisksNames]
 1 = %DiskName%,,,""
 
-[SourceDisksFiles]
-qcnull.sys = 1,
+[SourceDisksFiles.ARM]
+qcnull.sys = 1,arm,
+
+[SourceDisksFiles.ARM64]
+qcnull.sys = 1,arm64,
 
 ;*****************************************
 ; Install Section
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName% = Standard,NTarm64
+%ManufacturerName% = Standard,NTarm,NTarm64
+
+[Standard.NTarm]
+%QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
+%25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
 
 [Standard.NTarm64]
 %QcGPUNull.DeviceDesc%      = qcnull_Device, ACPI\QCOM_GPU
 %25A0Null.DeviceDesc%       = qcnull_Device, ACPI\QCOM25A0
 
+[qcnull_Device.NTarm]
+CopyFiles = Drivers_Dir_A32
+
+[qcnull_Device.NTarm.Wdf]
+KmdfService = qcnull, qcnull_wdfsect
+
+;-------------- Service installation
+[qcnull_Device.NTarm.Services]
+AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst
+
 [qcnull_Device.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
 
 [qcnull_Device.NTarm64.Wdf]
 KmdfService = qcnull, qcnull_wdfsect
 
 ;-------------- Service installation
 [qcnull_Device.NTarm64.Services]
-AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst
+AddService = qcnull,%SPSVCINST_ASSOCSERVICE%, qcnull_Service_Inst.NTarm64
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+qcnull.sys
+
+[Drivers_Dir_A64]
 qcnull.sys
 
 ; -------------- qcnull driver install sections
@@ -52,7 +75,14 @@ DisplayName   = %qcnull.SvcDesc%
 ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
 StartType     = 3               ; SERVICE_DEMAND_START
 ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
-ServiceBinary = %13%\qcnull.sys
+ServiceBinary = %13%\arm\qcnull.sys
+
+[qcnull_Service_Inst.NTarm64]
+DisplayName   = %qcnull.SvcDesc%
+ServiceType   = 1               ; SERVICE_KERNEL_DRIVER
+StartType     = 3               ; SERVICE_DEMAND_START
+ErrorControl  = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary = %13%\arm64\qcnull.sys
 
 [qcnull_wdfsect]
 KmdfLibraryVersion = 1.15

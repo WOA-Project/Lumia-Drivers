@@ -21,7 +21,9 @@ Provider    = %QCOM%
 ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11E4B}
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-CatalogFile = talkman_qcacsp8994.cat
+
+CatalogFile.NTarm   = talkman_qcacsp8994.arm.cat
+CatalogFile.NTarm64 = talkman_qcacsp8994.arm64.cat
 
 [DestinationDirs]
 Drivers_Dir_24 = 11
@@ -43,7 +45,12 @@ Speaker_cal_8994.acdb   = 1
 ; ACSP  Install Section
 ;*****************************************
 [Manufacturer]
-%StdMfg% = DeviceExtensions,NTarm64
+%StdMfg% = DeviceExtensions,NTarm,NTarm64
+
+; Decorated model section take precedence over undecorated
+; ones on XP and later.
+[DeviceExtensions.NTarm]
+%ACSP.DeviceDesc% = DeviceExtension_Install, SLM1\QCOM242D
 
 ; Decorated model section take precedence over undecorated
 ; ones on XP and later.
