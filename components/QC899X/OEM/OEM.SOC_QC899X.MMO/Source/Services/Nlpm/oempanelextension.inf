@@ -6,10 +6,15 @@ Provider    = %IHV%
 ExtensionId = {21E3E289-3E58-469D-B9CF-78549CD14F52}
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-CatalogFile = oempanelextension.cat
+
+CatalogFile.NTarm   = oempanelextension.arm.cat
+CatalogFile.NTarm64 = oempanelextension.arm64.cat
 
 [Manufacturer]
-%MMO% = DeviceExtensions,NTarm64
+%MMO% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%OEMPanel.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1004
 
 [DeviceExtensions.NTarm64]
 %OEMPanel.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1004

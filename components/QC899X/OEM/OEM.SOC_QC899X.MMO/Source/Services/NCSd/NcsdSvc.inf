@@ -8,29 +8,57 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 08/18/2021,1.0.1067.0000
 PnpLockdown = 1
-CatalogFile = ncsdsvc.cat
+
+CatalogFile.NTarm   = ncsdsvc.arm.cat
+CatalogFile.NTarm64 = ncsdsvc.arm64.cat
 
 [DestinationDirs]
-Drivers_Dir = 13,
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles]
-NcsdRes.dll        = 0,
-Ncsd.dll           = 0,
-LAVCR120.dll       = 0,
-LAVCP120.dll       = 0,
-NcsdPluginSvc.dll  = 0,
-phoneinfo.dll      = 0,
-wpcoreutil.dll     = 0,
-OEMServiceHost.exe = 0,
+[SourceDisksFiles.ARM]
+NcsdRes.dll        = 0,arm,
+Ncsd.dll           = 0,arm,
+LUVCR120.dll       = 0,arm,
+LUVCP120.dll       = 0,arm,
+NcsdPluginSvc.dll  = 0,arm,
+phoneinfo.dll      = 0,arm,
+wpcoreutil.dll     = 0,arm,
+OEMServiceHost.exe = 0,arm,
+
+[SourceDisksFiles.ARM64]
+NcsdRes.dll        = 0,arm64,
+Ncsd.dll           = 0,arm64,
+LAVCR120.dll       = 0,arm64,
+LAVCP120.dll       = 0,arm64,
+NcsdPluginSvc.dll  = 0,arm64,
+phoneinfo.dll      = 0,arm64,
+wpcoreutil.dll     = 0,arm64,
+OEMServiceHost.exe = 0,arm64,
+
+[DefaultInstall.NTarm]
+CopyFiles = Drivers_Dir_A32
 
 [DefaultInstall.NTarm64]
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
+
+[DefaultInstall.NTarm.Services]
+AddService = NcsdPluginSvc,0x00000000,NcsdSvc_Service,
 
 [DefaultInstall.NTarm64.Services]
 AddService = NcsdPluginSvc,0x00000000,NcsdSvc_Service.NTarm64,
+
+[NcsdSvc_Service]
+DisplayName   = "NcsdPluginSvc"
+Description   = "Native Care Service"
+ServiceType   = 0x20
+StartType     = 4
+ErrorControl  = 0
+ServiceBinary = "%13%\arm\OEMServiceHost.exe -k NsgExtUti"
+AddReg        = NcsdSvc_Reg, NcsdSvc_Reg.NTarm
 
 [NcsdSvc_Service.NTarm64]
 DisplayName   = "NcsdPluginSvc"
@@ -38,15 +66,22 @@ Description   = "Native Care Service"
 ServiceType   = 0x20
 StartType     = 4
 ErrorControl  = 0
-ServiceBinary = "%13%\OEMServiceHost.exe -k NsgExtUti"
+ServiceBinary = "%13%\arm64\OEMServiceHost.exe -k NsgExtUti"
 AddReg        = NcsdSvc_Reg, NcsdSvc_Reg.NTarm64
 
+[NcsdSvc_Reg.NTarm]
+HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\arm\NcsdPluginSvc.dll"
+HKLM, "Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\arm\NcsdPluginSvc.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\arm\NcsdRes.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\arm\NcsdRes.dll"
+HKR,, "ImagePath", 0x00020000, "%13%\arm\OEMServiceHost.exe -k NsgExtUti"
+
 [NcsdSvc_Reg.NTarm64]
-HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\NcsdPluginSvc.dll"
-HKLM, "Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\NcsdPluginSvc.dll"
-HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\NcsdRes.dll"
-HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\NcsdRes.dll"
-HKR,, "ImagePath", 0x00020000, "%13%\OEMServiceHost.exe -k NsgExtUti"
+HKR, "Parameters", "ServiceDll", 0x00020000, "%13%\arm64\NcsdPluginSvc.dll"
+HKLM, "Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtUti\NcsdPluginSvc", "Path", 0x00000000, "%13%\arm64\NcsdPluginSvc.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "ResourceFileName", 0x0, "%13%\arm64\NcsdRes.dll"
+HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}", "MessageFileName", 0x0, "%13%\arm64\NcsdRes.dll"
+HKR,, "ImagePath", 0x00020000, "%13%\arm64\OEMServiceHost.exe -k NsgExtUti"
 
 [NcsdSvc_Reg]
 HKLM, "Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{2FCD7DFB-BE81-4973-B188-DEAD27F82088}",,,"NcsdEtw"
@@ -96,7 +131,17 @@ HKR, "TriggerInfo\1", "Guid", 0x00000001, \
 
 HKR, "TriggerInfo\1", "DataType1", 0x00010001, 0x00000001
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+NcsdRes.dll
+Ncsd.dll
+LUVCR120.dll
+LUVCP120.dll
+NcsdPluginSvc.dll
+phoneinfo.dll
+wpcoreutil.dll
+OEMServiceHost.exe
+
+[Drivers_Dir_A64]
 NcsdRes.dll
 Ncsd.dll
 LAVCR120.dll

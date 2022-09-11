@@ -6,10 +6,15 @@ Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F51}
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-CatalogFile = qcadsprpcextension8994.cat
+
+CatalogFile.NTarm   = qcadsprpcextension8994.arm.cat
+CatalogFile.NTarm64 = qcadsprpcextension8994.arm64.cat
 
 [Manufacturer]
-%QC% = DeviceExtensions,NTarm64
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%ADSPRPC.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_248A
 
 [DeviceExtensions.NTarm64]
 %ADSPRPC.DeviceDesc% = DeviceExtension_Install, ACPI\VEN_QCOM&DEV_248A

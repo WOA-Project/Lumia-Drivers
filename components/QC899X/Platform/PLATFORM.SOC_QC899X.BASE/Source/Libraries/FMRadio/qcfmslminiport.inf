@@ -8,7 +8,9 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnpLockdown = 1
-CatalogFile = "qcfmslminiport.cat"
+
+CatalogFile.NTarm   = "qcfmslminiport.arm.cat"
+CatalogFile.NTarm64 = "qcfmslminiport.arm64.cat"
 
 [DestinationDirs]
 qcfmslminiport.Files = 11
@@ -17,15 +19,26 @@ qcfmslminiport.Files64 = 11
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles]
-qcfmslminiport.dll = 0,
-LAVCR120.dll       = 0,
+[SourceDisksFiles.ARM]
+qcfmslminiport.dll = 0,arm,
+LUVCR120.dll       = 0,arm,
+
+[SourceDisksFiles.ARM64]
+qcfmslminiport.dll = 0,arm64,
+LAVCR120.dll       = 0,arm64,
 
 [Manufacturer]
-%QC% = QC,NTarm64
+%QC% = QC,NTarm,NTarm64
+
+[QC.NTarm]
+%FM.DeviceDesc% = FMS, SWC\VID_QCOM&PID_24B1&SID_0001
 
 [QC.NTarm64]
 %FM.DeviceDesc% = FMS, SWC\VID_QCOM&PID_24B1&SID_0001
+
+[FMS.NTarm]
+CopyFiles = qcfmslminiport.Files
+AddReg    = qcfmslminiport_Reg
 
 [FMS.NTarm64]
 CopyFiles = qcfmslminiport.Files64

@@ -17,22 +17,31 @@ ClassGuid   = {4d36e966-e325-11ce-bfc1-08002be10318}
 Provider    = %QC%
 DriverVer   = 03/18/2021,1.0.1067.0000
 PnPLockdown = 1
-CatalogFile = "HalExtQCTimer.cat"
+
+CatalogFile.NTarm   = "HalExtQCTimer.arm.cat"
+CatalogFile.NTarm64 = "HalExtQCTimer.arm64.cat"
 
 [ControlFlags]
 ExcludeFromSelect = *
 
 [DestinationDirs]
-Drivers_Dir = 13,
+Drivers_Dir_A32 = 13,arm
+Drivers_Dir_A64 = 13,arm64
 
 [SourceDisksNames]
 1 = %DISK_ID%
 
-[SourceDisksFiles]
-HalExtQCTimer.dll = 1,
+[SourceDisksFiles.ARM]
+HalExtQCTimer.dll = 1,arm
+
+[SourceDisksFiles.ARM64]
+HalExtQCTimer.dll = 1,arm64
 
 [Manufacturer]
-%MFGNAME% = DeviceList, NTarm64
+%MFGNAME% = DeviceList, NTarm, NTarm64
+
+[DeviceList.NTarm]
+%QC_TIMERS% = QC_TIMERS,  ACPI\QCOM100A
 
 [DeviceList.NTarm64]
 %QC_TIMERS% = QC_TIMERS,  ACPI\QCOM100A
@@ -43,12 +52,18 @@ CopyFiles = Drivers_Dir_A32
 
 [QC_TIMERS.NTarm64]
 AddReg    = QC_TIMERS_AddReg.NTarm64
-CopyFiles = Drivers_Dir
+CopyFiles = Drivers_Dir_A64
+
+[QC_TIMERS_AddReg]
+HKLM, "%OSEDB%\VEN_QCOM&DEV_100A", "HALExtension",, "%13%\arm\HalExtQCTimer.dll"
 
 [QC_TIMERS_AddReg.NTarm64]
-HKLM, "%OSEDB%\VEN_QCOM&DEV_100A", "HALExtension",, "%13%\HalExtQCTimer.dll"
+HKLM, "%OSEDB%\VEN_QCOM&DEV_100A", "HALExtension",, "%13%\arm64\HalExtQCTimer.dll"
 
-[Drivers_Dir]
+[Drivers_Dir_A32]
+HalExtQCTimer.dll,,, 0x00001000,
+
+[Drivers_Dir_A64]
 HalExtQCTimer.dll,,, 0x00001000,
 
 [QC_TIMERS.Services]

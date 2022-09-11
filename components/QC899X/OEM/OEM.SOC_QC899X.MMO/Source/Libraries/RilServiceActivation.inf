@@ -8,7 +8,9 @@ ClassGuid   = {5c4c3332-344d-483c-8739-259e934c9cc8}
 Provider    = %IHV%
 DriverVer   = 03/18/2021,1.0.0.1
 PnpLockdown = 1
-CatalogFile = RilServiceActivation.cat
+
+CatalogFile.NTarm   = RilServiceActivation.arm.cat
+CatalogFile.NTarm64 = RilServiceActivation.arm64.cat
 
 [DestinationDirs]
 RilServiceActivation.Files = 11 ; \system32 directory on Windows 2000 and later versions
@@ -16,14 +18,23 @@ RilServiceActivation.Files = 11 ; \system32 directory on Windows 2000 and later 
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles]
-RilServiceActivation.exe = 0,
+[SourceDisksFiles.ARM]
+RilServiceActivation.exe = 0,arm,
+
+[SourceDisksFiles.ARM64]
+RilServiceActivation.exe = 0,arm64,
 
 [Manufacturer]
-%IHV% = IHV,NTarm64
+%IHV% = IHV,NTarm,NTarm64
+
+[IHV.NTarm]
+%RILServiceActivation.DeviceDesc% = RILServiceActivation, SWC\VID_QCOM&PID_0EA0&SID_00A2
 
 [IHV.NTarm64]
 %RILServiceActivation.DeviceDesc% = RILServiceActivation, SWC\VID_QCOM&PID_0EA0&SID_00A2
+
+[RILServiceActivation.NTarm]
+CopyFiles = RilServiceActivation.Files
 
 [RILServiceActivation.NTarm64]
 CopyFiles = RilServiceActivation.Files

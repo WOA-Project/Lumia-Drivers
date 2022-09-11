@@ -6,10 +6,15 @@ Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F62}
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-CatalogFile = qcwmrilextension8994.cat
+
+CatalogFile.NTarm   = qcwmrilextension8994.arm.cat
+CatalogFile.NTarm64 = qcwmrilextension8994.arm64.cat
 
 [Manufacturer]
-%QC% = DeviceExtensions,NTarm64
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%WMRil.DeviceDesc% = DeviceExtension_Install, SWC\VEN_QCOM&DEV_WMRIL&PLAT_8994
 
 [DeviceExtensions.NTarm64]
 %WMRil.DeviceDesc% = DeviceExtension_Install, SWC\VEN_QCOM&DEV_WMRIL&PLAT_8994

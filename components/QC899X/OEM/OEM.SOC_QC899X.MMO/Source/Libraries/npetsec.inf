@@ -8,7 +8,9 @@ ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = %IHV%
 DriverVer   = 03/18/2021,1.0.1047.0000
 PnpLockdown = 1
-CatalogFile = npetsec.cat
+
+CatalogFile.NTarm   = npetsec.arm.cat
+CatalogFile.NTarm64 = npetsec.arm64.cat
 
 [DestinationDirs]
 npetsec.Files = 11 ; \system32 directory on Windows 2000 and later versions
@@ -16,8 +18,14 @@ npetsec.Files = 11 ; \system32 directory on Windows 2000 and later versions
 [SourceDisksNames]
 0 = "Disk"
 
-[SourceDisksFiles]
-npetsec.dll              = 0,
+[SourceDisksFiles.ARM]
+npetsec.dll              = 0,arm,
+
+[SourceDisksFiles.ARM64]
+npetsec.dll              = 0,arm64,
+
+[DefaultInstall.NTarm]
+CopyFiles = npetsec.Files
 
 [DefaultInstall.NTarm64]
 CopyFiles = npetsec.Files

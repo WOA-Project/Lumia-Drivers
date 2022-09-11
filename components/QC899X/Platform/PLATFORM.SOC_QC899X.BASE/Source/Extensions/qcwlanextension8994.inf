@@ -6,10 +6,15 @@ Provider    = %QC%
 ExtensionId = {21E3E289-3E58-469D-B9DF-75549CD11F5A}
 DriverVer   = 03/18/2021,1.0.0.0
 PnpLockdown = 1
-CatalogFile = qcwlanextension8994.cat
+
+CatalogFile.NTarm   = qcwlanextension8994.arm.cat
+CatalogFile.NTarm64 = qcwlanextension8994.arm64.cat
 
 [Manufacturer]
-%QC% = DeviceExtensions,NTarm64
+%QC% = DeviceExtensions,NTarm,NTarm64
+
+[DeviceExtensions.NTarm]
+%WLAN.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
 
 [DeviceExtensions.NTarm64]
 %WLAN.DeviceDesc% = DeviceExtension_Install, PCI\VEN_168C&DEV_003E
