@@ -18,10 +18,10 @@
 | Windows 10 Build 19044 (21h2)                                             | ✅         |
 | Windows 11 Build 22000 (21h2)                                             | ✅         |
 | Windows 11 Build 22621 (22h2)                                             | ✅         |
-| Windows 11 vNext (Copper Semester)                                        | ❌ *      |
+| Windows 11 vNext (Copper Semester)                                        | ❌ *       |
 
 
-* Builds 25183 and earlier will work fine. Starting with build 25188 ARMv8.1 Atomics are now required.
+* Starting with build 25188 ARMv8.1 Atomics are now required. Build 25182 will BSOD on boot. Builds <XXXXX> and earlier will work fine.
 
 ❌: Not supported, important issues present
 
