@@ -21,7 +21,7 @@
 | Windows 11 vNext (Copper Semester)                                        | ❌ *       |
 
 
-* Starting with build 25188 ARMv8.1 Atomics are now required. Build 25174 to 25183 will BSOD on boot (KMODE_EXCEPTION_NOT_HANDLED). Builds <XXXXX> and earlier will successfully boot.
+* Starting with build 25188 ARMv8.1 Atomics are now required. Build 25169 to 25183 will BSOD on boot (KMODE_EXCEPTION_NOT_HANDLED). Builds 25163 and earlier will successfully boot.
 
 ❌: Not supported, important issues present
 
