@@ -15,8 +15,6 @@ This repository isn't complete due to the lack of hardware. While we could theor
 
 [Telegram group for ARM32](https://t.me/joinchat/C-AWlVMh3jq0tnvPpLAS0Q)
 
-[Forum](https://woaproject.net)
-
 [Guides](https://woa-project.github.io/LumiaWOA/guides/)
 
 [WOA Deployer for ARM64 and 950 devices](https://github.com/WOA-Project/WOA-Deployer-Lumia)
