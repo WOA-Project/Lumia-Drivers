@@ -1,143 +1,143 @@
 <FeatureManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/embedded/2004/10/ImageUpdate" Revision="1" SchemaVersion="1.3">
     <Drivers>
         <BaseDriverPackages>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4" Name="SynapticsTouch.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Settings\Version" Name="phonereleaseversion.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Setup" Name="desktopsetup.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Signature" Name="desktopsignature.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.EXTRAS\Source\Applications" Name="spapps.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.FIXES_15035\15035_UAC" Name="disablelua.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Applications" Name="oemapps.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\MTP" Name="MTPOEM.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\OSCustomizations" Name="ihvoscustomizations.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Settings" Name="displaydock.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Tools\Dock" Name="displaydockflyout.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MMODeviceProvisioningPartitionService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileAmbientLightService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileFrequencyModulationService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="QualcommLegacyAdrenoInitializationService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MMOPanelColorProfileService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileAutoRotationService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileHapticsService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Scripts" Name="supportsetuparm.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\Extension" Name="simplehw.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\Sensors" Name="Fusion.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\USB" Name="ufnchipidea.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\USB" Name="usbfnclx.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Services\MTP" Name="MTPDesktop.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\System" Name="phonent.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\USBFn" Name="usbdefaults.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL_EXTRAS\EMBDeviceMetadata" Name="EMBDeviceMetadata.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\AudioCoreExt" Name="AudioCoreExt.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\EMB" Name="emb.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\WindowsPhone" Name="WindowsPhone.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.POST_UPGRADE_ENABLEMENT" Name="postupgrade.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Audio" Name="qcacsp_wp8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Camera\Calibration" Name="camcalibration.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Camera\Front" Name="qccamfrontsensor_secondarySMIApp8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Camera\Rear" Name="qccamrearsensor_primarySMIApp8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Graphics" Name="oempanel.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Graphics" Name="qcdx8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Subsystems" Name="qcsubsys8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Touch" Name="makepeace_SynapticsTouch.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Audio\CalibrationManager" Name="qcadcm_wp8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Audio\Device" Name="qcauddev_wp8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Audio\Wave" Name="qcaud8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Battery" Name="NokiaBIFDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Battery" Name="NokiaEnergyDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Battery\Origa2Auth" Name="Origa2Auth.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\Flash" Name="qccamflash8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\ISP" Name="qccamisp8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\JpegE" Name="qccamjpege8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\Platform" Name="qccamplatform8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\Thermal" Name="nokia_cam_esp_thermal.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\Thermal" Name="nokia_cam_esp.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\VideoStream" Name="qccamavs8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\DiagCSI" Name="qcDiagCSI8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\DiagRouter" Name="qcDiagRouter8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBroker_G1.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBroker_G2.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G1_01.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G1_02.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G1_03.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G1_04.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G2_01.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G2_02.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G2_03.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G2_04.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\IPCRouter" Name="qcipcrouter_WP8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\Qmux" Name="qcqmux_WP8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\GPS" Name="ngp_drv.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Security" Name="nokia_sec_driver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Sensors" Name="alsprxalphamon.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Sensors" Name="NokiaSscAlgorithmBridge8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Sensors\Sensors" Name="qcSensors8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Sideband" Name="LumiaButtonsGPIO.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\System" Name="NokiaFirewall.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\System" Name="NrsDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\VibrationMotor" Name="hwnvibrapmic.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\WLAN" Name="qcwlan8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Libraries" Name="apperso.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Scripts" Name="platformsetup.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Audio\SLIMBUS" Name="qcslimbus8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Battery\BMS" Name="qcbms8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Bluetooth\AddVSCRegistry" Name="qcbtaddvscregistry.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Bluetooth\BT" Name="qcbluetooth8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Bluetooth\BT" Name="qcbtaddvscregistry.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Bluetooth\BTFTMTest" Name="qcbtftmtest8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\DiagBridge" Name="QCDiagBridge8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\Linklocal" Name="qclinklocal.wp8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\MBB" Name="ModemResources.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\ModemBridge" Name="qcmbrg8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\RemoteAT" Name="qcremoteat8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\RemoteFS" Name="qcremotefs.wp8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\RevRmNet" Name="qcrevrmnet.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\RmNetBridge" Name="qcrmnetbridge8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\FMRadio" Name="qcfmtransport8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\HALs" Name="HalExtQCTimer.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\HALs" Name="HalExtQCWdogTimer.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\GPIO" Name="qcgpio.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\GPIO" Name="qcpowerkeygpio8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\HexagonLoader" Name="qcpil8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\I2C" Name="qci2c8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PMIC" Name="qcpmic3p8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PMIC" Name="qcpmic8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PMIC" Name="qcpmicapps8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PMIC" Name="qcpmicgpio8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PowerManagement" Name="QCPEP8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PowerManagement" Name="qcpepproxy8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\ResetPower" Name="qccdi8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\ResetPower" Name="qcrpen8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\SMMU" Name="qcsmmu8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\SPI" Name="qcspi8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\SPMI" Name="qcspmi8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcabd8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcbamdmux8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcbcryptcipherkm8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qchwnled.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qckmbam8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcmipibif8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcocmem8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcqdss8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcscm8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcsmd8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcssm8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="WDFHelper.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\VoltageCurrentMonitoring" Name="qcadc8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcci8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcdiaglogging8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcims8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcsi8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcssd8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="wmril.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\FMRadio" Name="qcfmminiport.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Graphics" Name="qcmchdcpuml8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcImsDataDaemon8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcImsQMIDaemon8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcimsRTPSvc8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcimsVTWNIsvc8626.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcremoteatsrvc8626.inf"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4" Name="SynapticsTouch.inf" ID="SynapticsTouch"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Settings\Version" Name="phonereleaseversion.inf" ID="phonereleaseversion"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Setup" Name="desktopsetup.inf" ID="desktopsetup"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Signature" Name="desktopsignature.inf" ID="desktopsignature"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.EXTRAS\Source\Applications" Name="spapps.inf" ID="spapps"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.FIXES_15035\15035_UAC" Name="disablelua.inf" ID="disablelua"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Applications" Name="oemapps.inf" ID="oemapps"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\MTP" Name="MTPOEM.inf" ID="MTPOEM"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\OSCustomizations" Name="ihvoscustomizations.inf" ID="ihvoscustomizations"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Settings" Name="displaydock.inf" ID="displaydock"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Tools\Dock" Name="displaydockflyout.inf" ID="displaydockflyout"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf" ID="FM Radio Interface"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MMODeviceProvisioningPartitionService.inf" ID="MMODeviceProvisioningPartitionService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileAmbientLightService.inf" ID="MobileAmbientLightService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileFrequencyModulationService.inf" ID="MobileFrequencyModulationService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="QualcommLegacyAdrenoInitializationService.inf" ID="QualcommLegacyAdrenoInitializationService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MMOPanelColorProfileService.inf" ID="MMOPanelColorProfileService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileAutoRotationService.inf" ID="MobileAutoRotationService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileHapticsService.inf" ID="MobileHapticsService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Scripts" Name="supportsetuparm.inf" ID="supportsetuparm"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\Extension" Name="simplehw.inf" ID="simplehw"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\Sensors" Name="Fusion.inf" ID="Fusion"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\USB" Name="ufnchipidea.inf" ID="ufnchipidea"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\USB" Name="usbfnclx.inf" ID="usbfnclx"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Services\MTP" Name="MTPDesktop.inf" ID="MTPDesktop"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\System" Name="phonent.inf" ID="phonent"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\USBFn" Name="usbdefaults.inf" ID="usbdefaults"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL_EXTRAS\EMBDeviceMetadata" Name="EMBDeviceMetadata.inf" ID="EMBDeviceMetadata"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\AudioCoreExt" Name="AudioCoreExt.inf" ID="AudioCoreExt"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\EMB" Name="emb.inf" ID="emb"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\WindowsPhone" Name="WindowsPhone.inf" ID="WindowsPhone"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.POST_UPGRADE_ENABLEMENT" Name="postupgrade.inf" ID="postupgrade"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Audio" Name="qcacsp_wp8626.inf" ID="qcacsp_wp8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Camera\Calibration" Name="camcalibration.inf" ID="camcalibration"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Camera\Front" Name="qccamfrontsensor_secondarySMIApp8626.inf" ID="qccamfrontsensor_secondarySMIApp8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Camera\Rear" Name="qccamrearsensor_primarySMIApp8626.inf" ID="qccamrearsensor_primarySMIApp8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Graphics" Name="oempanel.inf" ID="oempanel"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Graphics" Name="qcdx8626.inf" ID="qcdx8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Subsystems" Name="qcsubsys8626.inf" ID="qcsubsys8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\DEVICE.SOC_QC8X26.MAKEPEACE\Drivers\Touch" Name="makepeace_SynapticsTouch.inf" ID="makepeace_SynapticsTouch"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Audio\CalibrationManager" Name="qcadcm_wp8626.inf" ID="qcadcm_wp8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Audio\Device" Name="qcauddev_wp8626.inf" ID="qcauddev_wp8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Audio\Wave" Name="qcaud8626.inf" ID="qcaud8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Battery" Name="NokiaBIFDriver.inf" ID="NokiaBIFDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Battery" Name="NokiaEnergyDriver.inf" ID="NokiaEnergyDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Battery\Origa2Auth" Name="Origa2Auth.inf" ID="Origa2Auth"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\Flash" Name="qccamflash8626.inf" ID="qccamflash8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\ISP" Name="qccamisp8626.inf" ID="qccamisp8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\JpegE" Name="qccamjpege8626.inf" ID="qccamjpege8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\Platform" Name="qccamplatform8626.inf" ID="qccamplatform8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\Thermal" Name="nokia_cam_esp_thermal.inf" ID="nokia_cam_esp_thermal"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\Thermal" Name="nokia_cam_esp.inf" ID="nokia_cam_esp"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Camera\VideoStream" Name="qccamavs8626.inf" ID="qccamavs8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\DiagCSI" Name="qcDiagCSI8626.inf" ID="qcDiagCSI8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\DiagRouter" Name="qcDiagRouter8626.inf" ID="qcDiagRouter8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBroker_G1.inf" ID="HidMessageBroker_G1"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBroker_G2.inf" ID="HidMessageBroker_G2"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G1_01.inf" ID="HidMessageBrokerWinRT_G1_01"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G1_02.inf" ID="HidMessageBrokerWinRT_G1_02"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G1_03.inf" ID="HidMessageBrokerWinRT_G1_03"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G1_04.inf" ID="HidMessageBrokerWinRT_G1_04"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G2_01.inf" ID="HidMessageBrokerWinRT_G2_01"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G2_02.inf" ID="HidMessageBrokerWinRT_G2_02"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G2_03.inf" ID="HidMessageBrokerWinRT_G2_03"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\HidMessageBroker" Name="HidMessageBrokerWinRT_G2_04.inf" ID="HidMessageBrokerWinRT_G2_04"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\IPCRouter" Name="qcipcrouter_WP8626.inf" ID="qcipcrouter_WP8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Cellular\Qmux" Name="qcqmux_WP8626.inf" ID="qcqmux_WP8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\GPS" Name="ngp_drv.inf" ID="ngp_drv"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Security" Name="nokia_sec_driver.inf" ID="nokia_sec_driver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Sensors" Name="alsprxalphamon.inf" ID="alsprxalphamon"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Sensors" Name="NokiaSscAlgorithmBridge8626.inf" ID="NokiaSscAlgorithmBridge8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Sensors\Sensors" Name="qcSensors8626.inf" ID="qcSensors8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\Sideband" Name="LumiaButtonsGPIO.inf" ID="LumiaButtonsGPIO"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\System" Name="NokiaFirewall.inf" ID="NokiaFirewall"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\System" Name="NrsDriver.inf" ID="NrsDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\VibrationMotor" Name="hwnvibrapmic.inf" ID="hwnvibrapmic"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Drivers\WLAN" Name="qcwlan8626.inf" ID="qcwlan8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\OEM.SOC_QC8X26.NMO\Libraries" Name="apperso.inf" ID="apperso"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Scripts" Name="platformsetup.inf" ID="platformsetup"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Audio\SLIMBUS" Name="qcslimbus8626.inf" ID="qcslimbus8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Battery\BMS" Name="qcbms8626.inf" ID="qcbms8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Bluetooth\AddVSCRegistry" Name="qcbtaddvscregistry.inf" ID="qcbtaddvscregistry"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Bluetooth\BT" Name="qcbluetooth8626.inf" ID="qcbluetooth8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Bluetooth\BT" Name="qcbtaddvscregistry.inf" ID="qcbtaddvscregistry"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Bluetooth\BTFTMTest" Name="qcbtftmtest8626.inf" ID="qcbtftmtest8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\DiagBridge" Name="QCDiagBridge8626.inf" ID="QCDiagBridge8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\Linklocal" Name="qclinklocal.wp8626.inf" ID="qclinklocal.wp8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\MBB" Name="ModemResources.inf" ID="ModemResources"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\ModemBridge" Name="qcmbrg8626.inf" ID="qcmbrg8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\RemoteAT" Name="qcremoteat8626.inf" ID="qcremoteat8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\RemoteFS" Name="qcremotefs.wp8626.inf" ID="qcremotefs.wp8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\RevRmNet" Name="qcrevrmnet.inf" ID="qcrevrmnet"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\Cellular\RmNetBridge" Name="qcrmnetbridge8626.inf" ID="qcrmnetbridge8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\FMRadio" Name="qcfmtransport8626.inf" ID="qcfmtransport8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\HALs" Name="HalExtQCTimer.inf" ID="HalExtQCTimer"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\HALs" Name="HalExtQCWdogTimer.inf" ID="HalExtQCWdogTimer"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\GPIO" Name="qcgpio.inf" ID="qcgpio"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\GPIO" Name="qcpowerkeygpio8626.inf" ID="qcpowerkeygpio8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\HexagonLoader" Name="qcpil8626.inf" ID="qcpil8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\I2C" Name="qci2c8626.inf" ID="qci2c8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PMIC" Name="qcpmic3p8626.inf" ID="qcpmic3p8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PMIC" Name="qcpmic8626.inf" ID="qcpmic8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PMIC" Name="qcpmicapps8626.inf" ID="qcpmicapps8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PMIC" Name="qcpmicgpio8626.inf" ID="qcpmicgpio8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PowerManagement" Name="QCPEP8626.inf" ID="QCPEP8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\PowerManagement" Name="qcpepproxy8626.inf" ID="qcpepproxy8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\ResetPower" Name="qccdi8626.inf" ID="qccdi8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\ResetPower" Name="qcrpen8626.inf" ID="qcrpen8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\SMMU" Name="qcsmmu8626.inf" ID="qcsmmu8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\SPI" Name="qcspi8626.inf" ID="qcspi8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\SPMI" Name="qcspmi8626.inf" ID="qcspmi8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcabd8626.inf" ID="qcabd8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcbamdmux8626.inf" ID="qcbamdmux8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcbcryptcipherkm8626.inf" ID="qcbcryptcipherkm8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qchwnled.inf" ID="qchwnled"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qckmbam8626.inf" ID="qckmbam8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcmipibif8626.inf" ID="qcmipibif8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcocmem8626.inf" ID="qcocmem8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcqdss8626.inf" ID="qcqdss8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcscm8626.inf" ID="qcscm8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcsmd8626.inf" ID="qcsmd8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="qcssm8626.inf" ID="qcssm8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\System" Name="WDFHelper.inf" ID="WDFHelper"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Drivers\SOC\VoltageCurrentMonitoring" Name="qcadc8626.inf" ID="qcadc8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcci8626.inf" ID="qcci8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcdiaglogging8626.inf" ID="qcdiaglogging8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcims8626.inf" ID="qcims8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcsi8626.inf" ID="qcsi8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="qcssd8626.inf" ID="qcssd8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Cellular" Name="wmril.inf" ID="wmril"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\FMRadio" Name="qcfmminiport.inf" ID="qcfmminiport"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Libraries\Graphics" Name="qcmchdcpuml8626.inf" ID="qcmchdcpuml8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcImsDataDaemon8626.inf" ID="qcImsDataDaemon8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcImsQMIDaemon8626.inf" ID="qcImsQMIDaemon8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcimsRTPSvc8626.inf" ID="qcimsRTPSvc8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcimsVTWNIsvc8626.inf" ID="qcimsVTWNIsvc8626"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8X26\PLATFORM.SOC_QC8X26.BASE\Source\Services\Cellular" Name="qcremoteatsrvc8626.inf" ID="qcremoteatsrvc8626"/>
         </BaseDriverPackages>
     </Drivers>
 </FeatureManifest>

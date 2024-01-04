@@ -1,196 +1,196 @@
 <FeatureManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/embedded/2004/10/ImageUpdate" Revision="1" SchemaVersion="1.3">
     <Drivers>
         <BaseDriverPackages>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid01.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid02.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid03.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid04.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsSettings.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsTouch.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Settings\Version" Name="phonereleaseversion.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Setup" Name="desktopsetup.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Signature" Name="desktopsignature.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.EXTRAS\Source\Applications" Name="spapps.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Applications" Name="oemapps.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\MTP" Name="MTPOEM.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\OSCustomizations" Name="ihvoscustomizations.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Settings" Name="displaydock.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Tools\Dock" Name="displaydockflyout.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MMODeviceProvisioningPartitionService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileAmbientLightService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileFrequencyModulationService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="QualcommLegacyAdrenoInitializationService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MMOPanelColorProfileService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileAutoRotationService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileHapticsService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Services\MTP" Name="MTPDesktop.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\System" Name="phonent.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\USBFn" Name="usbdefaults.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL_EXTRAS\EMBDeviceMetadata" Name="EMBDeviceMetadata.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\AudioCoreExt" Name="AudioCoreExt.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\EMB" Name="emb.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\WindowsPhone" Name="WindowsPhone.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.POST_UPGRADE_ENABLEMENT" Name="postupgrade.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN_DESKTOP" Name="cityman_monitor.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Audio\ACSP" Name="cityman_qcacsp_wp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Audio\AUD" Name="cityman_qcaud8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Audio\AUDDEV" Name="cityman_qcauddev_wp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Battery" Name="cityman_qcbattmngr8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Bluetooth" Name="cityman_qcbtuart8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Graphics\DX" Name="cityman_qcdx_ffu8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Graphics\OEMPANEL" Name="cityman_oempanel.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Sensors" Name="cityman_alsprxalphamon.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Subsystems" Name="qcsubsys_ffu8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Touch" Name="cityman_SynapticsTouch.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\WLAN" Name="cityman_qcwlan_extdrv8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Settings" Name="devicestage.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Settings" Name="oled.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Graphics\GRAPHICS.SOC_QC899X.MMO_DESKTOP\Scripts" Name="mmographicssetup.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Graphics\GRAPHICS.SOC_QC899X.MMO_DESKTOP\Source\Graphics" Name="PanelResources.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Authentication" Name="CameraAuthDriver_arm.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Core" Name="qccamcore8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Flash\Rear" Name="qccamflash8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Flash\Tertiary" Name="qccamflashtertiary8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\ISP" Name="qccamisp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\JpegE" Name="qccamjpege8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Platform" Name="qccamplatform8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Sensors\Calibration" Name="camcalibration.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Sensors\Front" Name="qccamfrontsensor_secondarySMIApp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Sensors\Iris" Name="qccamsensor_tertiarySMIApp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Sensors\Rear" Name="qccamrearsensor_primarySMIApp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Thermal" Name="icaros_cam_esp_thermal.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Thermal" Name="icaros_cam_esp.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\VideoStream" Name="qccamavs.wp638994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.USB.MMO_USBC\Controller" Name="typeccontroller.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.USB.MMO_USBC\HDMI" Name="hdmidpi.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.USB.MMO_USBC\MUX" Name="TypeCMux.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.USB.MMO_USBC\PHY" Name="ice5lp_2k.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO_MINIMAL\Touch" Name="touch_power.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Audio\ATTS" Name="attsdriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Audio\Visa" Name="VisaST.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Battery\Origa2Auth" Name="Origa2Auth.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\GPS" Name="ngp_drv.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\NFC" Name="NXPPN547.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Null" Name="LumiaNull.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Security" Name="mmo_sec_driver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="AlsPrxAlphamon.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="hall_kmd.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="LumiaActivityDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="LumiaPedometerDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="qcSensors8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="SscAlgorithmBridge8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\SideInteraction" Name="gripdet.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\SideInteraction" Name="gripdethid01.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\SideInteraction" Name="proxy_driver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\USBFn" Name="genericusbfnclass.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Libraries" Name="apperso.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Libraries" Name="mmomssextension8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Libraries" Name="npetsec.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Libraries" Name="RilServiceActivation.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Services\GPS" Name="ngp_svc.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Services\NCSd" Name="NcsdSvc.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Services\Nlpm" Name="NlpmService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Services\Nlpm" Name="oempanelextension.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Settings" Name="disablehiberboot.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Settings" Name="disablereservedstorage.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.8994_MINIMAL\Drivers\SOC\PowerManagement" Name="QCPEP8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.8994\ProvisioningPkgs" Name="qcppmsettings8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\HALs" Name="halextqctimer8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\HALs" Name="halextqcwdogtimer8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ACPI" Name="ABDA.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ACPI" Name="ABDO.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ACPI" Name="qcabd8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\Crypto" Name="qcbcryptcipherkm8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\Diagnostic" Name="qcqdss8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\GPIO" Name="qcgpio.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\HexagonLoader" Name="qcpil8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\I2C" Name="qci2c8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\LED" Name="qchwnled8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\PMIC" Name="qcpmic3p8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\PMIC" Name="qcpmic8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\PMIC" Name="qcpmicapps8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\PMIC" Name="qcpmicgpio8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ResetPower" Name="qccdi8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ResetPower" Name="qcrpen8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\SMMU" Name="qcsmmu8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\SPI" Name="qcspi8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\SPMI" Name="qcspmi8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qckmbam8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qcocmem8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qcscm8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qcsmd8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qcssm8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\TrEE" Name="QcTree8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\UART" Name="qcuart8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\VoltageCurrentMonitoring" Name="qcadc8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\VoltageCurrentMonitoring" Name="qcepmadc8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Audio\ResourceConstraints" Name="qcaudresconst8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Audio\RPC" Name="qcadsprpc8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Audio\SLIMBUS" Name="qcslimbus8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Bluetooth\AddVSCRegistry" Name="qcbtaddvscregistry.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Bluetooth\UART" Name="qcbtuart8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\DiagBridge" Name="QCDiagBridge8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\DiagCSI" Name="qcDiagCSI8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\DiagRouter" Name="qcDiagRouter8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\Linklocal" Name="qclinklocal.wp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\LteCoexistanceManager" Name="qcltecoexmgr8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\ModemBridge" Name="qcmbrg8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\NdisProtocolIO" Name="qcmbbuio.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\RemoteAT" Name="qcremoteat8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\RemoteFS" Name="qcremotefs_wp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\RevRmNet" Name="qcrevrmnet.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\RmNetBridge" Name="qcrmnetbridge8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\FMRadio" Name="qcfmsltransport8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Graphics" Name="qcdx_ffu8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Null" Name="NullResources.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Null" Name="qcnull.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\USBFn" Name="QcUsbFn8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\USBFn" Name="QcUsbFnSsFilter8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\USBFn" Name="ufnserialcomposite.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\USBHost" Name="qcxhcifilter8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\VibrationMotor" Name="qchwnhaptics8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcadsprpcextension8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcamssextension8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcfmsltransportextension8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcgnssextension8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcpepextension8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcremoteatextension8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcwlanextension8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcWMRil_mbb_ext8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcwmrilextension8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcims8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcimssink_mbb_ext8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcimssrc_mbb_ext8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcssd8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcWMRil8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\FMRadio" Name="qcfmslminiport.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Audio" Name="libadsprpc.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcImsDataDaemon8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcImsQMIDaemon8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcimsRTPSvc8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcimsVTWNIsvc8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcremoteatsrvc8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Shutdown" Name="qcshutdownsvc8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\WLAN" Name="qcwifinotifiersrvc8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.LATE_SOC" Name="qcipa8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO_DESKTOP\Scripts" Name="modemsetup.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO_DESKTOP\Source\Drivers\Cellular\MBB" Name="ModemResources.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Audio\AudioExtension" Name="audioextension.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Audio\CalibrationManager" Name="qcadcm_wp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Audio\Device" Name="qcauddev_wp8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Audio\Wave" Name="qcaud8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\BifBattery" Name="qcbifbattdrv8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\BifBatteryAuthentication" Name="QcBifBattAuth8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\Manager" Name="qcbattmngr8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\Miniclass" Name="qcbattminiclass8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\MipiBif" Name="qcmipibif8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Cellular\IPCRouter" Name="qcipcrouter_WP8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Cellular\Qmux" Name="qcqmux_WP8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\GPS" Name="qcgnss8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\WLAN" Name="qcwlan8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Services\CortanaActivation" Name="QCListenSoundModel8994.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Services\GPS" Name="qcgnsssvc8994.inf"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid01.inf" ID="SynapticsHid01"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid02.inf" ID="SynapticsHid02"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid03.inf" ID="SynapticsHid03"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsHid04.inf" ID="SynapticsHid04"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsSettings.inf" ID="SynapticsSettings"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4_F12_WIN10" Name="SynapticsTouch.inf" ID="SynapticsTouch"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Settings\Version" Name="phonereleaseversion.inf" ID="phonereleaseversion"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Setup" Name="desktopsetup.inf" ID="desktopsetup"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Signature" Name="desktopsignature.inf" ID="desktopsignature"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.EXTRAS\Source\Applications" Name="spapps.inf" ID="spapps"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Applications" Name="oemapps.inf" ID="oemapps"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\MTP" Name="MTPOEM.inf" ID="MTPOEM"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\OSCustomizations" Name="ihvoscustomizations.inf" ID="ihvoscustomizations"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Settings" Name="displaydock.inf" ID="displaydock"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Tools\Dock" Name="displaydockflyout.inf" ID="displaydockflyout"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf" ID="FM Radio Interface"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MMODeviceProvisioningPartitionService.inf" ID="MMODeviceProvisioningPartitionService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileAmbientLightService.inf" ID="MobileAmbientLightService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileFrequencyModulationService.inf" ID="MobileFrequencyModulationService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="QualcommLegacyAdrenoInitializationService.inf" ID="QualcommLegacyAdrenoInitializationService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MMOPanelColorProfileService.inf" ID="MMOPanelColorProfileService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileAutoRotationService.inf" ID="MobileAutoRotationService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileHapticsService.inf" ID="MobileHapticsService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Services\MTP" Name="MTPDesktop.inf" ID="MTPDesktop"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\System" Name="phonent.inf" ID="phonent"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\USBFn" Name="usbdefaults.inf" ID="usbdefaults"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL_EXTRAS\EMBDeviceMetadata" Name="EMBDeviceMetadata.inf" ID="EMBDeviceMetadata"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\AudioCoreExt" Name="AudioCoreExt.inf" ID="AudioCoreExt"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\EMB" Name="emb.inf" ID="emb"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\WindowsPhone" Name="WindowsPhone.inf" ID="WindowsPhone"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.POST_UPGRADE_ENABLEMENT" Name="postupgrade.inf" ID="postupgrade"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN_DESKTOP" Name="cityman_monitor.inf" ID="cityman_monitor"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Audio\ACSP" Name="cityman_qcacsp_wp8994.inf" ID="cityman_qcacsp_wp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Audio\AUD" Name="cityman_qcaud8994.inf" ID="cityman_qcaud8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Audio\AUDDEV" Name="cityman_qcauddev_wp8994.inf" ID="cityman_qcauddev_wp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Battery" Name="cityman_qcbattmngr8994.inf" ID="cityman_qcbattmngr8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Bluetooth" Name="cityman_qcbtuart8994.inf" ID="cityman_qcbtuart8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Graphics\DX" Name="cityman_qcdx_ffu8994.inf" ID="cityman_qcdx_ffu8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Graphics\OEMPANEL" Name="cityman_oempanel.inf" ID="cityman_oempanel"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Sensors" Name="cityman_alsprxalphamon.inf" ID="cityman_alsprxalphamon"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Subsystems" Name="qcsubsys_ffu8994.inf" ID="qcsubsys_ffu8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\Touch" Name="cityman_SynapticsTouch.inf" ID="cityman_SynapticsTouch"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Drivers\WLAN" Name="cityman_qcwlan_extdrv8994.inf" ID="cityman_qcwlan_extdrv8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Settings" Name="devicestage.inf" ID="devicestage"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Device\DEVICE.SOC_QC899X.CITYMAN\Settings" Name="oled.inf" ID="oled"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Graphics\GRAPHICS.SOC_QC899X.MMO_DESKTOP\Scripts" Name="mmographicssetup.inf" ID="mmographicssetup"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Graphics\GRAPHICS.SOC_QC899X.MMO_DESKTOP\Source\Graphics" Name="PanelResources.inf" ID="PanelResources"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Authentication" Name="CameraAuthDriver_arm.inf" ID="CameraAuthDriver_arm"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Core" Name="qccamcore8994.inf" ID="qccamcore8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Flash\Rear" Name="qccamflash8994.inf" ID="qccamflash8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Flash\Tertiary" Name="qccamflashtertiary8994.inf" ID="qccamflashtertiary8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\ISP" Name="qccamisp8994.inf" ID="qccamisp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\JpegE" Name="qccamjpege8994.inf" ID="qccamjpege8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Platform" Name="qccamplatform8994.inf" ID="qccamplatform8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Sensors\Calibration" Name="camcalibration.inf" ID="camcalibration"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Sensors\Front" Name="qccamfrontsensor_secondarySMIApp8994.inf" ID="qccamfrontsensor_secondarySMIApp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Sensors\Iris" Name="qccamsensor_tertiarySMIApp8994.inf" ID="qccamsensor_tertiarySMIApp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Sensors\Rear" Name="qccamrearsensor_primarySMIApp8994.inf" ID="qccamrearsensor_primarySMIApp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Thermal" Name="icaros_cam_esp_thermal.inf" ID="icaros_cam_esp_thermal"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\Thermal" Name="icaros_cam_esp.inf" ID="icaros_cam_esp"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.CAMERA.MMO_8994\Drivers\Camera\VideoStream" Name="qccamavs.wp638994.inf" ID="qccamavs.wp638994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.USB.MMO_USBC\Controller" Name="typeccontroller.inf" ID="typeccontroller"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.USB.MMO_USBC\HDMI" Name="hdmidpi.inf" ID="hdmidpi"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.USB.MMO_USBC\MUX" Name="TypeCMux.inf" ID="TypeCMux"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Hardware\HARDWARE.USB.MMO_USBC\PHY" Name="ice5lp_2k.inf" ID="ice5lp_2k"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO_MINIMAL\Touch" Name="touch_power.inf" ID="touch_power"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Audio\ATTS" Name="attsdriver.inf" ID="attsdriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Audio\Visa" Name="VisaST.inf" ID="VisaST"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Battery\Origa2Auth" Name="Origa2Auth.inf" ID="Origa2Auth"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\GPS" Name="ngp_drv.inf" ID="ngp_drv"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\NFC" Name="NXPPN547.inf" ID="NXPPN547"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Null" Name="LumiaNull.inf" ID="LumiaNull"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Security" Name="mmo_sec_driver.inf" ID="mmo_sec_driver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="AlsPrxAlphamon.inf" ID="AlsPrxAlphamon"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="hall_kmd.inf" ID="hall_kmd"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="LumiaActivityDriver.inf" ID="LumiaActivityDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="LumiaPedometerDriver.inf" ID="LumiaPedometerDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="qcSensors8994.inf" ID="qcSensors8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\Sensors" Name="SscAlgorithmBridge8994.inf" ID="SscAlgorithmBridge8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\SideInteraction" Name="gripdet.inf" ID="gripdet"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\SideInteraction" Name="gripdethid01.inf" ID="gripdethid01"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\SideInteraction" Name="proxy_driver.inf" ID="proxy_driver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Drivers\USBFn" Name="genericusbfnclass.inf" ID="genericusbfnclass"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Libraries" Name="apperso.inf" ID="apperso"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Libraries" Name="mmomssextension8994.inf" ID="mmomssextension8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Libraries" Name="npetsec.inf" ID="npetsec"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Libraries" Name="RilServiceActivation.inf" ID="RilServiceActivation"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Services\GPS" Name="ngp_svc.inf" ID="ngp_svc"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Services\NCSd" Name="NcsdSvc.inf" ID="NcsdSvc"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Services\Nlpm" Name="NlpmService.inf" ID="NlpmService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Services\Nlpm" Name="oempanelextension.inf" ID="oempanelextension"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Settings" Name="disablehiberboot.inf" ID="disablehiberboot"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\OEM\OEM.SOC_QC899X.MMO\Source\Settings" Name="disablereservedstorage.inf" ID="disablereservedstorage"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.8994_MINIMAL\Drivers\SOC\PowerManagement" Name="QCPEP8994.inf" ID="QCPEP8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.8994\ProvisioningPkgs" Name="qcppmsettings8994.inf" ID="qcppmsettings8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\HALs" Name="halextqctimer8994.inf" ID="halextqctimer8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\HALs" Name="halextqcwdogtimer8994.inf" ID="halextqcwdogtimer8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ACPI" Name="ABDA.inf" ID="ABDA"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ACPI" Name="ABDO.inf" ID="ABDO"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ACPI" Name="qcabd8994.inf" ID="qcabd8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\Crypto" Name="qcbcryptcipherkm8994.inf" ID="qcbcryptcipherkm8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\Diagnostic" Name="qcqdss8994.inf" ID="qcqdss8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\GPIO" Name="qcgpio.inf" ID="qcgpio"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\HexagonLoader" Name="qcpil8994.inf" ID="qcpil8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\I2C" Name="qci2c8994.inf" ID="qci2c8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\LED" Name="qchwnled8994.inf" ID="qchwnled8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\PMIC" Name="qcpmic3p8994.inf" ID="qcpmic3p8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\PMIC" Name="qcpmic8994.inf" ID="qcpmic8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\PMIC" Name="qcpmicapps8994.inf" ID="qcpmicapps8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\PMIC" Name="qcpmicgpio8994.inf" ID="qcpmicgpio8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ResetPower" Name="qccdi8994.inf" ID="qccdi8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\ResetPower" Name="qcrpen8994.inf" ID="qcrpen8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\SMMU" Name="qcsmmu8994.inf" ID="qcsmmu8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\SPI" Name="qcspi8994.inf" ID="qcspi8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\SPMI" Name="qcspmi8994.inf" ID="qcspmi8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qckmbam8994.inf" ID="qckmbam8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qcocmem8994.inf" ID="qcocmem8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qcscm8994.inf" ID="qcscm8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qcsmd8994.inf" ID="qcsmd8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\System" Name="qcssm8994.inf" ID="qcssm8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\TrEE" Name="QcTree8994.inf" ID="QcTree8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\UART" Name="qcuart8994.inf" ID="qcuart8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\VoltageCurrentMonitoring" Name="qcadc8994.inf" ID="qcadc8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE_MINIMAL\Drivers\SOC\VoltageCurrentMonitoring" Name="qcepmadc8994.inf" ID="qcepmadc8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Audio\ResourceConstraints" Name="qcaudresconst8994.inf" ID="qcaudresconst8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Audio\RPC" Name="qcadsprpc8994.inf" ID="qcadsprpc8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Audio\SLIMBUS" Name="qcslimbus8994.inf" ID="qcslimbus8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Bluetooth\AddVSCRegistry" Name="qcbtaddvscregistry.inf" ID="qcbtaddvscregistry"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Bluetooth\UART" Name="qcbtuart8994.inf" ID="qcbtuart8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\DiagBridge" Name="QCDiagBridge8994.inf" ID="QCDiagBridge8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\DiagCSI" Name="qcDiagCSI8994.inf" ID="qcDiagCSI8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\DiagRouter" Name="qcDiagRouter8994.inf" ID="qcDiagRouter8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\Linklocal" Name="qclinklocal.wp8994.inf" ID="qclinklocal.wp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\LteCoexistanceManager" Name="qcltecoexmgr8994.inf" ID="qcltecoexmgr8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\ModemBridge" Name="qcmbrg8994.inf" ID="qcmbrg8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\NdisProtocolIO" Name="qcmbbuio.inf" ID="qcmbbuio"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\RemoteAT" Name="qcremoteat8994.inf" ID="qcremoteat8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\RemoteFS" Name="qcremotefs_wp8994.inf" ID="qcremotefs_wp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\RevRmNet" Name="qcrevrmnet.inf" ID="qcrevrmnet"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Cellular\RmNetBridge" Name="qcrmnetbridge8994.inf" ID="qcrmnetbridge8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\FMRadio" Name="qcfmsltransport8994.inf" ID="qcfmsltransport8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Graphics" Name="qcdx_ffu8994.inf" ID="qcdx_ffu8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Null" Name="NullResources.inf" ID="NullResources"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\Null" Name="qcnull.inf" ID="qcnull"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\USBFn" Name="QcUsbFn8994.inf" ID="QcUsbFn8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\USBFn" Name="QcUsbFnSsFilter8994.inf" ID="QcUsbFnSsFilter8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\USBFn" Name="ufnserialcomposite.inf" ID="ufnserialcomposite"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\USBHost" Name="qcxhcifilter8994.inf" ID="qcxhcifilter8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Drivers\VibrationMotor" Name="qchwnhaptics8994.inf" ID="qchwnhaptics8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcadsprpcextension8994.inf" ID="qcadsprpcextension8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcamssextension8994.inf" ID="qcamssextension8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcfmsltransportextension8994.inf" ID="qcfmsltransportextension8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcgnssextension8994.inf" ID="qcgnssextension8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcpepextension8994.inf" ID="qcpepextension8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcremoteatextension8994.inf" ID="qcremoteatextension8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcwlanextension8994.inf" ID="qcwlanextension8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcWMRil_mbb_ext8994.inf" ID="qcWMRil_mbb_ext8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Extensions" Name="qcwmrilextension8994.inf" ID="qcwmrilextension8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcims8994.inf" ID="qcims8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcimssink_mbb_ext8994.inf" ID="qcimssink_mbb_ext8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcimssrc_mbb_ext8994.inf" ID="qcimssrc_mbb_ext8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcssd8994.inf" ID="qcssd8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\Cellular" Name="qcWMRil8994.inf" ID="qcWMRil8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Libraries\FMRadio" Name="qcfmslminiport.inf" ID="qcfmslminiport"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Audio" Name="libadsprpc.inf" ID="libadsprpc"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcImsDataDaemon8994.inf" ID="qcImsDataDaemon8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcImsQMIDaemon8994.inf" ID="qcImsQMIDaemon8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcimsRTPSvc8994.inf" ID="qcimsRTPSvc8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcimsVTWNIsvc8994.inf" ID="qcimsVTWNIsvc8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Cellular" Name="qcremoteatsrvc8994.inf" ID="qcremoteatsrvc8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\Shutdown" Name="qcshutdownsvc8994.inf" ID="qcshutdownsvc8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.BASE\Source\Services\WLAN" Name="qcwifinotifiersrvc8994.inf" ID="qcwifinotifiersrvc8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.LATE_SOC" Name="qcipa8994.inf" ID="qcipa8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO_DESKTOP\Scripts" Name="modemsetup.inf" ID="modemsetup"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO_DESKTOP\Source\Drivers\Cellular\MBB" Name="ModemResources.inf" ID="ModemResources"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Audio\AudioExtension" Name="audioextension.inf" ID="audioextension"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Audio\CalibrationManager" Name="qcadcm_wp8994.inf" ID="qcadcm_wp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Audio\Device" Name="qcauddev_wp8994.inf" ID="qcauddev_wp8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Audio\Wave" Name="qcaud8994.inf" ID="qcaud8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\BifBattery" Name="qcbifbattdrv8994.inf" ID="qcbifbattdrv8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\BifBatteryAuthentication" Name="QcBifBattAuth8994.inf" ID="QcBifBattAuth8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\Manager" Name="qcbattmngr8994.inf" ID="qcbattmngr8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\Miniclass" Name="qcbattminiclass8994.inf" ID="qcbattminiclass8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Battery\MipiBif" Name="qcmipibif8994.inf" ID="qcmipibif8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Cellular\IPCRouter" Name="qcipcrouter_WP8994.inf" ID="qcipcrouter_WP8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\Cellular\Qmux" Name="qcqmux_WP8994.inf" ID="qcqmux_WP8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\GPS" Name="qcgnss8994.inf" ID="qcgnss8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Drivers\WLAN" Name="qcwlan8994.inf" ID="qcwlan8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Services\CortanaActivation" Name="QCListenSoundModel8994.inf" ID="QCListenSoundModel8994"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC899X\Platform\PLATFORM.SOC_QC899X.MMO\Services\GPS" Name="qcgnsssvc8994.inf" ID="qcgnsssvc8994"/>
         </BaseDriverPackages>
     </Drivers>
 </FeatureManifest>

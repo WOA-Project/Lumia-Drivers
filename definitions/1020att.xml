@@ -1,137 +1,137 @@
 <FeatureManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/embedded/2004/10/ImageUpdate" Revision="1" SchemaVersion="1.3">
     <Drivers>
         <BaseDriverPackages>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4" Name="SynapticsTouch.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Settings\Version" Name="phonereleaseversion.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Setup" Name="desktopsetup.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Signature" Name="desktopsignature.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.EXTRAS\Source\Applications" Name="spapps.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.FIXES_15035\15035_UAC" Name="disablelua.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Applications" Name="oemapps.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\MTP" Name="MTPOEM.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\OSCustomizations" Name="ihvoscustomizations.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Settings" Name="displaydock.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Tools\Dock" Name="displaydockflyout.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MMODeviceProvisioningPartitionService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileAmbientLightService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileFrequencyModulationService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="QualcommLegacyAdrenoInitializationService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MMOPanelColorProfileService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileAutoRotationService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileHapticsService.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Scripts" Name="supportsetuparm.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\Extension" Name="simplehw.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\Sensors" Name="Fusion.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\USB" Name="ufnchipidea.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\USB" Name="usbfnclx.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Services\MTP" Name="MTPDesktop.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\System" Name="phonent.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\USBFn" Name="usbdefaults.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL_EXTRAS\EMBDeviceMetadata" Name="EMBDeviceMetadata.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\AudioCoreExt" Name="AudioCoreExt.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\EMB" Name="emb.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\WindowsPhone" Name="WindowsPhone.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.POST_UPGRADE_ENABLEMENT" Name="postupgrade.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Audio" Name="qcacdb_wp8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Camera\Back" Name="qccamsensor8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Camera\Calibration" Name="camcalibration.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Camera\Front" Name="qccamfrontsensor8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Graphics" Name="oempanel.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Subsystems\Audio" Name="qcadsp_ffu8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Subsystems\Cellular" Name="qcamss_ffu8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Subsystems\WLAN" Name="qcwcn_ffu8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Touch" Name="eos_SynapticsTouch.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Audio\Ad" Name="qcq6ad_wp8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Audio\Aud" Name="qc8x60aud.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Audio\Maximus" Name="Maximus.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Audio\MbhcGPIO" Name="qcmbhcgpio_wp8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Battery" Name="NokiaBIFDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Battery" Name="NokiaEnergyDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Battery\BMS" Name="qcbms8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\Flash" Name="qccamflash8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\JpegE" Name="qccamgemini8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\Platform" Name="qccamplatform8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\Thermal" Name="nokia_cam_esp.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\VFE" Name="qccamvfe8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\VideoStream" Name="qccamavs8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Cellular\IPCRouter" Name="qcipcrouter8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Cellular\Qmux" Name="qcqmux_WP8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\GPS" Name="qcgnss.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\NFC" Name="NXP.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="AccKXTNK1000.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="gyrol3gd20s.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="LPS331AP.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="nokiathermsensordriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="pointc.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="qpdst900.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sideband" Name="LumiaButtonsGPIO.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="enogpio-driver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="NokiaDataLoggerDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="NokiaFirewall.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="NrsDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="qcmipibif8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="WDFHelper.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\VibrationMotor" Name="hwnvibrasisux.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\WLAN" Name="qcwlan8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\WLAN" Name="WlanProxyDriver.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Scripts" Name="platformsetup.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qcaudhwi_wp8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qcmbhc_wp8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qcslimbus8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qctablacodec_wp8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qctablaint_wp8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Battery\Manager" Name="qcbattmngr8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Battery\Miniclass" Name="qcbattminiclass8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Bluetooth\BT" Name="qcbluetooth8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Bluetooth\BTFTM" Name="qcbtftm8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\DiagBridge" Name="QCDiagBridge8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\DiagCSI" Name="qcDiagCSI8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\DiagRouter" Name="qcDiagRouter8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\LteCoexistanceManager" Name="QCLteCoexMgr8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\MBB" Name="ModemResources.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\ModemBridge" Name="qcmbrg8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\RemoteAT" Name="qcremoteat8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\RemoteFS" Name="qcremotefs.wp8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\RmNetBridge" Name="qcrmnetbridge8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\FMRadio" Name="qcfmtransport8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Graphics" Name="qcvpe8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\HALs" Name="HalExtQcTimers.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\HALs" Name="QCHalExtQ8x60Bam.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\HALs" Name="QCHalExtQcAdm3Dma.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Sideband" Name="qcpowerkeygpio8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\GPIO" Name="qcgpio.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\HexagonLoader" Name="qcpil8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\I2C" Name="qci2c8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\PMIC" Name="qcpmic8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\PMIC" Name="qcpmicapps8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\PMIC" Name="qcpmicgpio8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\PowerManagement" Name="qcpepproxy8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\ResetPower" Name="qccdi8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\ResetPower" Name="qcrpen8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\SMMU" Name="qcsmmu8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="hwnled.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcabd8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcbamdmux8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcbcryptcipherkm8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcchipinfo8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qce2arm8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcearm8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcerng8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcgsbi8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qckmbam8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcscm8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcsmd8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcsmem8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcsmsm8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcssm8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcsysdef8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\UART" Name="qcuart8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\VoltageCurrentMonitoring" Name="qcepmadc8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\VoltageCurrentMonitoring" Name="qcxoadc8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\USBFn" Name="QcUsbFnFilter8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.SOC8960AB\Drivers\Graphics" Name="qcdx8960.inf"/>
-            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.SOC8960AB\Drivers\SOC\PowerManagement" Name="QCPEP8960.inf"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Hardware\HARDWARE.INPUT.SYNAPTICS_RMI4" Name="SynapticsTouch.inf" ID="SynapticsTouch"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Settings\Version" Name="phonereleaseversion.inf" ID="phonereleaseversion"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Setup" Name="desktopsetup.inf" ID="desktopsetup"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.BASE\Signature" Name="desktopsignature.inf" ID="desktopsignature"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.EXTRAS\Source\Applications" Name="spapps.inf" ID="spapps"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.FIXES_15035\15035_UAC" Name="disablelua.inf" ID="disablelua"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Applications" Name="oemapps.inf" ID="oemapps"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\MTP" Name="MTPOEM.inf" ID="MTPOEM"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Customizations\OSCustomizations" Name="ihvoscustomizations.inf" ID="ihvoscustomizations"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Settings" Name="displaydock.inf" ID="displaydock"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MMO_EXTRAS\Source\Tools\Dock" Name="displaydockflyout.inf" ID="displaydockflyout"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\FMRadio" Name="FM Radio Interface.inf" ID="FM Radio Interface"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MMODeviceProvisioningPartitionService.inf" ID="MMODeviceProvisioningPartitionService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileAmbientLightService.inf" ID="MobileAmbientLightService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="MobileFrequencyModulationService.inf" ID="MobileFrequencyModulationService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridge" Name="QualcommLegacyAdrenoInitializationService.inf" ID="QualcommLegacyAdrenoInitializationService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MMOPanelColorProfileService.inf" ID="MMOPanelColorProfileService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileAutoRotationService.inf" ID="MobileAutoRotationService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_BRIDGE\Services\MobileBridgeUser" Name="MobileHapticsService.inf" ID="MobileHapticsService"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Scripts" Name="supportsetuparm.inf" ID="supportsetuparm"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\Extension" Name="simplehw.inf" ID="simplehw"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\Sensors" Name="Fusion.inf" ID="Fusion"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\USB" Name="ufnchipidea.inf" ID="ufnchipidea"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS_ARM\Source\Drivers\USB" Name="usbfnclx.inf" ID="usbfnclx"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Services\MTP" Name="MTPDesktop.inf" ID="MTPDesktop"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\System" Name="phonent.inf" ID="phonent"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_COMPONENTS\Source\Settings\USBFn" Name="usbdefaults.inf" ID="usbdefaults"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL_EXTRAS\EMBDeviceMetadata" Name="EMBDeviceMetadata.inf" ID="EMBDeviceMetadata"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\AudioCoreExt" Name="AudioCoreExt.inf" ID="AudioCoreExt"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\EMB" Name="emb.inf" ID="emb"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.MOBILE_RIL\WindowsPhone" Name="WindowsPhone.inf" ID="WindowsPhone"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\ANYSOC\Support\Desktop\SUPPORT.DESKTOP.POST_UPGRADE_ENABLEMENT" Name="postupgrade.inf" ID="postupgrade"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Audio" Name="qcacdb_wp8960.inf" ID="qcacdb_wp8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Camera\Back" Name="qccamsensor8960.inf" ID="qccamsensor8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Camera\Calibration" Name="camcalibration.inf" ID="camcalibration"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Camera\Front" Name="qccamfrontsensor8960.inf" ID="qccamfrontsensor8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Graphics" Name="oempanel.inf" ID="oempanel"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Subsystems\Audio" Name="qcadsp_ffu8960.inf" ID="qcadsp_ffu8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Subsystems\Cellular" Name="qcamss_ffu8960.inf" ID="qcamss_ffu8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Subsystems\WLAN" Name="qcwcn_ffu8960.inf" ID="qcwcn_ffu8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\DEVICE.SOC_QC8960.EOSATT\Drivers\Touch" Name="eos_SynapticsTouch.inf" ID="eos_SynapticsTouch"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Audio\Ad" Name="qcq6ad_wp8960.inf" ID="qcq6ad_wp8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Audio\Aud" Name="qc8x60aud.inf" ID="qc8x60aud"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Audio\Maximus" Name="Maximus.inf" ID="Maximus"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Audio\MbhcGPIO" Name="qcmbhcgpio_wp8960.inf" ID="qcmbhcgpio_wp8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Battery" Name="NokiaBIFDriver.inf" ID="NokiaBIFDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Battery" Name="NokiaEnergyDriver.inf" ID="NokiaEnergyDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Battery\BMS" Name="qcbms8960.inf" ID="qcbms8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\Flash" Name="qccamflash8960.inf" ID="qccamflash8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\JpegE" Name="qccamgemini8960.inf" ID="qccamgemini8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\Platform" Name="qccamplatform8960.inf" ID="qccamplatform8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\Thermal" Name="nokia_cam_esp.inf" ID="nokia_cam_esp"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\VFE" Name="qccamvfe8960.inf" ID="qccamvfe8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Camera\VideoStream" Name="qccamavs8960.inf" ID="qccamavs8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Cellular\IPCRouter" Name="qcipcrouter8960.inf" ID="qcipcrouter8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Cellular\Qmux" Name="qcqmux_WP8960.inf" ID="qcqmux_WP8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\GPS" Name="qcgnss.inf" ID="qcgnss"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\NFC" Name="NXP.inf" ID="NXP"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="AccKXTNK1000.inf" ID="AccKXTNK1000"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="gyrol3gd20s.inf" ID="gyrol3gd20s"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="LPS331AP.inf" ID="LPS331AP"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="nokiathermsensordriver.inf" ID="nokiathermsensordriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="pointc.inf" ID="pointc"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sensors" Name="qpdst900.inf" ID="qpdst900"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\Sideband" Name="LumiaButtonsGPIO.inf" ID="LumiaButtonsGPIO"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="enogpio-driver.inf" ID="enogpio-driver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="NokiaDataLoggerDriver.inf" ID="NokiaDataLoggerDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="NokiaFirewall.inf" ID="NokiaFirewall"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="NrsDriver.inf" ID="NrsDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="qcmipibif8960.inf" ID="qcmipibif8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\System" Name="WDFHelper.inf" ID="WDFHelper"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\VibrationMotor" Name="hwnvibrasisux.inf" ID="hwnvibrasisux"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\WLAN" Name="qcwlan8960.inf" ID="qcwlan8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\OEM.SOC_QC8960.NMO\Drivers\WLAN" Name="WlanProxyDriver.inf" ID="WlanProxyDriver"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Scripts" Name="platformsetup.inf" ID="platformsetup"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qcaudhwi_wp8960.inf" ID="qcaudhwi_wp8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qcmbhc_wp8960.inf" ID="qcmbhc_wp8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qcslimbus8960.inf" ID="qcslimbus8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qctablacodec_wp8960.inf" ID="qctablacodec_wp8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Audio" Name="qctablaint_wp8960.inf" ID="qctablaint_wp8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Battery\Manager" Name="qcbattmngr8960.inf" ID="qcbattmngr8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Battery\Miniclass" Name="qcbattminiclass8960.inf" ID="qcbattminiclass8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Bluetooth\BT" Name="qcbluetooth8960.inf" ID="qcbluetooth8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Bluetooth\BTFTM" Name="qcbtftm8960.inf" ID="qcbtftm8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\DiagBridge" Name="QCDiagBridge8960.inf" ID="QCDiagBridge8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\DiagCSI" Name="qcDiagCSI8960.inf" ID="qcDiagCSI8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\DiagRouter" Name="qcDiagRouter8960.inf" ID="qcDiagRouter8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\LteCoexistanceManager" Name="QCLteCoexMgr8960.inf" ID="QCLteCoexMgr8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\MBB" Name="ModemResources.inf" ID="ModemResources"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\ModemBridge" Name="qcmbrg8960.inf" ID="qcmbrg8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\RemoteAT" Name="qcremoteat8960.inf" ID="qcremoteat8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\RemoteFS" Name="qcremotefs.wp8960.inf" ID="qcremotefs.wp8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Cellular\RmNetBridge" Name="qcrmnetbridge8960.inf" ID="qcrmnetbridge8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\FMRadio" Name="qcfmtransport8960.inf" ID="qcfmtransport8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Graphics" Name="qcvpe8960.inf" ID="qcvpe8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\HALs" Name="HalExtQcTimers.inf" ID="HalExtQcTimers"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\HALs" Name="QCHalExtQ8x60Bam.inf" ID="QCHalExtQ8x60Bam"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\HALs" Name="QCHalExtQcAdm3Dma.inf" ID="QCHalExtQcAdm3Dma"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\Sideband" Name="qcpowerkeygpio8960.inf" ID="qcpowerkeygpio8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\GPIO" Name="qcgpio.inf" ID="qcgpio"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\HexagonLoader" Name="qcpil8960.inf" ID="qcpil8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\I2C" Name="qci2c8960.inf" ID="qci2c8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\PMIC" Name="qcpmic8960.inf" ID="qcpmic8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\PMIC" Name="qcpmicapps8960.inf" ID="qcpmicapps8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\PMIC" Name="qcpmicgpio8960.inf" ID="qcpmicgpio8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\PowerManagement" Name="qcpepproxy8960.inf" ID="qcpepproxy8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\ResetPower" Name="qccdi8960.inf" ID="qccdi8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\ResetPower" Name="qcrpen8960.inf" ID="qcrpen8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\SMMU" Name="qcsmmu8960.inf" ID="qcsmmu8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="hwnled.inf" ID="hwnled"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcabd8960.inf" ID="qcabd8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcbamdmux8960.inf" ID="qcbamdmux8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcbcryptcipherkm8960.inf" ID="qcbcryptcipherkm8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcchipinfo8960.inf" ID="qcchipinfo8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qce2arm8960.inf" ID="qce2arm8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcearm8960.inf" ID="qcearm8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcerng8960.inf" ID="qcerng8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcgsbi8960.inf" ID="qcgsbi8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qckmbam8960.inf" ID="qckmbam8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcscm8960.inf" ID="qcscm8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcsmd8960.inf" ID="qcsmd8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcsmem8960.inf" ID="qcsmem8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcsmsm8960.inf" ID="qcsmsm8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcssm8960.inf" ID="qcssm8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\System" Name="qcsysdef8960.inf" ID="qcsysdef8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\UART" Name="qcuart8960.inf" ID="qcuart8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\VoltageCurrentMonitoring" Name="qcepmadc8960.inf" ID="qcepmadc8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\SOC\VoltageCurrentMonitoring" Name="qcxoadc8960.inf" ID="qcxoadc8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.BASE\Source\Drivers\USBFn" Name="QcUsbFnFilter8960.inf" ID="QcUsbFnFilter8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.SOC8960AB\Drivers\Graphics" Name="qcdx8960.inf" ID="qcdx8960"/>
+            <DriverPackageFile Path="$(mspackageroot)\components\QC8960\PLATFORM.SOC_QC8960.SOC8960AB\Drivers\SOC\PowerManagement" Name="QCPEP8960.inf" ID="QCPEP8960"/>
         </BaseDriverPackages>
     </Drivers>
 </FeatureManifest>
