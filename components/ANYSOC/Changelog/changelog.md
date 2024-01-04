@@ -1,5 +1,5 @@
-﻿## Lumia Drivers BSP - Version 2208.54
-**Released:** 08/17/2022 05:00 PM UTC+2
+﻿## Lumia Drivers BSP - Version 2401.16
+**Released:** 01/05/2024 00:00 PM UTC+1
 
 **Quality:** Preview (Not for daily use)
 
@@ -46,14 +46,9 @@ ________________________________________________________________________________
 
 Changelog
 
-- Due to low usage, the Stable channel has been removed and the experimental channel is now the default going forward.
-- ARM32 for 8994/8992 Has been deprecated. Sorry (but also not sorry) 🥳🍾🥂🍷🎇🎆
-- Download size is way smaller than it used to be, should help with people with poor download connections.
-- Some improvements were made regarding communication between thermal sensors and other system sensors.
-- Device Names have been reverted to the stock defaults for ease of use.
-- Improvements to the power management configuration in use by the system.
-
-Note: you may have to completely reinstall in order to get everything in a somewhat working state.
+- Updated definition file version to be compatible with the latest DriverUpdater release (v2.1.0.0) for all devices
+  NOTE: Many people end up using very old commands, please read right below this text what to exactly run to avoid mistakes
+  or the tool not working at all.
 
 ____________________________________________________________________________________________________________________________
 
@@ -71,13 +66,13 @@ How to offline update an existing Windows Desktop installation
 - If your device is a Lumia 950, execute the following command:
   
 ```
-DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\Internal\950.txt" -r "<path to extracted drivers>" -p X:\
+DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\Internal\950.xml" -r "<path to extracted drivers>" -p X:\
 ```
 
 - If your device is a Lumia 950 XL, execute the following command:
   
 ```
-DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\Internal\950xl.txt" -r "<path to extracted drivers>" -p X:\
+DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\Internal\950xl.xml" -r "<path to extracted drivers>" -p X:\
 ```
 
 - Reboot the device, the device will now begin PnP setup once again, and hopefully you will be back soon enough to your desktop
@@ -114,13 +109,13 @@ In order to boot from the SD Card EFIESP press volume down at boot of your devic
 - If your device is a Lumia 950, execute the following command:
 
 ```
-DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\SDCard\950.txt" -r "<path to extracted drivers>" -p X:\
+DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\SDCard\950.xml" -r "<path to extracted drivers>" -p X:\
 ```
 
 - If your device is a Lumia 950 XL, execute the following command:
 
 ```
-DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\SDCard\950xl.txt" -r "<path to extracted drivers>" -p X:\
+DriverUpdater.exe -d "<path to extracted drivers>\definitions\Desktop\ARM64\SDCard\950xl.xml" -r "<path to extracted drivers>" -p X:\
 ```
 
 - Reboot the device, boot into BootShim, let the UEFI load, and you should be able to boot from SD Card.
