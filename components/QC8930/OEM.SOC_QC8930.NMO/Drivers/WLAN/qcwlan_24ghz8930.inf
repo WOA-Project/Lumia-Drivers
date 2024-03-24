@@ -463,59 +463,6 @@ HKR,NDI\params\gEnforceCountryCodeMatch\enum,    "0",       0, "Off"
 HKR,NDI\params\gEnforceCountryCodeMatch\enum,    "1",       0, "On"
 
 ; ----------------------------------------------------------------------------
-; Generic CFG settings
-; ----------------------------------------------------------------------------
-HKR,,gCfg1Id,,"0"
-HKR,NDI\params\gCfg1Id,       ParamDesc,    0, "Generic Cfg 1 Id (decimal; 0 = 
-HKR,NDI\params\gCfg1Id,       type,         0, "dword"
-HKR,NDI\params\gCfg1Id,       default,      0, "0"
-
-HKR,,gCfg1Value,,"0"
-HKR,NDI\params\gCfg1Value,    ParamDesc,    0, "Generic Cfg 1 Value (decimal)"
-HKR,NDI\params\gCfg1Value,    type,         0, "dword"
-HKR,NDI\params\gCfg1Value,    default,      0, "0"
-
-HKR,,gCfg2Id,,"0"
-HKR,NDI\params\gCfg2Id,       ParamDesc,    0, "Generic Cfg 2 Id (decimal; 0 = 
-HKR,NDI\params\gCfg2Id,       type,         0, "dword"
-HKR,NDI\params\gCfg2Id,       default,      0, "0"
-
-HKR,,gCfg2Value,,"0"
-HKR,NDI\params\gCfg2Value,    ParamDesc,    0, "Generic Cfg 2 Value (decimal)"
-HKR,NDI\params\gCfg2Value,    type,         0, "dword"
-HKR,NDI\params\gCfg2Value,    default,      0, "0"
-
-HKR,,gCfg3Id,,"0"
-HKR,NDI\params\gCfg3Id,       ParamDesc,    0, "Generic Cfg 3 Id (decimal; 0 = 
-HKR,NDI\params\gCfg3Id,       type,         0, "dword"
-HKR,NDI\params\gCfg3Id,       default,      0, "0"
-
-HKR,,gCfg3Value,,"0"
-HKR,NDI\params\gCfg3Value,    ParamDesc,    0, "Generic Cfg 3 Value (decimal)"
-HKR,NDI\params\gCfg3Value,    type,         0, "dword"
-HKR,NDI\params\gCfg3Value,    default,      0, "0"
-
-HKR,,gCfg4Id,,"0"
-HKR,NDI\params\gCfg4Id,       ParamDesc,    0, "Generic Cfg 4 Id (decimal; 0 = 
-HKR,NDI\params\gCfg4Id,       type,         0, "dword"
-HKR,NDI\params\gCfg4Id,       default,      0, "0"
-
-HKR,,gCfg4Value,,"0"
-HKR,NDI\params\gCfg4Value,    ParamDesc,    0, "Generic Cfg 4 Value (decimal)"
-HKR,NDI\params\gCfg4Value,    type,         0, "dword"
-HKR,NDI\params\gCfg4Value,    default,      0, "0"
-
-HKR,,gCfg5Id,,"0"
-HKR,NDI\params\gCfg5Id,       ParamDesc,    0, "Generic Cfg 5 Id (decimal; 0 = 
-HKR,NDI\params\gCfg5Id,       type,         0, "dword"
-HKR,NDI\params\gCfg5Id,       default,      0, "0"
-
-HKR,,gCfg5Value,,"0"
-HKR,NDI\params\gCfg5Value,    ParamDesc,    0, "Generic Cfg 5 Value (decimal)"
-HKR,NDI\params\gCfg5Value,    type,         0, "dword"
-HKR,NDI\params\gCfg5Value,    default,      0, "0"
-
-; ----------------------------------------------------------------------------
 ; Heartbeat Threshold (2.4 GHz)
 ; ----------------------------------------------------------------------------
 HKR,,gHeartbeat24,,"40"
