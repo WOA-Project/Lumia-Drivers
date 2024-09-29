@@ -9,5 +9,5 @@ REM       The user is meant to replace the paths hardcoded below with his own ce
 REM
 
 cd ResignClient-External
-ResignBSP.TotalResign.exe \SecureBoot\Certs\private\OEMA0-KMCI.pfx \SecureBoot\Certs\private\OEMA0-UMCI.pfx "" "%CD%\..\.."
+ResignBSP.TotalResign.exe \SecureBoot\Certs\private\woldevhwdriver2020.pfx \SecureBoot\Certs\private\woldevhwdriver2020.pfx "" "%CD%\..\.."
 cd ..
