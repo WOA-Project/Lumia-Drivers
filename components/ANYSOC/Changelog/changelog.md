@@ -1,7 +1,7 @@
-﻿## Lumia Drivers BSP - Version 2401.16
-**Released:** 01/05/2024 00:00 PM UTC+1
+﻿## Lumia Drivers BSP - Version 2502.03
+**Released:** 02/01/2025 05:00 PM UTC+1
 
-**Quality:** Preview (Not for daily use)
+**Quality:** Preview
 
 ### Compatibility
 
@@ -46,9 +46,7 @@ ________________________________________________________________________________
 
 Changelog
 
-- Updated definition file version to be compatible with the latest DriverUpdater release (v2.1.0.0) for all devices
-  NOTE: Many people end up using very old commands, please read right below this text what to exactly run to avoid mistakes
-  or the tool not working at all.
+- x86 GPU Acceleration is now available. DirectX(R) 11 compatible applications compiled for the Intel(R) 386(TM) Architecture can now make use of the Qualcomm Technologies, Incorporated Snapdragon(TM) 810 and Snapdragon(TM) 808 Adreno(TM) 430 and Adreno(TM) 418 Graphics Capabilities.
 
 ____________________________________________________________________________________________________________________________
 
